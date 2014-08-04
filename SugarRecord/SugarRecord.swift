@@ -43,8 +43,6 @@ class SugarRecord {
             psc = NSPersistentStoreCoordinator.newCoordinator(self.defaultDatabaseName(), automigrating: automigrating)
         }
         NSPersistentStoreCoordinator.setDefaultPersistentStoreCoordinator(psc)
-
-        
     }
 
     
@@ -82,7 +80,7 @@ class SugarRecord {
 }
 
 
-//MARK - NSManagedObjectContext Extension
+// MARK - NSManagedObjectContext Extension
 
 extension NSManagedObjectContext {
     // Static variables
