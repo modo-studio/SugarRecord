@@ -15,6 +15,7 @@
 		3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55F3198E826E00268EB3 /* SugarRecordTests.swift */; };
 		3DBC55FF198E82F500268EB3 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55FE198E82F500268EB3 /* SugarRecord.swift */; };
 		3DBC5603198E844B00268EB3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
+		3DD010AF1990379D00673854 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55FE198E82F500268EB3 /* SugarRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +65,6 @@
 		3DBC55CF198E826E00268EB3 = {
 			isa = PBXGroup;
 			children = (
-				3DBC5602198E844B00268EB3 /* CoreData.framework */,
 				3DBC55DA198E826E00268EB3 /* SugarRecord */,
 				3DBC55F0198E826E00268EB3 /* SugarRecordTests */,
 				3DBC55D9198E826E00268EB3 /* Products */,
@@ -83,6 +83,7 @@
 		3DBC55DA198E826E00268EB3 /* SugarRecord */ = {
 			isa = PBXGroup;
 			children = (
+				3DD010AE1990378200673854 /* Frameworks */,
 				3DBC55FD198E82E300268EB3 /* SugarRecord */,
 				3DBC55DD198E826E00268EB3 /* AppDelegate.swift */,
 				3DBC55E2198E826E00268EB3 /* ViewController.swift */,
@@ -126,6 +127,14 @@
 			);
 			name = SugarRecord;
 			path = ../../SugarRecord;
+			sourceTree = "<group>";
+		};
+		3DD010AE1990378200673854 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DBC5602198E844B00268EB3 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DD010AF1990379D00673854 /* SugarRecord.swift in Sources */,
 				3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
