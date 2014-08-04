@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DD198E826E00268EB3 /* AppDelegate.swift */; };
+		3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */; };
+		3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55E2198E826E00268EB3 /* ViewController.swift */; };
+		3DBC55E6198E826E00268EB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC55E4198E826E00268EB3 /* Main.storyboard */; };
+		3DBC55E8198E826E00268EB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC55E7198E826E00268EB3 /* Images.xcassets */; };
+		3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55F3198E826E00268EB3 /* SugarRecordTests.swift */; };
+		3DBC55FF198E82F500268EB3 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55FE198E82F500268EB3 /* SugarRecord.swift */; };
+		3DBC5603198E844B00268EB3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3DBC55EE198E826E00268EB3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DBC55D0198E826E00268EB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DBC55D7198E826E00268EB3;
+			remoteInfo = SugarRecord;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3DBC55D8198E826E00268EB3 /* SugarRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SugarRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DBC55DC198E826E00268EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DBC55DD198E826E00268EB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3DBC55E0198E826E00268EB3 /* SugarRecord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SugarRecord.xcdatamodel; sourceTree = "<group>"; };
+		3DBC55E2198E826E00268EB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DBC55E5198E826E00268EB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3DBC55E7198E826E00268EB3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3DBC55ED198E826E00268EB3 /* SugarRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DBC55F2198E826E00268EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DBC55F3198E826E00268EB3 /* SugarRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordTests.swift; sourceTree = "<group>"; };
+		3DBC55FE198E82F500268EB3 /* SugarRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecord.swift; sourceTree = "<group>"; };
+		3DBC5602198E844B00268EB3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3DBC55D5198E826E00268EB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DBC5603198E844B00268EB3 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DBC55EA198E826E00268EB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3DBC55CF198E826E00268EB3 = {
+			isa = PBXGroup;
+			children = (
+				3DBC5602198E844B00268EB3 /* CoreData.framework */,
+				3DBC55DA198E826E00268EB3 /* SugarRecord */,
+				3DBC55F0198E826E00268EB3 /* SugarRecordTests */,
+				3DBC55D9198E826E00268EB3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3DBC55D9198E826E00268EB3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3DBC55D8198E826E00268EB3 /* SugarRecord.app */,
+				3DBC55ED198E826E00268EB3 /* SugarRecordTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DBC55DA198E826E00268EB3 /* SugarRecord */ = {
+			isa = PBXGroup;
+			children = (
+				3DBC55FD198E82E300268EB3 /* SugarRecord */,
+				3DBC55DD198E826E00268EB3 /* AppDelegate.swift */,
+				3DBC55E2198E826E00268EB3 /* ViewController.swift */,
+				3DBC55E4198E826E00268EB3 /* Main.storyboard */,
+				3DBC55E7198E826E00268EB3 /* Images.xcassets */,
+				3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */,
+				3DBC55DB198E826E00268EB3 /* Supporting Files */,
+			);
+			path = SugarRecord;
+			sourceTree = "<group>";
+		};
+		3DBC55DB198E826E00268EB3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3DBC55DC198E826E00268EB3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3DBC55F0198E826E00268EB3 /* SugarRecordTests */ = {
+			isa = PBXGroup;
+			children = (
+				3DBC55F3198E826E00268EB3 /* SugarRecordTests.swift */,
+				3DBC55F1198E826E00268EB3 /* Supporting Files */,
+			);
+			path = SugarRecordTests;
+			sourceTree = "<group>";
+		};
+		3DBC55F1198E826E00268EB3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3DBC55F2198E826E00268EB3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3DBC55FD198E82E300268EB3 /* SugarRecord */ = {
+			isa = PBXGroup;
+			children = (
+				3DBC55FE198E82F500268EB3 /* SugarRecord.swift */,
+			);
+			name = SugarRecord;
+			path = ../../SugarRecord;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3DBC55D7198E826E00268EB3 /* SugarRecord */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DBC55F7198E826E00268EB3 /* Build configuration list for PBXNativeTarget "SugarRecord" */;
+			buildPhases = (
+				3DBC55D4198E826E00268EB3 /* Sources */,
+				3DBC55D5198E826E00268EB3 /* Frameworks */,
+				3DBC55D6198E826E00268EB3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SugarRecord;
+			productName = SugarRecord;
+			productReference = 3DBC55D8198E826E00268EB3 /* SugarRecord.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3DBC55EC198E826E00268EB3 /* SugarRecordTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DBC55FA198E826E00268EB3 /* Build configuration list for PBXNativeTarget "SugarRecordTests" */;
+			buildPhases = (
+				3DBC55E9198E826E00268EB3 /* Sources */,
+				3DBC55EA198E826E00268EB3 /* Frameworks */,
+				3DBC55EB198E826E00268EB3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3DBC55EF198E826E00268EB3 /* PBXTargetDependency */,
+			);
+			name = SugarRecordTests;
+			productName = SugarRecordTests;
+			productReference = 3DBC55ED198E826E00268EB3 /* SugarRecordTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3DBC55D0198E826E00268EB3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = PPinera;
+				TargetAttributes = {
+					3DBC55D7198E826E00268EB3 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					3DBC55EC198E826E00268EB3 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 3DBC55D7198E826E00268EB3;
+					};
+				};
+			};
+			buildConfigurationList = 3DBC55D3198E826E00268EB3 /* Build configuration list for PBXProject "SugarRecord" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3DBC55CF198E826E00268EB3;
+			productRefGroup = 3DBC55D9198E826E00268EB3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3DBC55D7198E826E00268EB3 /* SugarRecord */,
+				3DBC55EC198E826E00268EB3 /* SugarRecordTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3DBC55D6198E826E00268EB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DBC55E6198E826E00268EB3 /* Main.storyboard in Resources */,
+				3DBC55E8198E826E00268EB3 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DBC55EB198E826E00268EB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3DBC55D4198E826E00268EB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */,
+				3DBC55FF198E82F500268EB3 /* SugarRecord.swift in Sources */,
+				3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */,
+				3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DBC55E9198E826E00268EB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3DBC55EF198E826E00268EB3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DBC55D7198E826E00268EB3 /* SugarRecord */;
+			targetProxy = 3DBC55EE198E826E00268EB3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3DBC55E4198E826E00268EB3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DBC55E5198E826E00268EB3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3DBC55F5198E826E00268EB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3DBC55F6198E826E00268EB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3DBC55F8198E826E00268EB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = SugarRecord/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3DBC55F9198E826E00268EB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = SugarRecord/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3DBC55FB198E826E00268EB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SugarRecord.app/SugarRecord";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SugarRecordTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		3DBC55FC198E826E00268EB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SugarRecord.app/SugarRecord";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SugarRecordTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3DBC55D3198E826E00268EB3 /* Build configuration list for PBXProject "SugarRecord" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DBC55F5198E826E00268EB3 /* Debug */,
+				3DBC55F6198E826E00268EB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DBC55F7198E826E00268EB3 /* Build configuration list for PBXNativeTarget "SugarRecord" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DBC55F8198E826E00268EB3 /* Debug */,
+				3DBC55F9198E826E00268EB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DBC55FA198E826E00268EB3 /* Build configuration list for PBXNativeTarget "SugarRecordTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DBC55FB198E826E00268EB3 /* Debug */,
+				3DBC55FC198E826E00268EB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3DBC55E0198E826E00268EB3 /* SugarRecord.xcdatamodel */,
+			);
+			currentVersion = 3DBC55E0198E826E00268EB3 /* SugarRecord.xcdatamodel */;
+			path = SugarRecord.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3DBC55D0198E826E00268EB3 /* Project object */;
+}
