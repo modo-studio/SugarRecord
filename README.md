@@ -18,4 +18,7 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 ### Fetching
 
 
+### Useful Swift Resources
+- Tests with Swift (Matt): http://nshipster.com/xctestcase/
+
 ### Contribute
