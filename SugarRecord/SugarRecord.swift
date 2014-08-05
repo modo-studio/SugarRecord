@@ -150,7 +150,7 @@ extension NSManagedObjectContext {
     }
     
     // CleanUp
-    class func cleanUp () -> () {
+    class func cleanUp(){
         self.setRootSavingContext(nil)
         self.setDefaultContext(nil)
     }
@@ -168,51 +168,13 @@ extension NSManagedObjectModel {
     class func setDefaultManagedObjectModel(objectModel: NSManagedObjectModel) {
         Static.defaultManagedObjectModel = objectModel
     }
-    class func defaultManagedObjectModel() -> (defaultManagedObjectModel: NSManagedObjectModel?) {
+    class func defaultManagedObjectModel() -> (defaultManagedObjectModel: NSManagedObjectModel) {
         var currentModel: NSManagedObjectModel? = Static.defaultManagedObjectModel
         if currentModel == nil {
             currentModel = self.mergedModelFromBundles(nil)
             self.setDefaultManagedObjectModel(currentModel!)
         }
-        return currentModel
-    }
-}
-/*
-
-if (defaultManagedObjectModel_ == nil && [MagicalRecord shouldAutoCreateManagedObjectModel])
-{
-[self MR_setDefaultManagedObjectModel:[self MR_mergedObjectModelFromMainBundle]];
-}
-return defaultManagedObjectModel_;
-
-+ (NSManagedObjectModel *) MR_mergedObjectModelFromMainBundle;
-{
-return [self mergedModelFromBundles:nil];
-}
-
-*/
-
-
-// MARK - NSManagedObject Extension
-
-extension NSManagedObject {
-    class func defaultManagedObject () -> (NSManagedObject?) {
-        return nil;
-    }
-    
-    class func filter (context: NSManagedObjectContext?, predicate: NSPredicate) -> (NSArray) {
-        return nil
-    }
-    
-    
-    /* Returns the count of NSManagedObjects
-    *  @param NSManagedObjectContext Context where the fetch should be executed
-    *  @param NSPredicate To filter fetch results
-    *  @return Int with the count
-    */
-    class func count(context: NSManagedObjectContext?, predicate: NSPredicate) -> (count: Int?) {
-        return self.filter(context, predicate: predicate).count
-        return nil
+        return currentModel!
     }
 }
 
@@ -220,45 +182,112 @@ extension NSManagedObject {
 //MARK - PersistantStoreCoordinator Extension
 
 extension NSPersistentStoreCoordinator {
-    // Static variables
     struct Static {
         static var dPSC: NSPersistentStoreCoordinator? = nil
     }
     class func defaultPersistentStoreCoordinator () -> (NSPersistentStoreCoordinator?) {
-        return Static.dPSC;
+        return Static.dPSC
     }
     class func setDefaultPersistentStoreCoordinator (psc: NSPersistentStoreCoordinator) {
         Static.dPSC = psc
     }
     
-    
     // Coordinator initializer
     class func newCoordinator (databaseName: String, automigrating: Bool?) -> (NSPersistentStoreCoordinator?) {
         var model: NSManagedObjectModel = NSManagedObjectModel.defaultManagedObjectModel()
-        
-       return nil
+        var coordinator: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
+        if automigrating != nil {
+            coordinator.autoMigrateDatabase(databaseName)
+        }
     }
     
-    /*NSManagedObjectModel *model = [NSManagedObjectModel MR_defaultManagedObjectModel];
-    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+    // Database Automigration
+    func autoMigrateDatabase (databaseName: String) {
+        
+    }
     
-    [coordinator MR_addAutoMigratingSqliteStoreNamed:storeFileName];
-    
-    //HACK: lame solution to fix automigration error "Migration failed after first pass"
-    if ([[coordinator persistentStores] count] == 0)
-    {
-    [coordinator performSelector:@selector(MR_addAutoMigratingSqliteStoreNamed:) withObject:storeFileName afterDelay:0.5];
-    }*/
+    class func autoMigrateOptions() -> ([String: String]) {
+        var sqliteOptions: [String: String] = [String: String] ()
+        sqliteOptions["WAL"] = "journal_mode"
+        var options: [String: NSNumber] = [String: NSNumber] ()
+        options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
+        options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: true)
+        options[NSSQLitePragmasOption] = sqliteOptions
+        return sqliteOptions
+    }
 
+    // Database creation
+    func addDatabase(databaseName: String, withOptions options: [String: String]) {
+        //TODO
+    }
     
+    /*
+NSURL *url = [storeFileName isKindOfClass:[NSURL class]] ? storeFileName : [NSPersistentStore MR_urlForStoreName:storeFileName];
+NSError *error = nil;
+
+[self MR_createPathToStoreFileIfNeccessary:url];
+
+NSPersistentStore *store = [self addPersistentStoreWithType:NSSQLiteStoreType
+configuration:nil
+URL:url
+options:options
+error:&error];
+
+if (!store)
+{
+if ([MagicalRecord shouldDeleteStoreOnModelMismatch])
+{
+BOOL isMigrationError = (([error code] == NSPersistentStoreIncompatibleVersionHashError) || ([error code] == NSMigrationMissingSourceModelError));
+if ([[error domain] isEqualToString:NSCocoaErrorDomain] && isMigrationError)
+{
+[[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCMismatchWillDeleteStore object:nil];
+
+NSError * deleteStoreError;
+// Could not open the database, so... kill it! (AND WAL bits)
+NSString *rawURL = [url absoluteString];
+NSURL *shmSidecar = [NSURL URLWithString:[rawURL stringByAppendingString:@"-shm"]];
+NSURL *walSidecar = [NSURL URLWithString:[rawURL stringByAppendingString:@"-wal"]];
+[[NSFileManager defaultManager] removeItemAtURL:url error:&deleteStoreError];
+[[NSFileManager defaultManager] removeItemAtURL:shmSidecar error:nil];
+[[NSFileManager defaultManager] removeItemAtURL:walSidecar error:nil];
+
+MRLogWarn(@"Removed incompatible model version: %@", [url lastPathComponent]);
+if(deleteStoreError) {
+[[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCMismatchCouldNotDeleteStore object:nil userInfo:@{@"Error":deleteStoreError}];
+}
+else {
+[[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCMismatchDidDeleteStore object:nil];
+}
+
+[[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCMismatchWillRecreateStore object:nil];
+// Try one more time to create the store
+store = [self addPersistentStoreWithType:NSSQLiteStoreType
+configuration:nil
+URL:url
+options:options
+error:&error];
+if (store)
+{
+[[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCMismatchDidRecreateStore object:nil];
+// If we successfully added a store, remove the error that was initially created
+error = nil;
+}
+else {
+[[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCMismatchCouldNotRecreateStore object:nil userInfo:@{@"Error":error}];
+}
+}
+}
+[MagicalRecord handleErrors:error];
+}
+return store;*/
 }
 
 
 //MARK - PersistentStore Extension
 extension NSPersistentStore {
-    
+
     class func defaultPersistentStore () -> (NSPersistentStore?) {
-        return nil;
+        return nil
     }
-    
+
 }
