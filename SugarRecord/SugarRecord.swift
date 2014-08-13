@@ -199,6 +199,7 @@ extension NSPersistentStoreCoordinator {
         if automigrating != nil {
             coordinator.autoMigrateDatabase(databaseName)
         }
+        return nil
     }
     
     // Database Automigration
@@ -212,13 +213,19 @@ extension NSPersistentStoreCoordinator {
         var options: [String: NSNumber] = [String: NSNumber] ()
         options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
         options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: true)
-        options[NSSQLitePragmasOption] = sqliteOptions
+        //options[NSSQLitePragmasOption] = sqliteOptions
         return sqliteOptions
     }
 
     // Database creation
-    func addDatabase(databaseName: String, withOptions options: [String: String]) {
-        //TODO
+    func addDatabase(databaseName: AnyObject, withOptions options: [String: String]?) {
+        var databaseURL: NSURL?
+        if databaseName is NSURL {
+            databaseURL = databaseName as? NSURL
+        }
+        else {
+            
+        }
     }
     
     /*
@@ -286,8 +293,59 @@ return store;*/
 //MARK - PersistentStore Extension
 extension NSPersistentStore {
 
-    class func defaultPersistentStore () -> (NSPersistentStore?) {
-        return nil
-    }
-
+//    class func defaultPersistentStore () -> (NSPersistentStore?) {
+//        return nil
+//    }
+//    
+//    class func directory(type: Int) -> (String) {
+//        
+//    }
+//    
+//    class func applicationDocumentsDirectory() -> (String) {
+//        
+//    }
+//    
+//    class func applicationStorageDirectory() -> (String) {
+//        
+//    }
+    
 }
+
+////// PERSISTENT STORE /////
+
+/*
++ (NSString *) MR_directory:(int) type
+{
+return [NSSearchPathForDirectoriesInDomains(type, NSUserDomainMask, YES) lastObject];
+}
+
++ (NSString *)MR_applicationDocumentsDirectory
+{
+return [self MR_directory:NSDocumentDirectory];
+}
+
++ (NSString *)MR_applicationStorageDirectory
+{
+NSString *applicationName = [[[NSBundle mainBundle] infoDictionary] valueForKey:(NSString *)kCFBundleNameKey];
+return [[self MR_directory:NSApplicationSupportDirectory] stringByAppendingPathComponent:applicationName];
+}
+
++ (NSURL *) MR_urlForStoreName:(NSString *)storeFileName
+{
+NSArray *paths = [NSArray arrayWithObjects:[self MR_applicationDocumentsDirectory], [self MR_applicationStorageDirectory], nil];
+NSFileManager *fm = [[NSFileManager alloc] init];
+
+for (NSString *path in paths)
+{
+NSString *filepath = [path stringByAppendingPathComponent:storeFileName];
+if ([fm fileExistsAtPath:filepath])
+{
+return [NSURL fileURLWithPath:filepath];
+}
+}
+
+//set default url
+return [NSURL fileURLWithPath:[[self MR_applicationStorageDirectory] stringByAppendingPathComponent:storeFileName]];
+}
+
+*/
