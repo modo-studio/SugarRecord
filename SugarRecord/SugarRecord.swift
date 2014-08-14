@@ -31,7 +31,7 @@ class SugarRecord {
     class func setupCoreDataStack (automigrating: Bool?, databaseName: String?) -> () {
         // Checking the coordinator doesn't exist
         var psc: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator.defaultPersistentStoreCoordinator()
-        if psc == nil {
+        if psc != nil {
             return
         }
         
@@ -80,6 +80,17 @@ class SugarRecord {
             databaseName = databaseName.stringByAppendingPathExtension("sqlite")
         }
         return databaseName
+    }
+}
+
+// MARK - Extension SugarRecord + Error Handling
+
+extension SugarRecord {
+    class func handle(error: NSError) {
+        
+    }
+    class func handle(exception: NSException) {
+        
     }
     
 }
@@ -218,134 +229,67 @@ extension NSPersistentStoreCoordinator {
     }
 
     // Database creation
-    func addDatabase(databaseName: AnyObject, withOptions options: [String: String]?) {
-        var databaseURL: NSURL?
-        if databaseName is NSURL {
-            databaseURL = databaseName as? NSURL
-        }
-        else {
-            
-        }
+    func addDatabase(databaseName: String, withOptions options: [String: String]?) {
+        let url: NSURL = NSPersistentStore.storeUrl(forDatabaseName: databaseName)
+        var error: NSError
+        
+    
     }
     
-    /*
-NSURL *url = [storeFileName isKindOfClass:[NSURL class]] ? storeFileName : [NSPersistentStore MR_urlForStoreName:storeFileName];
-NSError *error = nil;
-
-[self MR_createPathToStoreFileIfNeccessary:url];
-
-NSPersistentStore *store = [self addPersistentStoreWithType:NSSQLiteStoreType
-configuration:nil
-URL:url
-options:options
-error:&error];
-
-if (!store)
-{
-if ([MagicalRecord shouldDeleteStoreOnModelMismatch])
-{
-BOOL isMigrationError = (([error code] == NSPersistentStoreIncompatibleVersionHashError) || ([error code] == NSMigrationMissingSourceModelError));
-if ([[error domain] isEqualToString:NSCocoaErrorDomain] && isMigrationError)
-{
-[[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCMismatchWillDeleteStore object:nil];
-
-NSError * deleteStoreError;
-// Could not open the database, so... kill it! (AND WAL bits)
-NSString *rawURL = [url absoluteString];
-NSURL *shmSidecar = [NSURL URLWithString:[rawURL stringByAppendingString:@"-shm"]];
-NSURL *walSidecar = [NSURL URLWithString:[rawURL stringByAppendingString:@"-wal"]];
-[[NSFileManager defaultManager] removeItemAtURL:url error:&deleteStoreError];
-[[NSFileManager defaultManager] removeItemAtURL:shmSidecar error:nil];
-[[NSFileManager defaultManager] removeItemAtURL:walSidecar error:nil];
-
-MRLogWarn(@"Removed incompatible model version: %@", [url lastPathComponent]);
-if(deleteStoreError) {
-[[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCMismatchCouldNotDeleteStore object:nil userInfo:@{@"Error":deleteStoreError}];
-}
-else {
-[[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCMismatchDidDeleteStore object:nil];
-}
-
-[[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCMismatchWillRecreateStore object:nil];
-// Try one more time to create the store
-store = [self addPersistentStoreWithType:NSSQLiteStoreType
-configuration:nil
-URL:url
-options:options
-error:&error];
-if (store)
-{
-[[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCMismatchDidRecreateStore object:nil];
-// If we successfully added a store, remove the error that was initially created
-error = nil;
-}
-else {
-[[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCMismatchCouldNotRecreateStore object:nil userInfo:@{@"Error":error}];
-}
-}
-}
-[MagicalRecord handleErrors:error];
-}
-return store;*/
+    // Create path if necessary 
+    func createPathIfNecessary(forFilePath filePath:NSURL) {
+        let fileManager: NSFileManager = NSFileManager.defaultManager()
+        let path: NSURL = filePath.URLByDeletingLastPathComponent
+        var error: NSError?
+        var pathWasCreated: Bool = fileManager.createDirectoryAtPath(path.path, withIntermediateDirectories: true, attributes: nil, error: &error)
+        if !pathWasCreated {
+            SugarRecord.handle(error!)
+        }
+    }
 }
 
 
 //MARK - PersistentStore Extension
 extension NSPersistentStore {
-
-//    class func defaultPersistentStore () -> (NSPersistentStore?) {
-//        return nil
-//    }
-//    
-//    class func directory(type: Int) -> (String) {
-//        
-//    }
-//    
-//    class func applicationDocumentsDirectory() -> (String) {
-//        
-//    }
-//    
-//    class func applicationStorageDirectory() -> (String) {
-//        
-//    }
     
+    struct Static {
+        static var dPS: NSPersistentStore? = nil
+    }
+    class func defaultPersistentStore () -> (NSPersistentStore?) {
+        return Static.dPS
+    }
+    class func setDefaultPersistentStore (ps: NSPersistentStore) {
+        Static.dPS = ps
+    }
+    
+    class func directory(directory: NSSearchPathDirectory) -> (String) {
+        let documetsPath : AnyObject = NSSearchPathForDirectoriesInDomains(directory, .UserDomainMask, true)[0]
+        return documetsPath as String
+    }
+    
+    class func applicationDocumentsDirectory() -> (String) {
+        return directory(.DocumentDirectory)
+    }
+    
+    class func applicationStorageDirectory() -> (String) {
+        var applicationName: String = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as String
+        return directory(.ApplicationSupportDirectory).stringByAppendingPathComponent(applicationName)
+    }
+    
+    class func storeUrl(forDatabaseName dbName: String) -> (url: NSURL) {
+        let paths: [String] = [applicationDocumentsDirectory(), applicationStorageDirectory()]
+        let fileManager: NSFileManager = NSFileManager()
+        
+        for path:String in paths {
+            let filePath: String = path.stringByAppendingPathComponent(dbName)
+            if fileManager.fileExistsAtPath(filePath) {
+                return NSURL.fileURLWithPath(filePath)
+            }
+        }
+        return NSURL.fileURLWithPath(applicationStorageDirectory().stringByAppendingPathComponent(dbName))
+    }
+    
+    class func defaultStoreUrl() -> (url: NSURL) {
+        return storeUrl(forDatabaseName: srDefaultDatabaseName)
+    }
 }
-
-////// PERSISTENT STORE /////
-
-/*
-+ (NSString *) MR_directory:(int) type
-{
-return [NSSearchPathForDirectoriesInDomains(type, NSUserDomainMask, YES) lastObject];
-}
-
-+ (NSString *)MR_applicationDocumentsDirectory
-{
-return [self MR_directory:NSDocumentDirectory];
-}
-
-+ (NSString *)MR_applicationStorageDirectory
-{
-NSString *applicationName = [[[NSBundle mainBundle] infoDictionary] valueForKey:(NSString *)kCFBundleNameKey];
-return [[self MR_directory:NSApplicationSupportDirectory] stringByAppendingPathComponent:applicationName];
-}
-
-+ (NSURL *) MR_urlForStoreName:(NSString *)storeFileName
-{
-NSArray *paths = [NSArray arrayWithObjects:[self MR_applicationDocumentsDirectory], [self MR_applicationStorageDirectory], nil];
-NSFileManager *fm = [[NSFileManager alloc] init];
-
-for (NSString *path in paths)
-{
-NSString *filepath = [path stringByAppendingPathComponent:storeFileName];
-if ([fm fileExistsAtPath:filepath])
-{
-return [NSURL fileURLWithPath:filepath];
-}
-}
-
-//set default url
-return [NSURL fileURLWithPath:[[self MR_applicationStorageDirectory] stringByAppendingPathComponent:storeFileName]];
-}
-
-*/

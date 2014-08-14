@@ -9,13 +9,12 @@
 import UIKit
 import XCTest
 import SugarRecord
+import CoreData
 
 class SugarRecordSetupTests: XCTestCase {
-    var sugarRecord: SugarRecord?
     
     override func setUp() {
         super.setUp()
-        sugarRecord = SugarRecord()
     }
     
     override func tearDown() {
@@ -26,8 +25,9 @@ class SugarRecordSetupTests: XCTestCase {
         XCTAssertNotNil(SugarRecord.sharedInstance, "Sugar record shared instance should not be nil")
     }
     
-    func testSetupCoreDataStackIfCoordinatorExisting() {
-    
+    func testSetupStoreCoordinatorIfNotExisting() {
+        SugarRecord.setupCoreDataStack(false, databaseName: "testDatabase")
+        XCTAssertNotNil(NSPersistentStoreCoordinator.defaultPersistentStoreCoordinator(), "Default persistent store coordinator should be not nil after the initial setup")
     }
-
 }
+
