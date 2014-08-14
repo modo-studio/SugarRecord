@@ -23,6 +23,6 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 - Quick, a library for testing written in swift https://github.com/modocache/personal-fork-of-Quick
 
 ### Notes
-SugarRecord is hardly inspired in Magical Record. We loved its structure and we brought some of these ideas to SugarRecord CoreData stack but using sugar Swift syntax and adding more useful methods to make working with CoreData easier.
+SugarRecord is hardly inspired in **Magical Record**. We loved its structure and we brought some of these ideas to SugarRecord CoreData stack but using sugar Swift syntax and adding more useful methods to make working with CoreData easier.
 
 ### Contribute
