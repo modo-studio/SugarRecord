@@ -17,6 +17,8 @@ var srShouldAutoCreateManagedObjectModel: Bool = true
 var srShouldAutoCreateDefaultPersistentStoreCoordinator: Bool = false
 var srsrShouldDeleteStoreOnModelMismatch: Bool = true
 
+// Static variables - DICTIONARY KEYS
+var srContextWorkingNameKey = "srContextWorkingNameKey"
 
 // Static variables - RELATED WITH KVO KEYS
 var srKVOWillDeleteDatabaseKey: String = "srKVOWillDeleteDatabaseKey"
@@ -215,13 +217,53 @@ extension NSManagedObjectContext {
         var defaultContext: NSManagedObjectContext = self.newContext(rootContext, persistentStoreCoordinator: nil)
     }
     
+    // Debugging
+    func setWorkingName(workingName: String) {
+        self.userInfo.setObject(workingName, forKey: srContextWorkingNameKey)
+    }
+    func workingName() -> (String) {
+        var workingName: String = self.userInfo.objectForKey(srContextWorkingNameKey) as String
+        if workingName.isEmpty {
+            workingName = "Unnamed context"
+        }
+        return workingName
+    }
+    func description() -> (String) {
+        let onMainThread: String = NSThread.mainThread() ? "Main Thread" : "Background thread"
+        return "<\(NSStringFromClass(self))"
+    }
+    
     // CleanUp
     class func cleanUp(){
         self.setRootSavingContext(nil)
         self.setDefaultContext(nil)
     }
-    
 }
+
+
+
+/*
+- (NSString *) MR_description
+{
+NSString *onMainThread = [NSThread isMainThread] ? @"the main thread" : @"a background thread";
+
+return [NSString stringWithFormat:@"<%@ (%p): %@> on %@", NSStringFromClass([self class]), self, [self MR_workingName], onMainThread];
+}
+
+- (NSString *) MR_parentChain
+{
+NSMutableString *familyTree = [@"\n" mutableCopy];
+NSManagedObjectContext *currentContext = self;
+do
+{
+[familyTree appendFormat:@"- %@ (%p) %@\n", [currentContext MR_workingName], currentContext, (currentContext == self ? @"(*)" : @"")];
+}
+while ((currentContext = [currentContext parentContext]));
+
+return [NSString stringWithString:familyTree];
+}*/
+
+
 
 //MARK - NSManagedObjectModel Extension
 
