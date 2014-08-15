@@ -11,6 +11,9 @@ import CoreData
 
 let srDefaultDatabaseName: String = "sugarRecordDatabase.sqlite"
 let srSugarRecordVersion: String = "v0.0.1 - Alpha"
+var srShouldAutoCreateManagedObjectModel: Bool = true
+var srShouldAutoCreateDefaultPersistentStoreCoordinator: Bool = false
+var srsrShouldDeleteStoreOnModelMismatch: Bool = true
 
 // MARK - SugarRecord Methods
 class SugarRecord {
@@ -213,27 +216,37 @@ extension NSPersistentStoreCoordinator {
         return nil
     }
     
-    // Database Automigration
-    func autoMigrateDatabase (databaseName: String) {
-        
+    class func newCoordinator(automigrating: Bool?) -> (NSPersistentStoreCoordinator?) {
+        return newCoordinator(srDefaultDatabaseName, automigrating: automigrating)
     }
     
-    class func autoMigrateOptions() -> ([String: String]) {
+    // Database Automigration
+    func autoMigrateDatabase (databaseName: String) -> (persistentStore: NSPersistentStore) {
+        return addDatabase(databaseName, withOptions: NSPersistentStoreCoordinator.autoMigrateOptions())
+    }
+    
+    class func autoMigrateOptions() -> ([NSObject: AnyObject]) {
         var sqliteOptions: [String: String] = [String: String] ()
         sqliteOptions["WAL"] = "journal_mode"
         var options: [String: NSNumber] = [String: NSNumber] ()
         options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
         options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: true)
-        //options[NSSQLitePragmasOption] = sqliteOptions
+        options[NSSQLitePragmasOption] = ""
         return sqliteOptions
     }
 
     // Database creation
-    func addDatabase(databaseName: String, withOptions options: [String: String]?) {
+    func addDatabase(databaseName: String, withOptions options: [NSObject: AnyObject]?) -> (persistentStore: NSPersistentStore){
         let url: NSURL = NSPersistentStore.storeUrl(forDatabaseName: databaseName)
-        var error: NSError
+        var error: NSError?
+        createPathIfNecessary(forFilePath: url)
+        let store: NSPersistentStore = addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options, error: &error)
         
-    
+        if store == nil {
+            if srsrShouldDeleteStoreOnModelMismatch {
+                
+            }
+        }
     }
     
     // Create path if necessary 
