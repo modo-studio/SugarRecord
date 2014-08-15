@@ -242,6 +242,21 @@ extension NSManagedObjectModel {
         }
         return currentModel!
     }
+    
+    class func mergedModelFromMainBundle() -> (managedObjectModel: NSManagedObjectModel) {
+        return mergedModelFromBundles(nil)
+    }
+    
+    class func newModel(modelName: String, var inBundle bundle: NSBundle?) -> (managedObjectModel: NSManagedObjectModel) {
+        if bundle == nil {
+            bundle = NSBundle.mainBundle()
+        }
+        assert(modelName.pathExtension == nil, "SR - Invalid managedObjectModel name, did you forget the extension?")
+        let path: String = bundle!.pathForResource(modelName.stringByDeletingPathExtension, ofType: modelName.pathExtension)
+        let modelURL: NSURL = NSURL.fileURLWithPath(path)
+        let mom: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: modelURL)
+        return mom
+    }
 }
 
 
@@ -259,17 +274,16 @@ extension NSPersistentStoreCoordinator {
     }
     
     // Coordinator initializer
-    class func newCoordinator (databaseName: String, automigrating: Bool?) -> (NSPersistentStoreCoordinator?) {
+    class func newCoordinator (var databaseName: String?, automigrating: Bool?) -> (NSPersistentStoreCoordinator?) {
         var model: NSManagedObjectModel = NSManagedObjectModel.defaultManagedObjectModel()
         var coordinator: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         if automigrating != nil {
-            coordinator.autoMigrateDatabase(databaseName)
+            if databaseName == nil {
+                databaseName = srDefaultDatabaseName
+            }
+            coordinator.autoMigrateDatabase(databaseName!)
         }
         return coordinator
-    }
-    
-    class func newCoordinator(automigrating: Bool?) -> (NSPersistentStoreCoordinator?) {
-        return newCoordinator(srDefaultDatabaseName, automigrating: automigrating)
     }
     
     // Database Automigration
@@ -397,54 +411,84 @@ extension NSPersistentStore {
 extension NSManagedObject {
     class func entityName() -> (entityName: String) {
         var entityName: String?
-
+        
+        if (self.respondsToSelector(Selector("entityName"))) {
+            //TODO - PENDING TO BE ADDED
+            //entityName = self.performSelector(Selector("entityName"), onThread: NSThread.mainThread(), withObject: nil, waitUntilDone: true))
+        }
         
         // Using class name as entity name
-        if entityName?.isEmpty {
+        if entityName == nil {
             entityName = NSStringFromClass(self)
         }
+        return entityName!
     }
-
+    
+    class func entityDescriptionInContext(context: NSManagedObjectContext) -> (entityDescription: NSEntityDescription) {
+        var entityName: String = self.entityName()
+        return NSEntityDescription.entityForName(entityName, inManagedObjectContext: context)
+    }
 }
-
-/*
-
-+ (NSString *) MR_entityName;
-{
-NSString *entityName;
-
-if ([self respondsToSelector:@selector(entityName)])
-{
-entityName = [self performSelector:@selector(entityName)];
-}
-
-if ([entityName length] == 0) {
-entityName = NSStringFromClass(self);
-}
-
-return entityName;
-}*
-
-/*
-+ (NSEntityDescription *) MR_entityDescriptionInContext:(NSManagedObjectContext *)context
-{
-NSString *entityName = [self MR_entityName];
-return [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
-}*/
 
 
 // MARK - NSManagedObject - REQUESTS extension
 extension NSManagedObject {
+    enum FetchedObjects {
+        case first, last, all
+        case firsts(Int)
+        case lasts(Int)
+    }
+    
     // Create and returns the fetch request
     class func fetchRequest(var inContext context: NSManagedObjectContext?) -> (fetchRequest: NSFetchRequest) {
         if context == nil {
             context = NSManagedObjectContext.defaultContext()
         }
-        assert(context != nil, "Fetch request can't be created without context. Ensure you've initialized Sugar Record")
+        assert(context != nil, "SR-Assert: Fetch request can't be created without context. Ensure you've initialized Sugar Record")
         var request: NSFetchRequest = NSFetchRequest()
+        request.entity = entityDescriptionInContext(context!)
+        return request
+    }
+    
+    class func request(fetchedObjects: FetchedObjects, inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, sortedBy: String, ascending: Bool) -> (fetchRequest: NSFetchRequest) {
+        return request(fetchedObjects, inContext: context, filteredBy: filter, sortedBy: [NSSortDescriptor(key: sortedBy, ascending: ascending)])
+    }
+    
+    class func request(fetchedObjects: FetchedObjects, inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, var sortedBy sortDescriptors: [NSSortDescriptor]) -> (fetchRequest: NSFetchRequest) {
+        assert(sortDescriptors.count == 0, "SR-Assert: Sort descriptors must have at least one")
+        var fetchRequest: NSFetchRequest = self.fetchRequest(inContext: context)
+     
+        // Order
+        var revertOrder: Bool = false
+        switch fetchedObjects {
+            case let .first:
+                fetchRequest.fetchBatchSize = 1
+            case let .last:
+                fetchRequest.fetchBatchSize = 1
+                revertOrder = true
+            case let .firsts(number):
+                fetchRequest.fetchBatchSize = number
+            case let .lasts(number):
+                revertOrder = true
+                fetchRequest.fetchBatchSize = number
+            default:
+                break
+        }
         
-        NSFetchRequest *request = [[NSFetchRequest alloc] init];
-        [request setEntity:[self MR_entityDescriptionInContext:context]];
+        // Sort descriptors
+        if revertOrder {
+            var rootSortDescriptor: NSSortDescriptor = sortDescriptors[0]
+            sortDescriptors[0] = NSSortDescriptor(key: rootSortDescriptor.key, ascending: !rootSortDescriptor.ascending)
+        }
+        fetchRequest.sortDescriptors = sortDescriptors
         
+        // Predicate
+        if filter != nil  {
+            fetchRequest.predicate = filter
+        }
+        
+        return fetchRequest
     }
 }
+
+
