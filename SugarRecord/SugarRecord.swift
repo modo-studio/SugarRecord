@@ -11,6 +11,7 @@ import CoreData
 
 let srDefaultDatabaseName: String = "sugarRecordDatabase.sqlite"
 let srSugarRecordVersion: String = "v0.0.1 - Alpha"
+let srBackgroundQueueName: String = "sugarRecord.backgroundQueue"
 
 // Static variables - RELATED WITH OPTIONS ENABLED/DISABLED
 var srShouldAutoCreateManagedObjectModel: Bool = true
@@ -72,15 +73,10 @@ enum SugarRecordLogger: Int {
 class SugarRecord {
     
     // Shared singleton instance
-    class var sharedInstance : SugarRecord {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0
-            static var instance : SugarRecord? = nil
-        }
-        dispatch_once(&Static.onceToken) {
-            Static.instance = SugarRecord()
-        }
-        return Static.instance!
+    struct Static {
+        static var onceToken : dispatch_once_t = 0
+        static var instance : SugarRecord? = nil
+        static var backgroundQueue : dispatch_queue_t? = nil
     }
     
     // Initialize Database
@@ -105,6 +101,14 @@ class SugarRecord {
         // Initialize stack
         NSManagedObjectContext.initializeContextsStack(psc!)
     }
+    
+    // Background queue
+    class func backgroundQueue() -> (dispatch_queue_t) {
+        if Static.backgroundQueue == nil {
+            Static.backgroundQueue = dispatch_queue_create(srBackgroundQueueName, 0)
+        }
+        return Static.backgroundQueue!
+    }
 
     
     // CleanUp
@@ -114,6 +118,7 @@ class SugarRecord {
     
     // Returns current stack information
     class func currentStack () -> (stack: String?) {
+        // TODO - Pending review
         return nil
     }
     
@@ -137,6 +142,26 @@ class SugarRecord {
         }
         return databaseName
     }
+    
+    
+    // Threading //
+    class func save(inBackground background: Bool, savingBlock: (context: NSManagedObjectContext) -> ()) {
+        // Generating context
+        var privateContext: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        privateContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        savingBlock(context: privateContext)
+        
+        
+    }
+    /*
+/* For all background saving operations. These calls will be sent to a different thread/queue.
+*/
++ (void) saveWithBlock:(void(^)(NSManagedObjectContext *localContext))block;
++ (void) saveWithBlock:(void(^)(NSManagedObjectContext *localContext))block completion:(MRSaveCompletionHandler)completion;
+
+/* For saving on the current thread as the caller, only with a seperate context. Useful when you're managing your own threads/queues and need a serial call to create or change data
+*/
++ (void) saveWithBlockAndWait:(void(^)(NSManagedObjectContext *localContext))block;*/
 }
 
 // MARK - Extension SugarRecord + Error Handling
