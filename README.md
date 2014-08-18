@@ -3,14 +3,20 @@
 ### What is SugarRecord?
 SugarRecord is a CoreData management library to make it easier work with CoreData. Thanks to SugarRecord you'll be able to start the CoreData stack structure just with a line of code and start working with your database models using closures thanks to the fact that SugarRecord is completly written in Swift.
 
-### Changes
-#### 4th August 2014
-- Started CoreData stack structure initializaer
-- Added singleton pattern in SugarRecord
-- Created private static defaultContext and storeCoordinator var
+### Pending stuff
+- Fill CocoaDocs documentation using CocoaPods library
+- Generate wiki with some examples.
+- Add tests
 
 ### Initialize SugarRecord
 
+To start working with SugarRecord the first thing you have to do is to initialize the entire stack (persistent store, persistent store coordinator, and contexts stack). The simplest way to do it is through the call:
+
+```swift
+SugarRecord.setupCoreDataStack(automigrating: true, databaseName: nil)
+```
+
+Where with automigrating we specify that the initializer executes the migration if needed and in databaseName the sqlite database name (If *nil* the default one is taken)
 
 ### Contexts
 
