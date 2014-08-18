@@ -27,6 +27,7 @@ Where with automigrating we specify that the initializer executes the migration 
 ### Useful Swift Resources
 - Tests with Swift (Matt): http://nshipster.com/xctestcase/
 - Quick, a library for testing written in swift https://github.com/modocache/personal-fork-of-Quick
+- CoreData and threads with GCD: http://www.cimgf.com/2011/05/04/core-data-and-threads-without-the-headache/
 
 ### Notes
 SugarRecord is hardly inspired in **Magical Record**. We loved its structure and we brought some of these ideas to SugarRecord CoreData stack but using sugar Swift syntax and adding more useful methods to make working with CoreData easier.
