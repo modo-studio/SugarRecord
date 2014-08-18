@@ -168,8 +168,19 @@ extension NSManagedObjectContext {
     
     // Root Saving Context Setter
     class func setRootSavingContext(context: NSManagedObjectContext?) {
+        if Static.rootSavingContext != nil  {
+            NSNotificationCenter.defaultCenter().removeObserver(Static.rootSavingContext)
+        }
         Static.rootSavingContext = context
+        if Static.rootSavingContext == nil {
+            return
+        }
+        Static.rootSavingContext!.addObserverToGetPermanentIDsBeforeSaving()
+        Static.rootSavingContext!.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        Static.rootSavingContext!.setWorkingName("Root saving context")
+        SugarRecordLogger.logLevelInfo.log("Changing root saving context")
     }
+    
     
     // Default Context Getter
     class func defaultContext() -> (NSManagedObjectContext?) {
@@ -178,19 +189,34 @@ extension NSManagedObjectContext {
     
     // Default Context Setter
     class func setDefaultContext(context: NSManagedObjectContext?) {
+        // Removing observer if existing defaultContext
+        if Static.defaultContext != nil  {
+            NSNotificationCenter.defaultCenter().removeObserver(Static.defaultContext)
+        }
         Static.defaultContext = context
+        if Static.defaultContext == nil {
+            return
+        }
+        Static.defaultContext!.setWorkingName("Default context")
+        SugarRecordLogger.logLevelInfo.log("Changing default context. New context: \(defaultContext())")
+        // Adding observer to listn changes in rootContext
+        if rootSavingContext() != nil {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("rootContextChanged:"), name: NSManagedObjectContextDidSaveNotification, object: rootSavingContext())
+        }
+        Static.defaultContext!.addObserverToGetPermanentIDsBeforeSaving()
+
     }
-    
+
     // Returns a new context with a given context as a parent
     class func newContextWithPersistentStoreCoordinator(persistentStoreCoordinator: NSPersistentStoreCoordinator) -> (NSManagedObjectContext){
         return self.newContext(nil, persistentStoreCoordinator: persistentStoreCoordinator)
     }
-    
+
     // Returns a new context with a given context as a parent
     class func newContextWithParentContext(parentContext: NSManagedObjectContext) -> (NSManagedObjectContext){
         return self.newContext(parentContext, persistentStoreCoordinator: nil)
     }
-    
+
     // Returns a new context with a parent context or persistentStoreCoordinator
     class func newContext (parentContext: NSManagedObjectContext?, persistentStoreCoordinator: NSPersistentStoreCoordinator?) -> (NSManagedObjectContext) {
         var newContext: NSManagedObjectContext?
@@ -213,7 +239,7 @@ extension NSManagedObjectContext {
     class func initializeContextsStack (persistentStoreCoordinator: NSPersistentStoreCoordinator)  {
         SugarRecordLogger.logLevelInfo.log("Creating contexts stack")
         var rootContext: NSManagedObjectContext = self.newContext(nil, persistentStoreCoordinator: persistentStoreCoordinator)
-        self.setRootSavingContext(rootSavingContext())
+        self.setRootSavingContext(rootSavingContext()!)
         var defaultContext: NSManagedObjectContext = self.newContext(rootContext, persistentStoreCoordinator: nil)
     }
     
@@ -230,39 +256,105 @@ extension NSManagedObjectContext {
     }
     func description() -> (String) {
         let onMainThread: String = NSThread.mainThread() ? "Main Thread" : "Background thread"
-        return "<\(NSStringFromClass(self))"
+        return "<\(NSStringFromClass(self)) (\(self)): \(self.workingName()) on \(onMainThread)"
+        
+        //     return [NSString stringWithFormat:@"<%@ (%p): %@> on %@", NSStringFromClass([self class]), self, [self MR_workingName], onMainThread];
+        // TODO
     }
     
-    // CleanUp
+    func parentChain () -> (String)
+    {
+        var familyTree: String = "\n"
+        var currentContext: NSManagedObjectContext = self
+        do {
+            familyTree += " - \(currentContext.workingName()) (\(currentContext)) \n"
+            familyTree += currentContext == self ? "(*)" : ""
+            currentContext = currentContext.parentContext
+        } while currentContext != nil
+        return familyTree
+    }
+    
+    class func resetDefaultContext() {
+        var defaultContext: NSManagedObjectContext? = self.defaultContext()
+        if defaultContext == nil {
+            return
+        }
+        assert(defaultContext!.concurrencyType == .ConfinementConcurrencyType, "SR-Assert: Not call this method on a confinement context")
+        if NSThread.isMainThread() == false {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.resetDefaultContext()
+                });
+            return
+        }
+        defaultContext!.reset()
+    }
+    
+    func delete(let objects: NSFastEnumeration) {
+        for object in objects {
+            self.deleteObject(object)
+        }
+    }
+    
+    // Observers
+    func addObserverToGetPermanentIDsBeforeSaving() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("contextWillSave:"), name: NSManagedObjectContextWillSaveNotification, object: self)
+    }
+    
+    func contextWillSave(notification: NSNotification) {
+        let context: NSManagedObjectContext = notification.object as NSManagedObjectContext
+        let insertedObjects: NSSet = context.insertedObjects
+        if insertedObjects.count == 0{
+            return
+        }
+        SugarRecordLogger.logLevelInfo.log("\(context.workingName()) is going to save: obtaining permanent IDs for \(insertedObjects.count) new inserted objects")
+        var error: NSError?
+        let saved: Bool = context.obtainPermanentIDsForObjects(insertedObjects.allObjects, error: &error)
+        if !saved {
+            SugarRecordLogger.logLevelError.log("Error moving temporary IDs into permanent ones - \(error)")
+        }
+        
+    }
+    
+    class func rootContextChanged(notification: NSNotification) {
+        if !NSThread.mainThread() {
+            dispatch_async(dispatch_get_main_queue(), {
+              self.rootContextChanged(notification)
+            })
+            return
+        }
+        self.defaultContext()?.mergeChangesFromContextDidSaveNotification(notification)
+    }
+
+    ///// CLEANUP /////
     class func cleanUp(){
         self.setRootSavingContext(nil)
         self.setDefaultContext(nil)
     }
+    
+    ///// CONTEXTS OBSERVING /////
+    func startObserving(context: NSManagedObjectContext, inMainThread mainThread: Bool) {
+        if mainThread {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("mergeChangesInMainThread:"), name: NSManagedObjectContextDidSaveNotification, object: context)
+        }
+        else {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("mergeChanges:"), name: NSManagedObjectContextDidSaveNotification, object: context)
+        }
+    }
+    func stopObserving(context: NSManagedObjectContext) {
+        
+    }
+    
+    func mergeChanges(fromNotification notification: NSNotification) {
+        SugarRecordLogger.logLevelInfo.log("Merging changes from context: \((notification.object as NSManagedObjectContext).workingName()) to context \(self.workingName())")
+        self.mergeChangesFromContextDidSaveNotification(notification)
+    }
+    
+    func mergeChangesInMainThread(fromNotification notification: NSNotification) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.mergeChanges(fromNotification: notification)
+        })
+    }
 }
-
-
-
-/*
-- (NSString *) MR_description
-{
-NSString *onMainThread = [NSThread isMainThread] ? @"the main thread" : @"a background thread";
-
-return [NSString stringWithFormat:@"<%@ (%p): %@> on %@", NSStringFromClass([self class]), self, [self MR_workingName], onMainThread];
-}
-
-- (NSString *) MR_parentChain
-{
-NSMutableString *familyTree = [@"\n" mutableCopy];
-NSManagedObjectContext *currentContext = self;
-do
-{
-[familyTree appendFormat:@"- %@ (%p) %@\n", [currentContext MR_workingName], currentContext, (currentContext == self ? @"(*)" : @"")];
-}
-while ((currentContext = [currentContext parentContext]));
-
-return [NSString stringWithString:familyTree];
-}*/
-
 
 
 //MARK - NSManagedObjectModel Extension
@@ -531,6 +623,39 @@ extension NSManagedObject {
         
         return fetchRequest
     }
+    
+    class func count(inContext context: NSManagedObjectContext?, filteredBy filter:NSPredicate?) -> (Int) {
+        var error: NSError?
+        let fetchRequest: NSFetchRequest = request(<#fetchedObjects: NSManagedObject.FetchedObjects#>, inContext: <#NSManagedObjectContext?#>, filteredBy: <#NSPredicate?#>, sortedBy: <#[NSSortDescriptor]#>)
+    }
+    
+    class func count() -> (Int) {
+        return count(inContext: nil, filteredBy: nil)
+    }
+    
+    class func count(inContext context: NSManagedObjectContext) -> (Int) {
+        return count(inContext: context, filteredBy: nil)
+    }
+    
+    class func count(filteredBy filter: NSPredicate) -> (Int) {
+        return count(inContext: nil, filteredBy: filter)
+    }
+    
+    class func any() -> (Bool) {
+        return any(inContext: nil, filteredBy: nil)
+    }
+    
+    class func any(inContext context: NSManagedObjectContext) -> (Bool) {
+        return any(inContext: context, filteredBy: nil)
+    }
+    
+    class func any(inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?) -> (Bool) {
+        return count(inContext: context, filteredBy: filter) == 0
+    }
+    
+    
+    - (id) MR_minValueFor:(NSString *)property;
+    - (id) MR_maxValueFor:(NSString *)property;
 }
 
 
