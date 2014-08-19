@@ -145,23 +145,34 @@ class SugarRecord {
     
     
     // Threading //
-    class func save(inBackground background: Bool, savingBlock: (context: NSManagedObjectContext) -> ()) {
-        // Generating context
-        var privateContext: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-        privateContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        savingBlock(context: privateContext)
-        
-        
+    class func save(inBackground background: Bool, savingBlock: (context: NSManagedObjectContext) -> (), completion: (success: Bool, error: NSError) -> ()) {
+        dispatch_async(SugarRecord.backgroundQueue(), {
+            self.save(true, savingBlock: savingBlock, completion: completion)
+        })
     }
-    /*
-/* For all background saving operations. These calls will be sent to a different thread/queue.
-*/
-+ (void) saveWithBlock:(void(^)(NSManagedObjectContext *localContext))block;
-+ (void) saveWithBlock:(void(^)(NSManagedObjectContext *localContext))block completion:(MRSaveCompletionHandler)completion;
+    
+    class func save(synchronously: Bool, savingBlock: (context: NSManagedObjectContext) -> (), completion: (success: Bool, error: NSError) -> ()) {
+        // Generating context
+        var privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
+        
+        // Executing block
+        if synchronously {
+            privateContext.performBlockAndWait({ () -> Void in
+                if savingBlock != nil  {
+                    savingBlock(context: privateContext)
+                }
+                privateContext.save(true, savingParents: synchronously, completion: completion)
+            })
+        }
+        else {
+            privateContext.performBlock({ () -> Void in
+                if savingBlock != nil  {
+                    savingBlock(context: privateContext)
+                }
+            })
+        }
+    }
 
-/* For saving on the current thread as the caller, only with a seperate context. Useful when you're managing your own threads/queues and need a serial call to create or change data
-*/
-+ (void) saveWithBlockAndWait:(void(^)(NSManagedObjectContext *localContext))block;*/
 }
 
 // MARK - Extension SugarRecord + Error Handling
@@ -281,7 +292,7 @@ extension NSManagedObjectContext {
     }
     func description() -> (String) {
         let onMainThread: String = NSThread.mainThread() ? "Main Thread" : "Background thread"
-        return "<\(NSStringFromClass(self)) (\(self)): \(self.workingName()) on \(onMainThread)"
+        return "<\(object_getClassName(self)) (\(self)): \(self.workingName()) on \(onMainThread)"
         
         //     return [NSString stringWithFormat:@"<%@ (%p): %@> on %@", NSStringFromClass([self class]), self, [self MR_workingName], onMainThread];
         // TODO
@@ -314,10 +325,15 @@ extension NSManagedObjectContext {
         defaultContext!.reset()
     }
     
-    func delete(let objects: NSFastEnumeration) {
+    func delete(let objects: [NSManagedObject]) {
         for object in objects {
             self.deleteObject(object)
         }
+    }
+    
+    ///// SAVING //////
+    func save(synchronously: Bool, savingParents: Bool, completion: (success: Bool, error: NSError) -> ()) {
+        
     }
     
     // Observers
@@ -366,7 +382,7 @@ extension NSManagedObjectContext {
         }
     }
     func stopObserving(context: NSManagedObjectContext) {
-        
+        // TODO: Pending
     }
     
     func mergeChanges(fromNotification notification: NSNotification) {
@@ -651,7 +667,19 @@ extension NSManagedObject {
     
     class func count(inContext context: NSManagedObjectContext?, filteredBy filter:NSPredicate?) -> (Int) {
         var error: NSError?
-        let fetchRequest: NSFetchRequest = request(<#fetchedObjects: NSManagedObject.FetchedObjects#>, inContext: <#NSManagedObjectContext?#>, filteredBy: <#NSPredicate?#>, sortedBy: <#[NSSortDescriptor]#>)
+        
+    }
+    
+    class func executeFetchRequest(fetchRequest: NSFetchRequest, inContext context: NSManagedObjectContext) -> ([NSManagedObject]) {
+        var objects: [NSManagedObject] = [NSManagedObject]()
+        context.performBlockAndWait { () -> Void in
+            var error: NSError? = nil
+            objects = context.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]
+            if objects == nil && error != nil {
+                SugarRecord.handle(error!)
+            }
+        }
+        return objects
     }
     
     class func count() -> (Int) {
@@ -678,9 +706,10 @@ extension NSManagedObject {
         return count(inContext: context, filteredBy: filter) == 0
     }
     
-    
+    /*
     - (id) MR_minValueFor:(NSString *)property;
     - (id) MR_maxValueFor:(NSString *)property;
+    */
 }
 
 
