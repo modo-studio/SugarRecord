@@ -28,6 +28,7 @@ var srKVOPSCMismatchDidDeleteStore: String = "srKVOPSCMismatchDidDeleteStore"
 var srKVOPSCMismatchWillRecreateStore = "KVOPSCMismatchWillRecreateStore"
 var srKVOPSCMismatchDidRecreateStore = "srKVOPSCMismatchDidRecreateStore"
 var srKVOPSCMMismatchCouldNotRecreateStore = "srKVOPSCMMismatchCouldNotRecreateStore"
+var srKVOCleanedUpNotification = "srKVOCleanedUpNotification"
 
 // MARK - SugarRecordLogger
 enum SugarRecordLogger: Int {
@@ -72,7 +73,7 @@ enum SugarRecordLogger: Int {
 // MARK - SugarRecord Methods
 class SugarRecord {
     
-    // Shared singleton instance
+    // Static variables
     struct Static {
         static var onceToken : dispatch_once_t = 0
         static var instance : SugarRecord? = nil
@@ -113,12 +114,25 @@ class SugarRecord {
     
     // CleanUp
     class func cleanUp () -> () {
-        NSManagedObjectContext.cleanUp()
+        self.cleanUpStack()
+        NSNotificationCenter.defaultCenter().postNotificationName(srKVOCleanedUpNotification, object: nil)
     }
+    class func cleanUpStack() {
+        NSManagedObjectContext.cleanUp()
+        NSManagedObjectModel.cleanUp()
+        NSPersistentStoreCoordinator.cleanUp()
+        NSPersistentStore.cleanUp()
+    }
+    
     
     // Returns current stack information
     class func currentStack () -> (stack: String?) {
-        // TODO - Pending review
+        var status: String = "SugarRecord stack \n ------- \n"
+        status += "Model:       \(NSManagedObjectModel.defaultManagedObjectModel())\n"
+        status += "Coordinator:       \(NSPersistentStoreCoordinator.defaultPersistentStoreCoordinator())\n"
+        status += "Store:       \(NSPersistentStore.defaultPersistentStore())\n"
+        status += "Default context:       \(NSManagedObjectContext.defaultContext())\n"
+        status += "Saving context:       \(NSManagedObjectContext.rootSavingContext())\n"
         return nil
     }
     
@@ -145,13 +159,13 @@ class SugarRecord {
     
     
     // Threading //
-    class func save(inBackground background: Bool, savingBlock: (context: NSManagedObjectContext) -> (), completion: (success: Bool, error: NSError) -> ()) {
+    class func save(inBackground background: Bool, savingBlock: (context: NSManagedObjectContext) -> (), completion: (success: Bool, error: NSError?) -> ()) {
         dispatch_async(SugarRecord.backgroundQueue(), {
             self.save(true, savingBlock: savingBlock, completion: completion)
         })
     }
     
-    class func save(synchronously: Bool, savingBlock: (context: NSManagedObjectContext) -> (), completion: (success: Bool, error: NSError) -> ()) {
+    class func save(synchronously: Bool, savingBlock: (context: NSManagedObjectContext) -> (), completion: (success: Bool, error: NSError?) -> ()) {
         // Generating context
         var privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
         
@@ -161,7 +175,7 @@ class SugarRecord {
                 if savingBlock != nil  {
                     savingBlock(context: privateContext)
                 }
-                privateContext.save(true, savingParents: synchronously, completion: completion)
+                privateContext.save(true, savingParents: true, completion: completion)
             })
         }
         else {
@@ -169,6 +183,7 @@ class SugarRecord {
                 if savingBlock != nil  {
                     savingBlock(context: privateContext)
                 }
+                privateContext.save(false, savingParents: true, completion: completion)
             })
         }
     }
@@ -331,9 +346,60 @@ extension NSManagedObjectContext {
         }
     }
     
-    ///// SAVING //////
-    func save(synchronously: Bool, savingParents: Bool, completion: (success: Bool, error: NSError) -> ()) {
+    // Saving
+    func save(synchronously: Bool, savingParents: Bool, completion: (success: Bool, error: NSError?) -> ()) {
+       var hasChanges: Bool = false
+        if self.concurrencyType == .ConfinementConcurrencyType {
+            hasChanges = self.hasChanges
+        }
+        else {
+            self.performBlockAndWait({ () -> Void in
+                hasChanges = self.hasChanges
+            })
+        }
         
+        // If it doesn't have changes there's nothing to do
+        if hasChanges {
+            SugarRecordLogger.logLevelVerbose.log("No changes in context \(self.workingName()) - Not saving")
+            if completion != nil {
+                dispatch_async(dispatch_get_main_queue(), {
+                        completion(success: false, error: nil)
+                    })
+            }
+        }
+        
+        let saveBlock: () -> () = {
+            var saveResult: Bool = false
+            var error: NSError?
+            saveResult = self.save(&error)
+            if error != nil {
+                SugarRecord.handle(error!)
+            }
+            if saveResult && savingParents && self.parentContext {
+                self.parentContext.save(synchronously, savingParents: savingParents, completion: completion)
+            }
+            else {
+                if saveResult {
+                    SugarRecordLogger.logLevelVerbose.log("Finished saving \(self.description)")
+                }
+                if completion != nil {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if completion != nil {
+                            completion(success: saveResult, error: error)
+                        }
+                    })
+                }
+            }
+        }
+        
+        
+        // Saving otherwise
+        if synchronously {
+            self.performBlockAndWait(saveBlock)
+        }
+        else {
+            self.performBlock(saveBlock)
+        }
     }
     
     // Observers
@@ -366,13 +432,13 @@ extension NSManagedObjectContext {
         self.defaultContext()?.mergeChangesFromContextDidSaveNotification(notification)
     }
 
-    ///// CLEANUP /////
+    // Cleanup
     class func cleanUp(){
         self.setRootSavingContext(nil)
         self.setDefaultContext(nil)
     }
     
-    ///// CONTEXTS OBSERVING /////
+    // Contexts oberving
     func startObserving(context: NSManagedObjectContext, inMainThread mainThread: Bool) {
         if mainThread {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("mergeChangesInMainThread:"), name: NSManagedObjectContextDidSaveNotification, object: context)
@@ -382,7 +448,7 @@ extension NSManagedObjectContext {
         }
     }
     func stopObserving(context: NSManagedObjectContext) {
-        // TODO: Pending
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSManagedObjectContextDidSaveNotification, object: nil)
     }
     
     func mergeChanges(fromNotification notification: NSNotification) {
@@ -431,6 +497,11 @@ extension NSManagedObjectModel {
         let modelURL: NSURL = NSURL.fileURLWithPath(path)
         let mom: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: modelURL)
         return mom
+    }
+    
+    // Cleanup
+    class func cleanUp () -> () {
+        Static.defaultManagedObjectModel = nil
     }
 }
 
@@ -534,6 +605,11 @@ extension NSPersistentStoreCoordinator {
             SugarRecord.handle(error!)
         }
     }
+    
+    // Cleanup
+    class func cleanUp () -> () {
+        Static.dPSC = nil
+    }
 }
 
 
@@ -579,6 +655,11 @@ extension NSPersistentStore {
     
     class func defaultStoreUrl() -> (url: NSURL) {
         return storeUrl(forDatabaseName: srDefaultDatabaseName)
+    }
+    
+    // Cleanup
+    class func cleanUp () -> () {
+        Static.dPS = nil
     }
 }
 
