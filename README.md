@@ -122,14 +122,19 @@ background { (context) -> () in
 *Notice that users have been brought in a private context whose life finished when the closure execution ends. What does it supposes? That you can't use these users ManagedObject entities outside the closure because they were only alive in the context that now is death. If you want to use them you should get their objectIDs and bring these entities into the mainContext where you are working*
 #####Background operation saving
 For entities edition it's **highly recommended** to do it in background. The previous method only creates a context to do your operations but it doesn't save the context so if you have modified something there the change won't be reported. If you want to use background private threads for saving lets use save like the example below:
+
 ```swift
 self.save(inBackground: true, savingBlock: { (context) -> () in
-let berlinUsers: [NSManagedObject] = User.find(.all, inContext: nil, attribute: "city", value: "Berlin", sortedBy: "name", ascending: true)
-
+let berlinUsers: [NSManagedObject] = User.find(.all, inContext: context, attribute: "city", value: "Berlin", sortedBy: "name", ascending: true)
+  var berlinUser: User? = berlinUsers.first?
+  if berlinUser != nil {
+    berlinUser.name = "Pedro"
+  }
 }) { (success, error) -> () in
-    
+    println("The user was saved successfuly")
 }
-``
+```
+*Notice that as in the previous example we're using the context passed in the closuer to fetch berlinUsers and taking the first one. Then we modify its name. When the closure execution ends then the created private context is internally saved and it notifies the user calling a completion closure **in the main thread***
 
 ## Keep in mind
 - NSManagedObjectIDs and move objects between contexts
