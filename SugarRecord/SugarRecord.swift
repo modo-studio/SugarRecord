@@ -268,6 +268,11 @@ extension SugarRecord {
      :param: block Closure that is going to be executed
      */
     class func background(block: (context: NSManagedObjectContext) -> ()) {
+        self.save(inBackground: true, savingBlock: { (context) -> () in
+            
+        }) { (success, error) -> () in
+            
+        }
         dispatch_async(SugarRecord.backgroundQueue(), {
             var privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
             privateContext.performBlockAndWait({ () -> Void in
@@ -452,7 +457,6 @@ extension NSManagedObjectContext {
                 })
             }
         }
-        
         
         // Saving otherwise
         if synchronously {
@@ -746,8 +750,8 @@ extension NSManagedObject {
         case lasts(Int)
     }
     
+
     ////// FINDERS //////
-    
     class func find(fetchedObjects: FetchedObjects, var inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> ([NSManagedObject]) {
         let fetchRequest: NSFetchRequest = request(fetchedObjects, inContext: context, filteredBy: filter, sortedBy: sortDescriptors)
         if context == nil && NSManagedObjectContext.defaultContext() != nil {
@@ -819,7 +823,7 @@ extension NSManagedObject {
         if context == nil {
             context = NSManagedObjectContext.defaultContext()
         }
-        let count: Int = context!.countForFetchRequest(fetchRequest(inContext: context), error: &error)
+        let count: Int = context!.countForFetchRequest(request(inContext: context), error: &error)
         SugarRecord.handle(error)
         return count
     }
@@ -856,7 +860,11 @@ extension NSManagedObject {
     ////// REQUESTS //////
     
     // Create and returns the fetch request
+<<<<<<< HEAD
     class func fetchRequest(var inContext context: NSManagedObjectContext?) -> (NSFetchRequest) {
+=======
+    class func request(var inContext context: NSManagedObjectContext?) -> (fetchRequest: NSFetchRequest) {
+>>>>>>> a476f81c80da45ced3d6c960cdabea65d53f3a8e
         if context == nil {
             context = NSManagedObjectContext.defaultContext()
         }
@@ -866,8 +874,13 @@ extension NSManagedObject {
         return request
     }
     
+<<<<<<< HEAD
     class func request(fetchedObjects: FetchedObjects, inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> (NSFetchRequest) {
         var fetchRequest: NSFetchRequest = self.fetchRequest(inContext: context)
+=======
+    class func request(fetchedObjects: FetchedObjects, inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> (fetchRequest: NSFetchRequest) {
+        var fetchRequest: NSFetchRequest = self.request(inContext: context)
+>>>>>>> a476f81c80da45ced3d6c960cdabea65d53f3a8e
         
         // Order
         var revertOrder: Bool = false
