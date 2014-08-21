@@ -183,6 +183,7 @@ SugarRecord is hardly inspired in **Magical Record**. We loved its structure and
 - Quick, a library for testing written in swift https://github.com/modocache/personal-fork-of-Quick
 - CoreData and threads with GCD: http://www.cimgf.com/2011/05/04/core-data-and-threads-without-the-headache/
 - Alamofire, the swift AFNetworking: https://github.com/Alamofire/Alamofire
+- Documentation tips: https://github.com/realm/jazzy
 
 ## License
 The MIT License (MIT)
