@@ -5,8 +5,9 @@
 SugarRecord is a CoreData management library to make it easier work with CoreData. Thanks to SugarRecord you'll be able to start the CoreData stack structure just with a line of code and start working with your database models using closures thanks to the fact that SugarRecord is completly written in Swift.
 
 ### Pending stuff
+- Organize current code status and add comments
 - Fill CocoaDocs documentation using CocoaPods library
-- Generate wiki with some examples.
+- Integrate with iCloud
 - Add tests
 
 ### Index
@@ -31,12 +32,12 @@ In this main class you'll finde usefull static methods linke the following ones:
 - **currentStack():** Returns a String with the current stack information
 - **currentVersion():** Return the current SugarRecord version as a String
 - **defaultDatabaseName():** Returns the default database name that will be used unless you pass your own one in the initialization.
-- 
+
 ### Initialize SugarRecord
 
 To start working with SugarRecord the first thing you have to do is to initialize the entire stack (persistent store, persistent store coordinator, and contexts stack). The simplest way to do it is through the call:
 
-```swift
+```js
 SugarRecord.setupCoreDataStack(true, databaseName: nil)
 ```
 
@@ -62,10 +63,16 @@ As you probably know changes in CoreData are propagated in up direction but not 
 ### Logging levels
 Logging level can be specified to see what's happening behind SugarRecord. To set the **SugarRecordLogger** level you have just to use the static currentLevel var of SugarRecordLogger
 
-```Swift
+```js
 SugarRecordLogger.currentLevel = .logLevelWarm
 ````
-*Note: By default the log level is .logLevelInfo*
+*Note: By default the log level is .logLevelInfo*. The available log levels are:
+
+```js
+enum SugarRecordLogger: Int {
+    case logLevelFatal, logLevelError, logLevelWarm, logLevelInfo, logLevelVerbose
+}
+```
 
 
 ### Contexts
