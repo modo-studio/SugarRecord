@@ -165,6 +165,7 @@ class SugarRecord {
         })
     }
     
+
     class func save(synchronously: Bool, savingBlock: (context: NSManagedObjectContext) -> (), completion: (success: Bool, error: NSError?) -> ()) {
         // Generating context
         var privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
@@ -172,22 +173,26 @@ class SugarRecord {
         // Executing block
         if synchronously {
             privateContext.performBlockAndWait({ () -> Void in
-                if savingBlock != nil  {
-                    savingBlock(context: privateContext)
-                }
+                savingBlock(context: privateContext)
                 privateContext.save(true, savingParents: true, completion: completion)
             })
         }
         else {
             privateContext.performBlock({ () -> Void in
-                if savingBlock != nil  {
-                    savingBlock(context: privateContext)
-                }
+                savingBlock(context: privateContext)
                 privateContext.save(false, savingParents: true, completion: completion)
             })
         }
     }
-
+    
+    class func background(block: (context: NSManagedObjectContext) -> ()) {
+        dispatch_async(SugarRecord.backgroundQueue(), {
+            var privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
+            privateContext.performBlockAndWait({ () -> Void in
+                block(context: privateContext)
+            })
+        })
+    }
 }
 
 // MARK - Extension SugarRecord + Error Handling
@@ -308,9 +313,6 @@ extension NSManagedObjectContext {
     func description() -> (String) {
         let onMainThread: String = NSThread.mainThread() ? "Main Thread" : "Background thread"
         return "<\(object_getClassName(self)) (\(self)): \(self.workingName()) on \(onMainThread)"
-        
-        //     return [NSString stringWithFormat:@"<%@ (%p): %@> on %@", NSStringFromClass([self class]), self, [self MR_workingName], onMainThread];
-        // TODO
     }
     
     func parentChain () -> (String)
@@ -368,7 +370,7 @@ extension NSManagedObjectContext {
             }
         }
         
-        let saveBlock: () -> () = {
+        var saveBlock: () -> () = {
             var saveResult: Bool = false
             var error: NSError?
             saveResult = self.save(&error)
@@ -669,8 +671,7 @@ extension NSManagedObject {
         var entityName: String?
         
         if (self.respondsToSelector(Selector("entityName"))) {
-            //TODO - PENDING TO BE ADDED
-            //entityName = self.performSelector(Selector("entityName"), onThread: NSThread.mainThread(), withObject: nil, waitUntilDone: true))
+            entityName = self.entityName()
         }
         
         // Using class name as entity name
@@ -695,18 +696,70 @@ extension NSManagedObject {
         case lasts(Int)
     }
     
-    ////// FETCH EXECUTING //////
+    ////// FINDERS //////
     
-    class func executeFetchRequest(fetchRequest: NSFetchRequest, inContext context: NSManagedObjectContext) -> ([NSManagedObject]) {
-        var objects: [NSManagedObject] = [NSManagedObject]()
-        context.performBlockAndWait { () -> Void in
-            var error: NSError? = nil
-            objects = context.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]
-            if objects == nil && error != nil {
-                SugarRecord.handle(error!)
-            }
+    class func find(fetchedObjects: FetchedObjects, var inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> (objects: [NSManagedObject]) {
+        let fetchRequest: NSFetchRequest = request(fetchedObjects, inContext: context, filteredBy: filter, sortedBy: sortDescriptors)
+        if context == nil && NSManagedObjectContext.defaultContext() != nil {
+            context = NSManagedObjectContext.defaultContext()!
         }
-        return objects
+        else {
+            assert(true, "Context should be passed or default should be set")
+        }
+        return self.executeFetchRequest(fetchRequest, inContext: context!)
+    }
+    
+    class func find(fetchedObjects: FetchedObjects, var inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, sortedBy: String, ascending: Bool) -> (objects: [NSManagedObject]) {
+        let fetchRequest: NSFetchRequest = request(fetchedObjects, inContext: context, filteredBy: filter, sortedBy: sortedBy, ascending: ascending)
+        if context == nil && NSManagedObjectContext.defaultContext() != nil {
+            context = NSManagedObjectContext.defaultContext()!
+        }
+        else {
+            assert(true, "Context should be passed or default should be set")
+        }
+        return self.executeFetchRequest(fetchRequest, inContext: context!)
+    }
+    
+    class func find(fetchedObjects: FetchedObjects, var inContext context: NSManagedObjectContext?, attribute: String, value: String, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> (objects: [NSManagedObject]) {
+        let fetchRequest: NSFetchRequest = request(fetchedObjects, inContext: context, withAttribute: attribute, andValue: value, sortedBy: sortDescriptors)
+        if context == nil && NSManagedObjectContext.defaultContext() != nil {
+            context = NSManagedObjectContext.defaultContext()!
+        }
+        else {
+            assert(true, "Context should be passed or default should be set")
+        }
+        return self.executeFetchRequest(fetchRequest, inContext: context!)
+    }
+    
+    class func find(fetchedObjects: FetchedObjects, var inContext context: NSManagedObjectContext?, attribute: String, value: String, sortedBy: String, ascending: Bool) -> (objects: [NSManagedObject]) {
+        let fetchRequest: NSFetchRequest = request(fetchedObjects, inContext: context, withAttribute: attribute, andValue: value, sortedBy: sortedBy, ascending: ascending)
+        if context == nil && NSManagedObjectContext.defaultContext() != nil {
+            context = NSManagedObjectContext.defaultContext()!
+        }
+        else {
+            assert(true, "Context should be passed or default should be set")
+        }
+        return self.executeFetchRequest(fetchRequest, inContext: context!)
+    }
+    
+    class func findAndCreate(var inContext context: NSManagedObjectContext?, withAttribute attribute: String, andValue value:String) -> (object: NSManagedObject) {
+        let fetchRequest: NSFetchRequest = request(.first, inContext: context, withAttribute: attribute, andValue: value, sortedBy: nil)
+        if context == nil && NSManagedObjectContext.defaultContext() != nil {
+            context = NSManagedObjectContext.defaultContext()!
+        }
+        else {
+            assert(true, "Context should be passed or default should be set")
+        }
+        let objects:[NSManagedObject] = self.executeFetchRequest(fetchRequest, inContext: context!)
+        // Returning if object exists
+        if objects.count != 0 {
+            return objects[0]
+        }
+        
+        var object: NSManagedObject?
+        object = self.create(inContext: context!)
+        object?.setValue(value, forKey: attribute)
+        return object!
     }
     
     ////// AGGREGATION //////
@@ -748,18 +801,6 @@ extension NSManagedObject {
     enum PropertyType {
         case max(String)
         case min(String)
-    }
-    
-    class func with(level: PropertyType) -> (NSManagedObject) {
-        //TODO
-        switch level {
-        case let .max(String):
-            
-        case let .min(String):
-
-        default:
-            break
-        }
     }
     
     ////// REQUESTS //////
@@ -824,114 +865,111 @@ extension NSManagedObject {
         return request(fetchedObjects, inContext: context, filteredBy: predicate, sortedBy: [NSSortDescriptor(key: sortedBy, ascending: ascending)])
     }
     
-    ////// FINDERS //////
-    
-    class func find(fetchedObjects: FetchedObjects, var inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> (objects: [NSManagedObject]) {
-        let fetchRequest: NSFetchRequest = request(fetchedObjects, inContext: context, filteredBy: filter, sortedBy: sortDescriptors)
-        if context == nil && NSManagedObjectContext.defaultContext() != nil {
-            context = NSManagedObjectContext.defaultContext()!
-        }
-        else {
-            assert(true, "Context should be passed or default should be set")
-        }
-        return self.executeFetchRequest(fetchRequest, inContext: context!)
-    }
-    
-    class func find(fetchedObjects: FetchedObjects, var inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, sortedBy: String, ascending: Bool) -> (objects: [NSManagedObject]) {
-        let fetchRequest: NSFetchRequest = request(fetchedObjects, inContext: context, filteredBy: filter, sortedBy: sortedBy, ascending: ascending)
-        if context == nil && NSManagedObjectContext.defaultContext() != nil {
-            context = NSManagedObjectContext.defaultContext()!
-        }
-        else {
-            assert(true, "Context should be passed or default should be set")
-        }
-        return self.executeFetchRequest(fetchRequest, inContext: context!)
-    }
-    
-    class func find(fetchedObjects: FetchedObjects, var inContext context: NSManagedObjectContext?, withAttribute attribute: String, andValue value:String, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> (objects: [NSManagedObject]) {
-        let fetchRequest: NSFetchRequest = request(fetchedObjects, inContext: context, withAttribute: attribute, andValue: value, sortedBy: sortDescriptors)
-        if context == nil && NSManagedObjectContext.defaultContext() != nil {
-            context = NSManagedObjectContext.defaultContext()!
-        }
-        else {
-            assert(true, "Context should be passed or default should be set")
-        }
-        return self.executeFetchRequest(fetchRequest, inContext: context!)
-    }
-    
-    class func find(fetchedObjects: FetchedObjects, var inContext context: NSManagedObjectContext?, withAttribute attribute: String, andValue value:String, sortedBy: String, ascending: Bool) -> (objects: [NSManagedObject]) {
-        let fetchRequest: NSFetchRequest = request(fetchedObjects, inContext: context, withAttribute: attribute, andValue: value, sortedBy: sortedBy, ascending: ascending)
-        if context == nil && NSManagedObjectContext.defaultContext() != nil {
-            context = NSManagedObjectContext.defaultContext()!
-        }
-        else {
-            assert(true, "Context should be passed or default should be set")
-        }
-        return self.executeFetchRequest(fetchRequest, inContext: context!)
-    }
-    
-    class func findAndCreate(var inContext context: NSManagedObjectContext?, withAttribute attribute: String, andValue value:String) -> (object: NSManagedObject) {
-        let fetchRequest: NSFetchRequest = request(.first, inContext: context, withAttribute: attribute, andValue: value, sortedBy: nil)
-        if context == nil && NSManagedObjectContext.defaultContext() != nil {
-            context = NSManagedObjectContext.defaultContext()!
-        }
-        else {
-            assert(true, "Context should be passed or default should be set")
-        }
-        let objects:[NSManagedObject] = self.executeFetchRequest(fetchRequest, inContext: context!)
-        // Returning if object exists
-        if objects.count != 0 {
-            return objects[0]
-        }
-
-        // TODO
-        /*
-        result = [self MR_createEntityInContext:context];
-        [result setValue:searchValue forKey:attribute];
-        return result;
-        */
-    }
     
     ////// CREATION / DELETION /EDITION OF ENTITIES ////
-    /*
-+ (NSString *) MR_entityName;
+    
+    class func executeFetchRequest(fetchRequest: NSFetchRequest, var inContext context: NSManagedObjectContext?) -> ([NSManagedObject]) {
+        var objects: [NSManagedObject] = [NSManagedObject]()
+        if context == nil && NSManagedObjectContext.defaultContext() != nil {
+            context = NSManagedObjectContext.defaultContext()!
+        }
+        else {
+            assert(true, "Context should be passed or default should be set")
+        }
+        context!.performBlockAndWait { () -> Void in
+            var error: NSError? = nil
+            objects = context!.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]
+            if objects == nil && error != nil {
+                SugarRecord.handle(error!)
+            }
+        }
+        return objects
+    }
+    
+    class func create(inContext context: NSManagedObjectContext) -> (NSManagedObject?) {
+        var entity: NSEntityDescription?
+        entity = self.entityDescriptionInContext(context)
+        if entity == nil {
+            return nil
+        }
+        return NSManagedObject(entity: entity!, insertIntoManagedObjectContext: context)
+    }
+    
+    func delete(var inContext context: NSManagedObjectContext?) -> (Bool) {
+        if context == nil && NSManagedObjectContext.defaultContext() != nil {
+            context = NSManagedObjectContext.defaultContext()!
+        }
+        else {
+            assert(true, "Context should be passed or default should be set")
+        }
+        var error: NSError?
+        var objectInContext: NSManagedObject = context!.existingObjectWithID(self.objectID, error: &error)
+        SugarRecord.handle(error)
+        return true
+    }
+    
+    class func deleteAll(predicate: NSPredicate?, inContext context: NSManagedObjectContext?) -> (Bool) {
+        var request: NSFetchRequest = self.request(.all, inContext: context, filteredBy: predicate, sortedBy: nil)
+        request.returnsObjectsAsFaults = true
+        request.includesPendingChanges = false
+        var objects: [NSManagedObject] = self.executeFetchRequest(request, inContext: context)
+        for object in objects {
+            object.delete(inContext: context)
+        }
+        return true
+    }
+    
+    func to(context: NSManagedObjectContext) -> (NSManagedObject?) {
+        var error: NSError?
+        if self.objectID.temporaryID {
+            let objects: [AnyObject]! = [self]
+            let success: Bool = self.managedObjectContext.obtainPermanentIDsForObjects(objects, error: &error)
+            if !success {
+                SugarRecord.handle(error)
+                return nil
+            }
+        }
+        error = nil
+        let objectInContext: NSManagedObject = context.existingObjectWithID(self.objectID, error: &error)
+        SugarRecord.handle(error)
+        return objectInContext
+    }
 
-+ (NSUInteger) MR_defaultBatchSize;
-+ (void) MR_setDefaultBatchSize:(NSUInteger)newBatchSize;
-
-+ (NSArray *) MR_executeFetchRequest:(NSFetchRequest *)request;
-+ (NSArray *) MR_executeFetchRequest:(NSFetchRequest *)request inContext:(NSManagedObjectContext *)context;
-+ (instancetype) MR_executeFetchRequestAndReturnFirstObject:(NSFetchRequest *)request;
-+ (instancetype) MR_executeFetchRequestAndReturnFirstObject:(NSFetchRequest *)request inContext:(NSManagedObjectContext *)context;
-
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-
-+ (void) MR_performFetch:(NSFetchedResultsController *)controller;
-
-#endif
-
-+ (NSEntityDescription *) MR_entityDescription;
-+ (NSEntityDescription *) MR_entityDescriptionInContext:(NSManagedObjectContext *)context;
-+ (NSArray *) MR_propertiesNamed:(NSArray *)properties;
-+ (NSArray *) MR_propertiesNamed:(NSArray *)properties inContext:(NSManagedObjectContext *)context;
-
-+ (instancetype) MR_createEntity;
-+ (instancetype) MR_createEntityInContext:(NSManagedObjectContext *)context;
-
-- (BOOL) MR_deleteEntity;
-- (BOOL) MR_deleteEntityInContext:(NSManagedObjectContext *)context;
-
-+ (BOOL) MR_deleteAllMatchingPredicate:(NSPredicate *)predicate;
-+ (BOOL) MR_deleteAllMatchingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context;
-
-+ (BOOL) MR_truncateAll;
-+ (BOOL) MR_truncateAllInContext:(NSManagedObjectContext *)context;
-
-+ (NSArray *) MR_ascendingSortDescriptors:(NSArray *)attributesToSortBy;
-+ (NSArray *) MR_descendingSortDescriptors:(NSArray *)attributesToSortBy;
-
-- (instancetype) MR_inContext:(NSManagedObjectContext *)otherContext;
-- (instancetype) MR_inThreadContext;*/
+    class func entityDescription(inContext context: NSManagedObjectContext?) -> (NSEntityDescription) {
+        let entityName: String = self.entityName()
+        return NSEntityDescription.entityForName(entityName, inManagedObjectContext: context!)
+    }
+    
+    class func sortDescriptors(attributes: [String]) -> ([NSSortDescriptor]) {
+        return sortDescriptors(attributes, ascending: true)
+    }
+    
+    class func sortDescriptors(attributes: [String], ascending: Bool) -> ([NSSortDescriptor]) {
+        var sortDescriptors: [NSSortDescriptor] = [NSSortDescriptor]()
+        for attribute in attributes {
+            sortDescriptors.append(NSSortDescriptor(key: attribute, ascending: ascending))
+        }
+        return sortDescriptors
+    }
+    
+    class func properties(named: [String], inContext context: NSManagedObjectContext?) -> ([String: NSPropertyDescription]) {
+        let description: NSEntityDescription = self.entityDescription(inContext: context)
+        var propertiesWanted: [String: NSPropertyDescription] = [String: NSPropertyDescription]()
+        if named.count == 0 {
+            return propertiesWanted
+        }
+        var propDict: [String: NSPropertyDescription] = description.propertiesByName as [String: NSPropertyDescription]!
+        for propertyName in named {
+            let property: NSPropertyDescription? = propDict[propertyName]
+            if property != nil {
+                
+            }
+            else {
+                SugarRecordLogger.logLevelVerbose.log("Property \(propertyName) not found for \(object_getClassName(self))")
+            }
+        }
+        return propDict
+    }
     
 }
 
