@@ -45,15 +45,12 @@ SugarRecord.setupCoreDataStack(true, databaseName: nil)
 Where with automigrating we specify that the initializer executes the migration if needed and in databaseName the sqlite database name (If *nil* the default one is taken).
 The stack of SugarRecord has the following contexts or items:
 
-**| DataBase (PS)|** <-- **|PSCs|** <-- **|Root Saving Context|** <-- **|Default Main Context|**
+![Logo](https://raw.githubusercontent.com/pepibumur/SugarRecord/master/Resources/StackScheme.png)
+
 
 `Root Saving Context` should never be used directly. It's a extra step context to report changes to the persistant coordinator. Below the Root Saving Context it is the Default `Main Context` that will be used for operations in Main Thread like the use of FetchedResultsController or even low load operations that might not lock the MainThread
 
-When operating in other thread instead of the MainThread we keep a similar structure where the bottom context changes. In this case a private one is generated:
-
-**| DataBase (PS)|** <-- **|PSCs|** <-- **|Root Saving Context|** <-- **|Private Saving Context|**
-
-In this case the `Private Saving Context` should only be used for background operations. All changes applied there will be automatically reported to its parent context `Root Saving Context` and stored into the database.
+When operating in other thread instead of the MainThread we keep a similar structure where the bottom context changes. In this case the `Private Saving Context` should only be used for background operations. All changes applied there will be automatically reported to its parent context `Root Saving Context` and stored into the database.
 
 **How does `Default Main Context` know about changes applied from that private context?**
 
