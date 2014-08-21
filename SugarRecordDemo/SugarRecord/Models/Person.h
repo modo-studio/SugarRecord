@@ -14,6 +14,5 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * age;
-@property (nonatomic, retain) UNKNOWN_TYPE email;
 
 @end

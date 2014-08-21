@@ -13,6 +13,5 @@
 
 @dynamic name;
 @dynamic age;
-@dynamic email;
 
 @end
