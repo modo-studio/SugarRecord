@@ -61,22 +61,35 @@ As you probably know changes in CoreData are propagated in up direction but not 
 ### Logging levels
 Logging level can be specified to see what's happening behind SugarRecord. To set the **SugarRecordLogger** level you have just to use the static currentLevel var of SugarRecordLogger
 
-```js
+```swift
 SugarRecordLogger.currentLevel = .logLevelWarm
 ````
 *Note: By default the log level is .logLevelInfo*. The available log levels are:
 
-```js
+```swift
 enum SugarRecordLogger: Int {
     case logLevelFatal, logLevelError, logLevelWarm, logLevelInfo, logLevelVerbose
 }
 ```
+### Examples
+Any other better thing to learn about how to use a library than watching some examples?
+#### Finding Examples
+If you want to fetch items from the database, SugarRecord has a NSManagedObject extension with some useful methods to directly and, passing context, predicates, and sortDescriptors ( most of them optionals ) fetch items from your database. 
+#####- Find the first 20 users in Default Context (Main Context)
+We use the class method find, where the first argument is an enum value `(.all, .first, .last, .firsts(n), .lasts(n))` indicating how many values you want to fetch. We can pase the context but if not passing, the default one is selected and moreover filter and sort results passing an NSPredicate and an array with NSSortDescriptors
+```swift
+let users: [NSManagedObject] = NSManagedObject.find(.firsts(20), inContext: nil, filberedBy: nil, sortedBy: nil)
+```
+
+#####- Find all the users called Pedro
+Using the same as similar method as above, but in this case we can pass directly the filtered argument and value like as shown below:
+```swift
+let pedroUsers: [NSManagedObject] = NSManagedObject.find(.all, inContext: nil, attribute: "name", value: "Pedro", sortedBy: nil, sortDescriptors: nil)
+```
 
 
-### Contexts
 
-
-### Fetching
+### Background operations
 
 ## Notes
 SugarRecord is hardly inspired in **Magical Record**. We loved its structure and we brought some of these ideas to SugarRecord CoreData stack but using sugar Swift syntax and adding more useful methods to make working with CoreData easier.
