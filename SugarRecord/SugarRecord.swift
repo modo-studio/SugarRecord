@@ -186,6 +186,11 @@ class SugarRecord {
     }
     
     class func background(block: (context: NSManagedObjectContext) -> ()) {
+        self.save(inBackground: true, savingBlock: { (context) -> () in
+            
+        }) { (success, error) -> () in
+            
+        }
         dispatch_async(SugarRecord.backgroundQueue(), {
             var privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
             privateContext.performBlockAndWait({ () -> Void in
@@ -393,7 +398,6 @@ extension NSManagedObjectContext {
                 }
             }
         }
-        
         
         // Saving otherwise
         if synchronously {
@@ -696,8 +700,8 @@ extension NSManagedObject {
         case lasts(Int)
     }
     
+
     ////// FINDERS //////
-    
     class func find(fetchedObjects: FetchedObjects, var inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> (objects: [NSManagedObject]) {
         let fetchRequest: NSFetchRequest = request(fetchedObjects, inContext: context, filteredBy: filter, sortedBy: sortDescriptors)
         if context == nil && NSManagedObjectContext.defaultContext() != nil {
@@ -769,7 +773,7 @@ extension NSManagedObject {
         if context == nil {
             context = NSManagedObjectContext.defaultContext()
         }
-        let count: Int = context!.countForFetchRequest(fetchRequest(inContext: context), error: &error)
+        let count: Int = context!.countForFetchRequest(request(inContext: context), error: &error)
         SugarRecord.handle(error)
         return count
     }
@@ -806,7 +810,7 @@ extension NSManagedObject {
     ////// REQUESTS //////
     
     // Create and returns the fetch request
-    class func fetchRequest(var inContext context: NSManagedObjectContext?) -> (fetchRequest: NSFetchRequest) {
+    class func request(var inContext context: NSManagedObjectContext?) -> (fetchRequest: NSFetchRequest) {
         if context == nil {
             context = NSManagedObjectContext.defaultContext()
         }
@@ -817,7 +821,7 @@ extension NSManagedObject {
     }
     
     class func request(fetchedObjects: FetchedObjects, inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> (fetchRequest: NSFetchRequest) {
-        var fetchRequest: NSFetchRequest = self.fetchRequest(inContext: context)
+        var fetchRequest: NSFetchRequest = self.request(inContext: context)
         
         // Order
         var revertOrder: Bool = false
