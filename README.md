@@ -73,23 +73,68 @@ enum SugarRecordLogger: Int {
 ```
 ### Examples
 Any other better thing to learn about how to use a library than watching some examples?
-#### Finding Examples
+####Finding Examples
 If you want to fetch items from the database, SugarRecord has a NSManagedObject extension with some useful methods to directly and, passing context, predicates, and sortDescriptors ( most of them optionals ) fetch items from your database. 
 #####- Find the first 20 users in Default Context (Main Context)
 We use the class method find, where the first argument is an enum value `(.all, .first, .last, .firsts(n), .lasts(n))` indicating how many values you want to fetch. We can pase the context but if not passing, the default one is selected and moreover filter and sort results passing an NSPredicate and an array with NSSortDescriptors
 ```swift
-let users: [NSManagedObject] = NSManagedObject.find(.firsts(20), inContext: nil, filberedBy: nil, sortedBy: nil)
+let users: [NSManagedObject] = User.find(.firsts(20), inContext: nil, filberedBy: nil, sortedBy: nil)
 ```
 
-#####- Find all the users called Pedro
+#####Find all the users called Pedro
 Using the same as similar method as above, but in this case we can pass directly the filtered argument and value like as shown below:
 ```swift
-let pedroUsers: [NSManagedObject] = NSManagedObject.find(.all, inContext: nil, attribute: "name", value: "Pedro", sortedBy: nil, sortDescriptors: nil)
+let pedroUsers: [NSManagedObject] = User.find(.all, inContext: nil, attribute: "name", value: "Pedro", sortedBy: nil, sortDescriptors: nil)
 ```
 
+#####Find all the users from Berlin sorted by Name
+You can even pass the sorting key using its key name as shown below. In this case we are finding all the users from Berlin in the Main Context and sorting them by name ascending.
+```swift
+let berlinUsers: [NSManagedObject] = User.find(.all, inContext: nil, attribute: "city", value: "Berlin", sortedBy: "name", ascending: true)
+```
 
+####Counting examples
+SugarRecord is even prepare to give you the number of entities with or without filters, passing or not the context and even if there's an object of a given class.
+#####Count of cities
+If we want to get a count of a given entity in database we can just use the class method count. It uses the Main Context to fetch this information. If you want to do it in a passed Context you can use it too.
+```swift
+let numberOfCities: Int = City.count()
+```
+#####Count of cities with 2 hospitals
+In this case we are getting the count but filtering the results using a passed predicate. The predicate filters cities with only 2 hospitals.
+```swift
+let numberOfCitiesWithTwoHospitals: Int = City.count(NSPredicate(format: "hospitals == 2", argumentArray: nil))
+```
+#####Check if there is any prize
+Alghough you can get directly if there is any entity using the count and equaling it to zero there is a method too in SugarRecord to do it. Just call any on the entity you want to know about its existence in database and a Bool will be returned with that information
+```swift
+let anyPrice: Bool = Prize.any()
+```
+####Background operations examples
+#####Background operation without saving
+Although all the examples above have been executed in the Main Context (Main Thread) all can be executed in a different thread just passing them in the method as an input paramenters. When the operations have high load it's not recommended to do them in the Main Context but in Private Contexts working on a background thread. You can create these contexts and execute them in background threads but **SugarRecord can handles it**. It has two methods, the first one is for a background execution **without savinv** and the other one includes saving. **How should I do them for example if I want for example get all the users but in background?**
 
-### Background operations
+```swift
+background { (context) -> () in
+  let users: [NSManagedObject] = User.find(.all, inContext: context, filberedBy: nil, sortedBy: nil)     
+}
+```
+*Notice that users have been brought in a private context whose life finished when the closure execution ends. What does it supposes? That you can't use these users ManagedObject entities outside the closure because they were only alive in the context that now is death. If you want to use them you should get their objectIDs and bring these entities into the mainContext where you are working*
+#####Background operation saving
+For entities edition it's **highly recommended** to do it in background. The previous method only creates a context to do your operations but it doesn't save the context so if you have modified something there the change won't be reported. If you want to use background private threads for saving lets use save like the example below:
+```swift
+self.save(inBackground: true, savingBlock: { (context) -> () in
+let berlinUsers: [NSManagedObject] = User.find(.all, inContext: nil, attribute: "city", value: "Berlin", sortedBy: "name", ascending: true)
+
+}) { (success, error) -> () in
+    
+}
+``
+
+## Keep in mind
+- NSManagedObjectIDs and move objects between contexts
+- Not referencing objects
+
 
 ## Notes
 SugarRecord is hardly inspired in **Magical Record**. We loved its structure and we brought some of these ideas to SugarRecord CoreData stack but using sugar Swift syntax and adding more useful methods to make working with CoreData easier.
