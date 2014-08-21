@@ -1,8 +1,6 @@
 ![Logo](https://raw.githubusercontent.com/pepibumur/SugarRecord/master/Resources/Slogan.png)
 ![image](http://cl.ly/image/3J052s402j0L/Image%202014-08-21%20at%209.22.56%20am.png)
 
-## Installation
-
 ## What is SugarRecord?
 SugarRecord is a CoreData management library to make it easier work with CoreData. Thanks to SugarRecord you'll be able to start the CoreData stack structure just with a line of code and start working with your database models using closures thanks to the fact that SugarRecord is completly written in Swift.
 
@@ -14,6 +12,9 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 - Add tests
 
 ### Index
+- [Features](#features)
+  - [Planned for 1.0 Release](#planned-for-0.2-release)
+- [Requirements](#requirements)
 - [Installation](#installation)
 - [How to use SugarRecord](#how-to-use-sugarrecord)
   - [Library useful methods](#library-useful-methods)
@@ -30,6 +31,32 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
   - [Useful Swift Resources](#useful-swift-resources)
 - [Contribute](#contribute)
 - [License](#license)
+
+## Features
+
+- Logging levels
+- Asynchronous operations using closures
+- Easy finding methods.
+
+### Planned for 0.2 Release
+
+_* Scheduled to coincide with Swift 1.0 release_
+
+- Integration with iCloud
+- 100% Unit Test Coverage
+- Complete Documentation in CocoaDocs
+
+## Requirements
+
+- Xcode 6
+- iOS 7.0+ / Mac OS X 10.9+
+
+## Installation
+
+_The infrastructure and best practices for distributing Swift libraries is currently being developed by the developer community during this beta period of the language and Xcode. In the meantime, you can simply add SugarRecord as a git submodule, and drag the `SugarRecord.swift` file into your Xcode project._
+
+---
+
 
 ## How to use SugarRecord
 ### Library useful methods
