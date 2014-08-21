@@ -1,6 +1,8 @@
 ![Logo](https://raw.githubusercontent.com/pepibumur/SugarRecord/master/Resources/Slogan.png)
 ![image](http://cl.ly/image/3J052s402j0L/Image%202014-08-21%20at%209.22.56%20am.png)
 
+## Installation
+
 ## What is SugarRecord?
 SugarRecord is a CoreData management library to make it easier work with CoreData. Thanks to SugarRecord you'll be able to start the CoreData stack structure just with a line of code and start working with your database models using closures thanks to the fact that SugarRecord is completly written in Swift.
 
@@ -12,6 +14,7 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 - Add tests
 
 ### Index
+- [Installation](#installation)
 - [How to use SugarRecord](#how-to-use-sugarrecord)
   - [Library useful methods](#library-useful-methods)
   - [Initialize SugarRecord](#initialize-sugarrecord)
