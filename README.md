@@ -16,12 +16,17 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
   - [Library useful methods](#library-useful-methods)
   - [Initialize SugarRecord](#initialize-sugarrecord)
   - [Logging levels](#logging-levels)
-  - [Contexts](#contexts)
-  - [Fetching](#fetching)
+  - [Examples](#examples)
+    - [Finding examples](#finding-examples)
+    - [Counting examples](#counting-examples)
+    - [Background Operations Examples](#background-operations-examples)
+      - [Background operation without saving](#background-operation-without-saving)
+      - [Background operation saving](#background-operation-saving)
+- [Keep in mind](#keep-in-mind)
 - [Notes](#notes)
   - [Useful Swift Resources](#useful-swift-resources)
 - [Contribute](#contribute)
-
+- [License](#license)
 
 ## How to use SugarRecord
 ### Library useful methods
@@ -140,7 +145,6 @@ let berlinUsers: [NSManagedObject] = User.find(.all, inContext: context, attribu
 - NSManagedObjectIDs and move objects between contexts
 - Not referencing objects
 
-
 ## Notes
 SugarRecord is hardly inspired in **Magical Record**. We loved its structure and we brought some of these ideas to SugarRecord CoreData stack but using sugar Swift syntax and adding more useful methods to make working with CoreData easier.
 
@@ -149,4 +153,31 @@ SugarRecord is hardly inspired in **Magical Record**. We loved its structure and
 - Quick, a library for testing written in swift https://github.com/modocache/personal-fork-of-Quick
 - CoreData and threads with GCD: http://www.cimgf.com/2011/05/04/core-data-and-threads-without-the-headache/
 
+## License
+The MIT License (MIT)
+
+Copyright (c) <2014> <Pedro Piñera>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
 ## Contribute
+SugarRecord is provided free of charge. If you want to support it:
+- You can report your issues directly through Github repo issues page. I'll try to fix them as soon as possible and listen your suggestion about how to improve the library.
+- You can post your doubts in StackOverFlow too. I'll be subscribed to updates in StackOverFlow related to SugarRecord tag.
+- We are opened to new PR introducing features to the implementation of fixing bugs in code. We can make SugarRecord even more sugar than it's right know. Contribute with it :smile:
