@@ -8,7 +8,6 @@
 
 import UIKit
 import XCTest
-import SugarRecord
 import CoreData
 
 class SugarRecordSetupTests: XCTestCase {

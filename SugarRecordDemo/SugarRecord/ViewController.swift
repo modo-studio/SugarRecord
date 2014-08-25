@@ -13,7 +13,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        // Initializing stack
         SugarRecord.setupCoreDataStack(true, databaseName: nil)
+        
+        // Creating a person
+        SugarRecord.save(inBackground: true, savingBlock: { (context) -> () in
+            let pedro: Person = Person.create(inContext: context) as Person
+            pedro.name = "Pedro"
+            pedro.age = "22"
+            }) { (success, error) -> () in
+                println("The user was saved successfuly")
+        }
     }
 
     override func didReceiveMemoryWarning() {

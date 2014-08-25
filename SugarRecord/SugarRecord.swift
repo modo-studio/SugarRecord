@@ -122,7 +122,7 @@ class SugarRecord {
      */
     class func backgroundQueue() -> (dispatch_queue_t) {
         if Static.backgroundQueue == nil {
-            Static.backgroundQueue = dispatch_queue_create(srBackgroundQueueName, 0)
+            Static.backgroundQueue = dispatch_queue_create(srBackgroundQueueName, nil)
         }
         return Static.backgroundQueue!
     }
@@ -722,16 +722,7 @@ extension NSPersistentStore {
 // MARK - NSManagedObject - SUGARRECORD extension
 extension NSManagedObject {
     class func entityName() -> (String) {
-        var entityName: String?
-        
-        if (self.respondsToSelector(Selector("entityName"))) {
-            entityName = self.entityName()
-        }
-        
-        // Using class name as entity name
-        if entityName == nil {
-            entityName = NSStringFromClass(self)
-        }
+        var entityName: String? = NSStringFromClass(self)
         return entityName!
     }
     
