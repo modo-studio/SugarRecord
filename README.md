@@ -5,11 +5,10 @@
 SugarRecord is a CoreData management library to make it easier work with CoreData. Thanks to SugarRecord you'll be able to start the CoreData stack structure just with a line of code and start working with your database models using closures thanks to the fact that SugarRecord is completly written in Swift.
 
 ### Pending stuff
-- Organize current code status and add comments
 - Review closures retaining
 - Methods to get fetchedResultsController.
-- Explain in README.md how to use it with git submodule
-- Fill CocoaDocs documentation using CocoaPods library
+- Explain how to integrate it in your project
+- Generate documentation with the ruby script
 - Integrate with iCloud
 - Add tests
 - Add Error Handling
