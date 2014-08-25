@@ -189,7 +189,7 @@ extension SugarRecord {
             databaseName = srDefaultDatabaseName
         }
         if !databaseName.hasSuffix("sqlite") {
-            databaseName = databaseName.stringByAppendingPathExtension("sqlite")
+            databaseName = databaseName.stringByAppendingPathExtension("sqlite")!
         }
         return databaseName
     }
@@ -365,7 +365,7 @@ extension NSManagedObjectContext {
     class func initializeContextsStack (persistentStoreCoordinator: NSPersistentStoreCoordinator)  {
         SugarRecordLogger.logLevelInfo.log("Creating contexts stack")
         var rootContext: NSManagedObjectContext = self.newContext(nil, persistentStoreCoordinator: persistentStoreCoordinator)
-        self.setRootSavingContext(rootSavingContext()!)
+        self.setRootSavingContext(rootContext)
         var defaultContext: NSManagedObjectContext = self.newContext(rootContext, persistentStoreCoordinator: nil)
     }
     
@@ -374,15 +374,15 @@ extension NSManagedObjectContext {
         self.userInfo.setObject(workingName, forKey: srContextWorkingNameKey)
     }
     func workingName() -> (String) {
-        var workingName: String = self.userInfo.objectForKey(srContextWorkingNameKey) as String
-        if workingName.isEmpty {
+        var workingName: String? =   self.userInfo.objectForKey(srContextWorkingNameKey)  as? String
+        if workingName == nil {
             workingName = "Unnamed context"
         }
-        return workingName
+        return workingName!
     }
     func description() -> (String) {
         let onMainThread: String = (NSThread.mainThread() != nil) ? "Main Thread" : "Background thread"
-        return "<\(object_getClassName(self)) (\(self)): \(self.workingName()) on \(onMainThread)"
+        return "<\(object_getClassName(self)): \(self.workingName()) on \(onMainThread)"
     }
     
     func parentChain () -> (String)
@@ -860,7 +860,7 @@ extension NSManagedObject {
     ////// REQUESTS //////
     
     // Create and returns the fetch request
-    class func request(var inContext context: NSManagedObjectContext?) -> (fetchRequest: NSFetchRequest) {
+    class func request(var inContext context: NSManagedObjectContext?) -> (NSFetchRequest) {
         if context == nil {
             context = NSManagedObjectContext.defaultContext()
         }
@@ -871,7 +871,7 @@ extension NSManagedObject {
     }
     
 
-    class func request(fetchedObjects: FetchedObjects, inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> (fetchRequest: NSFetchRequest) {
+    class func request(fetchedObjects: FetchedObjects, inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> (NSFetchRequest) {
         var fetchRequest: NSFetchRequest = self.request(inContext: context)
         
         // Order
