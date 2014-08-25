@@ -189,7 +189,7 @@ extension SugarRecord {
             databaseName = srDefaultDatabaseName
         }
         if !databaseName.hasSuffix("sqlite") {
-            databaseName = databaseName.stringByAppendingPathExtension("sqlite")!
+            databaseName = databaseName.stringByAppendingPathExtension("sqlite")
         }
         return databaseName
     }
@@ -860,11 +860,7 @@ extension NSManagedObject {
     ////// REQUESTS //////
     
     // Create and returns the fetch request
-<<<<<<< HEAD
-    class func fetchRequest(var inContext context: NSManagedObjectContext?) -> (NSFetchRequest) {
-=======
     class func request(var inContext context: NSManagedObjectContext?) -> (fetchRequest: NSFetchRequest) {
->>>>>>> a476f81c80da45ced3d6c960cdabea65d53f3a8e
         if context == nil {
             context = NSManagedObjectContext.defaultContext()
         }
@@ -874,13 +870,9 @@ extension NSManagedObject {
         return request
     }
     
-<<<<<<< HEAD
-    class func request(fetchedObjects: FetchedObjects, inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> (NSFetchRequest) {
-        var fetchRequest: NSFetchRequest = self.fetchRequest(inContext: context)
-=======
+
     class func request(fetchedObjects: FetchedObjects, inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> (fetchRequest: NSFetchRequest) {
         var fetchRequest: NSFetchRequest = self.request(inContext: context)
->>>>>>> a476f81c80da45ced3d6c960cdabea65d53f3a8e
         
         // Order
         var revertOrder: Bool = false
