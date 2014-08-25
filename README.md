@@ -154,7 +154,7 @@ let anyPrice: Bool = Prize.any()
 Although all the examples above have been executed in the Main Context (Main Thread) all can be executed in a different thread just passing them in the method as an input paramenters. When the operations have high load it's not recommended to do them in the Main Context but in Private Contexts working on a background thread. You can create these contexts and execute them in background threads but **SugarRecord can handles it**. It has two methods, the first one is for a background execution **without savinv** and the other one includes saving. **How should I do them for example if I want for example get all the users but in background?**
 
 ```swift
-background { (context) -> () in
+SugarRecord.background { (context) -> () in
   let users: [NSManagedObject] = User.find(.all, inContext: context, filberedBy: nil, sortedBy: nil)     
 }
 ```
@@ -163,7 +163,7 @@ background { (context) -> () in
 For entities edition it's **highly recommended** to do it in background. The previous method only creates a context to do your operations but it doesn't save the context so if you have modified something there the change won't be reported. If you want to use background private threads for saving lets use save like the example below:
 
 ```swift
-self.save(inBackground: true, savingBlock: { (context) -> () in
+SugarRecord.save(inBackground: true, savingBlock: { (context) -> () in
 let berlinUsers: [NSManagedObject] = User.find(.all, inContext: context, attribute: "city", value: "Berlin", sortedBy: "name", ascending: true)
   var berlinUser: User? = berlinUsers.first?
   if berlinUser != nil {
