@@ -114,6 +114,22 @@ class SugarRecord {
         NSPersistentStoreCoordinator.setDefaultPersistentStoreCoordinator(psc!)
         NSManagedObjectContext.initializeContextsStack(psc!)
     }
+
+    /**
+     Removes the database with the given name
+
+     :param: databaseName String of the database to be deleted
+     */
+    class func removeDatabaseNamed(databaseName: String) -> (Bool) {
+        let url: NSURL = NSPersistentStore.storeUrl(forDatabaseName: databaseName)
+        let fileManager: NSFileManager = NSFileManager.defaultManager()
+        var error: NSError?
+        fileManager.removeItemAtPath(url.absoluteString, error: &error)
+        if error != nil {
+            SugarRecordLogger.logLevelInfo.log("Data base deleted |\(databaseName)|")
+        }
+        return error != nil
+    }
     
     /**
      Returns the background queue for background operations with SugarRecord
@@ -610,6 +626,7 @@ extension NSPersistentStoreCoordinator {
         options[NSSQLitePragmasOption] = sqliteOptions
         return sqliteOptions
     }
+
 
     // Database creation
     func addDatabase(databaseName: String, withOptions options: [NSObject: AnyObject]?) -> (NSPersistentStore){

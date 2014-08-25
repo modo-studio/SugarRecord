@@ -1,32 +1,31 @@
-//
-//  SugarRecordTests.swift
-//  SugarRecordTests
-//
-//  Created by Pedro Piñera Buendía on 03/08/14.
-//  Copyright (c) 2014 PPinera. All rights reserved.
-//
+// Swift
+// Tests with Quick: https://github.com/Quick/Quick
 
-import UIKit
-import XCTest
-import CoreData
+import Quick
+import Nimble
 
-class SugarRecordSetupTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testSingletonInstance() {
-        //XCTAssertNotNil(SugarRecord.sharedInstance, "Sugar record shared instance should not be nil")
-    }
-    
-    func testSetupStoreCoordinatorIfNotExisting() {
-        //SugarRecord.setupCoreDataStack(false, databaseName: "testDatabase")
-        //XCTAssertNotNil(NSPersistentStoreCoordinator.defaultPersistentStoreCoordinator(), "Default persistent store coordinator should be not nil after the initial setup")
+class TableOfContentsSpec: QuickSpec {
+    override func spec() {
+        beforeSuite {
+            // Creating database stack
+            SugarRecord.setupCoreDataStack(true, databaseName: "testDatabase")
+        }
+        
+        afterSuite {
+            // Removing database
+            let success: Bool = SugarRecord.removeDatabaseNamed("testDatabase")
+        }
+
+        describe("the table of contents below") {
+            it("has everything you need to get started") {
+                expect(3).to(equal(3))
+            }
+            
+            context("if it doesn't have what you're looking for") {
+                it("needs to be updated") {
+                    expect(3).to(equal(3))
+                }
+            }
+        }
     }
 }
-
