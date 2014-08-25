@@ -89,10 +89,10 @@ enum SugarRecordLogger: Int {
  */
 class SugarRecord {
         struct Static {
-        static var onceToken : dispatch_once_t = 0
-        static var instance : SugarRecord? = nil
-        static var backgroundQueue : dispatch_queue_t? = nil
-    }
+            static var onceToken : dispatch_once_t = 0
+            static var instance : SugarRecord? = nil
+            static var backgroundQueue : dispatch_queue_t? = nil
+        }
     
     /**
      Setup the contexts stack (including the persistent store coordinator)

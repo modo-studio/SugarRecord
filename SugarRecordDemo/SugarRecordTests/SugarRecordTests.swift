@@ -16,16 +16,20 @@ class TableOfContentsSpec: QuickSpec {
             let success: Bool = SugarRecord.removeDatabaseNamed("testDatabase")
         }
 
-        describe("the table of contents below") {
-            it("has everything you need to get started") {
-                expect(3).to(equal(3))
-            }
+        describe("when initializing core", { () -> () in
+
+        });
+        
+        describe("deleting the database", { () -> () in
             
-            context("if it doesn't have what you're looking for") {
-                it("needs to be updated") {
-                    expect(3).to(equal(3))
-                }
-            }
-        }
+        })
+        
+        describe("cleaning up", { () -> () in
+            
+        })
+        
+        describe("cleaning up the stack", { () -> () in
+            
+        })
     }
 }
