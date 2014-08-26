@@ -7,13 +7,11 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 ### Pending stuff
 - Review closures retaining
 - Methods to get fetchedResultsController.
-- Explain how to integrate it in your project
+- Explain how to integrate it in your project (git submodule)
 - Generate documentation with the ruby script
 - Integrate with iCloud
 - Add tests
-- Add Error Handling
 - Update the wrong stack image
-- Split library into files
 
 ### Index
 - [Features](#features)
