@@ -9,6 +9,14 @@
 import Foundation
 
 extension NSManagedObject {
+    /**
+     Execute a fetchRequest in the given context
+
+     :param: NSFetchRequest to be executed
+     :param: context NSManagedObjectContext where the FetchRequest is going to be executed
+
+     :returns: [NSManagedObject] with round objects
+     */
     class func executeFetchRequest(fetchRequest: NSFetchRequest, var inContext context: NSManagedObjectContext?) -> ([NSManagedObject]) {
         var objects: [NSManagedObject] = [NSManagedObject]()
         if context == nil && NSManagedObjectContext.defaultContext() != nil {
@@ -26,16 +34,30 @@ extension NSManagedObject {
         }
         return objects
     }
-    
+
+    /**
+     Create a new object in the given context
+
+     :param: context NSManagedObjectContext where the object is going to be created
+
+     :returns: NSManagedObject created
+     */
     class func create(inContext context: NSManagedObjectContext) -> (NSManagedObject?) {
         var entity: NSEntityDescription?
-        entity = self.entityDescriptionInContext(context)
+        entity = self.entityDescription(inContext: context)
         if entity == nil {
             return nil
         }
         return NSManagedObject(entity: entity!, insertIntoManagedObjectContext: context)
     }
     
+    /**
+     Delete a given object in the passed context (It doesn't matter if it's in a different context)
+
+     :param: context   NSManagedObjectContext where the object is going to be deleted
+
+     :returns: Bool if the deleton was successful
+     */
     func delete(var inContext context: NSManagedObjectContext?) -> (Bool) {
         if context == nil && NSManagedObjectContext.defaultContext() != nil {
             context = NSManagedObjectContext.defaultContext()!
@@ -49,6 +71,14 @@ extension NSManagedObject {
         return true
     }
     
+    /**
+     Delete all the filtered objects in the context
+
+     :param: predicate NSPredicate with the filter
+     :param: context   NSManagedObjectContext where the objects are going to be deleted
+
+     :returns: Bool if the deleton was successful
+     */
     class func deleteAll(predicate: NSPredicate?, inContext context: NSManagedObjectContext?) -> (Bool) {
         var request: NSFetchRequest = self.request(.all, inContext: context, filteredBy: predicate, sortedBy: nil)
         request.returnsObjectsAsFaults = true
@@ -60,6 +90,13 @@ extension NSManagedObject {
         return true
     }
     
+    /**
+     Move the object to another contenxt
+
+     :param: context NSManagedObjectContext where the object is going to be moved to
+
+     :returns: NSManagedObject in the new context
+     */
     func to(context: NSManagedObjectContext) -> (NSManagedObject?) {
         var error: NSError?
         if self.objectID.temporaryID {
