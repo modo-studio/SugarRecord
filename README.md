@@ -189,7 +189,7 @@ SugarRecord is hardly inspired in **Magical Record**. We loved its structure and
 - Jazzy, a library to generate documentation: https://github.com/realm/jazzy
 - How to document your project: http://www.raywenderlich.com/66395/documenting-in-xcode-with-headerdoc-tutorial
 - Tests intersting articles: http://www.objc.io/issue-15/
-
+- iCloud + CoreData (objc.io): http://www.objc.io/issue-10/icloud-core-data.html
 ## License
 The MIT License (MIT)
 
