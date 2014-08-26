@@ -13,6 +13,7 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 - Add tests
 - Add Error Handling
 - Update the wrong stack image
+- Split library into files
 
 ### Index
 - [Features](#features)
@@ -190,6 +191,7 @@ SugarRecord is hardly inspired in **Magical Record**. We loved its structure and
 - Alamofire, the swift AFNetworking: https://github.com/Alamofire/Alamofire
 - Jazzy, a library to generate documentation: https://github.com/realm/jazzy
 - How to document your project: http://www.raywenderlich.com/66395/documenting-in-xcode-with-headerdoc-tutorial
+- Tests intersting articles: http://www.objc.io/issue-15/
 
 ## License
 The MIT License (MIT)
