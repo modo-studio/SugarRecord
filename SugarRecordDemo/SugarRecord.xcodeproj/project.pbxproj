@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D42DFD219AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFD119AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift */; };
+		3D42DFDC19AD20AD008BFDE6 /* SugarRecord+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFDB19AD20AD008BFDE6 /* SugarRecord+Operations.swift */; };
+		3D42DFDE19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFDD19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift */; };
+		3D42DFE019AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFDF19AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift */; };
+		3D42DFE219AD22DB008BFDE6 /* NSManagedObjectContext+Observing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFE119AD22DB008BFDE6 /* NSManagedObjectContext+Observing.swift */; };
+		3D42DFE419AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFE319AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift */; };
 		3D43C1B2199DE478004FC0E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43C1B1199DE478004FC0E5 /* Person.m */; };
 		3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DD198E826E00268EB3 /* AppDelegate.swift */; };
 		3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */; };
@@ -88,6 +94,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D42DFD119AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+ErrorHandler.swift"; sourceTree = "<group>"; };
+		3D42DFDB19AD20AD008BFDE6 /* SugarRecord+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+Operations.swift"; sourceTree = "<group>"; };
+		3D42DFDD19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Stack.swift"; sourceTree = "<group>"; };
+		3D42DFDF19AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Operations.swift"; sourceTree = "<group>"; };
+		3D42DFE119AD22DB008BFDE6 /* NSManagedObjectContext+Observing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Observing.swift"; sourceTree = "<group>"; };
+		3D42DFE319AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Debug.swift"; sourceTree = "<group>"; };
 		3D43C1AF199DE478004FC0E5 /* SugarRecord-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecord-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D43C1B0199DE478004FC0E5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = Models/Person.h; sourceTree = "<group>"; };
 		3D43C1B1199DE478004FC0E5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = Models/Person.m; sourceTree = "<group>"; };
@@ -195,6 +207,12 @@
 			isa = PBXGroup;
 			children = (
 				3DBC55FE198E82F500268EB3 /* SugarRecord.swift */,
+				3D42DFD119AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift */,
+				3D42DFDB19AD20AD008BFDE6 /* SugarRecord+Operations.swift */,
+				3D42DFDD19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift */,
+				3D42DFE319AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift */,
+				3D42DFDF19AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift */,
+				3D42DFE119AD22DB008BFDE6 /* NSManagedObjectContext+Observing.swift */,
 			);
 			name = SugarRecord;
 			path = ../../SugarRecord;
@@ -398,11 +416,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D42DFE019AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift in Sources */,
+				3D42DFDE19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift in Sources */,
 				3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */,
 				3DBC55FF198E82F500268EB3 /* SugarRecord.swift in Sources */,
 				3D43C1B2199DE478004FC0E5 /* Person.m in Sources */,
+				3D42DFDC19AD20AD008BFDE6 /* SugarRecord+Operations.swift in Sources */,
+				3D42DFE419AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift in Sources */,
 				3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */,
+				3D42DFE219AD22DB008BFDE6 /* NSManagedObjectContext+Observing.swift in Sources */,
 				3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */,
+				3D42DFD219AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
