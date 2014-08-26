@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D0FE4AD19ABCC9600E1CEE7 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0FE4A419ABCC6500E1CEE7 /* Nimble.framework */; };
 		3D0FE4AE19ABCC9E00E1CEE7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0FE49419ABCC3F00E1CEE7 /* Quick.framework */; };
 		3D43C1B2199DE478004FC0E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43C1B1199DE478004FC0E5 /* Person.m */; };
 		3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DD198E826E00268EB3 /* AppDelegate.swift */; };
@@ -18,6 +17,7 @@
 		3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55F3198E826E00268EB3 /* SugarRecordTests.swift */; };
 		3DBC55FF198E82F500268EB3 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55FE198E82F500268EB3 /* SugarRecord.swift */; };
 		3DBC5603198E844B00268EB3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
+		3DBDB0CC19AC652900FA3F6C /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0FE4A419ABCC6500E1CEE7 /* Nimble.framework */; };
 		3DD010AF1990379D00673854 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55FE198E82F500268EB3 /* SugarRecord.swift */; };
 /* End PBXBuildFile section */
 
@@ -120,8 +120,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DBDB0CC19AC652900FA3F6C /* Nimble.framework in Frameworks */,
 				3D0FE4AE19ABCC9E00E1CEE7 /* Quick.framework in Frameworks */,
-				3D0FE4AD19ABCC9600E1CEE7 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

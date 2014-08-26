@@ -88,11 +88,11 @@ enum SugarRecordLogger: Int {
  *  Main Library class with some useful constants and methods
  */
 class SugarRecord {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0
-            static var instance : SugarRecord? = nil
-            static var backgroundQueue : dispatch_queue_t? = nil
-        }
+    struct Static {
+        static var onceToken : dispatch_once_t = 0
+        static var instance : SugarRecord? = nil
+        static var backgroundQueue : dispatch_queue_t? = nil
+    }
     
     /**
      Setup the contexts stack (including the persistent store coordinator)
@@ -195,7 +195,7 @@ extension SugarRecord {
             
      :returns: String with the default name (ended in .sqlite)
      */
-    private class func defaultDatabaseName () -> (String){
+    class func defaultDatabaseName () -> (String){
         var databaseName: String
         let bundleName: AnyObject? = NSBundle.mainBundle().infoDictionary[kCFBundleNameKey]
         if let name = bundleName as? String {
