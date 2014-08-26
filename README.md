@@ -54,6 +54,7 @@ _* Scheduled to coincide with Swift 1.0 release_
 
 - Xcode 6
 - iOS 7.0+ / Mac OS X 10.9+
+- If you have troubles with the compilation try to clean the DerivedData Xcode directory: `rm -rf ~/Library/Developer/Xcode/DerivedData/`
 
 ## Installation
 
