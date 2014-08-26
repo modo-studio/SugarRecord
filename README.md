@@ -54,6 +54,7 @@ _* Scheduled to coincide with Swift 1.0 release_
 
 - Xcode 6
 - iOS 7.0+ / Mac OS X 10.9+
+- If you have troubles with the compilation try to clean the DerivedData Xcode directory: `rm -rf ~/Library/Developer/Xcode/DerivedData/`
 
 ## Installation
 
@@ -212,6 +213,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+## Who uses SugarRecord?
+If you are currently using SugarRecord in your app, let me know and I'll add it to the list:
 
 ## Contribute
 SugarRecord is provided free of charge. If you want to support it:
