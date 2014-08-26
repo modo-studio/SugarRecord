@@ -214,6 +214,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
+## Who uses SugarRecord?
+If you are currently using SugarRecord in your app, let me know and I'll add it to the list:
+
 ## Contribute
 SugarRecord is provided free of charge. If you want to support it:
 - You can report your issues directly through Github repo issues page. I'll try to fix them as soon as possible and listen your suggestion about how to improve the library.
