@@ -13,6 +13,15 @@
 		3D42DFE019AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFDF19AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift */; };
 		3D42DFE219AD22DB008BFDE6 /* NSManagedObjectContext+Observing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFE119AD22DB008BFDE6 /* NSManagedObjectContext+Observing.swift */; };
 		3D42DFE419AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFE319AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift */; };
+		3D42DFE619AD25BE008BFDE6 /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFE519AD25BE008BFDE6 /* SugarRecordLogger.swift */; };
+		3D42DFE819AD25FC008BFDE6 /* NSManagedObjectModel+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFE719AD25FC008BFDE6 /* NSManagedObjectModel+Stack.swift */; };
+		3D42DFEA19AD279A008BFDE6 /* NSPersistentStoreCoordinator+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFE919AD279A008BFDE6 /* NSPersistentStoreCoordinator+Stack.swift */; };
+		3D42DFEC19AD27D6008BFDE6 /* NSPersistentStore+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFEB19AD27D6008BFDE6 /* NSPersistentStore+Stack.swift */; };
+		3D42DFEE19AD28C5008BFDE6 /* NSManagedObject+FetchRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFED19AD28C5008BFDE6 /* NSManagedObject+FetchRequests.swift */; };
+		3D42DFF019AD28F1008BFDE6 /* NSManagedObject+Finders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFEF19AD28F1008BFDE6 /* NSManagedObject+Finders.swift */; };
+		3D42DFF219AD2939008BFDE6 /* NSManagedObject+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFF119AD2939008BFDE6 /* NSManagedObject+Operations.swift */; };
+		3D42DFF419AD2945008BFDE6 /* NSManagedObject+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFF319AD2945008BFDE6 /* NSManagedObject+Stack.swift */; };
+		3D42DFF619AD29C4008BFDE6 /* NSManagedObject+Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFF519AD29C4008BFDE6 /* NSManagedObject+Counters.swift */; };
 		3D43C1B2199DE478004FC0E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43C1B1199DE478004FC0E5 /* Person.m */; };
 		3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DD198E826E00268EB3 /* AppDelegate.swift */; };
 		3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */; };
@@ -100,6 +109,15 @@
 		3D42DFDF19AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Operations.swift"; sourceTree = "<group>"; };
 		3D42DFE119AD22DB008BFDE6 /* NSManagedObjectContext+Observing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Observing.swift"; sourceTree = "<group>"; };
 		3D42DFE319AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Debug.swift"; sourceTree = "<group>"; };
+		3D42DFE519AD25BE008BFDE6 /* SugarRecordLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordLogger.swift; sourceTree = "<group>"; };
+		3D42DFE719AD25FC008BFDE6 /* NSManagedObjectModel+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectModel+Stack.swift"; sourceTree = "<group>"; };
+		3D42DFE919AD279A008BFDE6 /* NSPersistentStoreCoordinator+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+Stack.swift"; sourceTree = "<group>"; };
+		3D42DFEB19AD27D6008BFDE6 /* NSPersistentStore+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStore+Stack.swift"; sourceTree = "<group>"; };
+		3D42DFED19AD28C5008BFDE6 /* NSManagedObject+FetchRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+FetchRequests.swift"; sourceTree = "<group>"; };
+		3D42DFEF19AD28F1008BFDE6 /* NSManagedObject+Finders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Finders.swift"; sourceTree = "<group>"; };
+		3D42DFF119AD2939008BFDE6 /* NSManagedObject+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Operations.swift"; sourceTree = "<group>"; };
+		3D42DFF319AD2945008BFDE6 /* NSManagedObject+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Stack.swift"; sourceTree = "<group>"; };
+		3D42DFF519AD29C4008BFDE6 /* NSManagedObject+Counters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Counters.swift"; sourceTree = "<group>"; };
 		3D43C1AF199DE478004FC0E5 /* SugarRecord-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecord-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D43C1B0199DE478004FC0E5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = Models/Person.h; sourceTree = "<group>"; };
 		3D43C1B1199DE478004FC0E5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = Models/Person.m; sourceTree = "<group>"; };
@@ -140,6 +158,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D42DFF719AD29E8008BFDE6 /* NSManagedObjectContext */ = {
+			isa = PBXGroup;
+			children = (
+				3D42DFDD19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift */,
+				3D42DFE319AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift */,
+				3D42DFDF19AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift */,
+				3D42DFE119AD22DB008BFDE6 /* NSManagedObjectContext+Observing.swift */,
+			);
+			name = NSManagedObjectContext;
+			sourceTree = "<group>";
+		};
+		3D42DFF819AD2A03008BFDE6 /* NSManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				3D42DFED19AD28C5008BFDE6 /* NSManagedObject+FetchRequests.swift */,
+				3D42DFEF19AD28F1008BFDE6 /* NSManagedObject+Finders.swift */,
+				3D42DFF119AD2939008BFDE6 /* NSManagedObject+Operations.swift */,
+				3D42DFF319AD2945008BFDE6 /* NSManagedObject+Stack.swift */,
+				3D42DFF519AD29C4008BFDE6 /* NSManagedObject+Counters.swift */,
+			);
+			name = NSManagedObject;
+			sourceTree = "<group>";
+		};
+		3D42DFF919AD2A16008BFDE6 /* NSManagedObjectModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D42DFE719AD25FC008BFDE6 /* NSManagedObjectModel+Stack.swift */,
+			);
+			name = NSManagedObjectModel;
+			sourceTree = "<group>";
+		};
+		3D42DFFA19AD2A23008BFDE6 /* NSPersistentStoreCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				3D42DFE919AD279A008BFDE6 /* NSPersistentStoreCoordinator+Stack.swift */,
+			);
+			name = NSPersistentStoreCoordinator;
+			sourceTree = "<group>";
+		};
+		3D42DFFB19AD2A30008BFDE6 /* NSPersistentStore */ = {
+			isa = PBXGroup;
+			children = (
+				3D42DFEB19AD27D6008BFDE6 /* NSPersistentStore+Stack.swift */,
+			);
+			name = NSPersistentStore;
+			sourceTree = "<group>";
+		};
 		3DBC55CF198E826E00268EB3 = {
 			isa = PBXGroup;
 			children = (
@@ -209,10 +274,12 @@
 				3DBC55FE198E82F500268EB3 /* SugarRecord.swift */,
 				3D42DFD119AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift */,
 				3D42DFDB19AD20AD008BFDE6 /* SugarRecord+Operations.swift */,
-				3D42DFDD19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift */,
-				3D42DFE319AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift */,
-				3D42DFDF19AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift */,
-				3D42DFE119AD22DB008BFDE6 /* NSManagedObjectContext+Observing.swift */,
+				3D42DFE519AD25BE008BFDE6 /* SugarRecordLogger.swift */,
+				3D42DFF719AD29E8008BFDE6 /* NSManagedObjectContext */,
+				3D42DFF819AD2A03008BFDE6 /* NSManagedObject */,
+				3D42DFFB19AD2A30008BFDE6 /* NSPersistentStore */,
+				3D42DFFA19AD2A23008BFDE6 /* NSPersistentStoreCoordinator */,
+				3D42DFF919AD2A16008BFDE6 /* NSManagedObjectModel */,
 			);
 			name = SugarRecord;
 			path = ../../SugarRecord;
@@ -416,8 +483,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D42DFF619AD29C4008BFDE6 /* NSManagedObject+Counters.swift in Sources */,
 				3D42DFE019AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift in Sources */,
+				3D42DFEA19AD279A008BFDE6 /* NSPersistentStoreCoordinator+Stack.swift in Sources */,
 				3D42DFDE19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift in Sources */,
+				3D42DFEC19AD27D6008BFDE6 /* NSPersistentStore+Stack.swift in Sources */,
+				3D42DFEE19AD28C5008BFDE6 /* NSManagedObject+FetchRequests.swift in Sources */,
 				3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */,
 				3DBC55FF198E82F500268EB3 /* SugarRecord.swift in Sources */,
 				3D43C1B2199DE478004FC0E5 /* Person.m in Sources */,
@@ -425,8 +496,13 @@
 				3D42DFE419AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift in Sources */,
 				3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */,
 				3D42DFE219AD22DB008BFDE6 /* NSManagedObjectContext+Observing.swift in Sources */,
+				3D42DFF019AD28F1008BFDE6 /* NSManagedObject+Finders.swift in Sources */,
 				3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */,
+				3D42DFE819AD25FC008BFDE6 /* NSManagedObjectModel+Stack.swift in Sources */,
+				3D42DFF419AD2945008BFDE6 /* NSManagedObject+Stack.swift in Sources */,
 				3D42DFD219AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift in Sources */,
+				3D42DFF219AD2939008BFDE6 /* NSManagedObject+Operations.swift in Sources */,
+				3D42DFE619AD25BE008BFDE6 /* SugarRecordLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
