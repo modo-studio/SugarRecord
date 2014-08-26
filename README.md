@@ -7,7 +7,6 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 ### Pending stuff
 - Review closures retaining
 - Methods to get fetchedResultsController.
-- Explain how to integrate it in your project (git submodule)
 - Generate documentation with the ruby script
 - Integrate with iCloud
 - Add tests
@@ -57,7 +56,7 @@ _* Scheduled to coincide with Swift 1.0 release_
 
 ## Installation
 
-_The infrastructure and best practices for distributing Swift libraries is currently being developed by the developer community during this beta period of the language and Xcode. In the meantime, you can simply add SugarRecord as a git submodule, and drag the `SugarRecord.swift` file into your Xcode project._
+_The infrastructure and best practices for distributing Swift libraries is currently being developed by the developer community during this beta period of the language and Xcode. In the meantime, you can simply add SugarRecord as a git submodule, and drag the `SugarRecord` folder into your Xcode project._
 
 ---
 
@@ -188,6 +187,8 @@ SugarRecord is hardly inspired in **Magical Record**. We loved its structure and
 - How to document your project: http://www.raywenderlich.com/66395/documenting-in-xcode-with-headerdoc-tutorial
 - Tests intersting articles: http://www.objc.io/issue-15/
 - iCloud + CoreData (objc.io): http://www.objc.io/issue-10/icloud-core-data.html
+- Appledoc, documentation generator: https://github.com/tomaz/appledoc 
+
 ## License
 The MIT License (MIT)
 
