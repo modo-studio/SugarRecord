@@ -18,7 +18,8 @@ extension SugarRecord {
      :param: error NError to be processed
      */
     class func handle(error: NSError?) {
-        
+        if error == nil  { return }
+        SugarRecordLogger.logLevelFatal.log("Error caught: \(error)")
     }
 
     /**
@@ -27,7 +28,8 @@ extension SugarRecord {
      :param: exception NSException to be processed
      */
     class func handle(exception: NSException?) {
-        
+        if exception == nil { return }
+        SugarRecordLogger.logLevelError.log("Exception caught: \(exception)")
     }
     
 }

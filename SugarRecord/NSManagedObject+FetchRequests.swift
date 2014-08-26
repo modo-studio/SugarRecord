@@ -9,7 +9,8 @@
 import Foundation
 
 extension NSManagedObject {
-    // Create and returns the fetch request
+    
+
     class func request(var inContext context: NSManagedObjectContext?) -> (NSFetchRequest) {
         if context == nil {
             context = NSManagedObjectContext.defaultContext()
@@ -20,7 +21,6 @@ extension NSManagedObject {
         return request
     }
     
-
     class func request(fetchedObjects: FetchedObjects, inContext context: NSManagedObjectContext?, filteredBy filter: NSPredicate?, var sortedBy sortDescriptors: [NSSortDescriptor]?) -> (NSFetchRequest) {
         var fetchRequest: NSFetchRequest = self.request(inContext: context)
         
