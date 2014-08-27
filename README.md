@@ -165,8 +165,8 @@ let berlinUsers: [NSManagedObject] = User.find(.all, inContext: context, attribu
 *Notice that as in the previous example we're using the context passed in the closuer to fetch berlinUsers and taking the first one. Then we modify its name. When the closure execution ends then the created private context is internally saved and it notifies the user calling a completion closure **in the main thread***
 
 ## Keep in mind
-- NSManagedObjectIDs and move objects between contexts
-- Not referencing objects
+- Be careful working with objects in contexts. Remember a **NSManagedObject belongs to a context** and once the context dies the object disappear and trying to access it will bring you into a trouble. SugarRecord has defensive code inse to ensure that if you are saving objects from one context in other one they are automatically brought to the new context to be saved there.
+- **Not referencing objects**. Use the objects returned by CoreData in the contexts but do not increase their referencies because in case that CoreData tryes to propagate a deletion that includes your strongly reference object it might cause **fault relationships** (*although your propagation rules are properly defined*). 
 
 ## Developers tips
 ### Documentation generation
