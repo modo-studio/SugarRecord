@@ -221,4 +221,4 @@ SugarRecord is provided free of charge. If you want to support it:
 - You can report your issues directly through Github repo issues page. I'll try to fix them as soon as possible and listen your suggestion about how to improve the library.
 - You can post your doubts in StackOverFlow too. I'll be subscribed to updates in StackOverFlow related to SugarRecord tag.
 - We are opened to new PR introducing features to the implementation of fixing bugs in code. We can make SugarRecord even more sugar than it's right know. Contribute with it :smile:
-- **We follow the Swift style guide created by RayWenderlich: https://github.com/raywenderlich/swift-style-guide**. If you want to contribute, ensure you follow these patterns.
+- **We follow our Swift style guide forked from the RayWenderlic oneh: https://github.com/SugarRecord/swift-style-guide**. If you want to contribute, ensure you follow these patterns.
