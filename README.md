@@ -32,7 +32,6 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 - [Notes](#notes)
   - [Useful Swift Resources](#useful-swift-resources)
 - [Contribute](#contribute)
-  - [Documentation Generation](#documentation-generation)
 - [License](#license)
 
 ## Features
@@ -189,6 +188,7 @@ SugarRecord is hardly inspired in **Magical Record**. We loved its structure and
 - Tests intersting articles: http://www.objc.io/issue-15/
 - iCloud + CoreData (objc.io): http://www.objc.io/issue-10/icloud-core-data.html
 - Appledoc, documentation generator: https://github.com/tomaz/appledoc 
+- AlecrimCoreData: https://github.com/Alecrim/AlecrimCoreData
 
 ## License
 The MIT License (MIT)
@@ -221,6 +221,4 @@ SugarRecord is provided free of charge. If you want to support it:
 - You can report your issues directly through Github repo issues page. I'll try to fix them as soon as possible and listen your suggestion about how to improve the library.
 - You can post your doubts in StackOverFlow too. I'll be subscribed to updates in StackOverFlow related to SugarRecord tag.
 - We are opened to new PR introducing features to the implementation of fixing bugs in code. We can make SugarRecord even more sugar than it's right know. Contribute with it :smile:
-
-### Documentation Generation
-- We use VVDocumenter extension to automatically add comments to items around the library (You can install it using Alcatraz: http://alcatraz.io/)
+- **We follow the Swift style guide created by RayWenderlich: https://github.com/raywenderlich/swift-style-guide**. If you want to contribute, ensure you follow these patterns.
