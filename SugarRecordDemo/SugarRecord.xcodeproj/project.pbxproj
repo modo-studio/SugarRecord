@@ -6,7 +6,22 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		3D091A6A19AD38F300DAEBE7 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3D091A7519AD38F300DAEBE7 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				3D091A7619AD391900DAEBE7 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		3D091A7819ADB1CE00DAEBE7 /* SugarRecord+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D091A7719ADB1CE00DAEBE7 /* SugarRecord+iCloud.swift */; };
 		3D42DFD219AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFD119AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift */; };
 		3D42DFDC19AD20AD008BFDE6 /* SugarRecord+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFDB19AD20AD008BFDE6 /* SugarRecord+Operations.swift */; };
 		3D42DFDE19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFDD19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift */; };
@@ -103,6 +118,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D091A7719ADB1CE00DAEBE7 /* SugarRecord+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+iCloud.swift"; sourceTree = "<group>"; };
 		3D42DFD119AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+ErrorHandler.swift"; sourceTree = "<group>"; };
 		3D42DFDB19AD20AD008BFDE6 /* SugarRecord+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+Operations.swift"; sourceTree = "<group>"; };
 		3D42DFDD19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Stack.swift"; sourceTree = "<group>"; };
@@ -275,6 +291,7 @@
 				3D42DFD119AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift */,
 				3D42DFDB19AD20AD008BFDE6 /* SugarRecord+Operations.swift */,
 				3D42DFE519AD25BE008BFDE6 /* SugarRecordLogger.swift */,
+				3D091A7719ADB1CE00DAEBE7 /* SugarRecord+iCloud.swift */,
 				3D42DFF719AD29E8008BFDE6 /* NSManagedObjectContext */,
 				3D42DFF819AD2A03008BFDE6 /* NSManagedObject */,
 				3D42DFFB19AD2A30008BFDE6 /* NSPersistentStore */,
@@ -362,6 +379,9 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = PPinera;
 				TargetAttributes = {
+					3D091A6A19AD38F300DAEBE7 = {
+						CreatedOnToolsVersion = 6.0;
+					};
 					3DBC55D7198E826E00268EB3 = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -396,6 +416,7 @@
 			targets = (
 				3DBC55D7198E826E00268EB3 /* SugarRecord */,
 				3DBC55EC198E826E00268EB3 /* SugarRecordTests */,
+				3D091A6A19AD38F300DAEBE7 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -478,6 +499,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3D091A7619AD391900DAEBE7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"SugarRecord\";\ncompanyID=\"com.SugarRecord\";\ncompanyURL=\"http://www.ppinera.es\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"~/help\";\n# End constants\nappledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3DBC55D4198E826E00268EB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -490,6 +527,7 @@
 				3D42DFEC19AD27D6008BFDE6 /* NSPersistentStore+Stack.swift in Sources */,
 				3D42DFEE19AD28C5008BFDE6 /* NSManagedObject+FetchRequests.swift in Sources */,
 				3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */,
+				3D091A7819ADB1CE00DAEBE7 /* SugarRecord+iCloud.swift in Sources */,
 				3DBC55FF198E82F500268EB3 /* SugarRecord.swift in Sources */,
 				3D43C1B2199DE478004FC0E5 /* Person.m in Sources */,
 				3D42DFDC19AD20AD008BFDE6 /* SugarRecord+Operations.swift in Sources */,
@@ -537,6 +575,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3D091A6B19AD38F300DAEBE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3D091A6C19AD38F300DAEBE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		3DBC55F5198E826E00268EB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -680,6 +732,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3D091A7519AD38F300DAEBE7 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D091A6B19AD38F300DAEBE7 /* Debug */,
+				3D091A6C19AD38F300DAEBE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		3DBC55D3198E826E00268EB3 /* Build configuration list for PBXProject "SugarRecord" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
