@@ -38,8 +38,12 @@ let srKVOCleanedUpNotification = "srKVOCleanedUpNotification"
  */
 class SugarRecord {
     struct Static {
-        static var onceToken : dispatch_once_t = 0
-        static var instance : SugarRecord? = nil
+        //static var onceToken : dispatch_once_t = 0
+        //static var instance : SugarRecord? = nil
+        
+        // -- I've seen it is only used for the save operations
+        // The queue itself is not guaranteed to run on any particular thread, 
+        // it might run on the main queue if it's a context using main queue concurrency type
         static var backgroundQueue : dispatch_queue_t? = nil
     }
     
@@ -49,7 +53,7 @@ class SugarRecord {
      :param: automigrating Specifies if the old database should be auto migrated
      :param: databaseName  Database name. If not passed, default one will be used
      */
-    class func setupCoreDataStack (automigrating: Bool?, databaseName: String?) {
+    class func setupCoreDataStack(#automigrating: Bool?, databaseName: String?) {
         var psc: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator.defaultPersistentStoreCoordinator()
         if psc != nil {
             return
@@ -58,7 +62,7 @@ class SugarRecord {
             psc = NSPersistentStoreCoordinator.newCoordinator(databaseName!, automigrating: automigrating)
         }
         else {
-            psc = NSPersistentStoreCoordinator.newCoordinator(self.defaultDatabaseName(), automigrating: automigrating)
+            psc = NSPersistentStoreCoordinator.newCoordinator(SugarRecord.defaultDatabaseName(), automigrating: automigrating)
         }
         NSPersistentStoreCoordinator.setDefaultPersistentStoreCoordinator(psc!)
         NSManagedObjectContext.initializeContextsStack(psc!)
@@ -96,7 +100,7 @@ class SugarRecord {
      Clean up the stack and notifies it using key srKVOCleanedUpNotification
      */
     class func cleanUp() {
-        self.cleanUpStack()
+        SugarRecord.cleanUpStack()
         NSNotificationCenter.defaultCenter().postNotificationName(srKVOCleanedUpNotification, object: nil)
     }
 
@@ -115,14 +119,14 @@ class SugarRecord {
 
      :returns: String with the stack information (Model, Coordinator, Store, ...)
      */
-    class func currentStack() -> String? {
+    class func currentStack() -> String {
         var status: String = "SugarRecord stack \n ------- \n"
         status += "Model:       \(NSManagedObjectModel.defaultManagedObjectModel())\n"
         status += "Coordinator:       \(NSPersistentStoreCoordinator.defaultPersistentStoreCoordinator())\n"
         status += "Store:       \(NSPersistentStore.defaultPersistentStore())\n"
         status += "Default context:       \(NSManagedObjectContext.defaultContext())\n"
         status += "Saving context:       \(NSManagedObjectContext.rootSavingContext())\n"
-        return nil
+        return status
     }
     
     /**
@@ -139,7 +143,7 @@ class SugarRecord {
             
      :returns: String with the default name (ended in .sqlite)
      */
-    class func defaultDatabaseName() ->String {
+    class func defaultDatabaseName() -> String {
         var databaseName: String
         let bundleName: AnyObject? = NSBundle.mainBundle().infoDictionary[kCFBundleNameKey]
         if let name = bundleName as? String {

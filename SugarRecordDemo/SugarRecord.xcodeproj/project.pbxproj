@@ -33,6 +33,22 @@
 		FFD819A719AF03DB00BD2603 /* SugarRecord+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199719AF03DB00BD2603 /* SugarRecord+Operations.swift */; };
 		FFD819A819AF03DB00BD2603 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199819AF03DB00BD2603 /* SugarRecord.swift */; };
 		FFD819A919AF03DB00BD2603 /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199919AF03DB00BD2603 /* SugarRecordLogger.swift */; };
+		FFD819B219AF084F00BD2603 /* NSManagedObject+Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198719AF03DB00BD2603 /* NSManagedObject+Counters.swift */; };
+		FFD819B319AF084F00BD2603 /* NSManagedObject+FetchRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198819AF03DB00BD2603 /* NSManagedObject+FetchRequests.swift */; };
+		FFD819B419AF084F00BD2603 /* NSManagedObject+Finders.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198919AF03DB00BD2603 /* NSManagedObject+Finders.swift */; };
+		FFD819B519AF084F00BD2603 /* NSManagedObject+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198A19AF03DB00BD2603 /* NSManagedObject+Operations.swift */; };
+		FFD819B619AF084F00BD2603 /* NSManagedObject+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198B19AF03DB00BD2603 /* NSManagedObject+Stack.swift */; };
+		FFD819B719AF084F00BD2603 /* NSManagedObjectModel+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198C19AF03DB00BD2603 /* NSManagedObjectModel+Stack.swift */; };
+		FFD819B819AF084F00BD2603 /* NSManagedObjectContext+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198E19AF03DB00BD2603 /* NSManagedObjectContext+Debug.swift */; };
+		FFD819B919AF084F00BD2603 /* NSManagedObjectContext+Observing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198F19AF03DB00BD2603 /* NSManagedObjectContext+Observing.swift */; };
+		FFD819BA19AF084F00BD2603 /* NSManagedObjectContext+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199019AF03DB00BD2603 /* NSManagedObjectContext+Operations.swift */; };
+		FFD819BB19AF084F00BD2603 /* NSManagedObjectContext+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199119AF03DB00BD2603 /* NSManagedObjectContext+Stack.swift */; };
+		FFD819BC19AF084F00BD2603 /* NSPersistentStore+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199319AF03DB00BD2603 /* NSPersistentStore+Stack.swift */; };
+		FFD819BD19AF084F00BD2603 /* NSPersistentStoreCoordinator+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199519AF03DB00BD2603 /* NSPersistentStoreCoordinator+Stack.swift */; };
+		FFD819BE19AF084F00BD2603 /* SugarRecord+ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199619AF03DB00BD2603 /* SugarRecord+ErrorHandler.swift */; };
+		FFD819BF19AF084F00BD2603 /* SugarRecord+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199719AF03DB00BD2603 /* SugarRecord+Operations.swift */; };
+		FFD819C019AF084F00BD2603 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199819AF03DB00BD2603 /* SugarRecord.swift */; };
+		FFD819C119AF084F00BD2603 /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199919AF03DB00BD2603 /* SugarRecordLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -501,6 +517,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFD819B219AF084F00BD2603 /* NSManagedObject+Counters.swift in Sources */,
+				FFD819B319AF084F00BD2603 /* NSManagedObject+FetchRequests.swift in Sources */,
+				FFD819B419AF084F00BD2603 /* NSManagedObject+Finders.swift in Sources */,
+				FFD819B519AF084F00BD2603 /* NSManagedObject+Operations.swift in Sources */,
+				FFD819B619AF084F00BD2603 /* NSManagedObject+Stack.swift in Sources */,
+				FFD819B719AF084F00BD2603 /* NSManagedObjectModel+Stack.swift in Sources */,
+				FFD819B819AF084F00BD2603 /* NSManagedObjectContext+Debug.swift in Sources */,
+				FFD819B919AF084F00BD2603 /* NSManagedObjectContext+Observing.swift in Sources */,
+				FFD819BA19AF084F00BD2603 /* NSManagedObjectContext+Operations.swift in Sources */,
+				FFD819BB19AF084F00BD2603 /* NSManagedObjectContext+Stack.swift in Sources */,
+				FFD819BC19AF084F00BD2603 /* NSPersistentStore+Stack.swift in Sources */,
+				FFD819BD19AF084F00BD2603 /* NSPersistentStoreCoordinator+Stack.swift in Sources */,
+				FFD819BE19AF084F00BD2603 /* SugarRecord+ErrorHandler.swift in Sources */,
+				FFD819BF19AF084F00BD2603 /* SugarRecord+Operations.swift in Sources */,
+				FFD819C019AF084F00BD2603 /* SugarRecord.swift in Sources */,
+				FFD819C119AF084F00BD2603 /* SugarRecordLogger.swift in Sources */,
 				3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
