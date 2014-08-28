@@ -49,7 +49,7 @@ class SugarRecord {
      :param: automigrating Specifies if the old database should be auto migrated
      :param: databaseName  Database name. If not passed, default one will be used
      */
-    class func setupCoreDataStack (automigrating: Bool?, databaseName: String?) -> () {
+    class func setupCoreDataStack (automigrating: Bool?, databaseName: String?) {
         var psc: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator.defaultPersistentStoreCoordinator()
         if psc != nil {
             return
@@ -69,7 +69,7 @@ class SugarRecord {
 
      :param: databaseName String of the database to be deleted
      */
-    class func removeDatabaseNamed(databaseName: String) -> (Bool) {
+    class func removeDatabaseNamed(databaseName: String) -> Bool {
         let url: NSURL = NSPersistentStore.storeUrl(forDatabaseName: databaseName)
         let fileManager: NSFileManager = NSFileManager.defaultManager()
         var error: NSError?
@@ -85,7 +85,7 @@ class SugarRecord {
 
      :returns: Background Queue (lazy generated) queue
      */
-    class func backgroundQueue() -> (dispatch_queue_t) {
+    class func backgroundQueue() -> dispatch_queue_t {
         if Static.backgroundQueue == nil {
             Static.backgroundQueue = dispatch_queue_create(srBackgroundQueueName, nil)
         }
@@ -95,7 +95,7 @@ class SugarRecord {
     /**
      Clean up the stack and notifies it using key srKVOCleanedUpNotification
      */
-    class func cleanUp () -> () {
+    class func cleanUp() {
         self.cleanUpStack()
         NSNotificationCenter.defaultCenter().postNotificationName(srKVOCleanedUpNotification, object: nil)
     }
@@ -115,7 +115,7 @@ class SugarRecord {
 
      :returns: String with the stack information (Model, Coordinator, Store, ...)
      */
-    class func currentStack () -> (String?) {
+    class func currentStack() -> String? {
         var status: String = "SugarRecord stack \n ------- \n"
         status += "Model:       \(NSManagedObjectModel.defaultManagedObjectModel())\n"
         status += "Coordinator:       \(NSPersistentStoreCoordinator.defaultPersistentStoreCoordinator())\n"
@@ -130,7 +130,7 @@ class SugarRecord {
 
      :returns: String with the version value
      */
-    class func currentVersion() -> (String) {
+    class func currentVersion() -> String {
         return srSugarRecordVersion
     }
     
@@ -139,7 +139,7 @@ class SugarRecord {
             
      :returns: String with the default name (ended in .sqlite)
      */
-    class func defaultDatabaseName () -> (String){
+    class func defaultDatabaseName() ->String {
         var databaseName: String
         let bundleName: AnyObject? = NSBundle.mainBundle().infoDictionary[kCFBundleNameKey]
         if let name = bundleName as? String {
