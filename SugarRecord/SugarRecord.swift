@@ -23,13 +23,13 @@ var srsrShouldDeleteStoreOnModelMismatch: Bool = true
 var srContextWorkingNameKey = "srContextWorkingNameKey"
 
 // MARK: KVO Keys
-var srKVOWillDeleteDatabaseKey: String = "srKVOWillDeleteDatabaseKey"
-var srKVOPSCMismatchCouldNotDeleteStore: String = "srKVOPSCMismatchCouldNotDeleteStore"
-var srKVOPSCMismatchDidDeleteStore: String = "srKVOPSCMismatchDidDeleteStore"
-var srKVOPSCMismatchWillRecreateStore = "KVOPSCMismatchWillRecreateStore"
-var srKVOPSCMismatchDidRecreateStore = "srKVOPSCMismatchDidRecreateStore"
-var srKVOPSCMMismatchCouldNotRecreateStore = "srKVOPSCMMismatchCouldNotRecreateStore"
-var srKVOCleanedUpNotification = "srKVOCleanedUpNotification"
+let srKVOWillDeleteDatabaseKey = "srKVOWillDeleteDatabaseKey"
+let srKVOPSCMismatchCouldNotDeleteStore = "srKVOPSCMismatchCouldNotDeleteStore"
+let srKVOPSCMismatchDidDeleteStore = "srKVOPSCMismatchDidDeleteStore"
+let srKVOPSCMismatchWillRecreateStore = "KVOPSCMismatchWillRecreateStore"
+let srKVOPSCMismatchDidRecreateStore = "srKVOPSCMismatchDidRecreateStore"
+let srKVOPSCMMismatchCouldNotRecreateStore = "srKVOPSCMMismatchCouldNotRecreateStore"
+let srKVOCleanedUpNotification = "srKVOCleanedUpNotification"
 
 // MARK: SugarRecord Initialization
 
@@ -149,7 +149,7 @@ class SugarRecord {
             databaseName = srDefaultDatabaseName
         }
         if !databaseName.hasSuffix("sqlite") {
-            databaseName = databaseName.stringByAppendingPathExtension("sqlite")!
+            databaseName = databaseName.stringByAppendingPathExtension("sqlite")
         }
         return databaseName
     }
