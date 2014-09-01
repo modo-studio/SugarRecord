@@ -46,7 +46,7 @@ extension NSPersistentStoreCoordinator {
             })
         })
     }
-
+    
     class func addiCloudOptionsTo(var options: [NSObject: AnyObject], contentNameKey: String, cloudURL: NSURL) {
         // Adding iCloud options
         options[NSPersistentStoreUbiquitousContentNameKey] = contentNameKey
