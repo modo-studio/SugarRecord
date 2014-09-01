@@ -2,16 +2,16 @@
 ![image](http://cl.ly/image/3J052s402j0L/Image%202014-08-21%20at%209.22.56%20am.png)
 
 ## What is SugarRecord?
-SugarRecord is a CoreData management library to make it easier work with CoreData. Thanks to SugarRecord you'll be able to start the CoreData stack structure just with a line of code and start working with your database models using closures thanks to the fact that SugarRecord is completly written in Swift.
+SugarRecord is a CoreData management library to make it easier work with CoreData. Thanks to SugarRecord you'll be able to start the CoreData stack structure just with a line of code and start working with your database models using closures thanks to the fact that SugarRecord is completly written in Swift. **There's a Google Group where you can leave your topics, question, doubts, suggestions and stuff besides issues https://groups.google.com/forum/#!forum/sugarrecord**
 
 ### Pending stuff
 - Review closures retaining
 - Methods to get fetchedResultsController.
-- Explain how to integrate it in your project (git submodule)
-- Generate documentation with the ruby script
-- Integrate with iCloud
+- Generate documentation with the ruby script [WIP]
+- Integrate with iCloud [WIP]
+- Create a data-mapping module (for exmaple using the recent Matt idea of using `=` to initialize objects with other kind of objects)
 - Add tests
-- Update the wrong stack image
+- Fill CocoaDocs documentation adding the badge to the README.md
 
 ### Index
 - [Features](#features)
@@ -19,7 +19,6 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [How to use SugarRecord](#how-to-use-sugarrecord)
-  - [Library useful methods](#library-useful-methods)
   - [Initialize SugarRecord](#initialize-sugarrecord)
   - [Logging levels](#logging-levels)
   - [Examples](#examples)
@@ -29,10 +28,11 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
       - [Background operation without saving](#background-operation-without-saving)
       - [Background operation saving](#background-operation-saving)
 - [Keep in mind](#keep-in-mind)
+- [Developers tips](#developers-tips)
+  - [Documentation generation](#documentation-generation)
 - [Notes](#notes)
   - [Useful Swift Resources](#useful-swift-resources)
 - [Contribute](#contribute)
-  - [Documentation Generation](#documentation-generation)
 - [License](#license)
 
 ## Features
@@ -57,22 +57,12 @@ _* Scheduled to coincide with Swift 1.0 release_
 
 ## Installation
 
-_The infrastructure and best practices for distributing Swift libraries is currently being developed by the developer community during this beta period of the language and Xcode. In the meantime, you can simply add SugarRecord as a git submodule, and drag the `SugarRecord.swift` file into your Xcode project._
+_The infrastructure and best practices for distributing Swift libraries is currently being developed by the developer community during this beta period of the language and Xcode. In the meantime, you can simply add SugarRecord as a git submodule, and drag the `SugarRecord` folder into your Xcode project._
 
 ---
 
 
 ## How to use SugarRecord
-### Library useful methods
-
-In this main class you'll finde usefull static methods linke the following ones:
-
-- **cleanUp():** Cleans the stack and notifies it using KVO and notification key `srKVOCleanedUpNotification`
-- **cleanUpStack():** Cleans the stack
-- **currentStack():** Returns a String with the current stack information
-- **currentVersion():** Return the current SugarRecord version as a String
-- **defaultDatabaseName():** Returns the default database name that will be used unless you pass your own one in the initialization.
-
 ### Initialize SugarRecord
 
 To start working with SugarRecord the first thing you have to do is to initialize the entire stack (persistent store, persistent store coordinator, and contexts stack). The simplest way to do it is through the call:
@@ -176,8 +166,15 @@ let berlinUsers: [NSManagedObject] = User.find(.all, inContext: context, attribu
 *Notice that as in the previous example we're using the context passed in the closuer to fetch berlinUsers and taking the first one. Then we modify its name. When the closure execution ends then the created private context is internally saved and it notifies the user calling a completion closure **in the main thread***
 
 ## Keep in mind
-- NSManagedObjectIDs and move objects between contexts
-- Not referencing objects
+- Be careful working with objects in contexts. Remember a **NSManagedObject belongs to a context** and once the context dies the object disappear and trying to access it will bring you into a trouble. SugarRecord has defensive code inse to ensure that if you are saving objects from one context in other one they are automatically brought to the new context to be saved there.
+- **Not referencing objects**. Use the objects returned by CoreData in the contexts but do not increase their referencies because in case that CoreData tryes to propagate a deletion that includes your strongly reference object it might cause **fault relationships** (*although your propagation rules are properly defined*). 
+
+## Developers tips
+### Documentation generation
+- The project has a target that uses `appledoc` to generate the documentation from the docs comments
+- The best way to follow the docummentation patters is using the plugin for XCode VVDocumenter
+- If you want to update the documentation you have to install appledoc in your OSX, `brew install appledoc`
+- Once installed build the app in the **Documentation** target
 
 ## Notes
 SugarRecord is hardly inspired in **Magical Record**. We loved its structure and we brought some of these ideas to SugarRecord CoreData stack but using sugar Swift syntax and adding more useful methods to make working with CoreData easier.
@@ -190,6 +187,9 @@ SugarRecord is hardly inspired in **Magical Record**. We loved its structure and
 - Jazzy, a library to generate documentation: https://github.com/realm/jazzy
 - How to document your project: http://www.raywenderlich.com/66395/documenting-in-xcode-with-headerdoc-tutorial
 - Tests intersting articles: http://www.objc.io/issue-15/
+- iCloud + CoreData (objc.io): http://www.objc.io/issue-10/icloud-core-data.html
+- Appledoc, documentation generator: https://github.com/tomaz/appledoc 
+- AlecrimCoreData: https://github.com/Alecrim/AlecrimCoreData
 
 ## License
 The MIT License (MIT)
@@ -222,6 +222,4 @@ SugarRecord is provided free of charge. If you want to support it:
 - You can report your issues directly through Github repo issues page. I'll try to fix them as soon as possible and listen your suggestion about how to improve the library.
 - You can post your doubts in StackOverFlow too. I'll be subscribed to updates in StackOverFlow related to SugarRecord tag.
 - We are opened to new PR introducing features to the implementation of fixing bugs in code. We can make SugarRecord even more sugar than it's right know. Contribute with it :smile:
-
-### Documentation Generation
-- We use VVDocumenter extension to automatically add comments to items around the library (You can install it using Alcatraz: http://alcatraz.io/)
+- **We follow our Swift style guide forked from the RayWenderlic oneh: https://github.com/SugarRecord/swift-style-guide**. If you want to contribute, ensure you follow these patterns.
