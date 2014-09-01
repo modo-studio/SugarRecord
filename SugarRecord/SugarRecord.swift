@@ -30,7 +30,8 @@ let srKVOPSCMismatchWillRecreateStore = "KVOPSCMismatchWillRecreateStore"
 let srKVOPSCMismatchDidRecreateStore = "srKVOPSCMismatchDidRecreateStore"
 let srKVOPSCMMismatchCouldNotRecreateStore = "srKVOPSCMMismatchCouldNotRecreateStore"
 let srKVOCleanedUpNotification = "srKVOCleanedUpNotification"
-let srPSCDidCompleteiCloudSetupNotification = "srPSCDidCompleteiCloudSetupNotification"
+let srKVOPSCDidCompleteiCloudSetupNotification = "srKVOPSCDidCompleteiCloudSetupNotification"
+let srKVODidMergeChangesFromiCloudNotification = "srKVODidMergeChangesFromiCloudNotification"
 
 // MARK: SugarRecord Initialization
 

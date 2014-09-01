@@ -38,6 +38,7 @@
 		3D42DFF419AD2945008BFDE6 /* NSManagedObject+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFF319AD2945008BFDE6 /* NSManagedObject+Stack.swift */; };
 		3D42DFF619AD29C4008BFDE6 /* NSManagedObject+Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFF519AD29C4008BFDE6 /* NSManagedObject+Counters.swift */; };
 		3D43C1B2199DE478004FC0E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43C1B1199DE478004FC0E5 /* Person.m */; };
+		3DA571BB19B078DC00B293EB /* NSManagedObjectContext+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA571BA19B078DC00B293EB /* NSManagedObjectContext+iCloud.swift */; };
 		3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DD198E826E00268EB3 /* AppDelegate.swift */; };
 		3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */; };
 		3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55E2198E826E00268EB3 /* ViewController.swift */; };
@@ -139,6 +140,7 @@
 		3D43C1AF199DE478004FC0E5 /* SugarRecord-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecord-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D43C1B0199DE478004FC0E5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = Models/Person.h; sourceTree = "<group>"; };
 		3D43C1B1199DE478004FC0E5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = Models/Person.m; sourceTree = "<group>"; };
+		3DA571BA19B078DC00B293EB /* NSManagedObjectContext+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+iCloud.swift"; sourceTree = "<group>"; };
 		3DBC55D8198E826E00268EB3 /* SugarRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SugarRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBC55DC198E826E00268EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DBC55DD198E826E00268EB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				3D42DFE319AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift */,
 				3D42DFDF19AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift */,
 				3D42DFE119AD22DB008BFDE6 /* NSManagedObjectContext+Observing.swift */,
+				3DA571BA19B078DC00B293EB /* NSManagedObjectContext+iCloud.swift */,
 			);
 			name = NSManagedObjectContext;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				3D091A7819ADB1CE00DAEBE7 /* SugarRecord+iCloud.swift in Sources */,
 				3DBC55FF198E82F500268EB3 /* SugarRecord.swift in Sources */,
 				3D43C1B2199DE478004FC0E5 /* Person.m in Sources */,
+				3DA571BB19B078DC00B293EB /* NSManagedObjectContext+iCloud.swift in Sources */,
 				3D42DFDC19AD20AD008BFDE6 /* SugarRecord+Operations.swift in Sources */,
 				3D42DFE419AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift in Sources */,
 				3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */,
