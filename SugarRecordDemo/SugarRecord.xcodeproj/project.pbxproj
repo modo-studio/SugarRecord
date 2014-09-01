@@ -6,7 +6,22 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		3D091A6A19AD38F300DAEBE7 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3D091A7519AD38F300DAEBE7 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				3D091A7619AD391900DAEBE7 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		3D091A7819ADB1CE00DAEBE7 /* SugarRecord+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D091A7719ADB1CE00DAEBE7 /* SugarRecord+iCloud.swift */; };
 		3D42DFD219AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFD119AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift */; };
 		3D42DFDC19AD20AD008BFDE6 /* SugarRecord+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFDB19AD20AD008BFDE6 /* SugarRecord+Operations.swift */; };
 		3D42DFDE19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFDD19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift */; };
@@ -23,6 +38,8 @@
 		3D42DFF419AD2945008BFDE6 /* NSManagedObject+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFF319AD2945008BFDE6 /* NSManagedObject+Stack.swift */; };
 		3D42DFF619AD29C4008BFDE6 /* NSManagedObject+Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFF519AD29C4008BFDE6 /* NSManagedObject+Counters.swift */; };
 		3D43C1B2199DE478004FC0E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43C1B1199DE478004FC0E5 /* Person.m */; };
+		3D596BBF19B4CEB7009B9BAC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0883E19AC809400A47174 /* Nimble.framework */; };
+		3DA571BB19B078DC00B293EB /* NSManagedObjectContext+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA571BA19B078DC00B293EB /* NSManagedObjectContext+iCloud.swift */; };
 		3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DD198E826E00268EB3 /* AppDelegate.swift */; };
 		3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */; };
 		3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55E2198E826E00268EB3 /* ViewController.swift */; };
@@ -31,9 +48,9 @@
 		3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55F3198E826E00268EB3 /* SugarRecordTests.swift */; };
 		3DBC55FF198E82F500268EB3 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55FE198E82F500268EB3 /* SugarRecord.swift */; };
 		3DBC5603198E844B00268EB3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
-		3DD010AF1990379D00673854 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55FE198E82F500268EB3 /* SugarRecord.swift */; };
+		3DD90A4419B06907006A7AD4 /* NSPersistentStoreCoordinator+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD90A4319B06907006A7AD4 /* NSPersistentStoreCoordinator+iCloud.swift */; };
+		3DD90A4619B06C34006A7AD4 /* NSPersistentStore+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD90A4519B06C34006A7AD4 /* NSPersistentStore+iCloud.swift */; };
 		3DF0885519AC80B700A47174 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0884E19AC80A200A47174 /* Quick.framework */; };
-		3DF0885619AC80BC00A47174 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0883E19AC809400A47174 /* Nimble.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +120,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D091A7719ADB1CE00DAEBE7 /* SugarRecord+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+iCloud.swift"; sourceTree = "<group>"; };
 		3D42DFD119AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+ErrorHandler.swift"; sourceTree = "<group>"; };
 		3D42DFDB19AD20AD008BFDE6 /* SugarRecord+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+Operations.swift"; sourceTree = "<group>"; };
 		3D42DFDD19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Stack.swift"; sourceTree = "<group>"; };
@@ -121,6 +139,7 @@
 		3D43C1AF199DE478004FC0E5 /* SugarRecord-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecord-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D43C1B0199DE478004FC0E5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = Models/Person.h; sourceTree = "<group>"; };
 		3D43C1B1199DE478004FC0E5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = Models/Person.m; sourceTree = "<group>"; };
+		3DA571BA19B078DC00B293EB /* NSManagedObjectContext+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+iCloud.swift"; sourceTree = "<group>"; };
 		3DBC55D8198E826E00268EB3 /* SugarRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SugarRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBC55DC198E826E00268EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DBC55DD198E826E00268EB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +152,8 @@
 		3DBC55F3198E826E00268EB3 /* SugarRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordTests.swift; sourceTree = "<group>"; };
 		3DBC55FE198E82F500268EB3 /* SugarRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecord.swift; sourceTree = "<group>"; };
 		3DBC5602198E844B00268EB3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3DD90A4319B06907006A7AD4 /* NSPersistentStoreCoordinator+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+iCloud.swift"; sourceTree = "<group>"; };
+		3DD90A4519B06C34006A7AD4 /* NSPersistentStore+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStore+iCloud.swift"; sourceTree = "<group>"; };
 		3DF0883619AC809400A47174 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = ../../submodules/Nimble/Nimble.xcodeproj; sourceTree = "<group>"; };
 		3DF0884519AC80A200A47174 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = ../../submodules/Quick/Quick/Quick.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,7 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DF0885619AC80BC00A47174 /* Nimble.framework in Frameworks */,
+				3D596BBF19B4CEB7009B9BAC /* Nimble.framework in Frameworks */,
 				3DF0885519AC80B700A47174 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +186,7 @@
 				3D42DFE319AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift */,
 				3D42DFDF19AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift */,
 				3D42DFE119AD22DB008BFDE6 /* NSManagedObjectContext+Observing.swift */,
+				3DA571BA19B078DC00B293EB /* NSManagedObjectContext+iCloud.swift */,
 			);
 			name = NSManagedObjectContext;
 			sourceTree = "<group>";
@@ -193,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				3D42DFE919AD279A008BFDE6 /* NSPersistentStoreCoordinator+Stack.swift */,
+				3DD90A4319B06907006A7AD4 /* NSPersistentStoreCoordinator+iCloud.swift */,
 			);
 			name = NSPersistentStoreCoordinator;
 			sourceTree = "<group>";
@@ -201,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				3D42DFEB19AD27D6008BFDE6 /* NSPersistentStore+Stack.swift */,
+				3DD90A4519B06C34006A7AD4 /* NSPersistentStore+iCloud.swift */,
 			);
 			name = NSPersistentStore;
 			sourceTree = "<group>";
@@ -275,6 +299,7 @@
 				3D42DFD119AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift */,
 				3D42DFDB19AD20AD008BFDE6 /* SugarRecord+Operations.swift */,
 				3D42DFE519AD25BE008BFDE6 /* SugarRecordLogger.swift */,
+				3D091A7719ADB1CE00DAEBE7 /* SugarRecord+iCloud.swift */,
 				3D42DFF719AD29E8008BFDE6 /* NSManagedObjectContext */,
 				3D42DFF819AD2A03008BFDE6 /* NSManagedObject */,
 				3D42DFFB19AD2A30008BFDE6 /* NSPersistentStore */,
@@ -362,6 +387,9 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = PPinera;
 				TargetAttributes = {
+					3D091A6A19AD38F300DAEBE7 = {
+						CreatedOnToolsVersion = 6.0;
+					};
 					3DBC55D7198E826E00268EB3 = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -396,6 +424,7 @@
 			targets = (
 				3DBC55D7198E826E00268EB3 /* SugarRecord */,
 				3DBC55EC198E826E00268EB3 /* SugarRecordTests */,
+				3D091A6A19AD38F300DAEBE7 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -478,6 +507,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3D091A7619AD391900DAEBE7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"SugarRecord\";\ncompanyID=\"com.SugarRecord\";\ncompanyURL=\"http://www.ppinera.es\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"~/help\";\n# End constants\nappledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3DBC55D4198E826E00268EB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -486,12 +531,15 @@
 				3D42DFF619AD29C4008BFDE6 /* NSManagedObject+Counters.swift in Sources */,
 				3D42DFE019AD2142008BFDE6 /* NSManagedObjectContext+Operations.swift in Sources */,
 				3D42DFEA19AD279A008BFDE6 /* NSPersistentStoreCoordinator+Stack.swift in Sources */,
+				3DD90A4619B06C34006A7AD4 /* NSPersistentStore+iCloud.swift in Sources */,
 				3D42DFDE19AD20E7008BFDE6 /* NSManagedObjectContext+Stack.swift in Sources */,
 				3D42DFEC19AD27D6008BFDE6 /* NSPersistentStore+Stack.swift in Sources */,
 				3D42DFEE19AD28C5008BFDE6 /* NSManagedObject+FetchRequests.swift in Sources */,
 				3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */,
+				3D091A7819ADB1CE00DAEBE7 /* SugarRecord+iCloud.swift in Sources */,
 				3DBC55FF198E82F500268EB3 /* SugarRecord.swift in Sources */,
 				3D43C1B2199DE478004FC0E5 /* Person.m in Sources */,
+				3DA571BB19B078DC00B293EB /* NSManagedObjectContext+iCloud.swift in Sources */,
 				3D42DFDC19AD20AD008BFDE6 /* SugarRecord+Operations.swift in Sources */,
 				3D42DFE419AD234B008BFDE6 /* NSManagedObjectContext+Debug.swift in Sources */,
 				3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */,
@@ -500,6 +548,7 @@
 				3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */,
 				3D42DFE819AD25FC008BFDE6 /* NSManagedObjectModel+Stack.swift in Sources */,
 				3D42DFF419AD2945008BFDE6 /* NSManagedObject+Stack.swift in Sources */,
+				3DD90A4419B06907006A7AD4 /* NSPersistentStoreCoordinator+iCloud.swift in Sources */,
 				3D42DFD219AD2061008BFDE6 /* SugarRecord+ErrorHandler.swift in Sources */,
 				3D42DFF219AD2939008BFDE6 /* NSManagedObject+Operations.swift in Sources */,
 				3D42DFE619AD25BE008BFDE6 /* SugarRecordLogger.swift in Sources */,
@@ -510,7 +559,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DD010AF1990379D00673854 /* SugarRecord.swift in Sources */,
 				3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,6 +585,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3D091A6B19AD38F300DAEBE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3D091A6C19AD38F300DAEBE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		3DBC55F5198E826E00268EB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -680,6 +742,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3D091A7519AD38F300DAEBE7 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D091A6B19AD38F300DAEBE7 /* Debug */,
+				3D091A6C19AD38F300DAEBE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3DBC55D3198E826E00268EB3 /* Build configuration list for PBXProject "SugarRecord" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -10,33 +10,35 @@ import Foundation
 import CoreData
 
 // MARK: Library Constants
-let srDefaultDatabaseName: String = "sugarRecordDatabase.sqlite"
-let srSugarRecordVersion: String = "v0.0.1 - Alpha"
-let srBackgroundQueueName: String = "sugarRecord.backgroundQueue"
+public let srDefaultDatabaseName: String = "sugarRecordDatabase.sqlite"
+public let srSugarRecordVersion: String = "v0.0.1 - Alpha"
+public let srBackgroundQueueName: String = "sugarRecord.backgroundQueue"
 
 // MARK: Options
-var srShouldAutoCreateManagedObjectModel: Bool = true
-var srShouldAutoCreateDefaultPersistentStoreCoordinator: Bool = false
-var srsrShouldDeleteStoreOnModelMismatch: Bool = true
+let srShouldAutoCreateManagedObjectModel: Bool = true
+let srShouldAutoCreateDefaultPersistentStoreCoordinator: Bool = false
+let srsrShouldDeleteStoreOnModelMismatch: Bool = true
 
 // MARK: Dictionary Keys
-var srContextWorkingNameKey = "srContextWorkingNameKey"
+let srContextWorkingNameKey = "srContextWorkingNameKey"
 
 // MARK: KVO Keys
-var srKVOWillDeleteDatabaseKey: String = "srKVOWillDeleteDatabaseKey"
-var srKVOPSCMismatchCouldNotDeleteStore: String = "srKVOPSCMismatchCouldNotDeleteStore"
-var srKVOPSCMismatchDidDeleteStore: String = "srKVOPSCMismatchDidDeleteStore"
-var srKVOPSCMismatchWillRecreateStore = "KVOPSCMismatchWillRecreateStore"
-var srKVOPSCMismatchDidRecreateStore = "srKVOPSCMismatchDidRecreateStore"
-var srKVOPSCMMismatchCouldNotRecreateStore = "srKVOPSCMMismatchCouldNotRecreateStore"
-var srKVOCleanedUpNotification = "srKVOCleanedUpNotification"
+let srKVOWillDeleteDatabaseKey: String = "srKVOWillDeleteDatabaseKey"
+let srKVOPSCMismatchCouldNotDeleteStore: String = "srKVOPSCMismatchCouldNotDeleteStore"
+let srKVOPSCMismatchDidDeleteStore: String = "srKVOPSCMismatchDidDeleteStore"
+let srKVOPSCMismatchWillRecreateStore = "KVOPSCMismatchWillRecreateStore"
+let srKVOPSCMismatchDidRecreateStore = "srKVOPSCMismatchDidRecreateStore"
+let srKVOPSCMMismatchCouldNotRecreateStore = "srKVOPSCMMismatchCouldNotRecreateStore"
+let srKVOCleanedUpNotification = "srKVOCleanedUpNotification"
+let srKVOPSCDidCompleteiCloudSetupNotification = "srKVOPSCDidCompleteiCloudSetupNotification"
+let srKVODidMergeChangesFromiCloudNotification = "srKVODidMergeChangesFromiCloudNotification"
 
 // MARK: SugarRecord Initialization
 
 /**
  *  Main Library class with some useful constants and methods
  */
-class SugarRecord {
+public class SugarRecord {
     struct Static {
         static var onceToken : dispatch_once_t = 0
         static var instance : SugarRecord? = nil
@@ -49,7 +51,7 @@ class SugarRecord {
      :param: automigrating Specifies if the old database should be auto migrated
      :param: databaseName  Database name. If not passed, default one will be used
      */
-    class func setupCoreDataStack (automigrating: Bool?, databaseName: String?) -> () {
+    public class func setupCoreDataStack (automigrating: Bool?, databaseName: String?) -> () {
         var psc: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator.defaultPersistentStoreCoordinator()
         if psc != nil {
             return
@@ -69,7 +71,7 @@ class SugarRecord {
 
      :param: databaseName String of the database to be deleted
      */
-    class func removeDatabaseNamed(databaseName: String) -> (Bool) {
+    public class func removeDatabaseNamed(databaseName: String) -> (Bool) {
         let url: NSURL = NSPersistentStore.storeUrl(forDatabaseName: databaseName)
         let fileManager: NSFileManager = NSFileManager.defaultManager()
         var error: NSError?
@@ -85,7 +87,7 @@ class SugarRecord {
 
      :returns: Background Queue (lazy generated) queue
      */
-    class func backgroundQueue() -> (dispatch_queue_t) {
+    public class func backgroundQueue() -> (dispatch_queue_t) {
         if Static.backgroundQueue == nil {
             Static.backgroundQueue = dispatch_queue_create(srBackgroundQueueName, nil)
         }
@@ -95,7 +97,7 @@ class SugarRecord {
     /**
      Clean up the stack and notifies it using key srKVOCleanedUpNotification
      */
-    class func cleanUp () -> () {
+    public class func cleanUp () -> () {
         self.cleanUpStack()
         NSNotificationCenter.defaultCenter().postNotificationName(srKVOCleanedUpNotification, object: nil)
     }
@@ -103,7 +105,7 @@ class SugarRecord {
     /**
      Clean the entire stack of SugarRecord Core Data components
      */
-    class func cleanUpStack() {
+    public class func cleanUpStack() {
         NSManagedObjectContext.cleanUp()
         NSManagedObjectModel.cleanUp()
         NSPersistentStoreCoordinator.cleanUp()
@@ -115,7 +117,7 @@ class SugarRecord {
 
      :returns: String with the stack information (Model, Coordinator, Store, ...)
      */
-    class func currentStack () -> (String?) {
+    public class func currentStack () -> (String?) {
         var status: String = "SugarRecord stack \n ------- \n"
         status += "Model:       \(NSManagedObjectModel.defaultManagedObjectModel())\n"
         status += "Coordinator:       \(NSPersistentStoreCoordinator.defaultPersistentStoreCoordinator())\n"
@@ -130,7 +132,7 @@ class SugarRecord {
 
      :returns: String with the version value
      */
-    class func currentVersion() -> (String) {
+    public class func currentVersion() -> (String) {
         return srSugarRecordVersion
     }
     
@@ -139,7 +141,7 @@ class SugarRecord {
             
      :returns: String with the default name (ended in .sqlite)
      */
-    class func defaultDatabaseName () -> (String){
+    public class func defaultDatabaseName () -> (String){
         var databaseName: String
         let bundleName: AnyObject? = NSBundle.mainBundle().infoDictionary[kCFBundleNameKey]
         if let name = bundleName as? String {

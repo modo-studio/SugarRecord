@@ -11,7 +11,7 @@ import Foundation
 
 // MARK - SugarRecord Error Handler
 
-extension SugarRecord {
+public extension SugarRecord {
     /**
      Handles an error arount the Library
 

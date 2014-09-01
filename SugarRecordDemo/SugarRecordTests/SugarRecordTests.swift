@@ -2,6 +2,7 @@
 // Tests with Quick: https://github.com/Quick/Quick
 
 import Quick
+import SugarRecord
 import Nimble
 import CoreData
 
