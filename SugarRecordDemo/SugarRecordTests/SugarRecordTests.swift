@@ -2,6 +2,7 @@
 // Tests with Quick: https://github.com/Quick/Quick
 
 import Quick
+import SugarRecord
 import Nimble
 import CoreData
 
@@ -9,7 +10,7 @@ class SugarRecordHelperssTests: QuickSpec {
     override func spec() {
         beforeSuite {
             // Creating database stack
-            SugarRecord.setupCoreDataStack(true, databaseName: "testDatabase")
+            SugarRecord.setupCoreDataStack(automigrating:true, databaseName: "testDatabase")
         }
         
         afterSuite {
@@ -30,7 +31,7 @@ class SugarRecordHelperssTests: QuickSpec {
                 let url: NSURL = NSPersistentStore.storeUrl(forDatabaseName: databaseName)
                 let fileManager: NSFileManager = NSFileManager.defaultManager()
                 expect(fileManager.fileExistsAtPath(url.absoluteString!)).to(equal(false))
-                SugarRecord.setupCoreDataStack(true, databaseName: "testDatabase")
+                SugarRecord.setupCoreDataStack(automigrating:true, databaseName: "testDatabase")
             }
         })
         
@@ -48,7 +49,7 @@ class SugarRecordInformationTests: QuickSpec {
     override func spec() {
         beforeSuite {
             // Creating database stack
-            SugarRecord.setupCoreDataStack(true, databaseName: "testDatabase")
+            SugarRecord.setupCoreDataStack(automigrating:true, databaseName: "testDatabase")
         }
         
         afterSuite {

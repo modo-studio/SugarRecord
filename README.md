@@ -4,13 +4,7 @@
 ## What is SugarRecord?
 SugarRecord is a CoreData management library to make it easier work with CoreData. Thanks to SugarRecord you'll be able to start the CoreData stack structure just with a line of code and start working with your database models using closures thanks to the fact that SugarRecord is completly written in Swift. **There's a Google Group where you can leave your topics, question, doubts, suggestions and stuff besides issues https://groups.google.com/forum/#!forum/sugarrecord**
 
-### Pending stuff
-- Review closures retaining
-- Methods to get fetchedResultsController.
-- Generate documentation with the ruby script [WIP]
-- Integrate with iCloud [WIP]
-- Create a data-mapping module (for exmaple using the recent Matt idea of using `=` to initialize objects with other kind of objects)
-- Add tests
+**Powered by [@pepibumur](http://www.twitter.com/pepibumur) and [@fjbelchi](http://www.twitter.com/fjbelchi)**
 
 ### Index
 - [Features](#features)
@@ -40,13 +34,13 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 - Asynchronous operations using closures
 - Easy finding methods.
 
-### Planned for 0.2 Release
+### Planned for 1.0 Release
 
 _* Scheduled to coincide with Swift 1.0 release_
 
-- Integration with iCloud
 - 100% Unit Test Coverage
 - Complete Documentation in CocoaDocs
+- Stack builder
 
 ## Requirements
 
@@ -174,6 +168,7 @@ let berlinUsers: [NSManagedObject] = User.find(.all, inContext: context, attribu
 - The best way to follow the docummentation patters is using the plugin for XCode VVDocumenter
 - If you want to update the documentation you have to install appledoc in your OSX, `brew install appledoc`
 - Once installed build the app in the **Documentation** target
+- **Remember once you clone the repo locally you have to download the vendor submodules with the command `git submodule update --init`**
 
 ## Notes
 SugarRecord is hardly inspired in **Magical Record**. We loved its structure and we brought some of these ideas to SugarRecord CoreData stack but using sugar Swift syntax and adding more useful methods to make working with CoreData easier.
