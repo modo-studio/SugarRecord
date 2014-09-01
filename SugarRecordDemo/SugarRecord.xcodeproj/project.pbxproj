@@ -47,7 +47,6 @@
 		3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55F3198E826E00268EB3 /* SugarRecordTests.swift */; };
 		3DBC55FF198E82F500268EB3 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55FE198E82F500268EB3 /* SugarRecord.swift */; };
 		3DBC5603198E844B00268EB3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
-		3DD010AF1990379D00673854 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55FE198E82F500268EB3 /* SugarRecord.swift */; };
 		3DD90A4419B06907006A7AD4 /* NSPersistentStoreCoordinator+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD90A4319B06907006A7AD4 /* NSPersistentStoreCoordinator+iCloud.swift */; };
 		3DD90A4619B06C34006A7AD4 /* NSPersistentStore+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD90A4519B06C34006A7AD4 /* NSPersistentStore+iCloud.swift */; };
 		3DF0885519AC80B700A47174 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0884E19AC80A200A47174 /* Quick.framework */; };
@@ -560,7 +559,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DD010AF1990379D00673854 /* SugarRecord.swift in Sources */,
 				3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
