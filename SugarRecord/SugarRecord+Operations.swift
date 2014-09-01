@@ -10,7 +10,7 @@ import Foundation
 
 // MARK - SugarRecord Operations
 
-extension SugarRecord {
+public extension SugarRecord {
     /**
      Executes a closure block pasing a context as an input paramter to the closure and saving the context changes before deleting it
 

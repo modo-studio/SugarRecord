@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension SugarRecord {
+public extension SugarRecord {
     struct iCloudStatic {
         static var iCloudEnabled : Bool = false
     }

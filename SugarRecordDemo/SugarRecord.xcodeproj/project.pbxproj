@@ -38,6 +38,7 @@
 		3D42DFF419AD2945008BFDE6 /* NSManagedObject+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFF319AD2945008BFDE6 /* NSManagedObject+Stack.swift */; };
 		3D42DFF619AD29C4008BFDE6 /* NSManagedObject+Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D42DFF519AD29C4008BFDE6 /* NSManagedObject+Counters.swift */; };
 		3D43C1B2199DE478004FC0E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43C1B1199DE478004FC0E5 /* Person.m */; };
+		3D596BBF19B4CEB7009B9BAC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0883E19AC809400A47174 /* Nimble.framework */; };
 		3DA571BB19B078DC00B293EB /* NSManagedObjectContext+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA571BA19B078DC00B293EB /* NSManagedObjectContext+iCloud.swift */; };
 		3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DD198E826E00268EB3 /* AppDelegate.swift */; };
 		3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */; };
@@ -50,7 +51,6 @@
 		3DD90A4419B06907006A7AD4 /* NSPersistentStoreCoordinator+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD90A4319B06907006A7AD4 /* NSPersistentStoreCoordinator+iCloud.swift */; };
 		3DD90A4619B06C34006A7AD4 /* NSPersistentStore+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD90A4519B06C34006A7AD4 /* NSPersistentStore+iCloud.swift */; };
 		3DF0885519AC80B700A47174 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0884E19AC80A200A47174 /* Quick.framework */; };
-		3DF0885619AC80BC00A47174 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0883E19AC809400A47174 /* Nimble.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,7 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DF0885619AC80BC00A47174 /* Nimble.framework in Frameworks */,
+				3D596BBF19B4CEB7009B9BAC /* Nimble.framework in Frameworks */,
 				3DF0885519AC80B700A47174 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
