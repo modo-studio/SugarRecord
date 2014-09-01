@@ -175,6 +175,7 @@ let berlinUsers: [NSManagedObject] = User.find(.all, inContext: context, attribu
 - The best way to follow the docummentation patters is using the plugin for XCode VVDocumenter
 - If you want to update the documentation you have to install appledoc in your OSX, `brew install appledoc`
 - Once installed build the app in the **Documentation** target
+- **Remember once you clone the repo locally you have to download the vendor submodules with the command `git submodule update --init`**
 
 ## Notes
 SugarRecord is hardly inspired in **Magical Record**. We loved its structure and we brought some of these ideas to SugarRecord CoreData stack but using sugar Swift syntax and adding more useful methods to make working with CoreData easier.
