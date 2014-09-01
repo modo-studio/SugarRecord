@@ -121,11 +121,11 @@ class SugarRecord {
      */
     class func currentStack() -> String {
         var status: String = "SugarRecord stack \n ------- \n"
-        status += "Model:       \(NSManagedObjectModel.defaultManagedObjectModel())\n"
-        status += "Coordinator:       \(NSPersistentStoreCoordinator.defaultPersistentStoreCoordinator())\n"
-        status += "Store:       \(NSPersistentStore.defaultPersistentStore())\n"
-        status += "Default context:       \(NSManagedObjectContext.defaultContext())\n"
-        status += "Saving context:       \(NSManagedObjectContext.rootSavingContext())\n"
+        status += "Model:                   \(NSManagedObjectModel.defaultManagedObjectModel())\n"
+        status += "Coordinator:             \(NSPersistentStoreCoordinator.defaultPersistentStoreCoordinator())\n"
+        status += "Store:                   \(NSPersistentStore.defaultPersistentStore())\n"
+        status += "Default context:         \(NSManagedObjectContext.defaultContext())\n"
+        status += "Saving context:          \(NSManagedObjectContext.rootSavingContext())\n"
         return status
     }
     

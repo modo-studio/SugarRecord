@@ -9,7 +9,7 @@
 import Foundation
 
 extension NSManagedObjectContext {
-    /// Dele the given objects
+    /// Delete the given objects
     func delete(let objects: [NSManagedObject]) {
         for object in objects {
             self.deleteObject(object)

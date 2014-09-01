@@ -18,7 +18,7 @@ extension NSPersistentStoreCoordinator {
 
      :returns: NSPersistentStoreCoordinator default
      */
-    class func defaultPersistentStoreCoordinator () -> (NSPersistentStoreCoordinator?) {
+    class func defaultPersistentStoreCoordinator() -> NSPersistentStoreCoordinator? {
         return Static.dPSC
     }
 
@@ -27,7 +27,7 @@ extension NSPersistentStoreCoordinator {
 
      :param: psc NSPersistentStoreCoordinator to be set as default
      */
-    class func setDefaultPersistentStoreCoordinator (psc: NSPersistentStoreCoordinator) {
+    class func setDefaultPersistentStoreCoordinator(psc: NSPersistentStoreCoordinator) {
         Static.dPSC = psc
     }
     
@@ -39,7 +39,7 @@ extension NSPersistentStoreCoordinator {
 
      :returns: NSPersistentStoreCoordinator created
      */
-    class func newCoordinator (var databaseName: String?, automigrating: Bool?) -> (NSPersistentStoreCoordinator?) {
+    class func newCoordinator(var databaseName: String?, automigrating: Bool?) -> NSPersistentStoreCoordinator? {
         var model: NSManagedObjectModel = NSManagedObjectModel.defaultManagedObjectModel()
         var coordinator: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         if automigrating != nil {
@@ -58,7 +58,7 @@ extension NSPersistentStoreCoordinator {
 
      :returns: NSPersistentStore created
      */
-    func autoMigrateDatabase (databaseName: String) -> (NSPersistentStore) {
+    func autoMigrateDatabase(databaseName: String) -> NSPersistentStore {
         return addDatabase(databaseName, withOptions: NSPersistentStoreCoordinator.autoMigrateOptions())
     }
     
@@ -67,7 +67,7 @@ extension NSPersistentStoreCoordinator {
 
      :returns: [NSObject: AnyObject] with the options for NSPersistentStore initialization when migration
      */
-    class func autoMigrateOptions() -> ([NSObject: AnyObject]) {
+    class func autoMigrateOptions() -> [NSObject: AnyObject] {
         var sqliteOptions: [String: String] = [String: String] ()
         sqliteOptions["WAL"] = "journal_mode"
         var options: [NSObject: AnyObject] = [NSObject: AnyObject] ()
@@ -86,7 +86,7 @@ extension NSPersistentStoreCoordinator {
 
      :returns: NSPersistentStore created and connected to the local store
      */
-    func addDatabase(databaseName: String, withOptions options: [NSObject: AnyObject]?) -> (NSPersistentStore){
+    func addDatabase(databaseName: String, withOptions options: [NSObject: AnyObject]?) -> NSPersistentStore {
         let url: NSURL = NSPersistentStore.storeUrl(forDatabaseName: databaseName)
         var error: NSError?
         createPathIfNecessary(forFilePath: url)
@@ -143,7 +143,7 @@ extension NSPersistentStoreCoordinator {
     /**
      Clean up the default persistent store coordinator
      */
-    class func cleanUp () -> () {
+    class func cleanUp() {
         Static.dPSC = nil
     }
 }

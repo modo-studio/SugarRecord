@@ -19,7 +19,7 @@ extension SugarRecord {
      */
     class func save(inBackground background: Bool, savingBlock: (context: NSManagedObjectContext) -> (), completion: (success: Bool, error: NSError?) -> ()) {
         dispatch_async(SugarRecord.backgroundQueue(), {
-            self.save(true, savingBlock: savingBlock, completion: completion)
+            SugarRecord.save(true, savingBlock: savingBlock, completion: completion)
         })
     }
     
@@ -33,7 +33,7 @@ extension SugarRecord {
      */
     private class func save(synchronously: Bool, savingBlock: (context: NSManagedObjectContext) -> (), completion: (success: Bool, error: NSError?) -> ()) {
         // Generating context
-        var privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
+        let privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
         
         // Executing block
         if synchronously {

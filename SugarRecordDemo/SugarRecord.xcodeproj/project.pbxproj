@@ -11,7 +11,6 @@
 		3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DD198E826E00268EB3 /* AppDelegate.swift */; };
 		3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */; };
 		3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55E2198E826E00268EB3 /* ViewController.swift */; };
-		3DBC55E6198E826E00268EB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC55E4198E826E00268EB3 /* Main.storyboard */; };
 		3DBC55E8198E826E00268EB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC55E7198E826E00268EB3 /* Images.xcassets */; };
 		3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55F3198E826E00268EB3 /* SugarRecordTests.swift */; };
 		3DBC5603198E844B00268EB3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
@@ -33,32 +32,12 @@
 		FFD819A719AF03DB00BD2603 /* SugarRecord+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199719AF03DB00BD2603 /* SugarRecord+Operations.swift */; };
 		FFD819A819AF03DB00BD2603 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199819AF03DB00BD2603 /* SugarRecord.swift */; };
 		FFD819A919AF03DB00BD2603 /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199919AF03DB00BD2603 /* SugarRecordLogger.swift */; };
-		FFD819B219AF084F00BD2603 /* NSManagedObject+Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198719AF03DB00BD2603 /* NSManagedObject+Counters.swift */; };
-		FFD819B319AF084F00BD2603 /* NSManagedObject+FetchRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198819AF03DB00BD2603 /* NSManagedObject+FetchRequests.swift */; };
-		FFD819B419AF084F00BD2603 /* NSManagedObject+Finders.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198919AF03DB00BD2603 /* NSManagedObject+Finders.swift */; };
-		FFD819B519AF084F00BD2603 /* NSManagedObject+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198A19AF03DB00BD2603 /* NSManagedObject+Operations.swift */; };
-		FFD819B619AF084F00BD2603 /* NSManagedObject+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198B19AF03DB00BD2603 /* NSManagedObject+Stack.swift */; };
-		FFD819B719AF084F00BD2603 /* NSManagedObjectModel+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198C19AF03DB00BD2603 /* NSManagedObjectModel+Stack.swift */; };
-		FFD819B819AF084F00BD2603 /* NSManagedObjectContext+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198E19AF03DB00BD2603 /* NSManagedObjectContext+Debug.swift */; };
-		FFD819B919AF084F00BD2603 /* NSManagedObjectContext+Observing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198F19AF03DB00BD2603 /* NSManagedObjectContext+Observing.swift */; };
-		FFD819BA19AF084F00BD2603 /* NSManagedObjectContext+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199019AF03DB00BD2603 /* NSManagedObjectContext+Operations.swift */; };
-		FFD819BB19AF084F00BD2603 /* NSManagedObjectContext+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199119AF03DB00BD2603 /* NSManagedObjectContext+Stack.swift */; };
-		FFD819BC19AF084F00BD2603 /* NSPersistentStore+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199319AF03DB00BD2603 /* NSPersistentStore+Stack.swift */; };
-		FFD819BD19AF084F00BD2603 /* NSPersistentStoreCoordinator+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199519AF03DB00BD2603 /* NSPersistentStoreCoordinator+Stack.swift */; };
-		FFD819BE19AF084F00BD2603 /* SugarRecord+ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199619AF03DB00BD2603 /* SugarRecord+ErrorHandler.swift */; };
-		FFD819BF19AF084F00BD2603 /* SugarRecord+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199719AF03DB00BD2603 /* SugarRecord+Operations.swift */; };
 		FFD819C019AF084F00BD2603 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199819AF03DB00BD2603 /* SugarRecord.swift */; };
 		FFD819C119AF084F00BD2603 /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199919AF03DB00BD2603 /* SugarRecordLogger.swift */; };
+		FFF4641119B13D39002475B1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3DBC55EE198E826E00268EB3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DBC55D0198E826E00268EB3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3DBC55D7198E826E00268EB3;
-			remoteInfo = SugarRecord;
-		};
 		3DF0883D19AC809400A47174 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3DF0883619AC809400A47174 /* Nimble.xcodeproj */;
@@ -115,6 +94,13 @@
 			remoteGlobalIDString = 5A5D118619473F2100F6D13D;
 			remoteInfo = "Quick-iOSTests";
 		};
+		FFF4641A19B13E07002475B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DBC55D0198E826E00268EB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DBC55D7198E826E00268EB3;
+			remoteInfo = SugarRecord;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF4641119B13D39002475B1 /* CoreData.framework in Frameworks */,
 				3DF0885619AC80BC00A47174 /* Nimble.framework in Frameworks */,
 				3DF0885519AC80B700A47174 /* Quick.framework in Frameworks */,
 			);
@@ -353,7 +340,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				3DBC55EF198E826E00268EB3 /* PBXTargetDependency */,
+				FFF4641B19B13E07002475B1 /* PBXTargetDependency */,
 			);
 			name = SugarRecordTests;
 			productName = SugarRecordTests;
@@ -367,7 +354,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = PPinera;
+				ORGANIZATIONNAME = SugarRecord;
 				TargetAttributes = {
 					3DBC55D7198E826E00268EB3 = {
 						CreatedOnToolsVersion = 6.0;
@@ -471,7 +458,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DBC55E6198E826E00268EB3 /* Main.storyboard in Resources */,
 				3DBC55E8198E826E00268EB3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,20 +503,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFD819B219AF084F00BD2603 /* NSManagedObject+Counters.swift in Sources */,
-				FFD819B319AF084F00BD2603 /* NSManagedObject+FetchRequests.swift in Sources */,
-				FFD819B419AF084F00BD2603 /* NSManagedObject+Finders.swift in Sources */,
-				FFD819B519AF084F00BD2603 /* NSManagedObject+Operations.swift in Sources */,
-				FFD819B619AF084F00BD2603 /* NSManagedObject+Stack.swift in Sources */,
-				FFD819B719AF084F00BD2603 /* NSManagedObjectModel+Stack.swift in Sources */,
-				FFD819B819AF084F00BD2603 /* NSManagedObjectContext+Debug.swift in Sources */,
-				FFD819B919AF084F00BD2603 /* NSManagedObjectContext+Observing.swift in Sources */,
-				FFD819BA19AF084F00BD2603 /* NSManagedObjectContext+Operations.swift in Sources */,
-				FFD819BB19AF084F00BD2603 /* NSManagedObjectContext+Stack.swift in Sources */,
-				FFD819BC19AF084F00BD2603 /* NSPersistentStore+Stack.swift in Sources */,
-				FFD819BD19AF084F00BD2603 /* NSPersistentStoreCoordinator+Stack.swift in Sources */,
-				FFD819BE19AF084F00BD2603 /* SugarRecord+ErrorHandler.swift in Sources */,
-				FFD819BF19AF084F00BD2603 /* SugarRecord+Operations.swift in Sources */,
 				FFD819C019AF084F00BD2603 /* SugarRecord.swift in Sources */,
 				FFD819C119AF084F00BD2603 /* SugarRecordLogger.swift in Sources */,
 				3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */,
@@ -540,10 +512,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3DBC55EF198E826E00268EB3 /* PBXTargetDependency */ = {
+		FFF4641B19B13E07002475B1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3DBC55D7198E826E00268EB3 /* SugarRecord */;
-			targetProxy = 3DBC55EE198E826E00268EB3 /* PBXContainerItemProxy */;
+			targetProxy = FFF4641A19B13E07002475B1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
