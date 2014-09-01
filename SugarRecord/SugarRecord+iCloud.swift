@@ -40,7 +40,7 @@ public extension SugarRecord {
      */
     class func setupCoreDataStack(withiCloudContainer iCloudContainer: String, localStoreName: String) {
         let contentName: AnyObject? = NSBundle.mainBundle().infoDictionary[kCFBundleIdentifierKey]
-        self.setupCoreDataStack(withiCloudContainer: iCloudContainer, contentNameKey: contentName! as String, localStoreName: localStoreName, cloudStorePath: "")
+        setupCoreDataStack(withiCloudContainer: iCloudContainer, contentNameKey: contentName! as String, localStoreName: localStoreName, cloudStorePath: "")
     }
 
     /**
@@ -52,7 +52,7 @@ public extension SugarRecord {
      :param: cloudStorePath  String with the path if you don't want to use the root one
      */
     class func setupCoreDataStack(withiCloudContainer iCloudContainer: String, contentNameKey: String, localStoreName: String, cloudStorePath: String) {
-        self.setupCoreDataStack(withiCloudContainer: iCloudContainer, contentNameKey: contentNameKey, localStoreName: localStoreName, cloudStorePath: cloudStorePath, completion: nil)
+        setupCoreDataStack(withiCloudContainer: iCloudContainer, contentNameKey: contentNameKey, localStoreName: localStoreName, cloudStorePath: cloudStorePath, completion: nil)
     }
 
     /**

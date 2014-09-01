@@ -9,11 +9,14 @@
 import Foundation
 
 extension NSPersistentStore {
-    
+    /**
+     Return the NSURL for ubiquitious container
+
+     :param: bucketName Bucket cloud container
+
+     :returns: NSURL with the address
+     */
     class func cloudURLForUbiquitiousContainer(bucketName: String) -> NSURL {
-        let fileManager: NSFileManager = NSFileManager()
-        var cloudURL: NSURL?
-        cloudURL = fileManager.URLForUbiquityContainerIdentifier(bucketName)
-        return cloudURL!
+        return NSFileManager().URLForUbiquityContainerIdentifier(bucketName)!
     }
 }

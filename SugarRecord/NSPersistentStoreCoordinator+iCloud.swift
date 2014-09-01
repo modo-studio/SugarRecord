@@ -17,12 +17,12 @@ extension NSPersistentStoreCoordinator {
     }
 
     class func coordinator(withiCloudContainer container: String, contentNameKey: String, localStoreNamed: String, cloudStorePath: String) -> NSPersistentStoreCoordinator {
-        return self.coordinator(withiCloudContainer: container, contentNameKey: contentNameKey, localStoreNamed: localStoreNamed, cloudStorePath: cloudStorePath, completion: nil)
+        return coordinator(withiCloudContainer: container, contentNameKey: contentNameKey, localStoreNamed: localStoreNamed, cloudStorePath: cloudStorePath, completion: nil)
     }
 
 
     func addiCloudContainer(iCloudContainer: String, contentNameKey: String, localStoreNamed: String, cloudStorePath: String) {
-        self .addiCloudContainer(iCloudContainer, contentNameKey: contentNameKey, localStoreNamed: localStoreNamed, cloudStorePath: cloudStorePath, completion: nil)
+        addiCloudContainer(iCloudContainer, contentNameKey: contentNameKey, localStoreNamed: localStoreNamed, cloudStorePath: cloudStorePath, completion: nil)
     }
     
     func addiCloudContainer(iCloudContainer: String, contentNameKey: String, localStoreNamed: String, cloudStorePath: String, completion: (() -> ())?) {
