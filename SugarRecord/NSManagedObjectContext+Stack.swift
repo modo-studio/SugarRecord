@@ -86,11 +86,11 @@ extension NSManagedObjectContext {
         Static.defaultContext!.addObserverToGetPermanentIDsBeforeSaving()
 
         if SugarRecord.iCloudEnabled() {
-            Static.defaultContext?.observeiCloudChanges(inCoordinator: coordinator)
+            defaultContext()!.observeiCloudChanges(inCoordinator: coordinator)
         }
         else {
             Static.ubiquitySetupNotificationObserver = NSNotificationCenter.defaultCenter().addObserverForName(srKVOPSCDidCompleteiCloudSetupNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: {(notification: NSNotification!) in
-                    Static.defaultContext?.observeiCloudChanges(inCoordinator: coordinator)
+                    self.defaultContext()!.observeiCloudChanges(inCoordinator: coordinator)
                 })
         }
     }

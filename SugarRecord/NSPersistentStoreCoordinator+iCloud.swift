@@ -42,7 +42,7 @@ extension NSPersistentStoreCoordinator {
                 if completion != nil {
                     completion!()
                 }
-                NSNotificationCenter.defaultCenter().postNotificationName(srPSCDidCompleteiCloudSetupNotification, object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName(srKVOPSCDidCompleteiCloudSetupNotification, object: nil)
             })
         })
     }
