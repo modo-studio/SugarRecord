@@ -152,7 +152,7 @@ extension NSManagedObjectContext {
     class func initializeContextsStack(persistentStoreCoordinator: NSPersistentStoreCoordinator) {
         SugarRecordLogger.logLevelInfo.log("Creating contexts stack")
         var rootContext: NSManagedObjectContext = NSManagedObjectContext.newContext(nil, persistentStoreCoordinator: persistentStoreCoordinator)
-        self.setRootSavingContext(rootContext)
+        NSManagedObjectContext.setRootSavingContext(rootContext)
         var defaultContext: NSManagedObjectContext = NSManagedObjectContext.newContext(rootContext, persistentStoreCoordinator: nil)
     }
     

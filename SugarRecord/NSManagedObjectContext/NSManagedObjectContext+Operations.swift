@@ -35,7 +35,7 @@ extension NSManagedObjectContext {
         }
         
         // If it doesn't have changes there's nothing to do
-        if hasChanges {
+        if !hasChanges {
             SugarRecordLogger.logLevelVerbose.log("No changes in context \(self.workingName()) - Not saving")
             dispatch_async(dispatch_get_main_queue(), {
                         completion(success: false, error: nil)

@@ -17,14 +17,6 @@ class ViewController: UIViewController {
         SugarRecord.setupCoreDataStack(automigrating: true, databaseName: "testDB")
         println(SugarRecord.currentStack())
         
-//        // Creating a person
-//        SugarRecord.save(inBackground: true, savingBlock: { (context) -> () in
-//            let pedro: Person = Person.create(inContext: context) as Person
-//            pedro.name = "Pedro"
-//            pedro.age = "22"
-//            }) { (success, error) -> () in
-//                println("The user was saved successfuly")
-//        }
     }
 
     override func didReceiveMemoryWarning() {

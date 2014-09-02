@@ -18,9 +18,7 @@ public extension SugarRecord {
      :param: savingBlock Closure to be executed. Context passed is a private context
      */
     class func save(inBackground background: Bool, savingBlock: (context: NSManagedObjectContext) -> (), completion: (success: Bool, error: NSError?) -> ()) {
-        dispatch_async(SugarRecord.backgroundQueue(), {
-            SugarRecord.save(true, savingBlock: savingBlock, completion: completion)
-        })
+        SugarRecord.save(true, savingBlock: savingBlock, completion: completion)
     }
     
 
@@ -50,22 +48,4 @@ public extension SugarRecord {
         }
     }
 
-    /**
-     Executes a closure operatin in background but without saving the context used in background.
-
-     :param: block Closure that is going to be executed
-     */
-    class func background(block: (context: NSManagedObjectContext) -> ()) {
-        self.save(inBackground: true, savingBlock: { (context) -> () in
-            
-        }) { (success, error) -> () in
-            
-        }
-        dispatch_async(SugarRecord.backgroundQueue(), {
-            var privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
-            privateContext.performBlockAndWait({ () -> Void in
-                block(context: privateContext)
-            })
-        })
-    }
 }

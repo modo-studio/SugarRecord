@@ -39,15 +39,6 @@ let srKVODidMergeChangesFromiCloudNotification = "srKVODidMergeChangesFromiCloud
  *  Main Library class with some useful constants and methods
  */
 public class SugarRecord {
-    struct Static {
-        //static var onceToken : dispatch_once_t = 0
-        //static var instance : SugarRecord? = nil
-        
-        // -- I've seen it is only used for the save operations
-        // The queue itself is not guaranteed to run on any particular thread, 
-        // it might run on the main queue if it's a context using main queue concurrency type
-        static var backgroundQueue : dispatch_queue_t? = nil
-    }
     
     /**
      Setup the contexts stack (including the persistent store coordinator)
@@ -84,18 +75,6 @@ public class SugarRecord {
             SugarRecordLogger.logLevelInfo.log("Data base deleted |\(databaseName)|")
         }
         return error != nil
-    }
-    
-    /**
-     Returns the background queue for background operations with SugarRecord
-
-     :returns: Background Queue (lazy generated) queue
-     */
-    public class func backgroundQueue() -> dispatch_queue_t {
-        if Static.backgroundQueue == nil {
-            Static.backgroundQueue = dispatch_queue_create(srBackgroundQueueName, nil)
-        }
-        return Static.backgroundQueue!
     }
 
     /**
