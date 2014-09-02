@@ -48,4 +48,23 @@ public extension SugarRecord {
         }
     }
 
+    /**
+     Executes a closure operatin in background but without saving the context used in background.
+
+     :param: block Closure that is going to be executed
+     */
+    class func background(block: (context: NSManagedObjectContext) -> ()) {
+        self.save(inBackground: true, savingBlock: { (context) -> () in
+            
+        }) { (success, error) -> () in
+            
+        }
+        
+        var privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
+        privateContext.performBlockAndWait({ () -> Void in
+            block(context: privateContext)
+        })
+    
+    }
+
 }
