@@ -12,16 +12,15 @@ import Foundation
 
 public extension SugarRecord {
     /**
-     Executes a closure block pasing a context as an input paramter to the closure and saving the context changes before deleting it
-
-     :param: background  Indicates if the saving is going to be executed in background
-     :param: savingBlock Closure to be executed. Context passed is a private context
-     */
+    Executes a closure block pasing a context as an input paramter to the closure and saving the context changes before deleting it
+    
+    :param: background  Indicates if the saving is going to be executed in background
+    :param: savingBlock Closure to be executed. Context passed is a private context
+    */
     class func save(inBackground background: Bool, savingBlock: (context: NSManagedObjectContext) -> (), completion: (success: Bool, error: NSError?) -> ()) {
-        SugarRecord.save(true, savingBlock: savingBlock, completion: completion)
+        SugarRecord.save(!background, savingBlock: savingBlock, completion: completion)
     }
     
-
     /**
     Executes a closure block in background pasing a context as an input paramter to the closure and saving the context changes before deleting it
 
