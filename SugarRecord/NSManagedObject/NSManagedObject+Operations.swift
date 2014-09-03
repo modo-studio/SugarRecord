@@ -66,8 +66,12 @@ extension NSManagedObject {
             assert(true, "Context should be passed or default should be set")
         }
         var error: NSError?
-        var objectInContext: NSManagedObject = context!.existingObjectWithID(self.objectID, error: &error)
-        SugarRecord.handle(error)
+        var objectInContext: NSManagedObject? = context!.existingObjectWithID(self.objectID, error: &error)
+        if objectInContext == nil {
+            SugarRecord.handle(error)
+            return false
+        }
+        context?.delete([objectInContext!])
         return true
     }
     
@@ -108,7 +112,7 @@ extension NSManagedObject {
             }
         }
         error = nil
-        let objectInContext: NSManagedObject = context.existingObjectWithID(self.objectID, error: &error)
+        let objectInContext: NSManagedObject? = context.existingObjectWithID(self.objectID, error: &error)
         SugarRecord.handle(error)
         return objectInContext
     }

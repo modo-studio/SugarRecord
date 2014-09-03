@@ -70,7 +70,7 @@ public class SugarRecord {
         let url: NSURL = NSPersistentStore.storeUrl(forDatabaseName: databaseName)
         let fileManager: NSFileManager = NSFileManager.defaultManager()
         var error: NSError?
-        fileManager.removeItemAtPath(url.absoluteString, error: &error)
+        fileManager.removeItemAtPath(url.absoluteString!, error: &error)
         if error != nil {
             SugarRecordLogger.logLevelInfo.log("Data base deleted |\(databaseName)|")
         }
