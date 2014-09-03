@@ -6,13 +6,6 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 
 **Powered by [@pepibumur](http://www.twitter.com/pepibumur) and [@fjbelchi](http://www.twitter.com/fjbelchi)**
 
-### Pending stuff
-- Review closures retaining
-- Methods to get fetchedResultsController.
-- Create a data-mapping module (for exmaple using the recent Matt idea of using `=` to initialize objects with other kind of objects)
-- Add tests
-- Fill CocoaDocs documentation adding the badge to the README.md
-
 ### Index
 - [Features](#features)
   - [Planned for 1.0 Release](#planned-for-0.2-release)
@@ -41,12 +34,13 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 - Asynchronous operations using closures
 - Easy finding methods.
 
-### Planned for 0.2 Release
+### Planned for 1.0 Release
 
 _* Scheduled to coincide with Swift 1.0 release_
 
 - 100% Unit Test Coverage
 - Complete Documentation in CocoaDocs
+- Stack builder
 
 ## Requirements
 

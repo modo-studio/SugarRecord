@@ -10,7 +10,7 @@ import Foundation
 
 // MARK - SugarRecord Operations
 
-extension SugarRecord {
+public extension SugarRecord {
     /**
      Executes a closure block pasing a context as an input paramter to the closure and saving the context changes before deleting it
 
@@ -18,9 +18,7 @@ extension SugarRecord {
      :param: savingBlock Closure to be executed. Context passed is a private context
      */
     class func save(inBackground background: Bool, savingBlock: (context: NSManagedObjectContext) -> (), completion: (success: Bool, error: NSError?) -> ()) {
-        dispatch_async(SugarRecord.backgroundQueue(), {
-            self.save(true, savingBlock: savingBlock, completion: completion)
-        })
+        SugarRecord.save(true, savingBlock: savingBlock, completion: completion)
     }
     
 
@@ -33,7 +31,7 @@ extension SugarRecord {
      */
     private class func save(synchronously: Bool, savingBlock: (context: NSManagedObjectContext) -> (), completion: (success: Bool, error: NSError?) -> ()) {
         // Generating context
-        var privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
+        let privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
         
         // Executing block
         if synchronously {
@@ -61,11 +59,12 @@ extension SugarRecord {
         }) { (success, error) -> () in
             
         }
-        dispatch_async(SugarRecord.backgroundQueue(), {
-            var privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
-            privateContext.performBlockAndWait({ () -> Void in
-                block(context: privateContext)
-            })
+        
+        var privateContext: NSManagedObjectContext = NSManagedObjectContext.newContextWithParentContext(NSManagedObjectContext.rootSavingContext()!)
+        privateContext.performBlockAndWait({ () -> Void in
+            block(context: privateContext)
         })
+    
     }
+
 }

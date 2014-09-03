@@ -19,7 +19,7 @@ extension NSPersistentStore {
 
      :returns: NSPersistentStore default
      */
-    class func defaultPersistentStore () -> (NSPersistentStore?) {
+    class func defaultPersistentStore() -> NSPersistentStore? {
         return Static.dPS
     }
 
@@ -28,7 +28,7 @@ extension NSPersistentStore {
 
      :param: ps NSPersistentStore to set as default one
      */
-    class func setDefaultPersistentStore (ps: NSPersistentStore) {
+    class func setDefaultPersistentStore(ps: NSPersistentStore) {
         Static.dPS = ps
     }
 
@@ -39,7 +39,7 @@ extension NSPersistentStore {
 
      :returns: String with the path
      */
-    class func directory(directory: NSSearchPathDirectory) -> (String) {
+    class func directory(directory: NSSearchPathDirectory) -> String {
         let documetsPath : AnyObject = NSSearchPathForDirectoriesInDomains(directory, .UserDomainMask, true)[0]
         return documetsPath as String
     }
@@ -49,7 +49,7 @@ extension NSPersistentStore {
 
      :returns: String with the directory
      */
-    class func applicationDocumentsDirectory() -> (String) {
+    class func applicationDocumentsDirectory() -> String {
         return directory(.DocumentDirectory)
     }
     
@@ -58,8 +58,8 @@ extension NSPersistentStore {
 
      :returns: String with the application directory
      */
-    class func applicationStorageDirectory() -> (String) {
-        var applicationName: String = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as String
+    class func applicationStorageDirectory() -> String {
+        let applicationName: String = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as String
         return directory(.ApplicationSupportDirectory).stringByAppendingPathComponent(applicationName)
     }
     
@@ -70,7 +70,7 @@ extension NSPersistentStore {
 
      :returns: NSURL with the path
      */
-    class func storeUrl(forDatabaseName dbName: String) -> (NSURL) {
+    public class func storeUrl(forDatabaseName dbName: String) -> NSURL {
         let paths: [String] = [applicationDocumentsDirectory(), applicationStorageDirectory()]
         let fileManager: NSFileManager = NSFileManager()
         
@@ -88,14 +88,14 @@ extension NSPersistentStore {
 
      :returns: NSURL with the default store path
      */
-    class func defaultStoreUrl() -> (NSURL) {
+    public class func defaultStoreUrl() -> NSURL {
         return storeUrl(forDatabaseName: srDefaultDatabaseName)
     }
     
     /**
      Clean up the default persistent store
      */
-    class func cleanUp () -> () {
+    class func cleanUp() {
         Static.dPS = nil
     }
 }
