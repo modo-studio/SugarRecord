@@ -50,7 +50,7 @@ extension NSManagedObjectContext {
                 SugarRecord.handle(error!)
             }
             if (saveResult && savingParents && self.parentContext != nil) {
-                self.parentContext.save(synchronously, savingParents: savingParents, completion: completion)
+                self.parentContext!.save(synchronously, savingParents: savingParents, completion: completion)
             }
             else {
                 if saveResult {

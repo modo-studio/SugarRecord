@@ -60,7 +60,7 @@ extension NSManagedObject {
         // Sort descriptors
         if revertOrder  && sortDescriptors != nil {
             var rootSortDescriptor: NSSortDescriptor = sortDescriptors![0]
-            sortDescriptors![0] = NSSortDescriptor(key: rootSortDescriptor.key, ascending: !rootSortDescriptor.ascending)
+            sortDescriptors![0] = NSSortDescriptor(key: rootSortDescriptor.key!, ascending: !rootSortDescriptor.ascending)
         }
         fetchRequest.sortDescriptors = sortDescriptors
         

@@ -90,7 +90,7 @@ public extension NSPersistentStoreCoordinator {
         let url: NSURL = NSPersistentStore.storeUrl(forDatabaseName: databaseName)
         var error: NSError?
         createPathIfNecessary(forFilePath: url)
-        let store: NSPersistentStore = addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options, error: &error)
+        let store: NSPersistentStore = addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options, error: &error)!
         if srsrShouldDeleteStoreOnModelMismatch {
                 let isMigratingError = error?.code == NSPersistentStoreIncompatibleVersionHashError || error?.code == NSMigrationMissingSourceModelError
                 if (error?.domain == NSCocoaErrorDomain as String) && isMigratingError {
