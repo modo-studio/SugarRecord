@@ -17,7 +17,7 @@ extension NSManagedObject {
 
      :returns: [NSManagedObject] with round objects
      */
-    class func executeFetchRequest(fetchRequest: NSFetchRequest, var inContext context: NSManagedObjectContext?) -> ([NSManagedObject]) {
+    class func executeFetchRequest(fetchRequest: NSFetchRequest, var inContext context: NSManagedObjectContext?) -> [NSManagedObject] {
         var objects: [NSManagedObject] = [NSManagedObject]()
         if context == nil && NSManagedObjectContext.defaultContext() != nil {
             context = NSManagedObjectContext.defaultContext()!
@@ -42,7 +42,7 @@ extension NSManagedObject {
 
      :returns: NSManagedObject created
      */
-    class func create(inContext context: NSManagedObjectContext) -> (NSManagedObject?) {
+    public class func create(inContext context: NSManagedObjectContext) -> NSManagedObject? {
         var entity: NSEntityDescription?
         entity = self.entityDescription(inContext: context)
         if entity == nil {
@@ -58,7 +58,7 @@ extension NSManagedObject {
 
      :returns: Bool if the deleton was successful
      */
-    func delete(var inContext context: NSManagedObjectContext?) -> (Bool) {
+    func delete(var inContext context: NSManagedObjectContext?) -> Bool {
         if context == nil && NSManagedObjectContext.defaultContext() != nil {
             context = NSManagedObjectContext.defaultContext()!
         }
@@ -79,7 +79,7 @@ extension NSManagedObject {
 
      :returns: Bool if the deleton was successful
      */
-    class func deleteAll(predicate: NSPredicate?, inContext context: NSManagedObjectContext?) -> (Bool) {
+    class func deleteAll(predicate: NSPredicate?, inContext context: NSManagedObjectContext?) -> Bool {
         var request: NSFetchRequest = self.request(.all, inContext: context, filteredBy: predicate, sortedBy: nil)
         request.returnsObjectsAsFaults = true
         request.includesPendingChanges = false
@@ -97,7 +97,7 @@ extension NSManagedObject {
 
      :returns: NSManagedObject in the new context
      */
-    func to(context: NSManagedObjectContext) -> (NSManagedObject?) {
+    func to(context: NSManagedObjectContext) -> NSManagedObject? {
         var error: NSError?
         if self.objectID.temporaryID {
             let objects: [AnyObject]! = [self]

@@ -22,7 +22,7 @@ extension NSManagedObjectModel {
     class func setDefaultManagedObjectModel(objectModel: NSManagedObjectModel) {
         Static.defaultManagedObjectModel = objectModel
     }
-    class func defaultManagedObjectModel() -> (NSManagedObjectModel) {
+    class func defaultManagedObjectModel() -> NSManagedObjectModel {
         var currentModel: NSManagedObjectModel? = Static.defaultManagedObjectModel
         if currentModel == nil {
             currentModel = self.mergedModelFromBundles(nil)
@@ -36,7 +36,7 @@ extension NSManagedObjectModel {
 
      :returns: NSManagedObjectModel from the main Bundle
      */
-    class func mergedModelFromMainBundle() -> (NSManagedObjectModel) {
+    class func mergedModelFromMainBundle() -> NSManagedObjectModel {
         return mergedModelFromBundles(nil)
     }
     
@@ -49,7 +49,7 @@ extension NSManagedObjectModel {
 
      :returns: NSManagedObjectModel created NSManagedObjectModel
      */
-    class func newModel(modelName: String, var inBundle bundle: NSBundle?) -> (NSManagedObjectModel) {
+    class func newModel(modelName: String, var inBundle bundle: NSBundle?) -> NSManagedObjectModel {
         if bundle == nil {
             bundle = NSBundle.mainBundle()
         }
@@ -62,7 +62,7 @@ extension NSManagedObjectModel {
     /**
      Clean the default managed object model
      */
-    class func cleanUp () -> () {
+    class func cleanUp () {
         Static.defaultManagedObjectModel = nil
     }
 }

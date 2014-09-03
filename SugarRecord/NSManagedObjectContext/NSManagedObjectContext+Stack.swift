@@ -22,7 +22,7 @@ extension NSManagedObjectContext {
 
      :returns: NSManagedObjectContext with the default root saving context
      */
-    class func rootSavingContext() -> (NSManagedObjectContext?) {
+    class func rootSavingContext() -> NSManagedObjectContext? {
         return Static.rootSavingContext
     }
 
@@ -50,7 +50,7 @@ extension NSManagedObjectContext {
 
      :returns: NSManagedObjectContext with the default context
      */
-    class func defaultContext() -> (NSManagedObjectContext?) {
+    class func defaultContext() -> NSManagedObjectContext? {
         return Static.defaultContext
     }
     
@@ -103,8 +103,8 @@ extension NSManagedObjectContext {
 
      :returns: NSManagedObjectContext created
      */
-    class func newContextWithPersistentStoreCoordinator(persistentStoreCoordinator: NSPersistentStoreCoordinator) -> (NSManagedObjectContext){
-        return self.newContext(nil, persistentStoreCoordinator: persistentStoreCoordinator)
+    class func newContextWithPersistentStoreCoordinator(persistentStoreCoordinator: NSPersistentStoreCoordinator) -> NSManagedObjectContext {
+        return NSManagedObjectContext.newContext(nil, persistentStoreCoordinator: persistentStoreCoordinator)
     }
 
     /**
@@ -114,8 +114,8 @@ extension NSManagedObjectContext {
 
      :returns: NSManagedObjectContext with the created context
      */
-    class func newContextWithParentContext(parentContext: NSManagedObjectContext) -> (NSManagedObjectContext){
-        return self.newContext(parentContext, persistentStoreCoordinator: nil)
+    class func newContextWithParentContext(parentContext: NSManagedObjectContext) -> NSManagedObjectContext {
+        return NSManagedObjectContext.newContext(parentContext, persistentStoreCoordinator: nil)
     }
 
     /**
@@ -126,7 +126,7 @@ extension NSManagedObjectContext {
 
      :returns: NSManagedObjectContext with the created context
      */
-    class func newContext (parentContext: NSManagedObjectContext?, persistentStoreCoordinator: NSPersistentStoreCoordinator?) -> (NSManagedObjectContext) {
+    class func newContext(parentContext: NSManagedObjectContext?, persistentStoreCoordinator: NSPersistentStoreCoordinator?) -> NSManagedObjectContext {
         var newContext: NSManagedObjectContext?
         if parentContext != nil {
             newContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
@@ -149,25 +149,25 @@ extension NSManagedObjectContext {
      :param: persistentStoreCoordinator NSPersistentStoreCoordinator of the stack
 
      */
-    class func initializeContextsStack (persistentStoreCoordinator: NSPersistentStoreCoordinator)  {
+    class func initializeContextsStack(persistentStoreCoordinator: NSPersistentStoreCoordinator) {
         SugarRecordLogger.logLevelInfo.log("Creating contexts stack")
-        var rootContext: NSManagedObjectContext = self.newContext(nil, persistentStoreCoordinator: persistentStoreCoordinator)
-        self.setRootSavingContext(rootContext)
-        var defaultContext: NSManagedObjectContext = self.newContext(rootContext, persistentStoreCoordinator: nil)
+        var rootContext: NSManagedObjectContext = NSManagedObjectContext.newContext(nil, persistentStoreCoordinator: persistentStoreCoordinator)
+        NSManagedObjectContext.setRootSavingContext(rootContext)
+        var defaultContext: NSManagedObjectContext = NSManagedObjectContext.newContext(rootContext, persistentStoreCoordinator: nil)
     }
     
     /**
      Reset the default context ensuring  this is executed in the mainThread
      */
     class func resetDefaultContext() {
-        var defaultContext: NSManagedObjectContext? = self.defaultContext()
+        var defaultContext: NSManagedObjectContext? = NSManagedObjectContext.defaultContext()
         if defaultContext == nil {
             return
         }
         assert(defaultContext!.concurrencyType == .ConfinementConcurrencyType, "SR-Assert: Not call this method on a confinement context")
         if NSThread.isMainThread() == false {
             dispatch_async(dispatch_get_main_queue(), {
-                self.resetDefaultContext()
+                NSManagedObjectContext.resetDefaultContext()
                 });
             return
         }
@@ -178,7 +178,7 @@ extension NSManagedObjectContext {
      Clean up the default context and the root saving context
      */
     class func cleanUp(){
-        self.setRootSavingContext(nil)
-        self.setDefaultContext(nil)
+        NSManagedObjectContext.setRootSavingContext(nil)
+        NSManagedObjectContext.setDefaultContext(nil)
     }
 }
