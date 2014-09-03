@@ -29,7 +29,7 @@ extension NSManagedObject {
      */
     class func entityDescription(inContext context: NSManagedObjectContext?) -> (NSEntityDescription) {
         let entityName: String = self.entityName()
-        return NSEntityDescription.entityForName(entityName, inManagedObjectContext: context!)
+        return NSEntityDescription.entityForName(entityName, inManagedObjectContext: context!)!
     }
     
     /**
@@ -73,7 +73,7 @@ extension NSManagedObject {
         if named.count == 0 {
             return propertiesWanted
         }
-        var propDict: [String: NSPropertyDescription] = description.propertiesByName as [String: NSPropertyDescription]!
+        var propDict: [String: NSPropertyDescription] = description.propertiesByName as [String: NSPropertyDescription]
         for propertyName in named {
             let property: NSPropertyDescription? = propDict[propertyName]
             if property != nil {
