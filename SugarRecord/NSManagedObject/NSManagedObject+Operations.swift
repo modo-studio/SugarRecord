@@ -58,20 +58,14 @@ extension NSManagedObject {
 
      :returns: Bool if the deleton was successful
      */
-    func delete(var inContext context: NSManagedObjectContext?) -> Bool {
-        if context == nil && NSManagedObjectContext.defaultContext() != nil {
-            context = NSManagedObjectContext.defaultContext()!
-        }
-        else {
-            assert(true, "Context should be passed or default should be set")
-        }
+    func delete(var inContext context: NSManagedObjectContext) -> Bool {
         var error: NSError?
-        var objectInContext: NSManagedObject? = context!.existingObjectWithID(self.objectID, error: &error)
+        var objectInContext: NSManagedObject? = context.existingObjectWithID(self.objectID, error: &error)
         if objectInContext == nil {
             SugarRecord.handle(error)
             return false
         }
-        context?.delete([objectInContext!])
+        context.delete([objectInContext!])
         return true
     }
     
@@ -83,7 +77,7 @@ extension NSManagedObject {
 
      :returns: Bool if the deleton was successful
      */
-    class func deleteAll(predicate: NSPredicate?, inContext context: NSManagedObjectContext?) -> Bool {
+    class func deleteAll(predicate: NSPredicate?, inContext context: NSManagedObjectContext) -> Bool {
         var request: NSFetchRequest = self.request(.all, inContext: context, filteredBy: predicate, sortedBy: nil)
         request.returnsObjectsAsFaults = true
         request.includesPendingChanges = false
