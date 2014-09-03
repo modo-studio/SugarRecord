@@ -42,7 +42,7 @@ extension NSManagedObjectContext {
      :param: notification Notification that fired this method
      */
     class func rootContextChanged(notification: NSNotification) {
-        if (NSThread.mainThread() != nil) {
+        if (!NSThread.isMainThread()) {
             dispatch_async(dispatch_get_main_queue(), {
               self.rootContextChanged(notification)
             })

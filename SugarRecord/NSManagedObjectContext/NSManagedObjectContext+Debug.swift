@@ -37,7 +37,7 @@ extension NSManagedObjectContext {
      :returns: String with the description
      */
     func description() -> (String) {
-        let onMainThread: String = (NSThread.mainThread() != nil) ? "Main Thread" : "Background thread"
+        let onMainThread: String = NSThread.isMainThread() ? "Main Thread" : "Background thread"
         return "<\(object_getClassName(self)): \(self.workingName()) on \(onMainThread)"
     }
     
