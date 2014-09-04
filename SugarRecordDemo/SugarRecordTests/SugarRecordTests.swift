@@ -92,7 +92,7 @@ class SugarRecordOperationsTests: QuickSpec {
             
             it ("should save successfully") {
                 var saved = false
-                SugarRecord.save(inBackground: true, savingBlock: { (context) -> () in
+                SugarRecord.save(inBackground: true, savingClosure: { (context) -> () in
                     let fran: Person = Person.create(inContext: context) as Person
                     fran.name = "Fran"
                     fran.age = "27"
@@ -107,7 +107,7 @@ class SugarRecordOperationsTests: QuickSpec {
             
             it ("should save on a background thread and completion clousure called in the mainThread") {
                 var saved = false
-                SugarRecord.save(inBackground: true, savingBlock: { (context) -> () in
+                SugarRecord.save(inBackground: true, savingClosure: { (context) -> () in
                     expect(NSThread.currentThread()).toNot(equal(NSThread.mainThread()));
                     }) { (success, error) -> () in
                     expect(NSThread.currentThread()).to(equal(NSThread.mainThread()));
