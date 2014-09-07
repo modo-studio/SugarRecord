@@ -8,10 +8,8 @@
 
 import Foundation
 
-typealias SugarRecordOperationBlock = (context: SugarRecordContext) -> ()
-
-protocol SugarRecordContext
+public protocol SugarRecordContext
 {
-
+    func save(inout error: NSError?)
     
 }

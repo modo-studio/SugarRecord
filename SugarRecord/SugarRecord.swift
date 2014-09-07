@@ -25,7 +25,7 @@ public class SugarRecord {
     /* Workaround to have static vars */
     private struct StaticVars
     {
-        static var stack: protocol<SugarRecordStackProtocol, SugarRecordStackQueryingProtocol, SugarRecordStackSavingProtocol>?
+        static var stack: protocol<SugarRecordStackProtocol>?
     }
 
     /**
@@ -33,9 +33,14 @@ public class SugarRecord {
     
     :param: stack Stack by default where objects are going to be persisted
     */
-    class func setStack(stack: protocol<SugarRecordStackProtocol, SugarRecordStackQueryingProtocol, SugarRecordStackSavingProtocol>)
+    public class func setStack(stack: protocol<SugarRecordStackProtocol>)
     {
         StaticVars.stack = stack
+    }
+    
+    
+    public class func stack() -> (protocol<SugarRecordStackProtocol>) {
+        return StaticVars.stack!
     }
 
     /**

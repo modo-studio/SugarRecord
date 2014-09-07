@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SugarRecordStackProtocol
+public protocol SugarRecordStackProtocol
 {
     init(stackName:String, stackDescription: String)
     var name: String { get }
@@ -17,4 +17,6 @@ protocol SugarRecordStackProtocol
     func cleanup()
     func toBackground()
     func toForeground()
+    func backgroundContext() -> SugarRecordContext // Ensure synchronized access
+    func mainThreadContext() -> SugarRecordContext
 }
