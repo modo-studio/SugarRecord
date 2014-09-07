@@ -29,14 +29,14 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 
 ## Planned for 1.0 Release
 
-** Scheduled to coincide with Swift 1.0 release**
+**Scheduled to coincide with Swift 1.0 release**
 
 - 100% Unit Test Coverage
 - Complete Documentation in CocoaDocs and tutorials made with Playgrounds
 - Fully redesigned structure based on stacks 
 - **REALM support**
 - Fully detailed steps to integrate all components in your project (*while waiting the integration of CocoaPods*)
-**Note: It's going to suppose a big step to SugarRecord because it's going to make it more flexible for all kind of developers. You can use the current initial version of SugarRecord 0.2 (master branch).**
+*Note: It's going to suppose a big step to SugarRecord because it's going to make it more flexible for all kind of developers. You can use the current initial version of SugarRecord 0.2 (master branch).*
 
 ## Requirements
 
