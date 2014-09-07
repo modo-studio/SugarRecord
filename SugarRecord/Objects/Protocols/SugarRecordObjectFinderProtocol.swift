@@ -25,5 +25,6 @@ public protocol SugarRecordObjectFinderProtocol
     class func sorted(by sortDescriptors: [NSSortDescriptor]) -> SugarRecordFinder
  
     //MARK - All
+    
     class func all() -> SugarRecordFinder
 }

@@ -12,7 +12,7 @@ public protocol SugarRecordObjectSavingProtocol
 {
     
     //MARK - Saving
-    
+    //TODO - Review the connection between saving methods and SugarRecord using SRContexts
 //    func save(inout error: NSError?)
 //    func save(inContext context: SugarRecordContext, inout error: NSError?)
 //    func save(inBackground background: Bool, completion: (error: NSError?) -> ())
