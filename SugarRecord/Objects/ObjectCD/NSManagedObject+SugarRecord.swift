@@ -1,5 +1,5 @@
 //
-//  SugarRecordObjectProtocol.swift
+//  NSManagedObject+SugarRecord.swift
 //  SugarRecord
 //
 //  Created by Pedro Piñera Buendia on 07/09/14.
@@ -7,8 +7,3 @@
 //
 
 import Foundation
-
-protocol SugarRecordObjectProtocol
-{
-    var stackClass: AnyClass { get set }
-}
