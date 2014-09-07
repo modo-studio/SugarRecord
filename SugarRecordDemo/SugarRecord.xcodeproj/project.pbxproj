@@ -21,11 +21,14 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		3D11B09519BCB6B7009274FB /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B09219BCB6B7009274FB /* SugarRecordStackProtocol.swift */; };
-		3D11B09619BCB6B7009274FB /* SugarRecordStackQueryingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B09319BCB6B7009274FB /* SugarRecordStackQueryingProtocol.swift */; };
-		3D11B09719BCB6B7009274FB /* SugarRecordStackSavingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B09419BCB6B7009274FB /* SugarRecordStackSavingProtocol.swift */; };
 		3D11B0B519BCB757009274FB /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D11B0A419BCB724009274FB /* Realm.framework */; };
 		3D11B0BA19BCB78A009274FB /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D11B0A819BCB724009274FB /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3D11B0D419BCBB2C009274FB /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B0CA19BCBB2C009274FB /* SugarRecordObjectProtocol.swift */; };
+		3D11B0D519BCBB2C009274FB /* SugarRecordObjectQueryingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B0CB19BCBB2C009274FB /* SugarRecordObjectQueryingProtocol.swift */; };
+		3D11B0D619BCBB2C009274FB /* SugarRecordObjectSavingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B0CC19BCBB2C009274FB /* SugarRecordObjectSavingProtocol.swift */; };
+		3D11B0D719BCBB2C009274FB /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B0CE19BCBB2C009274FB /* SugarRecordStackProtocol.swift */; };
+		3D11B0D819BCBB2C009274FB /* SugarRecordStackQueryingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B0CF19BCBB2C009274FB /* SugarRecordStackQueryingProtocol.swift */; };
+		3D11B0D919BCBB2C009274FB /* SugarRecordStackSavingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B0D019BCBB2C009274FB /* SugarRecordStackSavingProtocol.swift */; };
 		3D43C1B2199DE478004FC0E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43C1B1199DE478004FC0E5 /* Person.m */; };
 		3D596BBF19B4CEB7009B9BAC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0883E19AC809400A47174 /* Nimble.framework */; };
 		3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DD198E826E00268EB3 /* AppDelegate.swift */; };
@@ -184,10 +187,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3D11B09219BCB6B7009274FB /* SugarRecordStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SugarRecordStackProtocol.swift; path = Stack/Protocols/Stack/SugarRecordStackProtocol.swift; sourceTree = "<group>"; };
-		3D11B09319BCB6B7009274FB /* SugarRecordStackQueryingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SugarRecordStackQueryingProtocol.swift; path = Stack/Protocols/Stack/SugarRecordStackQueryingProtocol.swift; sourceTree = "<group>"; };
-		3D11B09419BCB6B7009274FB /* SugarRecordStackSavingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SugarRecordStackSavingProtocol.swift; path = Stack/Protocols/Stack/SugarRecordStackSavingProtocol.swift; sourceTree = "<group>"; };
 		3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Realm-Xcode6.xcodeproj"; path = "../../submodules/realm/Realm-Xcode6.xcodeproj"; sourceTree = "<group>"; };
+		3D11B0CA19BCBB2C009274FB /* SugarRecordObjectProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordObjectProtocol.swift; sourceTree = "<group>"; };
+		3D11B0CB19BCBB2C009274FB /* SugarRecordObjectQueryingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordObjectQueryingProtocol.swift; sourceTree = "<group>"; };
+		3D11B0CC19BCBB2C009274FB /* SugarRecordObjectSavingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordObjectSavingProtocol.swift; sourceTree = "<group>"; };
+		3D11B0CE19BCBB2C009274FB /* SugarRecordStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordStackProtocol.swift; sourceTree = "<group>"; };
+		3D11B0CF19BCBB2C009274FB /* SugarRecordStackQueryingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordStackQueryingProtocol.swift; sourceTree = "<group>"; };
+		3D11B0D019BCBB2C009274FB /* SugarRecordStackSavingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordStackSavingProtocol.swift; sourceTree = "<group>"; };
 		3D43C1AF199DE478004FC0E5 /* SugarRecord-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecord-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D43C1B0199DE478004FC0E5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = Models/Person.h; sourceTree = "<group>"; };
 		3D43C1B1199DE478004FC0E5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = Models/Person.m; sourceTree = "<group>"; };
@@ -231,48 +237,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D11B07D19BCAF28009274FB /* Stack */ = {
-			isa = PBXGroup;
-			children = (
-				3D11B08819BCB183009274FB /* Protocols */,
-			);
-			name = Stack;
-			sourceTree = "<group>";
-		};
-		3D11B08819BCB183009274FB /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				3D11B09119BCB68C009274FB /* Stack */,
-				3D11B09019BCB685009274FB /* Object */,
-				3D11B08F19BCB65C009274FB /* SugarRecord */,
-			);
-			name = Protocols;
-			sourceTree = "<group>";
-		};
-		3D11B08F19BCB65C009274FB /* SugarRecord */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SugarRecord;
-			sourceTree = "<group>";
-		};
-		3D11B09019BCB685009274FB /* Object */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Object;
-			sourceTree = "<group>";
-		};
-		3D11B09119BCB68C009274FB /* Stack */ = {
-			isa = PBXGroup;
-			children = (
-				3D11B09219BCB6B7009274FB /* SugarRecordStackProtocol.swift */,
-				3D11B09319BCB6B7009274FB /* SugarRecordStackQueryingProtocol.swift */,
-				3D11B09419BCB6B7009274FB /* SugarRecordStackSavingProtocol.swift */,
-			);
-			name = Stack;
-			sourceTree = "<group>";
-		};
 		3D11B09919BCB724009274FB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +250,67 @@
 				3D11B0B219BCB724009274FB /* TestHost.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3D11B0C719BCBB2C009274FB /* Stacks */ = {
+			isa = PBXGroup;
+			children = (
+				3D11B0C819BCBB2C009274FB /* Protocols */,
+				3D11B0D219BCBB2C009274FB /* StackCD */,
+				3D11B0D319BCBB2C009274FB /* StackREALM */,
+			);
+			path = Stacks;
+			sourceTree = "<group>";
+		};
+		3D11B0C819BCBB2C009274FB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3D11B0C919BCBB2C009274FB /* Object */,
+				3D11B0CD19BCBB2C009274FB /* Stack */,
+				3D11B0D119BCBB2C009274FB /* SugarRecord */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3D11B0C919BCBB2C009274FB /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				3D11B0CA19BCBB2C009274FB /* SugarRecordObjectProtocol.swift */,
+				3D11B0CB19BCBB2C009274FB /* SugarRecordObjectQueryingProtocol.swift */,
+				3D11B0CC19BCBB2C009274FB /* SugarRecordObjectSavingProtocol.swift */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
+		3D11B0CD19BCBB2C009274FB /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				3D11B0CE19BCBB2C009274FB /* SugarRecordStackProtocol.swift */,
+				3D11B0CF19BCBB2C009274FB /* SugarRecordStackQueryingProtocol.swift */,
+				3D11B0D019BCBB2C009274FB /* SugarRecordStackSavingProtocol.swift */,
+			);
+			path = Stack;
+			sourceTree = "<group>";
+		};
+		3D11B0D119BCBB2C009274FB /* SugarRecord */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SugarRecord;
+			sourceTree = "<group>";
+		};
+		3D11B0D219BCBB2C009274FB /* StackCD */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StackCD;
+			sourceTree = "<group>";
+		};
+		3D11B0D319BCBB2C009274FB /* StackREALM */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StackREALM;
 			sourceTree = "<group>";
 		};
 		3DBC55CF198E826E00268EB3 = {
@@ -385,7 +410,7 @@
 		FFD8198519AF03DB00BD2603 /* SugarRecord */ = {
 			isa = PBXGroup;
 			children = (
-				3D11B07D19BCAF28009274FB /* Stack */,
+				3D11B0C719BCBB2C009274FB /* Stacks */,
 				FFD8199619AF03DB00BD2603 /* SugarRecord+ErrorHandler.swift */,
 				FFD8199819AF03DB00BD2603 /* SugarRecord.swift */,
 				FFD8199919AF03DB00BD2603 /* SugarRecordLogger.swift */,
@@ -645,14 +670,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */,
-				3D11B09519BCB6B7009274FB /* SugarRecordStackProtocol.swift in Sources */,
 				FF793EDB19B5216200DCF05F /* SugarRecord+ErrorHandler.swift in Sources */,
+				3D11B0D819BCBB2C009274FB /* SugarRecordStackQueryingProtocol.swift in Sources */,
 				3D43C1B2199DE478004FC0E5 /* Person.m in Sources */,
-				3D11B09619BCB6B7009274FB /* SugarRecordStackQueryingProtocol.swift in Sources */,
 				3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */,
-				3D11B09719BCB6B7009274FB /* SugarRecordStackSavingProtocol.swift in Sources */,
+				3D11B0D919BCBB2C009274FB /* SugarRecordStackSavingProtocol.swift in Sources */,
+				3D11B0D419BCBB2C009274FB /* SugarRecordObjectProtocol.swift in Sources */,
 				3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */,
+				3D11B0D519BCBB2C009274FB /* SugarRecordObjectQueryingProtocol.swift in Sources */,
 				FF793EC419B51FDA00DCF05F /* SugarRecord.swift in Sources */,
+				3D11B0D619BCBB2C009274FB /* SugarRecordObjectSavingProtocol.swift in Sources */,
+				3D11B0D719BCBB2C009274FB /* SugarRecordStackProtocol.swift in Sources */,
 				FF793EC619B51FE500DCF05F /* SugarRecordLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
