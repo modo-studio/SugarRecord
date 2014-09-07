@@ -4,3 +4,6 @@
 [submodule "submodules/Nimble"]
 	path = submodules/Nimble
 	url = git@github.com:Quick/Nimble.git
+[submodule "submodules/realm"]
+	path = submodules/realm
+	url = https://github.com/realm/realm-cocoa.git

@@ -21,6 +21,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3D11B09519BCB6B7009274FB /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B09219BCB6B7009274FB /* SugarRecordStackProtocol.swift */; };
+		3D11B09619BCB6B7009274FB /* SugarRecordStackQueryingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B09319BCB6B7009274FB /* SugarRecordStackQueryingProtocol.swift */; };
+		3D11B09719BCB6B7009274FB /* SugarRecordStackSavingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B09419BCB6B7009274FB /* SugarRecordStackSavingProtocol.swift */; };
+		3D11B0B519BCB757009274FB /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D11B0A419BCB724009274FB /* Realm.framework */; };
+		3D11B0BA19BCB78A009274FB /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D11B0A819BCB724009274FB /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3D43C1B2199DE478004FC0E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43C1B1199DE478004FC0E5 /* Person.m */; };
 		3D596BBF19B4CEB7009B9BAC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0883E19AC809400A47174 /* Nimble.framework */; };
 		3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DD198E826E00268EB3 /* AppDelegate.swift */; };
@@ -31,29 +36,75 @@
 		3DBC5603198E844B00268EB3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
 		3DF0885519AC80B700A47174 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0884E19AC80A200A47174 /* Quick.framework */; };
 		FF793EC419B51FDA00DCF05F /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199819AF03DB00BD2603 /* SugarRecord.swift */; };
-		FF793EC519B51FE100DCF05F /* SugarRecord+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199719AF03DB00BD2603 /* SugarRecord+Operations.swift */; };
 		FF793EC619B51FE500DCF05F /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199919AF03DB00BD2603 /* SugarRecordLogger.swift */; };
-		FF793EC719B51FEA00DCF05F /* NSPersistentStoreCoordinator+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199519AF03DB00BD2603 /* NSPersistentStoreCoordinator+Stack.swift */; };
-		FF793EC819B51FEE00DCF05F /* NSPersistentStore+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199319AF03DB00BD2603 /* NSPersistentStore+Stack.swift */; };
-		FF793EC919B51FF300DCF05F /* NSManagedObjectContext+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198E19AF03DB00BD2603 /* NSManagedObjectContext+Debug.swift */; };
-		FF793ECA19B51FF600DCF05F /* NSManagedObjectContext+Observing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198F19AF03DB00BD2603 /* NSManagedObjectContext+Observing.swift */; };
-		FF793ECB19B51FF900DCF05F /* NSManagedObjectContext+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199019AF03DB00BD2603 /* NSManagedObjectContext+Operations.swift */; };
-		FF793ECC19B51FFB00DCF05F /* NSManagedObjectContext+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199119AF03DB00BD2603 /* NSManagedObjectContext+Stack.swift */; };
-		FF793ECD19B5200600DCF05F /* NSManagedObject+Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198719AF03DB00BD2603 /* NSManagedObject+Counters.swift */; };
-		FF793ECE19B5200900DCF05F /* NSManagedObject+FetchRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198819AF03DB00BD2603 /* NSManagedObject+FetchRequests.swift */; };
-		FF793ECF19B5200C00DCF05F /* NSManagedObject+Finders.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198919AF03DB00BD2603 /* NSManagedObject+Finders.swift */; };
-		FF793ED019B5201100DCF05F /* NSManagedObject+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198A19AF03DB00BD2603 /* NSManagedObject+Operations.swift */; };
-		FF793ED119B5201400DCF05F /* NSManagedObject+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198B19AF03DB00BD2603 /* NSManagedObject+Stack.swift */; };
-		FF793ED219B5201700DCF05F /* NSManagedObjectModel+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8198C19AF03DB00BD2603 /* NSManagedObjectModel+Stack.swift */; };
-		FF793ED419B5204700DCF05F /* NSManagedObjectContext+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF793ED319B5204700DCF05F /* NSManagedObjectContext+iCloud.swift */; };
-		FF793ED619B5205900DCF05F /* NSPersistentStore+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF793ED519B5205900DCF05F /* NSPersistentStore+iCloud.swift */; };
-		FF793ED819B5206500DCF05F /* SugarRecord+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF793ED719B5206500DCF05F /* SugarRecord+iCloud.swift */; };
-		FF793EDA19B5207200DCF05F /* NSPersistentStoreCoordinator+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF793ED919B5207200DCF05F /* NSPersistentStoreCoordinator+iCloud.swift */; };
 		FF793EDB19B5216200DCF05F /* SugarRecord+ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199619AF03DB00BD2603 /* SugarRecord+ErrorHandler.swift */; };
 		FF793EDC19B521D000DCF05F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC55E4198E826E00268EB3 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3D11B0A319BCB724009274FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8D89B981955FC6D00CF2B9A;
+			remoteInfo = OSX;
+		};
+		3D11B0A519BCB724009274FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8D89BA31955FC6D00CF2B9A;
+			remoteInfo = "OSX Tests";
+		};
+		3D11B0A719BCB724009274FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E856D1D5195614A300FB2FCF;
+			remoteInfo = iOS;
+		};
+		3D11B0A919BCB724009274FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E856D1DF195614A400FB2FCF;
+			remoteInfo = "iOS Tests";
+		};
+		3D11B0AB19BCB724009274FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F8DCA5719930F550008BD7F;
+			remoteInfo = "iOS Device Tests";
+		};
+		3D11B0AD19BCB724009274FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8FE4140196DBA6700073FBB;
+			remoteInfo = OSXTestFramework;
+		};
+		3D11B0AF19BCB724009274FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8CA10F9196DC18A0044F8AA;
+			remoteInfo = iOSTestFramework;
+		};
+		3D11B0B119BCB724009274FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F1A5E721992EB7400F45F4C;
+			remoteInfo = TestHost;
+		};
+		3D11B0B319BCB741009274FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E856D1D4195614A300FB2FCF;
+			remoteInfo = iOS;
+		};
 		3DF0883D19AC809400A47174 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3DF0883619AC809400A47174 /* Nimble.xcodeproj */;
@@ -119,7 +170,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3D11B0B619BCB75D009274FB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3D11B0BA19BCB78A009274FB /* Realm.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3D11B09219BCB6B7009274FB /* SugarRecordStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SugarRecordStackProtocol.swift; path = Stack/Protocols/Stack/SugarRecordStackProtocol.swift; sourceTree = "<group>"; };
+		3D11B09319BCB6B7009274FB /* SugarRecordStackQueryingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SugarRecordStackQueryingProtocol.swift; path = Stack/Protocols/Stack/SugarRecordStackQueryingProtocol.swift; sourceTree = "<group>"; };
+		3D11B09419BCB6B7009274FB /* SugarRecordStackSavingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SugarRecordStackSavingProtocol.swift; path = Stack/Protocols/Stack/SugarRecordStackSavingProtocol.swift; sourceTree = "<group>"; };
+		3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Realm-Xcode6.xcodeproj"; path = "../../submodules/realm/Realm-Xcode6.xcodeproj"; sourceTree = "<group>"; };
 		3D43C1AF199DE478004FC0E5 /* SugarRecord-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecord-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D43C1B0199DE478004FC0E5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = Models/Person.h; sourceTree = "<group>"; };
 		3D43C1B1199DE478004FC0E5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = Models/Person.m; sourceTree = "<group>"; };
@@ -136,24 +204,7 @@
 		3DBC5602198E844B00268EB3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3DF0883619AC809400A47174 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = ../../submodules/Nimble/Nimble.xcodeproj; sourceTree = "<group>"; };
 		3DF0884519AC80A200A47174 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = ../../submodules/Quick/Quick/Quick.xcodeproj; sourceTree = "<group>"; };
-		FF793ED319B5204700DCF05F /* NSManagedObjectContext+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+iCloud.swift"; sourceTree = "<group>"; };
-		FF793ED519B5205900DCF05F /* NSPersistentStore+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStore+iCloud.swift"; sourceTree = "<group>"; };
-		FF793ED719B5206500DCF05F /* SugarRecord+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+iCloud.swift"; sourceTree = "<group>"; };
-		FF793ED919B5207200DCF05F /* NSPersistentStoreCoordinator+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+iCloud.swift"; sourceTree = "<group>"; };
-		FFD8198719AF03DB00BD2603 /* NSManagedObject+Counters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Counters.swift"; sourceTree = "<group>"; };
-		FFD8198819AF03DB00BD2603 /* NSManagedObject+FetchRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+FetchRequests.swift"; sourceTree = "<group>"; };
-		FFD8198919AF03DB00BD2603 /* NSManagedObject+Finders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Finders.swift"; sourceTree = "<group>"; };
-		FFD8198A19AF03DB00BD2603 /* NSManagedObject+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Operations.swift"; sourceTree = "<group>"; };
-		FFD8198B19AF03DB00BD2603 /* NSManagedObject+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Stack.swift"; sourceTree = "<group>"; };
-		FFD8198C19AF03DB00BD2603 /* NSManagedObjectModel+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectModel+Stack.swift"; sourceTree = "<group>"; };
-		FFD8198E19AF03DB00BD2603 /* NSManagedObjectContext+Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Debug.swift"; sourceTree = "<group>"; };
-		FFD8198F19AF03DB00BD2603 /* NSManagedObjectContext+Observing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Observing.swift"; sourceTree = "<group>"; };
-		FFD8199019AF03DB00BD2603 /* NSManagedObjectContext+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Operations.swift"; sourceTree = "<group>"; };
-		FFD8199119AF03DB00BD2603 /* NSManagedObjectContext+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Stack.swift"; sourceTree = "<group>"; };
-		FFD8199319AF03DB00BD2603 /* NSPersistentStore+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStore+Stack.swift"; sourceTree = "<group>"; };
-		FFD8199519AF03DB00BD2603 /* NSPersistentStoreCoordinator+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+Stack.swift"; sourceTree = "<group>"; };
 		FFD8199619AF03DB00BD2603 /* SugarRecord+ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+ErrorHandler.swift"; sourceTree = "<group>"; };
-		FFD8199719AF03DB00BD2603 /* SugarRecord+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+Operations.swift"; sourceTree = "<group>"; };
 		FFD8199819AF03DB00BD2603 /* SugarRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecord.swift; sourceTree = "<group>"; };
 		FFD8199919AF03DB00BD2603 /* SugarRecordLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D11B0B519BCB757009274FB /* Realm.framework in Frameworks */,
 				3DBC5603198E844B00268EB3 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,6 +231,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D11B07D19BCAF28009274FB /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				3D11B08819BCB183009274FB /* Protocols */,
+			);
+			name = Stack;
+			sourceTree = "<group>";
+		};
+		3D11B08819BCB183009274FB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3D11B09119BCB68C009274FB /* Stack */,
+				3D11B09019BCB685009274FB /* Object */,
+				3D11B08F19BCB65C009274FB /* SugarRecord */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		3D11B08F19BCB65C009274FB /* SugarRecord */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SugarRecord;
+			sourceTree = "<group>";
+		};
+		3D11B09019BCB685009274FB /* Object */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Object;
+			sourceTree = "<group>";
+		};
+		3D11B09119BCB68C009274FB /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				3D11B09219BCB6B7009274FB /* SugarRecordStackProtocol.swift */,
+				3D11B09319BCB6B7009274FB /* SugarRecordStackQueryingProtocol.swift */,
+				3D11B09419BCB6B7009274FB /* SugarRecordStackSavingProtocol.swift */,
+			);
+			name = Stack;
+			sourceTree = "<group>";
+		};
+		3D11B09919BCB724009274FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D11B0A419BCB724009274FB /* Realm.framework */,
+				3D11B0A619BCB724009274FB /* OSX Tests.xctest */,
+				3D11B0A819BCB724009274FB /* Realm.framework */,
+				3D11B0AA19BCB724009274FB /* iOS Tests.xctest */,
+				3D11B0AC19BCB724009274FB /* iOS Device Tests.xctest */,
+				3D11B0AE19BCB724009274FB /* TestFramework.framework */,
+				3D11B0B019BCB724009274FB /* TestFramework.framework */,
+				3D11B0B219BCB724009274FB /* TestHost.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3DBC55CF198E826E00268EB3 = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +353,7 @@
 		3DD010AE1990378200673854 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */,
 				FFD8198519AF03DB00BD2603 /* SugarRecord */,
 				3DBC5602198E844B00268EB3 /* CoreData.framework */,
 			);
@@ -275,61 +385,13 @@
 		FFD8198519AF03DB00BD2603 /* SugarRecord */ = {
 			isa = PBXGroup;
 			children = (
-				FFD8198619AF03DB00BD2603 /* NSManagedObject */,
-				FFD8198D19AF03DB00BD2603 /* NSManagedObjectContext */,
-				FFD8199219AF03DB00BD2603 /* NSPersistentStore */,
-				FFD8199419AF03DB00BD2603 /* NSPersistentStoreCoordinator */,
+				3D11B07D19BCAF28009274FB /* Stack */,
 				FFD8199619AF03DB00BD2603 /* SugarRecord+ErrorHandler.swift */,
-				FFD8199719AF03DB00BD2603 /* SugarRecord+Operations.swift */,
 				FFD8199819AF03DB00BD2603 /* SugarRecord.swift */,
-				FF793ED719B5206500DCF05F /* SugarRecord+iCloud.swift */,
 				FFD8199919AF03DB00BD2603 /* SugarRecordLogger.swift */,
 			);
 			name = SugarRecord;
 			path = ../../SugarRecord;
-			sourceTree = "<group>";
-		};
-		FFD8198619AF03DB00BD2603 /* NSManagedObject */ = {
-			isa = PBXGroup;
-			children = (
-				FFD8198719AF03DB00BD2603 /* NSManagedObject+Counters.swift */,
-				FFD8198819AF03DB00BD2603 /* NSManagedObject+FetchRequests.swift */,
-				FFD8198919AF03DB00BD2603 /* NSManagedObject+Finders.swift */,
-				FFD8198A19AF03DB00BD2603 /* NSManagedObject+Operations.swift */,
-				FFD8198B19AF03DB00BD2603 /* NSManagedObject+Stack.swift */,
-				FFD8198C19AF03DB00BD2603 /* NSManagedObjectModel+Stack.swift */,
-			);
-			path = NSManagedObject;
-			sourceTree = "<group>";
-		};
-		FFD8198D19AF03DB00BD2603 /* NSManagedObjectContext */ = {
-			isa = PBXGroup;
-			children = (
-				FF793ED319B5204700DCF05F /* NSManagedObjectContext+iCloud.swift */,
-				FFD8198E19AF03DB00BD2603 /* NSManagedObjectContext+Debug.swift */,
-				FFD8198F19AF03DB00BD2603 /* NSManagedObjectContext+Observing.swift */,
-				FFD8199019AF03DB00BD2603 /* NSManagedObjectContext+Operations.swift */,
-				FFD8199119AF03DB00BD2603 /* NSManagedObjectContext+Stack.swift */,
-			);
-			path = NSManagedObjectContext;
-			sourceTree = "<group>";
-		};
-		FFD8199219AF03DB00BD2603 /* NSPersistentStore */ = {
-			isa = PBXGroup;
-			children = (
-				FF793ED519B5205900DCF05F /* NSPersistentStore+iCloud.swift */,
-				FFD8199319AF03DB00BD2603 /* NSPersistentStore+Stack.swift */,
-			);
-			path = NSPersistentStore;
-			sourceTree = "<group>";
-		};
-		FFD8199419AF03DB00BD2603 /* NSPersistentStoreCoordinator */ = {
-			isa = PBXGroup;
-			children = (
-				FF793ED919B5207200DCF05F /* NSPersistentStoreCoordinator+iCloud.swift */,
-				FFD8199519AF03DB00BD2603 /* NSPersistentStoreCoordinator+Stack.swift */,
-			);
-			path = NSPersistentStoreCoordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,10 +404,12 @@
 				3DBC55D4198E826E00268EB3 /* Sources */,
 				3DBC55D5198E826E00268EB3 /* Frameworks */,
 				3DBC55D6198E826E00268EB3 /* Resources */,
+				3D11B0B619BCB75D009274FB /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3D11B0B419BCB741009274FB /* PBXTargetDependency */,
 			);
 			name = SugarRecord;
 			productName = SugarRecord;
@@ -411,6 +475,10 @@
 					ProductGroup = 3DF0884619AC80A200A47174 /* Products */;
 					ProjectRef = 3DF0884519AC80A200A47174 /* Quick.xcodeproj */;
 				},
+				{
+					ProductGroup = 3D11B09919BCB724009274FB /* Products */;
+					ProjectRef = 3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -422,6 +490,62 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		3D11B0A419BCB724009274FB /* Realm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Realm.framework;
+			remoteRef = 3D11B0A319BCB724009274FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3D11B0A619BCB724009274FB /* OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "OSX Tests.xctest";
+			remoteRef = 3D11B0A519BCB724009274FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3D11B0A819BCB724009274FB /* Realm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Realm.framework;
+			remoteRef = 3D11B0A719BCB724009274FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3D11B0AA19BCB724009274FB /* iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "iOS Tests.xctest";
+			remoteRef = 3D11B0A919BCB724009274FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3D11B0AC19BCB724009274FB /* iOS Device Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "iOS Device Tests.xctest";
+			remoteRef = 3D11B0AB19BCB724009274FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3D11B0AE19BCB724009274FB /* TestFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TestFramework.framework;
+			remoteRef = 3D11B0AD19BCB724009274FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3D11B0B019BCB724009274FB /* TestFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TestFramework.framework;
+			remoteRef = 3D11B0AF19BCB724009274FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3D11B0B219BCB724009274FB /* TestHost.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TestHost.app;
+			remoteRef = 3D11B0B119BCB724009274FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		3DF0883E19AC809400A47174 /* Nimble.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -520,30 +644,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF793ECC19B51FFB00DCF05F /* NSManagedObjectContext+Stack.swift in Sources */,
 				3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */,
-				FF793ED019B5201100DCF05F /* NSManagedObject+Operations.swift in Sources */,
-				FF793ECD19B5200600DCF05F /* NSManagedObject+Counters.swift in Sources */,
-				FF793ECF19B5200C00DCF05F /* NSManagedObject+Finders.swift in Sources */,
+				3D11B09519BCB6B7009274FB /* SugarRecordStackProtocol.swift in Sources */,
 				FF793EDB19B5216200DCF05F /* SugarRecord+ErrorHandler.swift in Sources */,
-				FF793ED819B5206500DCF05F /* SugarRecord+iCloud.swift in Sources */,
-				FF793EC919B51FF300DCF05F /* NSManagedObjectContext+Debug.swift in Sources */,
-				FF793EC519B51FE100DCF05F /* SugarRecord+Operations.swift in Sources */,
 				3D43C1B2199DE478004FC0E5 /* Person.m in Sources */,
-				FF793ECE19B5200900DCF05F /* NSManagedObject+FetchRequests.swift in Sources */,
-				FF793ECA19B51FF600DCF05F /* NSManagedObjectContext+Observing.swift in Sources */,
-				FF793EC819B51FEE00DCF05F /* NSPersistentStore+Stack.swift in Sources */,
+				3D11B09619BCB6B7009274FB /* SugarRecordStackQueryingProtocol.swift in Sources */,
 				3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */,
-				FF793ED219B5201700DCF05F /* NSManagedObjectModel+Stack.swift in Sources */,
-				FF793ED119B5201400DCF05F /* NSManagedObject+Stack.swift in Sources */,
-				FF793ED619B5205900DCF05F /* NSPersistentStore+iCloud.swift in Sources */,
+				3D11B09719BCB6B7009274FB /* SugarRecordStackSavingProtocol.swift in Sources */,
 				3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */,
 				FF793EC419B51FDA00DCF05F /* SugarRecord.swift in Sources */,
-				FF793EDA19B5207200DCF05F /* NSPersistentStoreCoordinator+iCloud.swift in Sources */,
 				FF793EC619B51FE500DCF05F /* SugarRecordLogger.swift in Sources */,
-				FF793EC719B51FEA00DCF05F /* NSPersistentStoreCoordinator+Stack.swift in Sources */,
-				FF793ECB19B51FF900DCF05F /* NSManagedObjectContext+Operations.swift in Sources */,
-				FF793ED419B5204700DCF05F /* NSManagedObjectContext+iCloud.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +668,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3D11B0B419BCB741009274FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = iOS;
+			targetProxy = 3D11B0B319BCB741009274FB /* PBXContainerItemProxy */;
+		};
 		FFF4641B19B13E07002475B1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3DBC55D7198E826E00268EB3 /* SugarRecord */;
@@ -676,6 +791,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = SugarRecord/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -690,6 +806,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = SugarRecord/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

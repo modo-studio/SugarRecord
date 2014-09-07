@@ -12,11 +12,6 @@ class ViewController: UIViewController {
                             
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        // Initializing stack
-        SugarRecord.setupCoreDataStack(automigrating: true, databaseName: "testDB")
-        println(SugarRecord.currentStack())
-        
     }
 
     override func didReceiveMemoryWarning() {
