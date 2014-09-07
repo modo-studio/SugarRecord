@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SugarRecordObjectProtocol
+public protocol SugarRecordObjectProtocol
 {
-     var stackClass: AnyClass { get set }
+    
 }

@@ -9,6 +9,50 @@
 import Foundation
 import Realm
 
-extension RLMObject {
-
+extension RLMObject: SugarRecordObjectProtocol, SugarRecordObjectFinderProtocol, SugarRecordObjectSavingProtocol
+{
+    //MARK - Filtering
+    
+    public class func by(predicate: NSPredicate) -> SugarRecordFinder
+    {
+        var finder: SugarRecordFinder = SugarRecordFinder(predicate: predicate)
+        return finder
+    }
+    
+    public class func by(predicateString: NSString) -> SugarRecordFinder
+    {
+        var finder: SugarRecordFinder = SugarRecordFinder()
+        finder.setPredicate(predicateString)
+        return finder
+    }
+    
+    public class func by(key: String, equalTo value: String) -> SugarRecordFinder
+    {
+        var finder: SugarRecordFinder = SugarRecordFinder()
+        finder.setPredicate(byKey: key, andValue: value)
+        return finder
+    }
+    
+    //MARK - Sorting
+    
+    public class func sorted(by sortingKey: String, ascending: Bool) -> SugarRecordFinder
+    {
+        var finder: SugarRecordFinder = SugarRecordFinder()
+        finder.addSortDescriptor(byKey: sortingKey, ascending: ascending)
+        return finder
+    }
+    
+    public class func sorted(by sortDescriptor: NSSortDescriptor) -> SugarRecordFinder
+    {
+        var finder: SugarRecordFinder = SugarRecordFinder()
+        finder.addSortDescriptor(sortDescriptor)
+        return finder
+    }
+    
+    public class func sorted(by sortDescriptors: [NSSortDescriptor]) -> SugarRecordFinder
+    {
+        var finder: SugarRecordFinder = SugarRecordFinder()
+        finder.setSortDescriptors(sortDescriptors)
+        return finder
+    }
 }

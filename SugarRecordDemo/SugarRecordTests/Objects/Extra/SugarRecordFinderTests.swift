@@ -1,0 +1,59 @@
+//
+//  SugarRecordFinderTests.swift
+//  SugarRecord
+//
+//  Created by Pedro Piñera Buendia on 07/09/14.
+//  Copyright (c) 2014 SugarRecord. All rights reserved.
+//
+
+import Foundation
+import Quick
+import SugarRecord
+import Nimble
+import CoreData
+
+class SugarRecordFinderTests: QuickSpec {
+    override func spec() {
+        beforeSuite {}
+        afterSuite {}
+
+        describe("sortDescriptors", { () -> () in
+            var sugarRecordFinder: SugarRecordFinder!
+            beforeEach({ () -> () in
+                sugarRecordFinder = SugarRecordFinder()
+            })
+            
+            it("should add the sortDescriptor to the finder sortDescriptors property", { () -> () in
+                let sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "test", ascending: true)
+                sugarRecordFinder.addSortDescriptor(sortDescriptor)
+                expect(sugarRecordFinder.sortDescriptorsCount()).to(equal(1))
+            })
+            
+            it("should append the sort descriptor passing the key and the ascending value", { () -> () in
+                let sortDescriptor: SugarRecordFinder = sugarRecordFinder.addSortDescriptor(byKey: "name", ascending: true)
+                expect(sugarRecordFinder.sortDescriptors.last!.ascending).to(equal(true))
+                expect(sugarRecordFinder.sortDescriptors.last!.key).to(equal("name"))
+            })
+        });
+        
+        describe("predicates", { () -> () in
+            var sugarRecordFinder: SugarRecordFinder!
+            beforeEach({ () -> () in
+                sugarRecordFinder = SugarRecordFinder()
+            })
+            
+            it("should add the predicate to the finder predicates", { () -> () in
+                let predicate: NSPredicate = NSPredicate()
+                sugarRecordFinder.setPredicate(predicate)
+                expect(sugarRecordFinder.predicate).to(beIdenticalTo(predicate))
+            })
+            
+            it("should translate the predicateString into a NSpredicate", { () -> () in
+                let predicateString: String = "name == NULL"
+                sugarRecordFinder.setPredicate(predicateString)
+                let predicate: NSPredicate = sugarRecordFinder.predicate!
+                expect(predicate.predicateFormat).to(equal("name == nil"))
+            })
+        });
+    }
+}
