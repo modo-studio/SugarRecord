@@ -13,6 +13,8 @@ public class SugarRecordFinder
     //MARK - Attributes
     
     var predicate: NSPredicate?
+    var objectClass: AnyClass?
+    
     lazy var sortDescriptors: [NSSortDescriptor] = [NSSortDescriptor] ()
     
     // MARK - Constructors
@@ -29,7 +31,8 @@ public class SugarRecordFinder
         self.sortDescriptors = [sortDescriptor]
     }
     
-    //MARK - Instance methods
+    //MARK - Sort Descriptors
+    
     func addSortDescriptor(sortDescriptor: NSSortDescriptor) -> SugarRecordFinder
     {
         sortDescriptors.append(sortDescriptor)
@@ -47,6 +50,13 @@ public class SugarRecordFinder
         self.sortDescriptors = sortDescriptors
         return self
     }
+    
+    func sortDescriptorsCount() -> Int
+    {
+        return self.sortDescriptors.count
+    }
+    
+    //MARK - Predicates
     
     func setPredicate(predicate: NSPredicate) -> SugarRecordFinder
     {
@@ -66,8 +76,29 @@ public class SugarRecordFinder
         return self
     }
     
-    func sortDescriptorsCount() -> Int
+    //MARK - Cuantifiers
+    // - all
+    // - first
+    // - last
+    // - firsts(20)
+    // - lasts(50)
+    
+    //MARK - Finders
+    
+    func fetch() -> ([AnyClass])
     {
-        return self.sortDescriptors.count
+        
     }
+    
+    func fetch(inContext context: SugarRecordContext) -> ([AnyClass])
+    {
+        
+    }
+    
+    func fetchAsync(completion: (objects: [AnyClass]) -> ())
+    {
+        
+    }
+
+    
 }

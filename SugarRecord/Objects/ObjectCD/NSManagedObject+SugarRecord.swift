@@ -16,6 +16,7 @@ extension NSManagedObject: SugarRecordObjectProtocol, SugarRecordObjectFinderPro
     public class func by(predicate: NSPredicate) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder(predicate: predicate)
+        finder.objectClass = self
         return finder
     }
     
@@ -23,6 +24,7 @@ extension NSManagedObject: SugarRecordObjectProtocol, SugarRecordObjectFinderPro
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setPredicate(predicateString)
+        finder.objectClass = self
         return finder
     }
     
@@ -30,6 +32,7 @@ extension NSManagedObject: SugarRecordObjectProtocol, SugarRecordObjectFinderPro
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setPredicate(byKey: key, andValue: value)
+        finder.objectClass = self
         return finder
     }
     
@@ -39,6 +42,7 @@ extension NSManagedObject: SugarRecordObjectProtocol, SugarRecordObjectFinderPro
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.addSortDescriptor(byKey: sortingKey, ascending: ascending)
+        finder.objectClass = self
         return finder
     }
     
@@ -46,6 +50,7 @@ extension NSManagedObject: SugarRecordObjectProtocol, SugarRecordObjectFinderPro
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.addSortDescriptor(sortDescriptor)
+        finder.objectClass = self
         return finder
     }
     
@@ -53,6 +58,7 @@ extension NSManagedObject: SugarRecordObjectProtocol, SugarRecordObjectFinderPro
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setSortDescriptors(sortDescriptors)
+        finder.objectClass = self
         return finder
     }
 }

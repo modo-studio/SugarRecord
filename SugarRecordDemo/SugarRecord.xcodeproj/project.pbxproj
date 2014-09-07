@@ -34,6 +34,7 @@
 		3D321E9419BCDEC900E2C56D /* SugarRecordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37FA0B19BCD7880035035A /* SugarRecordFinder.swift */; };
 		3D321EA519BCEC8B00E2C56D /* NSManagedObject+SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D321EA419BCEC8B00E2C56D /* NSManagedObject+SugarRecordTests.swift */; };
 		3D321EA719BCEC9700E2C56D /* RLMObject+SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D321EA619BCEC9700E2C56D /* RLMObject+SugarRecordTests.swift */; };
+		3D321EC019BCF63100E2C56D /* SugarRecordContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D321EBF19BCF63100E2C56D /* SugarRecordContext.swift */; };
 		3D37FA0C19BCD7880035035A /* SugarRecordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37FA0B19BCD7880035035A /* SugarRecordFinder.swift */; };
 		3D37FA1A19BCD8910035035A /* SugarRecordFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37FA1919BCD8910035035A /* SugarRecordFinderTests.swift */; };
 		3D43C1B2199DE478004FC0E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43C1B1199DE478004FC0E5 /* Person.m */; };
@@ -205,6 +206,7 @@
 		3D11B0E819BCBC9B009274FB /* NSManagedObject+SugarRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+SugarRecord.swift"; sourceTree = "<group>"; };
 		3D321EA419BCEC8B00E2C56D /* NSManagedObject+SugarRecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+SugarRecordTests.swift"; sourceTree = "<group>"; };
 		3D321EA619BCEC9700E2C56D /* RLMObject+SugarRecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RLMObject+SugarRecordTests.swift"; sourceTree = "<group>"; };
+		3D321EBF19BCF63100E2C56D /* SugarRecordContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SugarRecordContext.swift; path = Context/SugarRecordContext.swift; sourceTree = "<group>"; };
 		3D37FA0B19BCD7880035035A /* SugarRecordFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordFinder.swift; sourceTree = "<group>"; };
 		3D37FA1919BCD8910035035A /* SugarRecordFinderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordFinderTests.swift; sourceTree = "<group>"; };
 		3D43C1AF199DE478004FC0E5 /* SugarRecord-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecord-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -350,6 +352,14 @@
 			children = (
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		3D321EAF19BCF61700E2C56D /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				3D321EBF19BCF63100E2C56D /* SugarRecordContext.swift */,
+			);
+			name = Context;
 			sourceTree = "<group>";
 		};
 		3D37FA0A19BCD7880035035A /* Extra */ = {
@@ -556,6 +566,7 @@
 		FFD8198519AF03DB00BD2603 /* SugarRecord */ = {
 			isa = PBXGroup;
 			children = (
+				3D321EAF19BCF61700E2C56D /* Context */,
 				3D11B0DB19BCBBE6009274FB /* Objects */,
 				3D11B0C719BCBB2C009274FB /* Stacks */,
 				FFD8199619AF03DB00BD2603 /* SugarRecord+ErrorHandler.swift */,
@@ -823,6 +834,7 @@
 				3D11B0D819BCBB2C009274FB /* SugarRecordStackQueryingProtocol.swift in Sources */,
 				3D11B0E219BCBC36009274FB /* SugarRecordObjectProtocol.swift in Sources */,
 				3D43C1B2199DE478004FC0E5 /* Person.m in Sources */,
+				3D321EC019BCF63100E2C56D /* SugarRecordContext.swift in Sources */,
 				3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */,
 				3D11B0D919BCBB2C009274FB /* SugarRecordStackSavingProtocol.swift in Sources */,
 				3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */,
