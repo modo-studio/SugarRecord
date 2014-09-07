@@ -11,20 +11,21 @@ import Foundation
 
 public enum SugarRecordFinderElements
 {
-    case first, last
+    case first, last, all
     case firsts(Int)
     case lasts(Int)
 }
 
 public class SugarRecordFinder
 {
+    
     //MARK - Attributes
     
     var predicate: NSPredicate?
     var objectClass: AnyClass?
     var elements: SugarRecordFinderElements?
-    
     lazy var sortDescriptors: [NSSortDescriptor] = [NSSortDescriptor] ()
+    
     
     // MARK - Constructors
     
@@ -39,6 +40,7 @@ public class SugarRecordFinder
     {
         self.sortDescriptors = [sortDescriptor]
     }
+    
     
     // MARK - Concatenaros
     
@@ -116,6 +118,7 @@ public class SugarRecordFinder
         return self.sortDescriptors.count
     }
     
+    
     //MARK - Predicates
     
     func setPredicate(predicate: NSPredicate) -> SugarRecordFinder
@@ -136,31 +139,36 @@ public class SugarRecordFinder
         return self
     }
     
+    
     //MARK - Elements
     
-    func first() -> SugarRecordFinder
+    public func all() -> SugarRecordFinder
+    {
+        self.elements = SugarRecordFinderElements.all
+        return self
+    }
+    
+    public func first() -> SugarRecordFinder
     {
         self.elements = SugarRecordFinderElements.first
         return self
     }
     
-    func last() -> SugarRecordFinder
+    public func last() -> SugarRecordFinder
     {
         self.elements = SugarRecordFinderElements.last
         return self
     }
     
-    func firsts(number: Int) -> SugarRecordFinder
+    public func firsts(number: Int) -> SugarRecordFinder
     {
         self.elements = SugarRecordFinderElements.firsts(number)
         return self
     }
     
-    func lasts(number: Int) -> SugarRecordFinder
+    public func lasts(number: Int) -> SugarRecordFinder
     {
         self.elements = SugarRecordFinderElements.firsts(number)
         return self
-    }
-
-    
+    }    
 }

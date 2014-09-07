@@ -11,4 +11,9 @@ import Foundation
 public protocol SugarRecordObjectSavingProtocol
 {
     
+    //MARK - Saving
+    
+//    func save(inout error: NSError?)
+//    func save(inContext context: SugarRecordContext, inout error: NSError?)
+//    func save(inBackground background: Bool, completion: (error: NSError?) -> ())
 }

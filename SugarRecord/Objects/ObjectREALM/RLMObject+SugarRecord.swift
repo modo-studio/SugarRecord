@@ -9,7 +9,7 @@
 import Foundation
 import Realm
 
-extension RLMObject: SugarRecordObjectProtocol, SugarRecordObjectFinderProtocol, SugarRecordObjectSavingProtocol
+extension RLMObject: SugarRecordObjectFinderProtocol, SugarRecordObjectSavingProtocol
 {
     //MARK - Filtering
     
@@ -59,6 +59,16 @@ extension RLMObject: SugarRecordObjectProtocol, SugarRecordObjectFinderProtocol,
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setSortDescriptors(sortDescriptors)
         finder.objectClass = self
+        return finder
+    }
+    
+    
+    //MARK - All
+    
+    public class func all() -> SugarRecordFinder
+    {
+        var finder: SugarRecordFinder = SugarRecordFinder()
+        finder.all()
         return finder
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-extension NSManagedObject: SugarRecordObjectProtocol, SugarRecordObjectFinderProtocol, SugarRecordObjectSavingProtocol
+extension NSManagedObject: SugarRecordObjectFinderProtocol, SugarRecordObjectSavingProtocol
 {
     //MARK - Filtering
     
@@ -59,6 +59,16 @@ extension NSManagedObject: SugarRecordObjectProtocol, SugarRecordObjectFinderPro
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setSortDescriptors(sortDescriptors)
         finder.objectClass = self
+        return finder
+    }
+    
+    
+    //MARK - All
+    
+    public class func all() -> SugarRecordFinder
+    {
+        var finder: SugarRecordFinder = SugarRecordFinder()
+        finder.all()
         return finder
     }
 }
