@@ -10,7 +10,11 @@ import Foundation
 
 protocol SugarRecordStackProtocol
 {
+    init(stackName:String, stackDescription: String)
     var name: String { get }
     var stackDescription: String { get }
-    init(stackName:String)
+    func initialize()
+    func cleanup()
+    func toBackground()
+    func toForeground()
 }

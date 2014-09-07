@@ -11,14 +11,4 @@ import Realm
 
 extension RLMObject {
 
-    class func findBy(predicate: NSPredicate) -> ([SugarRecordObjectProtocol])
-    {
-        
-    }
-    
-    class func findby(key: String, equalTo value: String) -> ([SugarRecordObjectProtocol])
-    {
-
-    }
-
 }
