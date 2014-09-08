@@ -154,6 +154,7 @@ extension NSManagedObjectContext {
         var rootContext: NSManagedObjectContext = NSManagedObjectContext.newContext(nil, persistentStoreCoordinator: persistentStoreCoordinator)
         NSManagedObjectContext.setRootSavingContext(rootContext)
         var defaultContext: NSManagedObjectContext = NSManagedObjectContext.newContext(rootContext, persistentStoreCoordinator: nil)
+        NSManagedObjectContext.setDefaultContext(defaultContext)
     }
     
     /**
