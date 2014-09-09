@@ -36,6 +36,7 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 - Fully redesigned structure based on stacks 
 - **REALM support**
 - Fully detailed steps to integrate all components in your project (*while waiting the integration of CocoaPods*)
+- Integrate CI builds with https://github.com/modcloth-labs/github-xcode-bot-builder
 
 *Note: It's going to suppose a big step to SugarRecord because it's going to make it more flexible for all kind of developers. You can use the current initial version of SugarRecord 0.2 (master branch).*
 
