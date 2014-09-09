@@ -168,7 +168,7 @@ public class SugarRecordFinder
     
     public func lasts(number: Int) -> SugarRecordFinder
     {
-        self.elements = SugarRecordFinderElements.firsts(number)
+        self.elements = SugarRecordFinderElements.lasts(number)
         return self
     }
 }
