@@ -10,6 +10,7 @@ import Foundation
 
 public protocol SugarRecordContext
 {
-    func save(inout error: NSError?)
+    func beginWritting()
+    func endWritting()
     
 }

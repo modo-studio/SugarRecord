@@ -171,6 +171,4 @@ public class SugarRecordFinder
         self.elements = SugarRecordFinderElements.firsts(number)
         return self
     }
-    
-    //TODO - Analyze how to unwrap the finder to be executed in a SR operation to return the items
 }
