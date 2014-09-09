@@ -12,5 +12,5 @@ public protocol SugarRecordContext
 {
     func beginWritting()
     func endWritting()
-    
+    func insertObject() -> AnyObject
 }
