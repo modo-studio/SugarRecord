@@ -171,4 +171,16 @@ public class SugarRecordFinder
         self.elements = SugarRecordFinderElements.lasts(number)
         return self
     }
+    
+    
+    // MARK - Finder
+    
+    func find() -> [AnyObject]?
+    {
+        var objects: [AnyObject]?
+        SugarRecord.operation { (context) -> () in
+            objects = context.find(self)
+        }
+        return objects
+    }
 }

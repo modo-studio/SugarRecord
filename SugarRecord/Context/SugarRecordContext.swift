@@ -13,4 +13,5 @@ public protocol SugarRecordContext
     func beginWritting()
     func endWritting()
     func insertObject() -> AnyObject
+    func find(finder: SugarRecordFinder) -> [AnyObject]?
 }
