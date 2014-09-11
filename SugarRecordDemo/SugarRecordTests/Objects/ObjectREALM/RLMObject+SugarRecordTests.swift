@@ -11,6 +11,7 @@ import Quick
 import SugarRecord
 import Nimble
 import CoreData
+import Realm
 
 class RLMObjectSugarRecordTests: QuickSpec {
     override func spec() {

@@ -14,21 +14,9 @@ import CoreData
 
 class SugarRecordCDContextTests: QuickSpec {
     override func spec() {
-        // Test Context
-        class TestManagedObjectContext: NSManagedObjectContext {
-            var saved: Bool?
-            public override func save(error: NSErrorPointer) -> Bool {
-                
-            }
-        }
-        
-        var srContext: SugarRecordCDContext
-        var testContext: TestManagedObjectContext
         
         beforeSuite
         {
-            testContext = TestManagedObjectContext()
-            srContext = SugarRecordCDContext(context: testContext)
         }
         afterSuite {}
     
