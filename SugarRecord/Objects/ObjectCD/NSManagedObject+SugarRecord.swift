@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-extension NSManagedObject: SugarRecordObjectFinderProtocol, SugarRecordObjectSavingProtocol
+extension NSManagedObject: SugarRecordObjectFinderProtocol, SugarRecordObjectSavingProtocol, SugarRecordObjectProtocol
 {
     //MARK - Filtering
     

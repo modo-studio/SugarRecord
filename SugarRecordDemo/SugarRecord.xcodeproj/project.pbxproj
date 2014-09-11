@@ -31,7 +31,6 @@
 		3D321EA519BCEC8B00E2C56D /* NSManagedObject+SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D321EA419BCEC8B00E2C56D /* NSManagedObject+SugarRecordTests.swift */; };
 		3D321EC019BCF63100E2C56D /* SugarRecordContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D321EBF19BCF63100E2C56D /* SugarRecordContext.swift */; };
 		3D43C1B2199DE478004FC0E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43C1B1199DE478004FC0E5 /* Person.m */; };
-		3D596BBF19B4CEB7009B9BAC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0883E19AC809400A47174 /* Nimble.framework */; };
 		3DA8ABCC19BEDCB800EC6280 /* SugarRecordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBFA01D19BD0CD2007AE330 /* SugarRecordFinder.swift */; };
 		3DA8ABCD19BEDCB800EC6280 /* SugarRecordContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D321EBF19BCF63100E2C56D /* SugarRecordContext.swift */; };
 		3DA8ABCE19BEDCB800EC6280 /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B0E819BCBC9B009274FB /* NSManagedObject+SugarRecord.swift */; };
@@ -43,7 +42,6 @@
 		3DA8ABD419BEDCB800EC6280 /* SugarRecord+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBFA01A19BD05B7007AE330 /* SugarRecord+Operations.swift */; };
 		3DA8ABD519BEDCB800EC6280 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199819AF03DB00BD2603 /* SugarRecord.swift */; };
 		3DA8ABD619BEDCB800EC6280 /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199919AF03DB00BD2603 /* SugarRecordLogger.swift */; };
-		3DA8ABD819BEE21300EC6280 /* SugarRecordFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA8ABD719BEE21300EC6280 /* SugarRecordFinderTests.swift */; };
 		3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DD198E826E00268EB3 /* AppDelegate.swift */; };
 		3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */; };
 		3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55E2198E826E00268EB3 /* ViewController.swift */; };
@@ -52,7 +50,20 @@
 		3DBC5603198E844B00268EB3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
 		3DBFA01B19BD05B7007AE330 /* SugarRecord+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBFA01A19BD05B7007AE330 /* SugarRecord+Operations.swift */; };
 		3DBFA01E19BD0CD2007AE330 /* SugarRecordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBFA01D19BD0CD2007AE330 /* SugarRecordFinder.swift */; };
-		3DF0885519AC80B700A47174 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0884E19AC80A200A47174 /* Quick.framework */; };
+		3DC9263819C182D300361565 /* SugarRecordRLMContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9263719C182D300361565 /* SugarRecordRLMContext.swift */; };
+		3DC9263B19C182ED00361565 /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9263A19C182ED00361565 /* SugarRecordCDContext.swift */; };
+		3DC9263C19C182ED00361565 /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9263A19C182ED00361565 /* SugarRecordCDContext.swift */; };
+		3DC9263D19C182F300361565 /* SugarRecordRLMContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9263719C182D300361565 /* SugarRecordRLMContext.swift */; };
+		3DC9263F19C185D000361565 /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9263E19C185D000361565 /* SugarRecordObjectProtocol.swift */; };
+		3DC9264019C185D000361565 /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9263E19C185D000361565 /* SugarRecordObjectProtocol.swift */; };
+		3DC9264319C18A9A00361565 /* SugarRecordFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9264219C18A9A00361565 /* SugarRecordFinderTests.swift */; };
+		3DC9264419C18A9A00361565 /* SugarRecordFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9264219C18A9A00361565 /* SugarRecordFinderTests.swift */; };
+		3DC9264719C18AC100361565 /* SugarRecordRLMContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9264619C18AC100361565 /* SugarRecordRLMContextTests.swift */; };
+		3DC9264819C18AC100361565 /* SugarRecordRLMContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9264619C18AC100361565 /* SugarRecordRLMContextTests.swift */; };
+		3DC9264A19C18ACC00361565 /* SugarRecordCDContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9264919C18ACC00361565 /* SugarRecordCDContextTests.swift */; };
+		3DC9264B19C18ACC00361565 /* SugarRecordCDContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9264919C18ACC00361565 /* SugarRecordCDContextTests.swift */; };
+		3DC9265F19C18DAE00361565 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0883E19AC809400A47174 /* Nimble.framework */; };
+		3DC9266019C18DBC00361565 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0884E19AC80A200A47174 /* Quick.framework */; };
 		FF793EC419B51FDA00DCF05F /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199819AF03DB00BD2603 /* SugarRecord.swift */; };
 		FF793EC619B51FE500DCF05F /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199919AF03DB00BD2603 /* SugarRecordLogger.swift */; };
 		FF793EDB19B5216200DCF05F /* SugarRecord+ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199619AF03DB00BD2603 /* SugarRecord+ErrorHandler.swift */; };
@@ -214,7 +225,6 @@
 		3D43C1AF199DE478004FC0E5 /* SugarRecord-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecord-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D43C1B0199DE478004FC0E5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = Models/Person.h; sourceTree = "<group>"; };
 		3D43C1B1199DE478004FC0E5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = Models/Person.m; sourceTree = "<group>"; };
-		3DA8ABD719BEE21300EC6280 /* SugarRecordFinderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SugarRecordFinderTests.swift; path = SugarRecordTests/Objects/Finder/SugarRecordFinderTests.swift; sourceTree = SOURCE_ROOT; };
 		3DBC55D8198E826E00268EB3 /* SugarRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SugarRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBC55DC198E826E00268EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DBC55DD198E826E00268EB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -228,6 +238,12 @@
 		3DBC5602198E844B00268EB3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3DBFA01A19BD05B7007AE330 /* SugarRecord+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+Operations.swift"; sourceTree = "<group>"; };
 		3DBFA01D19BD0CD2007AE330 /* SugarRecordFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordFinder.swift; sourceTree = "<group>"; };
+		3DC9263719C182D300361565 /* SugarRecordRLMContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordRLMContext.swift; sourceTree = "<group>"; };
+		3DC9263A19C182ED00361565 /* SugarRecordCDContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordCDContext.swift; sourceTree = "<group>"; };
+		3DC9263E19C185D000361565 /* SugarRecordObjectProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordObjectProtocol.swift; sourceTree = "<group>"; };
+		3DC9264219C18A9A00361565 /* SugarRecordFinderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordFinderTests.swift; sourceTree = "<group>"; };
+		3DC9264619C18AC100361565 /* SugarRecordRLMContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordRLMContextTests.swift; sourceTree = "<group>"; };
+		3DC9264919C18ACC00361565 /* SugarRecordCDContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordCDContextTests.swift; sourceTree = "<group>"; };
 		3DF0883619AC809400A47174 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = ../../submodules/Nimble/Nimble.xcodeproj; sourceTree = "<group>"; };
 		3DF0884519AC80A200A47174 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = ../../submodules/Quick/Quick/Quick.xcodeproj; sourceTree = "<group>"; };
 		FFD8199619AF03DB00BD2603 /* SugarRecord+ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+ErrorHandler.swift"; sourceTree = "<group>"; };
@@ -249,8 +265,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D596BBF19B4CEB7009B9BAC /* Nimble.framework in Frameworks */,
-				3DF0885519AC80B700A47174 /* Quick.framework in Frameworks */,
+				3DC9266019C18DBC00361565 /* Quick.framework in Frameworks */,
+				3DC9265F19C18DAE00361565 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +360,7 @@
 			children = (
 				3D11B0E019BCBC36009274FB /* SugarRecordObjectFinderProtocol.swift */,
 				3D11B0E119BCBC36009274FB /* SugarRecordObjectSavingProtocol.swift */,
+				3DC9263E19C185D000361565 /* SugarRecordObjectProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -358,6 +375,8 @@
 		3D321EAF19BCF61700E2C56D /* Context */ = {
 			isa = PBXGroup;
 			children = (
+				3DC9263619C1829C00361565 /* ContextREALM */,
+				3DC9262619C1829000361565 /* ContextCD */,
 				3D321EBF19BCF63100E2C56D /* SugarRecordContext.swift */,
 			);
 			name = Context;
@@ -366,21 +385,11 @@
 		3D37FA0D19BCD8820035035A /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				3D37FA0E19BCD8820035035A /* Finder */,
 				3D37FA0F19BCD8820035035A /* ObjectCD */,
 				3D37FA1019BCD8820035035A /* ObjectREALM */,
 				3D37FA1119BCD8820035035A /* Protocols */,
 			);
 			path = Objects;
-			sourceTree = "<group>";
-		};
-		3D37FA0E19BCD8820035035A /* Finder */ = {
-			isa = PBXGroup;
-			children = (
-				3DA8ABD719BEE21300EC6280 /* SugarRecordFinderTests.swift */,
-			);
-			name = Finder;
-			path = Extra;
 			sourceTree = "<group>";
 		};
 		3D37FA0F19BCD8820035035A /* ObjectCD */ = {
@@ -510,6 +519,8 @@
 				3DF0884519AC80A200A47174 /* Quick.xcodeproj */,
 				3DF0883619AC809400A47174 /* Nimble.xcodeproj */,
 				3DBC55F3198E826E00268EB3 /* SugarRecordTests.swift */,
+				3DC9264519C18AAB00361565 /* Context */,
+				3DC9264119C18A9A00361565 /* Finder */,
 				3D37FA0D19BCD8820035035A /* Objects */,
 				3D37FA1219BCD8820035035A /* Stacks */,
 				3DBC55F1198E826E00268EB3 /* Supporting Files */,
@@ -531,6 +542,39 @@
 				3DBFA01D19BD0CD2007AE330 /* SugarRecordFinder.swift */,
 			);
 			path = Finder;
+			sourceTree = "<group>";
+		};
+		3DC9262619C1829000361565 /* ContextCD */ = {
+			isa = PBXGroup;
+			children = (
+				3DC9263A19C182ED00361565 /* SugarRecordCDContext.swift */,
+			);
+			name = ContextCD;
+			sourceTree = "<group>";
+		};
+		3DC9263619C1829C00361565 /* ContextREALM */ = {
+			isa = PBXGroup;
+			children = (
+				3DC9263719C182D300361565 /* SugarRecordRLMContext.swift */,
+			);
+			name = ContextREALM;
+			sourceTree = "<group>";
+		};
+		3DC9264119C18A9A00361565 /* Finder */ = {
+			isa = PBXGroup;
+			children = (
+				3DC9264219C18A9A00361565 /* SugarRecordFinderTests.swift */,
+			);
+			path = Finder;
+			sourceTree = "<group>";
+		};
+		3DC9264519C18AAB00361565 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				3DC9264619C18AC100361565 /* SugarRecordRLMContextTests.swift */,
+				3DC9264919C18ACC00361565 /* SugarRecordCDContextTests.swift */,
+			);
+			path = Context;
 			sourceTree = "<group>";
 		};
 		3DD010AE1990378200673854 /* Frameworks */ = {
@@ -833,11 +877,16 @@
 			files = (
 				3D11B0E319BCBC36009274FB /* SugarRecordObjectFinderProtocol.swift in Sources */,
 				3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */,
+				3DC9263B19C182ED00361565 /* SugarRecordCDContext.swift in Sources */,
 				FF793EDB19B5216200DCF05F /* SugarRecord+ErrorHandler.swift in Sources */,
 				3D11B0E419BCBC36009274FB /* SugarRecordObjectSavingProtocol.swift in Sources */,
 				3D43C1B2199DE478004FC0E5 /* Person.m in Sources */,
 				3D321EC019BCF63100E2C56D /* SugarRecordContext.swift in Sources */,
 				3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */,
+				3DC9263F19C185D000361565 /* SugarRecordObjectProtocol.swift in Sources */,
+				3DC9264A19C18ACC00361565 /* SugarRecordCDContextTests.swift in Sources */,
+				3DC9263819C182D300361565 /* SugarRecordRLMContext.swift in Sources */,
+				3DC9264719C18AC100361565 /* SugarRecordRLMContextTests.swift in Sources */,
 				3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */,
 				FF793EC419B51FDA00DCF05F /* SugarRecord.swift in Sources */,
 				3DBFA01B19BD05B7007AE330 /* SugarRecord+Operations.swift in Sources */,
@@ -845,6 +894,7 @@
 				3D11B0E919BCBC9B009274FB /* NSManagedObject+SugarRecord.swift in Sources */,
 				3D11B0D719BCBB2C009274FB /* SugarRecordStackProtocol.swift in Sources */,
 				3D11B0E719BCBC8B009274FB /* RLMObject+SugarRecord.swift in Sources */,
+				3DC9264319C18A9A00361565 /* SugarRecordFinderTests.swift in Sources */,
 				FF793EC619B51FE500DCF05F /* SugarRecordLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -853,14 +903,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC9264819C18AC100361565 /* SugarRecordRLMContextTests.swift in Sources */,
 				3DA8ABCC19BEDCB800EC6280 /* SugarRecordFinder.swift in Sources */,
 				3DA8ABCD19BEDCB800EC6280 /* SugarRecordContext.swift in Sources */,
 				3DA8ABCE19BEDCB800EC6280 /* NSManagedObject+SugarRecord.swift in Sources */,
-				3DA8ABD819BEE21300EC6280 /* SugarRecordFinderTests.swift in Sources */,
 				3DA8ABCF19BEDCB800EC6280 /* RLMObject+SugarRecord.swift in Sources */,
+				3DC9264419C18A9A00361565 /* SugarRecordFinderTests.swift in Sources */,
 				3DA8ABD019BEDCB800EC6280 /* SugarRecordObjectFinderProtocol.swift in Sources */,
+				3DC9263C19C182ED00361565 /* SugarRecordCDContext.swift in Sources */,
+				3DC9263D19C182F300361565 /* SugarRecordRLMContext.swift in Sources */,
 				3DA8ABD119BEDCB800EC6280 /* SugarRecordObjectSavingProtocol.swift in Sources */,
+				3DC9264019C185D000361565 /* SugarRecordObjectProtocol.swift in Sources */,
 				3DA8ABD219BEDCB800EC6280 /* SugarRecordStackProtocol.swift in Sources */,
+				3DC9264B19C18ACC00361565 /* SugarRecordCDContextTests.swift in Sources */,
 				3DA8ABD319BEDCB800EC6280 /* SugarRecord+ErrorHandler.swift in Sources */,
 				3DA8ABD419BEDCB800EC6280 /* SugarRecord+Operations.swift in Sources */,
 				3DA8ABD519BEDCB800EC6280 /* SugarRecord.swift in Sources */,

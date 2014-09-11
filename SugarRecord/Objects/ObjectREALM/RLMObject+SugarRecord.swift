@@ -9,7 +9,7 @@
 import Foundation
 import Realm
 
-extension RLMObject: SugarRecordObjectFinderProtocol, SugarRecordObjectSavingProtocol
+extension RLMObject: SugarRecordObjectFinderProtocol, SugarRecordObjectSavingProtocol, SugarRecordObjectProtocol
 {
     //MARK - Filtering
     
