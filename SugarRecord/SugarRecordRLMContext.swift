@@ -43,4 +43,23 @@ public class SugarRecordRLMContext: SugarRecordContext
         //TODO - Pending to translate the finder into a fetch to the context
         return nil
     }
+    
+    public func deleteObject(object: AnyObject) -> Bool
+    {
+        //TODO - Pending to set here how to delete a given object
+        return true
+    }
+    
+    public func deleteObjects(objects: [AnyObject]) -> Bool
+    {
+        var objectsDeleted: Int = 0
+        for object in objects {
+            let objectDeleted: Bool = deleteObject(object)
+            if objectDeleted {
+                objectsDeleted++
+            }
+        }
+        SugarRecordLogger.logLevelInfo.log("Deleted \(objectsDeleted) of \(objects.count)")
+        return objectsDeleted == objects.count
+    }
 }

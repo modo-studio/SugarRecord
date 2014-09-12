@@ -9,7 +9,7 @@
 import Foundation
 import Realm
 
-extension RLMObject: SugarRecordObjectFinderProtocol, SugarRecordObjectSavingProtocol, SugarRecordObjectProtocol
+extension RLMObject: SugarRecordObjectProtocol
 {
     //MARK - Filtering
     
@@ -70,5 +70,45 @@ extension RLMObject: SugarRecordObjectFinderProtocol, SugarRecordObjectSavingPro
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.all()
         return finder
+    }
+    
+    
+    //MARK - Deletion
+    
+    public func delete() -> Bool
+    {
+        var deleted: Bool = false
+        SugarRecord.operation {(context) -> () in
+            context.beginWritting()
+            deleted = context.deleteObject(self)
+            context.endWritting()
+        }
+        return false
+    }
+
+    
+    //MARK - Creation
+    
+    public class func create() -> AnyObject
+    {
+        //TODO - Pending implementation
+    }
+    
+    public class func create(inContext: SugarRecordContext) -> AnyObject
+    {
+        //TODO - Pending implementation
+    }
+    
+    
+    //MARK - Saving
+    
+    public func save () -> Bool
+    {
+        //TODO - Pending implementation
+    }
+    
+    public func save (asynchronously: Bool, completion: (error: NSError) -> ())
+    {
+        //TODO - Pending implementation
     }
 }

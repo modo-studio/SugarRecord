@@ -22,7 +22,7 @@ public class SugarRecordFinder
     //MARK - Attributes
     
     var predicate: NSPredicate?
-    var objectClass: AnyClass?
+    var objectClass: NSObject.Type?
     var elements: SugarRecordFinderElements?
     lazy var sortDescriptors: [NSSortDescriptor] = [NSSortDescriptor] ()
     
@@ -182,5 +182,35 @@ public class SugarRecordFinder
             objects = context.find(self)
         }
         return objects
+    }
+    
+    // MARK - Deletion
+    
+    func delete () -> Bool
+    {
+        var objectDeleted: Bool = false
+        delete(true, completion: { (deleted) -> () in
+            objectDeleted = deleted
+        })
+        return objectDeleted
+    }
+    
+    func delete (asynchronously: Bool, completion: (deleted: Bool) -> ())
+    {
+        var deleted: Bool = false
+        SugarRecord.operation(inBackground: asynchronously) { (context) -> () in
+            let objects: [AnyObject]? = context.find(self)
+            if objects == nil {
+                SugarRecordLogger.logLevelInfo.log("No objects have been deleted")
+                deleted = false
+                return
+            }
+            context.beginWritting()
+            deleted = context.deleteObjects(objects!)
+            context.endWritting()
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completion(deleted: deleted)
+            })
+        }
     }
 }

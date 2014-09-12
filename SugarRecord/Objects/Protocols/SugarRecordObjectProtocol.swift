@@ -10,5 +10,38 @@ import Foundation
 
 public protocol SugarRecordObjectProtocol
 {
-
+    //MARK - Filtering
+    
+    class func by(predicate: NSPredicate) -> SugarRecordFinder
+    class func by(predicateString: NSString) -> SugarRecordFinder
+    class func by(key: String, equalTo value: String) -> SugarRecordFinder
+    
+    
+    //MARK - Sorting
+    
+    class func sorted(by sorterKey: String, ascending: Bool) -> SugarRecordFinder
+    class func sorted(by sortDescriptor: NSSortDescriptor) -> SugarRecordFinder
+    class func sorted(by sortDescriptors: [NSSortDescriptor]) -> SugarRecordFinder
+    
+    
+    //MARK - All
+    
+    class func all() -> SugarRecordFinder
+    
+    
+    //MARK - Deletion
+    
+    func delete() -> Bool
+    
+    
+    //MARK - Creation
+    
+    class func create() -> AnyObject
+    class func create(inContext: SugarRecordContext) -> AnyObject
+    
+    
+    //MARK - Saving
+    
+    func save () -> Bool
+    func save (asynchronously: Bool, completion: (error: NSError) -> ())
 }
