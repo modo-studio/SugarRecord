@@ -9,11 +9,11 @@
 import Foundation
 import Realm
 
-class Person: RLMObject
+class Realm: RLMObject
 {
-    var name: String
-    var age: Int
-    var email: String
-    var city: String
-    var birthday: NSDate
+    var name: String?
+    var age: Int?
+    var email: String?
+    var city: String?
+    var birthday: NSDate?
 }

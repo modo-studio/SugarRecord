@@ -5,23 +5,104 @@ import Quick
 import SugarRecord
 import Nimble
 import CoreData
+import Realm
 
-class SugarRecordHelperssTests: QuickSpec {
+class SugarRecordCoreDataTests: QuickSpec {
     override func spec() {
-        beforeSuite {
-            // Creating database stack
-            //SugarRecord.setupCoreDataStack(automigrating:true, databaseName: "testDatabase")
+        beforeSuite
+        {
+            //SugarRecord.setStack(DefaultCDStack(stackName: "RealmTest", stackDescription: "Realm stack for tests"))
         }
         
-        afterSuite {
-            // Removing database
-            //let success: Bool = SugarRecord.removeDatabaseNamed("testDatabase")
+        afterSuite
+        {
+                
         }
+        
+        afterSuite
+        {
+            SugarRecord.stack().cleanup()
+        }
+        
+        describe("object creation", { () -> () in
+            beforeEach({ () -> () in
+                
+            })
+            afterEach({ () -> () in
+            })
+        });
+        
+        describe("object deletion", { () -> () in
+            beforeEach({ () -> () in
+                
+            })
+            afterEach({ () -> () in
+            })
+        });
+        
+        describe("object edition", { () -> () in
+            beforeEach({ () -> () in
+                
+            })
+            
+            afterEach({ () -> () in
+            })
+        });
+        
+        describe("object querying", { () -> () in
+            beforeEach({ () -> () in
+                
+            })
+            afterEach({ () -> () in
+            })
+        });
+        
+    }
+}
 
-        describe("when initializing core", { () -> () in
-            it ("should initialize a default persistant store coordinator") {
-                //expect(NSPersistentStoreCoordinator.defaultPersistentStoreCoordinator()).toNot(beNil())
-            }
+class SugarRecordREALMTests: QuickSpec {
+    override func spec() {
+        beforeSuite
+        {
+            SugarRecord.setStack(DefaultREALMStack(stackName: "RealmTest", stackDescription: "Realm stack for tests"))
+        }
+        
+        afterSuite
+            {
+                SugarRecord.stack().cleanup()
+        }
+        
+        describe("object creation", { () -> () in
+            beforeEach({ () -> () in
+                
+            })
+            afterEach({ () -> () in
+            })
+        });
+        
+        describe("object deletion", { () -> () in
+            beforeEach({ () -> () in
+                
+            })
+            afterEach({ () -> () in
+            })
+        });
+        
+        describe("object edition", { () -> () in
+            beforeEach({ () -> () in
+                
+            })
+            
+            afterEach({ () -> () in
+            })
+        });
+        
+        describe("object querying", { () -> () in
+            beforeEach({ () -> () in
+                
+            })
+            afterEach({ () -> () in
+            })
         });
     }
 }
