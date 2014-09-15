@@ -34,8 +34,8 @@ public class SugarRecordRLMContext: SugarRecordContext
             SugarRecordLogger.logLevelError.log("Trying to insert object in context of invalid type (\(objectClass)) but has to be (RLMObject))")
             return nil
         }
-        let managedObjectClass: RLMObject.Type = objectClass as RLMObject.Type
-        return managedObjectClass()
+        let objectClass: RLMObject.Type = objectClass as RLMObject.Type
+        return objectClass()
     }
     
     public func find(finder: SugarRecordFinder) -> [AnyObject]?

@@ -91,12 +91,16 @@ extension RLMObject: SugarRecordObjectProtocol
     
     public class func create() -> AnyObject
     {
-        //TODO - Pending implementation
+        var object: AnyObject?
+        SugarRecord.operation { (context) -> () in
+            object = context.insertObject(self)
+        }
+        return object!
     }
     
-    public class func create(inContext: SugarRecordContext) -> AnyObject
+    public class func create(inContext context: SugarRecordContext) -> AnyObject
     {
-        //TODO - Pending implementation
+        return context.insertObject(self)!
     }
     
     

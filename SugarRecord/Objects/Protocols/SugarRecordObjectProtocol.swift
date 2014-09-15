@@ -37,7 +37,7 @@ public protocol SugarRecordObjectProtocol
     //MARK - Creation
     
     class func create() -> AnyObject
-    class func create(inContext: SugarRecordContext) -> AnyObject
+    class func create(inContext context: SugarRecordContext) -> AnyObject
     
     
     //MARK - Saving
