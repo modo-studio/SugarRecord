@@ -73,10 +73,20 @@ class SugarRecordREALMTests: QuickSpec {
         }
         
         describe("object creation", { () -> () in
+            var realmObject: Realm!
+            
             beforeEach({ () -> () in
-                
+                realmObject = Realm.create() as Realm
+                realmObject.name = "Realmy"
+                realmObject.age = 1
+                let saved: Bool = realmObject.save()
             })
             afterEach({ () -> () in
+                let deleted: Bool = realmObject.delete()
+            })
+            
+            it("should create the item in database", { () -> () in
+                expect(Realm.allObjects().count).to(equal(1))
             })
         });
         
