@@ -35,18 +35,33 @@ public class SugarRecordRLMContext: SugarRecordContext
             return nil
         }
         let objectClass: RLMObject.Type = objectClass as RLMObject.Type
-        return objectClass()
+        return objectClass.createInRealm(self.realmContext, withObject: nil)
     }
     
     public func find(finder: SugarRecordFinder) -> [AnyObject]?
     {
-        //TODO - Pending to translate the finder into a fetch to the context
+        let objectClass: RLMObject.Type = finder.objectClass as RLMObject.Type
+        var filteredObjects: RLMArray? = nil
+        if finder.predicate != nil {
+            filteredObjects = objectClass.objectsWithPredicate(finder.predicate)
+        }
+        else {
+            filteredObjects = objectClass.allObjectsInRealm(self.realmContext)
+        }
+        var sortedObjects: RLMArray = filteredObjects!
+        for sorter in finder.sortDescriptors {
+            sortedObjects = sortedObjects.arraySortedByProperty(sorter.key, ascending: sorter.ascending)
+        }
+        
+        //TODO - Convert RLMArray to List ( is it possible )
+        //TODO - Check elements to know what we have to return
+        
         return nil
     }
     
     public func deleteObject(object: AnyObject) -> Bool
     {
-        //TODO - Pending to set here how to delete a given object
+        // TODO - Pending
         return true
     }
     

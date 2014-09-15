@@ -10,6 +10,10 @@ import Foundation
 
 public protocol SugarRecordObjectProtocol
 {
+    //MARK - Custom Getter
+    
+    func context() -> SugarRecordContext
+    
     //MARK - Filtering
     
     class func by(predicate: NSPredicate) -> SugarRecordFinder

@@ -11,6 +11,13 @@ import CoreData
 
 extension NSManagedObject: SugarRecordObjectProtocol
 {
+    //MARK - Custom Getter
+    
+    public func context() -> SugarRecordContext
+    {
+        return SugarRecordCDContext(context: self.managedObjectContext)
+    }
+    
     //MARK - Filtering
     
     public class func by(predicate: NSPredicate) -> SugarRecordFinder
@@ -105,11 +112,22 @@ extension NSManagedObject: SugarRecordObjectProtocol
     
     public func save () -> Bool
     {
-        //TODO - Pending implementation
+        var saved: Bool = false
+        self.save(false, completion: { (error) -> () in
+            saved = error == nil
+        })
+        return saved
     }
     
     public func save (asynchronously: Bool, completion: (error: NSError) -> ())
     {
-        //TODO - Pending implementation
+        if asynchronously {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
+                self.context().endWritting()
+            })
+        }
+        else {
+            self.context().endWritting()
+        }
     }
 }
