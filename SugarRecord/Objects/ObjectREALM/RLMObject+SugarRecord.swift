@@ -124,13 +124,14 @@ extension RLMObject: SugarRecordObjectProtocol
     
     public func save (asynchronously: Bool, completion: (error: NSError) -> ())
     {
+        let context: SugarRecordContext = self.context()
         if asynchronously {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
-                self.context().endWritting()
+                context.endWritting()
             })
         }
         else {
-            self.context().endWritting()
+            context.endWritting()
         }
     }
 }

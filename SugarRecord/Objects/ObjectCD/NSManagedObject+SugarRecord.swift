@@ -121,13 +121,14 @@ extension NSManagedObject: SugarRecordObjectProtocol
     
     public func save (asynchronously: Bool, completion: (error: NSError) -> ())
     {
+        let context: SugarRecordContext = self.context()
         if asynchronously {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> () in
-                self.context().endWritting()
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
+                context.endWritting()
             })
         }
         else {
-            self.context().endWritting()
+            context.endWritting()
         }
     }
 }
