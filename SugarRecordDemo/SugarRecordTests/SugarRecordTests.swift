@@ -112,7 +112,6 @@ class SugarRecordREALMTests: QuickSpec {
                 realmObject.city = "TestCity"
                 realmObject.birthday = NSDate()
                 let saved: Bool = realmObject.save()
-                
                 var realmObject2: RealmObject = RealmObject.create() as RealmObject
                 realmObject2.name = "Realmy"
                 realmObject2.age = 22
@@ -120,7 +119,6 @@ class SugarRecordREALMTests: QuickSpec {
                 realmObject2.city = "TestCity"
                 realmObject2.birthday = NSDate()
                 let saved2: Bool = realmObject2.save()
-
                 realmObject2.delete()
                 realmObject.delete()
                 expect(RealmObject.allObjects().count).to(equal(0))
