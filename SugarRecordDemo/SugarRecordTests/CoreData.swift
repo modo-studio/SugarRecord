@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
-class CoreData: NSManagedObject {
-
+public class CoreData: NSManagedObject
+{
     @NSManaged var age: NSDecimalNumber
     @NSManaged var email: String
     @NSManaged var name: String

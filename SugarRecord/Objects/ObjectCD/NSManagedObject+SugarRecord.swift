@@ -98,14 +98,14 @@ extension NSManagedObject: SugarRecordObjectProtocol
     {
         var object: AnyObject?
         SugarRecord.operation { (context) -> () in
-            object = context.insertObject(self)
+            object = context.createObject(self)
         }
         return object!
     }
     
     public class func create(inContext context: SugarRecordContext) -> AnyObject
     {
-        return context.insertObject(self)!
+        return context.createObject(self)!
     }
     
     //MARK - Saving
@@ -124,6 +124,8 @@ extension NSManagedObject: SugarRecordObjectProtocol
         let context: SugarRecordContext = self.context()
         if asynchronously {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
+                context.beginWritting()
+                context.insertObject(self)
                 context.endWritting()
             })
         }

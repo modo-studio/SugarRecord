@@ -48,4 +48,10 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     {
         return SugarRecordRLMContext(realmContext: RLMRealm.defaultRealm())
     }
+    
+    public func removeDatabase()
+    {
+        //Pending database removal here
+    }
+
 }

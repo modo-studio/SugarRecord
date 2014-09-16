@@ -17,7 +17,7 @@
 		3D372EAA19C19AD000C39D4A /* RLMObject+SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D321EA619BCEC9700E2C56D /* RLMObject+SugarRecordTests.swift */; };
 		3D372EAB19C19B0C00C39D4A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0884E19AC80A200A47174 /* Quick.framework */; };
 		3D372EAE19C19B1B00C39D4A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0883E19AC809400A47174 /* Nimble.framework */; };
-		3D5AF73319C6BB9E009B431F /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AF73219C6BB9E009B431F /* Realm.swift */; };
+		3D5AF73319C6BB9E009B431F /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AF73219C6BB9E009B431F /* RealmObject.swift */; };
 		3D5AF73B19C6C2E4009B431F /* DefaultCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AF73A19C6C2E4009B431F /* DefaultCDStack.swift */; };
 		3D5AF73E19C6C2F3009B431F /* DefaultREALMStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AF73D19C6C2F3009B431F /* DefaultREALMStack.swift */; };
 		3D5AF74119C6C673009B431F /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AF74019C6C673009B431F /* CoreData.swift */; };
@@ -33,7 +33,6 @@
 		3D67F67A19C6C8E400D13DD5 /* SugarRecord+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBFA01A19BD05B7007AE330 /* SugarRecord+Operations.swift */; };
 		3D67F67B19C6C8E400D13DD5 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199819AF03DB00BD2603 /* SugarRecord.swift */; };
 		3D67F67C19C6C8E400D13DD5 /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8199919AF03DB00BD2603 /* SugarRecordLogger.swift */; };
-		3D67F67D19C6C97000D13DD5 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AF73219C6BB9E009B431F /* Realm.swift */; };
 		3D67F67E19C6C97400D13DD5 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AF74019C6C673009B431F /* CoreData.swift */; };
 		3D67F67F19C6C9AF00D13DD5 /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B0E819BCBC9B009274FB /* NSManagedObject+SugarRecord.swift */; };
 		3D67F68019C6C9B300D13DD5 /* RLMObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11B0E619BCBC8B009274FB /* RLMObject+SugarRecord.swift */; };
@@ -208,7 +207,7 @@
 		3D321EA619BCEC9700E2C56D /* RLMObject+SugarRecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RLMObject+SugarRecordTests.swift"; sourceTree = "<group>"; };
 		3D321EBF19BCF63100E2C56D /* SugarRecordContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SugarRecordContext.swift; path = Context/SugarRecordContext.swift; sourceTree = "<group>"; };
 		3D43C1AF199DE478004FC0E5 /* SugarRecord-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecord-Bridging-Header.h"; sourceTree = "<group>"; };
-		3D5AF73219C6BB9E009B431F /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		3D5AF73219C6BB9E009B431F /* RealmObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObject.swift; sourceTree = "<group>"; };
 		3D5AF73519C6BC93009B431F /* SugarRecordTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecordTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D5AF73A19C6C2E4009B431F /* DefaultCDStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCDStack.swift; sourceTree = SOURCE_ROOT; };
 		3D5AF73D19C6C2F3009B431F /* DefaultREALMStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultREALMStack.swift; sourceTree = SOURCE_ROOT; };
@@ -446,7 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				3D5AF74019C6C673009B431F /* CoreData.swift */,
-				3D5AF73219C6BB9E009B431F /* Realm.swift */,
+				3D5AF73219C6BB9E009B431F /* RealmObject.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -845,7 +844,7 @@
 				3D5AF73B19C6C2E4009B431F /* DefaultCDStack.swift in Sources */,
 				3D5AF73E19C6C2F3009B431F /* DefaultREALMStack.swift in Sources */,
 				3DC9263819C182D300361565 /* SugarRecordRLMContext.swift in Sources */,
-				3D5AF73319C6BB9E009B431F /* Realm.swift in Sources */,
+				3D5AF73319C6BB9E009B431F /* RealmObject.swift in Sources */,
 				3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */,
 				FF793EC419B51FDA00DCF05F /* SugarRecord.swift in Sources */,
 				3DBFA01B19BD05B7007AE330 /* SugarRecord+Operations.swift in Sources */,
@@ -880,7 +879,6 @@
 				3DC9264819C18AC100361565 /* SugarRecordRLMContextTests.swift in Sources */,
 				3DC9264419C18A9A00361565 /* SugarRecordFinderTests.swift in Sources */,
 				3DC9264B19C18ACC00361565 /* SugarRecordCDContextTests.swift in Sources */,
-				3D67F67D19C6C97000D13DD5 /* Realm.swift in Sources */,
 				3D372EAA19C19AD000C39D4A /* RLMObject+SugarRecordTests.swift in Sources */,
 				3D321EA519BCEC8B00E2C56D /* NSManagedObject+SugarRecordTests.swift in Sources */,
 				3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */,

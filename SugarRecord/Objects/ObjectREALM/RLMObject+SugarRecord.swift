@@ -15,7 +15,12 @@ extension RLMObject: SugarRecordObjectProtocol
     
     public func context() -> SugarRecordContext
     {
-        return SugarRecordRLMContext(realmContext: self.realm)
+        if self.realm != nil {
+            return SugarRecordRLMContext(realmContext: self.realm)
+        }
+        else {
+            return SugarRecordRLMContext(realmContext: RLMRealm.defaultRealm())
+        }
     }
     
     //MARK - Filtering
@@ -100,18 +105,18 @@ extension RLMObject: SugarRecordObjectProtocol
     {
         var object: AnyObject?
         SugarRecord.operation { (context) -> () in
-            object = context.insertObject(self)
+            object = context.createObject(self)
         }
         return object!
     }
     
     public class func create(inContext context: SugarRecordContext) -> AnyObject
     {
-        return context.insertObject(self)!
+        return context.createObject(self)!
     }
     
     
-    //MARK - Saving
+    //MARK - Savingr
     
     public func save () -> Bool
     {
@@ -127,10 +132,14 @@ extension RLMObject: SugarRecordObjectProtocol
         let context: SugarRecordContext = self.context()
         if asynchronously {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
+                context.beginWritting()
+                context.insertObject(self)
                 context.endWritting()
             })
         }
         else {
+            context.beginWritting()
+            context.insertObject(self)
             context.endWritting()
         }
     }

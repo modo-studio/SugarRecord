@@ -73,12 +73,15 @@ class SugarRecordREALMTests: QuickSpec {
         }
         
         describe("object creation", { () -> () in
-            var realmObject: Realm!
+            var realmObject: RealmObject!
             
             beforeEach({ () -> () in
-                realmObject = Realm.create() as Realm
+                realmObject = RealmObject.create() as RealmObject
                 realmObject.name = "Realmy"
-                realmObject.age = 1
+                realmObject.age = 22
+                realmObject.email = "test@mail.com"
+                realmObject.city = "TestCity"
+                realmObject.birthday = NSDate()
                 let saved: Bool = realmObject.save()
             })
             afterEach({ () -> () in
@@ -86,7 +89,7 @@ class SugarRecordREALMTests: QuickSpec {
             })
             
             it("should create the item in database", { () -> () in
-                expect(Realm.allObjects().count).to(equal(1))
+                expect(RealmObject.allObjects().count).to(equal(1))
             })
         });
         

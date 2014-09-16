@@ -33,26 +33,21 @@ public class SugarRecordCDContext: SugarRecordContext
         }
     }
     
-    public func insertObject(objectClass: NSObject.Type) -> AnyObject?
+    public func createObject(objectClass: AnyClass) -> AnyObject?
     {
-        if (objectClass.isSubclassOfClass(NSManagedObject.Type)) {
-            let error: NSError = NSError(domain: "The object you are trying to insert is not a NSManagedObject class", code: SugarRecordErrorCodes.UserError.toRaw(), userInfo: nil)
-            SugarRecord.handle(error)
-            return nil
-        }
         let managedObjectClass: NSManagedObject.Type = objectClass as NSManagedObject.Type
         var object: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName("", inManagedObjectContext: self.contextCD) as NSManagedObject
         return object
     }
     
+    public func insertObject(object: AnyObject)
+    {
+        //TODO
+    }
+    
     public func find(finder: SugarRecordFinder) -> [AnyObject]?
     {
         let objectClass: NSObject.Type = finder.objectClass!
-        if (objectClass.isSubclassOfClass(NSManagedObject.Type)) {
-            let error: NSError = NSError(domain: "The object you are trying to find is not a NSManagedObject class", code: SugarRecordErrorCodes.UserError.toRaw(), userInfo: nil)
-            SugarRecord.handle(error)
-            return nil
-        }
         let managedObjectClass: NSManagedObject.Type = objectClass as NSManagedObject.Type
         let fetchRequest: NSFetchRequest = NSFetchRequest()
         fetchRequest.sortDescriptors = finder.sortDescriptors
@@ -68,11 +63,6 @@ public class SugarRecordCDContext: SugarRecordContext
     public func deleteObject(object: AnyObject) -> Bool
     {
         let managedObject: NSManagedObject? = object as? NSManagedObject
-        if managedObject == nil {
-            let error: NSError = NSError(domain: "The object you are trying to delete is not a NSManagedObject class", code: SugarRecordErrorCodes.UserError.toRaw(), userInfo: nil)
-            SugarRecord.handle(error)
-            return false
-        }
         let objectInContext: NSManagedObject? = moveObject(managedObject!, inContext: contextCD)
         if objectInContext == nil  {
             let error: NSError = NSError(domain: "Imposible to remove object", code: SugarRecordErrorCodes.UserError.toRaw(), userInfo: nil)

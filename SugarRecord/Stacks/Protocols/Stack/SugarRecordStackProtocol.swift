@@ -14,6 +14,7 @@ public protocol SugarRecordStackProtocol
     var name: String { get }
     var stackDescription: String { get }
     func initialize()
+    func removeDatabase()
     func cleanup()
     func toBackground()
     func toForeground()

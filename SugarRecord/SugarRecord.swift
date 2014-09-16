@@ -51,6 +51,14 @@ public class SugarRecord {
     }
     
     /**
+    Remove the local database
+    */
+    public class func removeDatabase()
+    {
+        
+    }
+    
+    /**
      Returns the current version of SugarRecord
 
      :returns: String with the version value

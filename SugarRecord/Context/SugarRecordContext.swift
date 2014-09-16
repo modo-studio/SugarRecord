@@ -12,7 +12,8 @@ public protocol SugarRecordContext
 {
     func beginWritting()
     func endWritting()
-    func insertObject(objectClass: NSObject.Type) -> AnyObject?
+    func createObject(objectClass: AnyClass) -> AnyObject?
+    func insertObject(object: AnyObject)
     func deleteObject(object: AnyObject) -> Bool
     func deleteObjects(objects: [AnyObject]) -> Bool
     func find(finder: SugarRecordFinder) -> [AnyObject]?

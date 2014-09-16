@@ -28,14 +28,15 @@ public class SugarRecordRLMContext: SugarRecordContext
         self.realmContext.commitWriteTransaction()
     }
     
-    public func insertObject(objectClass: NSObject.Type) -> AnyObject?
+    public func createObject(objectClass: AnyClass) -> AnyObject?
     {
-        if (objectClass.isSubclassOfClass(RLMObject.Type)) {
-            SugarRecordLogger.logLevelError.log("Trying to insert object in context of invalid type (\(objectClass)) but has to be (RLMObject))")
-            return nil
-        }
         let objectClass: RLMObject.Type = objectClass as RLMObject.Type
-        return objectClass.createInRealm(self.realmContext, withObject: nil)
+        return objectClass()
+    }
+    
+    public func insertObject(object: AnyObject)
+    {
+        self.realmContext.addObject(object as RLMObject)
     }
     
     public func find(finder: SugarRecordFinder) -> [AnyObject]?
@@ -61,7 +62,7 @@ public class SugarRecordRLMContext: SugarRecordContext
     
     public func deleteObject(object: AnyObject) -> Bool
     {
-        // TODO - Pending
+        self.realmContext.deleteObject(object as RLMObject)
         return true
     }
     
