@@ -48,4 +48,9 @@ public protocol SugarRecordObjectProtocol
     
     func save () -> Bool
     func save (asynchronously: Bool, completion: (error: NSError) -> ())
+    
+    //MARK - BeginEditing
+    
+    func beginEditing()
+    func endEditing()
 }

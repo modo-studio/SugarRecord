@@ -55,7 +55,7 @@ public class SugarRecord {
     */
     public class func removeDatabase()
     {
-        
+        StaticVars.stack?.removeDatabase()
     }
     
     /**

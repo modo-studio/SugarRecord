@@ -133,4 +133,17 @@ extension NSManagedObject: SugarRecordObjectProtocol
             context.endWritting()
         }
     }
+    
+    
+    //MARK - BeginEditing
+    
+    public func beginEditing()
+    {
+        // Not needed this in CoreData
+    }
+    
+    public func endEditing()
+    {
+        // Not needed this in CoreData
+    }
 }

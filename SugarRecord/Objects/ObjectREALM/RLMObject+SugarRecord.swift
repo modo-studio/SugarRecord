@@ -81,6 +81,7 @@ extension RLMObject: SugarRecordObjectProtocol
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.all()
+        finder.objectClass = self
         return finder
     }
     
@@ -95,7 +96,7 @@ extension RLMObject: SugarRecordObjectProtocol
             deleted = context.deleteObject(self)
             context.endWritting()
         }
-        return false
+        return true
     }
 
     
@@ -142,5 +143,17 @@ extension RLMObject: SugarRecordObjectProtocol
             context.insertObject(self)
             context.endWritting()
         }
+    }
+    
+    //MARK - BeginEditing
+    
+    public func beginEditing()
+    {
+        self.context().beginWritting()
+    }
+    
+    public func endEditing()
+    {
+        self.context().endWritting()
     }
 }
