@@ -68,28 +68,23 @@ class SugarRecordREALMTests: QuickSpec {
         }
         
         afterSuite
-            {
-                SugarRecord.stack().cleanup()
+        {
+            SugarRecord.cleanUp()
+            SugarRecord.removeDatabase()
         }
         
         describe("object creation", { () -> () in
-            var realmObject: RealmObject!
             
-            beforeEach({ () -> () in
-                realmObject = RealmObject.create() as RealmObject
+            it("should create the item in database", { () -> () in
+                var realmObject: RealmObject = RealmObject.create() as RealmObject
                 realmObject.name = "Realmy"
                 realmObject.age = 22
                 realmObject.email = "test@mail.com"
                 realmObject.city = "TestCity"
                 realmObject.birthday = NSDate()
                 let saved: Bool = realmObject.save()
-            })
-            afterEach({ () -> () in
-                let deleted: Bool = realmObject.delete()
-            })
-            
-            it("should create the item in database", { () -> () in
                 expect(RealmObject.allObjects().count).to(equal(1))
+                realmObject.delete()
             })
         });
         
