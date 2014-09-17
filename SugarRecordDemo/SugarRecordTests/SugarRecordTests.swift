@@ -65,6 +65,7 @@ class SugarRecordREALMTests: QuickSpec {
         beforeSuite
         {
             SugarRecord.setStack(DefaultREALMStack(stackName: "RealmTest", stackDescription: "Realm stack for tests"))
+            SugarRecord.removeDatabase()
         }
 
         afterSuite
@@ -178,6 +179,40 @@ class SugarRecordREALMTests: QuickSpec {
                 let found: [AnyObject] = RealmObject.all().find()!
                 expect(found.count).to(equal(2))
             });
+            
+            it("should return ALL filtered objects", { () -> () in
+                let found: [AnyObject] = RealmObject.by("age", equalTo: "22").find()!
+                expect(found.count).to(equal(2))
+            })
+            
+            it("should return ANYTHING if the filter doesn't match any result", { () -> () in
+                let found: [AnyObject] = RealmObject.by("age", equalTo: "10").find()!
+                expect(found.count).to(equal(0))
+            })
+            
+            it("should return the FIRST element", { () -> () in
+                let found: [AnyObject] = RealmObject.sorted(by: "name", ascending: true).first().find()!
+                let object: RealmObject = found.first! as RealmObject
+                expect(object.name).to(equal("Realmy"))
+            })
+            
+            it("should return the LAST element", { () -> () in
+                let found: [AnyObject] = RealmObject.sorted(by: "name", ascending: true).last().find()!
+                let object: RealmObject = found.first! as RealmObject
+                expect(object.name).to(equal("Realmy2"))
+            })
+            
+            it("should return the FIRSTS elements", { () -> () in
+                let found: [AnyObject] = RealmObject.sorted(by: "name", ascending: true).firsts(20).find()!
+                let object: RealmObject = found.first! as RealmObject
+                expect(found.count).to(equal(2))
+            })
+            
+            it("should return the LASTS elements", { () -> () in
+                let found: [AnyObject] = RealmObject.sorted(by: "name", ascending: true).lasts(20).find()!
+                let object: RealmObject = found.first! as RealmObject
+                expect(found.count).to(equal(2))
+            })
         });
     }
 }

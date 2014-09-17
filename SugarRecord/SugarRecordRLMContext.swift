@@ -59,7 +59,40 @@ public class SugarRecordRLMContext: SugarRecordContext
             objectsArray.append(sortedObjects.objectAtIndex(index) as RLMObject)
         }
         
-        return objectsArray
+        var finalArray: [RLMObject] = [RLMObject]()
+        switch finder.elements {
+        case .first:
+            let object: RLMObject? = objectsArray.first
+            if object != nil {
+                finalArray.append(object!)
+            }
+        case .last:
+            let object: RLMObject? = objectsArray.last
+            if object != nil {
+                finalArray.append(object!)
+            }
+        case .firsts(let number):
+            var last: Int = number
+            if number > objectsArray.count {
+                last = objectsArray.count
+            }
+            for index in 0..<last {
+                finalArray.append(objectsArray[index])
+            }
+        case .lasts(let number):
+            objectsArray = objectsArray.reverse()
+            var last: Int = number
+            if number > objectsArray.count {
+                last = objectsArray.count
+            }
+            for index in 0..<last {
+                finalArray.append(objectsArray[index])
+            }
+        case .all:
+            finalArray = objectsArray
+        }
+        
+        return finalArray
     }
     
     public func deleteObject(object: AnyObject) -> Bool

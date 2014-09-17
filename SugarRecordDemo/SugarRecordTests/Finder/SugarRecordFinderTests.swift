@@ -66,7 +66,7 @@ class SugarRecordFinderTests: QuickSpec {
             it("should update the elements attribute when ALL", { () -> () in
                 sugarRecordFinder = sugarRecordFinder.all()
                 var isAll: Bool?
-                switch sugarRecordFinder.elements! {
+                switch sugarRecordFinder.elements {
                 case .all:
                     isAll = true
                 default:
@@ -78,7 +78,7 @@ class SugarRecordFinderTests: QuickSpec {
             it("should change the elements attribute when FIRST", { () -> () in
                 sugarRecordFinder = sugarRecordFinder.first()
                 var isFirst: Bool?
-                switch sugarRecordFinder.elements! {
+                switch sugarRecordFinder.elements {
                 case .first:
                     isFirst = true
                 default:
@@ -90,7 +90,7 @@ class SugarRecordFinderTests: QuickSpec {
             it("should change the elements attribute when LAST", { () -> () in
                 sugarRecordFinder = sugarRecordFinder.last()
                 var isLast: Bool?
-                switch sugarRecordFinder.elements! {
+                switch sugarRecordFinder.elements {
                 case .last:
                     isLast = true
                 default:
@@ -102,7 +102,7 @@ class SugarRecordFinderTests: QuickSpec {
             it("should change the elements attribute when LASTS", { () -> () in
                 sugarRecordFinder = sugarRecordFinder.lasts(20)
                 var isLasts: Bool?
-                switch sugarRecordFinder.elements! {
+                switch sugarRecordFinder.elements {
                 case .lasts(let count):
                     isLasts = count == 20
                 default:
@@ -114,7 +114,7 @@ class SugarRecordFinderTests: QuickSpec {
             it("should change the elements attribute when FIRSTS", { () -> () in
                 sugarRecordFinder = sugarRecordFinder.firsts(20)
                 var isFirsts: Bool?
-                switch sugarRecordFinder.elements! {
+                switch sugarRecordFinder.elements {
                 case .firsts(let count):
                     isFirsts = count == 20
                 default:

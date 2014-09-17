@@ -50,7 +50,7 @@ class NSManagedObjectSugarRecordTests: QuickSpec {
             it("should return the finder with the all set", { () -> () in
                 var finder: SugarRecordFinder = NSManagedObject.all()
                 var isAll: Bool?
-                switch finder.elements! {
+                switch finder.elements {
                 case .all:
                     isAll = true
                 default:

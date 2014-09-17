@@ -23,7 +23,7 @@ public class SugarRecordFinder
     
     public var predicate: NSPredicate?
     public var objectClass: NSObject.Type?
-    public var elements: SugarRecordFinderElements?
+    public var elements: SugarRecordFinderElements = .all
     public lazy var sortDescriptors: [NSSortDescriptor] = [NSSortDescriptor] ()
     
     
