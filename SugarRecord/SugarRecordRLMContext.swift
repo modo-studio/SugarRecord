@@ -11,6 +11,7 @@ import Realm
 
 public class SugarRecordRLMContext: SugarRecordContext
 {
+    /// RLMRealm context
     let realmContext: RLMRealm
     
     /**
