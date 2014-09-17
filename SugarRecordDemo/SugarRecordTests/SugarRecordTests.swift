@@ -150,12 +150,34 @@ class SugarRecordREALMTests: QuickSpec {
         });
         
         describe("object querying", { () -> () in
+            var realmObject: RealmObject? = nil
+            var realmObject2: RealmObject? = nil
+
             beforeEach({ () -> () in
-                
+                realmObject = RealmObject.create() as? RealmObject
+                realmObject!.name = "Realmy"
+                realmObject!.age = 22
+                realmObject!.email = "test@mail.com"
+                realmObject!.city = "TestCity"
+                realmObject!.birthday = NSDate()
+                let saved: Bool = realmObject!.save()
+                realmObject2 = RealmObject.create() as? RealmObject
+                realmObject2!.name = "Realmy2"
+                realmObject2!.age = 22
+                realmObject2!.email = "test@mail.com"
+                realmObject2!.city = "TestCity2"
+                realmObject2!.birthday = NSDate()
+                let saved2: Bool = realmObject2!.save()
             })
             afterEach({ () -> () in
-                
+                realmObject2!.delete()
+                realmObject!.delete()
             })
+            
+            it("should return all objects", { () -> () in
+                let found: [AnyObject] = RealmObject.all().find()!
+                expect(found.count).to(equal(2))
+            });
         });
     }
 }

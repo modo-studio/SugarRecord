@@ -21,22 +21,22 @@ public class SugarRecordFinder
     
     //MARK - Attributes
     
-    var predicate: NSPredicate?
-    var objectClass: NSObject.Type?
-    var elements: SugarRecordFinderElements?
-    lazy var sortDescriptors: [NSSortDescriptor] = [NSSortDescriptor] ()
+    public var predicate: NSPredicate?
+    public var objectClass: NSObject.Type?
+    public var elements: SugarRecordFinderElements?
+    public lazy var sortDescriptors: [NSSortDescriptor] = [NSSortDescriptor] ()
     
     
     // MARK - Constructors
     
-    init () {}
+    public init () {}
     
-    init (predicate: NSPredicate)
+    public init (predicate: NSPredicate)
     {
         self.predicate = predicate
     }
     
-    init (sortDescriptor: NSSortDescriptor)
+    public init (sortDescriptor: NSSortDescriptor)
     {
         self.sortDescriptors = [sortDescriptor]
     }
@@ -95,25 +95,25 @@ public class SugarRecordFinder
     
     //MARK - Sort Descriptors
     
-    func addSortDescriptor(sortDescriptor: NSSortDescriptor) -> SugarRecordFinder
+    public func addSortDescriptor(sortDescriptor: NSSortDescriptor) -> SugarRecordFinder
     {
         sortDescriptors.append(sortDescriptor)
         return self
     }
     
-    func addSortDescriptor(byKey key: String, ascending: Bool) -> SugarRecordFinder
+    public func addSortDescriptor(byKey key: String, ascending: Bool) -> SugarRecordFinder
     {
         sortDescriptors.append(NSSortDescriptor(key: key, ascending: ascending))
         return self
     }
     
-    func setSortDescriptors(sortDescriptors: [NSSortDescriptor]) -> SugarRecordFinder
+    public func setSortDescriptors(sortDescriptors: [NSSortDescriptor]) -> SugarRecordFinder
     {
         self.sortDescriptors = sortDescriptors
         return self
     }
     
-    func sortDescriptorsCount() -> Int
+    public func sortDescriptorsCount() -> Int
     {
         return self.sortDescriptors.count
     }
@@ -121,19 +121,19 @@ public class SugarRecordFinder
     
     //MARK - Predicates
     
-    func setPredicate(predicate: NSPredicate) -> SugarRecordFinder
+    public func setPredicate(predicate: NSPredicate) -> SugarRecordFinder
     {
         self.predicate = predicate
         return self
     }
     
-    func setPredicate(predicateString: String) -> SugarRecordFinder
+    public func setPredicate(predicateString: String) -> SugarRecordFinder
     {
         self.predicate = NSPredicate(format: predicateString)
         return self
     }
     
-    func setPredicate(byKey key: String, andValue value: String) -> SugarRecordFinder
+    public func setPredicate(byKey key: String, andValue value: String) -> SugarRecordFinder
     {
         self.predicate = NSPredicate(format: "\(key) == \(value)")
         return self
@@ -175,7 +175,7 @@ public class SugarRecordFinder
     
     // MARK - Finder
     
-    func find() -> [AnyObject]?
+    public func find() -> [AnyObject]?
     {
         var objects: [AnyObject]?
         SugarRecord.operation { (context) -> () in
@@ -186,7 +186,7 @@ public class SugarRecordFinder
     
     // MARK - Deletion
     
-    func delete () -> Bool
+    public func delete () -> Bool
     {
         var objectDeleted: Bool = false
         delete(true, completion: { (deleted) -> () in
@@ -195,7 +195,7 @@ public class SugarRecordFinder
         return objectDeleted
     }
     
-    func delete (asynchronously: Bool, completion: (deleted: Bool) -> ())
+    public func delete (asynchronously: Bool, completion: (deleted: Bool) -> ())
     {
         var deleted: Bool = false
         SugarRecord.operation(inBackground: asynchronously) { (context) -> () in

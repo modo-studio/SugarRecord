@@ -54,10 +54,12 @@ public class SugarRecordRLMContext: SugarRecordContext
             sortedObjects = sortedObjects.arraySortedByProperty(sorter.key, ascending: sorter.ascending)
         }
         
-        //TODO - Convert RLMArray to List ( is it possible )
-        //TODO - Check elements to know what we have to return
+        var objectsArray: [RLMObject] = [RLMObject]()
+        for index in 0..<sortedObjects.count {
+            objectsArray.append(sortedObjects.objectAtIndex(index) as RLMObject)
+        }
         
-        return nil
+        return objectsArray
     }
     
     public func deleteObject(object: AnyObject) -> Bool
