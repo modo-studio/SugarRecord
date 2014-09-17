@@ -42,7 +42,7 @@ public class SugarRecordCDContext: SugarRecordContext
     
     public func insertObject(object: AnyObject)
     {
-        //TODO
+        moveObject(object as NSManagedObject, inContext: self.contextCD)
     }
     
     public func find(finder: SugarRecordFinder) -> [AnyObject]?

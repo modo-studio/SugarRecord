@@ -13,32 +13,64 @@ public class SugarRecordRLMContext: SugarRecordContext
 {
     let realmContext: RLMRealm
     
+    /**
+    SugarRecordRLMContext initializer passing a RLMRealm object
+    
+    :param: realmContext RLMRealm context linked to this SugarRecord context
+    
+    :returns: Initialized SugarRecordRLMContext
+    */
     init (realmContext: RLMRealm)
     {
         self.realmContext = realmContext
     }
     
+    /**
+    Notifies the context that you're going to start an edition/removal/saving operation
+    */
     public func beginWritting()
     {
         self.realmContext.beginWriteTransaction()
     }
     
+    /**
+    Notifies the context that you've finished an edition/removal/saving operation
+    */
     public func endWritting()
     {
         self.realmContext.commitWriteTransaction()
     }
     
+    /**
+    Creates an object in the context
+    
+    :param: objectClass ObectClass of the created object
+    
+    :returns: The created object in the context
+    */
     public func createObject(objectClass: AnyClass) -> AnyObject?
     {
         let objectClass: RLMObject.Type = objectClass as RLMObject.Type
         return objectClass()
     }
     
+    /**
+    Insert an object in the context
+    
+    :param: object Realm object to be inserted
+    */
     public func insertObject(object: AnyObject)
     {
         self.realmContext.addObject(object as RLMObject)
     }
     
+    /**
+    Find Realm objects in the database using the passed finder
+    
+    :param: finder SugarRecordFinder used for querying (filtering/sorting)
+    
+    :returns: Objects fetched
+    */
     public func find(finder: SugarRecordFinder) -> [AnyObject]?
     {
         let objectClass: RLMObject.Type = finder.objectClass as RLMObject.Type
@@ -91,16 +123,30 @@ public class SugarRecordRLMContext: SugarRecordContext
         case .all:
             finalArray = objectsArray
         }
-        
+        SugarRecordLogger.logLevelInfo.log("Found \(finalArray.count) objects in database")
         return finalArray
     }
     
+    /**
+    Delete a given object
+    
+    :param: object Realm object to be deleted
+    
+    :returns: If the object has been properly deleted
+    */
     public func deleteObject(object: AnyObject) -> Bool
     {
         self.realmContext.deleteObject(object as RLMObject)
         return true
     }
     
+    /**
+    Deletes Realm objects from an array
+    
+    :param: objects Realm objects to be deleted
+    
+    :returns: If the delection has been successful
+    */
     public func deleteObjects(objects: [AnyObject]) -> Bool
     {
         var objectsDeleted: Int = 0
