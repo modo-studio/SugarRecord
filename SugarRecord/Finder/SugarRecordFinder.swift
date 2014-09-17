@@ -8,7 +8,15 @@
 
 import Foundation
 
+/**
+Enum that indicates which elements fetch
 
+- first:  The first one
+- last:   The last one
+- all:    All the elements
+- firsts: The firsts x
+- lasts:  The lasts x
+*/
 public enum SugarRecordFinderElements
 {
     case first, last, all

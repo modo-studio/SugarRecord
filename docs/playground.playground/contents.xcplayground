@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version="3.0" sdk="iphonesimulator" allows-reset="YES">
-    <sections>
-        <documentation relative-path="section-0.html">
-        </documentation>
-        <code source-file-name="section-1.swift">
-        </code>
-    </sections>
-</playground>

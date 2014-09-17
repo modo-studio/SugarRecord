@@ -129,7 +129,7 @@ public class SugarRecordRLMContext: SugarRecordContext
     }
     
     /**
-    Delete a given object
+    Deletes a given object
     
     :param: object Realm object to be deleted
     

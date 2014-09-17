@@ -1,1 +1,0 @@
-SugarRecord.setStack(DefaultCDStack())
