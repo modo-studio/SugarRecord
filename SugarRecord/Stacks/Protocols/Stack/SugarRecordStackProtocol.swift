@@ -10,7 +10,6 @@ import Foundation
 
 public protocol SugarRecordStackProtocol
 {
-    init(stackName:String, stackDescription: String)
     var name: String { get }
     var stackDescription: String { get }
     func initialize()
