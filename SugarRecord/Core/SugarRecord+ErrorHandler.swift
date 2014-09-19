@@ -8,6 +8,10 @@
 
 import Foundation
 
+// MARK  Error codes
+public enum SugarRecordErrorCodes: Int {
+    case UserError, LibraryError, CoreDataError, REALMError
+}
 
 // MARK - SugarRecord Error Handler
 
