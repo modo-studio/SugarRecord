@@ -9,12 +9,8 @@
 /* Begin PBXBuildFile section */
 		3D11B0B519BCB757009274FB /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D11B0A419BCB724009274FB /* Realm.framework */; };
 		3D11B0BA19BCB78A009274FB /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3D11B0A819BCB724009274FB /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3D321EA519BCEC8B00E2C56D /* NSManagedObject+SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D321EA419BCEC8B00E2C56D /* NSManagedObject+SugarRecordTests.swift */; };
-		3D372EAA19C19AD000C39D4A /* RLMObject+SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D321EA619BCEC9700E2C56D /* RLMObject+SugarRecordTests.swift */; };
 		3D372EAB19C19B0C00C39D4A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0884E19AC80A200A47174 /* Quick.framework */; };
 		3D372EAE19C19B1B00C39D4A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF0883E19AC809400A47174 /* Nimble.framework */; };
-		3D5AF73319C6BB9E009B431F /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AF73219C6BB9E009B431F /* RealmObject.swift */; };
-		3D5AF74119C6C673009B431F /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5AF74019C6C673009B431F /* CoreData.swift */; };
 		3DAD444B19CC931000B1E355 /* SugarRecord+ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD443D19CC931000B1E355 /* SugarRecord+ErrorHandler.swift */; };
 		3DAD444C19CC931000B1E355 /* SugarRecord+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD443E19CC931000B1E355 /* SugarRecord+Operations.swift */; };
 		3DAD444D19CC931000B1E355 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD443F19CC931000B1E355 /* SugarRecord.swift */; };
@@ -27,15 +23,22 @@
 		3DAD445419CC931000B1E355 /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD444719CC931000B1E355 /* SugarRecordCDContext.swift */; };
 		3DAD445519CC931000B1E355 /* RLMObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD444919CC931000B1E355 /* RLMObject+SugarRecord.swift */; };
 		3DAD445619CC931000B1E355 /* SugarRecordRLMContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD444A19CC931000B1E355 /* SugarRecordRLMContext.swift */; };
+		3DAD445819CCB5F100B1E355 /* DefaultREALMStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD445719CCB5F100B1E355 /* DefaultREALMStack.swift */; };
+		3DAD445A19CCB5FF00B1E355 /* DefaultCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD445919CCB5FF00B1E355 /* DefaultCDStack.swift */; };
+		3DAD446719CCBB0100B1E355 /* SugarRecordFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD445C19CCBB0100B1E355 /* SugarRecordFinderTests.swift */; };
+		3DAD446919CCBB0100B1E355 /* NSManagedObject+SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD445F19CCBB0100B1E355 /* NSManagedObject+SugarRecordTests.swift */; };
+		3DAD446A19CCBB0100B1E355 /* SugarRecordCDContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD446019CCBB0100B1E355 /* SugarRecordCDContextTests.swift */; };
+		3DAD446B19CCBB0100B1E355 /* RLMObject+SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD446219CCBB0100B1E355 /* RLMObject+SugarRecordTests.swift */; };
+		3DAD446C19CCBB0100B1E355 /* SugarRecordRLMContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD446319CCBB0100B1E355 /* SugarRecordRLMContextTests.swift */; };
+		3DAD447319CCBB8C00B1E355 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD447019CCBB8C00B1E355 /* CoreData.swift */; };
+		3DAD447419CCBB8C00B1E355 /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD447119CCBB8C00B1E355 /* RealmObject.swift */; };
+		3DAD447519CCBB8C00B1E355 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD447219CCBB8C00B1E355 /* SugarRecordTests.swift */; };
+		3DAD447719CCBBE000B1E355 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD447619CCBBE000B1E355 /* SugarRecordTests.swift */; };
 		3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DD198E826E00268EB3 /* AppDelegate.swift */; };
 		3DBC55E1198E826E00268EB3 /* SugarRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */; };
 		3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55E2198E826E00268EB3 /* ViewController.swift */; };
 		3DBC55E8198E826E00268EB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC55E7198E826E00268EB3 /* Images.xcassets */; };
-		3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55F3198E826E00268EB3 /* SugarRecordTests.swift */; };
 		3DBC5603198E844B00268EB3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
-		3DC9264419C18A9A00361565 /* SugarRecordFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9264219C18A9A00361565 /* SugarRecordFinderTests.swift */; };
-		3DC9264819C18AC100361565 /* SugarRecordRLMContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9264619C18AC100361565 /* SugarRecordRLMContextTests.swift */; };
-		3DC9264B19C18ACC00361565 /* SugarRecordCDContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9264919C18ACC00361565 /* SugarRecordCDContextTests.swift */; };
 		FF793EDC19B521D000DCF05F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC55E4198E826E00268EB3 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -183,12 +186,8 @@
 
 /* Begin PBXFileReference section */
 		3D11B09819BCB724009274FB /* Realm-Xcode6.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Realm-Xcode6.xcodeproj"; path = "../../submodules/realm/Realm-Xcode6.xcodeproj"; sourceTree = "<group>"; };
-		3D321EA419BCEC8B00E2C56D /* NSManagedObject+SugarRecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+SugarRecordTests.swift"; sourceTree = "<group>"; };
-		3D321EA619BCEC9700E2C56D /* RLMObject+SugarRecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RLMObject+SugarRecordTests.swift"; sourceTree = "<group>"; };
 		3D43C1AF199DE478004FC0E5 /* SugarRecord-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecord-Bridging-Header.h"; sourceTree = "<group>"; };
-		3D5AF73219C6BB9E009B431F /* RealmObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObject.swift; sourceTree = "<group>"; };
 		3D5AF73519C6BC93009B431F /* SugarRecordTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecordTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		3D5AF74019C6C673009B431F /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreData.swift; path = SugarRecordTests/CoreData.swift; sourceTree = SOURCE_ROOT; };
 		3DAD443D19CC931000B1E355 /* SugarRecord+ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+ErrorHandler.swift"; sourceTree = "<group>"; };
 		3DAD443E19CC931000B1E355 /* SugarRecord+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+Operations.swift"; sourceTree = "<group>"; };
 		3DAD443F19CC931000B1E355 /* SugarRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecord.swift; sourceTree = "<group>"; };
@@ -201,6 +200,17 @@
 		3DAD444719CC931000B1E355 /* SugarRecordCDContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordCDContext.swift; sourceTree = "<group>"; };
 		3DAD444919CC931000B1E355 /* RLMObject+SugarRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RLMObject+SugarRecord.swift"; sourceTree = "<group>"; };
 		3DAD444A19CC931000B1E355 /* SugarRecordRLMContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordRLMContext.swift; sourceTree = "<group>"; };
+		3DAD445719CCB5F100B1E355 /* DefaultREALMStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultREALMStack.swift; sourceTree = "<group>"; };
+		3DAD445919CCB5FF00B1E355 /* DefaultCDStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCDStack.swift; sourceTree = "<group>"; };
+		3DAD445C19CCBB0100B1E355 /* SugarRecordFinderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordFinderTests.swift; sourceTree = "<group>"; };
+		3DAD445F19CCBB0100B1E355 /* NSManagedObject+SugarRecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+SugarRecordTests.swift"; sourceTree = "<group>"; };
+		3DAD446019CCBB0100B1E355 /* SugarRecordCDContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordCDContextTests.swift; sourceTree = "<group>"; };
+		3DAD446219CCBB0100B1E355 /* RLMObject+SugarRecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RLMObject+SugarRecordTests.swift"; sourceTree = "<group>"; };
+		3DAD446319CCBB0100B1E355 /* SugarRecordRLMContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordRLMContextTests.swift; sourceTree = "<group>"; };
+		3DAD447019CCBB8C00B1E355 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		3DAD447119CCBB8C00B1E355 /* RealmObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObject.swift; sourceTree = "<group>"; };
+		3DAD447219CCBB8C00B1E355 /* SugarRecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordTests.swift; sourceTree = "<group>"; };
+		3DAD447619CCBBE000B1E355 /* SugarRecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordTests.swift; sourceTree = "<group>"; };
 		3DBC55D8198E826E00268EB3 /* SugarRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SugarRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBC55DC198E826E00268EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DBC55DD198E826E00268EB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,11 +220,7 @@
 		3DBC55E7198E826E00268EB3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3DBC55ED198E826E00268EB3 /* SugarRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBC55F2198E826E00268EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DBC55F3198E826E00268EB3 /* SugarRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordTests.swift; sourceTree = "<group>"; };
 		3DBC5602198E844B00268EB3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		3DC9264219C18A9A00361565 /* SugarRecordFinderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordFinderTests.swift; sourceTree = "<group>"; };
-		3DC9264619C18AC100361565 /* SugarRecordRLMContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordRLMContextTests.swift; sourceTree = "<group>"; };
-		3DC9264919C18ACC00361565 /* SugarRecordCDContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordCDContextTests.swift; sourceTree = "<group>"; };
 		3DF0883619AC809400A47174 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = ../../submodules/Nimble/Nimble.xcodeproj; sourceTree = "<group>"; };
 		3DF0884519AC80A200A47174 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = ../../submodules/Quick/Quick/Quick.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,87 +262,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3D37FA0D19BCD8820035035A /* Objects */ = {
-			isa = PBXGroup;
-			children = (
-				3D37FA0F19BCD8820035035A /* ObjectCD */,
-				3D37FA1019BCD8820035035A /* ObjectREALM */,
-				3D37FA1119BCD8820035035A /* Protocols */,
-			);
-			path = Objects;
-			sourceTree = "<group>";
-		};
-		3D37FA0F19BCD8820035035A /* ObjectCD */ = {
-			isa = PBXGroup;
-			children = (
-				3D321EA419BCEC8B00E2C56D /* NSManagedObject+SugarRecordTests.swift */,
-			);
-			path = ObjectCD;
-			sourceTree = "<group>";
-		};
-		3D37FA1019BCD8820035035A /* ObjectREALM */ = {
-			isa = PBXGroup;
-			children = (
-				3D321EA619BCEC9700E2C56D /* RLMObject+SugarRecordTests.swift */,
-			);
-			path = ObjectREALM;
-			sourceTree = "<group>";
-		};
-		3D37FA1119BCD8820035035A /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		3D37FA1219BCD8820035035A /* Stacks */ = {
-			isa = PBXGroup;
-			children = (
-				3D37FA1319BCD8820035035A /* Other */,
-				3D37FA1419BCD8820035035A /* Protocols */,
-				3D37FA1719BCD8820035035A /* StackCD */,
-				3D37FA1819BCD8820035035A /* StackREALM */,
-			);
-			path = Stacks;
-			sourceTree = "<group>";
-		};
-		3D37FA1319BCD8820035035A /* Other */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
-		3D37FA1419BCD8820035035A /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		3D37FA1719BCD8820035035A /* StackCD */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = StackCD;
-			sourceTree = "<group>";
-		};
-		3D37FA1819BCD8820035035A /* StackREALM */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = StackREALM;
-			sourceTree = "<group>";
-		};
-		3D5AF72219C6BB83009B431F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				3D5AF74019C6C673009B431F /* CoreData.swift */,
-				3D5AF73219C6BB9E009B431F /* RealmObject.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		3DAD443C19CC931000B1E355 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +280,7 @@
 		3DAD444519CC931000B1E355 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				3DAD445919CCB5FF00B1E355 /* DefaultCDStack.swift */,
 				3DAD444619CC931000B1E355 /* NSManagedObject+SugarRecord.swift */,
 				3DAD444719CC931000B1E355 /* SugarRecordCDContext.swift */,
 			);
@@ -364,10 +290,48 @@
 		3DAD444819CC931000B1E355 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				3DAD445719CCB5F100B1E355 /* DefaultREALMStack.swift */,
 				3DAD444919CC931000B1E355 /* RLMObject+SugarRecord.swift */,
 				3DAD444A19CC931000B1E355 /* SugarRecordRLMContext.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		3DAD445B19CCBB0100B1E355 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3DAD445C19CCBB0100B1E355 /* SugarRecordFinderTests.swift */,
+				3DAD447619CCBBE000B1E355 /* SugarRecordTests.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3DAD445E19CCBB0100B1E355 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3DAD445F19CCBB0100B1E355 /* NSManagedObject+SugarRecordTests.swift */,
+				3DAD446019CCBB0100B1E355 /* SugarRecordCDContextTests.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		3DAD446119CCBB0100B1E355 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				3DAD446219CCBB0100B1E355 /* RLMObject+SugarRecordTests.swift */,
+				3DAD446319CCBB0100B1E355 /* SugarRecordRLMContextTests.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		3DAD446F19CCBB8C00B1E355 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3DAD447019CCBB8C00B1E355 /* CoreData.swift */,
+				3DAD447119CCBB8C00B1E355 /* RealmObject.swift */,
+				3DAD447219CCBB8C00B1E355 /* SugarRecordTests.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		3DBC55CF198E826E00268EB3 = {
@@ -415,14 +379,12 @@
 		3DBC55F0198E826E00268EB3 /* SugarRecordTests */ = {
 			isa = PBXGroup;
 			children = (
-				3D5AF72219C6BB83009B431F /* Models */,
+				3DAD446F19CCBB8C00B1E355 /* Models */,
+				3DAD445B19CCBB0100B1E355 /* Core */,
+				3DAD445E19CCBB0100B1E355 /* CoreData */,
+				3DAD446119CCBB0100B1E355 /* Realm */,
 				3DF0884519AC80A200A47174 /* Quick.xcodeproj */,
 				3DF0883619AC809400A47174 /* Nimble.xcodeproj */,
-				3DBC55F3198E826E00268EB3 /* SugarRecordTests.swift */,
-				3DC9264519C18AAB00361565 /* Context */,
-				3DC9264119C18A9A00361565 /* Finder */,
-				3D37FA0D19BCD8820035035A /* Objects */,
-				3D37FA1219BCD8820035035A /* Stacks */,
 				3DBC55F1198E826E00268EB3 /* Supporting Files */,
 			);
 			path = SugarRecordTests;
@@ -434,23 +396,6 @@
 				3DBC55F2198E826E00268EB3 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3DC9264119C18A9A00361565 /* Finder */ = {
-			isa = PBXGroup;
-			children = (
-				3DC9264219C18A9A00361565 /* SugarRecordFinderTests.swift */,
-			);
-			path = Finder;
-			sourceTree = "<group>";
-		};
-		3DC9264519C18AAB00361565 /* Context */ = {
-			isa = PBXGroup;
-			children = (
-				3DC9264619C18AC100361565 /* SugarRecordRLMContextTests.swift */,
-				3DC9264919C18ACC00361565 /* SugarRecordCDContextTests.swift */,
-			);
-			path = Context;
 			sourceTree = "<group>";
 		};
 		3DD010AE1990378200673854 /* Frameworks */ = {
@@ -728,8 +673,8 @@
 			files = (
 				3DBC55E3198E826E00268EB3 /* ViewController.swift in Sources */,
 				3DAD444F19CC931000B1E355 /* SugarRecordFinder.swift in Sources */,
+				3DAD445819CCB5F100B1E355 /* DefaultREALMStack.swift in Sources */,
 				3DBC55DE198E826E00268EB3 /* AppDelegate.swift in Sources */,
-				3D5AF73319C6BB9E009B431F /* RealmObject.swift in Sources */,
 				3DAD445519CC931000B1E355 /* RLMObject+SugarRecord.swift in Sources */,
 				3DAD445019CC931000B1E355 /* SugarRecordLogger.swift in Sources */,
 				3DAD444C19CC931000B1E355 /* SugarRecord+Operations.swift in Sources */,
@@ -740,7 +685,7 @@
 				3DAD445319CC931000B1E355 /* NSManagedObject+SugarRecord.swift in Sources */,
 				3DAD445119CC931000B1E355 /* SugarRecordObjectProtocol.swift in Sources */,
 				3DAD444D19CC931000B1E355 /* SugarRecord.swift in Sources */,
-				3D5AF74119C6C673009B431F /* CoreData.swift in Sources */,
+				3DAD445A19CCB5FF00B1E355 /* DefaultCDStack.swift in Sources */,
 				3DAD445619CC931000B1E355 /* SugarRecordRLMContext.swift in Sources */,
 				3DAD444B19CC931000B1E355 /* SugarRecord+ErrorHandler.swift in Sources */,
 			);
@@ -750,12 +695,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DC9264819C18AC100361565 /* SugarRecordRLMContextTests.swift in Sources */,
-				3DC9264419C18A9A00361565 /* SugarRecordFinderTests.swift in Sources */,
-				3DC9264B19C18ACC00361565 /* SugarRecordCDContextTests.swift in Sources */,
-				3D372EAA19C19AD000C39D4A /* RLMObject+SugarRecordTests.swift in Sources */,
-				3D321EA519BCEC8B00E2C56D /* NSManagedObject+SugarRecordTests.swift in Sources */,
-				3DBC55F4198E826E00268EB3 /* SugarRecordTests.swift in Sources */,
+				3DAD446C19CCBB0100B1E355 /* SugarRecordRLMContextTests.swift in Sources */,
+				3DAD446719CCBB0100B1E355 /* SugarRecordFinderTests.swift in Sources */,
+				3DAD446B19CCBB0100B1E355 /* RLMObject+SugarRecordTests.swift in Sources */,
+				3DAD447719CCBBE000B1E355 /* SugarRecordTests.swift in Sources */,
+				3DAD447519CCBB8C00B1E355 /* SugarRecordTests.swift in Sources */,
+				3DAD447419CCBB8C00B1E355 /* RealmObject.swift in Sources */,
+				3DAD447319CCBB8C00B1E355 /* CoreData.swift in Sources */,
+				3DAD446A19CCBB0100B1E355 /* SugarRecordCDContextTests.swift in Sources */,
+				3DAD446919CCBB0100B1E355 /* NSManagedObject+SugarRecordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

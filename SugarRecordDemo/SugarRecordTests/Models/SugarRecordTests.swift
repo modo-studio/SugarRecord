@@ -7,7 +7,7 @@ import Nimble
 import CoreData
 import Realm
 
-class SugarRecordCoreDataTests: QuickSpec {
+class SugarRecordCoreDataObjectTests: QuickSpec {
     override func spec() {
         beforeSuite
         {
@@ -60,7 +60,7 @@ class SugarRecordCoreDataTests: QuickSpec {
     }
 }
 
-class SugarRecordREALMTests: QuickSpec {
+class SugarRecordRLMObjectTests: QuickSpec {
     override func spec() {
         beforeSuite
         {
@@ -170,6 +170,7 @@ class SugarRecordREALMTests: QuickSpec {
                 realmObject2!.birthday = NSDate()
                 let saved2: Bool = realmObject2!.save()
             })
+            
             afterEach({ () -> () in
                 realmObject2!.delete()
                 realmObject!.delete()

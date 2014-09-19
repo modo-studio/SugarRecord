@@ -29,12 +29,17 @@ public class DefaultREALMStack: SugarRecordStackProtocol
         // Nothing to do here
     }
     
-    public func toBackground()
+    public func applicationWillResignActive()
     {
         // Nothing to do here
     }
-
-    public func toForeground()
+    
+    public func applicationWillTerminate()
+    {
+        // Nothing to do here
+    }
+    
+    public func applicationWillEnterForeground()
     {
         // Nothing to do here
     }

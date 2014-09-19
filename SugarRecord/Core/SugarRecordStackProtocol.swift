@@ -15,8 +15,9 @@ public protocol SugarRecordStackProtocol
     func initialize()
     func removeDatabase()
     func cleanup()
-    func toBackground()
-    func toForeground()
+    func applicationWillResignActive()
+    func applicationWillTerminate()
+    func applicationWillEnterForeground()
     func backgroundContext() -> SugarRecordContext // Ensure synchronized access
     func mainThreadContext() -> SugarRecordContext
 }

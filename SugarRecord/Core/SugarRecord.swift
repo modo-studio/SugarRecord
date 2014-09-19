@@ -35,14 +35,40 @@ public class SugarRecord {
     */
     public class func setStack(stack: protocol<SugarRecordStackProtocol>)
     {
+        SugarRecordLogger.logLevelInfo.log("Set the stack -\(stack)- as the current SugarRecord stack")
         StaticVars.stack = stack
+        stack.initialize()
     }
     
+    /**
+    Returns the current SugarRecord stack
     
-    public class func stack() -> (protocol<SugarRecordStackProtocol>) {
+    :returns: Current SugarRecord stack
+    */
+    
+    public class func stack() -> (protocol<SugarRecordStackProtocol>)
+    {
         return StaticVars.stack!
     }
-
+    
+    public class func applicationWillResignActive()
+    {
+        SugarRecordLogger.logLevelInfo.log("Notifying the current stack that the app will resign active")
+        StaticVars.stack?.applicationWillResignActive()
+    }
+    
+    public class func applicationWillTerminate()
+    {
+        SugarRecordLogger.logLevelInfo.log("Notifying the current stack that the app will temrinate")
+        StaticVars.stack?.applicationWillTerminate()
+    }
+    
+    public class func applicationWillEnterForeground()
+    {
+        SugarRecordLogger.logLevelInfo.log("Notifying the current stack that the app will temrinate")
+        StaticVars.stack?.applicationWillEnterForeground()
+    }
+    
     /**
      Clean up the stack and notifies it using key srKVOCleanedUpNotification
      */
