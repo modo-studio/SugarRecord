@@ -11,6 +11,7 @@ The library is completetly written in Swift and fully tested to ensure the behav
 **Powered by [@pepibumur](http://www.twitter.com/pepibumur)**
 
 ## Index
+- [Advantages of SugarRecord](#advantages-of-sugarrecord)
 - [Version 1.0 - Features](#planned-for-1.0-release)
 - [Requirements](#requirements)
 - [Installation](#installation)
@@ -25,6 +26,14 @@ The library is completetly written in Swift and fully tested to ensure the behav
 - [Who uses SugarRecord?](#who-uses-sugarrecord?)
 - [Contribute](#contribute)
 
+## Advantages of SugarRecord
+
+- For beginners and advanced users
+- **Fully customizable**. Implement your own stack and set it as your SugarRecord stack to work with.
+- **Friendly syntax**. Forget about NSPredicates and NSSortDescriptors
+- You can change between different stacks without affecting to the rest of your app.
+- In case of a transition from CoreData to Realm or viceversa you've only to ensure the objecs have the same property names, and nothing more.
+- Background operations are automatically managed by Sugar Record
 
 ## Version 1.0 Beta - Features
 
