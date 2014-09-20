@@ -60,7 +60,12 @@ public class DefaultREALMStack: SugarRecordStackProtocol
         let databaseName: String = documentsPath.stringByAppendingPathComponent("default.realm")
         var error: NSError?
         NSFileManager.defaultManager().removeItemAtPath(databaseName, error: &error)
-        let exception: NSException = NSException(name: "Database operations", reason: "Couldn't delete the database \(databaseName)", userInfo: ["error": error!])
-        SugarRecord.handle(exception)
+        if error != nil {
+            let exception: NSException = NSException(name: "Database operations", reason: "Couldn't delete the database \(databaseName)", userInfo: ["error": error!])
+            SugarRecord.handle(exception)
+        }
+        else {
+            SugarRecordLogger.logLevelInfo.log("Database \(databaseName) removed")
+        }
     }
 }
