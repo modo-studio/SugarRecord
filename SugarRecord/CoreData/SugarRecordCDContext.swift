@@ -41,7 +41,8 @@ public class SugarRecordCDContext: SugarRecordContext
     {
         var error: NSError?
         self.contextCD.save(&error)
-        SugarRecord.handle(error)
+        let exception: NSException = NSException(name: "Database operations", reason: "Couldn't perform your changes in the context", userInfo: ["error": error!])
+        SugarRecord.handle(exception)
         if error != nil {
             SugarRecordLogger.logLevelInfo.log("Context saved properly")
         }
@@ -140,8 +141,8 @@ public class SugarRecordCDContext: SugarRecordContext
         let managedObject: NSManagedObject? = object as? NSManagedObject
         let objectInContext: NSManagedObject? = moveObject(managedObject!, inContext: contextCD)
         if objectInContext == nil  {
-            let error: NSError = NSError(domain: "Imposible to remove object", code: SugarRecordErrorCodes.UserError.toRaw(), userInfo: nil)
-            SugarRecord.handle(error)
+            let exception: NSException = NSException(name: "Database operations", reason: "Imposible to remove object \(object)", userInfo: nil)
+            SugarRecord.handle(exception)
             return false
         }
         SugarRecordLogger.logLevelInfo.log("Object removed from database")
@@ -185,8 +186,8 @@ public class SugarRecordCDContext: SugarRecordContext
         var error: NSError?
         let objectInContext: NSManagedObject? = context.existingObjectWithID(object.objectID, error: &error)?
         if error != nil {
-            let error: NSError = NSError(domain: "", code: SugarRecordErrorCodes.UserError.toRaw(), userInfo: nil)
-            SugarRecord.handle(error)
+            let exception: NSException = NSException(name: "Database operations", reason: "Couldn't move the object into the new context", userInfo: nil)
+            SugarRecord.handle(exception)
             return nil
         }
         else {

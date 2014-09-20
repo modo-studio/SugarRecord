@@ -24,6 +24,7 @@ public extension SugarRecord {
     class func handle(error: NSError?) {
         if error == nil  { return }
         SugarRecordLogger.logLevelFatal.log("Error caught: \(error)")
+        assert(true, "\(error?.localizedDescription)")
     }
 
     /**
