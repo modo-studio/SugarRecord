@@ -8,7 +8,6 @@
 
 import Foundation
 import Quick
-import SugarRecord
 import Nimble
 import CoreData
 

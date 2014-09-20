@@ -132,6 +132,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
         
     }
     
+    public func createPersistentStoreCoordinator(options: [AnyObject: NSObject])
+    {
+        
+    }
     
     private func saveChangesInRootSavingContext()
     {
