@@ -9,9 +9,6 @@
 import Foundation
 import CoreData
 
-//TODO - Initialize NSManagedObjectModel
-//TODO - Initialize persistent store coordinator (adding extra migration options)
-
 public class DefaultCDStack: SugarRecordStackProtocol
 {
     public var name: String = "DefaultCoreDataStack"
