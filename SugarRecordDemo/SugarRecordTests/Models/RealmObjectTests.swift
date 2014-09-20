@@ -6,65 +6,11 @@ import Nimble
 import CoreData
 import Realm
 
-class SugarRecordCoreDataObjectTests: QuickSpec {
-    override func spec() {
-        beforeSuite
-        {
-            //SugarRecord.setStack(DefaultCDStack(stackName: "RealmTest", stackDescription: "Realm stack for tests"))
-        }
-        
-        afterSuite
-        {
-                
-        }
-        
-        afterSuite
-        {
-            SugarRecord.stack().cleanup()
-        }
-        
-        describe("object creation", { () -> () in
-            beforeEach({ () -> () in
-                
-            })
-            afterEach({ () -> () in
-            })
-        });
-        
-        describe("object deletion", { () -> () in
-            beforeEach({ () -> () in
-                
-            })
-            afterEach({ () -> () in
-            })
-        });
-        
-        describe("object edition", { () -> () in
-            beforeEach({ () -> () in
-                
-            })
-            
-            afterEach({ () -> () in
-            })
-        });
-        
-        describe("object querying", { () -> () in
-            beforeEach({ () -> () in
-                
-            })
-            afterEach({ () -> () in
-            })
-        });
-        
-    }
-}
-
-class SugarRecordRLMObjectTests: QuickSpec {
+class RealmObjectTests: QuickSpec {
     override func spec() {
         beforeSuite
         {
             SugarRecord.setStack(DefaultREALMStack(stackName: "RealmTest", stackDescription: "Realm stack for tests"))
-            SugarRecord.removeDatabase()
         }
 
         afterSuite

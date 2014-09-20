@@ -23,6 +23,11 @@ extension RLMObject: SugarRecordObjectProtocol
         }
     }
     
+    public class func entityName() -> String
+    {
+        return NSStringFromClass(self).componentsSeparatedByString(".").last!
+    }
+    
     //MARK - Filtering
     
     public class func by(predicate: NSPredicate) -> SugarRecordFinder

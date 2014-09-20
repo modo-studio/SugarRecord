@@ -58,7 +58,7 @@ public class SugarRecordCDContext: SugarRecordContext
     public func createObject(objectClass: AnyClass) -> AnyObject?
     {
         let managedObjectClass: NSManagedObject.Type = objectClass as NSManagedObject.Type
-        var object: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName("", inManagedObjectContext: self.contextCD) as NSManagedObject
+        var object: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(managedObjectClass.entityName(), inManagedObjectContext: self.contextCD) as NSManagedObject
         return object
     }
     

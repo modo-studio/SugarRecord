@@ -13,6 +13,7 @@ public protocol SugarRecordObjectProtocol
     //MARK - Custom Getter
     
     func context() -> SugarRecordContext
+    class func entityName() -> String
     
     //MARK - Filtering
     

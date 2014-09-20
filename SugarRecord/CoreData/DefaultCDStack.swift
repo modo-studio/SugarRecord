@@ -112,9 +112,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     public func initialize()
     {
-        self.persistentStoreCoordinator = createPersistentStoreCoordinator()
-        self.rootSavingContext = createRootSavingContext(self.persistentStoreCoordinator)
-        self.mainContext = createMainContext(self.rootSavingContext)
+        persistentStoreCoordinator = createPersistentStoreCoordinator()
+        addDatabase()
+        rootSavingContext = createRootSavingContext(self.persistentStoreCoordinator)
+        mainContext = createMainContext(self.rootSavingContext)
     }
     
     /**
@@ -252,7 +253,6 @@ public class DefaultCDStack: SugarRecordStackProtocol
     {
         var model: NSManagedObjectModel = NSManagedObjectModel.mergedModelFromBundles(nil)
         var coordinator: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
-        addDatabase()
         return coordinator
     }
     
@@ -362,8 +362,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     {
         let documentsPath: String = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)[0] as String
         let mainBundleInfo: [NSObject: AnyObject] = NSBundle.mainBundle().infoDictionary
-        let applicationName: String = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as String
-        let applicationPath: String = documentsPath.stringByAppendingPathComponent(applicationName)
+        let applicationPath: String = documentsPath.stringByAppendingPathComponent("store")
         
         let paths: [String] = [documentsPath, applicationPath]
         for path in paths {

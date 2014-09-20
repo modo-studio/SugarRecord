@@ -18,6 +18,11 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return SugarRecordCDContext(context: self.managedObjectContext)
     }
     
+    public class func entityName() -> String
+    {
+        return NSStringFromClass(self).componentsSeparatedByString(".").last!
+    }
+    
     //MARK - Filtering
     
     public class func by(predicate: NSPredicate) -> SugarRecordFinder
