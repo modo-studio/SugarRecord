@@ -45,24 +45,32 @@ public class SugarRecord {
     
     :returns: Current SugarRecord stack
     */
-    
     public class func stack() -> (protocol<SugarRecordStackProtocol>)
     {
         return StaticVars.stack!
     }
     
+    /**
+    Called when the application will resign active
+    */
     public class func applicationWillResignActive()
     {
         SugarRecordLogger.logLevelInfo.log("Notifying the current stack that the app will resign active")
         StaticVars.stack?.applicationWillResignActive()
     }
     
+    /**
+    Called when the application will terminate
+    */
     public class func applicationWillTerminate()
     {
         SugarRecordLogger.logLevelInfo.log("Notifying the current stack that the app will temrinate")
         StaticVars.stack?.applicationWillTerminate()
     }
     
+    /**
+    Called when the application will enter foreground
+    */
     public class func applicationWillEnterForeground()
     {
         SugarRecordLogger.logLevelInfo.log("Notifying the current stack that the app will temrinate")

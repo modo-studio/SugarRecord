@@ -10,11 +10,22 @@ import Foundation
 
 extension SugarRecord {
     
+    /**
+    Executes an operation closure in the main thread
+    
+    :param: closure Closure with operations to be executed
+    */
     public class func operation(closure: (context: SugarRecordContext) -> ())
     {
         SugarRecord.operation(inBackground: false, closure: closure)
     }
     
+    /**
+    Executes an operation closure passing it the context to perform operations
+    
+    :param: background Bool indicating if the operation is in background or not
+    :param: closure    Closure with actions to be executed
+    */
     public class func operation(inBackground background: Bool, closure: (context: SugarRecordContext) -> ())
     {
         if background {
