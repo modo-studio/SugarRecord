@@ -41,10 +41,9 @@ public class SugarRecordCDContext: SugarRecordContext
     {
         var error: NSError?
         self.contextCD.save(&error)
-        let exception: NSException = NSException(name: "Database operations", reason: "Couldn't perform your changes in the context", userInfo: ["error": error!])
-        SugarRecord.handle(exception)
         if error != nil {
-            SugarRecordLogger.logLevelInfo.log("Context saved properly")
+            let exception: NSException = NSException(name: "Database operations", reason: "Couldn't perform your changes in the context", userInfo: ["error": error!])
+            SugarRecord.handle(exception)
         }
     }
     
@@ -58,7 +57,7 @@ public class SugarRecordCDContext: SugarRecordContext
     public func createObject(objectClass: AnyClass) -> AnyObject?
     {
         let managedObjectClass: NSManagedObject.Type = objectClass as NSManagedObject.Type
-        var object: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(managedObjectClass.entityName(), inManagedObjectContext: self.contextCD) as NSManagedObject
+        var object: AnyObject = NSEntityDescription.insertNewObjectForEntityForName(managedObjectClass.entityName(), inManagedObjectContext: self.contextCD)
         return object
     }
     
@@ -83,7 +82,7 @@ public class SugarRecordCDContext: SugarRecordContext
     {
         let objectClass: NSObject.Type = finder.objectClass!
         let managedObjectClass: NSManagedObject.Type = objectClass as NSManagedObject.Type
-        let fetchRequest: NSFetchRequest = NSFetchRequest()
+        let fetchRequest: NSFetchRequest = NSFetchRequest(entityName: managedObjectClass.entityName())
         fetchRequest.sortDescriptors = finder.sortDescriptors
         fetchRequest.predicate = finder.predicate
         var error: NSError?

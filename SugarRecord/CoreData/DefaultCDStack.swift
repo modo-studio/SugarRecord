@@ -16,6 +16,8 @@ public class DefaultCDStack: SugarRecordStackProtocol
     public var name: String = "DefaultCoreDataStack"
     public var stackDescription: String = "Default core data stack with an efficient context management"
     public let defaultStoreName: String = "sugar.sqlite"
+    public var stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeCoreData
+    private var managedObjectModel: NSManagedObjectModel?
     private var databasePath: NSURL?
     private var automigrating: Bool
     private var persistentStoreCoordinator: NSPersistentStoreCoordinator?
@@ -38,6 +40,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     {
         self.automigrating = automigrating
         self.databasePath = databaseURL
+        self.managedObjectModel = model
     }
     
     /**
@@ -251,8 +254,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     private func createPersistentStoreCoordinator() -> NSPersistentStoreCoordinator
     {
-        var model: NSManagedObjectModel = NSManagedObjectModel.mergedModelFromBundles(nil)
-        var coordinator: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
+        if managedObjectModel == nil {
+            managedObjectModel = NSManagedObjectModel.mergedModelFromBundles(nil)
+        }
+        var coordinator: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel!)
         return coordinator
     }
     

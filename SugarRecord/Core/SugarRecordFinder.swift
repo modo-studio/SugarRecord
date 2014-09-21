@@ -32,7 +32,10 @@ public class SugarRecordFinder
     /// Filtering NSPredicate
     public var predicate: NSPredicate?
     
-    /// Class of the object to be fetched
+    /// Type of stack where the operations are going to executed
+    public var stackType: SugarRecordStackType?
+    
+    /// Class of the object
     public var objectClass: NSObject.Type?
     
     /// Enum that indicates which objects have to be fetched (first/firsts(n)/last/lasts(n)/all)
@@ -339,9 +342,9 @@ public class SugarRecordFinder
     public func find() -> [AnyObject]?
     {
         var objects: [AnyObject]?
-        SugarRecord.operation { (context) -> () in
+        SugarRecord.operation(stackType!, closure: { (context) -> () in
             objects = context.find(self)
-        }
+        })
         return objects
     }
     
@@ -370,7 +373,7 @@ public class SugarRecordFinder
     public func delete (asynchronously: Bool, completion: (deleted: Bool) -> ())
     {
         var deleted: Bool = false
-        SugarRecord.operation(inBackground: asynchronously) { (context) -> () in
+        SugarRecord.operation(inBackground: asynchronously, stackType: stackType!) { (context) -> () in
             let objects: [AnyObject]? = context.find(self)
             if objects == nil {
                 SugarRecordLogger.logLevelInfo.log("No objects have been deleted")
@@ -383,6 +386,7 @@ public class SugarRecordFinder
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 completion(deleted: deleted)
             })
+
         }
     }
 }

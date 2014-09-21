@@ -8,9 +8,16 @@
 
 import Foundation
 
+public enum SugarRecordStackType
+{
+    case SugarRecordStackTypeCoreData, SugarRecordStackTypeRealm
+}
+
+
 public protocol SugarRecordStackProtocol
 {
     var name: String { get }
+    var stackType: SugarRecordStackType { get }
     var stackDescription: String { get }
     func initialize()
     func removeDatabase()

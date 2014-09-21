@@ -13,7 +13,8 @@ public class DefaultREALMStack: SugarRecordStackProtocol
 {
     public var name: String
     public var stackDescription: String
-    
+    public var stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeRealm
+
     required public init(stackName:String, stackDescription: String) {
         self.name = stackName
         self.stackDescription = stackDescription

@@ -25,7 +25,7 @@ public class SugarRecord {
     /* Workaround to have static vars */
     private struct StaticVars
     {
-        static var stack: protocol<SugarRecordStackProtocol>?
+        static var stacks: [protocol<SugarRecordStackProtocol>] = [SugarRecordStackProtocol]()
     }
 
     /**
@@ -33,21 +33,21 @@ public class SugarRecord {
     
     :param: stack Stack by default where objects are going to be persisted
     */
-    public class func setStack(stack: protocol<SugarRecordStackProtocol>)
+    public class func addStack(stack: protocol<SugarRecordStackProtocol>)
     {
         SugarRecordLogger.logLevelInfo.log("Set the stack -\(stack)- as the current SugarRecord stack")
-        StaticVars.stack = stack
+        StaticVars.stacks.append(stack)
         stack.initialize()
     }
     
-    /**
-    Returns the current SugarRecord stack
-    
-    :returns: Current SugarRecord stack
-    */
-    public class func stack() -> (protocol<SugarRecordStackProtocol>)
+    public class func stackFortype(stackType: SugarRecordStackType) -> SugarRecordStackProtocol?
     {
-        return StaticVars.stack!
+        for stack in StaticVars.stacks {
+            if stack.stackType == stackType {
+                return stack
+            }
+        }
+        return nil
     }
     
     /**
@@ -56,7 +56,9 @@ public class SugarRecord {
     public class func applicationWillResignActive()
     {
         SugarRecordLogger.logLevelInfo.log("Notifying the current stack that the app will resign active")
-        StaticVars.stack?.applicationWillResignActive()
+        for stack in StaticVars.stacks {
+            stack.applicationWillResignActive()
+        }
     }
     
     /**
@@ -65,7 +67,9 @@ public class SugarRecord {
     public class func applicationWillTerminate()
     {
         SugarRecordLogger.logLevelInfo.log("Notifying the current stack that the app will temrinate")
-        StaticVars.stack?.applicationWillTerminate()
+        for stack in StaticVars.stacks {
+            stack.applicationWillTerminate()
+        }
     }
     
     /**
@@ -74,14 +78,18 @@ public class SugarRecord {
     public class func applicationWillEnterForeground()
     {
         SugarRecordLogger.logLevelInfo.log("Notifying the current stack that the app will temrinate")
-        StaticVars.stack?.applicationWillEnterForeground()
+        for stack in StaticVars.stacks {
+            stack.applicationWillEnterForeground()
+        }
     }
     
     /**
      Clean up the stack and notifies it using key srKVOCleanedUpNotification
      */
-    public class func cleanUp() {
-        StaticVars.stack?.cleanup()
+    public class func cleanup() {
+        for stack in StaticVars.stacks {
+            stack.cleanup()
+        }
     }
     
     /**
@@ -89,7 +97,9 @@ public class SugarRecord {
     */
     public class func removeDatabase()
     {
-        StaticVars.stack?.removeDatabase()
+        for stack in StaticVars.stacks {
+            stack.removeDatabase()
+        }
     }
     
     /**

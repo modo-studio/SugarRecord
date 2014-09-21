@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(CoreDataObject)
 class CoreDataObject: NSManagedObject {
 
     @NSManaged var age: NSDecimalNumber

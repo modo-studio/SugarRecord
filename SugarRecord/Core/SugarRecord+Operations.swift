@@ -15,9 +15,9 @@ extension SugarRecord {
     
     :param: closure Closure with operations to be executed
     */
-    public class func operation(closure: (context: SugarRecordContext) -> ())
+    public class func operation(stackType: SugarRecordStackType, closure: (context: SugarRecordContext) -> ())
     {
-        SugarRecord.operation(inBackground: false, closure: closure)
+        SugarRecord.operation(inBackground: false, stackType: stackType, closure: closure)
     }
     
     /**
@@ -26,15 +26,19 @@ extension SugarRecord {
     :param: background Bool indicating if the operation is in background or not
     :param: closure    Closure with actions to be executed
     */
-    public class func operation(inBackground background: Bool, closure: (context: SugarRecordContext) -> ())
+    public class func operation(inBackground background: Bool, stackType: SugarRecordStackType, closure: (context: SugarRecordContext) -> ())
     {
+        let stack: SugarRecordStackProtocol? = SugarRecord.stackFortype(stackType)
+        if stack == nil {
+            SugarRecord.handle(NSError(domain: "Cannot find an stack for the given type", code: SugarRecordErrorCodes.UserError.toRaw(), userInfo: nil))
+        }
         if background {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
-                closure(context: SugarRecord.stack().backgroundContext())
+                closure(context: stack!.backgroundContext())
             })
         }
         else {
-            closure(context: SugarRecord.stack().mainThreadContext())
+            closure(context: stack!.mainThreadContext())
         }
     }
 }

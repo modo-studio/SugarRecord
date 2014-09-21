@@ -12,13 +12,36 @@ public protocol SugarRecordObjectProtocol
 {
     //MARK - Custom Getter
     
+    /**
+    *  Returns the SugarRecord context
+    */
     func context() -> SugarRecordContext
+    
+    /**
+    *  Returns the stack type of this class
+    */
+    class func stackType() -> SugarRecordStackType
+    
+    /**
+    *  Returns the entity name
+    */
     class func entityName() -> String
     
     //MARK - Filtering
     
+    /**
+    *  Returns a SugarRecord finder passing a predicate
+    */
     class func by(predicate: NSPredicate) -> SugarRecordFinder
+    
+    /**
+    *  Returns a SugarRecord finder passing a predicate in String format
+    */
     class func by(predicateString: NSString) -> SugarRecordFinder
+    
+    /**
+    *  Returns a SugarRecord finder passing a predicate in a value-key format
+    */
     class func by(key: String, equalTo value: String) -> SugarRecordFinder
     
     

@@ -28,12 +28,18 @@ extension RLMObject: SugarRecordObjectProtocol
         return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }
     
+    public class func stackType() -> SugarRecordStackType
+    {
+        return SugarRecordStackType.SugarRecordStackTypeRealm
+    }
+    
     //MARK - Filtering
     
     public class func by(predicate: NSPredicate) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder(predicate: predicate)
         finder.objectClass = self
+        finder.stackType = stackType()
         return finder
     }
     
@@ -42,6 +48,7 @@ extension RLMObject: SugarRecordObjectProtocol
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setPredicate(predicateString)
         finder.objectClass = self
+        finder.stackType = stackType()
         return finder
     }
     
@@ -50,6 +57,7 @@ extension RLMObject: SugarRecordObjectProtocol
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setPredicate(byKey: key, andValue: value)
         finder.objectClass = self
+        finder.stackType = stackType()
         return finder
     }
     
@@ -60,6 +68,7 @@ extension RLMObject: SugarRecordObjectProtocol
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.addSortDescriptor(byKey: sortingKey, ascending: ascending)
         finder.objectClass = self
+        finder.stackType = stackType()
         return finder
     }
     
@@ -68,6 +77,7 @@ extension RLMObject: SugarRecordObjectProtocol
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.addSortDescriptor(sortDescriptor)
         finder.objectClass = self
+        finder.stackType = stackType()
         return finder
     }
     
@@ -76,6 +86,7 @@ extension RLMObject: SugarRecordObjectProtocol
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setSortDescriptors(sortDescriptors)
         finder.objectClass = self
+        finder.stackType = stackType()
         return finder
     }
     
@@ -87,6 +98,7 @@ extension RLMObject: SugarRecordObjectProtocol
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.all()
         finder.objectClass = self
+        finder.stackType = stackType()
         return finder
     }
     
@@ -96,11 +108,11 @@ extension RLMObject: SugarRecordObjectProtocol
     public func delete() -> Bool
     {
         var deleted: Bool = false
-        SugarRecord.operation {(context) -> () in
+        SugarRecord.operation(RLMObject.stackType(), closure: { (context) -> () in
             context.beginWritting()
             deleted = context.deleteObject(self)
             context.endWritting()
-        }
+        })
         return true
     }
 
@@ -110,9 +122,10 @@ extension RLMObject: SugarRecordObjectProtocol
     public class func create() -> AnyObject
     {
         var object: AnyObject?
-        SugarRecord.operation { (context) -> () in
+        SugarRecord.operation(RLMObject.stackType(), closure: { (context) -> () in
             object = context.createObject(self)
-        }
+
+        })
         return object!
     }
     
