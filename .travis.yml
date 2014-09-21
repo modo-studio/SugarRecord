@@ -1,0 +1,9 @@
+language: objective-c
+xcode_sdk: iphonesimulator
+rvm: 1.9.3
+
+before_install:
+  - cd SugarRecordDemo
+
+script:
+  - xctool -workspace SugarRecordDemo.xcworkspace -scheme SugarRecordDemo test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO

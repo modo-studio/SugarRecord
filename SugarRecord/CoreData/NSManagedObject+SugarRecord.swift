@@ -164,6 +164,11 @@ extension NSManagedObject: SugarRecordObjectProtocol
     
     //MARK: - Deletion
     
+    /**
+    Deletes the object from the store
+    
+    :returns: Bool indicating if the object has been deleted properly
+    */
     public func delete() -> Bool
     {
         var deleted: Bool = false
@@ -177,6 +182,11 @@ extension NSManagedObject: SugarRecordObjectProtocol
     
     //MARK: - Creation
     
+    /**
+    Creates a new object without inserting it in the context
+    
+    :returns: Created database object
+    */
     public class func create() -> AnyObject
     {
         var object: AnyObject?
@@ -186,6 +196,13 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return object!
     }
     
+    /**
+    Create a new object without inserting it in the passed context
+    
+    :param: context Context where the object is going to be created
+    
+    :returns: Created database object
+    */
     public class func create(inContext context: SugarRecordContext) -> AnyObject
     {
         return context.createObject(self)!
@@ -193,6 +210,11 @@ extension NSManagedObject: SugarRecordObjectProtocol
     
     //MARK: - Saving
     
+    /**
+    Saves the object in the object context
+    
+    :returns: Bool indicating if the object has been properly saved
+    */
     public func save () -> Bool
     {
         var saved: Bool = false
@@ -202,7 +224,13 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return saved
     }
     
-    public func save (asynchronously: Bool, completion: (error: NSError) -> ())
+    /**
+    Saves the object in the object context asynchronously (or not) passing a completion closure
+    
+    :param: asynchronously Bool indicating if the saving process is asynchronous or not
+    :param: completion     Closure called when the saving operation has been completed
+    */
+    public func save (asynchronously: Bool, completion: (error: NSError?) -> ())
     {
         let context: SugarRecordContext = self.context()
         if asynchronously {
@@ -210,21 +238,31 @@ extension NSManagedObject: SugarRecordObjectProtocol
                 context.beginWritting()
                 context.insertObject(self)
                 context.endWritting()
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completion(error: nil)
+                })
             })
         }
         else {
             context.endWritting()
+            completion(error: nil)
         }
     }
     
     
     //MARK: - BeginEditing
     
+    /**
+    Needed to be called when the object is going to be edited
+    */
     public func beginEditing()
     {
         // Not needed this in CoreData
     }
     
+    /**
+    Needed to be called when the edition has finished
+    */
     public func endEditing()
     {
         // Not needed this in CoreData
