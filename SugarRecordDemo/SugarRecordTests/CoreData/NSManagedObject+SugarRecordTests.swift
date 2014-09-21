@@ -26,7 +26,6 @@ class NSManagedObjectSugarRecordTests: QuickSpec {
                 SugarRecord.cleanup()
                 SugarRecord.removeDatabase()
         }
-        
         context("object properties should be right", { () -> () in
             it("should return a SugarRecordCD context with the managedObjectContext of the object", { () -> () in
                 let object: CoreDataObject = CoreDataObject.create() as CoreDataObject
@@ -43,7 +42,6 @@ class NSManagedObjectSugarRecordTests: QuickSpec {
                 expect(sameClass).to(equal(true))
             })
         })
-        
         context("when filtering", { () -> () in
             it("should set the predicate to the finder returned", { () -> () in
                 var predicate: NSPredicate = NSPredicate()
@@ -58,12 +56,17 @@ class NSManagedObjectSugarRecordTests: QuickSpec {
             it("should set the objectClass and the stackType to the finder", { () -> () in
                 var predicate: NSPredicate = NSPredicate()
                 var finder: SugarRecordFinder = CoreDataObject.by(predicate)
-                var coreDataObjectClass: AnyClass = CoreDataObject.classForCoder()
-                var sameClass 
+                var sameClass = finder.objectClass? is CoreDataObject.Type
                 expect(sameClass).to(equal(true))
+                expect(finder.stackType == SugarRecordStackType.SugarRecordStackTypeCoreData).to(equal(true))
+                finder = NSManagedObject.by("name == Test")
+                expect(sameClass).to(equal(true))
+                expect(finder.stackType == SugarRecordStackType.SugarRecordStackTypeCoreData).to(equal(true))
+                finder = NSManagedObject.by("name", equalTo: "Test")
+                expect(sameClass).to(equal(true))
+                expect(finder.stackType == SugarRecordStackType.SugarRecordStackTypeCoreData).to(equal(true))
             })
         })
-        
         context("when sorting", { () -> () in
             it("should update the sort descriptor", { () -> () in
                 var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
@@ -75,8 +78,20 @@ class NSManagedObjectSugarRecordTests: QuickSpec {
                 finder = NSManagedObject.sorted(by: [sortDescriptor])
                 expect(finder.sortDescriptors).to(equal([sortDescriptor]))
             })
+            it("should set the objectClass and the stackType to the finder", { () -> () in
+                var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+                var finder: SugarRecordFinder = NSManagedObject.sorted(by: sortDescriptor)
+                var sameClass = finder.objectClass? is CoreDataObject.Type
+                expect(sameClass).to(equal(true))
+                expect(finder.stackType == SugarRecordStackType.SugarRecordStackTypeCoreData).to(equal(true))
+                finder = NSManagedObject.sorted(by: "name", ascending: true)
+                expect(sameClass).to(equal(true))
+                expect(finder.stackType == SugarRecordStackType.SugarRecordStackTypeCoreData).to(equal(true))
+                finder = NSManagedObject.sorted(by: [sortDescriptor])
+                expect(sameClass).to(equal(true))
+                expect(finder.stackType == SugarRecordStackType.SugarRecordStackTypeCoreData).to(equal(true))
+            })
         })
-        
         context("when all", { () -> () in
             it("should return the finder with the all set", { () -> () in
                 var finder: SugarRecordFinder = NSManagedObject.all()

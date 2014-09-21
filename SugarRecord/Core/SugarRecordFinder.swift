@@ -27,7 +27,7 @@ public enum SugarRecordFinderElements
 public class SugarRecordFinder
 {
     
-    //MARK - Attributes
+    //MARK: - Attributes
     
     /// Filtering NSPredicate
     public var predicate: NSPredicate?
@@ -174,7 +174,7 @@ public class SugarRecordFinder
     }
     
     
-    //MARK - Sort Descriptors
+    //MARK: - Sort Descriptors
     
     /**
     Append a NSSortDescriptor to the finder
@@ -227,7 +227,7 @@ public class SugarRecordFinder
     }
     
     
-    //MARK - Predicates
+    //MARK: - Predicates
     
     /**
     Set the finder predicate passing the NSPredicate
@@ -270,7 +270,7 @@ public class SugarRecordFinder
     }
     
     
-    //MARK - Elements
+    //MARK: - Elements
     
     /**
     Set the elements as .all

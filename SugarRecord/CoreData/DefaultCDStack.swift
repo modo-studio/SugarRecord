@@ -11,7 +11,7 @@ import CoreData
 
 public class DefaultCDStack: SugarRecordStackProtocol
 {
-    //MARK - Class properties
+    //MARK: - Class properties
 
     public var name: String = "DefaultCoreDataStack"
     public var stackDescription: String = "Default core data stack with an efficient context management"
@@ -25,7 +25,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     private var mainContext: NSManagedObjectContext?
     private var persistentStore: NSPersistentStore?
     
-    //MARK - Initializers
+    //MARK: - Initializers
     
     /**
     Initialize the CoreData default stack passing the database path URL and a flag indicating if the automigration has to be automatically executed
@@ -203,7 +203,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     }
     
     
-    //MARK - Creation helper
+    //MARK: - Creation helper
     
     /**
     Creates the main stack context
@@ -261,7 +261,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
         return coordinator
     }
     
-    //MARK - Database helper
+    //MARK: - Database helper
     
     /**
     Check if the database exists (if not it creates it), then it initializes the persistent store and executes the migration in case of needed
@@ -381,7 +381,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     }
     
     
-    //MARK - Saving helper
+    //MARK: - Saving helper
     
     /**
     Apply the changes of the root saving to be persisted in the database

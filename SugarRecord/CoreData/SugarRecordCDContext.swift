@@ -170,7 +170,7 @@ public class SugarRecordCDContext: SugarRecordContext
     }
     
     
-    //MARK - HELPER METHODS
+    //MARK: - HELPER METHODS
     
     /**
     Moves an NSManagedObject from one context to another

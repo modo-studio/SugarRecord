@@ -11,7 +11,7 @@ import CoreData
 
 extension NSManagedObject: SugarRecordObjectProtocol
 {
-    //MARK - Custom Getter
+    //MARK: - Custom Getter
     
     /**
     Returns the context where this object is alive
@@ -43,8 +43,15 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return SugarRecordStackType.SugarRecordStackTypeCoreData
     }
     
-    //MARK - Filtering
+    //MARK: - Filtering
     
+    /**
+    Returns a SugarRecord  finder with the predicate set
+    
+    :param: predicate NSPredicate to be set to the finder
+    
+    :returns: SugarRecord finder with the predicate set
+    */
     public class func by(predicate: NSPredicate) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder(predicate: predicate)
@@ -53,6 +60,13 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return finder
     }
     
+    /**
+    Returns a SugarRecord finder with the predicate set
+    
+    :param: predicateString Predicate in String format
+    
+    :returns: SugarRecord finder with the predicate set
+    */
     public class func by(predicateString: NSString) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
@@ -62,6 +76,14 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return finder
     }
     
+    /**
+    Returns a SugarRecord finder with the predicate set
+    
+    :param: key   Key of the predicate to be filtered
+    :param: value Value of the predicate to be filtered
+    
+    :returns: SugarRecord finder with the predicate set
+    */
     public class func by(key: String, equalTo value: String) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
@@ -71,8 +93,17 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return finder
     }
     
-    //MARK - Sorting
     
+    //MARK: - Sorting
+    
+    /**
+    Returns a SugarRecord finder with the sort descriptor set
+    
+    :param: sortingKey Sorting key
+    :param: ascending  Sorting ascending value
+    
+    :returns: SugarRecord finder with the predicate set
+    */
     public class func sorted(by sortingKey: String, ascending: Bool) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
@@ -82,6 +113,13 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return finder
     }
     
+    /**
+    Returns a SugarRecord finder with the sort descriptor set
+    
+    :param: sortDescriptor NSSortDescriptor to be set to the SugarRecord finder
+    
+    :returns: SugarRecord finder with the predicate set
+    */
     public class func sorted(by sortDescriptor: NSSortDescriptor) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
@@ -91,6 +129,13 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return finder
     }
     
+    /**
+    Returns a SugarRecord finder with the sort descriptor set
+    
+    :param: sortDescriptors Array with NSSortDescriptors
+    
+    :returns: SugarRecord finder with the predicate set
+    */
     public class func sorted(by sortDescriptors: [NSSortDescriptor]) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
@@ -101,8 +146,13 @@ extension NSManagedObject: SugarRecordObjectProtocol
     }
     
     
-    //MARK - All
+    //MARK: - All
     
+    /**
+    Returns a SugarRecord finder with .all elements enabled
+    
+    :returns: SugarRecord finder
+    */
     public class func all() -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
@@ -112,7 +162,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return finder
     }
     
-    //MARK - Deletion
+    //MARK: - Deletion
     
     public func delete() -> Bool
     {
@@ -125,7 +175,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return deleted
     }
     
-    //MARK - Creation
+    //MARK: - Creation
     
     public class func create() -> AnyObject
     {
@@ -141,7 +191,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return context.createObject(self)!
     }
     
-    //MARK - Saving
+    //MARK: - Saving
     
     public func save () -> Bool
     {
@@ -168,7 +218,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     }
     
     
-    //MARK - BeginEditing
+    //MARK: - BeginEditing
     
     public func beginEditing()
     {

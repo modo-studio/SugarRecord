@@ -10,7 +10,7 @@ import Foundation
 
 public protocol SugarRecordObjectProtocol
 {
-    //MARK - Custom Getter
+    //MARK: - Custom Getter
     
     /**
     *  Returns the SugarRecord context
@@ -27,7 +27,7 @@ public protocol SugarRecordObjectProtocol
     */
     class func entityName() -> String
     
-    //MARK - Filtering
+    //MARK: - Filtering
     
     /**
     *  Returns a SugarRecord finder passing a predicate
@@ -45,7 +45,7 @@ public protocol SugarRecordObjectProtocol
     class func by(key: String, equalTo value: String) -> SugarRecordFinder
     
     
-    //MARK - Sorting
+    //MARK: - Sorting
     
     /**
     *  Returns a SugarRecord finder passing a sorter key
@@ -63,7 +63,7 @@ public protocol SugarRecordObjectProtocol
     class func sorted(by sortDescriptors: [NSSortDescriptor]) -> SugarRecordFinder
     
     
-    //MARK - All
+    //MARK: - All
     
     /**
     *  Returns a SugarRecord finder to fetch all items
@@ -71,7 +71,7 @@ public protocol SugarRecordObjectProtocol
     class func all() -> SugarRecordFinder
     
     
-    //MARK - Deletion
+    //MARK: - Deletion
     
     /**
     *  Deletes the object
@@ -79,7 +79,7 @@ public protocol SugarRecordObjectProtocol
     func delete() -> Bool
     
     
-    //MARK - Creation
+    //MARK: - Creation
     
     /**
     *  Creates the object in the main context
@@ -92,7 +92,7 @@ public protocol SugarRecordObjectProtocol
     class func create(inContext context: SugarRecordContext) -> AnyObject
     
     
-    //MARK - Saving
+    //MARK: - Saving
     
     /**
     *  Saves the object
@@ -104,7 +104,7 @@ public protocol SugarRecordObjectProtocol
     */
     func save (asynchronously: Bool, completion: (error: NSError) -> ())
     
-    //MARK - BeginEditing
+    //MARK: - BeginEditing
     
     /**
     *  Notifies the context that the object is going to be edited

@@ -11,7 +11,7 @@ import Realm
 
 extension RLMObject: SugarRecordObjectProtocol
 {
-    //MARK - Custom Getter
+    //MARK: - Custom Getter
     
     public func context() -> SugarRecordContext
     {
@@ -33,7 +33,7 @@ extension RLMObject: SugarRecordObjectProtocol
         return SugarRecordStackType.SugarRecordStackTypeRealm
     }
     
-    //MARK - Filtering
+    //MARK: - Filtering
     
     public class func by(predicate: NSPredicate) -> SugarRecordFinder
     {
@@ -61,7 +61,7 @@ extension RLMObject: SugarRecordObjectProtocol
         return finder
     }
     
-    //MARK - Sorting
+    //MARK: - Sorting
     
     public class func sorted(by sortingKey: String, ascending: Bool) -> SugarRecordFinder
     {
@@ -91,7 +91,7 @@ extension RLMObject: SugarRecordObjectProtocol
     }
     
     
-    //MARK - All
+    //MARK: - All
     
     public class func all() -> SugarRecordFinder
     {
@@ -103,7 +103,7 @@ extension RLMObject: SugarRecordObjectProtocol
     }
     
     
-    //MARK - Deletion
+    //MARK: - Deletion
     
     public func delete() -> Bool
     {
@@ -117,7 +117,7 @@ extension RLMObject: SugarRecordObjectProtocol
     }
 
     
-    //MARK - Creation
+    //MARK: - Creation
     
     public class func create() -> AnyObject
     {
@@ -135,7 +135,7 @@ extension RLMObject: SugarRecordObjectProtocol
     }
     
     
-    //MARK - Saving
+    //MARK: - Saving
     
     public func save () -> Bool
     {
@@ -163,7 +163,7 @@ extension RLMObject: SugarRecordObjectProtocol
         }
     }
     
-    //MARK - BeginEditing
+    //MARK: - BeginEditing
     
     public func beginEditing()
     {
