@@ -13,14 +13,38 @@ import CoreData
 
 class NSManagedObjectSugarRecordTests: QuickSpec {
     override func spec() {
-        beforeSuite {}
-        afterSuite {}
+        beforeSuite
+            {
+                let bundle: NSBundle = NSBundle(forClass: CoreDataObjectTests.classForCoder())
+                let modelPath: NSString = bundle.pathForResource("SugarRecord", ofType: "momd")!
+                let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath))
+                let stack: DefaultCDStack = DefaultCDStack(databaseName: "TestDB.sqlite", model: model, automigrating: true)
+                SugarRecord.addStack(stack)
+        }
+        afterSuite
+            {
+                SugarRecord.cleanup()
+                SugarRecord.removeDatabase()
+        }
         
-        context("when filtering", { () -> () in
-            it("should return the objectClass set in the finder", { () -> () in
-                // TODO - Pending to check how to compare if two classes are the same
+        context("object properties should be right", { () -> () in
+            it("should return a SugarRecordCD context with the managedObjectContext of the object", { () -> () in
+                let object: CoreDataObject = CoreDataObject.create() as CoreDataObject
+                let context: SugarRecordCDContext = object.context() as SugarRecordCDContext
+                expect(context.contextCD).to(beIdenticalTo(object.managedObjectContext))
             })
             
+            it("should return the entity name without the namespace", { () -> () in
+                expect(CoreDataObject.entityName()).to(equal("CoreDataObject"))
+            })
+            
+            it("should returl the proper stack type", {() -> () in
+                let sameClass: Bool = CoreDataObject.stackType() == SugarRecordStackType.SugarRecordStackTypeCoreData
+                expect(sameClass).to(equal(true))
+            })
+        })
+        
+        context("when filtering", { () -> () in
             it("should set the predicate to the finder returned", { () -> () in
                 var predicate: NSPredicate = NSPredicate()
                 var finder: SugarRecordFinder = NSManagedObject.by(predicate)
@@ -29,6 +53,14 @@ class NSManagedObjectSugarRecordTests: QuickSpec {
                 expect(finder.predicate!.predicateFormat).to(equal("name == Test"))
                 finder = NSManagedObject.by("name", equalTo: "Test")
                 expect(finder.predicate!.predicateFormat).to(equal("name == Test"))
+            })
+            
+            it("should set the objectClass and the stackType to the finder", { () -> () in
+                var predicate: NSPredicate = NSPredicate()
+                var finder: SugarRecordFinder = CoreDataObject.by(predicate)
+                var coreDataObjectClass: AnyClass = CoreDataObject.classForCoder()
+                var sameClass 
+                expect(sameClass).to(equal(true))
             })
         })
         

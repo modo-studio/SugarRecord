@@ -13,16 +13,31 @@ extension NSManagedObject: SugarRecordObjectProtocol
 {
     //MARK - Custom Getter
     
+    /**
+    Returns the context where this object is alive
+    
+    :returns: SugarRecord context 
+    */
     public func context() -> SugarRecordContext
     {
         return SugarRecordCDContext(context: self.managedObjectContext)
     }
     
+    /**
+    Returns the class entity name
+    
+    :returns: String with the entity name
+    */
     public class func entityName() -> String
     {
         return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }
     
+    /**
+    Returns the stack type compatible with this object
+    
+    :returns: SugarRecordStackType with the type
+    */
     public class func stackType() -> SugarRecordStackType
     {
         return SugarRecordStackType.SugarRecordStackTypeCoreData
