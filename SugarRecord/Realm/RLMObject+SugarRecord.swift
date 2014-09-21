@@ -135,7 +135,7 @@ extension RLMObject: SugarRecordObjectProtocol
     }
     
     
-    //MARK - Savingr
+    //MARK - Saving
     
     public func save () -> Bool
     {
