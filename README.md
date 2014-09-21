@@ -1,5 +1,5 @@
 # SugarRecord 1.0 soon with REALM support
-
+[![Build Status](https://travis-ci.org/SugarRecord/SugarRecord.svg)](https://travis-ci.org/SugarRecord/SugarRecord)
 ![Logo](https://raw.githubusercontent.com/pepibumur/SugarRecord/master/Resources/Slogan.png)
 ![image](http://cl.ly/image/3J052s402j0L/Image%202014-08-21%20at%209.22.56%20am.png)
 
