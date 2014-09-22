@@ -90,7 +90,7 @@ public class SugarRecordFinder
     public func by(predicate: NSPredicate) -> SugarRecordFinder
     {
         if self.predicate != nil {
-            SugarRecordLogger.logLevelWarm.log("You are overriding an existing predicate")
+            SugarRecordLogger.logLevelWarn.log("You are overriding an existing predicate")
         }
         self.predicate = predicate
         return self
@@ -106,7 +106,7 @@ public class SugarRecordFinder
     public func by(predicateString: NSString) -> SugarRecordFinder
     {
         if self.predicate != nil {
-            SugarRecordLogger.logLevelWarm.log("You are overriding an existing predicate")
+            SugarRecordLogger.logLevelWarn.log("You are overriding an existing predicate")
         }
         self.setPredicate(predicateString)
         return self
@@ -123,7 +123,7 @@ public class SugarRecordFinder
     public func by(key: String, equalTo value: String) -> SugarRecordFinder
     {
         if self.predicate != nil {
-            SugarRecordLogger.logLevelWarm.log("You are overriding an existing predicate")
+            SugarRecordLogger.logLevelWarn.log("You are overriding an existing predicate")
         }
         self.setPredicate(byKey: key, andValue: value)
         return self
@@ -166,7 +166,7 @@ public class SugarRecordFinder
     public func sorted(by sortDescriptors: [NSSortDescriptor]) -> SugarRecordFinder
     {
         if self.sortDescriptors.count != 0  {
-            SugarRecordLogger.logLevelWarm.log("You are overriding the existing sort descriptors")
+            SugarRecordLogger.logLevelWarn.log("You are overriding the existing sort descriptors")
         }
         self.sortDescriptors = sortDescriptors
         return self

@@ -54,7 +54,7 @@ The library is completetly written in Swift and fully tested to ensure the behav
 
 ## Installation
 
-_TODO_
+Cocoapods doesn't support support Swift libraries yet so the instalation process has to be manual. To import SugarRecord into your project
 
 
 ## How to use SugarRecord

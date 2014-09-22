@@ -291,7 +291,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
             NSFileManager.defaultManager().removeItemAtURL(shmSidecar, error: &error)
             NSFileManager.defaultManager().removeItemAtURL(walSidecar, error: &error)
             
-            SugarRecordLogger.logLevelWarm.log("Incompatible model version has been removed \(self.databasePath!.lastPathComponent)")
+            SugarRecordLogger.logLevelWarn.log("Incompatible model version has been removed \(self.databasePath!.lastPathComponent)")
             
             if deleteError != nil {
                 SugarRecordLogger.logLevelError.log("Could not delete store. Error: \(deleteError?.localizedDescription)")

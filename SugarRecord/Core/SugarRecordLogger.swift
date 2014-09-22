@@ -13,7 +13,7 @@ SugarRecordLogger is a logger to show messages coming from the library depending
 
 - logLevelFatal:   Messages related with fatal events
 - logLevelError:   Messages related with error events
-- logLevelWarm:    Messages related with warm events
+- logLevelWarn:    Messages related with warm events
 - logLevelInfo:    Messages related with information events
 - logLevelVerbose: Messages related with verbose events
 */
