@@ -13,13 +13,13 @@ SugarRecordLogger is a logger to show messages coming from the library depending
 
 - logLevelFatal:   Messages related with fatal events
 - logLevelError:   Messages related with error events
-- logLevelWarm:    Messages related with warm events
+- logLevelWarn:    Messages related with warn events
 - logLevelInfo:    Messages related with information events
 - logLevelVerbose: Messages related with verbose events
 */
 enum SugarRecordLogger: Int {
     static var currentLevel: SugarRecordLogger = .logLevelInfo
-    case logLevelFatal, logLevelError, logLevelWarm, logLevelInfo, logLevelVerbose
+    case logLevelFatal, logLevelError, logLevelWarn, logLevelInfo, logLevelVerbose
     
     /// Log the given message depending on the curret log level
     func log(let logMessage: String) -> () {
@@ -31,23 +31,23 @@ enum SugarRecordLogger: Int {
                 return
             }
             print("SR-Error: \(logMessage) \n")
-        case .logLevelWarm:
+        case .logLevelWarn:
             if SugarRecordLogger.currentLevel == .logLevelFatal ||
                 SugarRecordLogger.currentLevel == .logLevelError {
                     return
             }
-            print("SR-Warm: \(logMessage) \n")
+            print("SR-Warn: \(logMessage) \n")
         case .logLevelInfo:
             if SugarRecordLogger.currentLevel == .logLevelFatal ||
                 SugarRecordLogger.currentLevel == .logLevelError ||
-                SugarRecordLogger.currentLevel == .logLevelWarm {
+                SugarRecordLogger.currentLevel == .logLevelWarn {
                     return
             }
             print("SR-Info: \(logMessage) \n")
         default:
             if SugarRecordLogger.currentLevel == .logLevelFatal ||
                 SugarRecordLogger.currentLevel == .logLevelError ||
-                SugarRecordLogger.currentLevel == .logLevelWarm ||
+                SugarRecordLogger.currentLevel == .logLevelWarn ||
                 SugarRecordLogger.currentLevel == .logLevelInfo{
                     return
             }

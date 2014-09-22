@@ -84,13 +84,13 @@ As you probably know changes in CoreData are propagated in up direction but not 
 Logging level can be specified to see what's happening behind SugarRecord. To set the **SugarRecordLogger** level you have just to use the static currentLevel var of SugarRecordLogger
 
 ```swift
-SugarRecordLogger.currentLevel = .logLevelWarm
+SugarRecordLogger.currentLevel = .logLevelWarn
 ````
 *Note: By default the log level is .logLevelInfo*. The available log levels are:
 
 ```swift
 enum SugarRecordLogger: Int {
-    case logLevelFatal, logLevelError, logLevelWarm, logLevelInfo, logLevelVerbose
+    case logLevelFatal, logLevelError, logLevelWarn, logLevelInfo, logLevelVerbose
 }
 ```
 ### Examples
