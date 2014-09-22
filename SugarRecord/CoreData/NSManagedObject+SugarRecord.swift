@@ -180,6 +180,19 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return deleted
     }
     
+    /**
+    Deletes the object from the store without saving the context
+    
+    :param: context Context where the object is going to be deleted
+    
+    :returns: Bool indicating if the object has been deleted
+    */
+    public func delete(inContext context: SugarRecordContext) -> Bool
+    {
+        return context.deleteObject(self)
+    }
+    
+    
     //MARK: - Creation
     
     /**
@@ -235,8 +248,6 @@ extension NSManagedObject: SugarRecordObjectProtocol
         let context: SugarRecordContext = self.context()
         if asynchronously {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
-                context.beginWritting()
-                context.insertObject(self)
                 context.endWritting()
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completion(error: nil)
@@ -257,7 +268,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     */
     public func beginEditing()
     {
-        // Not needed this in CoreData
+        self.context().beginWritting()
     }
     
     /**
@@ -265,6 +276,6 @@ extension NSManagedObject: SugarRecordObjectProtocol
     */
     public func endEditing()
     {
-        // Not needed this in CoreData
+        self.context().endWritting()
     }
 }

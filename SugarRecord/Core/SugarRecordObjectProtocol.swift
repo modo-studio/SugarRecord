@@ -78,6 +78,10 @@ public protocol SugarRecordObjectProtocol
     */
     func delete() -> Bool
     
+    /**
+    *  Deletes the object in a given context
+    */
+    func delete(inContext context: SugarRecordContext) -> Bool
     
     //MARK: - Creation
     
@@ -102,7 +106,7 @@ public protocol SugarRecordObjectProtocol
     /**
     *  Saves the object sync/async with a completion closure
     */
-    func save (asynchronously: Bool, completion: (error: NSError) -> ())
+    func save (asynchronously: Bool, completion: (error: NSError?) -> ())
     
     //MARK: - BeginEditing
     
