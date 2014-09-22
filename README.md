@@ -69,6 +69,9 @@ If you want to learn how to setup SugarRecord with the stack and stack working w
 Otherwise if you want to have a quick idea of how working with SugarRecord is, take a look to the examples below:
 
 ```swift
+// Setting the stack
+SugarRecord.addStack(DefaultREALMStack(stackName: "RealmTest", stackDescription: "Realm stack for tests"))
+
 // Creating object
 var person: Person = Person.create() as Person
 person.name = "Realmy"
@@ -81,6 +84,9 @@ person.delete()
 // Object finding
 let people: [Person] = Person.sorted(by:"name", ascending: true).firsts(10).find()!
 people.
+let person: Person = Person().find()!.first as Person
+let people: [Person] = Person("age", equalTo: "10").sorted(by:"name", ascending: true).find()!
+
 
 //NOTE: It doesn't matter if you're using CoreData or REALM, the syntax you use to work with these objects is the same!
 ```
