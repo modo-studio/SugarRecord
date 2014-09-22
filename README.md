@@ -54,11 +54,36 @@ The library is completetly written in Swift and fully tested to ensure the behav
 
 ## Installation
 
-Cocoapods doesn't support support Swift libraries yet so the instalation process has to be manual. To import SugarRecord into your project
+Cocoapods doesn't support support Swift libraries yet so the instalation process has to be manual. To import SugarRecord into your project:
+
+1. Drag the folder SugarRecord into your project traget.
+2. SugarRecord folder has a folder for every storage technology. Leave only these that you're going to use in your app (e.g. `CoreData` or `Realm`)
+3. Enjoy using it
+
+*Note: As soon as CocoaPod supports it the library will have a pod to make this process easier for everybody*
 
 
 ## How to use SugarRecord
-_TODO_
+If you want to learn how to setup SugarRecord with the stack and stack working with it, the library comes with an useful Playground HTML file with steps and some examples to follow. Take a look to the playground **HERE**.
+
+Otherwise if you want to have a quick idea of how working with SugarRecord is, take a look to the examples below:
+
+```swift
+// Creating object
+var person: Person = Person.create() as Person
+person.name = "Realmy"
+person.age = 22
+let saved: Bool = person.save()
+
+// Deleting the object
+person.delete()
+
+// Object finding
+let people: [Person] = Person.sorted(by:"name", ascending: true).firsts(10).find()!
+people.
+
+//NOTE: It doesn't matter if you're using CoreData or REALM, the syntax you use to work with these objects is the same!
+```
 
 ## Keep in mind
 - Be careful **working with objects between contexts**. In case of **CoreData** remember that a ManagedObject belongs to a given context. Once the context dies the object disappears and trying to access to it will bring you into a trouble. SugarRecord has defensive code to ensure that if you are saving objecs from one context in other one one they are automatically brought to the new context to be saved there.
