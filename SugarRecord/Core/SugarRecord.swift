@@ -12,9 +12,6 @@ import CoreData
 // MARK: Library Constants
 public let srSugarRecordVersion: String = "v1.0 - Alpha"
 
-// MARK: Options
-
-
 // MARK: SugarRecord Initialization
 
 /**
@@ -40,6 +37,14 @@ public class SugarRecord {
         stack.initialize()
     }
     
+    
+    /**
+    Returns a valid stack for a given type
+    
+    :param: stackType StackType of the required stack
+    
+    :returns: SugarRecord stack
+    */
     public class func stackFortype(stackType: SugarRecordStackType) -> SugarRecordStackProtocol?
     {
         for stack in StaticVars.stacks {
@@ -86,7 +91,8 @@ public class SugarRecord {
     /**
      Clean up the stack and notifies it using key srKVOCleanedUpNotification
      */
-    public class func cleanup() {
+    public class func cleanup()
+    {
         for stack in StaticVars.stacks {
             stack.cleanup()
         }

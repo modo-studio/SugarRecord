@@ -17,9 +17,10 @@ public enum SugarRecordErrorCodes: Int {
 
 public extension SugarRecord {
     /**
-     Handles an error arount the Library
+     Handles an error around the SugarRecordLibrary
+     Note: It asserts the error
 
-     :param: error NError to be processed
+     :param: error NSError to be processed
      */
     class func handle(error: NSError?) {
         if error == nil  { return }
