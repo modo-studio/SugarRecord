@@ -78,14 +78,15 @@ person.name = "Realmy"
 person.age = 22
 let saved: Bool = person.save()
 
-// Deleting the object
-person.delete()
-
 // Object finding
-let people: [Person] = Person.sorted(by:"name", ascending: true).firsts(10).find()!
-people.
-let person: Person = Person().find()!.first as Person
-let people: [Person] = Person("age", equalTo: "10").sorted(by:"name", ascending: true).find()!
+let people: [Person]? = Person.sorted(by:"name", ascending: true).firsts(10).find()?
+let person: Person? = Person().find()?.first as Person
+let people: [Person]? = Person("age", equalTo: "10").sorted(by:"name", ascending: true).find()?
+let people: [Person]? = Person.all().find()?
+
+// Deleting the object
+let deleted: Bool = (Person.all().find()?.first()? as Person).delete
+
 
 
 //NOTE: It doesn't matter if you're using CoreData or REALM, the syntax you use to work with these objects is the same!
