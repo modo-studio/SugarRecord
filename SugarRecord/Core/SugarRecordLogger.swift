@@ -18,8 +18,11 @@ SugarRecordLogger is a logger to show messages coming from the library depending
 - logLevelVerbose: Messages related with verbose events
 */
 enum SugarRecordLogger: Int {
+    /// Current SugarRecord log level
     static var currentLevel: SugarRecordLogger = .logLevelInfo
-    case logLevelFatal, logLevelError, logLevelWarm, logLevelInfo, logLevelVerbose
+    
+    /// SugarRecord enum levels
+    case logLevelFatal, logLevelError, logLevelWarn, logLevelInfo, logLevelVerbose
     
     /// Log the given message depending on the curret log level
     func log(let logMessage: String) -> () {
@@ -31,7 +34,7 @@ enum SugarRecordLogger: Int {
                 return
             }
             print("SR-Error: \(logMessage) \n")
-        case .logLevelWarm:
+        case .logLevelWarn:
             if SugarRecordLogger.currentLevel == .logLevelFatal ||
                 SugarRecordLogger.currentLevel == .logLevelError {
                     return
@@ -40,14 +43,14 @@ enum SugarRecordLogger: Int {
         case .logLevelInfo:
             if SugarRecordLogger.currentLevel == .logLevelFatal ||
                 SugarRecordLogger.currentLevel == .logLevelError ||
-                SugarRecordLogger.currentLevel == .logLevelWarm {
+                SugarRecordLogger.currentLevel == .logLevelWarn {
                     return
             }
             print("SR-Info: \(logMessage) \n")
         default:
             if SugarRecordLogger.currentLevel == .logLevelFatal ||
                 SugarRecordLogger.currentLevel == .logLevelError ||
-                SugarRecordLogger.currentLevel == .logLevelWarm ||
+                SugarRecordLogger.currentLevel == .logLevelWarn ||
                 SugarRecordLogger.currentLevel == .logLevelInfo{
                     return
             }

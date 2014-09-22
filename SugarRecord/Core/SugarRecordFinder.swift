@@ -26,7 +26,6 @@ public enum SugarRecordFinderElements
 
 public class SugarRecordFinder
 {
-    
     //MARK: - Attributes
     
     /// Filtering NSPredicate

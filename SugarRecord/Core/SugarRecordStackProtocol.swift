@@ -8,23 +8,68 @@
 
 import Foundation
 
+/**
+Enum with the available stack types
+
+- SugarRecordStackTypeCoreData: Stack type for Core Data stores
+- SugarRecordStackTypeRealm:    Stack type for REALM stores
+*/
 public enum SugarRecordStackType
 {
     case SugarRecordStackTypeCoreData, SugarRecordStackTypeRealm
 }
 
-
+/**
+*  Protocol that defines the methods that every SugarRecord stack should implement
+*/
 public protocol SugarRecordStackProtocol
 {
+    /// Name of the stack
     var name: String { get }
+    
+    /// Type of stack
     var stackType: SugarRecordStackType { get }
+    
+    /// Description of the stack
     var stackDescription: String { get }
+    
+    /**
+    *  Called the first time to initialize the stack elements
+    */
     func initialize()
+    
+    /**
+    *  Called to remove the database
+    */
     func removeDatabase()
+    
+    /**
+    *  Clean up whatever is needed in the store
+    */
     func cleanup()
+    
+    /**
+    *  Called when the application will resign active
+    */
     func applicationWillResignActive()
+    
+    /**
+    *  Called when the application will terminate
+    */
     func applicationWillTerminate()
+    
+    /**
+    *  Called when the application will enter foreground
+    */
     func applicationWillEnterForeground()
-    func backgroundContext() -> SugarRecordContext // Ensure synchronized access
+    
+    /**
+    *  Returns a background SugarRecord context to execute background operations
+    */
+    func backgroundContext() -> SugarRecordContext
+    
+    /**
+    *  Returns a SugarRecord context to execute background operations
+    */
     func mainThreadContext() -> SugarRecordContext
 }
