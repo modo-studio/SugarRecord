@@ -50,7 +50,12 @@ SugarRecord is a CoreData management library to make it easier work with CoreDat
 
 ## Installation
 
-_The infrastructure and best practices for distributing Swift libraries is currently being developed by the developer community during this beta period of the language and Xcode. In the meantime, you can simply add SugarRecord as a git submodule, and drag the `SugarRecord` folder into your Xcode project._
+While we don't have CocoaPods support for Swift libraries the way SugarRecord can be integrated is using a .framework with the library. To do it:
+
+1. Add SugarRecord as a submodule of your project `git submodule add https://github.com/SugarRecord/SugarRecord.git`
+2. Drag the file `SugarRecord.xcodeproj`into the file navigator of your XCode project.
+3. In the tab `Build phases`of your main target expand "Link Binary with Libraries" group and add `SugarRecord.framework`
+4. Click on the + button at the top left of the panel and select "New Copy Files Phase". Rename this new phase to "Copy Frameworks", set the "Destination" to "Frameworks", and add SugarRecord.framework.
 
 ---
 

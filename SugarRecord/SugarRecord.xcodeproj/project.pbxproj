@@ -509,6 +509,7 @@
 				A0F97F7B19D185390053B5C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0F97F7C19D185390053B5C2 /* Build configuration list for PBXNativeTarget "SugarRecordTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +518,7 @@
 				A0F97F7E19D185390053B5C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
