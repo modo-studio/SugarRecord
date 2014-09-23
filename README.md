@@ -18,6 +18,8 @@ The library is completetly written in Swift and fully tested to ensure the behav
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [How to use SugarRecord](#how-to-use-sugarrecord)
+  - [SugarRecord stacks](#sugarrecord-stacks)
+    - [Contribute](#contribute)
 - [Keep in mind](#keep-in-mind)
 - [Contribution tips](#contribution-tips)
   - [Documentation](#documentation)
@@ -93,6 +95,21 @@ let deleted: Bool = (Person.all().find()?.first()? as Person).delete
 
 //NOTE: It doesn't matter if you're using CoreData or REALM, the syntax you use to work with these objects is the same!
 ```
+
+### SugarRecord stacks
+
+One of the main advantages of using SugarRecord is its big flexibility to choose the storage architecture you want for your app. SugarRecord comes with some default stacks for Realm and CoreData but you can implement your own ensuring it conforms the needed protocols (*take a look to the existing ones*). The available stacks are:
+
+- **Default Core Data Stack**: This stack has a private context with the unique persistent store coordinator as parent. There is a main context under it to execute low load operations and a private one at the same level as the main one to execute high load operations. Changes  performed in that private context are brought to the main context using KVO.
+- **Default REALM Stack**: This  stack provides a setup for REALM which is much easier than Core Data, no context, thread safe...
+- **Default Core Data Stack + iCloud**: IN PROGRESS
+- **Default Core Data Stack + Restkit**: IN PROGRESS
+
+#### Contribute
+If you have any other idea of stack that could be useful for SugarRecord users feel free to make your proposal. Ensure:
+
+1. That it conforms the protocol `SugarRecordStackProtocol`
+2. That it's **fully tested** and **docummented**
 
 ## Keep in mind
 - Be careful **working with objects between contexts**. In case of **CoreData** remember that a ManagedObject belongs to a given context. Once the context dies the object disappears and trying to access to it will bring you into a trouble. SugarRecord has defensive code to ensure that if you are saving objecs from one context in other one one they are automatically brought to the new context to be saved there.
