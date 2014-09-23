@@ -1,3 +1,5 @@
+![image](https://raw.githubusercontent.com/SugarRecord/SugarRecord/feature/version10/Resources/Slogan.png)
+
 ## What is SugarRecord?
 SugarRecord is a management library to make it easier work with **CoreData and REALM**. Thanks to SugarRecord you'll be able to start working with **CoreData/REALM** with just a few lines of code:
 
