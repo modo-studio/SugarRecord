@@ -135,18 +135,17 @@ public class SugarRecordCDContext: SugarRecordContext
     
     :returns: If the object has been properly deleted
     */
-    public func deleteObject(object: AnyObject) -> Bool
+    public func deleteObject(object: AnyObject) -> SugarRecordContext
     {
         let managedObject: NSManagedObject? = object as? NSManagedObject
         let objectInContext: NSManagedObject? = moveObject(managedObject!, inContext: contextCD)
         if objectInContext == nil  {
             let exception: NSException = NSException(name: "Database operations", reason: "Imposible to remove object \(object)", userInfo: nil)
             SugarRecord.handle(exception)
-            return false
         }
         SugarRecordLogger.logLevelInfo.log("Object removed from database")
         self.contextCD.deleteObject(managedObject!)
-        return true
+        return self
     }
     
     /**
@@ -156,17 +155,13 @@ public class SugarRecordCDContext: SugarRecordContext
     
     :returns: If the deletion has been successful
     */
-    public func deleteObjects(objects: [AnyObject]) -> Bool
+    public func deleteObjects(objects: [AnyObject]) -> ()
     {
         var objectsDeleted: Int = 0
         for object in objects {
-            let objectDeleted: Bool = deleteObject(object)
-            if objectDeleted {
-                objectsDeleted++
-            }
+            let _ = deleteObject(object)
         }
-        SugarRecordLogger.logLevelInfo.log("Deleted \(objectsDeleted) of \(objects.count)")
-        return objectsDeleted == objects.count
+        SugarRecordLogger.logLevelInfo.log("Deleted \(objects.count) objects")
     }
     
     

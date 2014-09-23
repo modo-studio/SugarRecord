@@ -39,8 +39,8 @@ class RealmObjectTests: QuickSpec {
                 realmObject2.birthday = NSDate()
                 let saved2: Bool = realmObject2.save()
                 expect(RealmObject.allObjects().count).to(equal(2))
-                realmObject.delete()
-                realmObject2.delete()
+                realmObject.beginWritting().delete().endWritting()
+                realmObject2.beginWritting().delete().endWritting()
             })
         });
         describe("object deletion", { () -> () in
@@ -52,7 +52,7 @@ class RealmObjectTests: QuickSpec {
                 realmObject.city = "TestCity"
                 realmObject.birthday = NSDate()
                 let saved: Bool = realmObject.save()
-                realmObject.delete()
+                realmObject.beginWritting().delete().endWritting()
                 expect(RealmObject.allObjects().count).to(equal(0))
             })
             it("should delete all the objects in the database", { () -> () in
@@ -70,8 +70,8 @@ class RealmObjectTests: QuickSpec {
                 realmObject2.city = "TestCity"
                 realmObject2.birthday = NSDate()
                 let saved2: Bool = realmObject2.save()
-                realmObject2.delete()
-                realmObject.delete()
+                realmObject.beginWritting().delete().endWritting()
+                realmObject2.beginWritting().delete().endWritting()
                 expect(RealmObject.allObjects().count).to(equal(0))
             })
         });
@@ -82,12 +82,12 @@ class RealmObjectTests: QuickSpec {
                 realmObject?.save()
             })
             afterEach({ () -> () in
-                let deleted: Bool = realmObject!.delete()
+                realmObject!.beginWritting().delete().endWritting()
             })
             it("should apply the changes when the object changes are persisted", { () -> () in
-                realmObject!.beginEditing()
+                realmObject!.beginWritting()
                 realmObject!.name = "Testy"
-                realmObject!.endEditing()
+                realmObject!.endWritting()
                 let fetchedObject: RealmObject = RealmObject.allObjects().firstObject() as RealmObject
                 expect(fetchedObject.name).to(equal("Testy"))
             })
@@ -112,8 +112,8 @@ class RealmObjectTests: QuickSpec {
                 let saved2: Bool = realmObject2!.save()
             })
             afterEach({ () -> () in
-                realmObject2!.delete()
-                realmObject!.delete()
+                realmObject2!.beginWritting().delete().endWritting()
+                realmObject!.beginWritting().delete().endWritting()
             })
             it("should return all objects", { () -> () in
                 let found: [AnyObject] = RealmObject.all().find()!

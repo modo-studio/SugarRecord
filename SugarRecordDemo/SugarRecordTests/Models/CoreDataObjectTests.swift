@@ -43,8 +43,8 @@ class CoreDataObjectTests: QuickSpec {
                 coreDataObject2.city = "Springfield"
                 let saved2: Bool = coreDataObject2.save()
                 expect(CoreDataObject.all().find()!.count).to(equal(2))
-                coreDataObject.delete()
-                coreDataObject2.delete()
+                coreDataObject.beginWritting().delete().endWritting()
+                coreDataObject2.beginWritting().delete().endWritting()
             })
         });
         
@@ -57,7 +57,7 @@ class CoreDataObjectTests: QuickSpec {
                 coreDataObject.city = "TestCity"
                 coreDataObject.birth = NSDate()
                 let saved: Bool = coreDataObject.save()
-                coreDataObject.delete()
+                coreDataObject.beginWritting().delete().endWritting()
                 expect(CoreDataObject.all().find()!.count).to(equal(0))
             })
             it("should delete all the objects in the database", { () -> () in
@@ -75,8 +75,8 @@ class CoreDataObjectTests: QuickSpec {
                 coreDataObject2.city = "TestCity"
                 coreDataObject2.birth = NSDate()
                 let saved2: Bool = coreDataObject2.save()
-                coreDataObject.delete()
-                coreDataObject2.delete()
+                coreDataObject.beginWritting().delete().endWritting()
+                coreDataObject2.beginWritting().delete().endWritting()
                 expect(CoreDataObject.all().find()!.count).to(equal(0))
             })
         });
@@ -87,12 +87,12 @@ class CoreDataObjectTests: QuickSpec {
                 coreDataObject?.save()
             })
             afterEach({ () -> () in
-                let deleted: Bool = coreDataObject!.delete()
+                coreDataObject!.beginWritting().delete().endWritting()
             })
             it("should apply the changes when the object changes are persisted", { () -> () in
-                coreDataObject!.beginEditing()
+                coreDataObject!.beginWritting()
                 coreDataObject!.name = "Testy"
-                coreDataObject!.endEditing()
+                coreDataObject!.endWritting()
                 let fetchedObject: CoreDataObject = CoreDataObject.all().find()!.first as CoreDataObject
                 expect(fetchedObject.name).to(equal("Testy"))
             })
@@ -117,8 +117,8 @@ class CoreDataObjectTests: QuickSpec {
                 let saved2: Bool = coreDataObject2!.save()
             })
             afterEach({ () -> () in
-                coreDataObject!.delete()
-                coreDataObject2!.delete()
+                coreDataObject!.beginWritting().delete().endWritting()
+                coreDataObject2!.beginWritting().delete().endWritting()
             })
             it("should return all objects", { () -> () in
                 let found: [AnyObject] = CoreDataObject.all().find()!

@@ -165,31 +165,11 @@ extension NSManagedObject: SugarRecordObjectProtocol
     //MARK: - Deletion
     
     /**
-    Deletes the object from the store
-    
-    :returns: Bool indicating if the object has been deleted properly
+    *  Deletes the object
     */
-    public func delete() -> Bool
+    public func delete() -> SugarRecordContext
     {
-        var deleted: Bool = false
-        SugarRecord.operation(NSManagedObject.stackType(), closure: { (context) -> () in
-            context.beginWritting()
-            deleted = context.deleteObject(self)
-            context.endWritting()
-        })
-        return deleted
-    }
-    
-    /**
-    Deletes the object from the store without saving the context
-    
-    :param: context Context where the object is going to be deleted
-    
-    :returns: Bool indicating if the object has been deleted
-    */
-    public func delete(inContext context: SugarRecordContext) -> Bool
-    {
-        return context.deleteObject(self)
+        return self.context().deleteObject(self)
     }
     
     
@@ -261,21 +241,25 @@ extension NSManagedObject: SugarRecordObjectProtocol
     }
     
     
-    //MARK: - BeginEditing
+    //MARK: - beginWritting
     
     /**
     Needed to be called when the object is going to be edited
+    
+    :returns: returns the current object
     */
-    public func beginEditing()
+    public func beginWritting() -> SugarRecordObjectProtocol
     {
         self.context().beginWritting()
+        return self
     }
     
     /**
-    Needed to be called when the edition has finished
+    Needed to be called when the edition/deletion has finished
     */
-    public func endEditing()
+    public func endWritting()
     {
         self.context().endWritting()
     }
+    
 }

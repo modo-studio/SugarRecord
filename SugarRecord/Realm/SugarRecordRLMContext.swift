@@ -135,10 +135,10 @@ public class SugarRecordRLMContext: SugarRecordContext
     
     :returns: If the object has been properly deleted
     */
-    public func deleteObject(object: AnyObject) -> Bool
+    public func deleteObject(object: AnyObject) -> SugarRecordContext
     {
         self.realmContext.deleteObject(object as RLMObject)
-        return true
+        return self
     }
     
     /**
@@ -148,16 +148,12 @@ public class SugarRecordRLMContext: SugarRecordContext
     
     :returns: If the delection has been successful
     */
-    public func deleteObjects(objects: [AnyObject]) -> Bool
+    public func deleteObjects(objects: [AnyObject]) -> ()
     {
         var objectsDeleted: Int = 0
         for object in objects {
-            let objectDeleted: Bool = deleteObject(object)
-            if objectDeleted {
-                objectsDeleted++
-            }
+            let _ = deleteObject(object)
         }
-        SugarRecordLogger.logLevelInfo.log("Deleted \(objectsDeleted) of \(objects.count)")
-        return objectsDeleted == objects.count
+        SugarRecordLogger.logLevelInfo.log("Deleted \(objects.count) objects")
     }
 }

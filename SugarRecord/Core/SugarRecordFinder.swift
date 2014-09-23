@@ -354,13 +354,9 @@ public class SugarRecordFinder
     
     :returns: If the deletion has been successful
     */
-    public func delete () -> Bool
+    public func delete () -> ()
     {
-        var objectDeleted: Bool = false
-        delete(true, completion: { (deleted) -> () in
-            objectDeleted = deleted
-        })
-        return objectDeleted
+        delete(true, completion: { () -> () in })
     }
     
     /**
@@ -369,21 +365,19 @@ public class SugarRecordFinder
     :param: asynchronously Indicates if the deletion has to be asynchronous
     :param: completion     Completion closure with a successful indicator as input parameter
     */
-    public func delete (asynchronously: Bool, completion: (deleted: Bool) -> ())
+    public func delete (asynchronously: Bool, completion: () -> ())
     {
-        var deleted: Bool = false
         SugarRecord.operation(inBackground: asynchronously, stackType: stackType!) { (context) -> () in
             let objects: [AnyObject]? = context.find(self)
             if objects == nil {
                 SugarRecordLogger.logLevelInfo.log("No objects have been deleted")
-                deleted = false
                 return
             }
             context.beginWritting()
-            deleted = context.deleteObjects(objects!)
+            context.deleteObjects(objects!)
             context.endWritting()
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completion(deleted: deleted)
+                completion()
             })
 
         }
