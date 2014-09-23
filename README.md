@@ -68,7 +68,7 @@ Cocoapods doesn't support support Swift libraries yet so the instalation process
 
 
 ## How to use SugarRecord
-If you want to learn how to setup SugarRecord with the stack and stack working with it, the library comes with an useful Playground HTML file with steps and some examples to follow. Take a look to the playground **HERE**.
+If you want to learn how to setup SugarRecord with the stack and stack working with it, the library comes with an useful Playground HTML file with steps and some examples to follow. Take a look to the playground [**HERE**](https://github.com/SugarRecord/SugarRecord/docs/tutorial.playground).
 
 Otherwise if you want to have a quick idea of how working with SugarRecord is, take a look to the examples below:
 
