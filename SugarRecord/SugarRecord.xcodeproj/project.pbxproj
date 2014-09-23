@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0F97F6C19D185390053B5C2 /* SugarRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = A0F97F6B19D185390053B5C2 /* SugarRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0F97F7619D185390053B5C2 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F7519D185390053B5C2 /* SugarRecordTests.swift */; };
+		A0F97F8919D185710053B5C2 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F8419D185710053B5C2 /* SugarRecord.swift */; };
+		A0F97F8A19D185710053B5C2 /* SugarRecord+ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F8519D185710053B5C2 /* SugarRecord+ErrorHandler.swift */; };
+		A0F97F8B19D185710053B5C2 /* SugarRecord+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F8619D185710053B5C2 /* SugarRecord+iCloud.swift */; };
+		A0F97F8C19D185710053B5C2 /* SugarRecord+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F8719D185710053B5C2 /* SugarRecord+Operations.swift */; };
+		A0F97F8D19D185710053B5C2 /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F8819D185710053B5C2 /* SugarRecordLogger.swift */; };
+		A0F97F9419D185770053B5C2 /* NSManagedObject+Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F8E19D185770053B5C2 /* NSManagedObject+Counters.swift */; };
+		A0F97F9519D185770053B5C2 /* NSManagedObject+FetchRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F8F19D185770053B5C2 /* NSManagedObject+FetchRequests.swift */; };
+		A0F97F9619D185770053B5C2 /* NSManagedObject+Finders.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F9019D185770053B5C2 /* NSManagedObject+Finders.swift */; };
+		A0F97F9719D185770053B5C2 /* NSManagedObject+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F9119D185770053B5C2 /* NSManagedObject+Operations.swift */; };
+		A0F97F9819D185770053B5C2 /* NSManagedObject+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F9219D185770053B5C2 /* NSManagedObject+Stack.swift */; };
+		A0F97F9919D185770053B5C2 /* NSManagedObjectModel+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F9319D185770053B5C2 /* NSManagedObjectModel+Stack.swift */; };
+		A0F97F9F19D1857D0053B5C2 /* NSManagedObjectContext+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F9A19D1857D0053B5C2 /* NSManagedObjectContext+Debug.swift */; };
+		A0F97FA019D1857D0053B5C2 /* NSManagedObjectContext+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F9B19D1857D0053B5C2 /* NSManagedObjectContext+iCloud.swift */; };
+		A0F97FA119D1857D0053B5C2 /* NSManagedObjectContext+Observing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F9C19D1857D0053B5C2 /* NSManagedObjectContext+Observing.swift */; };
+		A0F97FA219D1857D0053B5C2 /* NSManagedObjectContext+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F9D19D1857D0053B5C2 /* NSManagedObjectContext+Operations.swift */; };
+		A0F97FA319D1857D0053B5C2 /* NSManagedObjectContext+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97F9E19D1857D0053B5C2 /* NSManagedObjectContext+Stack.swift */; };
+		A0F97FA619D185840053B5C2 /* NSPersistentStore+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97FA419D185840053B5C2 /* NSPersistentStore+iCloud.swift */; };
+		A0F97FA719D185840053B5C2 /* NSPersistentStore+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97FA519D185840053B5C2 /* NSPersistentStore+Stack.swift */; };
+		A0F97FAA19D1858A0053B5C2 /* NSPersistentStoreCoordinator+iCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97FA819D1858A0053B5C2 /* NSPersistentStoreCoordinator+iCloud.swift */; };
+		A0F97FAB19D1858A0053B5C2 /* NSPersistentStoreCoordinator+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F97FA919D1858A0053B5C2 /* NSPersistentStoreCoordinator+Stack.swift */; };
+		A0F97FAD19D1859E0053B5C2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F97FAC19D1859E0053B5C2 /* CoreData.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A0F97F6619D185390053B5C2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0F97F6A19D185390053B5C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0F97F6B19D185390053B5C2 /* SugarRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SugarRecord.h; sourceTree = "<group>"; };
+		A0F97F7119D185390053B5C2 /* SugarRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0F97F7419D185390053B5C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0F97F7519D185390053B5C2 /* SugarRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordTests.swift; sourceTree = "<group>"; };
+		A0F97F8419D185710053B5C2 /* SugarRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecord.swift; sourceTree = "<group>"; };
+		A0F97F8519D185710053B5C2 /* SugarRecord+ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+ErrorHandler.swift"; sourceTree = "<group>"; };
+		A0F97F8619D185710053B5C2 /* SugarRecord+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+iCloud.swift"; sourceTree = "<group>"; };
+		A0F97F8719D185710053B5C2 /* SugarRecord+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecord+Operations.swift"; sourceTree = "<group>"; };
+		A0F97F8819D185710053B5C2 /* SugarRecordLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordLogger.swift; sourceTree = "<group>"; };
+		A0F97F8E19D185770053B5C2 /* NSManagedObject+Counters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Counters.swift"; sourceTree = "<group>"; };
+		A0F97F8F19D185770053B5C2 /* NSManagedObject+FetchRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+FetchRequests.swift"; sourceTree = "<group>"; };
+		A0F97F9019D185770053B5C2 /* NSManagedObject+Finders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Finders.swift"; sourceTree = "<group>"; };
+		A0F97F9119D185770053B5C2 /* NSManagedObject+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Operations.swift"; sourceTree = "<group>"; };
+		A0F97F9219D185770053B5C2 /* NSManagedObject+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Stack.swift"; sourceTree = "<group>"; };
+		A0F97F9319D185770053B5C2 /* NSManagedObjectModel+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectModel+Stack.swift"; sourceTree = "<group>"; };
+		A0F97F9A19D1857D0053B5C2 /* NSManagedObjectContext+Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Debug.swift"; sourceTree = "<group>"; };
+		A0F97F9B19D1857D0053B5C2 /* NSManagedObjectContext+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+iCloud.swift"; sourceTree = "<group>"; };
+		A0F97F9C19D1857D0053B5C2 /* NSManagedObjectContext+Observing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Observing.swift"; sourceTree = "<group>"; };
+		A0F97F9D19D1857D0053B5C2 /* NSManagedObjectContext+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Operations.swift"; sourceTree = "<group>"; };
+		A0F97F9E19D1857D0053B5C2 /* NSManagedObjectContext+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Stack.swift"; sourceTree = "<group>"; };
+		A0F97FA419D185840053B5C2 /* NSPersistentStore+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStore+iCloud.swift"; sourceTree = "<group>"; };
+		A0F97FA519D185840053B5C2 /* NSPersistentStore+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStore+Stack.swift"; sourceTree = "<group>"; };
+		A0F97FA819D1858A0053B5C2 /* NSPersistentStoreCoordinator+iCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+iCloud.swift"; sourceTree = "<group>"; };
+		A0F97FA919D1858A0053B5C2 /* NSPersistentStoreCoordinator+Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+Stack.swift"; sourceTree = "<group>"; };
+		A0F97FAC19D1859E0053B5C2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0F97F6219D185390053B5C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0F97FAD19D1859E0053B5C2 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0F97F6E19D185390053B5C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A0F97F5C19D185390053B5C2 = {
+			isa = PBXGroup;
+			children = (
+				A0F97F6819D185390053B5C2 /* SugarRecord */,
+				A0F97F7219D185390053B5C2 /* SugarRecordTests */,
+				A0F97F6719D185390053B5C2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A0F97F6719D185390053B5C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0F97F6619D185390053B5C2 /* SugarRecord.framework */,
+				A0F97F7119D185390053B5C2 /* SugarRecordTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0F97F6819D185390053B5C2 /* SugarRecord */ = {
+			isa = PBXGroup;
+			children = (
+				A0F97FB419D1861A0053B5C2 /* Frameworks */,
+				A0F97F7F19D185400053B5C2 /* Sources */,
+				A0F97F6B19D185390053B5C2 /* SugarRecord.h */,
+				A0F97F6919D185390053B5C2 /* Supporting Files */,
+			);
+			path = SugarRecord;
+			sourceTree = "<group>";
+		};
+		A0F97F6919D185390053B5C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0F97F6A19D185390053B5C2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0F97F7219D185390053B5C2 /* SugarRecordTests */ = {
+			isa = PBXGroup;
+			children = (
+				A0F97F7519D185390053B5C2 /* SugarRecordTests.swift */,
+				A0F97F7319D185390053B5C2 /* Supporting Files */,
+			);
+			path = SugarRecordTests;
+			sourceTree = "<group>";
+		};
+		A0F97F7319D185390053B5C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0F97F7419D185390053B5C2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0F97F7F19D185400053B5C2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A0F97F8019D185490053B5C2 /* NSManagedObject */,
+				A0F97F8319D185600053B5C2 /* NSManagedObjectContext */,
+				A0F97F8219D185570053B5C2 /* NSPersistentStore */,
+				A0F97F8119D185510053B5C2 /* NSPersistentStoreCoordinator */,
+				A0F97F8419D185710053B5C2 /* SugarRecord.swift */,
+				A0F97F8519D185710053B5C2 /* SugarRecord+ErrorHandler.swift */,
+				A0F97F8619D185710053B5C2 /* SugarRecord+iCloud.swift */,
+				A0F97F8719D185710053B5C2 /* SugarRecord+Operations.swift */,
+				A0F97F8819D185710053B5C2 /* SugarRecordLogger.swift */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		A0F97F8019D185490053B5C2 /* NSManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				A0F97F8E19D185770053B5C2 /* NSManagedObject+Counters.swift */,
+				A0F97F8F19D185770053B5C2 /* NSManagedObject+FetchRequests.swift */,
+				A0F97F9019D185770053B5C2 /* NSManagedObject+Finders.swift */,
+				A0F97F9119D185770053B5C2 /* NSManagedObject+Operations.swift */,
+				A0F97F9219D185770053B5C2 /* NSManagedObject+Stack.swift */,
+				A0F97F9319D185770053B5C2 /* NSManagedObjectModel+Stack.swift */,
+			);
+			name = NSManagedObject;
+			sourceTree = "<group>";
+		};
+		A0F97F8119D185510053B5C2 /* NSPersistentStoreCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A0F97FA819D1858A0053B5C2 /* NSPersistentStoreCoordinator+iCloud.swift */,
+				A0F97FA919D1858A0053B5C2 /* NSPersistentStoreCoordinator+Stack.swift */,
+			);
+			name = NSPersistentStoreCoordinator;
+			sourceTree = "<group>";
+		};
+		A0F97F8219D185570053B5C2 /* NSPersistentStore */ = {
+			isa = PBXGroup;
+			children = (
+				A0F97FA419D185840053B5C2 /* NSPersistentStore+iCloud.swift */,
+				A0F97FA519D185840053B5C2 /* NSPersistentStore+Stack.swift */,
+			);
+			name = NSPersistentStore;
+			sourceTree = "<group>";
+		};
+		A0F97F8319D185600053B5C2 /* NSManagedObjectContext */ = {
+			isa = PBXGroup;
+			children = (
+				A0F97F9A19D1857D0053B5C2 /* NSManagedObjectContext+Debug.swift */,
+				A0F97F9B19D1857D0053B5C2 /* NSManagedObjectContext+iCloud.swift */,
+				A0F97F9C19D1857D0053B5C2 /* NSManagedObjectContext+Observing.swift */,
+				A0F97F9D19D1857D0053B5C2 /* NSManagedObjectContext+Operations.swift */,
+				A0F97F9E19D1857D0053B5C2 /* NSManagedObjectContext+Stack.swift */,
+			);
+			name = NSManagedObjectContext;
+			sourceTree = "<group>";
+		};
+		A0F97FB419D1861A0053B5C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0F97FAC19D1859E0053B5C2 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A0F97F6319D185390053B5C2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0F97F6C19D185390053B5C2 /* SugarRecord.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A0F97F6519D185390053B5C2 /* SugarRecord */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0F97F7919D185390053B5C2 /* Build configuration list for PBXNativeTarget "SugarRecord" */;
+			buildPhases = (
+				A0F97F6119D185390053B5C2 /* Sources */,
+				A0F97F6219D185390053B5C2 /* Frameworks */,
+				A0F97F6319D185390053B5C2 /* Headers */,
+				A0F97F6419D185390053B5C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SugarRecord;
+			productName = SugarRecord;
+			productReference = A0F97F6619D185390053B5C2 /* SugarRecord.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A0F97F7019D185390053B5C2 /* SugarRecordTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0F97F7C19D185390053B5C2 /* Build configuration list for PBXNativeTarget "SugarRecordTests" */;
+			buildPhases = (
+				A0F97F6D19D185390053B5C2 /* Sources */,
+				A0F97F6E19D185390053B5C2 /* Frameworks */,
+				A0F97F6F19D185390053B5C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SugarRecordTests;
+			productName = SugarRecordTests;
+			productReference = A0F97F7119D185390053B5C2 /* SugarRecordTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0F97F5D19D185390053B5C2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Renzo Crisóstomo";
+				TargetAttributes = {
+					A0F97F6519D185390053B5C2 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					A0F97F7019D185390053B5C2 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+				};
+			};
+			buildConfigurationList = A0F97F6019D185390053B5C2 /* Build configuration list for PBXProject "SugarRecord" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A0F97F5C19D185390053B5C2;
+			productRefGroup = A0F97F6719D185390053B5C2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0F97F6519D185390053B5C2 /* SugarRecord */,
+				A0F97F7019D185390053B5C2 /* SugarRecordTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0F97F6419D185390053B5C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0F97F6F19D185390053B5C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0F97F6119D185390053B5C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0F97F8D19D185710053B5C2 /* SugarRecordLogger.swift in Sources */,
+				A0F97FA019D1857D0053B5C2 /* NSManagedObjectContext+iCloud.swift in Sources */,
+				A0F97F9519D185770053B5C2 /* NSManagedObject+FetchRequests.swift in Sources */,
+				A0F97F8919D185710053B5C2 /* SugarRecord.swift in Sources */,
+				A0F97FAA19D1858A0053B5C2 /* NSPersistentStoreCoordinator+iCloud.swift in Sources */,
+				A0F97FA619D185840053B5C2 /* NSPersistentStore+iCloud.swift in Sources */,
+				A0F97F9619D185770053B5C2 /* NSManagedObject+Finders.swift in Sources */,
+				A0F97F8B19D185710053B5C2 /* SugarRecord+iCloud.swift in Sources */,
+				A0F97F8A19D185710053B5C2 /* SugarRecord+ErrorHandler.swift in Sources */,
+				A0F97F9919D185770053B5C2 /* NSManagedObjectModel+Stack.swift in Sources */,
+				A0F97FA319D1857D0053B5C2 /* NSManagedObjectContext+Stack.swift in Sources */,
+				A0F97FAB19D1858A0053B5C2 /* NSPersistentStoreCoordinator+Stack.swift in Sources */,
+				A0F97F9819D185770053B5C2 /* NSManagedObject+Stack.swift in Sources */,
+				A0F97F9419D185770053B5C2 /* NSManagedObject+Counters.swift in Sources */,
+				A0F97FA719D185840053B5C2 /* NSPersistentStore+Stack.swift in Sources */,
+				A0F97F9F19D1857D0053B5C2 /* NSManagedObjectContext+Debug.swift in Sources */,
+				A0F97FA119D1857D0053B5C2 /* NSManagedObjectContext+Observing.swift in Sources */,
+				A0F97F9719D185770053B5C2 /* NSManagedObject+Operations.swift in Sources */,
+				A0F97F8C19D185710053B5C2 /* SugarRecord+Operations.swift in Sources */,
+				A0F97FA219D1857D0053B5C2 /* NSManagedObjectContext+Operations.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0F97F6D19D185390053B5C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0F97F7619D185390053B5C2 /* SugarRecordTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A0F97F7719D185390053B5C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A0F97F7819D185390053B5C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A0F97F7A19D185390053B5C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SugarRecord/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A0F97F7B19D185390053B5C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SugarRecord/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A0F97F7D19D185390053B5C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SugarRecordTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A0F97F7E19D185390053B5C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SugarRecordTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0F97F6019D185390053B5C2 /* Build configuration list for PBXProject "SugarRecord" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0F97F7719D185390053B5C2 /* Debug */,
+				A0F97F7819D185390053B5C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0F97F7919D185390053B5C2 /* Build configuration list for PBXNativeTarget "SugarRecord" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0F97F7A19D185390053B5C2 /* Debug */,
+				A0F97F7B19D185390053B5C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A0F97F7C19D185390053B5C2 /* Build configuration list for PBXNativeTarget "SugarRecordTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0F97F7D19D185390053B5C2 /* Debug */,
+				A0F97F7E19D185390053B5C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0F97F5D19D185390053B5C2 /* Project object */;
+}
