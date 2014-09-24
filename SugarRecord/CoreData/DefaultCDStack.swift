@@ -198,8 +198,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
             SugarRecord.handle(NSException(name: "CoreData database deletion error", reason: "Couldn't delete the database because the path was nil", userInfo: nil))
             return
         }
-        NSFileManager.defaultManager().removeItemAtURL(databasePath!, error: &error)
-        SugarRecord.handle(error)
+        if NSFileManager.defaultManager().fileExistsAtPath(databasePath!.path!) {
+            NSFileManager.defaultManager().removeItemAtURL(databasePath!, error: &error)
+            SugarRecord.handle(error)
+        }
     }
     
     
