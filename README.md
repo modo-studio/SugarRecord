@@ -50,6 +50,12 @@ The library is completetly written in Swift and fully tested to ensure the behav
 
 *Note: It's going to suppose a big step to SugarRecord because it's going to make it more flexible for all kind of developers. You can use the current initial version of SugarRecord 0.2 (master branch).*
 
+## Coming features
+- Abstract FetchedResultsController to use with Realm and CoreData
+- Integration with Restkit
+- Integration with iCloud
+- Support to migrations
+
 ## Requirements
 
 - Xcode 6
@@ -78,7 +84,20 @@ If you want to communicate any issue, suggestion or even make a contribution, yo
 ## How to use SugarRecord
 If you want to learn how to setup SugarRecord with the stack and stack working with it, the library comes with an useful Playground HTML file with steps and some examples to follow. Take a look to the playground [**HERE**](https://github.com/SugarRecord/SugarRecord/docs/tutorial.playground).
 
-Otherwise if you want to have a quick idea of how working with SugarRecord is, take a look to the examples below:
+Otherwise if you want to have a quick idea of how working with SugarRecord is, take a look to the examples below.
+
+### Initialize SugarRecord with a stack
+SugarRecord needs you to pass the stack you are going to work with. There are some stacks availables to use directly but you can implement your own regarding your needs. Keep in mind that it's important to set it because otherwise SugarRecord won't have a way communicate your models with the database. Take a look how it would be using the default stack of Realm and CoreData:
+
+```Swift
+// Example initializing SugarRecord with the default Realm 
+SugarRecord.addStack(DefaultREALMStack(stackName: "MyDatabase", stackDescription: "My database using the lovely library SugarRecord"))
+
+// Example initializing SugarRecord with the default CoreData stack
+let stack: DefaultCDStack = DefaultCDStack(databaseName: "Database.sqlite", automigrating: true)
+SugarRecord.addStack(stack)
+```
+
 
 ```swift
 // Setting the stack
