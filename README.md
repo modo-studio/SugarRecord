@@ -97,6 +97,28 @@ SugarRecord.addStack(DefaultREALMStack(stackName: "MyDatabase", stackDescription
 let stack: DefaultCDStack = DefaultCDStack(databaseName: "Database.sqlite", automigrating: true)
 SugarRecord.addStack(stack)
 ```
+Once you have the stack set, a connection between SugarRecord and your app's lifecycle is required in order to execute cleaning and saving internal tasks. Ensure you have the following calls in your app delegate:
+
+```swift
+func applicationWillResignActive(application: UIApplication!) {
+  SugarRecord.applicationWillResignActive()
+}
+
+func applicationWillEnterForeground(application: UIApplication!) {
+  SugarRecord.applicationWillEnterForeground()
+}
+
+func applicationWillTerminate(application: UIApplication!) {
+  SugarRecord.applicationWillTerminate()
+}
+```
+
+### Setup the log level
+
+By default the log level of the library is `Info`. If you want to change it you can do it with:
+```swift
+SugarRecordLogger.currentLevel = SugarRecordLogger.logLevelVerbose
+```
 
 ### Objects creation
 
