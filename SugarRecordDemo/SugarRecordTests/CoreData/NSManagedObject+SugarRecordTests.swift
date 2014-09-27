@@ -25,7 +25,7 @@ class NSManagedObjectSugarRecordTests: XCTestCase
     {
         SugarRecord.cleanup()
         SugarRecord.removeDatabase()
-        SugarRecord.removeStacks()
+        SugarRecord.removeAllStacks()
         super.tearDown()
     }
     
