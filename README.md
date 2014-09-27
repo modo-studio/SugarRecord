@@ -12,6 +12,14 @@ The library is completetly written in Swift and fully tested to ensure the behav
 
 **Powered by [@pepibumur](http://www.twitter.com/pepibumur)**
 
+![image](https://raw.githubusercontent.com/SugarRecord/SugarRecord/develop/Resources/scheme.png)
+The scheme above shows the structure of SugarRecord. It's formed by:
+- **Database Models Extensions**: To add the sugar syntax that links these models with SugarRecord and the database.
+- **Finder**: SugarRecord custom element to abstract the querying components from the type of storage (Realm or CoreData)
+- **Core**: Main component of the library that translates Save/Delete/Find calls into internal operations using the stacks set.
+- **SugarRecord contexts**: Altough Realm doesn't have contexts as we have in CoreData, we have created abstracted contexts that surround the user operations with models independently if you are using CoreData or Realm. Yeah!
+- **Stack**: The storage stack is another key piece in SugarRecord because it knows how and when persist/fetch/delete your objects into the database. You can tell SugarRecord which stack it should use.
+
 ## Index
 - [Advantages of SugarRecord](#advantages-of-sugarrecord)
 - [Version 1.0 - Features](#planned-for-1.0-release)
@@ -19,6 +27,13 @@ The library is completetly written in Swift and fully tested to ensure the behav
 - [Installation](#installation)
 - [Communication flow](#communication-flow)
 - [How to use SugarRecord](#how-to-use-sugarrecord)
+  - [Initialize SugarRecord with a stack](#initialize-sugarrecord-with-a-stack)
+  - [Setup the log level](#setup-the-log-level)
+  - [Objects creation](#objects-creation)
+  - [Objects edition](#objects-edition)
+  - [Objects deletion](#objects-deletion)
+  - [Objects querying](#objects-querying)
+  - [Advanced options](#advanced-options)
   - [SugarRecord stacks](#sugarrecord-stacks)
     - [Contribute](#contribute)
 - [Keep in mind](#keep-in-mind)
