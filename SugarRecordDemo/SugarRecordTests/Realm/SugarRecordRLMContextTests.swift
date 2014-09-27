@@ -7,13 +7,5 @@
 //
 
 import Foundation
-import Quick
-import Nimble
 import CoreData
-
-class SugarRecordRLMContextTests: QuickSpec {
-    override func spec() {
-        beforeSuite {}
-        afterSuite {}
-    }
-}
+import XCTest

@@ -7,10 +7,9 @@
 //
 
 import Foundation
-import Quick
-import Nimble
 import CoreData
 import Realm
+import XCTest
 
 class RLMObjectSugarRecordTests: XCTestCase
 {

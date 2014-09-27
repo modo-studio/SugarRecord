@@ -7,33 +7,5 @@
 //
 
 import Foundation
-import Quick
-import Nimble
+import XCTest
 import CoreData
-
-class SugarRecordCDContextTests: QuickSpec {
-    override func spec() {
-        
-        beforeSuite
-        {
-        }
-        afterSuite {}
-    
-        
-        describe("when beginning writting", { () -> () in
-            
-        })
-        
-        describe("when ending writting", { () -> () in
-            
-        })
-        
-        describe("when inserting object", { () -> () in
-            
-        })
-        
-        describe("when removing object", { () -> () in
-            
-        })
-    }
-}
