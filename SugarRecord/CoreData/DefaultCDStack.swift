@@ -17,13 +17,13 @@ public class DefaultCDStack: SugarRecordStackProtocol
     public var stackDescription: String = "Default core data stack with an efficient context management"
     public let defaultStoreName: String = "sugar.sqlite"
     public var stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeCoreData
-    private var managedObjectModel: NSManagedObjectModel?
-    private var databasePath: NSURL?
-    private var automigrating: Bool
-    private var persistentStoreCoordinator: NSPersistentStoreCoordinator?
-    private var rootSavingContext: NSManagedObjectContext?
-    private var mainContext: NSManagedObjectContext?
-    private var persistentStore: NSPersistentStore?
+    internal var managedObjectModel: NSManagedObjectModel?
+    internal var databasePath: NSURL?
+    internal var automigrating: Bool
+    internal var persistentStoreCoordinator: NSPersistentStoreCoordinator?
+    internal var rootSavingContext: NSManagedObjectContext?
+    internal var mainContext: NSManagedObjectContext?
+    internal var persistentStore: NSPersistentStore?
     
     //MARK: - Initializers
     
@@ -214,7 +214,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     
     :returns: Main NSManageObjectContext
     */
-    private func createMainContext(parentContext: NSManagedObjectContext?) -> NSManagedObjectContext
+    internal func createMainContext(parentContext: NSManagedObjectContext?) -> NSManagedObjectContext
     {
         var context: NSManagedObjectContext?
         if parentContext == nil {
@@ -235,7 +235,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     
     :returns: Private NSManageObjectContext
     */
-    private func createRootSavingContext(persistentStoreCoordinator: NSPersistentStoreCoordinator?) -> NSManagedObjectContext
+    internal func createRootSavingContext(persistentStoreCoordinator: NSPersistentStoreCoordinator?) -> NSManagedObjectContext
     {
         var context: NSManagedObjectContext?
         if persistentStoreCoordinator == nil {
@@ -254,7 +254,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     
     :returns: NSPersistentStoreCoordinator of the stack
     */
-    private func createPersistentStoreCoordinator() -> NSPersistentStoreCoordinator
+    internal func createPersistentStoreCoordinator() -> NSPersistentStoreCoordinator
     {
         if managedObjectModel == nil {
             managedObjectModel = NSManagedObjectModel.mergedModelFromBundles(nil)
@@ -388,7 +388,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     /**
     Apply the changes of the root saving to be persisted in the database
     */
-    private func saveChangesInRootSavingContext()
+    internal func saveChangesInRootSavingContext()
     {
         if self.rootSavingContext == nil {
             assert(true, "Fatal error. The private context is not initialized")
