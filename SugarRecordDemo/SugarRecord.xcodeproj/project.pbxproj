@@ -35,6 +35,10 @@
 		3D77249119D6E45A00C6B975 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77249019D6E45A00C6B975 /* SugarRecordTests.swift */; };
 		3D77249319D7007E00C6B975 /* DefaultREALMStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77249219D7007E00C6B975 /* DefaultREALMStackTests.swift */; };
 		3D77249519D7032700C6B975 /* DefaultCDStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77249419D7032700C6B975 /* DefaultCDStackTests.swift */; };
+		3DC8D4B419D76B2A00F2368B /* RestkitCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8D4B319D76B2A00F2368B /* RestkitCDStack.swift */; };
+		3DC8D59F19D76DAB00F2368B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D59E19D76DAB00F2368B /* CFNetwork.framework */; };
+		3DC8D5A119D76DBD00F2368B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D5A019D76DBD00F2368B /* Security.framework */; };
+		3DC8D5A319D76DC200F2368B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D5A219D76DC200F2368B /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +139,10 @@
 		3DBC55E7198E826E00268EB3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3DBC55F2198E826E00268EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DBC5602198E844B00268EB3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3DC8D4B319D76B2A00F2368B /* RestkitCDStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestkitCDStack.swift; sourceTree = "<group>"; };
+		3DC8D59E19D76DAB00F2368B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		3DC8D5A019D76DBD00F2368B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3DC8D5A219D76DC200F2368B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +150,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC8D5A319D76DC200F2368B /* MobileCoreServices.framework in Frameworks */,
+				3DC8D5A119D76DBD00F2368B /* Security.framework in Frameworks */,
+				3DC8D59F19D76DAB00F2368B /* CFNetwork.framework in Frameworks */,
 				3D4F507D19CDA37500C1FD3D /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				3DAD445919CCB5FF00B1E355 /* DefaultCDStack.swift */,
+				3DC8D4B319D76B2A00F2368B /* RestkitCDStack.swift */,
 				3DAD444619CC931000B1E355 /* NSManagedObject+SugarRecord.swift */,
 				3DAD444719CC931000B1E355 /* SugarRecordCDContext.swift */,
 			);
@@ -312,6 +324,9 @@
 			children = (
 				3D77246C19D6DADD00C6B975 /* Realm-Xcode6.xcodeproj */,
 				FFD8198519AF03DB00BD2603 /* SugarRecord */,
+				3DC8D59E19D76DAB00F2368B /* CFNetwork.framework */,
+				3DC8D5A219D76DC200F2368B /* MobileCoreServices.framework */,
+				3DC8D5A019D76DBD00F2368B /* Security.framework */,
 				3DBC5602198E844B00268EB3 /* CoreData.framework */,
 			);
 			name = Frameworks;
@@ -471,6 +486,7 @@
 				3D77249319D7007E00C6B975 /* DefaultREALMStackTests.swift in Sources */,
 				3D77248B19D6DBD700C6B975 /* SugarRecordContextProtocol.swift in Sources */,
 				3D4F509E19CDAD0500C1FD3D /* SugarRecord.xcdatamodeld in Sources */,
+				3DC8D4B419D76B2A00F2368B /* RestkitCDStack.swift in Sources */,
 				3D4F508319CDA3D200C1FD3D /* SugarRecord.swift in Sources */,
 				3D4F508519CDA3D200C1FD3D /* SugarRecordFinder.swift in Sources */,
 				3D77248C19D6DBD700C6B975 /* SugarRecordObjectProtocol.swift in Sources */,
@@ -517,6 +533,13 @@
 				);
 				INFOPLIST_FILE = SugarRecordTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -530,6 +553,13 @@
 				);
 				INFOPLIST_FILE = SugarRecordTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

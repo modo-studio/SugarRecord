@@ -1,3 +1,6 @@
 [submodule "Submodules/Realm"]
 	path = Submodules/Realm
 	url = https://github.com/realm/realm-cocoa.git
+[submodule "Submodules/RestKit"]
+	path = Submodules/RestKit
+	url = https://github.com/RestKit/RestKit.git
