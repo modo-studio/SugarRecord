@@ -6,9 +6,8 @@
 //  Copyright (c) 2014 SugarRecord. All rights reserved.
 //
 
+import XCTest
 import Foundation
-import Quick
-import Nimble
 import CoreData
 
 

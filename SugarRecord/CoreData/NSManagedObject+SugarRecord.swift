@@ -23,6 +23,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return SugarRecordCDContext(context: self.managedObjectContext)
     }
     
+    
     /**
     Returns the class entity name
     

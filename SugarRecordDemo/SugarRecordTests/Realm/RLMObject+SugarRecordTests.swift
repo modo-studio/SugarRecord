@@ -12,52 +12,124 @@ import Nimble
 import CoreData
 import Realm
 
-class RLMObjectSugarRecordTests: QuickSpec {
-    override func spec() {
-        beforeSuite {}
-        afterSuite {}
-        
-        context("when filtering", { () -> () in
-            it("should return the objectClass set in the finder", { () -> () in
-                // TODO - Pending to check how to compare if two classes are the same
-            })
-            
-            it("should set the predicate to the finder returned", { () -> () in
-                var predicate: NSPredicate = NSPredicate()
-                var finder: SugarRecordFinder = RLMObject.by(predicate)
-                expect(finder.predicate!).to(beIdenticalTo(predicate))
-                finder = RLMObject.by("name == Test")
-                expect(finder.predicate!.predicateFormat).to(equal("name == Test"))
-                finder = RLMObject.by("name", equalTo: "Test")
-                expect(finder.predicate!.predicateFormat).to(equal("name == Test"))
-            })
-        })
-        
-        context("when sorting", { () -> () in
-            it("should update the sort descriptor", { () -> () in
-                var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-                var finder: SugarRecordFinder = RLMObject.sorted(by: sortDescriptor)
-                expect(finder.sortDescriptors.last!).to(beIdenticalTo(sortDescriptor))
-                finder = RLMObject.sorted(by: "name", ascending: true)
-                expect(finder.sortDescriptors.last!.key!).to(equal("name"))
-                expect(finder.sortDescriptors.last!.ascending).to(beTruthy())
-                finder = RLMObject.sorted(by: [sortDescriptor])
-                expect(finder.sortDescriptors).to(equal([sortDescriptor]))
-            })
-        })
-        
-        context("when all", { () -> () in
-            it("should return the finder with the all set", { () -> () in
-                var finder: SugarRecordFinder = RLMObject.all()
-                var isAll: Bool?
-                switch finder.elements {
-                case .all:
-                    isAll = true
-                default:
-                    isAll = false
-                }
-                expect(isAll!).to(beTruthy())
-            })
-        })
+class RLMObjectSugarRecordTests: XCTestCase
+{
+    override func setUp()
+    {
+        SugarRecord.addStack(DefaultREALMStack(stackName: "RealmTest", stackDescription: "Realm stack for tests"))
+    }
+    
+    override func tearDown() {
+        SugarRecord.cleanup()
+        SugarRecord.removeDatabase()
+    }
+    
+    func testIfTheSugarRecordRealmMatchesTheObjectContext()
+    {
+        let object: RealmObject = RealmObject.create() as RealmObject
+        object.save()
+        let context: SugarRecordRLMContext = object.context() as SugarRecordRLMContext
+        XCTAssertEqual(context.realmContext, object.realm, "SugarRecord context should have the object context")
+    }
+    
+    func testIfReturnsTheEntityNameWithoutNamespace()
+    {
+        XCTAssertEqual(RealmObject.entityName(), "RealmObject", "The entity name shouldn't include the namespace")
+    }
+    
+    func testIfTheFinderReturnsTheProperStackType()
+    {
+        let sameClass: Bool = RealmObject.stackType() == SugarRecordStackType.SugarRecordStackTypeRealm
+        XCTAssertEqual(sameClass, true, "The stack type should be SugarRecordStackTypeRealm")
+    }
+
+    func testIfTheReturnedFinderIsRight()
+    {
+        var predicate: NSPredicate = NSPredicate()
+        var finder: SugarRecordFinder = RealmObject.by(predicate)
+        XCTAssertEqual(finder.predicate!, predicate, "The finder predicate should be the one passed to the object class using by")
+        finder = RealmObject.by("name == Test")
+        XCTAssertEqual(finder.predicate!.predicateFormat, "name == Test", "The finder predicate format should be the same as the passed to the object class using predicateString")
+        finder = RealmObject.by("name", equalTo: "Test")
+        XCTAssertEqual(finder.predicate!.predicateFormat, "name == Test", "The finder predicate format should be the same as the passed to the object class using key-value")
+    }
+    
+    func testIfTheObjectClassAndStackTypeAreSetToTheFinderWhenFiltering()
+    {
+        var predicate: NSPredicate = NSPredicate()
+        var finder: SugarRecordFinder = RealmObject.by(predicate)
+        var sameClass = finder.objectClass? is RealmObject.Type
+        XCTAssertTrue(sameClass, "The class of the finder should be the object class")
+        XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
+        finder = RealmObject.by("name == Test")
+        sameClass = finder.objectClass? is RealmObject.Type
+        XCTAssertTrue(sameClass, "The class of the finder should be the object class")
+        XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
+        finder = RealmObject.by("name", equalTo: "Test")
+        sameClass = finder.objectClass? is RealmObject.Type
+        XCTAssertTrue(sameClass, "The class of the finder should be the object class")
+        XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
+    }
+    
+    func testIfTheSortDescriptorsAreProperlySetToTheFinder()
+    {
+        var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        var finder: SugarRecordFinder = RealmObject.sorted(by: sortDescriptor)
+        XCTAssertEqual(finder.sortDescriptors.last!, sortDescriptor, "Sort descriptor should be added to the stack of the finder")
+        finder = RealmObject.sorted(by: "name", ascending: true)
+        XCTAssertEqual(finder.sortDescriptors.last!.key!, "name", "The key of the last sortDescriptor should match the last added's key")
+        XCTAssertTrue(finder.sortDescriptors.last!.ascending, "The ascending of the last sortDescriptor should match the last added's key")
+        finder = RealmObject.sorted(by: [sortDescriptor])
+        XCTAssertEqual(finder.sortDescriptors, [sortDescriptor], "The sort descriptor should be added to the stack")
+    }
+    
+    func testIfTheObjectClassAndStackTypeAreProperlySetWhenSorting()
+    {
+        var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        var finder: SugarRecordFinder = RealmObject.sorted(by: sortDescriptor)
+        var sameClass = finder.objectClass? is CoreDataObject.Type
+        XCTAssertTrue(sameClass, "The objectClass of the finder should be the same of the object")
+        XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
+        finder = RealmObject.sorted(by: "name", ascending: true)
+        sameClass = finder.objectClass? is RealmObject.Type
+        XCTAssertTrue(sameClass, "The objectClass of the finder should be the same of the object")
+        XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
+        finder = RealmObject.sorted(by: [sortDescriptor])
+        sameClass = finder.objectClass? is RealmObject.Type
+        XCTAssertTrue(sameClass, "The objectClass of the finder should be the same of the object")
+        XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
+    }
+    
+    func testIfAllIsProperlySetToTheFinder()
+    {
+        var finder: SugarRecordFinder = NSManagedObject.all()
+        var isAll: Bool?
+        switch finder.elements {
+        case .all:
+            isAll = true
+        default:
+            isAll = false
+        }
+        XCTAssertTrue(isAll!, "Elements of the finder should be ALL")
+    }
+    
+    func testIfDeletePropagatesTheDeletionCallToTheContext()
+    {
+        // Cannot be applied yet because we cannot extend extension methods
+    }
+    
+    func testIfCreationPropagatesTheCallUsingOperations()
+    {
+        // Cannot be applied yet because we cannot extend extension methods
+    }
+    
+    func testIfSaveCallsSaveSynchronously()
+    {
+        // Cannot be applied yet because we cannot extend extension methods
+    }
+    
+    func testSave()
+    {
+        // Cannot be applied yet because we cannot extend extension methods
     }
 }

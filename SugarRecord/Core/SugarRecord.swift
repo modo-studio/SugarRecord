@@ -37,6 +37,14 @@ public class SugarRecord {
         stack.initialize()
     }
     
+    /**
+    Remove all the stacks from the list
+    */
+    public class func removeStacks()
+    {
+        StaticVars.stacks.removeAll(keepCapacity: false)
+    }
+    
     
     /**
     Returns a valid stack for a given type
