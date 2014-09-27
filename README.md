@@ -55,6 +55,7 @@ The library is completetly written in Swift and fully tested to ensure the behav
 - Integration with Restkit
 - Integration with iCloud
 - Support to migrations
+- High-Performance data import
 
 ## Requirements
 
@@ -156,33 +157,30 @@ user.beginWritting().delete().endWritting()
 
 ### Objects querying
 
-### Objects deletion
-
-
-
+Fetching elements had never been so easy as it's now with SugarRecord. Take a look to the examples below because they are self-explaining:
 
 ```swift
-// Setting the stack
-SugarRecord.addStack(DefaultREALMStack(stackName: "RealmTest", stackDescription: "Realm stack for tests"))
+let users: [User]? = User.sorted(by:"name", ascending: true).firsts(10).find()?
+users: User? = User().find()?.first as Person
+users: [User]? = User("age", equalTo: "10").sorted(by:"name", ascending: true).find()?
+users: [User]? = User.all().find()?
+```
+The example above is valid for **Realm** and **Objective-C**
 
-// Creating object
-var person: Person = Person.create() as Person
-person.name = "Realmy"
-person.age = 22
-let saved: Bool = person.save()
+### Advanced options
 
-// Object finding
-let people: [Person]? = Person.sorted(by:"name", ascending: true).firsts(10).find()?
-let person: Person? = Person().find()?.first as Person
-let people: [Person]? = Person("age", equalTo: "10").sorted(by:"name", ascending: true).find()?
-let people: [Person]? = Person.all().find()?
+Although we've tried to offer an easy API interface for beginners we have advanced options too to go further into lower layers of the library. SugarRecord offers operations closures connected with your stacks to work directly with these context and decide then when and how saving them.
 
-// Deleting the object
-let deleted: Bool = (Person.all().find()?.first()? as Person).delete
-
-
-
-//NOTE: It doesn't matter if you're using CoreData or REALM, the syntax you use to work with these objects is the same!
+```swift
+SugarRecord.operation(SugarRecordStackType.SugarRecordStackTypeRealm, closure: { (context) -> () in
+  users: [User]? = User.all().find()?
+  context.beginWritting()
+  for user in users {
+    user.age++
+  }
+  context.endWritting()
+}
+})
 ```
 
 ### SugarRecord stacks
