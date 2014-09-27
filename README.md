@@ -98,6 +98,46 @@ let stack: DefaultCDStack = DefaultCDStack(databaseName: "Database.sqlite", auto
 SugarRecord.addStack(stack)
 ```
 
+### Objects creation
+
+ManagedObjects and RLMObjects have extensions to make the creation easier. Methods included there are connected with SugarRecord and the stacks you previously setup. The example below shows the creation of an user without mattering if it's a RLMObject OR A CoreData object
+```swift
+var user: User = User.create() as User
+user.name = "Testy"
+user.age = 21
+let saved: Bool = user.save()
+```
+### Objects edition
+
+To edit your objects you have to notify SugarRecord that you are going to start/end an edition. If you are going to edit only one object you can do it quickly with the methods `beginWritting()` and `endWritting() `. It's very important to tell SugarRecord about any edition or you app might crash. Take a look to the example below
+
+```swift
+user.beginWritting()
+user.name ="Pepito"
+user.endWritting()
+```
+If you are editing different objects that are in the same Sugar Record context it's recommended to call `beginWritting()` before starting editing any of them. Once you've finished the edition call `endWritting()`.
+
+### Objects deletion
+
+If you want to delete an object that you have in a SugarRecord context you can do it easily using the method `delete()`. **It's very important** to call `beginWritting()` and `endWritting()` here too to notify the library about the changes you are making. Take a look to the examples below:
+
+```swift
+// 3-Lines syntax
+user.beginWritting()
+user.delete()
+user.endWritting()
+
+// 1-Line syntax
+user.beginWritting().delete().endWritting()
+```
+
+### Objects querying
+
+### Objects deletion
+
+
+
 
 ```swift
 // Setting the stack
