@@ -15,12 +15,14 @@ class RLMObjectSugarRecordTests: XCTestCase
 {
     override func setUp()
     {
+        super.setUp()
         SugarRecord.addStack(DefaultREALMStack(stackName: "RealmTest", stackDescription: "Realm stack for tests"))
     }
     
     override func tearDown() {
         SugarRecord.cleanup()
         SugarRecord.removeDatabase()
+        super.tearDown()
     }
     
     func testIfTheSugarRecordRealmMatchesTheObjectContext()

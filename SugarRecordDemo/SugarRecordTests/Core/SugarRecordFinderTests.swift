@@ -16,12 +16,14 @@ class SugarRecordSugarRecordFinderTests: XCTestCase
     var sugarRecordFinder: SugarRecordFinder!
     override func setUp()
     {
+        super.setUp()
         sugarRecordFinder = SugarRecordFinder()
     }
     
     override func tearDown()
     {
         sugarRecordFinder = nil
+        super.tearDown()
     }
     
     func testIfSortDescriptorsAreAddedToTheArrayUnsingSortDescriptor()

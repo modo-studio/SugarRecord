@@ -14,6 +14,7 @@ class CoreDataObjectTests: XCTestCase
 {
     override func setUp()
     {
+        super.setUp()
         let bundle: NSBundle = NSBundle(forClass: CoreDataObjectTests.classForCoder())
         let modelPath: NSString = bundle.pathForResource("SugarRecord", ofType: "momd")!
         let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath))
@@ -24,6 +25,7 @@ class CoreDataObjectTests: XCTestCase
     override func tearDown() {
         SugarRecord.cleanup()
         SugarRecord.removeDatabase()
+        super.tearDown()
     }
     
     func testObjectCreation()

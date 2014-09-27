@@ -25,36 +25,42 @@ enum SugarRecordLogger: Int {
     case logLevelFatal, logLevelError, logLevelWarn, logLevelInfo, logLevelVerbose
     
     /// Log the given message depending on the curret log level
-    func log(let logMessage: String) -> () {
+    func log(let logMessage: String) -> Bool {
         switch self {
         case .logLevelFatal:
             print("SR-Fatal: \(logMessage) \n")
+            return true
         case .logLevelError:
             if SugarRecordLogger.currentLevel == .logLevelFatal {
-                return
+                return false
             }
             print("SR-Error: \(logMessage) \n")
+            return true
         case .logLevelWarn:
             if SugarRecordLogger.currentLevel == .logLevelFatal ||
                 SugarRecordLogger.currentLevel == .logLevelError {
-                    return
+                    return false
             }
             print("SR-Warm: \(logMessage) \n")
+            return true
         case .logLevelInfo:
             if SugarRecordLogger.currentLevel == .logLevelFatal ||
                 SugarRecordLogger.currentLevel == .logLevelError ||
                 SugarRecordLogger.currentLevel == .logLevelWarn {
-                    return
+                    return false
             }
             print("SR-Info: \(logMessage) \n")
+            return true
         default:
             if SugarRecordLogger.currentLevel == .logLevelFatal ||
                 SugarRecordLogger.currentLevel == .logLevelError ||
                 SugarRecordLogger.currentLevel == .logLevelWarn ||
                 SugarRecordLogger.currentLevel == .logLevelInfo{
-                    return
+                    return false
             }
             print("SR-Verbose: \(logMessage) \n")
+            return true
         }
+        return false
     }
 }

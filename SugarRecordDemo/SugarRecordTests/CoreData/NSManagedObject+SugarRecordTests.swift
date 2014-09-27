@@ -14,6 +14,7 @@ class NSManagedObjectSugarRecordTests: XCTestCase
 {
     override func setUp()
     {
+        super.setUp()
         let bundle: NSBundle = NSBundle(forClass: RealmObjectTests.classForCoder())
         let modelPath: NSString = bundle.pathForResource("SugarRecord", ofType: "momd")!
         let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath))
@@ -25,6 +26,7 @@ class NSManagedObjectSugarRecordTests: XCTestCase
         SugarRecord.cleanup()
         SugarRecord.removeDatabase()
         SugarRecord.removeStacks()
+        super.tearDown()
     }
     
     func testIfTheSugarRecordCDMatchesTheObjectContext()
