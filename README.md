@@ -17,6 +17,7 @@ The library is completetly written in Swift and fully tested to ensure the behav
 - [Version 1.0 - Features](#planned-for-1.0-release)
 - [Requirements](#requirements)
 - [Installation](#installation)
+- [Communication flow](#communication-flow)
 - [How to use SugarRecord](#how-to-use-sugarrecord)
   - [SugarRecord stacks](#sugarrecord-stacks)
     - [Contribute](#contribute)
@@ -46,7 +47,6 @@ The library is completetly written in Swift and fully tested to ensure the behav
 - Fully redesigned structure based on stacks 
 - **REALM support**
 - Fully detailed steps to **integrate all components in your project** (*while waiting the integration of CocoaPods*)
-- CI with https://github.com/modcloth-labs/github-xcode-bot-builder
 
 *Note: It's going to suppose a big step to SugarRecord because it's going to make it more flexible for all kind of developers. You can use the current initial version of SugarRecord 0.2 (master branch).*
 
@@ -66,6 +66,14 @@ Cocoapods doesn't support support Swift libraries yet so the instalation process
 
 *Note: As soon as CocoaPod supports it the library will have a pod to make this process easier for everybody*
 
+## Communication flow
+
+If you want to communicate any issue, suggestion or even make a contribution, you have to keep in mind the flow bellow:
+
+- If you **need help**, ask your doubt in Stack Overflow using the tag 'sugarrecord'
+- If you want to ask something in general, use Stack Overflow too.
+- **Open an issue** either when you have an error to report or a feature request.
+- If you want to **contribute**, submit a pull request, and remember the rules to follow related with the code style, testing, ...
 
 ## How to use SugarRecord
 If you want to learn how to setup SugarRecord with the stack and stack working with it, the library comes with an useful Playground HTML file with steps and some examples to follow. Take a look to the playground [**HERE**](https://github.com/SugarRecord/SugarRecord/docs/tutorial.playground).
@@ -185,11 +193,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ## Who uses SugarRecord?
-If you are currently using SugarRecord in your app, let me know and I'll add it to the list:
-
-## Contribute
-SugarRecord is provided free of charge. If you want to support it:
-
-- You can report your issues directly through Github repo issues page. I'll try to fix them as soon as possible and listen your suggestion about how to improve the library.
-- You can post your doubts in StackOverFlow too. I'll be subscribed to updates in StackOverFlow related to SugarRecord tag.
-- We are opened to new PR introducing features to the implementation of fixing bugs in code. We can make SugarRecord even more sugar than it's right know. Contribute with it :smile:
+If you are currently using SugarRecord in your app, let me know and I'll add it to the list.
