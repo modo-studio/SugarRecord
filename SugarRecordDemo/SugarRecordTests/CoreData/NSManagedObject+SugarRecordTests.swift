@@ -15,7 +15,7 @@ class NSManagedObjectSugarRecordTests: QuickSpec {
     override func spec() {
         beforeSuite
             {
-                let bundle: NSBundle = NSBundle(forClass: CoreDataObjectTests.classForCoder())
+                let bundle: NSBundle = NSBundle(forClass: RealmObjectTests.classForCoder())
                 let modelPath: NSString = bundle.pathForResource("SugarRecord", ofType: "momd")!
                 let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath))
                 let stack: DefaultCDStack = DefaultCDStack(databaseName: "TestDB.sqlite", model: model, automigrating: true)
