@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 // MARK: - Library Constants
-private let srSugarRecordVersion: String = "v1.0 - Alpha"
+internal let srSugarRecordVersion: String = "v1.0 - Alpha"
 
 
 // MARK: -  Error codes
@@ -44,7 +44,7 @@ public class SugarRecord {
     */
     public class func addStack(stack: protocol<SugarRecordStackProtocol>)
     {
-        SugarRecordLogger.logLevelInfo.log("Set the stack -\(stack)- as the current SugarRecord stack")
+        SugarRecordLogger.logLevelInfo.log("Stack -\(stack)- added to SugarRecord")
         StaticVars.stacks.append(stack)
         stack.initialize()
     }
@@ -55,6 +55,7 @@ public class SugarRecord {
     public class func removeAllStacks()
     {
         StaticVars.stacks.removeAll(keepCapacity: false)
+        SugarRecordLogger.logLevelVerbose.log("Removed all stacks form SugarRecord")
     }
     
     
@@ -65,7 +66,7 @@ public class SugarRecord {
     
     :returns: SugarRecord stack
     */
-    public class func stackFortype(stackType: SugarRecordStackType) -> SugarRecordStackProtocol?
+    internal class func stackFortype(stackType: SugarRecordStackType) -> SugarRecordStackProtocol?
     {
         for stack in StaticVars.stacks {
             if stack.stackType == stackType {
@@ -116,6 +117,7 @@ public class SugarRecord {
         for stack in StaticVars.stacks {
             stack.cleanup()
         }
+        SugarRecordLogger.logLevelVerbose.log("Cleanup executed")
     }
     
     /**
@@ -127,6 +129,7 @@ public class SugarRecord {
             stack.removeDatabase()
         }
         removeAllStacks()
+        SugarRecordLogger.logLevelVerbose.log("Database removed")
     }
     
     /**
@@ -182,7 +185,7 @@ public class SugarRecord {
     
     :param: error NSError to be processed
     */
-    class func handle(error: NSError?) {
+    internal class func handle(error: NSError?) {
         if error == nil  { return }
         SugarRecordLogger.logLevelFatal.log("Error caught: \(error)")
         assert(true, "\(error?.localizedDescription)")
@@ -193,7 +196,7 @@ public class SugarRecord {
     
     :param: exception NSException to be processed
     */
-    class func handle(exception: NSException?) {
+    internal class func handle(exception: NSException?) {
         if exception == nil { return }
         SugarRecordLogger.logLevelError.log("Exception caught: \(exception)")
     }

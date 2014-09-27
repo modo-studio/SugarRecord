@@ -170,6 +170,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     */
     public func delete() -> SugarRecordContext
     {
+        SugarRecordLogger.logLevelVerbose.log("Object \(self) deleted in its context")
         return self.context().deleteObject(self)
     }
     
@@ -183,6 +184,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     */
     public class func create() -> AnyObject
     {
+        SugarRecordLogger.logLevelVerbose.log("Object created")
         var object: AnyObject?
         SugarRecord.operation(NSManagedObject.stackType(), closure: { (context) -> () in
             object = context.createObject(self)
@@ -199,6 +201,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     */
     public class func create(inContext context: SugarRecordContext) -> AnyObject
     {
+        SugarRecordLogger.logLevelVerbose.log("Object created")
         return context.createObject(self)!
     }
     
@@ -211,6 +214,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     */
     public func save () -> Bool
     {
+        SugarRecordLogger.logLevelVerbose.log("Object saved in context")
         var saved: Bool = false
         self.save(false, completion: { (error) -> () in
             saved = error == nil
@@ -226,6 +230,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     */
     public func save (asynchronously: Bool, completion: (error: NSError?) -> ())
     {
+        SugarRecordLogger.logLevelVerbose.log("Saving \(self) in context")
         let context: SugarRecordContext = self.context()
         if asynchronously {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
@@ -251,6 +256,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     */
     public func beginWritting() -> SugarRecordObjectProtocol
     {
+        SugarRecordLogger.logLevelVerbose.log("Object did begin writting")
         self.context().beginWritting()
         return self
     }
@@ -260,6 +266,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     */
     public func endWritting()
     {
+        SugarRecordLogger.logLevelVerbose.log("Object did end writting")
         self.context().endWritting()
     }
     

@@ -193,6 +193,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     public func removeDatabase()
     {
+        SugarRecordLogger.logLevelVerbose.log("Removing database")
         var error: NSError?
         if databasePath == nil {
             SugarRecord.handle(NSException(name: "CoreData database deletion error", reason: "Couldn't delete the database because the path was nil", userInfo: nil))
@@ -216,6 +217,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     internal func createMainContext(parentContext: NSManagedObjectContext?) -> NSManagedObjectContext
     {
+        SugarRecordLogger.logLevelVerbose.log("Creating Main context")
         var context: NSManagedObjectContext?
         if parentContext == nil {
             SugarRecord.handle(NSError(domain: "The root saving context is not initialized", code: SugarRecordErrorCodes.CoreDataError.toRaw(), userInfo: nil))
@@ -237,6 +239,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     internal func createRootSavingContext(persistentStoreCoordinator: NSPersistentStoreCoordinator?) -> NSManagedObjectContext
     {
+        SugarRecordLogger.logLevelVerbose.log("Creating Root Saving context")
         var context: NSManagedObjectContext?
         if persistentStoreCoordinator == nil {
             SugarRecord.handle(NSError(domain: "The persistent store coordinator is not initialized", code: SugarRecordErrorCodes.CoreDataError.toRaw(), userInfo: nil))
@@ -333,7 +336,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     
     :returns: [NSObject: AnyObject] with the options
     */
-    private class func autoMigrateStoreOptions() -> [NSObject: AnyObject]
+    internal class func autoMigrateStoreOptions() -> [NSObject: AnyObject]
     {
         var sqliteOptions: [String: String] = [String: String] ()
         sqliteOptions["WAL"] = "journal_mode"
@@ -349,7 +352,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     
     :returns: [NSObject: AnyObject] with the options
     */
-    private class func defaultStoreOptions() -> [NSObject: AnyObject]
+    internal class func defaultStoreOptions() -> [NSObject: AnyObject]
     {
         var sqliteOptions: [String: String] = [String: String] ()
         sqliteOptions["WAL"] = "journal_mode"
@@ -365,7 +368,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     
     :returns: NSURL with the path
     */
-    private class func databasePathURLFromName(name: String) -> NSURL
+    internal class func databasePathURLFromName(name: String) -> NSURL
     {
         let documentsPath: String = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)[0] as String
         let mainBundleInfo: [NSObject: AnyObject] = NSBundle.mainBundle().infoDictionary
@@ -413,7 +416,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
 *   - Observing when the context is going to be saved to get permanent IDs before saving
 *   - Observing when the another context changes and then bring these changes
 */
-extension NSManagedObjectContext
+internal extension NSManagedObjectContext
 {
     /**
     Add observer of self to check when is going to save to ensure items are saved with permanent IDs
@@ -448,6 +451,7 @@ extension NSManagedObjectContext
     :param: mainThread Bool indicating if it's the main thread
     */
     func startObserving(context: NSManagedObjectContext, inMainThread mainThread: Bool) {
+        SugarRecordLogger.logLevelVerbose.log("\(self) context now observing the context \(context)")
         if mainThread {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("mergeChangesInMainThread:"), name: NSManagedObjectContextDidSaveNotification, object: context)
         }

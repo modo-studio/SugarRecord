@@ -174,6 +174,7 @@ extension RLMObject: SugarRecordObjectProtocol
     */
     public func delete() -> SugarRecordContext
     {
+        SugarRecordLogger.logLevelVerbose.log("Object deleted in its context")
         return self.context().deleteObject(self)
     }
     
@@ -187,6 +188,7 @@ extension RLMObject: SugarRecordObjectProtocol
     */
     public class func create() -> AnyObject
     {
+        SugarRecordLogger.logLevelVerbose.log("Object created")
         var object: AnyObject?
         SugarRecord.operation(RLMObject.stackType(), closure: { (context) -> () in
             object = context.createObject(self)
@@ -204,6 +206,7 @@ extension RLMObject: SugarRecordObjectProtocol
     */
     public class func create(inContext context: SugarRecordContext) -> AnyObject
     {
+        SugarRecordLogger.logLevelVerbose.log("Object created")
         return context.createObject(self)!
     }
     
@@ -217,6 +220,7 @@ extension RLMObject: SugarRecordObjectProtocol
     */
     public func save () -> Bool
     {
+        SugarRecordLogger.logLevelVerbose.log("Object saved in its content")
         var saved: Bool = false
         self.save(false, completion: { (error) -> () in
             saved = error == nil
@@ -262,6 +266,7 @@ extension RLMObject: SugarRecordObjectProtocol
     */
     public func beginWritting() -> SugarRecordObjectProtocol
     {
+        SugarRecordLogger.logLevelVerbose.log("Object did begin writting")
         self.context().beginWritting()
         return self
     }
@@ -271,6 +276,7 @@ extension RLMObject: SugarRecordObjectProtocol
     */
     public func endWritting()
     {
+        SugarRecordLogger.logLevelVerbose.log("Object did end writting")
         self.context().endWritting()
     }
 }
