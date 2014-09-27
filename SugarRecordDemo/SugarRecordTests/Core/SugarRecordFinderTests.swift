@@ -26,6 +26,21 @@ class SugarRecordSugarRecordFinderTests: XCTestCase
         super.tearDown()
     }
     
+    func testIfFindExecutesFindInContext()
+    {
+        class MockContext: SugarRecordCDContext
+        {
+            var findCalled: Bool = false
+            override func find(finder: SugarRecordFinder) -> [AnyObject]? {
+                findCalled = true
+                return nil
+            }
+        }
+        let context: MockContext = MockContext(context: NSManagedObjectContext())
+        SugarRecordFinder().find(inContext: context)
+        XCTAssertTrue(context.findCalled, "Find call should be propagated to the passed context")
+    }
+    
     func testIfSortDescriptorsAreAddedToTheArrayUnsingSortDescriptor()
     {
         var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "test", ascending: true)

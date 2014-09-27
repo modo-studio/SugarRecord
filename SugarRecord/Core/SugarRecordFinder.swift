@@ -347,6 +347,11 @@ public class SugarRecordFinder
         return objects
     }
     
+    public func find(inContext context:SugarRecordContext) -> [AnyObject]?
+    {
+        return context.find(self)
+    }
+    
     // MARK - Deletion
     
     /**

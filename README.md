@@ -173,15 +173,14 @@ Although we've tried to offer an easy API interface for beginners we have advanc
 
 ```swift
 SugarRecord.operation(SugarRecordStackType.SugarRecordStackTypeRealm, closure: { (context) -> () in
-  users: [User]? = User.all().find()?
-  context.beginWritting()
+  users: [User]? = User.all().find(inContext: context)?
+  context.beginWritting() // <- Notifying we're starting the edition
   for user in users {
     user.age++
   }
-  context.endWritting()
-}
+  context.endWritting() // <- Notifying that we've finished the edition
 })
-```
+``
 
 ### SugarRecord stacks
 
