@@ -180,7 +180,7 @@ SugarRecord.operation(SugarRecordStackType.SugarRecordStackTypeRealm, closure: {
   }
   context.endWritting() // <- Notifying that we've finished the edition
 })
-``
+```
 
 ### SugarRecord stacks
 
