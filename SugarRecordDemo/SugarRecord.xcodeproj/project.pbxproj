@@ -35,6 +35,13 @@
 		3D77249119D6E45A00C6B975 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77249019D6E45A00C6B975 /* SugarRecordTests.swift */; };
 		3D77249319D7007E00C6B975 /* DefaultREALMStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77249219D7007E00C6B975 /* DefaultREALMStackTests.swift */; };
 		3D77249519D7032700C6B975 /* DefaultCDStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77249419D7032700C6B975 /* DefaultCDStackTests.swift */; };
+		3D9C0B0F19D7F73200A3011E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77247C19D6DADD00C6B975 /* Realm.framework */; };
+		3D9C0B1219D7FB6A00A3011E /* RestkitCDStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C0B1119D7FB6A00A3011E /* RestkitCDStackTests.swift */; };
+		3DC8D4B419D76B2A00F2368B /* RestkitCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8D4B319D76B2A00F2368B /* RestkitCDStack.swift */; };
+		3DC8D59F19D76DAB00F2368B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D59E19D76DAB00F2368B /* CFNetwork.framework */; };
+		3DC8D5A119D76DBD00F2368B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D5A019D76DBD00F2368B /* Security.framework */; };
+		3DC8D5A319D76DC200F2368B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D5A219D76DC200F2368B /* MobileCoreServices.framework */; };
+		58E1E7AAF58F40E79B345566 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCAD85ADD52418BAA4A4624 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +106,6 @@
 /* Begin PBXFileReference section */
 		3D13C53819CE0A0800EB8688 /* RealmObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObjectTests.swift; sourceTree = "<group>"; };
 		3D272DB819CDD6DD00D7A6B6 /* SugarRecord 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SugarRecord 2.xcdatamodel"; sourceTree = "<group>"; };
-		3D43C1AF199DE478004FC0E5 /* SugarRecord-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecord-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D4F507419CDA36B00C1FD3D /* SugarRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D4F509919CDA4DB00C1FD3D /* CoreDataObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataObjectTests.swift; sourceTree = "<group>"; };
 		3D4F509F19CDAD1800C1FD3D /* CoreDataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataObject.swift; path = SugarRecordTests/Models/CoreDataObject.swift; sourceTree = SOURCE_ROOT; };
@@ -112,6 +118,7 @@
 		3D77249019D6E45A00C6B975 /* SugarRecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordTests.swift; sourceTree = "<group>"; };
 		3D77249219D7007E00C6B975 /* DefaultREALMStackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultREALMStackTests.swift; sourceTree = "<group>"; };
 		3D77249419D7032700C6B975 /* DefaultCDStackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCDStackTests.swift; sourceTree = "<group>"; };
+		3D9C0B1119D7FB6A00A3011E /* RestkitCDStackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestkitCDStackTests.swift; sourceTree = "<group>"; };
 		3DAD443F19CC931000B1E355 /* SugarRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecord.swift; sourceTree = "<group>"; };
 		3DAD444119CC931000B1E355 /* SugarRecordFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordFinder.swift; sourceTree = "<group>"; };
 		3DAD444219CC931000B1E355 /* SugarRecordLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordLogger.swift; sourceTree = "<group>"; };
@@ -135,6 +142,12 @@
 		3DBC55E7198E826E00268EB3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3DBC55F2198E826E00268EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DBC5602198E844B00268EB3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3DC8D4B319D76B2A00F2368B /* RestkitCDStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestkitCDStack.swift; sourceTree = "<group>"; };
+		3DC8D59E19D76DAB00F2368B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		3DC8D5A019D76DBD00F2368B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3DC8D5A219D76DC200F2368B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		8BCAD85ADD52418BAA4A4624 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C119D27213804B9BA48C972E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +155,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9C0B0F19D7F73200A3011E /* Realm.framework in Frameworks */,
+				3DC8D5A319D76DC200F2368B /* MobileCoreServices.framework in Frameworks */,
+				3DC8D5A119D76DBD00F2368B /* Security.framework in Frameworks */,
+				3DC8D59F19D76DAB00F2368B /* CFNetwork.framework in Frameworks */,
 				3D4F507D19CDA37500C1FD3D /* CoreData.framework in Frameworks */,
+				58E1E7AAF58F40E79B345566 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				3DAD445919CCB5FF00B1E355 /* DefaultCDStack.swift */,
+				3DC8D4B319D76B2A00F2368B /* RestkitCDStack.swift */,
 				3DAD444619CC931000B1E355 /* NSManagedObject+SugarRecord.swift */,
 				3DAD444719CC931000B1E355 /* SugarRecordCDContext.swift */,
 			);
@@ -221,6 +240,7 @@
 				3DAD445F19CCBB0100B1E355 /* NSManagedObject+SugarRecordTests.swift */,
 				3DAD446019CCBB0100B1E355 /* SugarRecordCDContextTests.swift */,
 				3D77249419D7032700C6B975 /* DefaultCDStackTests.swift */,
+				3D9C0B1119D7FB6A00A3011E /* RestkitCDStackTests.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -252,6 +272,8 @@
 				3DBC55DA198E826E00268EB3 /* SugarRecord */,
 				3DBC55F0198E826E00268EB3 /* SugarRecordTests */,
 				3DBC55D9198E826E00268EB3 /* Products */,
+				C119D27213804B9BA48C972E /* Pods.xcconfig */,
+				C0B3386437A14ADE88F5489D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -273,7 +295,6 @@
 				3DBC55E7198E826E00268EB3 /* Images.xcassets */,
 				3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */,
 				3DBC55DB198E826E00268EB3 /* Supporting Files */,
-				3D43C1AF199DE478004FC0E5 /* SugarRecord-Bridging-Header.h */,
 				3D5AF73519C6BC93009B431F /* SugarRecordTests-Bridging-Header.h */,
 			);
 			path = SugarRecord;
@@ -312,7 +333,18 @@
 			children = (
 				3D77246C19D6DADD00C6B975 /* Realm-Xcode6.xcodeproj */,
 				FFD8198519AF03DB00BD2603 /* SugarRecord */,
+				3DC8D59E19D76DAB00F2368B /* CFNetwork.framework */,
+				3DC8D5A219D76DC200F2368B /* MobileCoreServices.framework */,
+				3DC8D5A019D76DBD00F2368B /* Security.framework */,
 				3DBC5602198E844B00268EB3 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0B3386437A14ADE88F5489D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8BCAD85ADD52418BAA4A4624 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -335,9 +367,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D4F507A19CDA36B00C1FD3D /* Build configuration list for PBXNativeTarget "SugarRecordTests" */;
 			buildPhases = (
+				FF296C4575CC40AFBB966DD6 /* Check Pods Manifest.lock */,
 				3D4F507019CDA36B00C1FD3D /* Sources */,
 				3D4F507119CDA36B00C1FD3D /* Frameworks */,
 				3D4F507219CDA36B00C1FD3D /* Resources */,
+				DA8F0964FF304630923ADC40 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -456,6 +490,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DA8F0964FF304630923ADC40 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF296C4575CC40AFBB966DD6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3D4F507019CDA36B00C1FD3D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -471,6 +538,7 @@
 				3D77249319D7007E00C6B975 /* DefaultREALMStackTests.swift in Sources */,
 				3D77248B19D6DBD700C6B975 /* SugarRecordContextProtocol.swift in Sources */,
 				3D4F509E19CDAD0500C1FD3D /* SugarRecord.xcdatamodeld in Sources */,
+				3DC8D4B419D76B2A00F2368B /* RestkitCDStack.swift in Sources */,
 				3D4F508319CDA3D200C1FD3D /* SugarRecord.swift in Sources */,
 				3D4F508519CDA3D200C1FD3D /* SugarRecordFinder.swift in Sources */,
 				3D77248C19D6DBD700C6B975 /* SugarRecordObjectProtocol.swift in Sources */,
@@ -478,6 +546,7 @@
 				3D4F508919CDA3D200C1FD3D /* DefaultCDStack.swift in Sources */,
 				3D77249519D7032700C6B975 /* DefaultCDStackTests.swift in Sources */,
 				3D4F508A19CDA3D200C1FD3D /* NSManagedObject+SugarRecord.swift in Sources */,
+				3D9C0B1219D7FB6A00A3011E /* RestkitCDStackTests.swift in Sources */,
 				3D4F509A19CDA4DB00C1FD3D /* CoreDataObjectTests.swift in Sources */,
 				3D4F508B19CDA3D200C1FD3D /* SugarRecordCDContext.swift in Sources */,
 				3D4F508C19CDA3D200C1FD3D /* DefaultREALMStack.swift in Sources */,
@@ -506,6 +575,7 @@
 /* Begin XCBuildConfiguration section */
 		3D4F507B19CDA36B00C1FD3D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C119D27213804B9BA48C972E /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -517,12 +587,21 @@
 				);
 				INFOPLIST_FILE = SugarRecordTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SugarRecord/SugarRecordTests-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		3D4F507C19CDA36B00C1FD3D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C119D27213804B9BA48C972E /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -530,7 +609,15 @@
 				);
 				INFOPLIST_FILE = SugarRecordTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SugarRecord/SugarRecordTests-Bridging-Header.h";
 			};
 			name = Release;
 		};

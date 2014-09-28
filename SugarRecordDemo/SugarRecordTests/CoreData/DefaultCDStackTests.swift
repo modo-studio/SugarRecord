@@ -10,7 +10,8 @@ import UIKit
 import XCTest
 import CoreData
 
-class DefaultCDStackTests: XCTestCase {
+class DefaultCDStackTests: XCTestCase
+{
 
     var stack: DefaultCDStack? = nil
     
