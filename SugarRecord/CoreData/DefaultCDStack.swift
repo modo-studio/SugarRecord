@@ -115,6 +115,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     public func initialize()
     {
+        createManagedObjecModelIfNeeded()
         persistentStoreCoordinator = createPersistentStoreCoordinator()
         addDatabase()
         rootSavingContext = createRootSavingContext(self.persistentStoreCoordinator)
@@ -253,15 +254,22 @@ public class DefaultCDStack: SugarRecordStackProtocol
     }
     
     /**
+    Creates the ManagedObject model if it's needed
+    */
+    internal func createManagedObjecModelIfNeeded()
+    {
+        if managedObjectModel == nil {
+            managedObjectModel = NSManagedObjectModel.mergedModelFromBundles(nil)
+        }
+    }
+    
+    /**
     Creates the stack's persistent store coordinator
     
     :returns: NSPersistentStoreCoordinator of the stack
     */
     internal func createPersistentStoreCoordinator() -> NSPersistentStoreCoordinator
     {
-        if managedObjectModel == nil {
-            managedObjectModel = NSManagedObjectModel.mergedModelFromBundles(nil)
-        }
         var coordinator: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel!)
         return coordinator
     }

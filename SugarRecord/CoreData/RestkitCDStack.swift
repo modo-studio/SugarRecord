@@ -11,9 +11,12 @@ import Foundation
 public class RestkitCDStack: DefaultCDStack
 {
     override public func initialize() {
-        let store: RKManagedObjectStore = RKManagedObjectStore(managedObjectModel: self.managedObjectModel!)
+        createPathIfNecessary(forFilePath: self.databasePath!)
+        createManagedObjecModelIfNeeded()
+        let store = createRKManagedObjectStore()
         var error: NSError?
-        store.addSQLitePersistentStoreAtPath(self.databasePath!.absoluteString, fromSeedDatabaseAtPath: nil, withConfiguration: nil, options: nil, error: &error)
+        let storePath: String = RKApplicationDataDirectory().stringByAppendingPathComponent("RestKit")
+        store.addSQLitePersistentStoreAtPath(storePath, fromSeedDatabaseAtPath: nil, withConfiguration: nil, options: nil, error: &error)
         if error != nil {
             SugarRecord.handle(error)
         }
@@ -21,5 +24,10 @@ public class RestkitCDStack: DefaultCDStack
         self.persistentStoreCoordinator = store.persistentStoreCoordinator
         self.rootSavingContext = store.persistentStoreManagedObjectContext
         self.mainContext = store.mainQueueManagedObjectContext
+    }
+    
+    internal func createRKManagedObjectStore() -> RKManagedObjectStore
+    {
+        return RKManagedObjectStore(managedObjectModel: self.managedObjectModel!)
     }
 }
