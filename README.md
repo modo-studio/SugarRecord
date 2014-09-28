@@ -67,7 +67,6 @@ The scheme above shows the structure of SugarRecord. It's formed by:
 
 ## Coming features
 - Abstract FetchedResultsController to use with Realm and CoreData
-- Integration with Restkit
 - Integration with iCloud
 - Support to migrations
 - High-Performance data import
