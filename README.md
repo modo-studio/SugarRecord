@@ -8,7 +8,9 @@ SugarRecord is a management library to make it easier work with **CoreData and R
 
 The library is completetly written in Swift and fully tested to ensure the behaviour is the expected one.
 
-**There's a Google Group where you can leave your topics, question, doubts, suggestions and stuff besides issues https://groups.google.com/forum/#!forum/sugarrecord**
+**There's a Google Group where you can leave your topics, question, doubts, suggestions and stuff besides issues https://groups.google.com/forum/#!forum/sugarrecord .**
+
+**Moreover we have a blog to talk about the library, check it here: [http://sugarrecord.github.io/](http://sugarrecord.github.io/)**
 
 **Powered by [@pepibumur](http://www.twitter.com/pepibumur)**
 
