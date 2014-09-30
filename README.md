@@ -10,7 +10,7 @@ The library is completetly written in Swift and fully tested to ensure the behav
 
 **There's a Google Group where you can leave your topics, question, doubts, suggestions and stuff besides issues https://groups.google.com/forum/#!forum/sugarrecord .**
 
-**Moreover we have a blog to talk about the library, check it here: [http://sugarrecord.github.io/](http://sugarrecord.github.io/)**
+**Moreover we have a blog to talk about the library, check it here: [http://www.sugarrecord.com/](http://www.sugarrecord.com)**
 
 **Powered by [@pepibumur](http://www.twitter.com/pepibumur)**
 
@@ -21,6 +21,14 @@ The scheme above shows the structure of SugarRecord. It's formed by:
 - **Core**: Main component of the library that translates Save/Delete/Find calls into internal operations using the stacks set.
 - **SugarRecord contexts**: Altough Realm doesn't have contexts as we have in CoreData, we have created abstracted contexts that surround the user operations with models independently if you are using CoreData or Realm. Yeah!
 - **Stack**: The storage stack is another key piece in SugarRecord because it knows how and when persist/fetch/delete your objects into the database. You can tell SugarRecord which stack it should use.
+
+## Updates
+
+| **Date**               | **Done**                     |
+|-------------------------------|------------------------------------------------|
+| 30th-September-2014 | Added first post to the new blog [SugarRecord](http://sugarrecord.com/) |
+
+
 
 ## Index
 - [Advantages of SugarRecord](#advantages-of-sugarrecord)
