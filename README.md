@@ -1,4 +1,8 @@
-![image](https://raw.githubusercontent.com/SugarRecord/SugarRecord/develop/Resources/Slogan.png)
+# <center>![xcres](/Resources/Slogan.png)</center>
+
+[![Twitter: @pepibumur](https://img.shields.io/badge/contact-@pepibumur-blue.svg?style=flat)](https://twitter.com/pepibumur)
+[![Language: Swift](https://img.shields.io/badge/lang-Swift-yellow.svg?style=flat)](https://developer.apple.com/swift/)
+[![Build Status](https://travis-ci.org/SugarRecord/SugarRecord.svg?branch=1.0.0)](https://travis-ci.org/SugarRecord/SugarRecord)
 
 ## What is SugarRecord?
 SugarRecord is a management library to make it easier work with **CoreData and REALM**. Thanks to SugarRecord you'll be able to start working with **CoreData/REALM** with just a few lines of code:
