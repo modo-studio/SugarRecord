@@ -6,4 +6,4 @@ before_install:
   - cd SugarRecordDemo
 
 script:
-  - xctool -workspace SugarRecordDemo.xcworkspace -scheme SugarRecordDemo test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool -xcworkspace SugarRecord.xcworkspace -scheme SugarRecord test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
