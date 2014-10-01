@@ -217,7 +217,7 @@ One of the main advantages of using SugarRecord is its big flexibility to choose
 - **Default Core Data Stack**: This stack has a private context with the unique persistent store coordinator as parent. There is a main context under it to execute low load operations and a private one at the same level as the main one to execute high load operations. Changes  performed in that private context are brought to the main context using KVO.
 - **Default REALM Stack**: This  stack provides a setup for REALM which is much easier than Core Data, no context, thread safe...
 - **Default Core Data Stack + iCloud**: IN PROGRESS
-- **Default Core Data Stack + Restkit**: IN PROGRESS
+- **Default Core Data Stack + Restkit**: It connects thd default CoreData stack with RestKit to enjoy the powerful features of that library.
 
 #### Contribute
 If you have any other idea of stack that could be useful for SugarRecord users feel free to make your proposal. Ensure:
