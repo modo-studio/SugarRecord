@@ -7,4 +7,4 @@ before_install:
   - gem install --no-rdoc --no-ri cocoapods -v 0.34.1
 
 script:
-  - xctool -cworkspace SugarRecord.xcworkspace -scheme SugarRecordTests test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool -workspace SugarRecord.xcworkspace -scheme SugarRecordTests test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
