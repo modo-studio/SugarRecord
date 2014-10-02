@@ -4,6 +4,8 @@ rvm: 1.9.3
 
 before_install:
   - cd SugarRecordDemo
+  - gem install --no-rdoc --no-ri cocoapods -v 0.34.1
+  - gem install xcpretty
 
 script:
-  - xctool -xcworkspace SugarRecord.xcworkspace -scheme SugarRecord test -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xcodebuild -workspace SugarRecord.xcworkspace -scheme SugarRecordTests ONLY_ACTIVE_ARCH=YES test | xcpretty -tc --no-utf;
