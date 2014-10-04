@@ -9,12 +9,15 @@
 import Foundation
 import Realm
 
+public typealias  Migration = (fromSchema: Int, toSchema: Int, migration: RLMMigration) -> ()
+
 public class DefaultREALMStack: SugarRecordStackProtocol
 {
     public var name: String
     public var stackDescription: String
     public var stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeRealm
-
+    lazy public var migrations: [Migration] = [Migration]()
+    
     //MARK: - Constructors
     
     /**
@@ -31,11 +34,27 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     }
     
     /**
+    Initializer with support for migrations
+    
+    :param: stackName        String with the stack name
+    :param: stackDescription String with the stack description
+    :param: migrations       Array with the migrations
+    
+    :returns: Created stack with the migrations and properties set
+    */
+    convenience public init(stackName:String, stackDescription: String, migrations: [Migration]) {
+        self.init(stackName: stackName, stackDescription: stackDescription)
+        self.name = stackName
+        self.stackDescription = stackDescription
+        self.migrations = migrations
+    }
+    
+    /**
     Initializes the stack to start using it
     */
     public func initialize()
     {
-        // Nothing to do here
+        migrateIfNeeded()
     }
     
     /**
@@ -106,5 +125,18 @@ public class DefaultREALMStack: SugarRecordStackProtocol
         else {
             SugarRecordLogger.logLevelInfo.log("Database \(databaseName) removed")
         }
+    }
+    
+    /**
+    Executes migrations
+    */
+    func migrateIfNeeded()
+    {
+        if self.migrations.isEmpty { return }
+        RLMRealm.migrateDefaultRealmWithBlock({ (migration: RLMMigration!, oldSchema: UInt) -> UInt in
+            // TODO
+            // Excute migration blocks here
+            return 3 // Return the maximum schema block
+        })
     }
 }
