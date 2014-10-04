@@ -9,14 +9,13 @@
 import Foundation
 import Realm
 
-public typealias  Migration = (fromSchema: Int, toSchema: Int, migration: RLMMigration) -> ()
 
 public class DefaultREALMStack: SugarRecordStackProtocol
 {
     public var name: String
     public var stackDescription: String
     public var stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeRealm
-    lazy public var migrations: [Migration] = [Migration]()
+    lazy public var migrations: [RLMObjectMigration<RLMObject>] = [RLMObjectMigration<RLMObject>]()
     
     //MARK: - Constructors
     
@@ -42,7 +41,7 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     
     :returns: Created stack with the migrations and properties set
     */
-    convenience public init(stackName:String, stackDescription: String, migrations: [Migration]) {
+    convenience public init(stackName:String, stackDescription: String, migrations: [RLMObjectMigration<RLMObject>]) {
         self.init(stackName: stackName, stackDescription: stackDescription)
         self.name = stackName
         self.stackDescription = stackDescription
@@ -133,10 +132,18 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     func migrateIfNeeded()
     {
         if self.migrations.isEmpty { return }
-        RLMRealm.migrateDefaultRealmWithBlock({ (migration: RLMMigration!, oldSchema: UInt) -> UInt in
-            // TODO
-            // Excute migration blocks here
-            return 3 // Return the maximum schema block
+        RLMRealm.migrateDefaultRealmWithBlock({ (realmMigration: RLMMigration!, oldSchema: UInt) -> UInt in
+            var lastSchema: Int = 0
+            for migration in self.migrations {
+                if (migration.toSchema > lastSchema) { lastSchema = migration.toSchema }
+            }
+            var pendingMigrations: [RLMObjectMigration<RLMObject>] = self.migrations.filter({ (migration: RLMObjectMigration<RLMObject>) -> Bool in return migration.toSchema > Int(oldSchema)})
+            pendingMigrations.sort({ (first: RLMObjectMigration<RLMObject>, second: RLMObjectMigration<RLMObject>) -> Bool in return first.toSchema <= second.toSchema})
+            pendingMigrations.map({ (migration: RLMObjectMigration<RLMObject>) -> RLMObjectMigration<RLMObject> in
+                migration.migrate(realmMigration)
+                return migration
+            })
+            return UInt(lastSchema);
         })
     }
 }
