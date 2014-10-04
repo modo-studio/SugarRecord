@@ -365,6 +365,8 @@ public class DefaultCDStack: SugarRecordStackProtocol
         var sqliteOptions: [String: String] = [String: String] ()
         sqliteOptions["WAL"] = "journal_mode"
         var options: [NSObject: AnyObject] = [NSObject: AnyObject] ()
+        options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
+        options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: false)
         options[NSSQLitePragmasOption] = sqliteOptions
         return sqliteOptions
     }
