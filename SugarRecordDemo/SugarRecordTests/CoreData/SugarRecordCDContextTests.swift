@@ -29,7 +29,7 @@ class SugarRecordCDContextTests: XCTestCase
     }
     
     
-    func testThatEndWrittingCallSavesTheContext()
+    func testThatEndWritingCallSavesTheContext()
     {
         // ManagedObjectContext Mock
         class MockCoreDataContext: NSManagedObjectContext
@@ -42,8 +42,8 @@ class SugarRecordCDContextTests: XCTestCase
         }
         let mockContext = MockCoreDataContext()
         let sugarRecordContext: SugarRecordCDContext = SugarRecordCDContext(context: mockContext)
-        sugarRecordContext.endWritting()
-        XCTAssertTrue(mockContext.contextSaved, "EndWritting in SugarRecord context should call save in CD context")
+        sugarRecordContext.endWriting()
+        XCTAssertTrue(mockContext.contextSaved, "EndWriting in SugarRecord context should call save in CD context")
     }
     
     func testThatCreateObjectsDoesItInTheProperContext()

@@ -32,27 +32,27 @@ class SugarRecordRLMContextTests: XCTestCase
         }
     }
     
-    func testThatBegingWrittingCallsBeginWriteTransationInRealmContext()
+    func testThatBegingWritingCallsBeginWriteTransationInRealmContext()
     {
         let context: MockRLMRealm = MockRLMRealm()
         let srContext: SugarRecordRLMContext = SugarRecordRLMContext(realmContext: context)
-        srContext.beginWritting()
-        XCTAssertTrue(context.beginWriteTransactionCalled, "BeginWritting should notify the REALM Context")
+        srContext.beginWriting()
+        XCTAssertTrue(context.beginWriteTransactionCalled, "BeginWriting should notify the REALM Context")
     }
     
-    func testThatEndWrittingCallsCommitWriteTransationInRealmContext()
+    func testThatEndWritingCallsCommitWriteTransationInRealmContext()
     {
         let context: MockRLMRealm = MockRLMRealm()
         let srContext: SugarRecordRLMContext = SugarRecordRLMContext(realmContext: context)
-        srContext.endWritting()
-        XCTAssertTrue(context.commitWriteTransactionCalled, "EndWritting should notify the REALM Context")
+        srContext.endWriting()
+        XCTAssertTrue(context.commitWriteTransactionCalled, "EndWriting should notify the REALM Context")
     }
     
     func testObjectCreation()
     {
         let context: MockRLMRealm = MockRLMRealm()
         let srContext: SugarRecordRLMContext = SugarRecordRLMContext(realmContext: context)
-        srContext.endWritting()
+        srContext.endWriting()
         let realmObject: RealmObject = srContext.createObject(RealmObject.self) as RealmObject
         XCTAssertNil(realmObject.realm, "Created realm object shouldn't have a realm object")
     }
@@ -61,7 +61,7 @@ class SugarRecordRLMContextTests: XCTestCase
     {
         let context: MockRLMRealm = MockRLMRealm()
         let srContext: SugarRecordRLMContext = SugarRecordRLMContext(realmContext: context)
-        srContext.endWritting()
+        srContext.endWriting()
         let realmObject: RealmObject = srContext.createObject(RealmObject.self) as RealmObject
         srContext.insertObject(realmObject)
         XCTAssertTrue(context.objectAdded, "Object should be added to Realm")

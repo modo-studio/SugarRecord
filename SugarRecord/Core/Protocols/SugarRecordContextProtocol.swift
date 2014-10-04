@@ -13,12 +13,12 @@ public protocol SugarRecordContext
     /**
     *  Notifies the context that something is going to change there
     */
-    func beginWritting()
+    func beginWriting()
     
     /**
     *  Notifies the context that the edition has finished
     */
-    func endWritting()
+    func endWriting()
     
     /**
     *  Creates an object of the given type in the context (without saving the context)

@@ -39,8 +39,8 @@ class RealmObjectTests: XCTestCase
         realmObject2.birthday = NSDate()
         let saved2: Bool = realmObject2.save()
         XCTAssertEqual(RealmObject.all().find()!.count, 2, "The number of objects fetched should be equal to 2")
-        realmObject.beginWritting().delete().endWritting()
-        realmObject2.beginWritting().delete().endWritting()
+        realmObject.beginWriting().delete().endWriting()
+        realmObject2.beginWriting().delete().endWriting()
     }
     
     func testObjectDeletion()
@@ -52,7 +52,7 @@ class RealmObjectTests: XCTestCase
         realmObject.city = "TestCity"
         realmObject.birthday = NSDate()
         let saved: Bool = realmObject.save()
-        realmObject.beginWritting().delete().endWritting()
+        realmObject.beginWriting().delete().endWriting()
         XCTAssertEqual(RealmObject.all().find()!.count, 0, "The number of objects fetched after the deletion should be equal to 0")
     }
     
@@ -72,8 +72,8 @@ class RealmObjectTests: XCTestCase
         realmObject2.city = "TestCity"
         realmObject2.birthday = NSDate()
         let saved2: Bool = realmObject2.save()
-        realmObject.beginWritting().delete().endWritting()
-        realmObject2.beginWritting().delete().endWritting()
+        realmObject.beginWriting().delete().endWriting()
+        realmObject2.beginWriting().delete().endWriting()
         XCTAssertEqual(RealmObject.all().find()!.count, 0, "The number of objects fetched after the deletion should be equal to 0")
     }
     
@@ -82,12 +82,12 @@ class RealmObjectTests: XCTestCase
         var realmObject: RealmObject? = nil
         realmObject = RealmObject.create() as? RealmObject
         realmObject?.save()
-        realmObject!.beginWritting()
+        realmObject!.beginWriting()
         realmObject!.name = "Testy"
-        realmObject!.endWritting()
+        realmObject!.endWriting()
         let fetchedObject: RealmObject = RealmObject.allObjects().firstObject() as RealmObject
         XCTAssertEqual(fetchedObject.name, "Testy", "The name of the fetched object should be Testy")
-        realmObject!.beginWritting().delete().endWritting()
+        realmObject!.beginWriting().delete().endWriting()
     }
     
     func testObjectQuerying()
@@ -115,8 +115,8 @@ class RealmObjectTests: XCTestCase
         XCTAssertEqual(RealmObject.sorted(by: "name", ascending: true).last().find()!.first!.name, "Realmy2", "The name of the first object returned should be Realmy2")
         XCTAssertEqual(RealmObject.sorted(by: "name", ascending: true).firsts(20).find()!.count, 2, "The number of fetched elements using firsts should be equal to 2")
         XCTAssertEqual(RealmObject.sorted(by: "name", ascending: true).lasts(20).find()!.count, 2, "The number of fetched elements using lasts should be equal to 2")
-        realmObject!.beginWritting().delete().endWritting()
-        realmObject2!.beginWritting().delete().endWritting()
+        realmObject!.beginWriting().delete().endWriting()
+        realmObject2!.beginWriting().delete().endWriting()
     }
 }
 

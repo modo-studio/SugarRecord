@@ -378,9 +378,9 @@ public class SugarRecordFinder
                 SugarRecordLogger.logLevelInfo.log("No objects have been deleted")
                 return
             }
-            context.beginWritting()
+            context.beginWriting()
             context.deleteObjects(objects!)
-            context.endWritting()
+            context.endWriting()
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 completion()
             })

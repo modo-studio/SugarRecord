@@ -45,8 +45,8 @@ class CoreDataObjectTests: XCTestCase
         coreDataObject2.city = "Springfield"
         let saved2: Bool = coreDataObject2.save()
         XCTAssertEqual(CoreDataObject.all().find()!.count, 2, "The number of objects fetched should be equal to 2")        
-        coreDataObject.beginWritting().delete().endWritting()
-        coreDataObject2.beginWritting().delete().endWritting()
+        coreDataObject.beginWriting().delete().endWriting()
+        coreDataObject2.beginWriting().delete().endWriting()
     }
     
     func testObjectDeletion()
@@ -58,7 +58,7 @@ class CoreDataObjectTests: XCTestCase
         coreDataObject.city = "TestCity"
         coreDataObject.birth = NSDate()
         let saved: Bool = coreDataObject.save()
-        coreDataObject.beginWritting().delete().endWritting()
+        coreDataObject.beginWriting().delete().endWriting()
         XCTAssertEqual(CoreDataObject.all().find()!.count, 0, "The number of objects fetched after the deletion should be equal to 0")
     }
     
@@ -78,8 +78,8 @@ class CoreDataObjectTests: XCTestCase
         coreDataObject2.city = "TestCity"
         coreDataObject2.birth = NSDate()
         let saved2: Bool = coreDataObject2.save()
-        coreDataObject.beginWritting().delete().endWritting()
-        coreDataObject2.beginWritting().delete().endWritting()
+        coreDataObject.beginWriting().delete().endWriting()
+        coreDataObject2.beginWriting().delete().endWriting()
         XCTAssertEqual(CoreDataObject.all().find()!.count, 0, "The number of objects fetched after the deletion should be equal to 0")
     }
     
@@ -88,12 +88,12 @@ class CoreDataObjectTests: XCTestCase
         var coreDataObject: CoreDataObject? = nil
         coreDataObject = CoreDataObject.create() as? CoreDataObject
         coreDataObject?.save()
-        coreDataObject!.beginWritting()
+        coreDataObject!.beginWriting()
         coreDataObject!.name = "Testy"
-        coreDataObject!.endWritting()
+        coreDataObject!.endWriting()
         let fetchedObject: CoreDataObject = CoreDataObject.all().find()!.first as CoreDataObject
         XCTAssertEqual(fetchedObject.name, "Testy", "The name of the fetched object should be Testy")
-        coreDataObject!.beginWritting().delete().endWritting()
+        coreDataObject!.beginWriting().delete().endWriting()
     }
     
     func testObjectQuerying()
@@ -121,7 +121,7 @@ class CoreDataObjectTests: XCTestCase
         XCTAssertEqual(CoreDataObject.sorted(by: "name", ascending: true).last().find()!.first!.name, "Realmy2", "The name of the first object returned should be Realmy2")
         XCTAssertEqual(CoreDataObject.sorted(by: "name", ascending: true).firsts(20).find()!.count, 2, "The number of fetched elements using firsts should be equal to 2")
         XCTAssertEqual(CoreDataObject.sorted(by: "name", ascending: true).lasts(20).find()!.count, 2, "The number of fetched elements using lasts should be equal to 2")
-        coreDataObject!.beginWritting().delete().endWritting()
-        coreDataObject2!.beginWritting().delete().endWritting()
+        coreDataObject!.beginWriting().delete().endWriting()
+        coreDataObject2!.beginWriting().delete().endWriting()
     }
 }

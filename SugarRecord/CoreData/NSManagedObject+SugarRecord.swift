@@ -234,40 +234,40 @@ extension NSManagedObject: SugarRecordObjectProtocol
         let context: SugarRecordContext = self.context()
         if asynchronously {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
-                context.endWritting()
+                context.endWriting()
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completion(error: nil)
                 })
             })
         }
         else {
-            context.endWritting()
+            context.endWriting()
             completion(error: nil)
         }
     }
     
     
-    //MARK: - beginWritting
+    //MARK: - beginWriting
     
     /**
     Needed to be called when the object is going to be edited
     
     :returns: returns the current object
     */
-    public func beginWritting() -> SugarRecordObjectProtocol
+    public func beginWriting() -> SugarRecordObjectProtocol
     {
-        SugarRecordLogger.logLevelVerbose.log("Object did begin writting")
-        self.context().beginWritting()
+        SugarRecordLogger.logLevelVerbose.log("Object did begin writing")
+        self.context().beginWriting()
         return self
     }
     
     /**
     Needed to be called when the edition/deletion has finished
     */
-    public func endWritting()
+    public func endWriting()
     {
-        SugarRecordLogger.logLevelVerbose.log("Object did end writting")
-        self.context().endWritting()
+        SugarRecordLogger.logLevelVerbose.log("Object did end writing")
+        self.context().endWriting()
     }
     
 }
