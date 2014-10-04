@@ -160,27 +160,27 @@ let saved: Bool = user.save()
 ```
 ### Objects edition
 
-To edit your objects you have to notify SugarRecord that you are going to start/end an edition. If you are going to edit only one object you can do it quickly with the methods `beginWritting()` and `endWritting() `. It's very important to tell SugarRecord about any edition or you app might crash. Take a look to the example below
+To edit your objects you have to notify SugarRecord that you are going to start/end an edition. If you are going to edit only one object you can do it quickly with the methods `beginWriting()` and `endWriting() `. It's very important to tell SugarRecord about any edition or you app might crash. Take a look to the example below
 
 ```swift
-user.beginWritting()
+user.beginWriting()
 user.name ="Pepito"
-user.endWritting()
+user.endWriting()
 ```
-If you are editing different objects that are in the same Sugar Record context it's recommended to call `beginWritting()` before starting editing any of them. Once you've finished the edition call `endWritting()`.
+If you are editing different objects that are in the same Sugar Record context it's recommended to call `beginWriting()` before starting editing any of them. Once you've finished the edition call `endWriting()`.
 
 ### Objects deletion
 
-If you want to delete an object that you have in a SugarRecord context you can do it easily using the method `delete()`. **It's very important** to call `beginWritting()` and `endWritting()` here too to notify the library about the changes you are making. Take a look to the examples below:
+If you want to delete an object that you have in a SugarRecord context you can do it easily using the method `delete()`. **It's very important** to call `beginWriting()` and `endWriting()` here too to notify the library about the changes you are making. Take a look to the examples below:
 
 ```swift
 // 3-Lines syntax
-user.beginWritting()
+user.beginWriting()
 user.delete()
-user.endWritting()
+user.endWriting()
 
 // 1-Line syntax
-user.beginWritting().delete().endWritting()
+user.beginWriting().delete().endWriting()
 ```
 
 ### Objects querying
@@ -202,11 +202,11 @@ Although we've tried to offer an easy API interface for beginners we have advanc
 ```swift
 SugarRecord.operation(SugarRecordStackType.SugarRecordStackTypeRealm, closure: { (context) -> () in
   users: [User]? = User.all().find(inContext: context)?
-  context.beginWritting() // <- Notifying we're starting the edition
+  context.beginWriting() // <- Notifying we're starting the edition
   for user in users {
     user.age++
   }
-  context.endWritting() // <- Notifying that we've finished the edition
+  context.endWriting() // <- Notifying that we've finished the edition
 })
 ```
 

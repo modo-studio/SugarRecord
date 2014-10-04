@@ -105,10 +105,10 @@ public protocol SugarRecordObjectProtocol
     /**
     *  Notifies the context that the object is going to be edited returning the object for the edition
     */
-    func beginWritting() -> SugarRecordObjectProtocol
+    func beginWriting() -> SugarRecordObjectProtocol
     
     /**
     *  Notifies the context that the object edition has finished
     */
-    func endWritting()
+    func endWriting()
 }

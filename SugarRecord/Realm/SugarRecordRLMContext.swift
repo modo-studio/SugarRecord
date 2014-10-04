@@ -29,7 +29,7 @@ public class SugarRecordRLMContext: SugarRecordContext
     /**
     Notifies the context that you're going to start an edition/removal/saving operation
     */
-    public func beginWritting()
+    public func beginWriting()
     {
         self.realmContext.beginWriteTransaction()
     }
@@ -37,7 +37,7 @@ public class SugarRecordRLMContext: SugarRecordContext
     /**
     Notifies the context that you've finished an edition/removal/saving operation
     */
-    public func endWritting()
+    public func endWriting()
     {
         self.realmContext.commitWriteTransaction()
     }
