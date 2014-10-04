@@ -38,6 +38,7 @@
 		3D9C0B0F19D7F73200A3011E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D77247C19D6DADD00C6B975 /* Realm.framework */; };
 		3D9C0B1219D7FB6A00A3011E /* RestkitCDStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C0B1119D7FB6A00A3011E /* RestkitCDStackTests.swift */; };
 		3DB52E2F19E0A28600E687FD /* RLMObjectMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB52E2E19E0A28600E687FD /* RLMObjectMigration.swift */; };
+		3DB52E3919E0A2E900E687FD /* RLMObjectMigrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB52E3819E0A2E900E687FD /* RLMObjectMigrationTests.swift */; };
 		3DC8D4B419D76B2A00F2368B /* RestkitCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8D4B319D76B2A00F2368B /* RestkitCDStack.swift */; };
 		3DC8D59F19D76DAB00F2368B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D59E19D76DAB00F2368B /* CFNetwork.framework */; };
 		3DC8D5A119D76DBD00F2368B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D5A019D76DBD00F2368B /* Security.framework */; };
@@ -136,6 +137,7 @@
 		3DAD446319CCBB0100B1E355 /* SugarRecordRLMContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordRLMContextTests.swift; sourceTree = "<group>"; };
 		3DAD447119CCBB8C00B1E355 /* RealmObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObject.swift; sourceTree = "<group>"; };
 		3DB52E2E19E0A28600E687FD /* RLMObjectMigration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMObjectMigration.swift; sourceTree = "<group>"; };
+		3DB52E3819E0A2E900E687FD /* RLMObjectMigrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMObjectMigrationTests.swift; sourceTree = "<group>"; };
 		3DBC55DC198E826E00268EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DBC55DD198E826E00268EB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DBC55E0198E826E00268EB3 /* SugarRecord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SugarRecord.xcdatamodel; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				3DAD446219CCBB0100B1E355 /* RLMObject+SugarRecordTests.swift */,
 				3DAD446319CCBB0100B1E355 /* SugarRecordRLMContextTests.swift */,
 				3D77249219D7007E00C6B975 /* DefaultREALMStackTests.swift */,
+				3DB52E3819E0A2E900E687FD /* RLMObjectMigrationTests.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				3D77248F19D6DCD200C6B975 /* SugarRecordLoggerTests.swift in Sources */,
 				3D13C53919CE0A0800EB8688 /* RealmObjectTests.swift in Sources */,
 				3DB52E2F19E0A28600E687FD /* RLMObjectMigration.swift in Sources */,
+				3DB52E3919E0A2E900E687FD /* RLMObjectMigrationTests.swift in Sources */,
 				3D4F508D19CDA3D200C1FD3D /* RLMObject+SugarRecord.swift in Sources */,
 				3D77249119D6E45A00C6B975 /* SugarRecordTests.swift in Sources */,
 				3D4F508E19CDA3D200C1FD3D /* SugarRecordRLMContext.swift in Sources */,

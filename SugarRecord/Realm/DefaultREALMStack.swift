@@ -127,23 +127,26 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     }
     
     /**
-    Executes migrations
+    Executes migrations if there are migrations in the array
     */
     func migrateIfNeeded()
     {
         if self.migrations.isEmpty { return }
         RLMRealm.migrateDefaultRealmWithBlock({ (realmMigration: RLMMigration!, oldSchema: UInt) -> UInt in
-            var lastSchema: Int = 0
-            for migration in self.migrations {
-                if (migration.toSchema > lastSchema) { lastSchema = migration.toSchema }
-            }
-            var pendingMigrations: [RLMObjectMigration<RLMObject>] = self.migrations.filter({ (migration: RLMObjectMigration<RLMObject>) -> Bool in return migration.toSchema > Int(oldSchema)})
-            pendingMigrations.sort({ (first: RLMObjectMigration<RLMObject>, second: RLMObjectMigration<RLMObject>) -> Bool in return first.toSchema <= second.toSchema})
-            pendingMigrations.map({ (migration: RLMObjectMigration<RLMObject>) -> RLMObjectMigration<RLMObject> in
+            let sortedMigrations: [RLMObjectMigration<RLMObject>] = DefaultREALMStack.sorted(migrations: self.migrations, fromOldSchema: Int(oldSchema))
+            var lastSchema: Int = sortedMigrations.last!.toSchema
+            sortedMigrations.map({ (migration: RLMObjectMigration<RLMObject>) -> RLMObjectMigration<RLMObject> in
                 migration.migrate(realmMigration)
                 return migration
             })
             return UInt(lastSchema);
         })
+    }
+    
+    internal class func sorted(#migrations: [RLMObjectMigration<RLMObject>], fromOldSchema oldSchema: Int) -> [RLMObjectMigration<RLMObject>]
+    {
+        var sortedMigrations: [RLMObjectMigration<RLMObject>] = migrations.filter({ (migration: RLMObjectMigration<RLMObject>) -> Bool in return migration.toSchema > Int(oldSchema)})
+        sortedMigrations.sort({ (first: RLMObjectMigration<RLMObject>, second: RLMObjectMigration<RLMObject>) -> Bool in return first.toSchema <= second.toSchema})
+        return sortedMigrations
     }
 }

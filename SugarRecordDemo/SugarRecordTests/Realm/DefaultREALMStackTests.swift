@@ -46,16 +46,38 @@ class DefaultREALMStackTests: XCTestCase {
         waitForExpectationsWithTimeout(0.2, handler: nil)
     }
     
-    //TODO - Review it
-    // func testDatabaseRemoval()
-    // {
-    //     let stack = DefaultREALMStack(stackName: "test", stackDescription: "test stack")
-    //     SugarRecord.addStack(stack)
-    //     let documentsPath: String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-    //     let databaseName: String = documentsPath.stringByAppendingPathComponent("default.realm")
-    //     XCTAssertTrue(NSFileManager.defaultManager().fileExistsAtPath(databaseName), "The database is not created in the right place")
-    //     stack.removeDatabase()
-    //     XCTAssertFalse(NSFileManager.defaultManager().fileExistsAtPath(databaseName), "The database is not created in the right place")
-    //     SugarRecord.removeAllStacks()
-    // }
+    func testIfInitializeTriesToMigrateIfNeeded()
+    {
+        class MockRealmStack: DefaultREALMStack {
+            var migrateIfNeededCalled: Bool = false
+            override func migrateIfNeeded() {
+                self.migrateIfNeededCalled = true
+            }
+        }
+        let mockRealmStack: MockRealmStack = MockRealmStack(stackName: "Mock Stack", stackDescription: "Stack description")
+        mockRealmStack.initialize()
+        XCTAssertTrue(mockRealmStack.migrateIfNeededCalled, "Migration checking should be done in when initializing")
+    }
+    
+    func testIfMigrationsAreProperlySorted() {
+        var migrations: [RLMObjectMigration<RLMObject>] = [RLMObjectMigration<RLMObject>]()
+        migrations.append(RLMObjectMigration<RLMObject>(toSchema: 13, migrationClosure: { (oldObject, newObject) -> () in }))
+        migrations.append(RLMObjectMigration<RLMObject>(toSchema: 3, migrationClosure: { (oldObject, newObject) -> () in }))
+        migrations.append(RLMObjectMigration<RLMObject>(toSchema: 1, migrationClosure: { (oldObject, newObject) -> () in }))
+        var sortedMigrations: [RLMObjectMigration<RLMObject>] = DefaultREALMStack.sorted(migrations: migrations, fromOldSchema: 2)
+        XCTAssertEqual(sortedMigrations.first!.toSchema, 3, "First migration in the array should have toSchema = 3")
+        XCTAssertEqual(sortedMigrations.last!.toSchema, 13, "First migration in the array should have toSchema = 13")
+    }
+    
+    func testDatabaseRemoval()
+    {
+        let stack = DefaultREALMStack(stackName: "test", stackDescription: "test stack")
+        SugarRecord.addStack(stack)
+        let documentsPath: String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let databaseName: String = documentsPath.stringByAppendingPathComponent("default.realm")
+        XCTAssertTrue(NSFileManager.defaultManager().fileExistsAtPath(databaseName), "The database is not created in the right place")
+        stack.removeDatabase()
+        XCTAssertFalse(NSFileManager.defaultManager().fileExistsAtPath(databaseName), "The database is not created in the right place")
+        SugarRecord.removeAllStacks()
+    }
 }

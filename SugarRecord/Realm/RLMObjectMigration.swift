@@ -10,10 +10,13 @@ import Foundation
 import Realm
 
 public struct RLMObjectMigration<T: RLMObject> {
+    
     /// Version of the schema after the migration
     internal var toSchema: Int
+    
     /// Migration closure to be executed
     internal var migrationClosure: (oldObject: RLMObject, newObject: RLMObject) -> ()
+    
     /**
     Migrationinitializer
     
@@ -34,7 +37,8 @@ public struct RLMObjectMigration<T: RLMObject> {
     :param: realmMigration Realm migration object
     */
     public func migrate(realmMigration: RLMMigration) {
-        realmMigration.enumerateObjects(T.className(), block: { (oldObject: RLMObject!, newObject: RLMObject!) -> Void in
+        let entityName: String = T.entityName()
+        realmMigration.enumerateObjects(entityName, block: { (oldObject: RLMObject!, newObject: RLMObject!) -> Void in
             self.migrationClosure(oldObject: oldObject, newObject: newObject)
         })
     }
