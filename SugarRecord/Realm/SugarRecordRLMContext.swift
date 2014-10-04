@@ -11,6 +11,8 @@ import Realm
 
 public class SugarRecordRLMContext: SugarRecordContext
 {
+    //[RLMRealm migrateDefaultRealmWithBlock:^NSUInteger(RLMMigration *migration, NSUInteger oldSchemaVersion) {
+    
     /// RLMRealm context
     let realmContext: RLMRealm
     

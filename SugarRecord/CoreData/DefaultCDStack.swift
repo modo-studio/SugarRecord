@@ -17,6 +17,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     public var stackDescription: String = "Default core data stack with an efficient context management"
     public let defaultStoreName: String = "sugar.sqlite"
     public var stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeCoreData
+    public var migrationFailedClosure: () -> ()
     internal var managedObjectModel: NSManagedObjectModel?
     internal var databasePath: NSURL?
     internal var automigrating: Bool
@@ -41,6 +42,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
         self.automigrating = automigrating
         self.databasePath = databaseURL
         self.managedObjectModel = model
+        self.migrationFailedClosure = {}
     }
     
     /**
@@ -315,6 +317,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
             SugarRecordLogger.logLevelInfo.log("Will recreate store")
             self.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.databasePath, options: DefaultCDStack.defaultStoreOptions(), error: &error)
             SugarRecordLogger.logLevelInfo.log("Did recreate store")
+            self.migrationFailedClosure()
             error = nil
         }
         else {
@@ -365,6 +368,8 @@ public class DefaultCDStack: SugarRecordStackProtocol
         var sqliteOptions: [String: String] = [String: String] ()
         sqliteOptions["WAL"] = "journal_mode"
         var options: [NSObject: AnyObject] = [NSObject: AnyObject] ()
+        options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
+        options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: false)
         options[NSSQLitePragmasOption] = sqliteOptions
         return sqliteOptions
     }

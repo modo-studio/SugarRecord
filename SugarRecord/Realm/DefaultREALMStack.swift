@@ -9,12 +9,14 @@
 import Foundation
 import Realm
 
+
 public class DefaultREALMStack: SugarRecordStackProtocol
 {
     public var name: String
     public var stackDescription: String
     public var stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeRealm
-
+    lazy public var migrations: [RLMObjectMigration<RLMObject>] = [RLMObjectMigration<RLMObject>]()
+    
     //MARK: - Constructors
     
     /**
@@ -31,11 +33,27 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     }
     
     /**
+    Initializer with support for migrations
+    
+    :param: stackName        String with the stack name
+    :param: stackDescription String with the stack description
+    :param: migrations       Array with the migrations
+    
+    :returns: Created stack with the migrations and properties set
+    */
+    convenience public init(stackName:String, stackDescription: String, migrations: [RLMObjectMigration<RLMObject>]) {
+        self.init(stackName: stackName, stackDescription: stackDescription)
+        self.name = stackName
+        self.stackDescription = stackDescription
+        self.migrations = migrations
+    }
+    
+    /**
     Initializes the stack to start using it
     */
     public func initialize()
     {
-        // Nothing to do here
+        migrateIfNeeded()
     }
     
     /**
@@ -106,5 +124,29 @@ public class DefaultREALMStack: SugarRecordStackProtocol
         else {
             SugarRecordLogger.logLevelInfo.log("Database \(databaseName) removed")
         }
+    }
+    
+    /**
+    Executes migrations if there are migrations in the array
+    */
+    func migrateIfNeeded()
+    {
+        if self.migrations.isEmpty { return }
+        RLMRealm.migrateDefaultRealmWithBlock({ (realmMigration: RLMMigration!, oldSchema: UInt) -> UInt in
+            let sortedMigrations: [RLMObjectMigration<RLMObject>] = DefaultREALMStack.sorted(migrations: self.migrations, fromOldSchema: Int(oldSchema))
+            var lastSchema: Int = sortedMigrations.last!.toSchema
+            sortedMigrations.map({ (migration: RLMObjectMigration<RLMObject>) -> RLMObjectMigration<RLMObject> in
+                migration.migrate(realmMigration)
+                return migration
+            })
+            return UInt(lastSchema);
+        })
+    }
+    
+    internal class func sorted(#migrations: [RLMObjectMigration<RLMObject>], fromOldSchema oldSchema: Int) -> [RLMObjectMigration<RLMObject>]
+    {
+        var sortedMigrations: [RLMObjectMigration<RLMObject>] = migrations.filter({ (migration: RLMObjectMigration<RLMObject>) -> Bool in return migration.toSchema > Int(oldSchema)})
+        sortedMigrations.sort({ (first: RLMObjectMigration<RLMObject>, second: RLMObjectMigration<RLMObject>) -> Bool in return first.toSchema <= second.toSchema})
+        return sortedMigrations
     }
 }
