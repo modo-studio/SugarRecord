@@ -274,12 +274,17 @@ extension NSManagedObject: SugarRecordObjectProtocol
 
 //MARK : Operators
 
-public func <- <T: NSManagedObject> (left: T.Type, inout right: T)
+public func + <T: NSManagedObject> (left: T.Type, inout right: T)
 {
     right.save()
 }
 
-public func - <T: RLMObject> (left: T.Type, inout right: T)
+public func - <T: NSManagedObject> (left: T.Type, inout right: T)
 {
     right.delete()
+}
+
+public func <- <T: NSManagedObject, C: SugarRecordContext> (left: C, inout right: T.Type)
+{
+    right.create(inContext: left)
 }
