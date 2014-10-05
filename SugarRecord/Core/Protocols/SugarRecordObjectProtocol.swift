@@ -112,3 +112,7 @@ public protocol SugarRecordObjectProtocol
     */
     func endWriting()
 }
+
+//MARK : Operators
+
+infix operator <- { associativity right precedence 90 }
