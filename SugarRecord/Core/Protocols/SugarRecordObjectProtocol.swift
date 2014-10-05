@@ -112,3 +112,31 @@ public protocol SugarRecordObjectProtocol
     */
     func endWriting()
 }
+
+//MARK : Operators
+
+infix operator <- { associativity right precedence 90 }
+
+//MARK : Operators
+
+public func += <R: SugarRecordObjectProtocol> (left: R.Type, inout right: R)
+{
+    right.save()
+}
+
+public postfix func ++ <R: SugarRecordObjectProtocol> (left: R.Type) -> R
+{
+    var object: R = left.create() as R
+    return object
+}
+
+public func -= <R: SugarRecordObjectProtocol> (left: R.Type, inout right: R)
+{
+    right.delete()
+}
+
+public func <- <R: SugarRecordObjectProtocol, C: SugarRecordContext> (left: C, inout right: R.Type) -> R
+{
+    var object: R = right.create(inContext: left) as R
+    return object
+}
