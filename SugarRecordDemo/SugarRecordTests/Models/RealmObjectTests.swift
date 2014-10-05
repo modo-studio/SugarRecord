@@ -118,5 +118,28 @@ class RealmObjectTests: XCTestCase
         realmObject!.beginWriting().delete().endWriting()
         realmObject2!.beginWriting().delete().endWriting()
     }
+    
+    func testObjectsCount()
+    {
+        var realmObject: RealmObject? = nil
+        var realmObject2: RealmObject? = nil
+        realmObject = RealmObject.create() as? RealmObject
+        realmObject!.name = "Realmy"
+        realmObject!.age = 22
+        realmObject!.email = "test@mail.com"
+        realmObject!.city = "TestCity"
+        realmObject!.birthday = NSDate()
+        let saved: Bool = realmObject!.save()
+        realmObject2 = RealmObject.create() as? RealmObject
+        realmObject2!.name = "Realmy2"
+        realmObject2!.age = 22
+        realmObject2!.email = "test@mail.com"
+        realmObject2!.city = "TestCity2"
+        realmObject2!.birthday = NSDate()
+        let saved2: Bool = realmObject2!.save()
+        XCTAssertEqual(RealmObject.all().count(), 2, "The count should be equal to 2")
+        realmObject!.beginWriting().delete().endWriting()
+        realmObject2!.beginWriting().delete().endWriting()
+    }
 }
 
