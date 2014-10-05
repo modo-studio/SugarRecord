@@ -30,8 +30,10 @@ The scheme above shows the structure of SugarRecord. It's formed by:
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
-| 30th-September-2014 | Added first post to the new blog [SugarRecord](http://sugarrecord.com/) |
+| 5th-October-2014 | Created playground tutorial |
+| 5th-October-2014 | Added count methods [PR](https://github.com/SugarRecord/SugarRecord/pull/38) |
 | 4th-October-2014 | Added migrations support [Pull Request](https://github.com/SugarRecord/SugarRecord/pull/36) |
+| 30th-September-2014 | Added first post to the new blog [SugarRecord](http://sugarrecord.com/) |
 
 
 
