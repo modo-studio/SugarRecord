@@ -61,6 +61,5 @@ public enum SugarRecordLogger: Int {
             print("SR-Verbose: \(logMessage) \n")
             return true
         }
-        return false
     }
 }
