@@ -281,6 +281,4 @@ extension RLMObject: SugarRecordObjectProtocol
     }
 }
 
-//MARK : Operators
-
 

@@ -271,27 +271,3 @@ extension NSManagedObject: SugarRecordObjectProtocol
     }
     
 }
-
-//MARK : Operators
-
-public func += <N: NSManagedObject> (left: N.Type, inout right: N)
-{
-    right.save()
-}
-
-public postfix func ++ <N: NSManagedObject> (left: N.Type) -> N
-{
-    var object: N = left.create() as N
-    return object
-}
-
-public func -= <N: NSManagedObject> (left: N.Type, inout right: N)
-{
-    right.delete()
-}
-
-public func <- <N: NSManagedObject, C: SugarRecordContext> (left: C, inout right: N.Type) -> N
-{
-    var object: N = right.create(inContext: left) as N
-    return object
-}
