@@ -274,12 +274,12 @@ extension NSManagedObject: SugarRecordObjectProtocol
 
 //MARK : Operators
 
-public func + <T: NSManagedObject> (left: T.Type, inout right: T)
+public func += <T: NSManagedObject> (left: T.Type, inout right: T)
 {
     right.save()
 }
 
-public func - <T: NSManagedObject> (left: T.Type, inout right: T)
+public func -= <T: NSManagedObject> (left: T.Type, inout right: T)
 {
     right.delete()
 }
