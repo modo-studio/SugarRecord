@@ -30,6 +30,7 @@ The scheme above shows the structure of SugarRecord. It's formed by:
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 5th-October-2014 | Added custom operators |
 | 5th-October-2014 | Created playground tutorial |
 | 5th-October-2014 | Added count methods [PR](https://github.com/SugarRecord/SugarRecord/pull/38) |
 | 4th-October-2014 | Added migrations support [Pull Request](https://github.com/SugarRecord/SugarRecord/pull/36) |
@@ -71,6 +72,22 @@ The scheme above shows the structure of SugarRecord. It's formed by:
 - You can change between different stacks without affecting to the rest of your app.
 - In case of a transition from CoreData to Realm or viceversa you've only to ensure the objecs have the same property names, and nothing more.
 - Background operations are automatically managed by Sugar Record
+
+## Version 1.0.1 Beta - Features
+- Playground tutorial to learn how to use SugaRecord
+- **Migrations** support
+- **Count** methods
+```swift
+CoreDataObject.all().count()
+```
+- Swift custom **operators**
+```swift
+var person = context <- Person.self // Object creation in a given context
+var person = Person.self++ // Object creation in the default context
+Person.self += person // Object saving
+Person.self -= person // Object deletion
+```
+
 
 ## Version 1.0 Beta - Features
 

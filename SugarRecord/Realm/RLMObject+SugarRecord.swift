@@ -283,17 +283,4 @@ extension RLMObject: SugarRecordObjectProtocol
 
 //MARK : Operators
 
-public func += <T: RLMObject> (left: T.Type, inout right: T)
-{
-    right.save()
-}
 
-public func -= <T: RLMObject> (left: T.Type, inout right: T)
-{
-    right.delete()
-}
-
-public func <- <T: RLMObject, C: SugarRecordContext> (left: C, inout right: T.Type)
-{
-    right.create(inContext: left)
-}
