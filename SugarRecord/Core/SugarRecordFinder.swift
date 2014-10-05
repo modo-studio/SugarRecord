@@ -387,4 +387,40 @@ public class SugarRecordFinder
 
         }
     }
+    
+    //MARK : Count
+    
+    /**
+    Returns the count of items that match the criteria
+    
+    :returns: Int with the count
+    */
+    public func count() -> Int
+    {
+        let objects: [AnyObject]? = find()
+        if objects != nil {
+            return objects!.count
+        }
+        else {
+            return 0
+        }
+    }
+    
+    /**
+    Returns the count of items that match the criteria in the given context
+    
+    :param: context Context where the count is executed
+    
+    :returns: Int with the count
+    */
+    public func count(inContext context:SugarRecordContext) -> Int
+    {
+        let objects: [AnyObject]? = find(inContext: context)
+        if objects != nil {
+            return objects!.count
+        }
+        else {
+            return 0
+        }
+    }
 }

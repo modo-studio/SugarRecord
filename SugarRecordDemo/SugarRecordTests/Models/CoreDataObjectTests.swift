@@ -124,4 +124,27 @@ class CoreDataObjectTests: XCTestCase
         coreDataObject!.beginWriting().delete().endWriting()
         coreDataObject2!.beginWriting().delete().endWriting()
     }
+    
+    func testObjectsCount()
+    {
+        var coreDataObject: CoreDataObject? = nil
+        var coreDataObject2: CoreDataObject? = nil
+        coreDataObject = CoreDataObject.create() as? CoreDataObject
+        coreDataObject!.name = "Realmy"
+        coreDataObject!.age = 22
+        coreDataObject!.email = "test@mail.com"
+        coreDataObject!.city = "TestCity"
+        coreDataObject!.birth = NSDate()
+        let saved: Bool = coreDataObject!.save()
+        coreDataObject2 = CoreDataObject.create() as? CoreDataObject
+        coreDataObject2!.name = "Realmy2"
+        coreDataObject2!.age = 22
+        coreDataObject2!.email = "test@mail.com"
+        coreDataObject2!.city = "TestCity2"
+        coreDataObject2!.birth = NSDate()
+        let saved2: Bool = coreDataObject2!.save()
+        XCTAssertEqual(CoreDataObject.all().count(), 2, "The count should be equal to 2")
+        coreDataObject!.beginWriting().delete().endWriting()
+        coreDataObject2!.beginWriting().delete().endWriting()
+    }
 }
