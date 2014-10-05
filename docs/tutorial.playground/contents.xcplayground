@@ -3,5 +3,69 @@
     <sections>
         <documentation relative-path="section-0.html">
         </documentation>
+        <code source-file-name="section-1.swift">
+        </code>
+        <documentation relative-path="section-2.html">
+        </documentation>
+        <code source-file-name="section-3.swift">
+        </code>
+        <documentation relative-path="section-4.html">
+        </documentation>
+        <code source-file-name="section-5.swift">
+        </code>
+        <documentation relative-path="section-6.html">
+        </documentation>
+        <code source-file-name="section-7.swift">
+        </code>
+        <documentation relative-path="section-8.html">
+        </documentation>
+        <code source-file-name="section-9.swift">
+        </code>
+        <documentation relative-path="section-10.html">
+        </documentation>
+        <code source-file-name="section-11.swift">
+        </code>
+        <documentation relative-path="section-12.html">
+        </documentation>
+        <code source-file-name="section-13.swift">
+        </code>
+        <documentation relative-path="section-14.html">
+        </documentation>
+        <code source-file-name="section-15.swift">
+        </code>
+        <documentation relative-path="section-16.html">
+        </documentation>
+        <code source-file-name="section-17.swift">
+        </code>
+        <documentation relative-path="section-18.html">
+        </documentation>
+        <code source-file-name="section-19.swift">
+        </code>
+        <documentation relative-path="section-20.html">
+        </documentation>
+        <code source-file-name="section-21.swift">
+        </code>
+        <documentation relative-path="section-22.html">
+        </documentation>
+        <code source-file-name="section-23.swift">
+        </code>
+        <documentation relative-path="section-24.html">
+        </documentation>
+        <code source-file-name="section-25.swift">
+        </code>
+        <documentation relative-path="section-26.html">
+        </documentation>
+        <code source-file-name="section-27.swift">
+        </code>
+        <documentation relative-path="section-28.html">
+        </documentation>
+        <code source-file-name="section-29.swift">
+        </code>
+        <documentation relative-path="section-30.html">
+        </documentation>
+        <code source-file-name="section-31.swift">
+        </code>
+        <documentation relative-path="section-32.html">
+        </documentation>
     </sections>
 </playground>
