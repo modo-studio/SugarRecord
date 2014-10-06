@@ -24,7 +24,9 @@ class CoreDataFetchResultsControllerTests: XCTestCase
         
         finder = SugarRecordFinder()
         finder!.objectClass = CoreDataObject.self
-        finder!.addSortDescriptor(byKey: "name", ascending: true)
+        finder!.addSortDescriptor(NSSortDescriptor(key: "name", ascending: true))
+        finder!.setPredicate("name == test")
+        finder!.elements = SugarRecordFinderElements.first
     }
     
     override func tearDown() {
@@ -43,5 +45,14 @@ class CoreDataFetchResultsControllerTests: XCTestCase
     {
         let frc: NSFetchedResultsController = finder!.fetchedResultsController("name", cacheName: "cachename")
         XCTAssertEqual(frc.cacheName!, "cachename", "The cache name should be: cachename")
+    }
+    
+    func testIfTheFetchRequestPropertiesAreTheExpected()
+    {
+        let frc: NSFetchedResultsController = finder!.fetchedResultsController("name", cacheName: "cachename")
+        XCTAssertEqual((frc.fetchRequest.sortDescriptors.first! as NSSortDescriptor).key!, "name", "The sort descriptor key should be name")
+        XCTAssertEqual((frc.fetchRequest.sortDescriptors.first! as NSSortDescriptor).ascending, true, "The sort descriptor ascending should be true")
+        XCTAssertEqual(frc.fetchRequest.predicate.predicateFormat, "name == test", "The predicate format should be name == test")
+        XCTAssertEqual(frc.fetchRequest.fetchLimit, 1, "The fetchLimit should be equal to 1")
     }
 }
