@@ -91,7 +91,7 @@ Person.self -= person // Object deletion
 ```
 - **FetchedResultsController** support
 ```swift
-CoreDataObject.all().count().fetchedResultsController("name")
+CoreDataObject.all().fetchedResultsController("name")
 ```
 
 ## Version 1.0 Beta - Features
