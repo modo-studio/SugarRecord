@@ -89,7 +89,10 @@ var person = Person.self++ // Object creation in the default context
 Person.self += person // Object saving
 Person.self -= person // Object deletion
 ```
-
+- **FetchedResultsController** support
+```swift
+CoreDataObject.all().count().fetchedResultsController("name")
+```
 
 ## Version 1.0 Beta - Features
 
