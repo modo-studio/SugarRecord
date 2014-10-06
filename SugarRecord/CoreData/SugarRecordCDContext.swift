@@ -80,52 +80,47 @@ public class SugarRecordCDContext: SugarRecordContext
     */
     public func find(finder: SugarRecordFinder) -> [AnyObject]?
     {
+        let fetchRequest: NSFetchRequest = SugarRecordCDContext.fetchRequest(fromFinder: finder)
+        var error: NSError?
+        var objects: [AnyObject]? = self.contextCD.executeFetchRequest(fetchRequest, error: &error)
+        SugarRecordLogger.logLevelInfo.log("Found \(objects?.count) objects in database")
+        return objects
+    }
+    
+    /**
+    Returns the NSFetchRequest from a given Finder
+    
+    :param: finder SugarRecord finder with the information about the filtering and sorting
+    
+    :returns: Created NSFetchRequest
+    */
+    public class func fetchRequest(fromFinder finder: SugarRecordFinder) -> NSFetchRequest
+    {
         let objectClass: NSObject.Type = finder.objectClass!
         let managedObjectClass: NSManagedObject.Type = objectClass as NSManagedObject.Type
         let fetchRequest: NSFetchRequest = NSFetchRequest(entityName: managedObjectClass.entityName())
-        fetchRequest.sortDescriptors = finder.sortDescriptors
         fetchRequest.predicate = finder.predicate
-        var error: NSError?
-        var objects: [AnyObject]? = self.contextCD.executeFetchRequest(fetchRequest, error: &error)
-        
-        if objects == nil {
-            return objects
-        }
-        
-        var finalArray: [AnyObject] = [AnyObject]()
+        var sortDescriptors: [NSSortDescriptor] = finder.sortDescriptors
         switch finder.elements {
         case .first:
-            let object: AnyObject? = objects!.first
-            if object != nil {
-                finalArray.append(object!)
-            }
+            fetchRequest.fetchLimit = 1
         case .last:
-            let object: AnyObject? = objects!.last
-            if object != nil {
-                finalArray.append(object!)
-            }
+            if !sortDescriptors.isEmpty{
+                sortDescriptors[0] = NSSortDescriptor(key: sortDescriptors.first!.key!, ascending: !(sortDescriptors.first!.ascending))
+             }
+            fetchRequest.fetchLimit = 1
         case .firsts(let number):
-            var last: Int = number
-            if number > objects!.count {
-                last = objects!.count
-            }
-            for index in 0..<last {
-                finalArray.append(objects![index])
-            }
+            fetchRequest.fetchLimit = number
         case .lasts(let number):
-            objects = objects!.reverse()
-            var last: Int = number
-            if number > objects!.count {
-                last = objects!.count
+            if !sortDescriptors.isEmpty{
+                sortDescriptors[0] = NSSortDescriptor(key: sortDescriptors.first!.key!, ascending: !(sortDescriptors.first!.ascending))
             }
-            for index in 0..<last {
-                finalArray.append(objects![index])
-            }
+            fetchRequest.fetchLimit = number
         case .all:
-            finalArray = objects!
+            break
         }
-        SugarRecordLogger.logLevelInfo.log("Found \(finalArray.count) objects in database")
-        return finalArray
+        fetchRequest.sortDescriptors = sortDescriptors
+        return fetchRequest
     }
     
     /**
