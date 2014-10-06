@@ -30,6 +30,7 @@ The scheme above shows the structure of SugarRecord. It's formed by:
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 6th-October-2014 | Added FetchedResultsController support [PR](https://github.com/SugarRecord/SugarRecord/pull/40) |
 | 5th-October-2014 | Writen a post about custom operators, [POST](http://sugarrecord.com/swift/features/2014/10/05/bringing-custom-operators-onboard.html) |
 | 5th-October-2014 | Added custom operators |
 | 5th-October-2014 | Created playground tutorial |
