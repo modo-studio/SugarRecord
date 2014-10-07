@@ -1,4 +1,5 @@
 # <center>![xcres](/Resources/Slogan.png)</center>
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/SugarRecord/SugarRecord?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/sugarrecord/sugarrecord?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Twitter: @pepibumur](https://img.shields.io/badge/contact-@pepibumur-blue.svg?style=flat)](https://twitter.com/pepibumur)
