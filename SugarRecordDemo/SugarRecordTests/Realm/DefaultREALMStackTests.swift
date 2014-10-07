@@ -70,6 +70,7 @@ class DefaultREALMStackTests: XCTestCase {
         XCTAssertEqual(sortedMigrations.last!.toSchema, 13, "First migration in the array should have toSchema = 13")
     }
     
+/*
     func testDatabaseRemoval()
     {
         let stack = DefaultREALMStack(stackName: "test", stackDescription: "test stack")
@@ -81,4 +82,5 @@ class DefaultREALMStackTests: XCTestCase {
         XCTAssertFalse(NSFileManager.defaultManager().fileExistsAtPath(databaseName), "The database is not created in the right place")
         SugarRecord.removeAllStacks()
     }
+*/
 }
