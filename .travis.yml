@@ -5,7 +5,6 @@ before_install:
   - cd SugarRecordDemo
   - brew update
   - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
-  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
   - gem install xcpretty
 script:
   - xcodebuild -workspace SugarRecord.xcworkspace -scheme SugarRecordTests ONLY_ACTIVE_ARCH=YES test | xcpretty -tc --no-utf;
