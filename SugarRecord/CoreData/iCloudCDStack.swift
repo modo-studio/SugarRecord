@@ -22,51 +22,70 @@ public struct iCloudData
     }
 }
 
-
 public class iCloudCDStack: DefaultCDStack
 {
     //MARK: - Properties
-    private let iCloudData: iCloudData?
+    private let icloudData: iCloudData?
     
     //MARK: - Constructors
+    
+    /**
+    Initialize the CoreData stack
+    
+    :param: databaseURL   NSURL with the database path
+    :param: model         NSManagedObjectModel with the database model
+    :param: automigrating Bool Indicating if the migration has to be automatically executed
+    :param: icloudData    iCloudData information
+    
+    :returns: iCloudCDStack object
+    */
+    public init(databaseURL: NSURL, model: NSManagedObjectModel?, automigrating: Bool, icloudData: iCloudData)
+    {
+        super.init(databaseURL: databaseURL, model: model, automigrating: automigrating)
+        self.icloudData = icloudData
+        self.automigrating = automigrating
+        self.databasePath = databaseURL
+        self.managedObjectModel = model
+        self.migrationFailedClosure = {}
+    }
     
     /**
     Initialize the CoreData default stack passing the database name and a flag indicating if the automigration has to be automatically executed
     
     :param: databaseName  String with the database name
-    :param: automigrating Bool Indicating if the migration has to be automatically executed
+    :param: icloudData iCloud Data struct
     
     :returns: DefaultCDStack object
     */
-    convenience public init(databaseName: String, iCloudData: iCloudData)
+    convenience public init(databaseName: String, icloudData: iCloudData)
     {
-        self.init(databaseURL: iCloudCDStack.databasePathURLFromName(databaseName), iCloudData: iCloudData)
+        self.init(databaseURL: iCloudCDStack.databasePathURLFromName(databaseName), icloudData: icloudData)
     }
     
     /**
     Initialize the CoreData default stack passing the database path in String format and a flag indicating if the automigration has to be automatically executed
     
     :param: databasePath  String with the database path
-    :param: automigrating Bool Indicating if the migration has to be automatically executed
+    :param: icloudData iCloud Data struct
     
     :returns: DefaultCDStack object
     */
-    convenience public init(databasePath: String, iCloudData: iCloudData)
+    convenience public init(databasePath: String, icloudData: iCloudData)
     {
-        self.init(databaseURL: NSURL(fileURLWithPath: databasePath), iCloudData: iCloudData)
+        self.init(databaseURL: NSURL(fileURLWithPath: databasePath), icloudData: icloudData)
     }
     
     /**
     Initialize the CoreData default stack passing the database path URL and a flag indicating if the automigration has to be automatically executed
     
     :param: databaseURL   NSURL with the database path
-    :param: automigrating Bool Indicating if the migration has to be automatically executed
-    
+    :param: icloudData iCloud Data struct
+
     :returns: DefaultCDStack object
     */
-    convenience public init(databaseURL: NSURL, iCloudData: iCloudData)
+    convenience public init(databaseURL: NSURL, icloudData: iCloudData)
     {
-        self.init(databaseURL: databaseURL, model: nil, iCloudData: iCloudData)
+        self.init(databaseURL: databaseURL, model: nil, automigrating: true,icloudData: icloudData)
     }
     
     /**
@@ -74,13 +93,13 @@ public class iCloudCDStack: DefaultCDStack
     
     :param: databaseName  String with the database name
     :param: model         NSManagedObjectModel with the database model
-    :param: automigrating Bool indicating if the migration has to be automatically executed
-    
+    :param: icloudData iCloud Data struct
+
     :returns: DefaultCDStack object
     */
-    convenience public init(databaseName: String, model: NSManagedObjectModel, iCloudData: iCloudData)
+    convenience public init(databaseName: String, model: NSManagedObjectModel, icloudData: iCloudData)
     {
-        self.init(databaseURL: DefaultCDStack.databasePathURLFromName(databaseName), model: model, automigrating: true)
+        self.init(databaseURL: DefaultCDStack.databasePathURLFromName(databaseName), model: model, automigrating: true, icloudData: icloudData)
     }
     
     /**
@@ -88,13 +107,13 @@ public class iCloudCDStack: DefaultCDStack
     
     :param: databasePath  String with the database path
     :param: model         NSManagedObjectModel with the database model
-    :param: automigrating Bool indicating if the migration has to be automatically executed
+    :param: icloudData iCloud Data struct
     
     :returns: DefaultCDStack object
     */
-    convenience public init(databasePath: String, model: NSManagedObjectModel, iCloudData: iCloudData)
+    convenience public init(databasePath: String, model: NSManagedObjectModel, icloudData: iCloudData)
     {
-        self.init(databaseURL: NSURL(fileURLWithPath: databasePath), model: model, automigrating: true)
+        self.init(databaseURL: NSURL(fileURLWithPath: databasePath), model: model, automigrating: true, icloudData: icloudData)
     }
     
     
@@ -103,7 +122,7 @@ public class iCloudCDStack: DefaultCDStack
     /**
     Initialize the stacks components and the connections between them
     */
-    public func initialize()
+    public override func initialize()
     {
         createManagedObjecModelIfNeeded()
         persistentStoreCoordinator = createPersistentStoreCoordinator()
@@ -112,9 +131,16 @@ public class iCloudCDStack: DefaultCDStack
         mainContext = createMainContext(self.rootSavingContext)
     }
     
+    /**
+    Add iCloud Database
+    */
     internal func addiCloudDatabase()
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            
+            
+            
+            
             
         })
         let icloudStoreURL: NSURL = NSURL();
