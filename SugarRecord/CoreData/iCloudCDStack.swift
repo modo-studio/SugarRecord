@@ -16,9 +16,9 @@ public struct iCloudData
     /// Is the full AppID (including the Team Prefix). It's needed to change tihs to match the Team Prefix found in the iOS Provisioning profile
     internal let iCloudAppID: String
     /// Is the name of the directory where the database will be stored in. It should always end with .nosync
-    internal let iCloudDataDirectoryName: String
+    internal let iCloudDataDirectoryName: String = "Data.nosync"
     /// Is the name of the directory where the database change logs will be stored in
-    internal let iCloudLogsDirectory: String
+    internal let iCloudLogsDirectory: String = "Logs"
     
     /**
     Note:
@@ -35,11 +35,11 @@ public struct iCloudData
     
     :returns: Initialized struct
     */
-    public init (iCloudAppID: String, iCloudDataDirectoryName: String, iCloudLogsDirectory: String)
+    public init (iCloudAppID: String, iCloudDataDirectoryName: String?, iCloudLogsDirectory: String?)
     {
         self.iCloudAppID = iCloudAppID
-        self.iCloudDataDirectoryName = iCloudDataDirectoryName
-        self.iCloudLogsDirectory = iCloudLogsDirectory
+        if (iCloudDataDirectoryName != nil) {self.iCloudDataDirectoryName = iCloudDataDirectoryName!}
+        if (iCloudLogsDirectory != nil) {self.iCloudLogsDirectory = iCloudLogsDirectory!}
     }
 }
 
@@ -149,6 +149,7 @@ public class iCloudCDStack: DefaultCDStack
     */
     public override func initialize()
     {
+        SugarRecordLogger.logLevelInfo.log("Initializing the stack: \(self.stackDescription)")
         createManagedObjecModelIfNeeded()
         persistentStoreCoordinator = createPersistentStoreCoordinator()
         addDatabase(foriCloud: true) { [weak self] (error) -> () in
@@ -172,6 +173,7 @@ public class iCloudCDStack: DefaultCDStack
     
     /**
     Creates a temporary root saving context to be used in background operations
+    Note: This overriding is due to the fact that in this case the merge policy is different
     
     :param: persistentStoreCoordinator NSPersistentStoreCoordinator to be set as the persistent store coordinator of the created context
     
@@ -192,7 +194,6 @@ public class iCloudCDStack: DefaultCDStack
         SugarRecordLogger.logLevelVerbose.log("Created MAIN context")
         return context!
     }
-    
     
     
     //MARK: - Database
@@ -225,7 +226,6 @@ public class iCloudCDStack: DefaultCDStack
                 SugarRecord.handle(NSError())
             }
             
-            
             // Logging some data
             let fileManager: NSFileManager = NSFileManager()
             SugarRecordLogger.logLevelVerbose.log("Initializing iCloud with:")
@@ -256,7 +256,6 @@ public class iCloudCDStack: DefaultCDStack
                 /// Getting the database path
                 /// iCloudPath + iCloudDataPath + DatabaseName
                 self!.databasePath = NSURL(fileURLWithPath: iCloudRootPath!.path!.stringByAppendingPathComponent(self!.icloudData!.iCloudDataDirectoryName).stringByAppendingPathComponent(self!.databasePath!.lastPathComponent))
-                
                 
                 // Adding store
                 self!.persistentStoreCoordinator!.lock()
@@ -305,6 +304,7 @@ public class iCloudCDStack: DefaultCDStack
     */
     internal func addObservers()
     {
+        SugarRecordLogger.logLevelVerbose.log("Adding observers to detect changes on iCloud")
         let notificationCenter: NSNotificationCenter = NSNotificationCenter.defaultCenter()
         
         // Store will change

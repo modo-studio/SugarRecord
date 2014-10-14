@@ -118,6 +118,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     public func initialize()
     {
+        SugarRecordLogger.logLevelInfo.log("Initializing the stack: \(self.stackDescription)")
         createManagedObjecModelIfNeeded()
         persistentStoreCoordinator = createPersistentStoreCoordinator()
         addDatabase { [weak self] (error: NSError?) -> () in
