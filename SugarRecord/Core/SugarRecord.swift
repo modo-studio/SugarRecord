@@ -166,13 +166,18 @@ public class SugarRecord {
         if stack == nil {
             SugarRecord.handle(NSError(domain: "Cannot find an stack for the given type", code: SugarRecordErrorCodes.UserError.toRaw(), userInfo: nil))
         }
+        let context: SugarRecordContext? = background ? stack!.backgroundContext(): stack!.mainThreadContext()
+        if context == nil {
+            SugarRecordLogger.logLevelWarn.log("The stack hasn't been initialized yet")
+            return
+        }
         if background {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
-                closure(context: stack!.backgroundContext())
+                closure(context: context!)
             })
         }
         else {
-            closure(context: stack!.mainThreadContext())
+            closure(context: context!)
         }
     }
     

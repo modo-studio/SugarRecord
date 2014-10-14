@@ -173,10 +173,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
     
     :returns: SugarRecordCDContext with the background context
     */
-    public func backgroundContext() -> SugarRecordContext
+    public func backgroundContext() -> SugarRecordContext?
     {
         if self.rootSavingContext == nil {
-            assert(true, "Fatal error. The private context is not initialized")
+            return nil
         }
         var context: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: .ConfinementConcurrencyType)
         context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
@@ -192,10 +192,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
     
     :returns: SugarRecordCDContext with the main context
     */
-    public func mainThreadContext() -> SugarRecordContext
+    public func mainThreadContext() -> SugarRecordContext?
     {
         if self.mainContext == nil {
-            assert(true, "Fatal error. The main context is not initialized")
+            return nil
         }
         return SugarRecordCDContext(context: self.mainContext!)
     }

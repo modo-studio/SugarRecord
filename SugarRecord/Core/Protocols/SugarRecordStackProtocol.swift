@@ -66,10 +66,10 @@ public protocol SugarRecordStackProtocol
     /**
     *  Returns a background SugarRecord context to execute background operations
     */
-    func backgroundContext() -> SugarRecordContext
+    func backgroundContext() -> SugarRecordContext?
     
     /**
     *  Returns a SugarRecord context to execute background operations
     */
-    func mainThreadContext() -> SugarRecordContext
+    func mainThreadContext() -> SugarRecordContext?
 }

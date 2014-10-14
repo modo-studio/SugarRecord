@@ -93,7 +93,7 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     
     :returns: Created SugarRecord background context
     */
-    public func backgroundContext() -> SugarRecordContext
+    public func backgroundContext() -> SugarRecordContext?
     {
         return SugarRecordRLMContext(realmContext: RLMRealm.defaultRealm())
     }
@@ -103,7 +103,7 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     
     :returns: Created SugarRecord context
     */
-    public func mainThreadContext() -> SugarRecordContext
+    public func mainThreadContext() -> SugarRecordContext?
     {
         return SugarRecordRLMContext(realmContext: RLMRealm.defaultRealm())
     }
