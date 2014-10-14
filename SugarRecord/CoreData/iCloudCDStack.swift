@@ -8,14 +8,17 @@
 
 import Foundation
 
+/**
+*  Struct with the needed information to initialize the iCloud stack
+*/
 public struct iCloudData
 {
     /// Is the full AppID (including the Team Prefix). It's needed to change tihs to match the Team Prefix found in the iOS Provisioning profile
-    let iCloudAppID: String
+    internal let iCloudAppID: String
     /// Is the name of the directory where the database will be stored in. It should always end with .nosync
-    let iCloudDataDirectoryName: String
+    internal let iCloudDataDirectoryName: String
     /// Is the name of the directory where the database change logs will be stored in
-    let iCloudLogsDirectory: String
+    internal let iCloudLogsDirectory: String
     
     /**
     Note:
@@ -40,9 +43,13 @@ public struct iCloudData
     }
 }
 
+/**
+*  iCloud stack for SugarRecord
+*/
 public class iCloudCDStack: DefaultCDStack
 {
     //MARK: - Properties
+    
     /// iCloud Data struct with the information
     private let icloudData: iCloudData?
     
@@ -155,9 +162,13 @@ public class iCloudCDStack: DefaultCDStack
             }
             self!.rootSavingContext = self!.createRootSavingContext(self!.persistentStoreCoordinator)
             self!.mainContext = self!.createMainContext(self!.rootSavingContext)
+            self!.addObservers()
             self!.stackInitialized = true
         }
     }
+    
+    
+    //MARK: - Database
     
     /**
     Add iCloud Database
@@ -241,6 +252,9 @@ public class iCloudCDStack: DefaultCDStack
         })
     }
     
+    
+    //MARK: - Database Helpers
+    
     /**
     Returns the iCloud options to be used when the NSPersistentStore is initialized
     
@@ -254,5 +268,65 @@ public class iCloudCDStack: DefaultCDStack
         options[NSPersistentStoreUbiquitousContentNameKey] = contentNameKey
         options[NSPersistentStoreUbiquitousContentNameKey] = NSPersistentStoreUbiquitousContentURLKey
         return options
+    }
+    
+    
+    //MARK: - Observers
+    
+    /**
+    Add required observers to detect changes in psc's or contexts
+    */
+    internal func addObservers()
+    {
+        let notificationCenter: NSNotificationCenter = NSNotificationCenter.defaultCenter()
+        
+        // Store will change
+        notificationCenter.addObserver(self, selector: Selector("storesWillChange:"), name: NSPersistentStoreCoordinatorStoresWillChangeNotification, object: self.persistentStoreCoordinator)
+        
+        // Store did change
+        notificationCenter.addObserver(self, selector: Selector("storeDidChange:"), name: NSPersistentStoreCoordinatorStoresDidChangeNotification, object: self.persistentStoreCoordinator)
+
+        // Did import Ubiquituous Content
+        notificationCenter.addObserver(self, selector: Selector("persistentStoreDidImportUbiquitousContentChanges:"), name: NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: self.persistentStoreCoordinator)
+    }
+
+    /**
+    Detects changes in the Ubiquituous Container (iCloud) and bring them to the stack contexts
+    
+    :param: notification Notification with these changes
+    */
+    private func persistentStoreDidImportUbiquitousContentChanges(notification: NSNotification)
+    {
+        self.rootSavingContext!.performBlock { [weak self] () -> Void in
+            if self == nil {
+                SugarRecordLogger.logLevelWarn.log("The stack was released while trying to bring changes from the iCloud Container")
+                return
+            }
+            self!.rootSavingContext!.mergeChangesFromContextDidSaveNotification(notification)
+            self!.mainContext!.performBlock({ () -> Void in
+                self!.mainContext!.mergeChangesFromContextDidSaveNotification(notification)
+            })
+        }
+    }
+    
+    /**
+    Posted before the list of open persistent stores changes.
+    
+    :param: notification Notification with these changes
+    */
+    private func storesWillChange(notification: NSNotification)
+    {
+        self.saveChanges()
+    }
+    
+    
+    /**
+    Called when the store did change from the persistent store coordinator
+    
+    :param: notification Notification with the information
+    */
+    private func storeDidChange(notification: NSNotification)
+    {
+        // Nothing to do here
     }
 }

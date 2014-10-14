@@ -149,7 +149,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     public func applicationWillResignActive()
     {
-        saveChangesInRootSavingContext()
+        saveChanges()
     }
     
     /**
@@ -158,7 +158,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     public func applicationWillTerminate()
     {
-        saveChangesInRootSavingContext()
+        saveChanges()
     }
     
     /**
@@ -423,16 +423,22 @@ public class DefaultCDStack: SugarRecordStackProtocol
     //MARK: - Saving helper
     
     /**
-    Apply the changes of the root saving to be persisted in the database
+    Apply the changes of the context to be persisted in the database
     */
-    internal func saveChangesInRootSavingContext()
+    internal func saveChanges ()
     {
         if self.rootSavingContext == nil {
             assert(true, "Fatal error. The private context is not initialized")
         }
-        if self.rootSavingContext!.hasChanges {
+        else if self.mainContext == nil {
+            assert(true, "Fatal error. The main context is not initialized")
+        }
+        
+        // Defining saving closure
+        typealias SavingClosure = (context: NSManagedObjectContext) -> ()
+        let save: SavingClosure = { (context: NSManagedObjectContext) in
             var error: NSError?
-            self.rootSavingContext!.save(&error)
+            context.save(&error)
             if error != nil {
                 let exception: NSException = NSException(name: "Context saving exception", reason: "Pending changes in the root savinv context couldn't be saved", userInfo: ["error": error!])
                 SugarRecord.handle(NSException())
@@ -440,6 +446,19 @@ public class DefaultCDStack: SugarRecordStackProtocol
             else {
                 SugarRecordLogger.logLevelInfo.log("Existing changes persisted to the database")
             }
+            context.reset()
+        }
+        
+        // Saving MAIN CONTEXT and then ROOT SAVING CONTEXT
+        self.mainContext!.performBlockAndWait { () -> Void in
+            if self.mainContext!.hasChanges {
+                save(context: self.mainContext!)
+            }
+            self.rootSavingContext!.performBlock({ () -> Void in
+                if self.rootSavingContext!.hasChanges {
+                    save(context: self.rootSavingContext!)
+                }
+            })
         }
     }
 }

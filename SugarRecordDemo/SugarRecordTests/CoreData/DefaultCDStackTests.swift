@@ -37,7 +37,7 @@ class DefaultCDStackTests: XCTestCase
         class MockCDStack: DefaultCDStack
         {
             var savedChangesInRootSavingContext: Bool = false
-            override func saveChangesInRootSavingContext() {
+            override func saveChanges() {
                 savedChangesInRootSavingContext = true
             }
         }
@@ -52,7 +52,7 @@ class DefaultCDStackTests: XCTestCase
         class MockCDStack: DefaultCDStack
         {
             var savedChangesInRootSavingContext: Bool = false
-            override func saveChangesInRootSavingContext() {
+            override func saveChanges() {
                 savedChangesInRootSavingContext = true
             }
         }
