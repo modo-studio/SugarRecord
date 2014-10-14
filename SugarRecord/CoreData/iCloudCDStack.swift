@@ -155,6 +155,7 @@ public class iCloudCDStack: DefaultCDStack
             }
             self!.rootSavingContext = self!.createRootSavingContext(self!.persistentStoreCoordinator)
             self!.mainContext = self!.createMainContext(self!.rootSavingContext)
+            self!.stackInitialized = true
         }
     }
     

@@ -15,6 +15,7 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     public var name: String
     public var stackDescription: String
     public var stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeRealm
+    public var stackInitialized: Bool = false
     lazy public var migrations: [RLMObjectMigration<RLMObject>] = [RLMObjectMigration<RLMObject>]()
     
     //MARK: - Constructors
@@ -54,6 +55,7 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     public func initialize()
     {
         migrateIfNeeded()
+        self.stackInitialized = true
     }
     
     /**

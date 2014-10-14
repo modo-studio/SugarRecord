@@ -18,6 +18,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     public let defaultStoreName: String = "sugar.sqlite"
     public var stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeCoreData
     public var migrationFailedClosure: () -> ()
+    public var stackInitialized: Bool = false
     internal var managedObjectModel: NSManagedObjectModel?
     internal var databasePath: NSURL?
     internal var automigrating: Bool
@@ -130,6 +131,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
             }
             self!.rootSavingContext = self!.createRootSavingContext(self!.persistentStoreCoordinator)
             self!.mainContext = self!.createMainContext(self!.rootSavingContext)
+            self!.stackInitialized = true
         }
     }
     

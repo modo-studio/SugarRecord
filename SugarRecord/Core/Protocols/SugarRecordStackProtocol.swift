@@ -33,6 +33,9 @@ public protocol SugarRecordStackProtocol
     /// Description of the stack
     var stackDescription: String { get }
     
+    /// Bool that indicates if the stack is initialized and ready to be used
+    var stackInitialized: Bool { get }
+    
     /**
     *  Called the first time to initialize the stack elements
     */
