@@ -119,9 +119,18 @@ public class DefaultCDStack: SugarRecordStackProtocol
     {
         createManagedObjecModelIfNeeded()
         persistentStoreCoordinator = createPersistentStoreCoordinator()
-        addDatabase()
-        rootSavingContext = createRootSavingContext(self.persistentStoreCoordinator)
-        mainContext = createMainContext(self.rootSavingContext)
+        addDatabase { [weak self] (error: NSError?) -> () in
+            if self == nil {
+                SugarRecordLogger.logLevelFatal.log("The stack was released whil trying to initialize it")
+                return
+            }
+            else if error != nil {
+                SugarRecordLogger.logLevelFatal.log("Something went wrong adding the database")
+                return
+            }
+            self!.rootSavingContext = self!.createRootSavingContext(self!.persistentStoreCoordinator)
+            self!.mainContext = self!.createMainContext(self!.rootSavingContext)
+        }
     }
     
     /**
@@ -281,33 +290,38 @@ public class DefaultCDStack: SugarRecordStackProtocol
     /**
     Check if the database exists (if not it creates it), then it initializes the persistent store and executes the migration in case of needed
     */
-    public func addDatabase() {
+    internal func addDatabase(completionClosure: (error: NSError?) -> ())
+    {
         var error: NSError?
-        createPathIfNecessary(forFilePath: self.databasePath!)
+        self.createPathIfNecessary(forFilePath: self.databasePath!)
         var store: NSPersistentStore?
+        
+        // Checking that the PSC exists before adding the store
         if self.persistentStoreCoordinator == nil {
-            SugarRecord.handle(NSError())
+            SugarRecord.handle(NSError(domain: "Trying to initialize the store without persistent store coordinator", code: SugarRecordErrorCodes.LibraryError.toRaw(), userInfo: nil))
         }
+        
+        // Adding the store
+        self.persistentStoreCoordinator!.lock()
         if self.automigrating {
             store = self.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.databasePath!, options: DefaultCDStack.autoMigrateStoreOptions(), error: &error)!
         }
         else {
             store = self.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.databasePath!, options: DefaultCDStack.defaultStoreOptions(), error: &error)!
         }
+        self.persistentStoreCoordinator!.unlock()
         
+        // Executing forced migration in case of that something went wrong
         let isMigratingError = error?.code == NSPersistentStoreIncompatibleVersionHashError || error?.code == NSMigrationMissingSourceModelError
-        
         if (error?.domain == NSCocoaErrorDomain as String) && isMigratingError {
             var deleteError: NSError?
             let rawURL: String = self.databasePath!.absoluteString!
             let shmSidecar: NSURL = NSURL.URLWithString(rawURL.stringByAppendingString("-shm"))
             let walSidecar: NSURL = NSURL.URLWithString(rawURL.stringByAppendingString("-wal"))
-            NSFileManager.defaultManager().removeItemAtURL(databasePath!, error: &deleteError)
+            NSFileManager.defaultManager().removeItemAtURL(self.databasePath!, error: &deleteError)
             NSFileManager.defaultManager().removeItemAtURL(shmSidecar, error: &error)
             NSFileManager.defaultManager().removeItemAtURL(walSidecar, error: &error)
-            
             SugarRecordLogger.logLevelWarn.log("Incompatible model version has been removed \(self.databasePath!.lastPathComponent)")
-            
             if deleteError != nil {
                 SugarRecordLogger.logLevelError.log("Could not delete store. Error: \(deleteError?.localizedDescription)")
             }
@@ -315,15 +329,20 @@ public class DefaultCDStack: SugarRecordStackProtocol
                 SugarRecordLogger.logLevelInfo.log("Did delete store")
             }
             SugarRecordLogger.logLevelInfo.log("Will recreate store")
+            self.persistentStoreCoordinator!.lock()
             self.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.databasePath, options: DefaultCDStack.defaultStoreOptions(), error: &error)
             SugarRecordLogger.logLevelInfo.log("Did recreate store")
             self.migrationFailedClosure()
+            self.persistentStoreCoordinator!.unlock()
             error = nil
         }
         else {
             SugarRecord.handle(error)
         }
         self.persistentStore = store!
+        
+        // Calling completion closure
+        completionClosure(error: nil)
     }
     
     /**
@@ -355,7 +374,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
         options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
         options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: true)
         options[NSSQLitePragmasOption] = sqliteOptions
-        return sqliteOptions
+        return options
     }
     
     /**
@@ -371,7 +390,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
         options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
         options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: false)
         options[NSSQLitePragmasOption] = sqliteOptions
-        return sqliteOptions
+        return options
     }
     
     /**

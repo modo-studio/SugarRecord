@@ -10,11 +10,29 @@ import Foundation
 
 public struct iCloudData
 {
-    let iCloudAppID: String!
-    let iCloudDataDirectoryName: String?
-    let iCloudLogsDirectory: String?
+    /// Is the full AppID (including the Team Prefix). It's needed to change tihs to match the Team Prefix found in the iOS Provisioning profile
+    let iCloudAppID: String
+    /// Is the name of the directory where the database will be stored in. It should always end with .nosync
+    let iCloudDataDirectoryName: String
+    /// Is the name of the directory where the database change logs will be stored in
+    let iCloudLogsDirectory: String
     
-    public init (iCloudAppID: String, iCloudDataDirectoryName: String?, iCloudLogsDirectory: String?)
+    /**
+    Note:
+    iCloudData = iCloud + DataDirectory
+    iCloudLogs = iCloud + LogsDirectory
+    */
+    
+    /**
+    Initializer for the struct
+    
+    :param: iCloudAppID             iCloud app identifier
+    :param: iCloudDataDirectoryName Directory of the database
+    :param: iCloudLogsDirectory     Directory of the database logs
+    
+    :returns: Initialized struct
+    */
+    public init (iCloudAppID: String, iCloudDataDirectoryName: String, iCloudLogsDirectory: String)
     {
         self.iCloudAppID = iCloudAppID
         self.iCloudDataDirectoryName = iCloudDataDirectoryName
@@ -25,6 +43,7 @@ public struct iCloudData
 public class iCloudCDStack: DefaultCDStack
 {
     //MARK: - Properties
+    /// iCloud Data struct with the information
     private let icloudData: iCloudData?
     
     //MARK: - Constructors
@@ -47,6 +66,8 @@ public class iCloudCDStack: DefaultCDStack
         self.databasePath = databaseURL
         self.managedObjectModel = model
         self.migrationFailedClosure = {}
+        self.name = "iCloudCoreDataStack"
+        self.stackDescription = "Stack to connect your local storage with iCloud"
     }
     
     /**
@@ -116,9 +137,6 @@ public class iCloudCDStack: DefaultCDStack
         self.init(databaseURL: NSURL(fileURLWithPath: databasePath), model: model, automigrating: true, icloudData: icloudData)
     }
     
-    
-    //MARK: - Initializers
-    
     /**
     Initialize the stacks components and the connections between them
     */
@@ -126,67 +144,114 @@ public class iCloudCDStack: DefaultCDStack
     {
         createManagedObjecModelIfNeeded()
         persistentStoreCoordinator = createPersistentStoreCoordinator()
-        addDatabase()
-        rootSavingContext = createRootSavingContext(self.persistentStoreCoordinator)
-        mainContext = createMainContext(self.rootSavingContext)
+        addDatabase(foriCloud: true) { [weak self] (error) -> () in
+            if self == nil {
+                SugarRecordLogger.logLevelFatal.log("The stack was released whil trying to initialize it")
+                return
+            }
+            else if error != nil {
+                SugarRecordLogger.logLevelFatal.log("Something went wrong adding the database")
+                return
+            }
+            self!.rootSavingContext = self!.createRootSavingContext(self!.persistentStoreCoordinator)
+            self!.mainContext = self!.createMainContext(self!.rootSavingContext)
+        }
     }
     
     /**
     Add iCloud Database
     */
-    internal func addiCloudDatabase()
+    internal func addDatabase(foriCloud icloud: Bool, completionClosure: (error: NSError?) -> ())
     {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+        /**
+        *  In case of not for iCloud
+        */
+        if !icloud {
+            self.addDatabase(completionClosure)
+            return
+        }
+        /**
+        *  Database creation is an asynchronous process
+        */
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { [weak self] () -> Void in
+            
+            // Ensuring that the stack hasn't been released
+            if self == nil {
+                SugarRecordLogger.logLevelFatal.log("The stack was initialized while trying to add the database")
+                return
+            }
+            
+            // Checking that the PSC exists before adding the store
+            if self!.persistentStoreCoordinator == nil {
+                SugarRecord.handle(NSError())
+            }
             
             
+            // Logging some data
+            let fileManager: NSFileManager = NSFileManager()
+            SugarRecordLogger.logLevelVerbose.log("Initializing iCloud with:")
+            SugarRecordLogger.logLevelVerbose.log("iCloud App ID: \(self!.icloudData?.iCloudAppID)")
+            SugarRecordLogger.logLevelVerbose.log("iCloud Data Directory: \(self!.icloudData?.iCloudDataDirectoryName)")
+            SugarRecordLogger.logLevelVerbose.log("iCloud Logs Directory: \(self!.icloudData?.iCloudLogsDirectory)")
             
-            
-            
-        })
-        let icloudStoreURL: NSURL = NSURL();
-        var options: [NSObject: AnyObject] = iCloudCDStack.autoMigrateStoreOptions()
-        options[NSPersistentStoreUbiquitousContentNameKey] = "Content Name Key"
-        options[NSPersistentStoreUbiquitousContentURLKey] = "Content URL Key"
+            //Getting the root path for iCloud
+            let iCloudRootPath: NSURL? = fileManager.URLForUbiquityContainerIdentifier(self!.icloudData?.iCloudAppID)
 
+            /**
+            *  If iCloud if accesible keep creating the PSC
+            */
+            if iCloudRootPath != nil {
+                let iCloudLogsPath: NSURL = NSURL(fileURLWithPath: iCloudRootPath!.path!.stringByAppendingPathComponent(self!.icloudData!.iCloudLogsDirectory))
+                let iCloudDataPath: NSURL = NSURL(fileURLWithPath: iCloudRootPath!.path!.stringByAppendingPathComponent(self!.icloudData!.iCloudDataDirectoryName))
+
+                // Creating data path in case of doesn't existing
+                var error: NSError?
+                if !fileManager.fileExistsAtPath(iCloudDataPath.path!) {
+                    fileManager.createDirectoryAtPath(iCloudDataPath.path!, withIntermediateDirectories: true, attributes: nil, error: &error)
+                }
+                if error != nil {
+                    completionClosure(error: error!)
+                    return
+                }
+                
+                /// Getting the database path
+                /// iCloudPath + iCloudDataPath + DatabaseName
+                self!.databasePath = NSURL(fileURLWithPath: iCloudRootPath!.path!.stringByAppendingPathComponent(self!.icloudData!.iCloudDataDirectoryName).stringByAppendingPathComponent(self!.databasePath!.lastPathComponent))
+                
+                
+                // Adding store
+                self!.persistentStoreCoordinator!.lock()
+                error = nil
+                var store: NSPersistentStore? = self!.persistentStoreCoordinator?.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self!.databasePath, options: iCloudCDStack.icloudStoreOptions(contentNameKey: self!.icloudData!.iCloudAppID, contentURLKey: iCloudLogsPath), error: &error)
+                self!.persistentStoreCoordinator!.unlock()
+                self!.persistentStore = store!
+
+                // Calling completion closure
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionClosure(error: nil)
+                })
+            }
+            /**
+            *  Otherwise use the local store
+            */
+            else {
+                self!.addDatabase(foriCloud: false, completionClosure: completionClosure)
+            }
+        })
+    }
+    
+    /**
+    Returns the iCloud options to be used when the NSPersistentStore is initialized
+    
+    :returns: [NSObject: AnyObject] with the options
+    */
+    internal class func icloudStoreOptions(#contentNameKey: String, contentURLKey: NSURL) -> [NSObject: AnyObject]
+    {
+        var options: [NSObject: AnyObject] = [NSObject: AnyObject] ()
+        options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
+        options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: true)
+        options[NSPersistentStoreUbiquitousContentNameKey] = contentNameKey
+        options[NSPersistentStoreUbiquitousContentNameKey] = NSPersistentStoreUbiquitousContentURLKey
+        return options
     }
 }
-
-
-/*
-dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    
-    NSURL *cloudURL = [NSPersistentStore MR_cloudURLForUbiqutiousContainer:containerID];
-    if (subPathComponent)
-    {
-        cloudURL = [cloudURL URLByAppendingPathComponent:subPathComponent];
-    }
-    
-    [MagicalRecord setICloudEnabled:cloudURL != nil];
-
-    
-    if ([self respondsToSelector:@selector(performBlockAndWait:)])
-    {
-        [self performSelector:@selector(performBlockAndWait:) withObject:^{
-            [self MR_addSqliteStoreNamed:storeIdentifier withOptions:options];
-        }];
-    }
-    else
-    {
-        [self lock];
-        [self MR_addSqliteStoreNamed:storeIdentifier withOptions:options];
-        [self unlock];
-    }
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if ([NSPersistentStore MR_defaultPersistentStore] == nil)
-        {
-            [NSPersistentStore MR_setDefaultPersistentStore:[[self persistentStores] firstObject]];
-        }
-        if (completionBlock)
-        {
-            completionBlock();
-        }
-        NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-        [notificationCenter postNotificationName:kMagicalRecordPSCDidCompleteiCloudSetupNotification object:nil];
-        });
-    });*/
