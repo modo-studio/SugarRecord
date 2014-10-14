@@ -168,6 +168,33 @@ public class iCloudCDStack: DefaultCDStack
     }
     
     
+    //MARK: - Contexts
+    
+    /**
+    Creates a temporary root saving context to be used in background operations
+    
+    :param: persistentStoreCoordinator NSPersistentStoreCoordinator to be set as the persistent store coordinator of the created context
+    
+    :returns: Private NSManageObjectContext
+    */
+    override internal func createRootSavingContext(persistentStoreCoordinator: NSPersistentStoreCoordinator?) -> NSManagedObjectContext
+    {
+        SugarRecordLogger.logLevelVerbose.log("Creating Root Saving context")
+        var context: NSManagedObjectContext?
+        if persistentStoreCoordinator == nil {
+            SugarRecord.handle(NSError(domain: "The persistent store coordinator is not initialized", code: SugarRecordErrorCodes.CoreDataError.toRaw(), userInfo: nil))
+        }
+        context = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        context!.persistentStoreCoordinator = persistentStoreCoordinator!
+        context!.addObserverToGetPermanentIDsBeforeSaving()
+        context!.name = "Root saving context"
+        context!.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        SugarRecordLogger.logLevelVerbose.log("Created MAIN context")
+        return context!
+    }
+    
+    
+    
     //MARK: - Database
     
     /**
@@ -297,6 +324,7 @@ public class iCloudCDStack: DefaultCDStack
     */
     private func persistentStoreDidImportUbiquitousContentChanges(notification: NSNotification)
     {
+        SugarRecordLogger.logLevelVerbose.log("Changes detected from iCloud. Merging them into the current CoreData stack")
         self.rootSavingContext!.performBlock { [weak self] () -> Void in
             if self == nil {
                 SugarRecordLogger.logLevelWarn.log("The stack was released while trying to bring changes from the iCloud Container")
@@ -316,6 +344,7 @@ public class iCloudCDStack: DefaultCDStack
     */
     private func storesWillChange(notification: NSNotification)
     {
+        SugarRecordLogger.logLevelVerbose.log("Stores will change, saving pending changes before changing store")
         self.saveChanges()
     }
     
@@ -327,6 +356,7 @@ public class iCloudCDStack: DefaultCDStack
     */
     private func storeDidChange(notification: NSNotification)
     {
+        SugarRecordLogger.logLevelVerbose.log("The persistent store of the psc did change")
         // Nothing to do here
     }
 }

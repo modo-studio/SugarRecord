@@ -454,7 +454,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
             if self.mainContext!.hasChanges {
                 save(context: self.mainContext!)
             }
-            self.rootSavingContext!.performBlock({ () -> Void in
+            self.rootSavingContext!.performBlockAndWait({ () -> Void in
                 if self.rootSavingContext!.hasChanges {
                     save(context: self.rootSavingContext!)
                 }
