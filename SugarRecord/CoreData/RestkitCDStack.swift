@@ -24,6 +24,7 @@ public class RestkitCDStack: DefaultCDStack
         self.persistentStoreCoordinator = store.persistentStoreCoordinator
         self.rootSavingContext = store.persistentStoreManagedObjectContext
         self.mainContext = store.mainQueueManagedObjectContext
+        self.stackInitialized = true
     }
     
     internal func createRKManagedObjectStore() -> RKManagedObjectStore

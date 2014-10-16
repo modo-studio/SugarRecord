@@ -228,7 +228,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     :param: asynchronously Bool indicating if the saving process is asynchronous or not
     :param: completion     Closure called when the saving operation has been completed
     */
-    public func save (asynchronously: Bool, completion: (error: NSError?) -> ())
+    public func save (asynchronously: Bool, completion: CompletionClosure)
     {
         SugarRecordLogger.logLevelVerbose.log("Saving \(self) in context")
         let context: SugarRecordContext = self.context()

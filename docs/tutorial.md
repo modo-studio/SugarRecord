@@ -9,7 +9,7 @@ Once you have SugarRecord integrated in your project the first thing you have to
 
 **Default REALM Stack**: This stack provides a setup for REALM which is much easier than Core Data, no context, thread safe...
 
-**Default Core Data Stack + iCloud**: IN PROGRESS
+**Default Core Data Stack + iCloud**: With the stack of iCloud you'll be able to persist your users' data in iCloud easily. Initialize the stack and leave SugarRecord do the rest.
 
 **Default Core Data Stack + Restkit**: It connects thd default CoreData stack with RestKit to enjoy the powerful features of that library.
 

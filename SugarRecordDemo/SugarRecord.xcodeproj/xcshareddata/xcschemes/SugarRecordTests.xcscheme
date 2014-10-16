@@ -9,6 +9,20 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CEBF264DDD074749889B2389"
+               BuildableName = "libPods.a"
+               BlueprintName = "Pods"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "YES">
@@ -79,10 +93,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3D4F507319CDA36B00C1FD3D"
-            BuildableName = "SugarRecordTests.xctest"
-            BlueprintName = "SugarRecordTests"
-            ReferencedContainer = "container:SugarRecord.xcodeproj">
+            BlueprintIdentifier = "CEBF264DDD074749889B2389"
+            BuildableName = "libPods.a"
+            BlueprintName = "Pods"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -33,6 +33,7 @@ The scheme above shows the structure of SugarRecord. It's formed by:
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 16th-October-2014 | Finished stack for iCloud [PR](https://github.com/SugarRecord/SugarRecord/pull/45) |
 | 6th-October-2014 | Added FetchedResultsController support [PR](https://github.com/SugarRecord/SugarRecord/pull/40) |
 | 5th-October-2014 | Writen a post about custom operators, [POST](http://sugarrecord.com/swift/features/2014/10/05/bringing-custom-operators-onboard.html) |
 | 5th-October-2014 | Added custom operators |
@@ -45,7 +46,8 @@ The scheme above shows the structure of SugarRecord. It's formed by:
 
 ## Index
 - [Advantages of SugarRecord](#advantages-of-sugarrecord)
-- [Version 1.0 - Features](#planned-for-1.0-release)
+- [Version 1.0.1 Beta - Features](#version-1.0.1-beta---features)
+- [Version 1.0 Beta - Features](#version-1.0-beta---features)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Communication flow](#communication-flow)
@@ -96,6 +98,7 @@ Person.self -= person // Object deletion
 ```swift
 CoreDataObject.all().fetchedResultsController("name")
 ```
+- Stack for **iCloud**
 
 ## Version 1.0 Beta - Features
 
@@ -244,7 +247,7 @@ One of the main advantages of using SugarRecord is its big flexibility to choose
 
 - **Default Core Data Stack**: This stack has a private context with the unique persistent store coordinator as parent. There is a main context under it to execute low load operations and a private one at the same level as the main one to execute high load operations. Changes  performed in that private context are brought to the main context using KVO.
 - **Default REALM Stack**: This  stack provides a setup for REALM which is much easier than Core Data, no context, thread safe...
-- **Default Core Data Stack + iCloud**: IN PROGRESS
+- **Default Core Data Stack + iCloud**: With the stack of iCloud you'll be able to persist your users' data in iCloud easily. Initialize the stack and leave SugarRecord do the rest.
 - **Default Core Data Stack + Restkit**: It connects thd default CoreData stack with RestKit to enjoy the powerful features of that library.
 
 #### Contribute

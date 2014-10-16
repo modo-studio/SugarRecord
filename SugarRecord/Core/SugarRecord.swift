@@ -18,6 +18,15 @@ internal enum SugarRecordErrorCodes: Int {
     case UserError, LibraryError, CoreDataError, REALMError
 }
 
+/**
+*  Completion closure used by the stack initialization
+*
+*  @param NSError? Error passed in case of something happened
+*
+*  @return Nothing to return
+*/
+public typealias CompletionClosure = (error: NSError?) -> ()
+
 
 // MARK: -  Library
 
@@ -166,13 +175,21 @@ public class SugarRecord {
         if stack == nil {
             SugarRecord.handle(NSError(domain: "Cannot find an stack for the given type", code: SugarRecordErrorCodes.UserError.toRaw(), userInfo: nil))
         }
+        else if !stack!.stackInitialized {
+            SugarRecordLogger.logLevelWarn.log("The stack hasn't been initialized yet")
+            return
+        }
+        let context: SugarRecordContext? = background ? stack!.backgroundContext(): stack!.mainThreadContext()
+        if context == nil {
+            SugarRecord.handle(NSError(domain: "Something went wrong, the stack is set as initialized but there's no contexts", code: SugarRecordErrorCodes.LibraryError.toRaw(), userInfo: nil))
+        }
         if background {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
-                closure(context: stack!.backgroundContext())
+                closure(context: context!)
             })
         }
         else {
-            closure(context: stack!.mainThreadContext())
+            closure(context: context!)
         }
     }
     

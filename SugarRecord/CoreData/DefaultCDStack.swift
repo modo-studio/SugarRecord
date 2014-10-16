@@ -18,6 +18,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     public let defaultStoreName: String = "sugar.sqlite"
     public var stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeCoreData
     public var migrationFailedClosure: () -> ()
+    public var stackInitialized: Bool = false
     internal var managedObjectModel: NSManagedObjectModel?
     internal var databasePath: NSURL?
     internal var automigrating: Bool
@@ -117,11 +118,29 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     public func initialize()
     {
+        SugarRecordLogger.logLevelInfo.log("Initializing the stack: \(self.stackDescription)")
         createManagedObjecModelIfNeeded()
         persistentStoreCoordinator = createPersistentStoreCoordinator()
-        addDatabase()
-        rootSavingContext = createRootSavingContext(self.persistentStoreCoordinator)
-        mainContext = createMainContext(self.rootSavingContext)
+        addDatabase(dataBaseAddedClosure())
+    }
+    
+    /**
+    Returns the closure to be execute once the database has been created
+    */
+    public func dataBaseAddedClosure() -> CompletionClosure {
+        return { [weak self] (error) -> () in
+            if self == nil {
+                SugarRecordLogger.logLevelFatal.log("The stack was released whil trying to initialize it")
+                return
+            }
+            else if error != nil {
+                SugarRecordLogger.logLevelFatal.log("Something went wrong adding the database")
+                return
+            }
+            self!.rootSavingContext = self!.createRootSavingContext(self!.persistentStoreCoordinator)
+            self!.mainContext = self!.createMainContext(self!.rootSavingContext)
+            self!.stackInitialized = true
+        }
     }
     
     /**
@@ -138,7 +157,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     public func applicationWillResignActive()
     {
-        saveChangesInRootSavingContext()
+        saveChanges()
     }
     
     /**
@@ -147,7 +166,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     public func applicationWillTerminate()
     {
-        saveChangesInRootSavingContext()
+        saveChanges()
     }
     
     /**
@@ -164,10 +183,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
     
     :returns: SugarRecordCDContext with the background context
     */
-    public func backgroundContext() -> SugarRecordContext
+    public func backgroundContext() -> SugarRecordContext?
     {
         if self.rootSavingContext == nil {
-            assert(true, "Fatal error. The private context is not initialized")
+            return nil
         }
         var context: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: .ConfinementConcurrencyType)
         context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
@@ -183,10 +202,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
     
     :returns: SugarRecordCDContext with the main context
     */
-    public func mainThreadContext() -> SugarRecordContext
+    public func mainThreadContext() -> SugarRecordContext?
     {
         if self.mainContext == nil {
-            assert(true, "Fatal error. The main context is not initialized")
+            return nil
         }
         return SugarRecordCDContext(context: self.mainContext!)
     }
@@ -281,33 +300,38 @@ public class DefaultCDStack: SugarRecordStackProtocol
     /**
     Check if the database exists (if not it creates it), then it initializes the persistent store and executes the migration in case of needed
     */
-    public func addDatabase() {
+    internal func addDatabase(completionClosure: CompletionClosure)
+    {
         var error: NSError?
-        createPathIfNecessary(forFilePath: self.databasePath!)
+        self.createPathIfNecessary(forFilePath: self.databasePath!)
         var store: NSPersistentStore?
+        
+        // Checking that the PSC exists before adding the store
         if self.persistentStoreCoordinator == nil {
-            SugarRecord.handle(NSError())
+            SugarRecord.handle(NSError(domain: "Trying to initialize the store without persistent store coordinator", code: SugarRecordErrorCodes.LibraryError.toRaw(), userInfo: nil))
         }
+        
+        // Adding the store
+        self.persistentStoreCoordinator!.lock()
         if self.automigrating {
             store = self.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.databasePath!, options: DefaultCDStack.autoMigrateStoreOptions(), error: &error)!
         }
         else {
             store = self.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.databasePath!, options: DefaultCDStack.defaultStoreOptions(), error: &error)!
         }
+        self.persistentStoreCoordinator!.unlock()
         
+        // Executing forced migration in case of that something went wrong
         let isMigratingError = error?.code == NSPersistentStoreIncompatibleVersionHashError || error?.code == NSMigrationMissingSourceModelError
-        
         if (error?.domain == NSCocoaErrorDomain as String) && isMigratingError {
             var deleteError: NSError?
             let rawURL: String = self.databasePath!.absoluteString!
             let shmSidecar: NSURL = NSURL.URLWithString(rawURL.stringByAppendingString("-shm"))
             let walSidecar: NSURL = NSURL.URLWithString(rawURL.stringByAppendingString("-wal"))
-            NSFileManager.defaultManager().removeItemAtURL(databasePath!, error: &deleteError)
+            NSFileManager.defaultManager().removeItemAtURL(self.databasePath!, error: &deleteError)
             NSFileManager.defaultManager().removeItemAtURL(shmSidecar, error: &error)
             NSFileManager.defaultManager().removeItemAtURL(walSidecar, error: &error)
-            
             SugarRecordLogger.logLevelWarn.log("Incompatible model version has been removed \(self.databasePath!.lastPathComponent)")
-            
             if deleteError != nil {
                 SugarRecordLogger.logLevelError.log("Could not delete store. Error: \(deleteError?.localizedDescription)")
             }
@@ -315,15 +339,20 @@ public class DefaultCDStack: SugarRecordStackProtocol
                 SugarRecordLogger.logLevelInfo.log("Did delete store")
             }
             SugarRecordLogger.logLevelInfo.log("Will recreate store")
+            self.persistentStoreCoordinator!.lock()
             self.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.databasePath, options: DefaultCDStack.defaultStoreOptions(), error: &error)
             SugarRecordLogger.logLevelInfo.log("Did recreate store")
             self.migrationFailedClosure()
+            self.persistentStoreCoordinator!.unlock()
             error = nil
         }
         else {
             SugarRecord.handle(error)
         }
         self.persistentStore = store!
+        
+        // Calling completion closure
+        completionClosure(error: nil)
     }
     
     /**
@@ -355,7 +384,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
         options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
         options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: true)
         options[NSSQLitePragmasOption] = sqliteOptions
-        return sqliteOptions
+        return options
     }
     
     /**
@@ -371,7 +400,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
         options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
         options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: false)
         options[NSSQLitePragmasOption] = sqliteOptions
-        return sqliteOptions
+        return options
     }
     
     /**
@@ -402,16 +431,22 @@ public class DefaultCDStack: SugarRecordStackProtocol
     //MARK: - Saving helper
     
     /**
-    Apply the changes of the root saving to be persisted in the database
+    Apply the changes of the context to be persisted in the database
     */
-    internal func saveChangesInRootSavingContext()
+    internal func saveChanges ()
     {
         if self.rootSavingContext == nil {
             assert(true, "Fatal error. The private context is not initialized")
         }
-        if self.rootSavingContext!.hasChanges {
+        else if self.mainContext == nil {
+            assert(true, "Fatal error. The main context is not initialized")
+        }
+        
+        // Defining saving closure
+        typealias SavingClosure = (context: NSManagedObjectContext) -> ()
+        let save: SavingClosure = { (context: NSManagedObjectContext) in
             var error: NSError?
-            self.rootSavingContext!.save(&error)
+            context.save(&error)
             if error != nil {
                 let exception: NSException = NSException(name: "Context saving exception", reason: "Pending changes in the root savinv context couldn't be saved", userInfo: ["error": error!])
                 SugarRecord.handle(NSException())
@@ -419,6 +454,19 @@ public class DefaultCDStack: SugarRecordStackProtocol
             else {
                 SugarRecordLogger.logLevelInfo.log("Existing changes persisted to the database")
             }
+            context.reset()
+        }
+        
+        // Saving MAIN CONTEXT and then ROOT SAVING CONTEXT
+        self.mainContext!.performBlockAndWait { () -> Void in
+            if self.mainContext!.hasChanges {
+                save(context: self.mainContext!)
+            }
+            self.rootSavingContext!.performBlockAndWait({ () -> Void in
+                if self.rootSavingContext!.hasChanges {
+                    save(context: self.rootSavingContext!)
+                }
+            })
         }
     }
 }
