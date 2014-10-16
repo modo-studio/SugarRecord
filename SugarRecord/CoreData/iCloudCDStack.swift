@@ -300,7 +300,7 @@ public class iCloudCDStack: DefaultCDStack
         options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
         options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: true)
         options[NSPersistentStoreUbiquitousContentNameKey] = contentNameKey
-        options[NSPersistentStoreUbiquitousContentNameKey] = NSPersistentStoreUbiquitousContentURLKey
+        options[NSPersistentStoreUbiquitousContentURLKey] = contentURLKey
         return options
     }
     

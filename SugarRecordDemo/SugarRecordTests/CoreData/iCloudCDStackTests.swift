@@ -80,6 +80,19 @@ class iCloudCDStackTests: XCTestCase {
         XCTAssertTrue(sameMergePolicy, "The merge policy should be by property object trump")
     }
     
+    
+    //MARK: - Store Options
+    
+    func testStoreOptions()
+    {
+        let options: [NSObject: AnyObject] = iCloudCDStack.icloudStoreOptions(contentNameKey: "name", contentURLKey: NSURL(string: "url"))
+        XCTAssertEqual(options[NSMigratePersistentStoresAutomaticallyOption] as NSNumber, NSNumber(bool: true), "NSMigratePersistentStoresAutomaticallyOption should be true")
+        XCTAssertEqual(options[NSInferMappingModelAutomaticallyOption] as NSNumber, NSNumber(bool: true), "NSInferMappingModelAutomaticallyOption should be true")
+         XCTAssertEqual(options[NSPersistentStoreUbiquitousContentNameKey] as NSString, "name", "NSPersistentStoreUbiquitousContentNameKey should be name")
+         XCTAssertEqual(options[NSPersistentStoreUbiquitousContentURLKey] as NSURL, NSURL(string: "url"), "NSPersistentStoreUbiquitousContentNameKey should be url")
+    }
+    
+    
     //MARK: - Observers
     
     func testIfObserversAreAddedToDetectiCloudChanges()
