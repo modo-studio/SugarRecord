@@ -92,13 +92,14 @@ class DefaultCDStackTests: XCTestCase
             }
         }
         
-        let context: MockCDStack = MockCDStack(databaseName: "test", automigrating: false)
-        context.initialize()
-        XCTAssertTrue(context.pscCreated, "Should initialize the persistent store coordinator")
-        XCTAssertTrue(context.databaseAdded, "Should add the database")
-        XCTAssertTrue(context.rootSavingContextCreated, "Should create the root saving context")
-        XCTAssertTrue(context.mainContextAdded, "Should add a main context")
-        context.removeDatabase()
+        let stack: MockCDStack = MockCDStack(databaseName: "test", automigrating: false)
+        stack.initialize()
+        XCTAssertTrue(stack.pscCreated, "Should initialize the persistent store coordinator")
+        XCTAssertTrue(stack.databaseAdded, "Should add the database")
+        XCTAssertTrue(stack.rootSavingContextCreated, "Should create the root saving context")
+        XCTAssertTrue(stack.mainContextAdded, "Should add a main context")
+        XCTAssertTrue(stack.stackInitialized, "Stack should be set as initialized")
+        stack.removeDatabase()
     }
     
     func testBackgroundContextShouldHaveTheRootSavingContextAsParent()

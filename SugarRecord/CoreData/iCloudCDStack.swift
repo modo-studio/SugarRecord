@@ -53,7 +53,8 @@ public class iCloudCDStack: DefaultCDStack
     /// iCloud Data struct with the information
     private let icloudData: iCloudData?
     
-    //MARK: - Constructors
+    /// Notification center used for iCloud Notifications
+    lazy var notificationCenter: NSNotificationCenter = NSNotificationCenter.defaultCenter()
     
     /**
     Initialize the CoreData stack
@@ -312,16 +313,15 @@ public class iCloudCDStack: DefaultCDStack
     internal func addObservers()
     {
         SugarRecordLogger.logLevelVerbose.log("Adding observers to detect changes on iCloud")
-        let notificationCenter: NSNotificationCenter = NSNotificationCenter.defaultCenter()
         
         // Store will change
-        notificationCenter.addObserver(self, selector: Selector("storesWillChange:"), name: NSPersistentStoreCoordinatorStoresWillChangeNotification, object: self.persistentStoreCoordinator)
+        notificationCenter.addObserver(self, selector: Selector("storesWillChange:"), name: NSPersistentStoreCoordinatorStoresWillChangeNotification, object: nil)
         
         // Store did change
-        notificationCenter.addObserver(self, selector: Selector("storeDidChange:"), name: NSPersistentStoreCoordinatorStoresDidChangeNotification, object: self.persistentStoreCoordinator)
+        notificationCenter.addObserver(self, selector: Selector("storeDidChange:"), name: NSPersistentStoreCoordinatorStoresDidChangeNotification, object: nil)
 
         // Did import Ubiquituous Content
-        notificationCenter.addObserver(self, selector: Selector("persistentStoreDidImportUbiquitousContentChanges:"), name: NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: self.persistentStoreCoordinator)
+        notificationCenter.addObserver(self, selector: Selector("persistentStoreDidImportUbiquitousContentChanges:"), name: NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: nil)
     }
 
     /**
@@ -329,7 +329,7 @@ public class iCloudCDStack: DefaultCDStack
     
     :param: notification Notification with these changes
     */
-    private func persistentStoreDidImportUbiquitousContentChanges(notification: NSNotification)
+    internal func persistentStoreDidImportUbiquitousContentChanges(notification: NSNotification)
     {
         SugarRecordLogger.logLevelVerbose.log("Changes detected from iCloud. Merging them into the current CoreData stack")
         self.rootSavingContext!.performBlock { [weak self] () -> Void in
@@ -349,7 +349,7 @@ public class iCloudCDStack: DefaultCDStack
     
     :param: notification Notification with these changes
     */
-    private func storesWillChange(notification: NSNotification)
+    internal func storesWillChange(notification: NSNotification)
     {
         SugarRecordLogger.logLevelVerbose.log("Stores will change, saving pending changes before changing store")
         self.saveChanges()
@@ -361,7 +361,7 @@ public class iCloudCDStack: DefaultCDStack
     
     :param: notification Notification with the information
     */
-    private func storeDidChange(notification: NSNotification)
+    internal func storeDidChange(notification: NSNotification)
     {
         SugarRecordLogger.logLevelVerbose.log("The persistent store of the psc did change")
         // Nothing to do here
