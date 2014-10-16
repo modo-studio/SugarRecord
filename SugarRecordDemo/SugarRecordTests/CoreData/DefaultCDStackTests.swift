@@ -76,7 +76,7 @@ class DefaultCDStackTests: XCTestCase
                 return NSPersistentStoreCoordinator()
             }
             
-            override func addDatabase(completionClosure: (error: NSError?) -> ()) {
+            override func addDatabase(completionClosure: CompletionClosure) {
                 databaseAdded = true
                 completionClosure(error: nil)
             }

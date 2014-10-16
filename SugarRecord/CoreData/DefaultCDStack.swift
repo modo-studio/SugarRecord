@@ -121,7 +121,14 @@ public class DefaultCDStack: SugarRecordStackProtocol
         SugarRecordLogger.logLevelInfo.log("Initializing the stack: \(self.stackDescription)")
         createManagedObjecModelIfNeeded()
         persistentStoreCoordinator = createPersistentStoreCoordinator()
-        addDatabase { [weak self] (error: NSError?) -> () in
+        addDatabase(dataBaseAddedClosure())
+    }
+    
+    /**
+    Returns the closure to be execute once the database has been created
+    */
+    public func dataBaseAddedClosure() -> CompletionClosure {
+        return { [weak self] (error) -> () in
             if self == nil {
                 SugarRecordLogger.logLevelFatal.log("The stack was released whil trying to initialize it")
                 return
@@ -293,7 +300,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     /**
     Check if the database exists (if not it creates it), then it initializes the persistent store and executes the migration in case of needed
     */
-    internal func addDatabase(completionClosure: (error: NSError?) -> ())
+    internal func addDatabase(completionClosure: CompletionClosure)
     {
         var error: NSError?
         self.createPathIfNecessary(forFilePath: self.databasePath!)

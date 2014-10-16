@@ -18,6 +18,15 @@ internal enum SugarRecordErrorCodes: Int {
     case UserError, LibraryError, CoreDataError, REALMError
 }
 
+/**
+*  Completion closure used by the stack initialization
+*
+*  @param NSError? Error passed in case of something happened
+*
+*  @return Nothing to return
+*/
+public typealias CompletionClosure = (error: NSError?) -> ()
+
 
 // MARK: -  Library
 

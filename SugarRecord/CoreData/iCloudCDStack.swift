@@ -152,7 +152,14 @@ public class iCloudCDStack: DefaultCDStack
         SugarRecordLogger.logLevelInfo.log("Initializing the stack: \(self.stackDescription)")
         createManagedObjecModelIfNeeded()
         persistentStoreCoordinator = createPersistentStoreCoordinator()
-        addDatabase(foriCloud: true) { [weak self] (error) -> () in
+        addDatabase(foriCloud: true, self.dataBaseAddedClosure())
+    }
+    
+    /**
+    Returns the closure to be execute once the database has been created
+    */
+    override public func dataBaseAddedClosure() -> CompletionClosure {
+        return { [weak self] (error) -> () in
             if self == nil {
                 SugarRecordLogger.logLevelFatal.log("The stack was released whil trying to initialize it")
                 return
@@ -201,7 +208,7 @@ public class iCloudCDStack: DefaultCDStack
     /**
     Add iCloud Database
     */
-    internal func addDatabase(foriCloud icloud: Bool, completionClosure: (error: NSError?) -> ())
+    internal func addDatabase(foriCloud icloud: Bool, completionClosure: CompletionClosure)
     {
         /**
         *  In case of not for iCloud
