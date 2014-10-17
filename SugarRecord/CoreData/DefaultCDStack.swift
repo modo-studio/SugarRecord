@@ -247,7 +247,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
         context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         context!.parentContext = parentContext!
         context!.addObserverToGetPermanentIDsBeforeSaving()
-        context!.name = "Main context"
+        //iOS > 8 only
+        if(context!.respondsToSelector(Selector("setName:"))) {
+            context!.name = "Main context"
+        }
         SugarRecordLogger.logLevelVerbose.log("Created MAIN context")
         return context!
     }
@@ -269,7 +272,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
         context = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         context!.persistentStoreCoordinator = persistentStoreCoordinator!
         context!.addObserverToGetPermanentIDsBeforeSaving()
-        context!.name = "Root saving context"
+        //iOS > 8 only
+        if(context!.respondsToSelector(Selector("setName:"))) {
+            context!.name = "Root saving context"
+        }
         SugarRecordLogger.logLevelVerbose.log("Created MAIN context")
         return context!
     }
