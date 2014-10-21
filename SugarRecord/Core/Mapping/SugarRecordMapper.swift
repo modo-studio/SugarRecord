@@ -12,10 +12,14 @@ public struct SugarRecordMapper
 {
     //MARK: - Properties
     
-    /**
-    *  It contains all the attributes for the mapper
-    */
+    /// Contains the attributes that the mapper should use
     internal lazy var attributes: [SugarRecordMappingAttribute] = [SugarRecordMappingAttribute]()
+    
+    /// Bool that indicates if the attributes that are not recognized should be inferred automatically
+    public var inferMappingAttributes: Bool = false
+    
+    
+    typealias AttributeNotFound = (attribue: SugarRecordMappingAttribute)
     
     
     //MARK: - Attributes
@@ -35,11 +39,17 @@ public struct SugarRecordMapper
         return true
     }
     
+    /**
+    Returns if the attribute has already been added to the list
     
+    :param: attribute Attribute to be checked
+    
+    :returns: Bool indicating if the attribute is already in the list
+    */
     mutating func isAttributeAlreadyAdded(attribute: SugarRecordMappingAttribute) -> Bool
     {
         return attributes.filter({attr in
-            retu
+            return attribute == attr
         }).count != 0
     }
     

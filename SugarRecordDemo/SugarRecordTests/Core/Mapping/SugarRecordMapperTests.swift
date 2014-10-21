@@ -17,7 +17,6 @@ class SugarRecordMapperTests: XCTestCase
         mapper = SugarRecordMapper()
     }
     
-    
     func testIfAddAttributes()
     {
         mapper!.addAttribute(SugarRecordMappingAttribute.SimpleAttribute(localKey: "localtest", remoteKey: "remotetest"))

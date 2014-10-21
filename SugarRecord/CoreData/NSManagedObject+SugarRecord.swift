@@ -11,6 +11,8 @@ import CoreData
 
 extension NSManagedObject: SugarRecordObjectProtocol
 {
+    typealias SugarRecordObjectType = NSManagedObject
+
     //MARK: - Custom Getter
     
     /**
