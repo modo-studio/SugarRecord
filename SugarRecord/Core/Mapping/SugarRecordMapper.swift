@@ -66,6 +66,28 @@ public struct SugarRecordMapper
     }
     
     /**
+    Returns the attribute associated to the remote key
+    Note: If the attribute is not found, it'll be inferred if it's set in the mapper
+    
+    :param: key String with the remote key
+    
+    :returns: Mapping attribute
+    */
+    mutating func attribute(forRemoteKey key: String) -> SugarRecordMappingAttribute?
+    {
+        let fileteredAttributes: [SugarRecordMappingAttribute] = attributes.filter({attr in
+            return attr.remoteKey() == key
+        })
+        if fileteredAttributes.count != 0 {
+            return fileteredAttributes.first!
+        }
+        else if self.inferMappingAttributes {
+            return SugarRecordMappingAttribute.SimpleAttribute(localKey: key, remoteKey: key)
+        }
+        return nil
+    }
+    
+    /**
     Returns if the attribute has already been added to the list
     
     :param: attribute Attribute to be checked

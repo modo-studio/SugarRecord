@@ -19,7 +19,9 @@ import UIKit
 //    
 //    public class func map(#objects: [[String: NSObject]]) -> [MappingObjectType]
 //    {
-//        
+//        for attribute in objects {
+//            
+//        }
 //    }
 //    
 //    public class func map(#objects: [[String: NSObject]], inContext context: SugarRecordContext?) -> [MappingObjectType]
