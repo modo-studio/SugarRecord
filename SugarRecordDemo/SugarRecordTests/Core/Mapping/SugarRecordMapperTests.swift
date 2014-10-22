@@ -12,9 +12,12 @@ import XCTest
 class SugarRecordMapperTests: XCTestCase
 {
     var mapper: SugarRecordMapper?
+    let attributeNotFound: (SugarRecordMappingAttribute) -> (SugarRecordMappingAttribute) = { (notFoundAttribute) -> (SugarRecordMappingAttribute) in
+        return notFoundAttribute
+    }
     
     override func setUp() {
-        mapper = SugarRecordMapper()
+        mapper = SugarRecordMapper(inferMapping: true, attributeNotFound: attributeNotFound)
     }
     
     func testIfAddAttributes()

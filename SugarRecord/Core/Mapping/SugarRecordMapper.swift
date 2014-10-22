@@ -18,9 +18,35 @@ public struct SugarRecordMapper
     /// Bool that indicates if the attributes that are not recognized should be inferred automatically
     public var inferMappingAttributes: Bool = false
     
+    /**
+    Closure used by the mapper if any attribute hasn't been found.
     
-    typealias AttributeNotFound = (attribue: SugarRecordMappingAttribute)
+    :param: notFoundAttribute Not found attribute
     
+    :returns: Alternative attribute to try
+    */
+    public typealias AttributeNotFound = (notFoundAttribute: SugarRecordMappingAttribute) -> (SugarRecordMappingAttribute)
+    
+    /// Excuted when any of the attributes hasn't been found
+    var attributeNotFoundClosure: AttributeNotFound?
+    
+    /**
+    Constructors
+    */
+    
+    /**
+    Initializes the Mapper passing the infer mapping property and the closure to be executed in case of attribute not found
+    
+    :param: inferMapping      Bool indicating if the mapping has to be inferred if the attribute is not found
+    :param: attributeNotFound Closure to execute in case of an attribute hasn't been found
+    
+    :returns: Initialized mapper
+    */
+    public init(inferMapping: Bool, attributeNotFound: AttributeNotFound?)
+    {
+        self.inferMappingAttributes = inferMapping
+        self.attributeNotFoundClosure = attributeNotFound
+    }
     
     //MARK: - Attributes
     
@@ -52,5 +78,4 @@ public struct SugarRecordMapper
             return attribute == attr
         }).count != 0
     }
-    
 }

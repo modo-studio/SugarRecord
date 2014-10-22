@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SugarRecordMappingProtocol {
+public protocol SugarRecordMappingProtocol {
     /**
     *  Alias for the object type
     */

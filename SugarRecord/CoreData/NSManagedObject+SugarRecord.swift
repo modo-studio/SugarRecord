@@ -22,7 +22,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     */
     public func context() -> SugarRecordContext
     {
-        return SugarRecordCDContext(context: self.managedObjectContext)
+        return SugarRecordCDContext(context: self.managedObjectContext!)
     }
     
     

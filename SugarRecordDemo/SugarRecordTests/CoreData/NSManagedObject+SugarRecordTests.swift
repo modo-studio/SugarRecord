@@ -17,7 +17,7 @@ class NSManagedObjectSugarRecordTests: XCTestCase
         super.setUp()
         let bundle: NSBundle = NSBundle(forClass: RealmObjectTests.classForCoder())
         let modelPath: NSString = bundle.pathForResource("SugarRecord", ofType: "momd")!
-        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath))
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath)!)!
         let stack: DefaultCDStack = DefaultCDStack(databaseName: "TestDB.sqlite", model: model, automigrating: true)
         SugarRecord.addStack(stack)
     }
@@ -33,7 +33,7 @@ class NSManagedObjectSugarRecordTests: XCTestCase
     {
         let object: CoreDataObject = CoreDataObject.create() as CoreDataObject
         let context: SugarRecordCDContext = object.context() as SugarRecordCDContext
-        XCTAssertEqual(context.contextCD, object.managedObjectContext, "SugarRecord context should have the object context")
+        XCTAssertEqual(context.contextCD, object.managedObjectContext!, "SugarRecord context should have the object context")
     }
     
     func testIfReturnsTheEntityNameWithoutNamespace()
@@ -62,15 +62,15 @@ class NSManagedObjectSugarRecordTests: XCTestCase
     {
         var predicate: NSPredicate = NSPredicate()
         var finder: SugarRecordFinder = CoreDataObject.by(predicate)
-        var sameClass = finder.objectClass? is CoreDataObject.Type
+        var sameClass = finder.objectClass? is NSManagedObject.Type
         XCTAssertTrue(sameClass, "The class of the finder should be the object class")
         XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeCoreData, "The stack type should be the CoreData one")
         finder = NSManagedObject.by("name == Test")
-        sameClass = finder.objectClass? is CoreDataObject.Type
+        sameClass = finder.objectClass? is NSManagedObject.Type
         XCTAssertTrue(sameClass, "The class of the finder should be the object class")
         XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeCoreData, "The stack type should be the CoreData one")
         finder = NSManagedObject.by("name", equalTo: "Test")
-        sameClass = finder.objectClass? is CoreDataObject.Type
+        sameClass = finder.objectClass? is NSManagedObject.Type
         XCTAssertTrue(sameClass, "The class of the finder should be the object class")
         XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeCoreData, "The stack type should be the CoreData one")
     }
@@ -89,17 +89,18 @@ class NSManagedObjectSugarRecordTests: XCTestCase
     
     func testIfTheObjectClassAndStackTypeAreProperlySetWhenSorting()
     {
+        
         var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         var finder: SugarRecordFinder = NSManagedObject.sorted(by: sortDescriptor)
-        var sameClass = finder.objectClass? is CoreDataObject.Type
+        var sameClass = finder.objectClass? is NSManagedObject.Type
         XCTAssertTrue(sameClass, "The objectClass of the finder should be the same of the object")
         XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeCoreData, "The stack type should be the CoreData one")
         finder = NSManagedObject.sorted(by: "name", ascending: true)
-        sameClass = finder.objectClass? is CoreDataObject.Type
+        sameClass = finder.objectClass? is NSManagedObject.Type
         XCTAssertTrue(sameClass, "The objectClass of the finder should be the same of the object")
         XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeCoreData, "The stack type should be the CoreData one")
         finder = NSManagedObject.sorted(by: [sortDescriptor])
-        sameClass = finder.objectClass? is CoreDataObject.Type
+        sameClass = finder.objectClass? is NSManagedObject.Type
         XCTAssertTrue(sameClass, "The objectClass of the finder should be the same of the object")
         XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeCoreData, "The stack type should be the CoreData one")
     }
