@@ -42,15 +42,10 @@ public protocol SugarRecordMappingProtocol {
     /**
     *  Map an object passing the context
     */
-    class func map(#object: [String: NSObject], inContext context: SugarRecordContext) -> MappingObjectType
+    class func map(#object: [String: NSObject], inContext context: SugarRecordContext) -> MappingObjectType?
     
     /**
     *  Map an object using a dictionary with attributes and returning it as a result
     */
-    class func map(#object: [String: NSObject], inContext context: SugarRecordContext, withMapper mapper: SugarRecordMapper) -> MappingObjectType
-    
-    /**
-    *  Map an attribute from the attributes dict
-    */
-    func map(#attribute: SugarRecordMappingAttribute, object: [String: NSObject])
+    class func map(#object: [String: NSObject], inContext context: SugarRecordContext, withMapper mapper: SugarRecordMapper) -> MappingObjectType?
 }

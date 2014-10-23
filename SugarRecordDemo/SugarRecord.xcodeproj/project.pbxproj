@@ -30,6 +30,8 @@
 		3D4F509B19CDAB0000C1FD3D /* SugarRecord.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */; };
 		3D4F509E19CDAD0500C1FD3D /* SugarRecord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC55DF198E826E00268EB3 /* SugarRecord.xcdatamodeld */; };
 		3D4F50A019CDAD1800C1FD3D /* CoreDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4F509F19CDAD1800C1FD3D /* CoreDataObject.swift */; };
+		3D50306A19F9A8F600921A20 /* NSManagedObject+MappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50306919F9A8F600921A20 /* NSManagedObject+MappingTests.swift */; };
+		3D50306B19F9A9E800921A20 /* NSManagedObject+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF69ED519F790F800A80B40 /* NSManagedObject+Mapping.swift */; };
 		3D77248B19D6DBD700C6B975 /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77248819D6DBD700C6B975 /* SugarRecordContextProtocol.swift */; };
 		3D77248C19D6DBD700C6B975 /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77248919D6DBD700C6B975 /* SugarRecordObjectProtocol.swift */; };
 		3D77248D19D6DBD700C6B975 /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77248A19D6DBD700C6B975 /* SugarRecordStackProtocol.swift */; };
@@ -40,7 +42,6 @@
 		3D861A4019F99BEB0053B6B8 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D861A3F19F99BEB0053B6B8 /* libc++.dylib */; };
 		3D861A4719F99CA30053B6B8 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D861A4619F99CA30053B6B8 /* Realm.framework */; };
 		3D861A4919F99CA90053B6B8 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D861A4819F99CA90053B6B8 /* RLMSupport.swift */; };
-		3D91A3D019F97FA8005A37B5 /* NSManagedObject+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF69ED519F790F800A80B40 /* NSManagedObject+Mapping.swift */; };
 		3D9C0B1219D7FB6A00A3011E /* RestkitCDStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C0B1119D7FB6A00A3011E /* RestkitCDStackTests.swift */; };
 		3DB52E2F19E0A28600E687FD /* RLMObjectMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB52E2E19E0A28600E687FD /* RLMObjectMigration.swift */; };
 		3DC8D4B419D76B2A00F2368B /* RestkitCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8D4B319D76B2A00F2368B /* RestkitCDStack.swift */; };
@@ -66,6 +67,7 @@
 		3D4F507419CDA36B00C1FD3D /* SugarRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D4F509919CDA4DB00C1FD3D /* CoreDataObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataObjectTests.swift; sourceTree = "<group>"; };
 		3D4F509F19CDAD1800C1FD3D /* CoreDataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataObject.swift; path = SugarRecordTests/Models/CoreDataObject.swift; sourceTree = SOURCE_ROOT; };
+		3D50306919F9A8F600921A20 /* NSManagedObject+MappingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+MappingTests.swift"; sourceTree = "<group>"; };
 		3D5AF73519C6BC93009B431F /* SugarRecordTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SugarRecordTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D77248819D6DBD700C6B975 /* SugarRecordContextProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SugarRecordContextProtocol.swift; path = Protocols/SugarRecordContextProtocol.swift; sourceTree = "<group>"; };
 		3D77248919D6DBD700C6B975 /* SugarRecordObjectProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SugarRecordObjectProtocol.swift; path = Protocols/SugarRecordObjectProtocol.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				3D9C0B1119D7FB6A00A3011E /* RestkitCDStackTests.swift */,
 				3D078B1F19E2674000B20B3C /* CoreDataFetchResultsControllerTests.swift */,
 				3DF86BA419ED4A6200C88FD4 /* iCloudCDStackTests.swift */,
+				3D50306919F9A8F600921A20 /* NSManagedObject+MappingTests.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -474,6 +477,8 @@
 				3DE6646B19F4245900C869EA /* SugarRecordMapper.swift in Sources */,
 				3D4F509619CDA3DE00C1FD3D /* SugarRecordCDContextTests.swift in Sources */,
 				3DE6646F19F4248800C869EA /* SugarRecordMappingProtocol.swift in Sources */,
+				3D50306B19F9A9E800921A20 /* NSManagedObject+Mapping.swift in Sources */,
+				3D50306A19F9A8F600921A20 /* NSManagedObject+MappingTests.swift in Sources */,
 				3D4F509719CDA3DE00C1FD3D /* RLMObject+SugarRecordTests.swift in Sources */,
 				3D4F509819CDA3DE00C1FD3D /* SugarRecordRLMContextTests.swift in Sources */,
 				3DE6647219F4250400C869EA /* SugarRecordMapperTests.swift in Sources */,
@@ -495,7 +500,6 @@
 				3D4F509A19CDA4DB00C1FD3D /* CoreDataObjectTests.swift in Sources */,
 				3D4F508B19CDA3D200C1FD3D /* SugarRecordCDContext.swift in Sources */,
 				3D4F508C19CDA3D200C1FD3D /* DefaultREALMStack.swift in Sources */,
-				3D91A3D019F97FA8005A37B5 /* NSManagedObject+Mapping.swift in Sources */,
 				3D77248F19D6DCD200C6B975 /* SugarRecordLoggerTests.swift in Sources */,
 				3D13C53919CE0A0800EB8688 /* RealmObjectTests.swift in Sources */,
 				3DB52E2F19E0A28600E687FD /* RLMObjectMigration.swift in Sources */,
