@@ -20,7 +20,9 @@ extension NSManagedObject: SugarRecordMappingProtocol {
     public class func map(#objects: [[String: NSObject]])
     {
         SugarRecord.operation(inBackground: true, stackType: SugarRecordStackType.SugarRecordStackTypeCoreData) { (context) -> () in
-           _ =  NSManagedObject.map(objects: objects, inContext: context)
+            context.beginWriting()
+            _ =  NSManagedObject.map(objects: objects, inContext: context)
+            context.endWriting()
         }
     }
     
@@ -31,16 +33,37 @@ extension NSManagedObject: SugarRecordMappingProtocol {
     
     public class func map(#objects: [[String: NSObject]], inContext context: SugarRecordContext, withMapper mapper: SugarRecordMapper) -> [MappingObjectType]
     {
-        var objects: [MappingObjectType] = [MappingObjectType]()
+        var createdObjects: [MappingObjectType] = [MappingObjectType]()
         for objectDictionary in objects {
-            objects.append(self.map(object: objectDictionary, inContext: context, withMapper: mapper))
+            let object: MappingObjectType = self.map(object: objectDictionary, inContext: context, withMapper: mapper)
+            createdObjects.append(object)
         }
-        return objects
+        return createdObjects
+    }
+    
+    public class func map(#object: [String: NSObject])
+    {
+        SugarRecord.operation(inBackground: true, stackType: SugarRecordStackType.SugarRecordStackTypeCoreData) { (context) -> () in
+            context.beginWriting()
+            _ = self.map(object: object, inContext: context)
+            context.endWriting()
+        }
+    }
+    
+    
+    public class func map(#object: [String: NSObject], inContext context: SugarRecordContext) -> MappingObjectType
+
+    {
+        return self.map(object: object, inContext: context, withMapper: self.defaultMapper())
     }
     
     public class func map(#object: [String: NSObject], inContext context: SugarRecordContext, withMapper mapper: SugarRecordMapper) -> MappingObjectType
     {
+        let outputObject: MappingObjectType = self.create(inContext: context) as MappingObjectType
+     
+        //TODO : Map attributes
         
+        return outputObject
     }
     
     public func map(#attribute: SugarRecordMappingAttribute, attributes: [String: NSObject])
@@ -48,3 +71,4 @@ extension NSManagedObject: SugarRecordMappingProtocol {
         
     }
 }
+

@@ -35,6 +35,16 @@ public protocol SugarRecordMappingProtocol {
     class func map(#objects: [[String: NSObject]], inContext context: SugarRecordContext, withMapper mapper: SugarRecordMapper) -> [MappingObjectType]
     
     /**
+    *  Map an object
+    */
+    class func map(#object: [String: NSObject])
+    
+    /**
+    *  Map an object passing the context
+    */
+    class func map(#object: [String: NSObject], inContext context: SugarRecordContext) -> MappingObjectType
+    
+    /**
     *  Map an object using a dictionary with attributes and returning it as a result
     */
     class func map(#object: [String: NSObject], inContext context: SugarRecordContext, withMapper mapper: SugarRecordMapper) -> MappingObjectType
