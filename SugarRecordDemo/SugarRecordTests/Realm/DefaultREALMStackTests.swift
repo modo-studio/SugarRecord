@@ -65,7 +65,7 @@ class DefaultREALMStackTests: XCTestCase {
         migrations.append(RLMObjectMigration<RLMObject>(toSchema: 3, migrationClosure: { (oldObject, newObject) -> () in }))
         migrations.append(RLMObjectMigration<RLMObject>(toSchema: 1, migrationClosure: { (oldObject, newObject) -> () in }))
         let stack: DefaultREALMStack = DefaultREALMStack(stackName: "Stack name", stackDescription: "Stack description", migrations: migrations)
-        var sortedMigrations: [RLMObjectMigration<RLMObject>] = DefaultREALMStack.sorted(migrations: migrations, fromOldSchema: 2)
+        var sortedMigrations: [RLMObjectMigration<RLMObject>] = DefaultREALMStack.sorteredAndFiltered(migrations: migrations, fromOldSchema: 2)
         XCTAssertEqual(sortedMigrations.first!.toSchema, 3, "First migration in the array should have toSchema = 3")
         XCTAssertEqual(sortedMigrations.last!.toSchema, 13, "First migration in the array should have toSchema = 13")
     }

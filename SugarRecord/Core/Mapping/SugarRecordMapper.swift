@@ -13,7 +13,7 @@ public struct SugarRecordMapper
     //MARK: - Properties
     
     /// Contains the attributes that the mapper should use
-    internal lazy var attributes: [SugarRecordMappingAttribute] = [SugarRecordMappingAttribute]()
+    internal lazy var _attributes: [SugarRecordMappingAttribute] = [SugarRecordMappingAttribute]()
     
     /// Bool that indicates if the attributes that are not recognized should be inferred automatically
     public var inferMappingAttributes: Bool = false
@@ -51,6 +51,16 @@ public struct SugarRecordMapper
     //MARK: - Attributes
     
     /**
+    Returns internal attributes
+    
+    :returns: Array with SugarRecord attributes
+    */
+    mutating func attributes() -> [SugarRecordMappingAttribute]
+    {
+        return _attributes
+    }
+    
+    /**
     Add an attribute to the attributes list
     
     :param: attribute Attribute to be added
@@ -61,7 +71,7 @@ public struct SugarRecordMapper
     {
         let alreadyAdded: Bool = isAttributeAlreadyAdded(attribute)
         if (alreadyAdded) { return false }
-        self.attributes.append(attribute)
+        _attributes.append(attribute)
         return true
     }
     
@@ -75,7 +85,7 @@ public struct SugarRecordMapper
     */
     mutating func attribute(forRemoteKey key: String) -> SugarRecordMappingAttribute?
     {
-        let fileteredAttributes: [SugarRecordMappingAttribute] = attributes.filter({attr in
+        let fileteredAttributes: [SugarRecordMappingAttribute] = _attributes.filter({attr in
             return attr.remoteKey() == key
         })
         if fileteredAttributes.count != 0 {
@@ -96,7 +106,7 @@ public struct SugarRecordMapper
     */
     mutating func isAttributeAlreadyAdded(attribute: SugarRecordMappingAttribute) -> Bool
     {
-        return attributes.filter({attr in
+        return _attributes.filter({attr in
             return attribute == attr
         }).count != 0
     }

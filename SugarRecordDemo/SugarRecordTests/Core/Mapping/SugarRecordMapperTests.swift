@@ -23,7 +23,7 @@ class SugarRecordMapperTests: XCTestCase
     func testIfAddAttributes()
     {
         mapper!.addAttribute(SugarRecordMappingAttribute.SimpleAttribute(localKey: "localtest", remoteKey: "remotetest"))
-        XCTAssertEqual(mapper!.attributes.count, 1, "The number of attributes should be equal to 1")
+        XCTAssertEqual(mapper!.attributes().count, 1, "The number of attributes should be equal to 1")
     }
     
     func testIfRepeatedAttributedIsNotAddedAgain()

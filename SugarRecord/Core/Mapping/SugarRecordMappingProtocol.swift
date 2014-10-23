@@ -22,7 +22,7 @@ public protocol SugarRecordMappingProtocol {
     /**
     *  Map an array of objects (dictionaries)
     */
-    class func map(#objects: [[String: NSObject]])
+    class func map(#objects: [[String: NSObject]], completion: (() -> ())?)
     
     /**
     *  Map an array of objects (dictionaries) passing the context
@@ -37,7 +37,7 @@ public protocol SugarRecordMappingProtocol {
     /**
     *  Map an object
     */
-    class func map(#object: [String: NSObject])
+    class func map(#object: [String: NSObject], completion: (() -> ())?)
     
     /**
     *  Map an object passing the context
@@ -52,5 +52,5 @@ public protocol SugarRecordMappingProtocol {
     /**
     *  Map an attribute from the attributes dict
     */
-    func map(#attribute: SugarRecordMappingAttribute, attributes: [String: NSObject])
+    func map(#attribute: SugarRecordMappingAttribute, object: [String: NSObject])
 }
