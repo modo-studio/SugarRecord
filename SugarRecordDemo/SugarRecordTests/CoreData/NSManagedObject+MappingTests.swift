@@ -19,5 +19,4 @@ class NSManagedObjectMappingTests: XCTestCase
         let mapper: SugarRecordMapper = NSManagedObject.defaultMapper()
         XCTAssertTrue(mapper.inferMappingAttributes, "The infer mapping should be true")
     }
-    
 }
