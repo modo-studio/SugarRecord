@@ -2,9 +2,9 @@ language: objective-c
 xcode_sdk: iphonesimulator
 rvm: 1.9.3
 before_install:
-  - gem install --no-rdoc --no-ri cocoapods -v 0.34.2
+  - gem install --no-rdoc --no-ri cocoapods -v 0.34.4
   - gem install xcpretty
   - cd SugarRecordDemo
   - pod install
 script:
-  - xcodebuild -workspace SugarRecord.xcworkspace -scheme SugarRecordTests -destination=build -configuration Debug -sdk iphonesimulator8.0 ONLY_ACTIVE_ARCH=NO test | xcpretty -tc --no-utf
+  - xcodebuild -workspace SugarRecord.xcworkspace -scheme SugarRecordTests -destination=build -configuration Debug -sdk iphonesimulator8.1 ONLY_ACTIVE_ARCH=NO test | xcpretty -tc --no-utf && exit ${PIPESTATUS[0]}
