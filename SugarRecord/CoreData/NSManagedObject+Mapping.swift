@@ -117,6 +117,54 @@ extension NSManagedObject: SugarRecordMappingProtocol {
     {
         let value: NSObject = object[mappingAttribute.remoteKey()]!
         
+        switch (attribute.attributeType) {
+        case .Integer16AttributeType, .Integer32AttributeType, .Integer64AttributeType:
+            // Value as NSNumber
+            if (value as? NSNumber != nil) {
+                
+            }
+        case .DecimalAttributeType:
+            // Value as NSNumber
+            if (value as? NSNumber != nil) {
+                
+            }
+        case .DoubleAttributeType:
+            // Value as NSNumber
+            if (value as? NSNumber != nil) {
+                
+            }
+        case .FloatAttributeType:
+            // Value as NSNumber
+            if (value as? NSNumber != nil) {
+                self.setValue((value as? NSNumber)!.floatValue, forKey: mappingAttribute.localKey())
+            }
+        case .StringAttributeType:
+            // Value as String
+            if (value as? String != nil) {
+                self.setValue((value as? String)!, forKey: mappingAttribute.localKey())
+            }
+            // Value as NSString
+            else if (value as? NSString != nil) {
+                self.setValue((value as? NSString)!, forKey: mappingAttribute.localKey())
+            }
+        case .BooleanAttributeType:
+            // Value as NSNumber
+            if (value as? NSNumber != nil) {
+                self.setValue((value as? NSNumber)!.boolValue, forKey: mappingAttribute.localKey())
+            }
+        case .DateAttributeType:
+            // Value as a NSDate
+            if (value as? NSDate != nil) {
+                self.setValue(value as? NSDate, forKey: mappingAttribute.localKey())
+            }
+            // Value as Timestamp
+            else if (value as? NSNumber != nil) {
+                let timeStamp: Int = (value as? NSNumber)!.longValue
+                self.setValue(NSDate(timeIntervalSince1970: NSTimeInterval(timeStamp)), forKey: mappingAttribute.localKey())
+            }
+        case .UndefinedAttributeType, .BinaryDataAttributeType, .TransformableAttributeType, .ObjectIDAttributeType:
+            return
+        }
         /*
         * Steps
         * 1) Read mappingAttribute property of the attribute (
