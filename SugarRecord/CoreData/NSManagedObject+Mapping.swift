@@ -121,36 +121,36 @@ extension NSManagedObject: SugarRecordMappingProtocol {
         case .Integer16AttributeType, .Integer32AttributeType, .Integer64AttributeType:
             // Value as NSNumber
             if (value as? NSNumber != nil) {
-                
+                self.setValue((value as? NSNumber), forKey: mappingAttribute.localKey())
             }
         case .DecimalAttributeType:
             // Value as NSNumber
             if (value as? NSNumber != nil) {
-                
+                self.setValue((value as? NSNumber), forKey: mappingAttribute.localKey())
             }
         case .DoubleAttributeType:
             // Value as NSNumber
             if (value as? NSNumber != nil) {
-                
+                self.setValue((value as? NSNumber), forKey: mappingAttribute.localKey())
             }
         case .FloatAttributeType:
             // Value as NSNumber
             if (value as? NSNumber != nil) {
-                self.setValue((value as? NSNumber)!.floatValue, forKey: mappingAttribute.localKey())
+                self.setValue((value as? NSNumber), forKey: mappingAttribute.localKey())
             }
         case .StringAttributeType:
             // Value as String
             if (value as? String != nil) {
-                self.setValue((value as? String)!, forKey: mappingAttribute.localKey())
+                self.setValue((value as? String), forKey: mappingAttribute.localKey())
             }
             // Value as NSString
             else if (value as? NSString != nil) {
-                self.setValue((value as? NSString)!, forKey: mappingAttribute.localKey())
+                self.setValue((value as? NSString), forKey: mappingAttribute.localKey())
             }
         case .BooleanAttributeType:
             // Value as NSNumber
             if (value as? NSNumber != nil) {
-                self.setValue((value as? NSNumber)!.boolValue, forKey: mappingAttribute.localKey())
+                self.setValue((value as? NSNumber), forKey: mappingAttribute.localKey())
             }
         case .DateAttributeType:
             // Value as a NSDate
@@ -165,34 +165,19 @@ extension NSManagedObject: SugarRecordMappingProtocol {
         case .UndefinedAttributeType, .BinaryDataAttributeType, .TransformableAttributeType, .ObjectIDAttributeType:
             return
         }
-        /*
-        * Steps
-        * 1) Read mappingAttribute property of the attribute (
-        attributeValueClassName too)
-        * 2) Check that the mapping attribute is single value
-        * 3) Set the value with set property
-        */
-        
-        /*
-enum NSAttributeType : UInt {
-case UndefinedAttributeType
-case Integer16AttributeType
-case Integer32AttributeType
-case Integer64AttributeType
-case DecimalAttributeType
-case DoubleAttributeType
-case FloatAttributeType
-case StringAttributeType
-case BooleanAttributeType
-case DateAttributeType
-case BinaryDataAttributeType
-case TransformableAttributeType
-case ObjectIDAttributeType
-}*/
     }
 
     internal func map(#relationship: NSRelationshipDescription, mappingAttribute: SugarRecordMappingAttribute, object: [String: NSObject], var withMapper mapper: SugarRecordMapper)
     {
+        let value: NSObject = object[mappingAttribute.remoteKey()]!
+
+        if !relationship.toMany {
+            
+        }
+        else {
+            
+        }
+        
         //TODO
         /*
         Interesting properties of NSRelationshipDescription
