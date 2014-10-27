@@ -15,11 +15,6 @@ public protocol SugarRecordMappingProtocol {
     typealias MappingObjectType
     
     /**
-    *  Returns the default object mapper
-    */
-    class func defaultMapper() -> SugarRecordMapper
-    
-    /**
     *  Map an array of objects (dictionaries)
     */
     class func map(#objects: [[String: NSObject]], completion: (() -> ())?)

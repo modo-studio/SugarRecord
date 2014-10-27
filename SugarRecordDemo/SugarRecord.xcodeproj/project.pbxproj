@@ -40,11 +40,13 @@
 		3D77249119D6E45A00C6B975 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77249019D6E45A00C6B975 /* SugarRecordTests.swift */; };
 		3D77249319D7007E00C6B975 /* DefaultREALMStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77249219D7007E00C6B975 /* DefaultREALMStackTests.swift */; };
 		3D77249519D7032700C6B975 /* DefaultCDStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77249419D7032700C6B975 /* DefaultCDStackTests.swift */; };
+		3D83F21619FD8B9900E254F7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D83F21519FD8B9900E254F7 /* SystemConfiguration.framework */; };
 		3D861A4019F99BEB0053B6B8 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D861A3F19F99BEB0053B6B8 /* libc++.dylib */; };
 		3D861A4719F99CA30053B6B8 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D861A4619F99CA30053B6B8 /* Realm.framework */; };
 		3D861A4919F99CA90053B6B8 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D861A4819F99CA90053B6B8 /* RLMSupport.swift */; };
 		3D9C0B1219D7FB6A00A3011E /* RestkitCDStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C0B1119D7FB6A00A3011E /* RestkitCDStackTests.swift */; };
 		3DB52E2F19E0A28600E687FD /* RLMObjectMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB52E2E19E0A28600E687FD /* RLMObjectMigration.swift */; };
+		3DC3ECA719FD8CD5001C0BDB /* SugarRecordMappableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3ECA619FD8CD5001C0BDB /* SugarRecordMappableProtocol.swift */; };
 		3DC8D4B419D76B2A00F2368B /* RestkitCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC8D4B319D76B2A00F2368B /* RestkitCDStack.swift */; };
 		3DC8D59F19D76DAB00F2368B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D59E19D76DAB00F2368B /* CFNetwork.framework */; };
 		3DC8D5A119D76DBD00F2368B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D5A019D76DBD00F2368B /* Security.framework */; };
@@ -78,6 +80,7 @@
 		3D77249019D6E45A00C6B975 /* SugarRecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordTests.swift; sourceTree = "<group>"; };
 		3D77249219D7007E00C6B975 /* DefaultREALMStackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultREALMStackTests.swift; sourceTree = "<group>"; };
 		3D77249419D7032700C6B975 /* DefaultCDStackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCDStackTests.swift; sourceTree = "<group>"; };
+		3D83F21519FD8B9900E254F7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3D861A3F19F99BEB0053B6B8 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		3D861A4619F99CA30053B6B8 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		3D861A4819F99CA90053B6B8 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 		3DBC55E7198E826E00268EB3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3DBC55F2198E826E00268EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DBC5602198E844B00268EB3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3DC3ECA619FD8CD5001C0BDB /* SugarRecordMappableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SugarRecordMappableProtocol.swift; path = Mapping/SugarRecordMappableProtocol.swift; sourceTree = "<group>"; };
 		3DC8D4B319D76B2A00F2368B /* RestkitCDStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestkitCDStack.swift; sourceTree = "<group>"; };
 		3DC8D59E19D76DAB00F2368B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3DC8D5A019D76DBD00F2368B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -129,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D83F21619FD8B9900E254F7 /* SystemConfiguration.framework in Frameworks */,
 				3D861A4019F99BEB0053B6B8 /* libc++.dylib in Frameworks */,
 				3DC8D5A319D76DC200F2368B /* MobileCoreServices.framework in Frameworks */,
 				3DC8D5A119D76DBD00F2368B /* Security.framework in Frameworks */,
@@ -327,6 +332,7 @@
 				3DE6646A19F4245900C869EA /* SugarRecordMapper.swift */,
 				3DE6646C19F4246B00C869EA /* SugarRecordMappingAttribute.swift */,
 				3DE6646E19F4248800C869EA /* SugarRecordMappingProtocol.swift */,
+				3DC3ECA619FD8CD5001C0BDB /* SugarRecordMappableProtocol.swift */,
 			);
 			name = Mapping;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 		C0B3386437A14ADE88F5489D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D83F21519FD8B9900E254F7 /* SystemConfiguration.framework */,
 				3D861A3F19F99BEB0053B6B8 /* libc++.dylib */,
 				8BCAD85ADD52418BAA4A4624 /* libPods.a */,
 			);
@@ -499,6 +506,7 @@
 				3D4F508919CDA3D200C1FD3D /* DefaultCDStack.swift in Sources */,
 				3D77249519D7032700C6B975 /* DefaultCDStackTests.swift in Sources */,
 				3DF86BA519ED4A6200C88FD4 /* iCloudCDStackTests.swift in Sources */,
+				3DC3ECA719FD8CD5001C0BDB /* SugarRecordMappableProtocol.swift in Sources */,
 				3D4F508A19CDA3D200C1FD3D /* NSManagedObject+SugarRecord.swift in Sources */,
 				3D9C0B1219D7FB6A00A3011E /* RestkitCDStackTests.swift in Sources */,
 				3D4F509A19CDA4DB00C1FD3D /* CoreDataObjectTests.swift in Sources */,

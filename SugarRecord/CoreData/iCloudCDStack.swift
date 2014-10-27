@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 /**
 *  Struct with the needed information to initialize the iCloud stack
