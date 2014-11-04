@@ -542,7 +542,12 @@ internal extension NSManagedObjectContext
     :param: notification Notification that fired this method call
     */
     func mergeChanges(fromNotification notification: NSNotification) {
-        SugarRecordLogger.logLevelInfo.log("Merging changes from context: \((notification.object as NSManagedObjectContext).name) to context \(self.name)")
+        //iOS > 8 only
+        var contextName: String?
+        if(self.respondsToSelector(Selector("setName:"))) {
+            contextName = self.name
+        }
+        SugarRecordLogger.logLevelInfo.log("Merging changes from context: \((notification.object as NSManagedObjectContext).name) to context \(contextName)")
         self.mergeChangesFromContextDidSaveNotification(notification)
     }
     
