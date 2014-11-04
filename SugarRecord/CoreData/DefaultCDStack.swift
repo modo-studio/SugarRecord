@@ -69,7 +69,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     convenience public init(databasePath: String, automigrating: Bool)
     {
-        self.init(databaseURL: NSURL(fileURLWithPath: databasePath), automigrating: automigrating)
+        self.init(databaseURL: NSURL(fileURLWithPath: databasePath)!, automigrating: automigrating)
     }
     
     /**
@@ -110,7 +110,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     convenience public init(databasePath: String, model: NSManagedObjectModel, automigrating: Bool)
     {
-        self.init(databaseURL: NSURL(fileURLWithPath: databasePath), model: model, automigrating: automigrating)
+        self.init(databaseURL: NSURL(fileURLWithPath: databasePath)!, model: model, automigrating: automigrating)
     }
 
     /**
@@ -242,7 +242,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
         SugarRecordLogger.logLevelVerbose.log("Creating Main context")
         var context: NSManagedObjectContext?
         if parentContext == nil {
-            SugarRecord.handle(NSError(domain: "The root saving context is not initialized", code: SugarRecordErrorCodes.CoreDataError.toRaw(), userInfo: nil))
+            SugarRecord.handle(NSError(domain: "The root saving context is not initialized", code: SugarRecordErrorCodes.CoreDataError.rawValue, userInfo: nil))
         }
         context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         context!.parentContext = parentContext!
@@ -264,7 +264,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
         SugarRecordLogger.logLevelVerbose.log("Creating Root Saving context")
         var context: NSManagedObjectContext?
         if persistentStoreCoordinator == nil {
-            SugarRecord.handle(NSError(domain: "The persistent store coordinator is not initialized", code: SugarRecordErrorCodes.CoreDataError.toRaw(), userInfo: nil))
+            SugarRecord.handle(NSError(domain: "The persistent store coordinator is not initialized", code: SugarRecordErrorCodes.CoreDataError.rawValue, userInfo: nil))
         }
         context = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         context!.persistentStoreCoordinator = persistentStoreCoordinator!
@@ -308,7 +308,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
         
         // Checking that the PSC exists before adding the store
         if self.persistentStoreCoordinator == nil {
-            SugarRecord.handle(NSError(domain: "Trying to initialize the store without persistent store coordinator", code: SugarRecordErrorCodes.LibraryError.toRaw(), userInfo: nil))
+            SugarRecord.handle(NSError(domain: "Trying to initialize the store without persistent store coordinator", code: SugarRecordErrorCodes.LibraryError.rawValue, userInfo: nil))
         }
         
         // Adding the store
@@ -326,8 +326,8 @@ public class DefaultCDStack: SugarRecordStackProtocol
         if (error?.domain == NSCocoaErrorDomain as String) && isMigratingError {
             var deleteError: NSError?
             let rawURL: String = self.databasePath!.absoluteString!
-            let shmSidecar: NSURL = NSURL.URLWithString(rawURL.stringByAppendingString("-shm"))
-            let walSidecar: NSURL = NSURL.URLWithString(rawURL.stringByAppendingString("-wal"))
+            let shmSidecar: NSURL = NSURL(string: rawURL.stringByAppendingString("-shm"))!
+            let walSidecar: NSURL = NSURL(string: rawURL.stringByAppendingString("-wal"))!
             NSFileManager.defaultManager().removeItemAtURL(self.databasePath!, error: &deleteError)
             NSFileManager.defaultManager().removeItemAtURL(shmSidecar, error: &error)
             NSFileManager.defaultManager().removeItemAtURL(walSidecar, error: &error)
@@ -413,18 +413,18 @@ public class DefaultCDStack: SugarRecordStackProtocol
     internal class func databasePathURLFromName(name: String) -> NSURL
     {
         let documentsPath: String = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)[0] as String
-        let mainBundleInfo: [NSObject: AnyObject] = NSBundle.mainBundle().infoDictionary
+        let mainBundleInfo: [NSObject: AnyObject] = NSBundle.mainBundle().infoDictionary!
         let applicationPath: String = documentsPath.stringByAppendingPathComponent("store")
         
         let paths: [String] = [documentsPath, applicationPath]
         for path in paths {
             let databasePath: String = path.stringByAppendingPathComponent(name)
             if NSFileManager.defaultManager().fileExistsAtPath(databasePath) {
-                return NSURL(fileURLWithPath: databasePath)
+                return NSURL(fileURLWithPath: databasePath)!
             }
         }
         let databasePath: String = applicationPath.stringByAppendingPathComponent(name)
-        return NSURL(fileURLWithPath: databasePath)
+        return NSURL(fileURLWithPath: databasePath)!
     }
     
     

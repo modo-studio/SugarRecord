@@ -20,7 +20,7 @@ class DefaultCDStackTests: XCTestCase
         super.setUp()
         let bundle: NSBundle = NSBundle(forClass: CoreDataObjectTests.classForCoder())
         let modelPath: NSString = bundle.pathForResource("SugarRecord", ofType: "momd")!
-        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath))
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath)!)!
         stack = DefaultCDStack(databaseName: "TestDB.sqlite", model: model, automigrating: true)
         SugarRecord.addStack(stack!)
     }
@@ -114,7 +114,7 @@ class DefaultCDStackTests: XCTestCase
     
     func testRootSavingContextShouldHaveThePersistentStoreCoordinatorAsParent()
     {
-        XCTAssertEqual(stack!.rootSavingContext!.persistentStoreCoordinator, stack!.persistentStoreCoordinator!, "Root saving context should have the PSC as parent")
+        XCTAssertEqual(stack!.rootSavingContext!.persistentStoreCoordinator!, stack!.persistentStoreCoordinator!, "Root saving context should have the PSC as parent")
     }
     
     func testBackgroundContextConcurrencyType()

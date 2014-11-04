@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol SugarRecordObjectProtocol
-{
+{    
     //MARK: - Custom Getter
     
     /**
