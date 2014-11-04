@@ -77,16 +77,16 @@ public class SugarRecordRLMContext: SugarRecordContext
     public func find(finder: SugarRecordFinder) -> [AnyObject]?
     {
         let objectClass: RLMObject.Type = finder.objectClass as RLMObject.Type
-        var filteredObjects: RLMArray? = nil
+        var filteredObjects: RLMResults? = nil
         if finder.predicate != nil {
             filteredObjects = objectClass.objectsWithPredicate(finder.predicate)
         }
         else {
             filteredObjects = objectClass.allObjectsInRealm(self.realmContext)
         }
-        var sortedObjects: RLMArray = filteredObjects!
+        var sortedObjects: RLMResults = filteredObjects!
         for sorter in finder.sortDescriptors {
-            sortedObjects = sortedObjects.arraySortedByProperty(sorter.key, ascending: sorter.ascending)
+            sortedObjects = sortedObjects.sortedResultsUsingProperty(sorter.key, ascending: sorter.ascending)
         }
         
         var objectsArray: [RLMObject] = [RLMObject]()

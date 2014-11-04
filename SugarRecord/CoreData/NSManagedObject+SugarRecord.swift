@@ -11,6 +11,8 @@ import CoreData
 
 extension NSManagedObject: SugarRecordObjectProtocol
 {
+    typealias SugarRecordObjectType = NSManagedObject
+
     //MARK: - Custom Getter
     
     /**
@@ -20,7 +22,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     */
     public func context() -> SugarRecordContext
     {
-        return SugarRecordCDContext(context: self.managedObjectContext)
+        return SugarRecordCDContext(context: self.managedObjectContext!)
     }
     
     

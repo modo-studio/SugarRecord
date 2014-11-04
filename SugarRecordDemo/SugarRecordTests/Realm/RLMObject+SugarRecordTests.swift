@@ -88,7 +88,7 @@ class RLMObjectSugarRecordTests: XCTestCase
     {
         var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         var finder: SugarRecordFinder = RealmObject.sorted(by: sortDescriptor)
-        var sameClass = finder.objectClass? is CoreDataObject.Type
+        var sameClass = finder.objectClass? is RealmObject.Type
         XCTAssertTrue(sameClass, "The objectClass of the finder should be the same of the object")
         XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
         finder = RealmObject.sorted(by: "name", ascending: true)

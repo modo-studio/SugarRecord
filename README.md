@@ -29,6 +29,12 @@ The scheme above shows the structure of SugarRecord. It's formed by:
 - **SugarRecord contexts**: Altough Realm doesn't have contexts as we have in CoreData, we have created abstracted contexts that surround the user operations with models independently if you are using CoreData or Realm. Yeah!
 - **Stack**: The storage stack is another key piece in SugarRecord because it knows how and when persist/fetch/delete your objects into the database. You can tell SugarRecord which stack it should use.
 
+## Mailing list
+
+If you want to stay updated we have a mailing list. We'll send emails with new updates, features, important bugs fixed, ...
+
+[![image](https://cdn0.iconfinder.com/data/icons/flat-designed-circle-icon/128/mail.png)](http://eepurl.com/57tqX)
+
 ## Updates
 
 | **Date**               | **Done**                     |

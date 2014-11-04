@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 public class RestkitCDStack: DefaultCDStack
 {
