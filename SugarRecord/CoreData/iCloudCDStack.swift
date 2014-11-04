@@ -198,7 +198,10 @@ public class iCloudCDStack: DefaultCDStack
         context = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         context!.persistentStoreCoordinator = persistentStoreCoordinator!
         context!.addObserverToGetPermanentIDsBeforeSaving()
-        context!.name = "Root saving context"
+        //iOS > 8 only
+        if(context!.respondsToSelector(Selector("setName:"))) {
+            context!.name = "Root saving context"
+        }
         context!.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         SugarRecordLogger.logLevelVerbose.log("Created MAIN context")
         return context!

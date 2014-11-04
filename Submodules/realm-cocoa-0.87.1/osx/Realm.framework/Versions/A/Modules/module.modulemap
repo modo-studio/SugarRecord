@@ -1,0 +1,6 @@
+framework module Realm {
+  umbrella header "Realm.h"
+
+  export *
+  module * { export * }
+}
