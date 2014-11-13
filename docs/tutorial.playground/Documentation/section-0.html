@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Section 1</title>
+  <meta id="xcode-display" name="xcode-display" content="render">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<body>
+<div class="content-wrapper">
+  <section class="section">
+    <h1 id="sugarrecord-playground">SugarRecord playground</h1>
+<p>Enjoy learning how to play with SugarRecord</p>
+<h2 id="setup-the-stack">Setup the stack</h2>
+<p>Once you have SugarRecord integrated in your project the first thing you have to do is telling SugarRecord wich stack it should use. SugarRecord has different stacks depending on the developer requeriments. Some of them available are:</p>
+<p><strong>Default Core Data Stack</strong>: This stack has a private context with the unique persistent store coordinator as parent. There is a main context under it to execute low load operations and a private one at the same level as the main one to execute high load operations. Changes performed in that private context are brought to the main context using KVO.</p>
+<p><strong>Default REALM Stack</strong>: This stack provides a setup for REALM which is much easier than Core Data, no context, thread safe...</p>
+<p><strong>Default Core Data Stack + iCloud</strong>: IN PROGRESS</p>
+<p><strong>Default Core Data Stack + Restkit</strong>: It connects thd default CoreData stack with RestKit to enjoy the powerful features of that library.</p>
+<p>Take a look how we set the stack for Realm and CoreData</p>
+
+  </section>
+</div>
+</body>
+</html>

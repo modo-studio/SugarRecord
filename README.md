@@ -1,46 +1,126 @@
-![Logo](https://raw.githubusercontent.com/pepibumur/SugarRecord/master/Resources/Slogan.png)
-![image](http://cl.ly/image/3J052s402j0L/Image%202014-08-21%20at%209.22.56%20am.png)
+# <center>![xcres](/Resources/Slogan.png)</center>
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/SugarRecord/SugarRecord?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+
+[![Twitter: @pepibumur](https://img.shields.io/badge/contact-@pepibumur-blue.svg?style=flat)](https://twitter.com/pepibumur)
+[![Language: Swift](https://img.shields.io/badge/lang-Swift-yellow.svg?style=flat)](https://developer.apple.com/swift/)
+[![Build Status](https://travis-ci.org/SugarRecord/SugarRecord.svg?branch=develop)](https://travis-ci.org/SugarRecord/SugarRecord)
+[![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
 
 ## What is SugarRecord?
-SugarRecord is a CoreData management library to make it easier work with CoreData. Thanks to SugarRecord you'll be able to start the CoreData stack structure just with a line of code and start working with your database models using closures thanks to the fact that SugarRecord is completly written in Swift. **There's a Google Group where you can leave your topics, question, doubts, suggestions and stuff besides issues https://groups.google.com/forum/#!forum/sugarrecord**
+SugarRecord is a management library to make it easier work with **CoreData and REALM**. Thanks to SugarRecord you'll be able to start working with **CoreData/REALM** with just a few lines of code:
 
-**Powered by [@pepibumur](http://www.twitter.com/pepibumur) and [@fjbelchi](http://www.twitter.com/fjbelchi)**
+1. Choose your preferred stack among the available ones (*You can even propose your own!*)
+2. Enjoy with your database operations
 
-### Index
-- [Features](#features)
-  - [Planned for 1.0 Release](#planned-for-0.2-release)
+The library is completetly written in Swift and fully tested to ensure the behaviour is the expected one.
+
+**There's a Google Group where you can leave your topics, question, doubts, suggestions and stuff besides issues https://groups.google.com/forum/#!forum/sugarrecord .**
+
+**Moreover we have a blog to talk about the library, check it here: [http://www.sugarrecord.com/](http://www.sugarrecord.com)**
+
+**Powered by [@pepibumur](http://www.twitter.com/pepibumur)**
+
+![image](https://raw.githubusercontent.com/SugarRecord/SugarRecord/develop/Resources/scheme.png)
+The scheme above shows the structure of SugarRecord. It's formed by:
+- **Database Models Extensions**: To add the sugar syntax that links these models with SugarRecord and the database.
+- **Finder**: SugarRecord custom element to abstract the querying components from the type of storage (Realm or CoreData)
+- **Core**: Main component of the library that translates Save/Delete/Find calls into internal operations using the stacks set.
+- **SugarRecord contexts**: Altough Realm doesn't have contexts as we have in CoreData, we have created abstracted contexts that surround the user operations with models independently if you are using CoreData or Realm. Yeah!
+- **Stack**: The storage stack is another key piece in SugarRecord because it knows how and when persist/fetch/delete your objects into the database. You can tell SugarRecord which stack it should use.
+
+## Mailing list
+
+If you want to stay updated we have a mailing list. We'll send emails with new updates, features, important bugs fixed, ...
+
+[![image](https://cdn0.iconfinder.com/data/icons/flat-designed-circle-icon/128/mail.png)](http://eepurl.com/57tqX)
+
+## Updates
+
+| **Date**               | **Done**                     |
+|-------------------------------|------------------------------------------------|
+| 16th-October-2014 | Finished stack for iCloud [PR](https://github.com/SugarRecord/SugarRecord/pull/45) |
+| 6th-October-2014 | Added FetchedResultsController support [PR](https://github.com/SugarRecord/SugarRecord/pull/40) |
+| 5th-October-2014 | Writen a post about custom operators, [POST](http://sugarrecord.com/swift/features/2014/10/05/bringing-custom-operators-onboard.html) |
+| 5th-October-2014 | Added custom operators |
+| 5th-October-2014 | Created playground tutorial |
+| 5th-October-2014 | Added count methods [PR](https://github.com/SugarRecord/SugarRecord/pull/38) |
+| 4th-October-2014 | Added migrations support [Pull Request](https://github.com/SugarRecord/SugarRecord/pull/36) |
+| 30th-September-2014 | Added first post to the new blog [SugarRecord](http://sugarrecord.com/) |
+
+
+
+## Index
+- [Advantages of SugarRecord](#advantages-of-sugarrecord)
+- [Version 1.0.1 Beta - Features](#version-1.0.1-beta---features)
+- [Version 1.0 Beta - Features](#version-1.0-beta---features)
 - [Requirements](#requirements)
 - [Installation](#installation)
+- [Communication flow](#communication-flow)
 - [How to use SugarRecord](#how-to-use-sugarrecord)
-  - [Initialize SugarRecord](#initialize-sugarrecord)
-  - [Logging levels](#logging-levels)
-  - [Examples](#examples)
-    - [Finding examples](#finding-examples)
-    - [Counting examples](#counting-examples)
-    - [Background Operations Examples](#background-operations-examples)
-      - [Background operation without saving](#background-operation-without-saving)
-      - [Background operation saving](#background-operation-saving)
+  - [Initialize SugarRecord with a stack](#initialize-sugarrecord-with-a-stack)
+  - [Setup the log level](#setup-the-log-level)
+  - [Objects creation](#objects-creation)
+  - [Objects edition](#objects-edition)
+  - [Objects deletion](#objects-deletion)
+  - [Objects querying](#objects-querying)
+  - [Advanced options](#advanced-options)
+  - [SugarRecord stacks](#sugarrecord-stacks)
+    - [Contribute](#contribute)
 - [Keep in mind](#keep-in-mind)
-- [Developers tips](#developers-tips)
-  - [Documentation generation](#documentation-generation)
-- [Notes](#notes)
-  - [Useful Swift Resources](#useful-swift-resources)
-- [Contribute](#contribute)
+- [Contribution tips](#contribution-tips)
+  - [Documentation](#documentation)
+  - [Setup the project locally](#setup-the-project-locally)
+  - [Take into account for your PR proposals](#take-into-account-for-your-pr-proposals)
+- [Useful Swift Resources](#useful-swift-resources)
 - [License](#license)
+- [Who uses SugarRecord?](#who-uses-sugarrecord?)
+- [Contribute](#contribute)
 
-## Features
+## Advantages of SugarRecord
 
-- Logging levels
-- Asynchronous operations using closures
-- Easy finding methods.
+- For beginners and advanced users
+- **Fully customizable**. Implement your own stack and set it as your SugarRecord stack to work with.
+- **Friendly syntax**. Forget about NSPredicates and NSSortDescriptors
+- You can change between different stacks without affecting to the rest of your app.
+- In case of a transition from CoreData to Realm or viceversa you've only to ensure the objecs have the same property names, and nothing more.
+- Background operations are automatically managed by Sugar Record
 
-### Planned for 1.0 Release
+## Version 1.0.1 Beta - Features
+- Playground tutorial to learn how to use SugaRecord
+- **Migrations** support
+- **Count** methods
+```swift
+CoreDataObject.all().count()
+```
+- Swift custom **operators**
+```swift
+var person = context <- Person.self // Object creation in a given context
+var person = Person.self++ // Object creation in the default context
+Person.self += person // Object saving
+Person.self -= person // Object deletion
+```
+- **FetchedResultsController** support
+```swift
+CoreDataObject.all().fetchedResultsController("name")
+```
+- Stack for **iCloud**
 
-_* Scheduled to coincide with Swift 1.0 release_
+## Version 1.0 Beta - Features
 
-- 100% Unit Test Coverage
-- Complete Documentation in CocoaDocs
-- Stack builder
+- 100% **Unit Test** Coverage
+- Complete **Documentation** in CocoaDocs and tutorials made with Playgrounds
+- Fully redesigned structure based on stacks 
+- **REALM support**
+- Fully detailed steps to **integrate all components in your project** (*while waiting the integration of CocoaPods*)
+
+*Note: It's going to suppose a big step to SugarRecord because it's going to make it more flexible for all kind of developers. You can use the current initial version of SugarRecord 0.2 (master branch).*
+
+## Coming features
+- Abstract FetchedResultsController to use with Realm and CoreData
+- Integration with iCloud
+- Support to migrations
+- High-Performance data import
 
 ## Requirements
 
@@ -50,140 +130,187 @@ _* Scheduled to coincide with Swift 1.0 release_
 
 ## Installation
 
-_The infrastructure and best practices for distributing Swift libraries is currently being developed by the developer community during this beta period of the language and Xcode. In the meantime, you can simply add SugarRecord as a git submodule, and drag the `SugarRecord` folder into your Xcode project._
+Cocoapods doesn't support support Swift libraries yet so the instalation process has to be manual. To import SugarRecord into your project:
 
----
+1. Drag the folder SugarRecord into your project traget.
+2. SugarRecord folder has a folder for every storage technology. Leave only these that you're going to use in your app (e.g. `CoreData` or `Realm`)
+3. Enjoy using it
 
+*Note: As soon as CocoaPod supports it the library will have a pod to make this process easier for everybody*
+
+## Communication flow
+
+If you want to communicate any issue, suggestion or even make a contribution, you have to keep in mind the flow bellow:
+
+- If you **need help**, ask your doubt in Stack Overflow using the tag 'sugarrecord'
+- If you want to ask something in general, use Stack Overflow too.
+- **Open an issue** either when you have an error to report or a feature request.
+- If you want to **contribute**, submit a pull request, and remember the rules to follow related with the code style, testing, ...
 
 ## How to use SugarRecord
-### Initialize SugarRecord
+If you want to learn how to setup SugarRecord with the stack and stack working with it, the library comes with an useful Playground HTML file with steps and some examples to follow. Take a look to the playground [**HERE**](https://github.com/SugarRecord/SugarRecord/docs/tutorial.playground).
 
-To start working with SugarRecord the first thing you have to do is to initialize the entire stack (persistent store, persistent store coordinator, and contexts stack). The simplest way to do it is through the call:
+Otherwise if you want to have a quick idea of how working with SugarRecord is, take a look to the examples below.
 
-```js
-SugarRecord.setupCoreDataStack(true, databaseName: nil)
+### Initialize SugarRecord with a stack
+SugarRecord needs you to pass the stack you are going to work with. There are some stacks availables to use directly but you can implement your own regarding your needs. Keep in mind that it's important to set it because otherwise SugarRecord won't have a way communicate your models with the database. Take a look how it would be using the default stack of Realm and CoreData:
+
+```Swift
+// Example initializing SugarRecord with the default Realm 
+SugarRecord.addStack(DefaultREALMStack(stackName: "MyDatabase", stackDescription: "My database using the lovely library SugarRecord"))
+
+// Example initializing SugarRecord with the default CoreData stack
+let stack: DefaultCDStack = DefaultCDStack(databaseName: "Database.sqlite", automigrating: true)
+SugarRecord.addStack(stack)
 ```
-
-Where with automigrating we specify that the initializer executes the migration if needed and in databaseName the sqlite database name (If *nil* the default one is taken).
-The stack of SugarRecord has the following contexts or items:
-
-![Logo](https://raw.githubusercontent.com/pepibumur/SugarRecord/master/Resources/StackScheme.png)
-
-
-`Root Saving Context` should never be used directly. It's a extra step context to report changes to the persistant coordinator. Below the Root Saving Context it is the Default `Main Context` that will be used for operations in Main Thread like the use of FetchedResultsController or even low load operations that might not lock the MainThread
-
-When operating in other thread instead of the MainThread we keep a similar structure where the bottom context changes. In this case the `Private Saving Context` should only be used for background operations. All changes applied there will be automatically reported to its parent context `Root Saving Context` and stored into the database.
-
-**How does `Default Main Context` know about changes applied from that private context?**
-
-As you probably know changes in CoreData are propagated in up direction but not down neither lateral. It means that if we have an object in `Private Saving Context`and in `Default Main Context` and any of them reports a change it won't be reported to the other one unless we do something. To do it we make use of KVO to listen about changes in the `Private Saving Context` to merge them into `Default Main Context`.
-
-*Remember: Operations related with saving, do them in `Private Saving Context`*
-
-### Logging levels
-Logging level can be specified to see what's happening behind SugarRecord. To set the **SugarRecordLogger** level you have just to use the static currentLevel var of SugarRecordLogger
+Once you have the stack set, a connection between SugarRecord and your app's lifecycle is required in order to execute cleaning and saving internal tasks. Ensure you have the following calls in your app delegate:
 
 ```swift
-SugarRecordLogger.currentLevel = .logLevelWarm
-````
-*Note: By default the log level is .logLevelInfo*. The available log levels are:
+func applicationWillResignActive(application: UIApplication!) {
+  SugarRecord.applicationWillResignActive()
+}
 
-```swift
-enum SugarRecordLogger: Int {
-    case logLevelFatal, logLevelError, logLevelWarm, logLevelInfo, logLevelVerbose
+func applicationWillEnterForeground(application: UIApplication!) {
+  SugarRecord.applicationWillEnterForeground()
+}
+
+func applicationWillTerminate(application: UIApplication!) {
+  SugarRecord.applicationWillTerminate()
 }
 ```
-### Examples
-Any other better thing to learn about how to use a library than watching some examples?
-####Finding Examples
-If you want to fetch items from the database, SugarRecord has a NSManagedObject extension with some useful methods to directly and, passing context, predicates, and sortDescriptors ( most of them optionals ) fetch items from your database. 
-#####- Find the first 20 users in Default Context (Main Context)
-We use the class method find, where the first argument is an enum value `(.all, .first, .last, .firsts(n), .lasts(n))` indicating how many values you want to fetch. We can pase the context but if not passing, the default one is selected and moreover filter and sort results passing an NSPredicate and an array with NSSortDescriptors
+
+### Setup the log level
+
+By default the log level of the library is `Info`. If you want to change it you can do it with:
 ```swift
-let users: [NSManagedObject] = User.find(.firsts(20), inContext: nil, filberedBy: nil, sortedBy: nil)
+SugarRecordLogger.currentLevel = SugarRecordLogger.logLevelVerbose
 ```
 
-#####Find all the users called Pedro
-Using the same as similar method as above, but in this case we can pass directly the filtered argument and value like as shown below:
-```swift
-let pedroUsers: [NSManagedObject] = User.find(.all, inContext: nil, attribute: "name", value: "Pedro", sortedBy: nil, sortDescriptors: nil)
-```
+### Objects creation
 
-#####Find all the users from Berlin sorted by Name
-You can even pass the sorting key using its key name as shown below. In this case we are finding all the users from Berlin in the Main Context and sorting them by name ascending.
+ManagedObjects and RLMObjects have extensions to make the creation easier. Methods included there are connected with SugarRecord and the stacks you previously setup. The example below shows the creation of an user without mattering if it's a RLMObject OR A CoreData object
 ```swift
-let berlinUsers: [NSManagedObject] = User.find(.all, inContext: nil, attribute: "city", value: "Berlin", sortedBy: "name", ascending: true)
+var user: User = User.create() as User
+user.name = "Testy"
+user.age = 21
+let saved: Bool = user.save()
 ```
+### Objects edition
 
-####Counting examples
-SugarRecord is even prepare to give you the number of entities with or without filters, passing or not the context and even if there's an object of a given class.
-#####Count of cities
-If we want to get a count of a given entity in database we can just use the class method count. It uses the Main Context to fetch this information. If you want to do it in a passed Context you can use it too.
-```swift
-let numberOfCities: Int = City.count()
-```
-#####Count of cities with 2 hospitals
-In this case we are getting the count but filtering the results using a passed predicate. The predicate filters cities with only 2 hospitals.
-```swift
-let numberOfCitiesWithTwoHospitals: Int = City.count(NSPredicate(format: "hospitals == 2", argumentArray: nil))
-```
-#####Check if there is any prize
-Alghough you can get directly if there is any entity using the count and equaling it to zero there is a method too in SugarRecord to do it. Just call any on the entity you want to know about its existence in database and a Bool will be returned with that information
-```swift
-let anyPrice: Bool = Prize.any()
-```
-####Background operations examples
-#####Background operation without saving
-Although all the examples above have been executed in the Main Context (Main Thread) all can be executed in a different thread just passing them in the method as an input paramenters. When the operations have high load it's not recommended to do them in the Main Context but in Private Contexts working on a background thread. You can create these contexts and execute them in background threads but **SugarRecord can handles it**. It has two methods, the first one is for a background execution **without savinv** and the other one includes saving. **How should I do them for example if I want for example get all the users but in background?**
+To edit your objects you have to notify SugarRecord that you are going to start/end an edition. If you are going to edit only one object you can do it quickly with the methods `beginWriting()` and `endWriting() `. It's very important to tell SugarRecord about any edition or you app might crash. Take a look to the example below
 
 ```swift
-SugarRecord.background { (context) -> () in
-  let users: [NSManagedObject] = User.find(.all, inContext: context, filberedBy: nil, sortedBy: nil)     
-}
+user.beginWriting()
+user.name ="Pepito"
+user.endWriting()
 ```
-*Notice that users have been brought in a private context whose life finished when the closure execution ends. What does it supposes? That you can't use these users ManagedObject entities outside the closure because they were only alive in the context that now is death. If you want to use them you should get their objectIDs and bring these entities into the mainContext where you are working*
-#####Background operation saving
-For entities edition it's **highly recommended** to do it in background. The previous method only creates a context to do your operations but it doesn't save the context so if you have modified something there the change won't be reported. If you want to use background private threads for saving lets use save like the example below:
+If you are editing different objects that are in the same Sugar Record context it's recommended to call `beginWriting()` before starting editing any of them. Once you've finished the edition call `endWriting()`.
+
+### Objects deletion
+
+If you want to delete an object that you have in a SugarRecord context you can do it easily using the method `delete()`. **It's very important** to call `beginWriting()` and `endWriting()` here too to notify the library about the changes you are making. Take a look to the examples below:
 
 ```swift
-SugarRecord.save(inBackground: true, savingBlock: { (context) -> () in
-let berlinUsers: [NSManagedObject] = User.find(.all, inContext: context, attribute: "city", value: "Berlin", sortedBy: "name", ascending: true)
-  var berlinUser: User? = berlinUsers.first?
-  if berlinUser != nil {
-    berlinUser.name = "Pedro"
+// 3-Lines syntax
+user.beginWriting()
+user.delete()
+user.endWriting()
+
+// 1-Line syntax
+user.beginWriting().delete().endWriting()
+```
+
+### Objects querying
+
+Fetching elements had never been so easy as it's now with SugarRecord. Take a look to the examples below because they are self-explaining:
+
+```swift
+let users: [User]? = User.sorted(by:"name", ascending: true).firsts(10).find()?
+users: User? = User().find()?.first as Person
+users: [User]? = User("age", equalTo: "10").sorted(by:"name", ascending: true).find()?
+users: [User]? = User.all().find()?
+```
+The example above is valid for **Realm** and **Objective-C**
+
+### Advanced options
+
+Although we've tried to offer an easy API interface for beginners we have advanced options too to go further into lower layers of the library. SugarRecord offers operations closures connected with your stacks to work directly with these context and decide then when and how saving them.
+
+```swift
+SugarRecord.operation(SugarRecordStackType.SugarRecordStackTypeRealm, closure: { (context) -> () in
+  users: [User]? = User.all().find(inContext: context)?
+  context.beginWriting() // <- Notifying we're starting the edition
+  for user in users {
+    user.age++
   }
-}) { (success, error) -> () in
-    println("The user was saved successfuly")
-}
+  context.endWriting() // <- Notifying that we've finished the edition
+})
 ```
-*Notice that as in the previous example we're using the context passed in the closuer to fetch berlinUsers and taking the first one. Then we modify its name. When the closure execution ends then the created private context is internally saved and it notifies the user calling a completion closure **in the main thread***
+
+### SugarRecord stacks
+
+One of the main advantages of using SugarRecord is its big flexibility to choose the storage architecture you want for your app. SugarRecord comes with some default stacks for Realm and CoreData but you can implement your own ensuring it conforms the needed protocols (*take a look to the existing ones*). The available stacks are:
+
+- **Default Core Data Stack**: This stack has a private context with the unique persistent store coordinator as parent. There is a main context under it to execute low load operations and a private one at the same level as the main one to execute high load operations. Changes  performed in that private context are brought to the main context using KVO.
+- **Default REALM Stack**: This  stack provides a setup for REALM which is much easier than Core Data, no context, thread safe...
+- **Default Core Data Stack + iCloud**: With the stack of iCloud you'll be able to persist your users' data in iCloud easily. Initialize the stack and leave SugarRecord do the rest.
+- **Default Core Data Stack + Restkit**: It connects thd default CoreData stack with RestKit to enjoy the powerful features of that library.
+
+#### Contribute
+If you have any other idea of stack that could be useful for SugarRecord users feel free to make your proposal. Ensure:
+
+1. That it conforms the protocol `SugarRecordStackProtocol`
+2. That it's **fully tested** and **docummented**
 
 ## Keep in mind
-- Be careful working with objects in contexts. Remember a **NSManagedObject belongs to a context** and once the context dies the object disappear and trying to access it will bring you into a trouble. SugarRecord has defensive code inse to ensure that if you are saving objects from one context in other one they are automatically brought to the new context to be saved there.
-- **Not referencing objects**. Use the objects returned by CoreData in the contexts but do not increase their referencies because in case that CoreData tryes to propagate a deletion that includes your strongly reference object it might cause **fault relationships** (*although your propagation rules are properly defined*). 
+- Be careful **working with objects between contexts**. In case of **CoreData** remember that a ManagedObject belongs to a given context. Once the context dies the object disappears and trying to access to it will bring you into a trouble. SugarRecord has defensive code to ensure that if you are saving objecs from one context in other one one they are automatically brought to the new context to be saved there.
 
-## Developers tips
-### Documentation generation
-- The project has a target that uses `appledoc` to generate the documentation from the docs comments
-- The best way to follow the docummentation patters is using the plugin for XCode VVDocumenter
-- If you want to update the documentation you have to install appledoc in your OSX, `brew install appledoc`
-- Once installed build the app in the **Documentation** target
-- **Remember once you clone the repo locally you have to download the vendor submodules with the command `git submodule update --init`**
+- **Not referencing objects**. Try to use their remote or local identifiers instead. Strong references is something dangerous because you can break the normal behaviour of CoreData/REALM. In CoreData for example it might cause **fault relationship** crashes although your propagation rules are properly defined.
 
-## Notes
-SugarRecord is hardly inspired in **Magical Record**. We loved its structure and we brought some of these ideas to SugarRecord CoreData stack but using sugar Swift syntax and adding more useful methods to make working with CoreData easier.
 
-### Useful Swift Resources
-- Tests with Swift (Matt): http://nshipster.com/xctestcase/
-- Quick, a library for testing written in swift https://github.com/modocache/personal-fork-of-Quick
-- CoreData and threads with GCD: http://www.cimgf.com/2011/05/04/core-data-and-threads-without-the-headache/
-- Alamofire, the swift AFNetworking: https://github.com/Alamofire/Alamofire
-- Jazzy, a library to generate documentation: https://github.com/realm/jazzy
-- How to document your project: http://www.raywenderlich.com/66395/documenting-in-xcode-with-headerdoc-tutorial
-- Tests intersting articles: http://www.objc.io/issue-15/
-- iCloud + CoreData (objc.io): http://www.objc.io/issue-10/icloud-core-data.html
-- Appledoc, documentation generator: https://github.com/tomaz/appledoc 
-- AlecrimCoreData: https://github.com/Alecrim/AlecrimCoreData
+## Contribution tips
+### Documentation
+- The best way to follow the docummentation patterns is using the plugin for XCode VVDocumenter.
+- SugarRecord uses [**Swift-playground-builder**](https://github.com/jas/swift-playground-builder) to generate a playground tutorial from a markdonw file, . If you have done any important change that deserves an explanation in the tutorial add it!. To do it:
+```bash
+# Install Node.js
+npm install -g swift-playground-builder
+playground docs/tutorial.md -d docs/ -p ios
+```
+- Library documentation is generated by CocoaDocs automatically based on the code comments. If you want to preview it locally:
+
+```bash
+# Clone the repo
+git clone https://github.com/CocoaPods/cocoadocs.org
+# Run in the repo directory
+bundle install
+# Preview the library with
+bundle exec ./cocoadocs.rb preview SugarRecord
+```
+
+
+### Setup the project locally
+1. Clone the repo with `git clone https://github.com/SugarRecord/SugarRecord.git`
+2. Update the git submodules with `git submodule update --init`
+
+### Take into account for your PR proposals
+
+- Changes in the library should be properly documented and tested, **changes without documentation comments and tests won't be accepted**
+- The code should follow this style guideline: https://github.com/SugarRecord/swift-style-guide
+
+
+
+## Useful Swift Resources
+- **Tests with Swift (Matt)**: http://nshipster.com/xctestcase/
+- **Quick**, a library for testing written in swift https://github.com/modocache/personal-fork-of-Quick
+- **CoreData and threads with GCD**: http://www.cimgf.com/2011/05/04/core-data-and-threads-without-the-headache/
+- **Alamofire**, the swift AFNetworking: https://github.com/Alamofire/Alamofire
+- **Jazzy**, a library to generate documentation: https://github.com/realm/jazzy
+- How to **document your project**: http://www.raywenderlich.com/66395/documenting-in-xcode-with-headerdoc-tutorial
+- Tests interesting articles: http://www.objc.io/issue-15/
+- **iCloud + CoreData** (objc.io): http://www.objc.io/issue-10/icloud-core-data.html
+- **Appledoc**, documentation generator: https://github.com/tomaz/appledoc 
+- **AlecrimCoreData**: https://github.com/Alecrim/AlecrimCoreData
 
 ## License
 The MIT License (MIT)
@@ -209,11 +336,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ## Who uses SugarRecord?
-If you are currently using SugarRecord in your app, let me know and I'll add it to the list:
-
-## Contribute
-SugarRecord is provided free of charge. If you want to support it:
-- You can report your issues directly through Github repo issues page. I'll try to fix them as soon as possible and listen your suggestion about how to improve the library.
-- You can post your doubts in StackOverFlow too. I'll be subscribed to updates in StackOverFlow related to SugarRecord tag.
-- We are opened to new PR introducing features to the implementation of fixing bugs in code. We can make SugarRecord even more sugar than it's right know. Contribute with it :smile:
-- **We follow our Swift style guide forked from the RayWenderlic oneh: https://github.com/SugarRecord/swift-style-guide**. If you want to contribute, ensure you follow these patterns.
+If you are currently using SugarRecord in your app, let me know and I'll add it to the list.
