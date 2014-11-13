@@ -20,7 +20,7 @@ extension SugarRecordFinder
     
     :returns: Created NSFetchedResultsController
     */
-    public func fetchedResultsController(section: String) -> NSFetchedResultsController
+    public func fetchedResultsController(section: String?) -> NSFetchedResultsController
     {
         return fetchedResultsController(section, cacheName: nil)
     }
@@ -33,7 +33,7 @@ extension SugarRecordFinder
     
     :returns: Created NSFetchedResultsController
     */
-    public func fetchedResultsController(section: String, cacheName: String?) -> NSFetchedResultsController
+    public func fetchedResultsController(section: String?, cacheName: String?) -> NSFetchedResultsController
     {
         let fetchRequest: NSFetchRequest = SugarRecordCDContext.fetchRequest(fromFinder: self)
         var coredataContext: SugarRecordCDContext?

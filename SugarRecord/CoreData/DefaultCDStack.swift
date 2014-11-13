@@ -477,7 +477,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
 *   - Observing when the context is going to be saved to get permanent IDs before saving
 *   - Observing when the another context changes and then bring these changes
 */
-internal extension NSManagedObjectContext
+public extension NSManagedObjectContext
 {
     /**
     Add observer of self to check when is going to save to ensure items are saved with permanent IDs
@@ -514,10 +514,10 @@ internal extension NSManagedObjectContext
     func startObserving(context: NSManagedObjectContext, inMainThread mainThread: Bool) {
         SugarRecordLogger.logLevelVerbose.log("\(self) context now observing the context \(context)")
         if mainThread {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("mergeChangesInMainThread:"), name: NSManagedObjectContextDidSaveNotification, object: context)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "mergeChangesInMainThread:", name: NSManagedObjectContextDidSaveNotification, object: context)
         }
         else {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("mergeChanges:"), name: NSManagedObjectContextDidSaveNotification, object: context)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "mergeChanges:", name: NSManagedObjectContextDidSaveNotification, object: context)
         }
     }
     
@@ -535,8 +535,8 @@ internal extension NSManagedObjectContext
     
     :param: notification Notification that fired this method call
     */
-    func mergeChanges(fromNotification notification: NSNotification) {
-        SugarRecordLogger.logLevelInfo.log("Merging changes from context: \((notification.object as NSManagedObjectContext).name) to context \(self.name)")
+    func mergeChanges(notification: NSNotification) {
+        SugarRecordLogger.logLevelInfo.log("Merging changes to context \(self.name)")
         self.mergeChangesFromContextDidSaveNotification(notification)
     }
     
@@ -545,9 +545,9 @@ internal extension NSManagedObjectContext
     
     :param: notification Notification that fired this method call
     */
-    func mergeChangesInMainThread(fromNotification notification: NSNotification) {
+    func mergeChangesInMainThread(notification: NSNotification) {
         dispatch_async(dispatch_get_main_queue(), {
-            self.mergeChanges(fromNotification: notification)
+            self.mergeChanges(notification)
         })
     }
 }
