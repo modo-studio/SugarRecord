@@ -1,4 +1,0 @@
-platform :ios, '7.0'
-link_with 'SugarRecordTests'
-pod 'RestKit', '~> 0.20.0'
-
