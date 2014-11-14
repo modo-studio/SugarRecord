@@ -62,14 +62,14 @@
 		3D0EB5C31A1601DE0073E21D /* SugarRecordRLMContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB57E1A1601DE0073E21D /* SugarRecordRLMContext.swift */; };
 		3D0EB5C41A16028F0073E21D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
 		3D0EB5C51A16029A0073E21D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
-		3D0EB5C71A1603570073E21D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0EB5C61A1603570073E21D /* Realm.framework */; };
 		3D0EB5C81A1603570073E21D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0EB5C61A1603570073E21D /* Realm.framework */; };
-		3D0EB5CA1A1603690073E21D /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5C91A1603690073E21D /* RLMSupport.swift */; };
 		3D0EB5CB1A1603690073E21D /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5C91A1603690073E21D /* RLMSupport.swift */; };
 		3D0EB5CD1A1606330073E21D /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D861A3F19F99BEB0053B6B8 /* libc++.dylib */; };
 		3D0EB5CF1A1607140073E21D /* libPods-restkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0EB5CE1A1607140073E21D /* libPods-restkit.a */; };
 		3D0EB5D21A1607EC0073E21D /* Pods-restkit.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D0EB5D01A1607EC0073E21D /* Pods-restkit.debug.xcconfig */; };
 		3D0EB5D31A1607EC0073E21D /* Pods-restkit.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D0EB5D11A1607EC0073E21D /* Pods-restkit.release.xcconfig */; };
+		3D0EB6301A1612C10073E21D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0EB5C61A1603570073E21D /* Realm.framework */; };
+		3D0EB6311A1612C60073E21D /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5C91A1603690073E21D /* RLMSupport.swift */; };
 		3D11076C19FD48DA001BAC3C /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11076B19FD48DA001BAC3C /* Film.swift */; };
 		3D13C53919CE0A0800EB8688 /* RealmObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13C53819CE0A0800EB8688 /* RealmObjectTests.swift */; };
 		3D4F507D19CDA37500C1FD3D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
@@ -199,7 +199,7 @@
 				3D83F21619FD8B9900E254F7 /* SystemConfiguration.framework in Frameworks */,
 				3DC8D5A319D76DC200F2368B /* MobileCoreServices.framework in Frameworks */,
 				3DC8D5A119D76DBD00F2368B /* Security.framework in Frameworks */,
-				3D0EB5C71A1603570073E21D /* Realm.framework in Frameworks */,
+				3D0EB6301A1612C10073E21D /* Realm.framework in Frameworks */,
 				3DC8D59F19D76DAB00F2368B /* CFNetwork.framework in Frameworks */,
 				3D4F507D19CDA37500C1FD3D /* CoreData.framework in Frameworks */,
 			);
@@ -755,7 +755,6 @@
 				3D4F509519CDA3DE00C1FD3D /* NSManagedObject+SugarRecordTests.swift in Sources */,
 				3D0EB5BC1A1601DE0073E21D /* RLMObjectMigration.swift in Sources */,
 				3D4F509619CDA3DE00C1FD3D /* SugarRecordCDContextTests.swift in Sources */,
-				3D0EB5CA1A1603690073E21D /* RLMSupport.swift in Sources */,
 				3D0EB5AC1A1601DE0073E21D /* SugarRecordCDContext.swift in Sources */,
 				3D0EB5841A1601DE0073E21D /* SugarRecordObjectProtocol.swift in Sources */,
 				3D0EB5881A1601DE0073E21D /* SugarRecordStackProtocol.swift in Sources */,
@@ -780,6 +779,7 @@
 				3D77249119D6E45A00C6B975 /* SugarRecordTests.swift in Sources */,
 				3D0EB5B41A1601DE0073E21D /* DefaultREALMStack.swift in Sources */,
 				3D4F50A019CDAD1800C1FD3D /* CoreDataObject.swift in Sources */,
+				3D0EB6311A1612C60073E21D /* RLMSupport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,6 +805,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/realm-cocoa-0.87.4/ios",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -875,11 +879,7 @@
 			baseConfigurationReference = 3D0EB5D01A1607EC0073E21D /* Pods-restkit.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"/Users/pepibumur/code/SugarRecord/Submodules/realm-cocoa-0.87.1/ios",
-					"/Users/pepibumur/code/SugarRecord/Submodules/realm-cocoa-0.87.1",
-					"$(PROJECT_DIR)/SugarRecord",
 					"$(PROJECT_DIR)/Libraries/realm-cocoa-0.87.4/ios",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
