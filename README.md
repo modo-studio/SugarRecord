@@ -86,6 +86,10 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 - In case of a transition from CoreData to Realm or viceversa you've only to ensure the objecs have the same property names, and nothing more.
 - Background operations are automatically managed by Sugar Record
 
+## Version 1.0.2 Beta - Features
+- Updated the project structure to package the libary in bundles
+
+
 ## Version 1.0.1 Beta - Features
 - Playground tutorial to learn how to use SugaRecord
 - **Migrations** support
@@ -132,9 +136,9 @@ CoreDataObject.all().fetchedResultsController("name")
 
 Cocoapods doesn't support support Swift libraries yet so the instalation process has to be manual. To import SugarRecord into your project:
 
-1. Drag the folder SugarRecord into your project traget.
-2. SugarRecord folder has a folder for every storage technology. Leave only these that you're going to use in your app (e.g. `CoreData` or `Realm`)
-3. Enjoy using it
+1. Download the project into your project's libraries folder. You can use git submodules too `git submodule add https://github.com/sugarrecord/sugarrecord myproject/libraries`
+2. Once you have the
+
 
 *Note: As soon as CocoaPod supports it the library will have a pod to make this process easier for everybody*
 
