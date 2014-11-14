@@ -1,6 +1,9 @@
 language: objective-c
 xcode_sdk: iphonesimulator
 rvm: 1.9.3
+osx_image: xcode61
+notifications:
+  email: false
 before_install:
   - gem install --no-rdoc --no-ri cocoapods -v 0.34.4
   - gem install xcpretty
