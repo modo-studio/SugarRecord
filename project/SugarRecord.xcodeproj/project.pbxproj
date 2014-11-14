@@ -98,7 +98,7 @@
 
 /* Begin PBXFileReference section */
 		3D078B1F19E2674000B20B3C /* CoreDataFetchResultsControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataFetchResultsControllerTests.swift; sourceTree = "<group>"; };
-		3D0EB5141A1600E70073E21D /* SRCoreData-RestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "SRCoreData-RestKit.framework"; path = SRCoreDataRestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D0EB5141A1600E70073E21D /* SRCoreDataRestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRCoreDataRestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D0EB5171A1600E70073E21D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D0EB5181A1600E70073E21D /* SRCoreData-RestKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SRCoreData-RestKit.h"; sourceTree = "<group>"; };
 		3D0EB5321A1601080073E21D /* SRCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -386,7 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				3D4F507419CDA36B00C1FD3D /* SugarRecordTests.xctest */,
-				3D0EB5141A1600E70073E21D /* SRCoreData-RestKit.framework */,
+				3D0EB5141A1600E70073E21D /* SRCoreDataRestKit.framework */,
 				3D0EB5321A1601080073E21D /* SRCoreData.framework */,
 				3D0EB5501A1601190073E21D /* SRRealm.framework */,
 			);
@@ -516,7 +516,7 @@
 			);
 			name = SRCoreDataRestKit;
 			productName = "SRCoreData-RestKit";
-			productReference = 3D0EB5141A1600E70073E21D /* SRCoreData-RestKit.framework */;
+			productReference = 3D0EB5141A1600E70073E21D /* SRCoreDataRestKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		3D0EB5311A1601080073E21D /* SRCoreData */ = {
@@ -800,7 +800,7 @@
 		3D0EB5271A1600E70073E21D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -823,7 +823,7 @@
 		3D0EB5461A1601080073E21D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -846,7 +846,7 @@
 		3D0EB5641A16011A0073E21D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
