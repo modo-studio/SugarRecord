@@ -137,8 +137,16 @@ CoreDataObject.all().fetchedResultsController("name")
 Cocoapods doesn't support support Swift libraries yet so the instalation process has to be manual. To import SugarRecord into your project:
 
 1. Download the project into your project's libraries folder. You can use git submodules too `git submodule add https://github.com/sugarrecord/sugarrecord myproject/libraries`
-2. Once you have the
+2. You have to add now the project files **into your project's target**. To do it, do right click over your target libraries group and select **Add files** and add the *SugarRecord.xcodeproj* file that you'll find on the `SugarRecord/project` folder.
+3. Finally you have to specify which framework you would like to compile with your project. There are three:
 
+- SRCoreDataRestKit // Needs RestKit in your project
+- SRCoreData
+- SRRealm
+
+4. In the *build phases* tab of your project's main target. Add the `.framework` you chose in the **Target Dependencies** group.
+5. Click on the + button at the top left of the panel and select **New Copy Files Phase**. Rename this new phase to "Copy Frameworks", set the "Destination" to "Frameworks", and add the `.framework` you chose
+6. Import `SRCoreDataRestKit/SRCoreData/SRRealm` wherever you want to use it. Otherwise the classes won't be visible
 
 *Note: As soon as CocoaPod supports it the library will have a pod to make this process easier for everybody*
 
