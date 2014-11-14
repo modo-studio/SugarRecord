@@ -7,4 +7,4 @@ before_install:
   - cd project
   - pod install
 script:
-  - xcodebuild -workspace SugarRecord.xcworkspace -scheme SugarRecordTests -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -tc --no-utf && exit ${PIPESTATUS[0]}
+  - xcodebuild -workspace SugarRecord.xcworkspace -scheme SugarRecordTests -configuration Debug -sdk iphonesimulator8.1 ONLY_ACTIVE_ARCH=NO test | xcpretty -tc --no-utf && exit ${PIPESTATUS[0]}
