@@ -45,6 +45,14 @@ public class SugarRecordRLMContext: SugarRecordContext
     }
     
     /**
+    *  Asks the context for writing cancellation
+    */
+    public func cancelWriting()
+    {
+        self.realmContext.cancelWriteTransaction()
+    }
+    
+    /**
     Creates an object in the context
     
     :param: objectClass ObectClass of the created object

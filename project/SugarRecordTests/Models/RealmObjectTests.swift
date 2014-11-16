@@ -141,5 +141,22 @@ class RealmObjectTests: XCTestCase
         realmObject!.beginWriting().delete().endWriting()
         realmObject2!.beginWriting().delete().endWriting()
     }
+    
+    func testObjectsWritingCancellation()
+    {
+        var realmObject: RealmObject? = nil
+        realmObject = RealmObject.create() as? RealmObject
+        realmObject!.name = "Realmy"
+        realmObject!.age = 22
+        realmObject!.email = "test@mail.com"
+        realmObject!.city = "TestCity"
+        realmObject!.birthday = NSDate()
+        _ = realmObject!.save()
+        realmObject!.beginWriting().delete().cancelWriting()
+        XCTAssertEqual(RealmObject.all().find()!.count, 1, "It should return 1 element because the writing transaction was cancelled")
+        let objects: [RealmObject] = RealmObject.all().find()! as [RealmObject]
+        objects.first!.beginWriting().delete().endWriting()
+        XCTAssertEqual(RealmObject.all().find()!.count, 0, "It should return 0 element because the writing transaction was commited")
+    }
 }
 

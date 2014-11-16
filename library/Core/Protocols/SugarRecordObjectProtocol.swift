@@ -111,6 +111,12 @@ public protocol SugarRecordObjectProtocol
     *  Notifies the context that the object edition has finished
     */
     func endWriting()
+
+    
+    /**
+    * Asks the context for writing cancellation
+    */
+    func cancelWriting()
 }
 
 //MARK : Operators
