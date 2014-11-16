@@ -66,8 +66,6 @@
 		3D0EB5CB1A1603690073E21D /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5C91A1603690073E21D /* RLMSupport.swift */; };
 		3D0EB5CD1A1606330073E21D /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D861A3F19F99BEB0053B6B8 /* libc++.dylib */; };
 		3D0EB5CF1A1607140073E21D /* libPods-restkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0EB5CE1A1607140073E21D /* libPods-restkit.a */; };
-		3D0EB5D21A1607EC0073E21D /* Pods-restkit.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D0EB5D01A1607EC0073E21D /* Pods-restkit.debug.xcconfig */; };
-		3D0EB5D31A1607EC0073E21D /* Pods-restkit.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D0EB5D11A1607EC0073E21D /* Pods-restkit.release.xcconfig */; };
 		3D0EB6301A1612C10073E21D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0EB5C61A1603570073E21D /* Realm.framework */; };
 		3D0EB6311A1612C60073E21D /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5C91A1603690073E21D /* RLMSupport.swift */; };
 		3D11076C19FD48DA001BAC3C /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11076B19FD48DA001BAC3C /* Film.swift */; };
@@ -644,9 +642,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D0EB5D21A1607EC0073E21D /* Pods-restkit.debug.xcconfig in Resources */,
 				3D4F509B19CDAB0000C1FD3D /* SugarRecord.xcdatamodeld in Resources */,
-				3D0EB5D31A1607EC0073E21D /* Pods-restkit.release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
