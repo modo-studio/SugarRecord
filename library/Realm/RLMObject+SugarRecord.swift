@@ -279,6 +279,15 @@ extension RLMObject: SugarRecordObjectProtocol
         SugarRecordLogger.logLevelVerbose.log("Object did end writing")
         self.context().endWriting()
     }
+    
+    /**
+    * Asks the context for writing cancellation
+    */
+    public func cancelWriting()
+    {
+        SugarRecordLogger.logLevelVerbose.log("Object did end writing")
+        self.context().cancelWriting()
+    }
 }
 
 

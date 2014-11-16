@@ -17,6 +17,7 @@ class SugarRecordRLMContextTests: XCTestCase
     {
         var beginWriteTransactionCalled: Bool = false
         var commitWriteTransactionCalled: Bool = false
+        var cancelWriteTransactionCalled: Bool = false
         var objectAdded: Bool = false
         
         override func commitWriteTransaction() {
@@ -25,6 +26,10 @@ class SugarRecordRLMContextTests: XCTestCase
         
         override func beginWriteTransaction() {
             self.beginWriteTransactionCalled = true
+        }
+        
+        override func cancelWriteTransaction() {
+            self.cancelWriteTransactionCalled = true
         }
         
         override func addObject(object: RLMObject!) {
@@ -46,6 +51,14 @@ class SugarRecordRLMContextTests: XCTestCase
         let srContext: SugarRecordRLMContext = SugarRecordRLMContext(realmContext: context)
         srContext.endWriting()
         XCTAssertTrue(context.commitWriteTransactionCalled, "EndWriting should notify the REALM Context")
+    }
+    
+    func testThatCancelWritingCallsCancelWriteTransactionInRealmContext()
+    {
+        let context: MockRLMRealm = MockRLMRealm()
+        let srContext: SugarRecordRLMContext = SugarRecordRLMContext(realmContext: context)
+        srContext.cancelWriting()
+        XCTAssertTrue(context.cancelWriteTransactionCalled, "CancelWriting should notify the REALM Context")
     }
     
     func testObjectCreation()

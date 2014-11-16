@@ -147,4 +147,21 @@ class CoreDataObjectTests: XCTestCase
         coreDataObject!.beginWriting().delete().endWriting()
         coreDataObject2!.beginWriting().delete().endWriting()
     }
+    
+    func testObjectsWritingCancellation()
+    {
+        var coreDataObject: CoreDataObject? = nil
+        coreDataObject = CoreDataObject.create() as? CoreDataObject
+        coreDataObject!.name = "Realmy"
+        coreDataObject!.age = 22
+        coreDataObject!.email = "test@mail.com"
+        coreDataObject!.city = "TestCity"
+        coreDataObject!.birth = NSDate()
+        _ = coreDataObject!.save()
+        coreDataObject!.beginWriting().delete().cancelWriting()
+        XCTAssertEqual(CoreDataObject.all().find()!.count, 1, "It should return 1 element because the writing transaction was cancelled")
+        let objects: [CoreDataObject] = CoreDataObject.all().find()! as [CoreDataObject]
+        objects.first!.beginWriting().delete().endWriting()
+        XCTAssertEqual(CoreDataObject.all().find()!.count, 0, "It should return 0 element because the writing transaction was commited")
+    }
 }

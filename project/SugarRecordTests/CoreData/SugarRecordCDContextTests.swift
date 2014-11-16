@@ -46,6 +46,21 @@ class SugarRecordCDContextTests: XCTestCase
         XCTAssertTrue(mockContext.contextSaved, "EndWriting in SugarRecord context should call save in CD context")
     }
     
+    func testIfCancelWritingCancelChangesInTheCoreDataContext()
+    {
+        class MockCoreDataContext: NSManagedObjectContext
+        {
+            var rollBackCalled: Bool = false
+            private override func rollback() {
+                rollBackCalled = true
+            }
+        }
+        let mockContext = MockCoreDataContext()
+        let sugarRecordContext: SugarRecordCDContext = SugarRecordCDContext(context: mockContext)
+        sugarRecordContext.cancelWriting()
+        XCTAssertTrue(mockContext.rollBackCalled, "CancelWriting in SugarRecord context should call rollback in CD context")
+    }
+    
     func testThatCreateObjectsDoesItInTheProperContext()
     {
         SugarRecord.operation(SugarRecordStackType.SugarRecordStackTypeCoreData, closure: { (context) -> () in

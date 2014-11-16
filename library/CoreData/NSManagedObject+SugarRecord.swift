@@ -272,4 +272,12 @@ extension NSManagedObject: SugarRecordObjectProtocol
         self.context().endWriting()
     }
     
+    /**
+    * Asks the context for writing cancellation
+    */
+    public func cancelWriting()
+    {
+        SugarRecordLogger.logLevelVerbose.log("Object did end writing")
+        self.context().cancelWriting()
+    }
 }

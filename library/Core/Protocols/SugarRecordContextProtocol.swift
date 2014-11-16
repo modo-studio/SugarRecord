@@ -21,6 +21,11 @@ public protocol SugarRecordContext
     func endWriting()
     
     /**
+    *  Asks the context for writing cancellation
+    */
+    func cancelWriting()
+    
+    /**
     *  Creates an object of the given type in the context (without saving the context)
     */
     func createObject(objectClass: AnyClass) -> AnyObject?

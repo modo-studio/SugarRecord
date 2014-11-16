@@ -48,6 +48,14 @@ public class SugarRecordCDContext: SugarRecordContext
     }
     
     /**
+    *  Asks the context for writing cancellation
+    */
+    public func cancelWriting()
+    {
+        self.contextCD.rollback()
+    }
+    
+    /**
     Creates and object in the context (without saving)
     
     :param: objectClass Class of the created object
