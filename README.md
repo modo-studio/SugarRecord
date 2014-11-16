@@ -244,6 +244,18 @@ users: [User]? = User.all().find()?
 ```
 The example above is valid for **Realm** and **Objective-C**
 
+### Transactions
+
+Operations like edition/deletion **MUST** be grouped in a transaction. The way to group different operations into a single trasaction is using the following methods of the SugarRecordContext:
+
+```swift
+context.beginWriting()
+context.endWriting()
+```
+**It's very important to notify the context when you are going to execute any of these kind of operations**, otherwise the app might crash. Moreover, remember that the changes are persisted once you call `endWriting()`, otherwise they will be in your object but not in the database. 
+
+*Note: If you want to cancel a transaction and return everything to the previous status you can do it using the `cancelWriting()* method.
+
 ### Advanced options
 
 Although we've tried to offer an easy API interface for beginners we have advanced options too to go further into lower layers of the library. SugarRecord offers operations closures connected with your stacks to work directly with these context and decide then when and how saving them.
