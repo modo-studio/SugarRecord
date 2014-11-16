@@ -39,6 +39,7 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 16th-November-2014 | Added cancelWriting feature [PR](https://github.com/SugarRecord/SugarRecord/pull/58) |
 | 16th-October-2014 | Finished stack for iCloud [PR](https://github.com/SugarRecord/SugarRecord/pull/45) |
 | 6th-October-2014 | Added FetchedResultsController support [PR](https://github.com/SugarRecord/SugarRecord/pull/40) |
 | 5th-October-2014 | Writen a post about custom operators, [POST](http://sugarrecord.com/swift/features/2014/10/05/bringing-custom-operators-onboard.html) |
@@ -64,6 +65,7 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
   - [Objects edition](#objects-edition)
   - [Objects deletion](#objects-deletion)
   - [Objects querying](#objects-querying)
+  - [Transactions](#transactions)
   - [Advanced options](#advanced-options)
   - [SugarRecord stacks](#sugarrecord-stacks)
     - [Contribute](#contribute)
@@ -88,7 +90,7 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 ## Version 1.0.2 Beta - Features
 - Updated the project structure to package the libary in bundles
-
+- Added `cancelWriting()` feature
 
 ## Version 1.0.1 Beta - Features
 - Playground tutorial to learn how to use SugaRecord
