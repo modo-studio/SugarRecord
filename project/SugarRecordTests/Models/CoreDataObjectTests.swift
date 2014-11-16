@@ -114,9 +114,11 @@ class CoreDataObjectTests: XCTestCase
         coreDataObject2!.city = "TestCity2"
         coreDataObject2!.birth = NSDate()
         let saved2: Bool = coreDataObject2!.save()
+        
+        
         XCTAssertEqual(CoreDataObject.all().find()!.count, 2, "It should return 2 elements")
-        XCTAssertEqual(CoreDataObject.by("age", equalTo: "22").find()!.count, 2, "It should return 2 elements with the age of 22")
-        XCTAssertEqual(CoreDataObject.by("age", equalTo: "10").find()!.count, 0, "It should return 0 elements with the age of 10")
+        XCTAssertEqual(CoreDataObject.by(key: "age", equalTo: "22").find()!.count, 2, "It should return 2 elements with the age of 22")
+        XCTAssertEqual(CoreDataObject.by(key: "age", equalTo: "10").find()!.count, 0, "It should return 0 elements with the age of 10")
         XCTAssertEqual(CoreDataObject.sorted(by: "name", ascending: true).first().find()!.first!.name, "Realmy", "The name of the first object returned should be Realmy")
         XCTAssertEqual(CoreDataObject.sorted(by: "name", ascending: true).last().find()!.first!.name, "Realmy2", "The name of the first object returned should be Realmy2")
         XCTAssertEqual(CoreDataObject.sorted(by: "name", ascending: true).firsts(20).find()!.count, 2, "The number of fetched elements using firsts should be equal to 2")

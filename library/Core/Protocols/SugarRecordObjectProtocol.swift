@@ -32,17 +32,17 @@ public protocol SugarRecordObjectProtocol
     /**
     *  Returns a SugarRecord finder passing a predicate
     */
-    class func by(predicate: NSPredicate) -> SugarRecordFinder
+    class func by(#predicate: NSPredicate) -> SugarRecordFinder
     
     /**
     *  Returns a SugarRecord finder passing a predicate in String format
     */
-    class func by(predicateString: NSString) -> SugarRecordFinder
+    class func by(#predicateString: NSString) -> SugarRecordFinder
     
     /**
     *  Returns a SugarRecord finder passing a predicate in a value-key format
     */
-    class func by(key: String, equalTo value: String) -> SugarRecordFinder
+    class func by(#key: String, equalTo value: String) -> SugarRecordFinder
     
     
     //MARK: - Sorting
