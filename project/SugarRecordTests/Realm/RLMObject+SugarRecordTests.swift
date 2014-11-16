@@ -47,26 +47,26 @@ class RLMObjectSugarRecordTests: XCTestCase
     func testIfTheReturnedFinderIsRight()
     {
         var predicate: NSPredicate = NSPredicate()
-        var finder: SugarRecordFinder = RealmObject.by(predicate)
+        var finder: SugarRecordFinder = RealmObject.by(predicate: predicate)
         XCTAssertEqual(finder.predicate!, predicate, "The finder predicate should be the one passed to the object class using by")
-        finder = RealmObject.by("name == Test")
+        finder = RealmObject.by(predicateString: "name == Test")
         XCTAssertEqual(finder.predicate!.predicateFormat, "name == Test", "The finder predicate format should be the same as the passed to the object class using predicateString")
-        finder = RealmObject.by("name", equalTo: "Test")
+        finder = RealmObject.by(key: "name", equalTo: "Test")
         XCTAssertEqual(finder.predicate!.predicateFormat, "name == Test", "The finder predicate format should be the same as the passed to the object class using key-value")
     }
     
     func testIfTheObjectClassAndStackTypeAreSetToTheFinderWhenFiltering()
     {
         var predicate: NSPredicate = NSPredicate()
-        var finder: SugarRecordFinder = RealmObject.by(predicate)
+        var finder: SugarRecordFinder = RealmObject.by(predicate: predicate)
         var sameClass = finder.objectClass? is RealmObject.Type
         XCTAssertTrue(sameClass, "The class of the finder should be the object class")
         XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
-        finder = RealmObject.by("name == Test")
+        finder = RealmObject.by(predicateString: "name == Test")
         sameClass = finder.objectClass? is RealmObject.Type
         XCTAssertTrue(sameClass, "The class of the finder should be the object class")
         XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
-        finder = RealmObject.by("name", equalTo: "Test")
+        finder = RealmObject.by(key: "name", equalTo: "Test")
         sameClass = finder.objectClass? is RealmObject.Type
         XCTAssertTrue(sameClass, "The class of the finder should be the object class")
         XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")

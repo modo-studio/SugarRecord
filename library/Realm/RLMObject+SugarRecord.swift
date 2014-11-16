@@ -57,7 +57,7 @@ extension RLMObject: SugarRecordObjectProtocol
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func by(predicate: NSPredicate) -> SugarRecordFinder
+    public class func by(#predicate: NSPredicate) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder(predicate: predicate)
         finder.objectClass = self
@@ -72,7 +72,7 @@ extension RLMObject: SugarRecordObjectProtocol
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func by(predicateString: NSString) -> SugarRecordFinder
+    public class func by(#predicateString: NSString) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setPredicate(predicateString)
@@ -89,7 +89,7 @@ extension RLMObject: SugarRecordObjectProtocol
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func by(key: String, equalTo value: String) -> SugarRecordFinder
+    public class func by(#key: String, equalTo value: String) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setPredicate(byKey: key, andValue: value)
