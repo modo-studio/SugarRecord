@@ -22,6 +22,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     internal var managedObjectModel: NSManagedObjectModel?
     internal var databasePath: NSURL?
     internal var automigrating: Bool
+    internal var autosaving: Bool? = false
     internal var persistentStoreCoordinator: NSPersistentStoreCoordinator?
     internal var rootSavingContext: NSManagedObjectContext?
     internal var mainContext: NSManagedObjectContext?
@@ -47,6 +48,25 @@ public class DefaultCDStack: SugarRecordStackProtocol
     }
     
     /**
+    Initialize the CoreData default stack passing the database path URL, a flag indicating if the automigration has to be automatically executed and a flag indicating if changes should be autosaved
+    
+    :param: databaseURL   NSURL with the database path
+    :param: model         NSManagedObjectModel with the database model
+    :param: automigrating Bool Indicating if the migration has to be automatically executed
+    :param: autosaving    Bool indicating if the changes should be autosaved
+    
+    :returns: DefaultCDStack object
+    */
+    public init(databaseURL: NSURL, model: NSManagedObjectModel?, automigrating: Bool, autosaving: Bool = false)
+    {
+        self.automigrating = automigrating
+        self.databasePath = databaseURL
+        self.managedObjectModel = model
+        self.migrationFailedClosure = {}
+        self.autosaving = autosaving
+    }
+    
+    /**
     Initialize the CoreData default stack passing the database name and a flag indicating if the automigration has to be automatically executed
     
     :param: databaseName  String with the database name
@@ -57,6 +77,20 @@ public class DefaultCDStack: SugarRecordStackProtocol
     convenience public init(databaseName: String, automigrating: Bool)
     {
         self.init(databaseURL: DefaultCDStack.databasePathURLFromName(databaseName), automigrating: automigrating)
+    }
+    
+    /**
+    Initialize the CoreData default stack passing the database name, a flag indicating if the automigration has to be automatically executed and a flag indicating if the changes should be autosaved
+    
+    :param: databaseName  String with the database name
+    :param: automigrating Bool Indicating if the migration has to be automatically executed
+    :param: autosaving    Bool indicating if the changes should be autosaved
+    
+    :returns: DefaultCDStack object
+    */
+    convenience public init(databaseName: String, automigrating: Bool, autosaving: Bool = false)
+    {
+        self.init(databaseURL: DefaultCDStack.databasePathURLFromName(databaseName), automigrating: automigrating, autosaving: autosaving)
     }
     
     /**
@@ -73,6 +107,20 @@ public class DefaultCDStack: SugarRecordStackProtocol
     }
     
     /**
+    Initialize the CoreData default stack passing the database path in String format, a flag indicating if the automigration has to be automatically executed and a flag indicating if the changes should be autosaved
+    
+    :param: databasePath  String with the database path
+    :param: automigrating Bool Indicating if the migration has to be automatically executed
+    :param: autosaving    Bool indicating if the changes should be autosaved
+
+    :returns: DefaultCDStack object
+    */
+    convenience public init(databasePath: String, automigrating: Bool, autosaving: Bool = false)
+    {
+        self.init(databaseURL: NSURL(fileURLWithPath: databasePath)!, automigrating: automigrating, autosaving: autosaving)
+    }
+    
+    /**
     Initialize the CoreData default stack passing the database path URL and a flag indicating if the automigration has to be automatically executed
     
     :param: databaseURL   NSURL with the database path
@@ -82,7 +130,21 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     convenience public init(databaseURL: NSURL, automigrating: Bool)
     {
-        self.init(databaseURL: databaseURL, model: nil, automigrating: automigrating)
+        self.init(databaseURL: databaseURL, model: nil, automigrating: automigrating, autosaving: false)
+    }
+    
+    /**
+    Initialize the CoreData default stack passing the database path URL, a flag indicating if the automigration has to be automatically executed and a flag indicating if the changes should be autosaved
+    
+    :param: databaseURL   NSURL with the database path
+    :param: automigrating Bool Indicating if the migration has to be automatically executed
+    :param: autosaving    Bool indicating if the changes should be autosaved
+
+    :returns: DefaultCDStack object
+    */
+    convenience public init(databaseURL: NSURL, automigrating: Bool, autosaving: Bool = false)
+    {
+        self.init(databaseURL: databaseURL, model: nil, automigrating: automigrating, autosaving: autosaving)
     }
     
     /**
@@ -96,7 +158,22 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     convenience public init(databaseName: String, model: NSManagedObjectModel, automigrating: Bool)
     {
-        self.init(databaseURL: DefaultCDStack.databasePathURLFromName(databaseName), model: model, automigrating: automigrating)
+        self.init(databaseURL: DefaultCDStack.databasePathURLFromName(databaseName), model: model, automigrating: automigrating, autosaving: false)
+    }
+    
+    /**
+    Initialize the CoreData default stack passing the database name, the database model object, a flag indicating if the automigration has to be automatically executed and a flag indicating if the changes should be autosaved
+    
+    :param: databaseName  String with the database name
+    :param: model         NSManagedObjectModel with the database model
+    :param: automigrating Bool indicating if the migration has to be automatically executed
+    :param: autosaving    Bool indicating if the changes should be autosaved
+
+    :returns: DefaultCDStack object
+    */
+    convenience public init(databaseName: String, model: NSManagedObjectModel, automigrating: Bool, autosaving: Bool)
+    {
+        self.init(databaseURL: DefaultCDStack.databasePathURLFromName(databaseName), model: model, automigrating: automigrating, autosaving: autosaving)
     }
     
     /**
@@ -110,7 +187,22 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     convenience public init(databasePath: String, model: NSManagedObjectModel, automigrating: Bool)
     {
-        self.init(databaseURL: NSURL(fileURLWithPath: databasePath)!, model: model, automigrating: automigrating)
+        self.init(databaseURL: NSURL(fileURLWithPath: databasePath)!, model: model, automigrating: automigrating, autosaving: false)
+    }
+    
+    /**
+    Initialize the CoreData default stack passing the database path in String format, the database model object, a flag indicating if the automigration has to be automatically executed and a flag indicating if the changes should be autosaved
+    
+    :param: databasePath  String with the database path
+    :param: model         NSManagedObjectModel with the database model
+    :param: automigrating Bool indicating if the migration has to be automatically executed
+    :param: autosaving    Bool indicating if the changes should be autosaved
+
+    :returns: DefaultCDStack object
+    */
+    convenience public init(databasePath: String, model: NSManagedObjectModel, automigrating: Bool, autosaving: Bool)
+    {
+        self.init(databaseURL: NSURL(fileURLWithPath: databasePath)!, model: model, automigrating: automigrating, autosaving: autosaving)
     }
 
     /**
