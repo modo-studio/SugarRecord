@@ -68,7 +68,6 @@
 		3D0EB5CF1A1607140073E21D /* libPods-restkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0EB5CE1A1607140073E21D /* libPods-restkit.a */; };
 		3D0EB6301A1612C10073E21D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0EB5C61A1603570073E21D /* Realm.framework */; };
 		3D0EB6311A1612C60073E21D /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5C91A1603690073E21D /* RLMSupport.swift */; };
-		3D11076C19FD48DA001BAC3C /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11076B19FD48DA001BAC3C /* Film.swift */; };
 		3D13C53919CE0A0800EB8688 /* RealmObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13C53819CE0A0800EB8688 /* RealmObjectTests.swift */; };
 		3D4F507D19CDA37500C1FD3D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
 		3D4F509119CDA3DE00C1FD3D /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAD447119CCBB8C00B1E355 /* RealmObject.swift */; };
@@ -126,7 +125,6 @@
 		3D0EB5CE1A1607140073E21D /* libPods-restkit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-restkit.a"; path = "Pods/build/Debug-iphoneos/libPods-restkit.a"; sourceTree = "<group>"; };
 		3D0EB5D01A1607EC0073E21D /* Pods-restkit.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-restkit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-restkit/Pods-restkit.debug.xcconfig"; sourceTree = "<group>"; };
 		3D0EB5D11A1607EC0073E21D /* Pods-restkit.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-restkit.release.xcconfig"; path = "Pods/Target Support Files/Pods-restkit/Pods-restkit.release.xcconfig"; sourceTree = "<group>"; };
-		3D11076B19FD48DA001BAC3C /* Film.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Film.swift; path = SugarRecordTests/Models/Film.swift; sourceTree = SOURCE_ROOT; };
 		3D13C53819CE0A0800EB8688 /* RealmObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObjectTests.swift; sourceTree = "<group>"; };
 		3D272DB819CDD6DD00D7A6B6 /* SugarRecord 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SugarRecord 2.xcdatamodel"; sourceTree = "<group>"; };
 		3D4F507419CDA36B00C1FD3D /* SugarRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -357,7 +355,6 @@
 		3DAD446F19CCBB8C00B1E355 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3D11076B19FD48DA001BAC3C /* Film.swift */,
 				3D4F509F19CDAD1800C1FD3D /* CoreDataObject.swift */,
 				3DAD447119CCBB8C00B1E355 /* RealmObject.swift */,
 				3D4F509919CDA4DB00C1FD3D /* CoreDataObjectTests.swift */,
@@ -758,7 +755,6 @@
 				3D4F509819CDA3DE00C1FD3D /* SugarRecordRLMContextTests.swift in Sources */,
 				3D77249319D7007E00C6B975 /* DefaultREALMStackTests.swift in Sources */,
 				3D4F509E19CDAD0500C1FD3D /* SugarRecord.xcdatamodeld in Sources */,
-				3D11076C19FD48DA001BAC3C /* Film.swift in Sources */,
 				3D77249519D7032700C6B975 /* DefaultCDStackTests.swift in Sources */,
 				3DF86BA519ED4A6200C88FD4 /* iCloudCDStackTests.swift in Sources */,
 				3D9C0B1219D7FB6A00A3011E /* RestkitCDStackTests.swift in Sources */,
