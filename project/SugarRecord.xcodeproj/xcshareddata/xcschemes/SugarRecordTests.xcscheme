@@ -14,10 +14,24 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "10F0A6B1BCD2B8006CD374F2"
+               BlueprintIdentifier = "8312F42CC5F6066812CB7AAC"
                BuildableName = "libPods-restkit.a"
                BlueprintName = "Pods-restkit"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3D0EB5131A1600E70073E21D"
+               BuildableName = "SRCoreDataRestKit.framework"
+               BlueprintName = "SRCoreDataRestKit"
+               ReferencedContainer = "container:SugarRecord.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -56,9 +70,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3D4F507319CDA36B00C1FD3D"
-            BuildableName = "SugarRecordTests.xctest"
-            BlueprintName = "SugarRecordTests"
+            BlueprintIdentifier = "3D0EB5131A1600E70073E21D"
+            BuildableName = "SRCoreDataRestKit.framework"
+            BlueprintName = "SRCoreDataRestKit"
             ReferencedContainer = "container:SugarRecord.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -72,6 +86,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3D0EB5131A1600E70073E21D"
+            BuildableName = "SRCoreDataRestKit.framework"
+            BlueprintName = "SRCoreDataRestKit"
+            ReferencedContainer = "container:SugarRecord.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -81,6 +104,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3D0EB5131A1600E70073E21D"
+            BuildableName = "SRCoreDataRestKit.framework"
+            BlueprintName = "SRCoreDataRestKit"
+            ReferencedContainer = "container:SugarRecord.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
