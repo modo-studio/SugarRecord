@@ -39,6 +39,9 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 21th-November-2014 | Closed the issue related with RestKit dependency |
+| 21th-November-2014 | Filled the Wiki page covering existing features |
+| 21th-November-2014 | Added AutoSaving feature to CoreData stacks |
 | 16th-November-2014 | Added cancelWriting feature [PR](https://github.com/SugarRecord/SugarRecord/pull/58) |
 | 16th-October-2014 | Finished stack for iCloud [PR](https://github.com/SugarRecord/SugarRecord/pull/45) |
 | 6th-October-2014 | Added FetchedResultsController support [PR](https://github.com/SugarRecord/SugarRecord/pull/40) |
@@ -91,6 +94,8 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 ## Version 1.0.2 Beta - Features
 - Updated the project structure to package the libary in bundles
 - Added `cancelWriting()` feature
+- Filled the Wiki page of the project
+- Added autoSaving property for CoreData stacks
 
 ## Version 1.0.1 Beta - Features
 - Playground tutorial to learn how to use SugaRecord
@@ -314,10 +319,6 @@ bundle install
 bundle exec ./cocoadocs.rb preview SugarRecord
 ```
 
-
-### Setup the project locally
-1. Clone the repo with `git clone https://github.com/SugarRecord/SugarRecord.git`
-2. Update the git submodules with `git submodule update --init`
 
 ### Take into account for your PR proposals
 
