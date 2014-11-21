@@ -44,7 +44,6 @@
 		3D0EB5A41A1601DE0073E21D /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5761A1601DE0073E21D /* NSManagedObject+SugarRecord.swift */; };
 		3D0EB5A51A1601DE0073E21D /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5761A1601DE0073E21D /* NSManagedObject+SugarRecord.swift */; };
 		3D0EB5A61A1601DE0073E21D /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5761A1601DE0073E21D /* NSManagedObject+SugarRecord.swift */; };
-		3D0EB5A81A1601DE0073E21D /* RestkitCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5771A1601DE0073E21D /* RestkitCDStack.swift */; };
 		3D0EB5A91A1601DE0073E21D /* RestkitCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5771A1601DE0073E21D /* RestkitCDStack.swift */; };
 		3D0EB5AC1A1601DE0073E21D /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5781A1601DE0073E21D /* SugarRecordCDContext.swift */; };
 		3D0EB5AD1A1601DE0073E21D /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5781A1601DE0073E21D /* SugarRecordCDContext.swift */; };
@@ -86,7 +85,6 @@
 		3D77249519D7032700C6B975 /* DefaultCDStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77249419D7032700C6B975 /* DefaultCDStackTests.swift */; };
 		3D83F21619FD8B9900E254F7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D83F21519FD8B9900E254F7 /* SystemConfiguration.framework */; };
 		3D861A4019F99BEB0053B6B8 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D861A3F19F99BEB0053B6B8 /* libc++.dylib */; };
-		3D9C0B1219D7FB6A00A3011E /* RestkitCDStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C0B1119D7FB6A00A3011E /* RestkitCDStackTests.swift */; };
 		3DC8D59F19D76DAB00F2368B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D59E19D76DAB00F2368B /* CFNetwork.framework */; };
 		3DC8D5A119D76DBD00F2368B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D5A019D76DBD00F2368B /* Security.framework */; };
 		3DC8D5A319D76DC200F2368B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC8D5A219D76DC200F2368B /* MobileCoreServices.framework */; };
@@ -757,8 +755,6 @@
 				3D4F509E19CDAD0500C1FD3D /* SugarRecord.xcdatamodeld in Sources */,
 				3D77249519D7032700C6B975 /* DefaultCDStackTests.swift in Sources */,
 				3DF86BA519ED4A6200C88FD4 /* iCloudCDStackTests.swift in Sources */,
-				3D9C0B1219D7FB6A00A3011E /* RestkitCDStackTests.swift in Sources */,
-				3D0EB5A81A1601DE0073E21D /* RestkitCDStack.swift in Sources */,
 				3D0EB5801A1601DE0073E21D /* SugarRecordContextProtocol.swift in Sources */,
 				3D4F509A19CDA4DB00C1FD3D /* CoreDataObjectTests.swift in Sources */,
 				3D77248F19D6DCD200C6B975 /* SugarRecordLoggerTests.swift in Sources */,
