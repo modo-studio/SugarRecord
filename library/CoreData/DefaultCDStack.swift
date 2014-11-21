@@ -11,14 +11,19 @@ import CoreData
 
 public class DefaultCDStack: SugarRecordStackProtocol
 {
+    internal struct Constants
+    {
+        static let autoSavingKVOKey: String = "mainContextDidMergeChanges"
+    }
+    
     //MARK: - Class properties
-
     public var name: String = "DefaultCoreDataStack"
     public var stackDescription: String = "Default core data stack with an efficient context management"
-    public let defaultStoreName: String = "sugar.sqlite"
-    public var stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeCoreData
+    public var defaultStoreName: String = "sugar.sqlite"
+    public let stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeCoreData
     public var migrationFailedClosure: () -> ()
     public var stackInitialized: Bool = false
+    public var autoSaving: Bool = false
     internal var managedObjectModel: NSManagedObjectModel?
     internal var databasePath: NSURL?
     internal var automigrating: Bool
@@ -44,6 +49,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
         self.databasePath = databaseURL
         self.managedObjectModel = model
         self.migrationFailedClosure = {}
+        self.addObservers()
     }
     
     /**
@@ -118,7 +124,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     public func initialize()
     {
-        SugarRecordLogger.logLevelInfo.log("Initializing the stack: \(self.stackDescription)")
+        SugarRecordLogger.logLevelInfo.log("Initializing the stack: \(name)")
         createManagedObjecModelIfNeeded()
         persistentStoreCoordinator = createPersistentStoreCoordinator()
         addDatabase(dataBaseAddedClosure())
@@ -224,6 +230,40 @@ public class DefaultCDStack: SugarRecordStackProtocol
         if NSFileManager.defaultManager().fileExistsAtPath(databasePath!.path!) {
             NSFileManager.defaultManager().removeItemAtURL(databasePath!, error: &error)
             SugarRecord.handle(error)
+        }
+    }
+    
+    
+    //MARK: - Observers
+    
+    /**
+    Add observers to listen events in the stack
+    */
+    internal func addObservers()
+    {
+        // AutoSaving
+        notificationCenter().addObserverForName(Constants.autoSavingKVOKey, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: autoSavingClosure())
+    }
+    
+    /**
+    Returns the notification center that is going to be used to listen events
+    d
+    :returns: NSNotification center used by the stack
+    */
+    internal func notificationCenter() -> NSNotificationCenter
+    {
+        return NSNotificationCenter.defaultCenter()
+    }
+    
+    /**
+    Closure for AutoSaving changes
+    */
+    internal func autoSavingClosure() -> (notification: NSNotification!) -> ()
+    {
+        return { [weak self] (notification) -> Void in
+            if (self != nil  && self!.autoSaving) {
+                _ = self!.saveChanges()
+            }
         }
     }
     
@@ -538,6 +578,7 @@ public extension NSManagedObjectContext
     func mergeChanges(notification: NSNotification) {
         SugarRecordLogger.logLevelInfo.log("Merging changes to context \(self.name)")
         self.mergeChangesFromContextDidSaveNotification(notification)
+        NSNotificationCenter.defaultCenter().postNotificationName(DefaultCDStack.Constants.autoSavingKVOKey, object: nil)
     }
     
     /**

@@ -311,8 +311,10 @@ public class iCloudCDStack: DefaultCDStack
     /**
     Add required observers to detect changes in psc's or contexts
     */
-    internal func addObservers()
+    internal override func addObservers()
     {
+        super.addObservers()
+
         SugarRecordLogger.logLevelVerbose.log("Adding observers to detect changes on iCloud")
         
         // Store will change
