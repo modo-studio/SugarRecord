@@ -62,6 +62,7 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 - [Version 1.0 Beta - Features](#version-1.0-beta---features)
 - [Requirements](#requirements)
 - [Wiki](#wiki)
+- [Support](#support)
 - [Useful Swift Resources](#useful-swift-resources)
 - [License](#license)
 - [Who uses SugarRecord?](#who-uses-sugarrecord?)
@@ -140,6 +141,15 @@ If you want to know about how to use SugarRecord we have some Wiki pages in the 
 - [Advanced options]()
 - [Advices]()
 - [Contribution]()
+
+## Support
+
+If you want to communicate any issue, suggestion or even make a contribution, you have to keep in mind the flow bellow:
+
+- If you **need help**, ask your doubt in Stack Overflow using the tag 'sugarrecord'
+- If you want to ask something in general, use Stack Overflow too.
+- **Open an issue** either when you have an error to report or a feature request.
+- If you want to **contribute**, submit a pull request, and remember the rules to follow related with the code style, testing, ...
 
 
 ## Useful Swift Resources

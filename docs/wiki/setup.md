@@ -1,12 +1,14 @@
-## Installation
+# Setup SugarRecord
 
+## Integrate in your project
 Cocoapods doesn't support support Swift libraries yet so the instalation process has to be manual. To import SugarRecord into your project:
+
+### CoreData/Realm (without Restkit)
 
 1. Download the project into your project's libraries folder. You can use git submodules too `git submodule add https://github.com/sugarrecord/sugarrecord myproject/libraries`
 2. You have to add now the project files **into your project's target**. To do it, Drag SugarRecord.xcodeproj to your project in the Project Navigator that you'll find on the `SugarRecord/project` folder.
 3. Finally you have to specify which framework you would like to compile with your project. There are three:
 
-- SRCoreDataRestKit // Needs RestKit in your project
 - SRCoreData
 - SRRealm
 
@@ -16,24 +18,19 @@ Cocoapods doesn't support support Swift libraries yet so the instalation process
 
 *Note: As soon as CocoaPod supports it the library will have a pod to make this process easier for everybody*
 
-## Communication flow
+### CoreData with Restkit
 
-If you want to communicate any issue, suggestion or even make a contribution, you have to keep in mind the flow bellow:
+1. Your project needs the RetKit framework. Install it using CocoaPods or its Github Repo steps.
+2. Ensure that your project has the CoreData framework too.
+3. Drag the `/library` folder into your project and rename it to `SugarRecord`
+4. Remove the Realm folder because you don't need it.
+4. Build and Run your project!
 
-- If you **need help**, ask your doubt in Stack Overflow using the tag 'sugarrecord'
-- If you want to ask something in general, use Stack Overflow too.
-- **Open an issue** either when you have an error to report or a feature request.
-- If you want to **contribute**, submit a pull request, and remember the rules to follow related with the code style, testing, ...
+## Initialize SugarRecord with a stack
 
-## How to use SugarRecord
-If you want to learn how to setup SugarRecord with the stack and stack working with it, the library comes with an useful Playground HTML file with steps and some examples to follow. Take a look to the playground [**HERE**](https://github.com/SugarRecord/SugarRecord/docs/tutorial.playground).
+SugarRecord needs you to pass the stack you are going to work with *(you can learn more about stacks [here](TODO))*. There are some stacks availables to use directly but you can implement your own regarding your needs. Keep in mind that it's important to set it because otherwise SugarRecord won't have a way communicate your models with the database. Take a look how it would be using the default stack of Realm and CoreData:
 
-Otherwise if you want to have a quick idea of how working with SugarRecord is, take a look to the examples below.
-
-### Initialize SugarRecord with a stack
-SugarRecord needs you to pass the stack you are going to work with. There are some stacks availables to use directly but you can implement your own regarding your needs. Keep in mind that it's important to set it because otherwise SugarRecord won't have a way communicate your models with the database. Take a look how it would be using the default stack of Realm and CoreData:
-
-```Swift
+```swift
 // Example initializing SugarRecord with the default Realm 
 SugarRecord.addStack(DefaultREALMStack(stackName: "MyDatabase", stackDescription: "My database using the lovely library SugarRecord"))
 
@@ -41,7 +38,10 @@ SugarRecord.addStack(DefaultREALMStack(stackName: "MyDatabase", stackDescription
 let stack: DefaultCDStack = DefaultCDStack(databaseName: "Database.sqlite", automigrating: true)
 SugarRecord.addStack(stack)
 ```
-Once you have the stack set, a connection between SugarRecord and your app's lifecycle is required in order to execute cleaning and saving internal tasks. Ensure you have the following calls in your app delegate:
+
+## App's lifecycle notifications
+
+Once you have the stack set, a connection between SugarRecord and your app's lifecycle is **REQUIRED** in order to execute cleaning and saving internal tasks. **Ensure** you have the following calls in your app delegate:
 
 ```swift
 func applicationWillResignActive(application: UIApplication!) {
@@ -57,9 +57,14 @@ func applicationWillTerminate(application: UIApplication!) {
 }
 ```
 
-### Setup the log level
+## Setup the log level
 
 By default the log level of the library is `Info`. If you want to change it you can do it with:
+
 ```swift
 SugarRecordLogger.currentLevel = SugarRecordLogger.logLevelVerbose
 ```
+
+
+
+
