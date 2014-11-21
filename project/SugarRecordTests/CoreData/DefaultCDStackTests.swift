@@ -131,4 +131,52 @@ class DefaultCDStackTests: XCTestCase
     {
         XCTAssertEqual((stack!.backgroundContext() as SugarRecordCDContext).contextCD.concurrencyType, NSManagedObjectContextConcurrencyType.ConfinementConcurrencyType, "The concurrency type should be MainQueueConcurrencyType")
     }
+    
+    func testIfAddObserversForAutosaving()
+    {
+        class MockNotificationCenter: NSNotificationCenter
+        {
+            var addedNotificationName: String = ""
+            private override func addObserverForName(name: String?, object obj: AnyObject?, queue: NSOperationQueue?, usingBlock block: (NSNotification!) -> Void) -> NSObjectProtocol {
+                addedNotificationName = name!
+                return NSObject()
+            }
+        }
+        
+        class MockDefaultStack: DefaultCDStack
+        {
+            lazy var nc: MockNotificationCenter = MockNotificationCenter()
+            override func notificationCenter() -> NSNotificationCenter
+            {
+               return nc
+            }
+
+        }
+        let mockStack: MockDefaultStack = MockDefaultStack(databaseName: "test", automigrating: false)
+        mockStack.addObservers()
+        let notificationCenter: MockNotificationCenter! = mockStack.notificationCenter() as MockNotificationCenter
+        XCTAssertEqual(notificationCenter.addedNotificationName, DefaultCDStack.Constants.autoSavingKVOKey, "The notification key should be \(DefaultCDStack.Constants.autoSavingKVOKey)")
+    }
+    
+    func testIfTheAutoSavingClosureIsCalledDependingOnTheAutoSavingProperty()
+    {
+        class MockDefaultStack: DefaultCDStack
+        {
+            var autoSavingClosureCalled: Bool = true
+            override func autoSavingClosure() -> (notification: NSNotification!) -> ()
+            {
+                return { [weak self] (notification) -> Void in
+                    self!.autoSavingClosureCalled = true
+                }
+            }
+        }
+        let mockStack: MockDefaultStack = MockDefaultStack(databaseName: "test", automigrating: false)
+        mockStack.initialize()
+        mockStack.notificationCenter().postNotificationName(DefaultCDStack.Constants.autoSavingKVOKey, object: nil)
+        mockStack.autoSaving = true
+        XCTAssertTrue(mockStack.autoSavingClosureCalled, "The AutoSavingClosure should be called if the autosaving is enabled")
+        mockStack.autoSavingClosureCalled = false
+        mockStack.autoSaving = false
+        XCTAssertFalse(mockStack.autoSavingClosureCalled, "The AutoSavingClosure shouldn't be called if the autosaving is disabled")
+    }
 }

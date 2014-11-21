@@ -11,15 +11,15 @@ import CoreData
 
 public class DefaultCDStack: SugarRecordStackProtocol
 {
-    private struct Constants
+    internal struct Constants
     {
         static let autoSavingKVOKey: String = "mainContextDidMergeChanges"
     }
     
     //MARK: - Class properties
-    public let name: String = "DefaultCoreDataStack"
-    public let stackDescription: String = "Default core data stack with an efficient context management"
-    public let defaultStoreName: String = "sugar.sqlite"
+    public var name: String = "DefaultCoreDataStack"
+    public var stackDescription: String = "Default core data stack with an efficient context management"
+    public var defaultStoreName: String = "sugar.sqlite"
     public let stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeCoreData
     public var migrationFailedClosure: () -> ()
     public var stackInitialized: Bool = false
@@ -236,15 +236,37 @@ public class DefaultCDStack: SugarRecordStackProtocol
     
     //MARK: - Observers
     
+    /**
+    Add observers to listen events in the stack
+    */
     internal func addObservers()
     {
         // AutoSaving
-        NSNotificationCenter.defaultCenter().addObserverForName(Constants.autoSavingKVOKey, object: nil, queue: NSOperationQueue.mainQueue()) { [weak self] (notification) -> Void in
+        notificationCenter().addObserverForName(Constants.autoSavingKVOKey, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: autoSavingClosure())
+    }
+    
+    /**
+    Returns the notification center that is going to be used to listen events
+    d
+    :returns: NSNotification center used by the stack
+    */
+    internal func notificationCenter() -> NSNotificationCenter
+    {
+        return NSNotificationCenter.defaultCenter()
+    }
+    
+    /**
+    Closure for AutoSaving changes
+    */
+    internal func autoSavingClosure() -> (notification: NSNotification!) -> ()
+    {
+        return { [weak self] (notification) -> Void in
             if (self != nil  && self!.autoSaving) {
                 _ = self!.saveChanges()
             }
         }
     }
+    
     
     //MARK: - Creation helper
     
