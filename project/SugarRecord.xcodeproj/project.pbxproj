@@ -8,62 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		3D078B2019E2674000B20B3C /* CoreDataFetchResultsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D078B1F19E2674000B20B3C /* CoreDataFetchResultsControllerTests.swift */; };
-		3D0EB5191A1600E70073E21D /* SRCoreData-RestKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D0EB5181A1600E70073E21D /* SRCoreData-RestKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3D0EB5371A1601080073E21D /* SRCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D0EB5361A1601080073E21D /* SRCoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3D0EB5551A1601190073E21D /* SRRealm.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D0EB5541A1601190073E21D /* SRRealm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D0EB5801A1601DE0073E21D /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB56C1A1601DE0073E21D /* SugarRecordContextProtocol.swift */; };
-		3D0EB5811A1601DE0073E21D /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB56C1A1601DE0073E21D /* SugarRecordContextProtocol.swift */; };
-		3D0EB5821A1601DE0073E21D /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB56C1A1601DE0073E21D /* SugarRecordContextProtocol.swift */; };
-		3D0EB5831A1601DE0073E21D /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB56C1A1601DE0073E21D /* SugarRecordContextProtocol.swift */; };
 		3D0EB5841A1601DE0073E21D /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB56D1A1601DE0073E21D /* SugarRecordObjectProtocol.swift */; };
-		3D0EB5851A1601DE0073E21D /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB56D1A1601DE0073E21D /* SugarRecordObjectProtocol.swift */; };
-		3D0EB5861A1601DE0073E21D /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB56D1A1601DE0073E21D /* SugarRecordObjectProtocol.swift */; };
-		3D0EB5871A1601DE0073E21D /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB56D1A1601DE0073E21D /* SugarRecordObjectProtocol.swift */; };
 		3D0EB5881A1601DE0073E21D /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB56E1A1601DE0073E21D /* SugarRecordStackProtocol.swift */; };
-		3D0EB5891A1601DE0073E21D /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB56E1A1601DE0073E21D /* SugarRecordStackProtocol.swift */; };
-		3D0EB58A1A1601DE0073E21D /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB56E1A1601DE0073E21D /* SugarRecordStackProtocol.swift */; };
-		3D0EB58B1A1601DE0073E21D /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB56E1A1601DE0073E21D /* SugarRecordStackProtocol.swift */; };
 		3D0EB5901A1601DE0073E21D /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5701A1601DE0073E21D /* SugarRecord.swift */; };
-		3D0EB5911A1601DE0073E21D /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5701A1601DE0073E21D /* SugarRecord.swift */; };
-		3D0EB5921A1601DE0073E21D /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5701A1601DE0073E21D /* SugarRecord.swift */; };
-		3D0EB5931A1601DE0073E21D /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5701A1601DE0073E21D /* SugarRecord.swift */; };
 		3D0EB5941A1601DE0073E21D /* SugarRecordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5711A1601DE0073E21D /* SugarRecordFinder.swift */; };
-		3D0EB5951A1601DE0073E21D /* SugarRecordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5711A1601DE0073E21D /* SugarRecordFinder.swift */; };
-		3D0EB5961A1601DE0073E21D /* SugarRecordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5711A1601DE0073E21D /* SugarRecordFinder.swift */; };
-		3D0EB5971A1601DE0073E21D /* SugarRecordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5711A1601DE0073E21D /* SugarRecordFinder.swift */; };
 		3D0EB5981A1601DE0073E21D /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5721A1601DE0073E21D /* SugarRecordLogger.swift */; };
-		3D0EB5991A1601DE0073E21D /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5721A1601DE0073E21D /* SugarRecordLogger.swift */; };
-		3D0EB59A1A1601DE0073E21D /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5721A1601DE0073E21D /* SugarRecordLogger.swift */; };
-		3D0EB59B1A1601DE0073E21D /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5721A1601DE0073E21D /* SugarRecordLogger.swift */; };
 		3D0EB59C1A1601DE0073E21D /* DefaultCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5741A1601DE0073E21D /* DefaultCDStack.swift */; };
-		3D0EB59D1A1601DE0073E21D /* DefaultCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5741A1601DE0073E21D /* DefaultCDStack.swift */; };
-		3D0EB59E1A1601DE0073E21D /* DefaultCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5741A1601DE0073E21D /* DefaultCDStack.swift */; };
 		3D0EB5A01A1601DE0073E21D /* iCloudCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5751A1601DE0073E21D /* iCloudCDStack.swift */; };
-		3D0EB5A11A1601DE0073E21D /* iCloudCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5751A1601DE0073E21D /* iCloudCDStack.swift */; };
-		3D0EB5A21A1601DE0073E21D /* iCloudCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5751A1601DE0073E21D /* iCloudCDStack.swift */; };
 		3D0EB5A41A1601DE0073E21D /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5761A1601DE0073E21D /* NSManagedObject+SugarRecord.swift */; };
-		3D0EB5A51A1601DE0073E21D /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5761A1601DE0073E21D /* NSManagedObject+SugarRecord.swift */; };
-		3D0EB5A61A1601DE0073E21D /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5761A1601DE0073E21D /* NSManagedObject+SugarRecord.swift */; };
-		3D0EB5A91A1601DE0073E21D /* RestkitCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5771A1601DE0073E21D /* RestkitCDStack.swift */; };
 		3D0EB5AC1A1601DE0073E21D /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5781A1601DE0073E21D /* SugarRecordCDContext.swift */; };
-		3D0EB5AD1A1601DE0073E21D /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5781A1601DE0073E21D /* SugarRecordCDContext.swift */; };
-		3D0EB5AE1A1601DE0073E21D /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5781A1601DE0073E21D /* SugarRecordCDContext.swift */; };
 		3D0EB5B01A1601DE0073E21D /* SugarRecordFinder+FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5791A1601DE0073E21D /* SugarRecordFinder+FetchedResultsController.swift */; };
-		3D0EB5B11A1601DE0073E21D /* SugarRecordFinder+FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5791A1601DE0073E21D /* SugarRecordFinder+FetchedResultsController.swift */; };
-		3D0EB5B21A1601DE0073E21D /* SugarRecordFinder+FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5791A1601DE0073E21D /* SugarRecordFinder+FetchedResultsController.swift */; };
 		3D0EB5B41A1601DE0073E21D /* DefaultREALMStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB57B1A1601DE0073E21D /* DefaultREALMStack.swift */; };
-		3D0EB5B71A1601DE0073E21D /* DefaultREALMStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB57B1A1601DE0073E21D /* DefaultREALMStack.swift */; };
 		3D0EB5B81A1601DE0073E21D /* RLMObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB57C1A1601DE0073E21D /* RLMObject+SugarRecord.swift */; };
-		3D0EB5BB1A1601DE0073E21D /* RLMObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB57C1A1601DE0073E21D /* RLMObject+SugarRecord.swift */; };
 		3D0EB5BC1A1601DE0073E21D /* RLMObjectMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB57D1A1601DE0073E21D /* RLMObjectMigration.swift */; };
-		3D0EB5BF1A1601DE0073E21D /* RLMObjectMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB57D1A1601DE0073E21D /* RLMObjectMigration.swift */; };
 		3D0EB5C01A1601DE0073E21D /* SugarRecordRLMContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB57E1A1601DE0073E21D /* SugarRecordRLMContext.swift */; };
-		3D0EB5C31A1601DE0073E21D /* SugarRecordRLMContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB57E1A1601DE0073E21D /* SugarRecordRLMContext.swift */; };
-		3D0EB5C41A16028F0073E21D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
-		3D0EB5C51A16029A0073E21D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DBC5602198E844B00268EB3 /* CoreData.framework */; };
-		3D0EB5C81A1603570073E21D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0EB5C61A1603570073E21D /* Realm.framework */; };
-		3D0EB5CB1A1603690073E21D /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5C91A1603690073E21D /* RLMSupport.swift */; };
-		3D0EB5CD1A1606330073E21D /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D861A3F19F99BEB0053B6B8 /* libc++.dylib */; };
 		3D0EB5CF1A1607140073E21D /* libPods-restkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0EB5CE1A1607140073E21D /* libPods-restkit.a */; };
 		3D0EB6301A1612C10073E21D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0EB5C61A1603570073E21D /* Realm.framework */; };
 		3D0EB6311A1612C60073E21D /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0EB5C91A1603690073E21D /* RLMSupport.swift */; };
@@ -93,15 +52,6 @@
 
 /* Begin PBXFileReference section */
 		3D078B1F19E2674000B20B3C /* CoreDataFetchResultsControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataFetchResultsControllerTests.swift; sourceTree = "<group>"; };
-		3D0EB5141A1600E70073E21D /* SRCoreDataRestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRCoreDataRestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D0EB5171A1600E70073E21D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D0EB5181A1600E70073E21D /* SRCoreData-RestKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SRCoreData-RestKit.h"; sourceTree = "<group>"; };
-		3D0EB5321A1601080073E21D /* SRCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D0EB5351A1601080073E21D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D0EB5361A1601080073E21D /* SRCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRCoreData.h; sourceTree = "<group>"; };
-		3D0EB5501A1601190073E21D /* SRRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D0EB5531A1601190073E21D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D0EB5541A1601190073E21D /* SRRealm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRRealm.h; sourceTree = "<group>"; };
 		3D0EB56C1A1601DE0073E21D /* SugarRecordContextProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordContextProtocol.swift; sourceTree = "<group>"; };
 		3D0EB56D1A1601DE0073E21D /* SugarRecordObjectProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordObjectProtocol.swift; sourceTree = "<group>"; };
 		3D0EB56E1A1601DE0073E21D /* SugarRecordStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordStackProtocol.swift; sourceTree = "<group>"; };
@@ -159,31 +109,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3D0EB5101A1600E70073E21D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D0EB5C51A16029A0073E21D /* CoreData.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D0EB52E1A1601080073E21D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D0EB5C41A16028F0073E21D /* CoreData.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D0EB54C1A1601190073E21D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D0EB5CD1A1606330073E21D /* libc++.dylib in Frameworks */,
-				3D0EB5C81A1603570073E21D /* Realm.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3D4F507119CDA36B00C1FD3D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,57 +127,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D0EB5151A1600E70073E21D /* SRCoreData-RestKit */ = {
-			isa = PBXGroup;
-			children = (
-				3D0EB5181A1600E70073E21D /* SRCoreData-RestKit.h */,
-				3D0EB5161A1600E70073E21D /* Supporting Files */,
-			);
-			path = "SRCoreData-RestKit";
-			sourceTree = "<group>";
-		};
-		3D0EB5161A1600E70073E21D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3D0EB5171A1600E70073E21D /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3D0EB5331A1601080073E21D /* SRCoreData */ = {
-			isa = PBXGroup;
-			children = (
-				3D0EB5361A1601080073E21D /* SRCoreData.h */,
-				3D0EB5341A1601080073E21D /* Supporting Files */,
-			);
-			path = SRCoreData;
-			sourceTree = "<group>";
-		};
-		3D0EB5341A1601080073E21D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3D0EB5351A1601080073E21D /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3D0EB5511A1601190073E21D /* SRRealm */ = {
-			isa = PBXGroup;
-			children = (
-				3D0EB5541A1601190073E21D /* SRRealm.h */,
-				3D0EB5521A1601190073E21D /* Supporting Files */,
-			);
-			path = SRRealm;
-			sourceTree = "<group>";
-		};
-		3D0EB5521A1601190073E21D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3D0EB5531A1601190073E21D /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		3D0EB5691A1601DE0073E21D /* library */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,9 +240,6 @@
 			children = (
 				3DBC55DA198E826E00268EB3 /* SugarRecord */,
 				3DBC55F0198E826E00268EB3 /* SugarRecordTests */,
-				3D0EB5151A1600E70073E21D /* SRCoreData-RestKit */,
-				3D0EB5331A1601080073E21D /* SRCoreData */,
-				3D0EB5511A1601190073E21D /* SRRealm */,
 				3DBC55D9198E826E00268EB3 /* Products */,
 				C0B3386437A14ADE88F5489D /* Frameworks */,
 				60621BC7C3FB91253ED1327C /* Pods */,
@@ -379,9 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				3D4F507419CDA36B00C1FD3D /* SugarRecordTests.xctest */,
-				3D0EB5141A1600E70073E21D /* SRCoreDataRestKit.framework */,
-				3D0EB5321A1601080073E21D /* SRCoreData.framework */,
-				3D0EB5501A1601190073E21D /* SRRealm.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -466,88 +334,7 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		3D0EB5111A1600E70073E21D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D0EB5191A1600E70073E21D /* SRCoreData-RestKit.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D0EB52F1A1601080073E21D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D0EB5371A1601080073E21D /* SRCoreData.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D0EB54D1A1601190073E21D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D0EB5551A1601190073E21D /* SRRealm.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		3D0EB5131A1600E70073E21D /* SRCoreDataRestKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3D0EB52B1A1600E70073E21D /* Build configuration list for PBXNativeTarget "SRCoreDataRestKit" */;
-			buildPhases = (
-				3D0EB50F1A1600E70073E21D /* Sources */,
-				3D0EB5101A1600E70073E21D /* Frameworks */,
-				3D0EB5111A1600E70073E21D /* Headers */,
-				3D0EB5121A1600E70073E21D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SRCoreDataRestKit;
-			productName = "SRCoreData-RestKit";
-			productReference = 3D0EB5141A1600E70073E21D /* SRCoreDataRestKit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		3D0EB5311A1601080073E21D /* SRCoreData */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3D0EB5451A1601080073E21D /* Build configuration list for PBXNativeTarget "SRCoreData" */;
-			buildPhases = (
-				3D0EB52D1A1601080073E21D /* Sources */,
-				3D0EB52E1A1601080073E21D /* Frameworks */,
-				3D0EB52F1A1601080073E21D /* Headers */,
-				3D0EB5301A1601080073E21D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SRCoreData;
-			productName = SRCoreData;
-			productReference = 3D0EB5321A1601080073E21D /* SRCoreData.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		3D0EB54F1A1601190073E21D /* SRRealm */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3D0EB5631A16011A0073E21D /* Build configuration list for PBXNativeTarget "SRRealm" */;
-			buildPhases = (
-				3D0EB54B1A1601190073E21D /* Sources */,
-				3D0EB54C1A1601190073E21D /* Frameworks */,
-				3D0EB54D1A1601190073E21D /* Headers */,
-				3D0EB54E1A1601190073E21D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SRRealm;
-			productName = SRRealm;
-			productReference = 3D0EB5501A1601190073E21D /* SRRealm.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		3D4F507319CDA36B00C1FD3D /* SugarRecordTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D4F507A19CDA36B00C1FD3D /* Build configuration list for PBXNativeTarget "SugarRecordTests" */;
@@ -576,15 +363,6 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = SugarRecord;
 				TargetAttributes = {
-					3D0EB5131A1600E70073E21D = {
-						CreatedOnToolsVersion = 6.1;
-					};
-					3D0EB5311A1601080073E21D = {
-						CreatedOnToolsVersion = 6.1;
-					};
-					3D0EB54F1A1601190073E21D = {
-						CreatedOnToolsVersion = 6.1;
-					};
 					3D4F507319CDA36B00C1FD3D = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -604,35 +382,11 @@
 			projectRoot = "";
 			targets = (
 				3D4F507319CDA36B00C1FD3D /* SugarRecordTests */,
-				3D0EB5131A1600E70073E21D /* SRCoreDataRestKit */,
-				3D0EB5311A1601080073E21D /* SRCoreData */,
-				3D0EB54F1A1601190073E21D /* SRRealm */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3D0EB5121A1600E70073E21D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D0EB5301A1601080073E21D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D0EB54E1A1601190073E21D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3D4F507219CDA36B00C1FD3D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -677,61 +431,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3D0EB50F1A1600E70073E21D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D0EB5851A1601DE0073E21D /* SugarRecordObjectProtocol.swift in Sources */,
-				3D0EB5A51A1601DE0073E21D /* NSManagedObject+SugarRecord.swift in Sources */,
-				3D0EB5A91A1601DE0073E21D /* RestkitCDStack.swift in Sources */,
-				3D0EB5B11A1601DE0073E21D /* SugarRecordFinder+FetchedResultsController.swift in Sources */,
-				3D0EB59D1A1601DE0073E21D /* DefaultCDStack.swift in Sources */,
-				3D0EB5951A1601DE0073E21D /* SugarRecordFinder.swift in Sources */,
-				3D0EB5A11A1601DE0073E21D /* iCloudCDStack.swift in Sources */,
-				3D0EB5AD1A1601DE0073E21D /* SugarRecordCDContext.swift in Sources */,
-				3D0EB5811A1601DE0073E21D /* SugarRecordContextProtocol.swift in Sources */,
-				3D0EB5891A1601DE0073E21D /* SugarRecordStackProtocol.swift in Sources */,
-				3D0EB5911A1601DE0073E21D /* SugarRecord.swift in Sources */,
-				3D0EB5991A1601DE0073E21D /* SugarRecordLogger.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D0EB52D1A1601080073E21D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D0EB5861A1601DE0073E21D /* SugarRecordObjectProtocol.swift in Sources */,
-				3D0EB5A61A1601DE0073E21D /* NSManagedObject+SugarRecord.swift in Sources */,
-				3D0EB5B21A1601DE0073E21D /* SugarRecordFinder+FetchedResultsController.swift in Sources */,
-				3D0EB59E1A1601DE0073E21D /* DefaultCDStack.swift in Sources */,
-				3D0EB5961A1601DE0073E21D /* SugarRecordFinder.swift in Sources */,
-				3D0EB5A21A1601DE0073E21D /* iCloudCDStack.swift in Sources */,
-				3D0EB5AE1A1601DE0073E21D /* SugarRecordCDContext.swift in Sources */,
-				3D0EB5821A1601DE0073E21D /* SugarRecordContextProtocol.swift in Sources */,
-				3D0EB58A1A1601DE0073E21D /* SugarRecordStackProtocol.swift in Sources */,
-				3D0EB5921A1601DE0073E21D /* SugarRecord.swift in Sources */,
-				3D0EB59A1A1601DE0073E21D /* SugarRecordLogger.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D0EB54B1A1601190073E21D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D0EB5871A1601DE0073E21D /* SugarRecordObjectProtocol.swift in Sources */,
-				3D0EB5971A1601DE0073E21D /* SugarRecordFinder.swift in Sources */,
-				3D0EB5B71A1601DE0073E21D /* DefaultREALMStack.swift in Sources */,
-				3D0EB5831A1601DE0073E21D /* SugarRecordContextProtocol.swift in Sources */,
-				3D0EB58B1A1601DE0073E21D /* SugarRecordStackProtocol.swift in Sources */,
-				3D0EB5BB1A1601DE0073E21D /* RLMObject+SugarRecord.swift in Sources */,
-				3D0EB5931A1601DE0073E21D /* SugarRecord.swift in Sources */,
-				3D0EB59B1A1601DE0073E21D /* SugarRecordLogger.swift in Sources */,
-				3D0EB5CB1A1603690073E21D /* RLMSupport.swift in Sources */,
-				3D0EB5C31A1601DE0073E21D /* SugarRecordRLMContext.swift in Sources */,
-				3D0EB5BF1A1601DE0073E21D /* RLMObjectMigration.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3D4F507019CDA36B00C1FD3D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -785,83 +484,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3D0EB5271A1600E70073E21D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.0.2;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Libraries/realm-cocoa-0.87.4/ios",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SRCoreData-RestKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3D0EB5461A1601080073E21D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.0.2;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SRCoreData/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3D0EB5641A16011A0073E21D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.0.2;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Libraries/realm-cocoa-0.87.4/ios",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SRRealm/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		3D4F507B19CDA36B00C1FD3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D0EB5D01A1607EC0073E21D /* Pods-restkit.debug.xcconfig */;
@@ -938,30 +560,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3D0EB52B1A1600E70073E21D /* Build configuration list for PBXNativeTarget "SRCoreDataRestKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3D0EB5271A1600E70073E21D /* Debug */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		3D0EB5451A1601080073E21D /* Build configuration list for PBXNativeTarget "SRCoreData" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3D0EB5461A1601080073E21D /* Debug */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		3D0EB5631A16011A0073E21D /* Build configuration list for PBXNativeTarget "SRRealm" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3D0EB5641A16011A0073E21D /* Debug */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
 		3D4F507A19CDA36B00C1FD3D /* Build configuration list for PBXNativeTarget "SugarRecordTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
