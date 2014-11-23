@@ -133,14 +133,14 @@ CoreDataObject.all().fetchedResultsController("name")
 
 If you want to know about how to use SugarRecord we have some Wiki pages in the repo to guide you through the integration in your project. Availble Wiki pages are:
 
-- [SugarRecord]()
-- [Setup SugarRecord in your project]()
-- [Stacks]()
-- [Operations]()
-- [Mapping feature]() // WIP
-- [Advanced options]()
-- [Advices]()
-- [Contribution]()
+- About SugarRecord: [Link](https://github.com/SugarRecord/SugarRecord/wiki/SugarRecord)
+- Setup SugarRecord: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Setup-SugarRecord)
+- Working with Stacks: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Working-with-Stacks)
+- Operations: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Operations)
+- Advanced operations with SugarRecord: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Advanced-operations-with-SugarRecord)
+- Mapping models: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Mapping-models)
+- Advices: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Advices)
+- Contribution tips: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Contribution-tips)
 
 ## Support
 
