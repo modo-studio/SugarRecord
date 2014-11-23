@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '7.0'
-target :restkit do
+target :tests do
   link_with 'SugarRecordTests'
-  pod 'RestKit', '~> 0.20.0'
+  pod 'SugarRecord', :git => 'https://github.com/SugarRecord/SugarRecord.git', :tag => '1.0.3'
 end
