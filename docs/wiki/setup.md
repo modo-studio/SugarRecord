@@ -1,5 +1,3 @@
-# Setup SugarRecord
-
 ## Integrate in your project
 Cocoapods doesn't support support Swift libraries yet so the instalation process has to be manual. To import SugarRecord into your project:
 
@@ -31,7 +29,7 @@ Cocoapods doesn't support support Swift libraries yet so the instalation process
 SugarRecord needs you to pass the stack you are going to work with *(you can learn more about stacks [here](TODO))*. There are some stacks availables to use directly but you can implement your own regarding your needs. Keep in mind that it's important to set it because otherwise SugarRecord won't have a way communicate your models with the database. Take a look how it would be using the default stack of Realm and CoreData:
 
 ```swift
-// Example initializing SugarRecord with the default Realm 
+// Example initializing SugarRecord with the default Realm
 SugarRecord.addStack(DefaultREALMStack(stackName: "MyDatabase", stackDescription: "My database using the lovely library SugarRecord"))
 
 // Example initializing SugarRecord with the default CoreData stack

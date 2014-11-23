@@ -1,5 +1,3 @@
-# SugarRecord stacks
-
 One of the main advantages of using SugarRecord is its big flexibility to choose the storage architecture you want for your app. SugarRecord comes with some default stacks for Realm and CoreData but you can implement your own ensuring it conforms the needed protocols (*take a look to the existing ones*). The available stacks are:
 
 ## Default Core Data Stack
