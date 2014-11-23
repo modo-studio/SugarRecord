@@ -39,6 +39,9 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 21th-November-2014 | Closed the issue related with RestKit dependency |
+| 21th-November-2014 | Filled the Wiki page covering existing features |
+| 21th-November-2014 | Added AutoSaving feature to CoreData stacks |
 | 16th-November-2014 | Added cancelWriting feature [PR](https://github.com/SugarRecord/SugarRecord/pull/58) |
 | 16th-October-2014 | Finished stack for iCloud [PR](https://github.com/SugarRecord/SugarRecord/pull/45) |
 | 6th-October-2014 | Added FetchedResultsController support [PR](https://github.com/SugarRecord/SugarRecord/pull/40) |
@@ -52,34 +55,19 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 
 ## Index
-- [Advantages of SugarRecord](#advantages-of-sugarrecord)
+- [Features](#features)
+- [Versions](#versions)
+- [Version 1.0.2 Beta - Features](#version-1.0.2-beta---features)
 - [Version 1.0.1 Beta - Features](#version-1.0.1-beta---features)
 - [Version 1.0 Beta - Features](#version-1.0-beta---features)
 - [Requirements](#requirements)
-- [Installation](#installation)
-- [Communication flow](#communication-flow)
-- [How to use SugarRecord](#how-to-use-sugarrecord)
-  - [Initialize SugarRecord with a stack](#initialize-sugarrecord-with-a-stack)
-  - [Setup the log level](#setup-the-log-level)
-  - [Objects creation](#objects-creation)
-  - [Objects edition](#objects-edition)
-  - [Objects deletion](#objects-deletion)
-  - [Objects querying](#objects-querying)
-  - [Transactions](#transactions)
-  - [Advanced options](#advanced-options)
-  - [SugarRecord stacks](#sugarrecord-stacks)
-    - [Contribute](#contribute)
-- [Keep in mind](#keep-in-mind)
-- [Contribution tips](#contribution-tips)
-  - [Documentation](#documentation)
-  - [Setup the project locally](#setup-the-project-locally)
-  - [Take into account for your PR proposals](#take-into-account-for-your-pr-proposals)
+- [Wiki](#wiki)
+- [Support](#support)
 - [Useful Swift Resources](#useful-swift-resources)
 - [License](#license)
 - [Who uses SugarRecord?](#who-uses-sugarrecord?)
-- [Contribute](#contribute)
 
-## Advantages of SugarRecord
+## Features
 
 - For beginners and advanced users
 - **Fully customizable**. Implement your own stack and set it as your SugarRecord stack to work with.
@@ -87,12 +75,24 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 - You can change between different stacks without affecting to the rest of your app.
 - In case of a transition from CoreData to Realm or viceversa you've only to ensure the objecs have the same property names, and nothing more.
 - Background operations are automatically managed by Sugar Record
+- Support for Realm and CoreData using the same syntax
+- Multiple stacks (for Realm, CoreData, CoreData+iCloud)
+- Sugar syntax, forget about complicated lines of code to fetch your last 20 users!
+- Written 100% in Swift and compatible with Swift projects (in case of Objective-C a wrapper is needed)
+- Compatible with OSX and iOS
+- Fully documented with a playground tutorial and an updated Wiki page
+- Fully tested (all components are tested using XCTest)
+- Actively supported, issues covered in less than a week.
+- More powerful features to discover!
 
-## Version 1.0.2 Beta - Features
+## Versions
+### Version 1.0.2 Beta - Features
 - Updated the project structure to package the libary in bundles
 - Added `cancelWriting()` feature
+- Filled the Wiki page of the project
+- Added autoSaving property for CoreData stacks
 
-## Version 1.0.1 Beta - Features
+### Version 1.0.1 Beta - Features
 - Playground tutorial to learn how to use SugaRecord
 - **Migrations** support
 - **Count** methods
@@ -112,7 +112,7 @@ CoreDataObject.all().fetchedResultsController("name")
 ```
 - Stack for **iCloud**
 
-## Version 1.0 Beta - Features
+### Version 1.0 Beta - Features
 
 - 100% **Unit Test** Coverage
 - Complete **Documentation** in CocoaDocs and tutorials made with Playgrounds
@@ -122,37 +122,27 @@ CoreDataObject.all().fetchedResultsController("name")
 
 *Note: It's going to suppose a big step to SugarRecord because it's going to make it more flexible for all kind of developers. You can use the current initial version of SugarRecord 0.2 (master branch).*
 
-## Coming features
-- Abstract FetchedResultsController to use with Realm and CoreData
-- Integration with iCloud
-- Support to migrations
-- High-Performance data import
-
 ## Requirements
 
 - Xcode 6
 - iOS 7.0+ / Mac OS X 10.9+
 - If you have troubles with the compilation try to clean the DerivedData Xcode directory: `rm -rf ~/Library/Developer/Xcode/DerivedData/`
 
-## Installation
 
-Cocoapods doesn't support support Swift libraries yet so the instalation process has to be manual. To import SugarRecord into your project:
+## Wiki
 
-1. Download the project into your project's libraries folder. You can use git submodules too `git submodule add https://github.com/sugarrecord/sugarrecord myproject/libraries`
-2. You have to add now the project files **into your project's target**. To do it, Drag SugarRecord.xcodeproj to your project in the Project Navigator that you'll find on the `SugarRecord/project` folder.
-3. Finally you have to specify which framework you would like to compile with your project. There are three:
+If you want to know about how to use SugarRecord we have some Wiki pages in the repo to guide you through the integration in your project. Availble Wiki pages are:
 
-- SRCoreDataRestKit // Needs RestKit in your project
-- SRCoreData
-- SRRealm
+- [SugarRecord]()
+- [Setup SugarRecord in your project]()
+- [Stacks]()
+- [Operations]()
+- [Mapping feature]() // WIP
+- [Advanced options]()
+- [Advices]()
+- [Contribution]()
 
-4. In the *build phases* tab of your project's main target. Add the `.framework` you chose in the **Target Dependencies** group.
-5. Click on the + button at the top left of the panel and select **New Copy Files Phase**. Rename this new phase to "Copy Frameworks", set the "Destination" to "Frameworks", and add the `.framework` you chose
-6. Import `SRCoreDataRestKit/SRCoreData/SRRealm` wherever you want to use it. Otherwise the classes won't be visible
-
-*Note: As soon as CocoaPod supports it the library will have a pod to make this process easier for everybody*
-
-## Communication flow
+## Support
 
 If you want to communicate any issue, suggestion or even make a contribution, you have to keep in mind the flow bellow:
 
@@ -160,170 +150,6 @@ If you want to communicate any issue, suggestion or even make a contribution, yo
 - If you want to ask something in general, use Stack Overflow too.
 - **Open an issue** either when you have an error to report or a feature request.
 - If you want to **contribute**, submit a pull request, and remember the rules to follow related with the code style, testing, ...
-
-## How to use SugarRecord
-If you want to learn how to setup SugarRecord with the stack and stack working with it, the library comes with an useful Playground HTML file with steps and some examples to follow. Take a look to the playground [**HERE**](https://github.com/SugarRecord/SugarRecord/docs/tutorial.playground).
-
-Otherwise if you want to have a quick idea of how working with SugarRecord is, take a look to the examples below.
-
-### Initialize SugarRecord with a stack
-SugarRecord needs you to pass the stack you are going to work with. There are some stacks availables to use directly but you can implement your own regarding your needs. Keep in mind that it's important to set it because otherwise SugarRecord won't have a way communicate your models with the database. Take a look how it would be using the default stack of Realm and CoreData:
-
-```Swift
-// Example initializing SugarRecord with the default Realm 
-SugarRecord.addStack(DefaultREALMStack(stackName: "MyDatabase", stackDescription: "My database using the lovely library SugarRecord"))
-
-// Example initializing SugarRecord with the default CoreData stack
-let stack: DefaultCDStack = DefaultCDStack(databaseName: "Database.sqlite", automigrating: true)
-SugarRecord.addStack(stack)
-```
-Once you have the stack set, a connection between SugarRecord and your app's lifecycle is required in order to execute cleaning and saving internal tasks. Ensure you have the following calls in your app delegate:
-
-```swift
-func applicationWillResignActive(application: UIApplication!) {
-  SugarRecord.applicationWillResignActive()
-}
-
-func applicationWillEnterForeground(application: UIApplication!) {
-  SugarRecord.applicationWillEnterForeground()
-}
-
-func applicationWillTerminate(application: UIApplication!) {
-  SugarRecord.applicationWillTerminate()
-}
-```
-
-### Setup the log level
-
-By default the log level of the library is `Info`. If you want to change it you can do it with:
-```swift
-SugarRecordLogger.currentLevel = SugarRecordLogger.logLevelVerbose
-```
-
-### Objects creation
-
-ManagedObjects and RLMObjects have extensions to make the creation easier. Methods included there are connected with SugarRecord and the stacks you previously setup. The example below shows the creation of an user without mattering if it's a RLMObject OR A CoreData object
-```swift
-var user: User = User.create() as User
-user.name = "Testy"
-user.age = 21
-let saved: Bool = user.save()
-```
-### Objects edition
-
-To edit your objects you have to notify SugarRecord that you are going to start/end an edition. If you are going to edit only one object you can do it quickly with the methods `beginWriting()` and `endWriting() `. It's very important to tell SugarRecord about any edition or you app might crash. Take a look to the example below
-
-```swift
-user.beginWriting()
-user.name ="Pepito"
-user.endWriting()
-```
-If you are editing different objects that are in the same Sugar Record context it's recommended to call `beginWriting()` before starting editing any of them. Once you've finished the edition call `endWriting()`.
-
-### Objects deletion
-
-If you want to delete an object that you have in a SugarRecord context you can do it easily using the method `delete()`. **It's very important** to call `beginWriting()` and `endWriting()` here too to notify the library about the changes you are making. Take a look to the examples below:
-
-```swift
-// 3-Lines syntax
-user.beginWriting()
-user.delete()
-user.endWriting()
-
-// 1-Line syntax
-user.beginWriting().delete().endWriting()
-```
-
-### Objects querying
-
-Fetching elements had never been so easy as it's now with SugarRecord. Take a look to the examples below because they are self-explaining:
-
-```swift
-let users: [User]? = User.sorted(by:"name", ascending: true).firsts(10).find()?
-users: User? = User().find()?.first as Person
-users: [User]? = User("age", equalTo: "10").sorted(by:"name", ascending: true).find()?
-users: [User]? = User.all().find()?
-```
-The example above is valid for **Realm** and **Objective-C**
-
-### Transactions
-
-Operations like edition/deletion **MUST** be grouped in a transaction. The way to group different operations into a single trasaction is using the following methods of the SugarRecordContext:
-
-```swift
-context.beginWriting()
-context.endWriting()
-```
-**It's very important to notify the context when you are going to execute any of these kind of operations**, otherwise the app might crash. Moreover, remember that the changes are persisted once you call `endWriting()`, otherwise they will be in your object but not in the database. 
-
-*Note: If you want to cancel a transaction and return everything to the previous status you can do it using the `cancelWriting()* method.
-
-### Advanced options
-
-Although we've tried to offer an easy API interface for beginners we have advanced options too to go further into lower layers of the library. SugarRecord offers operations closures connected with your stacks to work directly with these context and decide then when and how saving them.
-
-```swift
-SugarRecord.operation(SugarRecordStackType.SugarRecordStackTypeRealm, closure: { (context) -> () in
-  users: [User]? = User.all().find(inContext: context)?
-  context.beginWriting() // <- Notifying we're starting the edition
-  for user in users {
-    user.age++
-  }
-  context.endWriting() // <- Notifying that we've finished the edition
-})
-```
-
-### SugarRecord stacks
-
-One of the main advantages of using SugarRecord is its big flexibility to choose the storage architecture you want for your app. SugarRecord comes with some default stacks for Realm and CoreData but you can implement your own ensuring it conforms the needed protocols (*take a look to the existing ones*). The available stacks are:
-
-- **Default Core Data Stack**: This stack has a private context with the unique persistent store coordinator as parent. There is a main context under it to execute low load operations and a private one at the same level as the main one to execute high load operations. Changes  performed in that private context are brought to the main context using KVO.
-- **Default REALM Stack**: This  stack provides a setup for REALM which is much easier than Core Data, no context, thread safe...
-- **Default Core Data Stack + iCloud**: With the stack of iCloud you'll be able to persist your users' data in iCloud easily. Initialize the stack and leave SugarRecord do the rest.
-- **Default Core Data Stack + Restkit**: It connects thd default CoreData stack with RestKit to enjoy the powerful features of that library.
-
-#### Contribute
-If you have any other idea of stack that could be useful for SugarRecord users feel free to make your proposal. Ensure:
-
-1. That it conforms the protocol `SugarRecordStackProtocol`
-2. That it's **fully tested** and **docummented**
-
-## Keep in mind
-- Be careful **working with objects between contexts**. In case of **CoreData** remember that a ManagedObject belongs to a given context. Once the context dies the object disappears and trying to access to it will bring you into a trouble. SugarRecord has defensive code to ensure that if you are saving objecs from one context in other one one they are automatically brought to the new context to be saved there.
-
-- **Not referencing objects**. Try to use their remote or local identifiers instead. Strong references is something dangerous because you can break the normal behaviour of CoreData/REALM. In CoreData for example it might cause **fault relationship** crashes although your propagation rules are properly defined.
-
-
-## Contribution tips
-### Documentation
-- The best way to follow the docummentation patterns is using the plugin for XCode VVDocumenter.
-- SugarRecord uses [**Swift-playground-builder**](https://github.com/jas/swift-playground-builder) to generate a playground tutorial from a markdonw file, . If you have done any important change that deserves an explanation in the tutorial add it!. To do it:
-```bash
-# Install Node.js
-npm install -g swift-playground-builder
-playground docs/tutorial.md -d docs/ -p ios
-```
-- Library documentation is generated by CocoaDocs automatically based on the code comments. If you want to preview it locally:
-
-```bash
-# Clone the repo
-git clone https://github.com/CocoaPods/cocoadocs.org
-# Run in the repo directory
-bundle install
-# Preview the library with
-bundle exec ./cocoadocs.rb preview SugarRecord
-```
-
-
-### Setup the project locally
-1. Clone the repo with `git clone https://github.com/SugarRecord/SugarRecord.git`
-2. Update the git submodules with `git submodule update --init`
-
-### Take into account for your PR proposals
-
-- Changes in the library should be properly documented and tested, **changes without documentation comments and tests won't be accepted**
-- The code should follow this style guideline: https://github.com/SugarRecord/swift-style-guide
-
 
 
 ## Useful Swift Resources
