@@ -28,6 +28,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Realm" do |realm|
     realm.name = "Realm"
+    realm.dependency 'Realm', '~> 0.87'
     realm.source_files = ['library/Realm/**/*.{swift}']
     realm.ios.vendored_frameworks = ['library/Realm/ios/Realm.framwork']
     realm.osx.vendored_frameworks = ['library/Realm/osx/Realm.framwork']

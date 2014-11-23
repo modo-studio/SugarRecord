@@ -52,7 +52,7 @@ SPEC CHECKSUMS:
   RestKit: 8e301e50e1d25ce427215539f4fd72463f4a2a58
   RKValueTransformers: 67b4ea3eb6a1c1a0b8c3c37eb4e4c05e4febeba2
   SOCKit: d8d0dd3688ae1026c12367570da8fa8e1a6980fb
-  SugarRecord: 136bc707bde324cf72ee31499a5602ec12f01ceb
+  SugarRecord: 989ea85d11e2e6c073a2d6f17d5f91a81731c37b
   TransitionKit: 6a6f3ddda38ae758778aa889dcb930e4f8d64edc
 
 COCOAPODS: 0.35.0
