@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/CocoaPods/CLAide.git
+  revision: b1eccc296b68b1a432e42ecf0c4b799d8551c75c
+  specs:
+    claide (0.7.0)
+
+GIT
   remote: https://github.com/CocoaPods/CocoaPods.git
   revision: 99364e6912948874e63fa54a6770aa35038956f0
   branch: swift
@@ -45,7 +51,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    claide (0.7.0)
     cocoapods-downloader (0.8.0)
     cocoapods-plugins (0.3.2)
       nap
@@ -71,7 +76,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  claide!
   cocoapods!
   cocoapods-core!
-  json (= 1.7.7)
   xcodeproj!

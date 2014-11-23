@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.subspec "CoreData" do |coredata|
     coredata.frameworks = 'CoreData'
     coredata.name = "CoreData"
-    coredata.source_files = 'library/CoreData/**/*.{swift}']
+    coredata.source_files = ['library/CoreData/**/*.{swift}']
     coredata.exclude_files = ['library/CoreData/RestkitCDStack.swift']
 
     s.subspec "RestKit" do |restkit|
