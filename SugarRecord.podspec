@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Realm" do |realm|
     realm.name = "Realm"
-    coredata.source_files = ['library/Realm/**/*.{swift}']
+    realm.source_files = ['library/Realm/**/*.{swift}']
   end
 end
 
