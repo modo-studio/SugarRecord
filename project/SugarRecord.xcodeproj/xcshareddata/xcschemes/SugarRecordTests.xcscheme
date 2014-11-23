@@ -14,20 +14,6 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "302BFE7C1DCCF9CB8C708390"
-               BuildableName = "libPods-restkit.a"
-               BlueprintName = "Pods-restkit"
-               ReferencedContainer = "container:Pods/Pods.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "3D4F507319CDA36B00C1FD3D"
                BuildableName = "SugarRecordTests.xctest"
                BlueprintName = "SugarRecordTests"
@@ -53,15 +39,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3D0EB5131A1600E70073E21D"
-            BuildableName = "SRCoreDataRestKit.framework"
-            BlueprintName = "SRCoreDataRestKit"
-            ReferencedContainer = "container:SugarRecord.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"

@@ -619,6 +619,7 @@
 				<string>3DC8D59F19D76DAB00F2368B</string>
 				<string>3D4F507D19CDA37500C1FD3D</string>
 				<string>5EE06745FDAAC971949C74E3</string>
+				<string>8DF0563ED5AC66A6084F622A</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
@@ -1621,6 +1622,13 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
+		<key>8DF0563ED5AC66A6084F622A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B469109A94D1B8FEE7A72B73</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>AE20E4169AEA96D83FA2EA38</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -1645,6 +1653,19 @@
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
+		<key>B469109A94D1B8FEE7A72B73</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-tests.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>C0B3386437A14ADE88F5489D</key>
 		<dict>
 			<key>children</key>
@@ -1655,6 +1676,7 @@
 				<string>8BCAD85ADD52418BAA4A4624</string>
 				<string>C37281135F2AC5AE7DEB3CD2</string>
 				<string>CB63C2B47CDCF860A1692830</string>
+				<string>B469109A94D1B8FEE7A72B73</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
