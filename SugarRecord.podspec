@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 
     s.subspec "RestKit" do |restkit|
       restkit.name = "RestKit"
-      restkit.dependency 'RestKit', '~> 0.24'
+      restkit.dependency 'RestKit'
       restkit.source_files = ['library/CoreData/RestkitCDStack.swift']
     end
   end
