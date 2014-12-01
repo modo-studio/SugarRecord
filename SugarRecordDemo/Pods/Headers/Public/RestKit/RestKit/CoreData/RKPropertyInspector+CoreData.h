@@ -1,1 +1,0 @@
-../../../../../RestKit/Code/CoreData/RKPropertyInspector+CoreData.h
