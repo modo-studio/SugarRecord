@@ -12,26 +12,11 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.documentation_url = "https://github.com/SugarRecord/SugarRecord/wiki"
 
-
   s.subspec "CoreData" do  |sp|
     sp.frameworks = 'CoreData'
     sp.source_files = ['library/CoreData/Base/**/*.{swift}', 'library/Core/**/*.{swift}']
   end
 
-  s.subspec "CoreData+RestKit" do  |sp|
-    sp.frameworks = 'CoreData'
-    sp.dependency 'RestKit'
-    sp.prefix_header_contents = '#import <RestKit/RestKit.h>'
-
-    sp.source_files = ['library/CoreData/**/*.{swift}', 'library/Core/**/*.{swift}']
-  end
-
-  s.subspec "Realm" do |sp|
-    sp.dependency 'Realm'
-    sp.source_files = ['library/Realm/**/*.{swift}', 'library/Core/**/*.{swift}']
-    sp.ios.vendored_frameworks = ['library/Realm/ios/Realm.framwork']
-    sp.osx.vendored_frameworks = ['library/Realm/osx/Realm.framwork']
-  end
 end
 
 

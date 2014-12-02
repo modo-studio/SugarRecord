@@ -15,13 +15,14 @@ Pod::Spec.new do |s|
 
   s.subspec "CoreData" do  |sp|
     sp.frameworks = 'CoreData'
-    sp.source_files = ['library/CoreData/**/*.{swift}', 'library/Core/**/*.{swift}']
-    sp.exclude_files = ['library/CoreData/RestkitCDStack.swift']
+    sp.source_files = ['library/CoreData/Base/**/*.{swift}', 'library/Core/**/*.{swift}']
   end
 
   s.subspec "CoreData+RestKit" do  |sp|
     sp.frameworks = 'CoreData'
     sp.dependency 'RestKit'
+    sp.prefix_header_contents = '#import <RestKit/RestKit.h>'
+
     sp.source_files = ['library/CoreData/**/*.{swift}', 'library/Core/**/*.{swift}']
   end
 
