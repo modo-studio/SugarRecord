@@ -1,0 +1,6 @@
+framework module ISO8601DateFormatterValueTransformer {
+  umbrella header "Pods-ISO8601DateFormatterValueTransformer-umbrella.h"
+
+  export *
+  module * { export * }
+}

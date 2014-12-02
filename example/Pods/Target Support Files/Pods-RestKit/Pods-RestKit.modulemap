@@ -1,0 +1,6 @@
+framework module RestKit {
+  umbrella header "Pods-RestKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -12,25 +12,24 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.documentation_url = "https://github.com/SugarRecord/SugarRecord/wiki"
 
-  s.subspec "CoreData" do |coredata|
-    coredata.frameworks = 'CoreData'
-    coredata.name = "CoreData"
-    coredata.source_files = ['library/CoreData/**/*.{swift}', 'library/Core/**/*.{swift}']
-    coredata.exclude_files = ['library/CoreData/RestkitCDStack.swift']
 
-    s.subspec "RestKit" do |restkit|
-      restkit.name = "RestKit"
-      restkit.dependency 'RestKit'
-      restkit.source_files = ['library/CoreData/RestkitCDStack.swift', 'library/Core/**/*.{swift}']
-    end
+  s.subspec "CoreData" do  |sp|
+    sp.frameworks = 'CoreData'
+    sp.source_files = ['library/CoreData/**/*.{swift}', 'library/Core/**/*.{swift}']
+    sp.exclude_files = ['library/CoreData/RestkitCDStack.swift']
   end
 
-  s.subspec "Realm" do |realm|
-    realm.name = "Realm"
-    realm.dependency 'Realm'
-    realm.source_files = ['library/Realm/**/*.{swift}']
-    realm.ios.vendored_frameworks = ['library/Realm/ios/Realm.framwork']
-    realm.osx.vendored_frameworks = ['library/Realm/osx/Realm.framwork']
+  s.subspec "CoreData+RestKit" do  |sp|
+    sp.frameworks = 'CoreData'
+    sp.dependency 'RestKit'
+    sp.source_files = ['library/CoreData/**/*.{swift}', 'library/Core/**/*.{swift}']
+  end
+
+  s.subspec "Realm" do |sp|
+    sp.dependency 'Realm'
+    sp.source_files = ['library/Realm/**/*.{swift}', 'library/Core/**/*.{swift}']
+    sp.ios.vendored_frameworks = ['library/Realm/ios/Realm.framwork']
+    sp.osx.vendored_frameworks = ['library/Realm/osx/Realm.framwork']
   end
 end
 

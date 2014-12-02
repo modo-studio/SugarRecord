@@ -1,0 +1,6 @@
+framework module SOCKit {
+  umbrella header "Pods-SOCKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

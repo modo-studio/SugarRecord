@@ -1,0 +1,8 @@
+FRAMEWORK_SEARCH_PATHS = "$PODS_FRAMEWORK_BUILD_PATH"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_FRAMEWORK_BUILD_PATH/AFNetworking.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/ISO8601DateFormatterValueTransformer.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/RKValueTransformers.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/RestKit.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/SOCKit.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/SugarRecord.framework/Headers" -iquote "$PODS_FRAMEWORK_BUILD_PATH/TransitionKit.framework/Headers"
+OTHER_LDFLAGS = -ObjC -framework "AFNetworking" -framework "CFNetwork" -framework "CoreData" -framework "CoreGraphics" -framework "ISO8601DateFormatterValueTransformer" -framework "MobileCoreServices" -framework "RKValueTransformers" -framework "RestKit" -framework "SOCKit" -framework "Security" -framework "SugarRecord" -framework "SystemConfiguration" -framework "TransitionKit"
+OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+OTHER_SWIFT_FLAGS = "-D COCOAPODS"
+PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods
+PODS_ROOT = ${SRCROOT}/Pods

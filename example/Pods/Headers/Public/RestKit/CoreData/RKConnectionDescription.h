@@ -1,0 +1,1 @@
+../../../../RestKit/Code/CoreData/RKConnectionDescription.h
