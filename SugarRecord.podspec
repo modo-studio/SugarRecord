@@ -12,8 +12,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.documentation_url = "https://github.com/SugarRecord/SugarRecord/wiki"
   s.source_files = ['library/Core/**/*.{swift}']
-  s.frameworks = 'CoreData'
-  s.dependency 'RestKit'
 
   s.subspec "CoreData" do |coredata|
     coredata.frameworks = 'CoreData'
