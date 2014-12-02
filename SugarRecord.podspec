@@ -17,6 +17,11 @@ Pod::Spec.new do |s|
     sp.source_files = ['library/CoreData/Base/**/*.{swift}', 'library/Core/**/*.{swift}']
   end
 
+  s.subspec "Realm" do |sp|
+    sp.source_files = ['library/Realm/**/*.{swift}', 'library/Core/**/*.{swift}']
+    sp.ios.vendored_frameworks = ['library/Realm/ios/Realm.framwork']
+    sp.osx.vendored_frameworks = ['library/Realm/osx/Realm.framwork']
+  end
 end
 
 
