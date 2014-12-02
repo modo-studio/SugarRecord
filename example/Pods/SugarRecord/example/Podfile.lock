@@ -1,0 +1,20 @@
+PODS:
+  - SugarRecord/CoreData (1.0.3)
+
+DEPENDENCIES:
+  - SugarRecord/CoreData (from `https://github.com/sugarrecord/sugarrecord.git`, tag `1.0.3`)
+
+EXTERNAL SOURCES:
+  SugarRecord:
+    :git: https://github.com/sugarrecord/sugarrecord.git
+    :tag: 1.0.3
+
+CHECKOUT OPTIONS:
+  SugarRecord:
+    :git: https://github.com/sugarrecord/sugarrecord.git
+    :tag: 1.0.3
+
+SPEC CHECKSUMS:
+  SugarRecord: d481997d68ac9fb4496c879b4e8cff794ef3004e
+
+COCOAPODS: 0.35.0
