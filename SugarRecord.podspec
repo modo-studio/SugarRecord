@@ -11,18 +11,17 @@ Pod::Spec.new do |s|
   s.description = "Thanks to SugarRecord you'll be able to use a clean syntax to fetch, filter, create, update CoreData objects in an easy way. Inspired by MagicalRecord and opened to new contributions."
   s.requires_arc = true
   s.documentation_url = "https://github.com/SugarRecord/SugarRecord/wiki"
-  s.source_files = ['library/Core/**/*.{swift}']
 
   s.subspec "CoreData" do |coredata|
     coredata.frameworks = 'CoreData'
     coredata.name = "CoreData"
-    coredata.source_files = ['library/CoreData/**/*.{swift}']
+    coredata.source_files = ['library/CoreData/**/*.{swift}', 'library/Core/**/*.{swift}']
     coredata.exclude_files = ['library/CoreData/RestkitCDStack.swift']
 
     s.subspec "RestKit" do |restkit|
       restkit.name = "RestKit"
       restkit.dependency 'RestKit'
-      restkit.source_files = ['library/CoreData/RestkitCDStack.swift']
+      restkit.source_files = ['library/CoreData/RestkitCDStack.swift', 'library/Core/**/*.{swift}']
     end
   end
 
