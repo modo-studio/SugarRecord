@@ -1,0 +1,866 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3DF21C681A320D74005921A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C671A320D74005921A5 /* AppDelegate.swift */; };
+		3DF21C6A1A320D74005921A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C691A320D74005921A5 /* ViewController.swift */; };
+		3DF21C6D1A320D74005921A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21C6B1A320D74005921A5 /* Main.storyboard */; };
+		3DF21C6F1A320D74005921A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21C6E1A320D74005921A5 /* Images.xcassets */; };
+		3DF21C721A320D74005921A5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21C701A320D74005921A5 /* LaunchScreen.xib */; };
+		3DF21CB31A3210C0005921A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21CB21A3210C0005921A5 /* CoreData.framework */; };
+		3DF21CB41A3210C6005921A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21CB21A3210C0005921A5 /* CoreData.framework */; };
+		3DF21CD11A321174005921A5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21CCF1A321174005921A5 /* Realm.framework */; };
+		3DF21CD21A321174005921A5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21CCF1A321174005921A5 /* Realm.framework */; };
+		3DF21CD41A321174005921A5 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CD01A321174005921A5 /* RLMSupport.swift */; };
+		3DF21CD81A3211AF005921A5 /* Realm.framework in Copy Realm */ = {isa = PBXBuildFile; fileRef = 3DF21CCF1A321174005921A5 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DF21CDA1A3211BD005921A5 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21CD91A3211BD005921A5 /* libc++.dylib */; };
+		3DF21CDB1A3211C6005921A5 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF21CD91A3211BD005921A5 /* libc++.dylib */; };
+		3DF21CDE1A3211F9005921A5 /* TestsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CDC1A3211F9005921A5 /* TestsDataModel.xcdatamodeld */; };
+		3DF21CDF1A321263005921A5 /* CoreDataObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CC21A3210F7005921A5 /* CoreDataObjectTests.swift */; };
+		3DF21CE11A321275005921A5 /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9E1A32100A005921A5 /* SugarRecordLogger.swift */; };
+		3DF21CE21A321275005921A5 /* SugarRecordLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9E1A32100A005921A5 /* SugarRecordLogger.swift */; };
+		3DF21CE31A321278005921A5 /* SugarRecordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9D1A32100A005921A5 /* SugarRecordFinder.swift */; };
+		3DF21CE41A321278005921A5 /* SugarRecordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9D1A32100A005921A5 /* SugarRecordFinder.swift */; };
+		3DF21CE51A32127B005921A5 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9C1A32100A005921A5 /* SugarRecord.swift */; };
+		3DF21CE61A32127C005921A5 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9C1A32100A005921A5 /* SugarRecord.swift */; };
+		3DF21CE71A321281005921A5 /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9B1A32100A005921A5 /* SugarRecordStackProtocol.swift */; };
+		3DF21CE81A321281005921A5 /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9B1A32100A005921A5 /* SugarRecordStackProtocol.swift */; };
+		3DF21CE91A321284005921A5 /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9A1A32100A005921A5 /* SugarRecordObjectProtocol.swift */; };
+		3DF21CEA1A321285005921A5 /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9A1A32100A005921A5 /* SugarRecordObjectProtocol.swift */; };
+		3DF21CEB1A321287005921A5 /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C991A32100A005921A5 /* SugarRecordContextProtocol.swift */; };
+		3DF21CEC1A321288005921A5 /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C991A32100A005921A5 /* SugarRecordContextProtocol.swift */; };
+		3DF21CED1A321296005921A5 /* SugarRecordFinder+FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA51A32100A005921A5 /* SugarRecordFinder+FetchedResultsController.swift */; };
+		3DF21CEE1A321297005921A5 /* SugarRecordFinder+FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA51A32100A005921A5 /* SugarRecordFinder+FetchedResultsController.swift */; };
+		3DF21CEF1A32129A005921A5 /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA41A32100A005921A5 /* SugarRecordCDContext.swift */; };
+		3DF21CF01A32129B005921A5 /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA41A32100A005921A5 /* SugarRecordCDContext.swift */; };
+		3DF21CF11A32129D005921A5 /* iCloudCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA21A32100A005921A5 /* iCloudCDStack.swift */; };
+		3DF21CF21A32129E005921A5 /* iCloudCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA21A32100A005921A5 /* iCloudCDStack.swift */; };
+		3DF21CF31A3212A0005921A5 /* DefaultCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA11A32100A005921A5 /* DefaultCDStack.swift */; };
+		3DF21CF41A3212A1005921A5 /* DefaultCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA11A32100A005921A5 /* DefaultCDStack.swift */; };
+		3DF21CF51A3212A5005921A5 /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA31A32100A005921A5 /* NSManagedObject+SugarRecord.swift */; };
+		3DF21CF61A3212A6005921A5 /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA31A32100A005921A5 /* NSManagedObject+SugarRecord.swift */; };
+		3DF21CF81A3212ED005921A5 /* CoreDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CC11A3210F7005921A5 /* CoreDataObject.swift */; };
+		3DF21CFB1A3215AF005921A5 /* SugarRecordFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CB61A3210F7005921A5 /* SugarRecordFinderTests.swift */; };
+		3DF21CFC1A3215AF005921A5 /* SugarRecordLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CB71A3210F7005921A5 /* SugarRecordLoggerTests.swift */; };
+		3DF21CFE1A3215D3005921A5 /* CoreDataFetchResultsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CBA1A3210F7005921A5 /* CoreDataFetchResultsControllerTests.swift */; };
+		3DF21CFF1A3215D7005921A5 /* DefaultCDStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CBB1A3210F7005921A5 /* DefaultCDStackTests.swift */; };
+		3DF21D001A3215DA005921A5 /* iCloudCDStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CBC1A3210F7005921A5 /* iCloudCDStackTests.swift */; };
+		3DF21D011A3215DC005921A5 /* NSManagedObject+SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CBD1A3210F7005921A5 /* NSManagedObject+SugarRecordTests.swift */; };
+		3DF21D021A3215E0005921A5 /* RestkitCDStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CBE1A3210F7005921A5 /* RestkitCDStackTests.swift */; };
+		3DF21D071A321899005921A5 /* RestkitCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA71A32100A005921A5 /* RestkitCDStack.swift */; };
+		3DF21D091A32199C005921A5 /* SugarRecordRLMContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CC81A3210F7005921A5 /* SugarRecordRLMContextTests.swift */; };
+		3DF21D0A1A32199E005921A5 /* RLMObject+SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CC71A3210F7005921A5 /* RLMObject+SugarRecordTests.swift */; };
+		3DF21D0B1A3219A1005921A5 /* DefaultREALMStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CC61A3210F7005921A5 /* DefaultREALMStackTests.swift */; };
+		3DF21D0C1A3219BB005921A5 /* SugarRecordRLMContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CB11A32100A005921A5 /* SugarRecordRLMContext.swift */; };
+		3DF21D0E1A3219C0005921A5 /* RLMObjectMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CAF1A32100A005921A5 /* RLMObjectMigration.swift */; };
+		3DF21D0F1A3219C3005921A5 /* RLMObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CAE1A32100A005921A5 /* RLMObject+SugarRecord.swift */; };
+		3DF21D101A3219C5005921A5 /* DefaultREALMStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA91A32100A005921A5 /* DefaultREALMStack.swift */; };
+		3DF21D121A321A8B005921A5 /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CC31A3210F7005921A5 /* RealmObject.swift */; };
+		3DF21D131A321A8D005921A5 /* RealmObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CC41A3210F7005921A5 /* RealmObjectTests.swift */; };
+		3DF21D141A321A98005921A5 /* SugarRecordCDContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CBF1A3210F7005921A5 /* SugarRecordCDContextTests.swift */; };
+		3DF21D151A321A9E005921A5 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CB81A3210F7005921A5 /* SugarRecordTests.swift */; };
+		5684F0786ACF6409567AABF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 605A17441A635B9127C0C7FF /* libPods.a */; };
+		597593CACD2F7CEE76E936B9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 605A17441A635B9127C0C7FF /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3DF21C911A320DA8005921A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DF21C5A1A320D74005921A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DF21C611A320D74005921A5;
+			remoteInfo = project;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3DF21CD51A32118D005921A5 /* Copy Realm */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			name = "Copy Realm";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DF21CD71A3211A0005921A5 /* Copy Realm */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				3DF21CD81A3211AF005921A5 /* Realm.framework in Copy Realm */,
+			);
+			name = "Copy Realm";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3DF21C621A320D74005921A5 /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DF21C661A320D74005921A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DF21C671A320D74005921A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3DF21C691A320D74005921A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DF21C6C1A320D74005921A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3DF21C6E1A320D74005921A5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3DF21C711A320D74005921A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3DF21C8B1A320DA8005921A5 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DF21C8E1A320DA8005921A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DF21C991A32100A005921A5 /* SugarRecordContextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordContextProtocol.swift; sourceTree = "<group>"; };
+		3DF21C9A1A32100A005921A5 /* SugarRecordObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordObjectProtocol.swift; sourceTree = "<group>"; };
+		3DF21C9B1A32100A005921A5 /* SugarRecordStackProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordStackProtocol.swift; sourceTree = "<group>"; };
+		3DF21C9C1A32100A005921A5 /* SugarRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecord.swift; sourceTree = "<group>"; };
+		3DF21C9D1A32100A005921A5 /* SugarRecordFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordFinder.swift; sourceTree = "<group>"; };
+		3DF21C9E1A32100A005921A5 /* SugarRecordLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordLogger.swift; sourceTree = "<group>"; };
+		3DF21CA11A32100A005921A5 /* DefaultCDStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCDStack.swift; sourceTree = "<group>"; };
+		3DF21CA21A32100A005921A5 /* iCloudCDStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudCDStack.swift; sourceTree = "<group>"; };
+		3DF21CA31A32100A005921A5 /* NSManagedObject+SugarRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+SugarRecord.swift"; sourceTree = "<group>"; };
+		3DF21CA41A32100A005921A5 /* SugarRecordCDContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordCDContext.swift; sourceTree = "<group>"; };
+		3DF21CA51A32100A005921A5 /* SugarRecordFinder+FetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SugarRecordFinder+FetchedResultsController.swift"; sourceTree = "<group>"; };
+		3DF21CA71A32100A005921A5 /* RestkitCDStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestkitCDStack.swift; sourceTree = "<group>"; };
+		3DF21CA91A32100A005921A5 /* DefaultREALMStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultREALMStack.swift; sourceTree = "<group>"; };
+		3DF21CAE1A32100A005921A5 /* RLMObject+SugarRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RLMObject+SugarRecord.swift"; sourceTree = "<group>"; };
+		3DF21CAF1A32100A005921A5 /* RLMObjectMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMObjectMigration.swift; sourceTree = "<group>"; };
+		3DF21CB11A32100A005921A5 /* SugarRecordRLMContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordRLMContext.swift; sourceTree = "<group>"; };
+		3DF21CB21A3210C0005921A5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3DF21CB61A3210F7005921A5 /* SugarRecordFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordFinderTests.swift; sourceTree = "<group>"; };
+		3DF21CB71A3210F7005921A5 /* SugarRecordLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordLoggerTests.swift; sourceTree = "<group>"; };
+		3DF21CB81A3210F7005921A5 /* SugarRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordTests.swift; sourceTree = "<group>"; };
+		3DF21CBA1A3210F7005921A5 /* CoreDataFetchResultsControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFetchResultsControllerTests.swift; sourceTree = "<group>"; };
+		3DF21CBB1A3210F7005921A5 /* DefaultCDStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCDStackTests.swift; sourceTree = "<group>"; };
+		3DF21CBC1A3210F7005921A5 /* iCloudCDStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudCDStackTests.swift; sourceTree = "<group>"; };
+		3DF21CBD1A3210F7005921A5 /* NSManagedObject+SugarRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+SugarRecordTests.swift"; sourceTree = "<group>"; };
+		3DF21CBE1A3210F7005921A5 /* RestkitCDStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestkitCDStackTests.swift; sourceTree = "<group>"; };
+		3DF21CBF1A3210F7005921A5 /* SugarRecordCDContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordCDContextTests.swift; sourceTree = "<group>"; };
+		3DF21CC11A3210F7005921A5 /* CoreDataObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataObject.swift; sourceTree = "<group>"; };
+		3DF21CC21A3210F7005921A5 /* CoreDataObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataObjectTests.swift; sourceTree = "<group>"; };
+		3DF21CC31A3210F7005921A5 /* RealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObject.swift; sourceTree = "<group>"; };
+		3DF21CC41A3210F7005921A5 /* RealmObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObjectTests.swift; sourceTree = "<group>"; };
+		3DF21CC61A3210F7005921A5 /* DefaultREALMStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultREALMStackTests.swift; sourceTree = "<group>"; };
+		3DF21CC71A3210F7005921A5 /* RLMObject+SugarRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RLMObject+SugarRecordTests.swift"; sourceTree = "<group>"; };
+		3DF21CC81A3210F7005921A5 /* SugarRecordRLMContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordRLMContextTests.swift; sourceTree = "<group>"; };
+		3DF21CC91A3210F7005921A5 /* SugarRecordHelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SugarRecordHelpersTests.swift; path = ../../spec/SugarRecordHelpersTests.swift; sourceTree = "<group>"; };
+		3DF21CCA1A3210F7005921A5 /* SugarRecordInformationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SugarRecordInformationTests.swift; path = ../../spec/SugarRecordInformationTests.swift; sourceTree = "<group>"; };
+		3DF21CCB1A3210F7005921A5 /* SugarRecordOperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SugarRecordOperationsTests.swift; path = ../../spec/SugarRecordOperationsTests.swift; sourceTree = "<group>"; };
+		3DF21CCF1A321174005921A5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		3DF21CD01A321174005921A5 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
+		3DF21CD91A3211BD005921A5 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		3DF21CDD1A3211F9005921A5 /* TestsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestsDataModel.xcdatamodel; sourceTree = "<group>"; };
+		3DF21CF91A321330005921A5 /* project-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "project-prefix.pch"; sourceTree = "<group>"; };
+		3DF21D031A32180B005921A5 /* tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		4AF2637D0AC9F5C28E3FC400 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		605A17441A635B9127C0C7FF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED1EAF0C4BE0B24914CA636A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3DF21C5F1A320D74005921A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DF21CDB1A3211C6005921A5 /* libc++.dylib in Frameworks */,
+				3DF21CD11A321174005921A5 /* Realm.framework in Frameworks */,
+				3DF21CB31A3210C0005921A5 /* CoreData.framework in Frameworks */,
+				5684F0786ACF6409567AABF2 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DF21C881A320DA8005921A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DF21CDA1A3211BD005921A5 /* libc++.dylib in Frameworks */,
+				3DF21CD21A321174005921A5 /* Realm.framework in Frameworks */,
+				3DF21CB41A3210C6005921A5 /* CoreData.framework in Frameworks */,
+				597593CACD2F7CEE76E936B9 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		32515C7EC51BE736E7DC1536 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4AF2637D0AC9F5C28E3FC400 /* Pods.debug.xcconfig */,
+				ED1EAF0C4BE0B24914CA636A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3DF21C591A320D74005921A5 = {
+			isa = PBXGroup;
+			children = (
+				3DF21CCD1A321174005921A5 /* frameworks */,
+				3DF21C961A32100A005921A5 /* library */,
+				3DF21C641A320D74005921A5 /* project */,
+				3DF21C8C1A320DA8005921A5 /* tests */,
+				3DF21C631A320D74005921A5 /* Products */,
+				32515C7EC51BE736E7DC1536 /* Pods */,
+				E93226C98BCADAA899056771 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3DF21C631A320D74005921A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21C621A320D74005921A5 /* project.app */,
+				3DF21C8B1A320DA8005921A5 /* tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DF21C641A320D74005921A5 /* project */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21C671A320D74005921A5 /* AppDelegate.swift */,
+				3DF21C691A320D74005921A5 /* ViewController.swift */,
+				3DF21C6B1A320D74005921A5 /* Main.storyboard */,
+				3DF21C6E1A320D74005921A5 /* Images.xcassets */,
+				3DF21C701A320D74005921A5 /* LaunchScreen.xib */,
+				3DF21C651A320D74005921A5 /* Supporting Files */,
+			);
+			path = project;
+			sourceTree = "<group>";
+		};
+		3DF21C651A320D74005921A5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21C661A320D74005921A5 /* Info.plist */,
+				3DF21CF91A321330005921A5 /* project-prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3DF21C8C1A320DA8005921A5 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21CB51A3210F7005921A5 /* Core */,
+				3DF21CB91A3210F7005921A5 /* CoreData */,
+				3DF21CC01A3210F7005921A5 /* Models */,
+				3DF21CC51A3210F7005921A5 /* Realm */,
+				3DF21CC91A3210F7005921A5 /* SugarRecordHelpersTests.swift */,
+				3DF21CCA1A3210F7005921A5 /* SugarRecordInformationTests.swift */,
+				3DF21CCB1A3210F7005921A5 /* SugarRecordOperationsTests.swift */,
+				3DF21C8D1A320DA8005921A5 /* Supporting Files */,
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
+		3DF21C8D1A320DA8005921A5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21D031A32180B005921A5 /* tests-Bridging-Header.h */,
+				3DF21C8E1A320DA8005921A5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3DF21C961A32100A005921A5 /* library */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21C971A32100A005921A5 /* Core */,
+				3DF21C9F1A32100A005921A5 /* CoreData */,
+				3DF21CA81A32100A005921A5 /* Realm */,
+			);
+			name = library;
+			path = ../library;
+			sourceTree = "<group>";
+		};
+		3DF21C971A32100A005921A5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21C981A32100A005921A5 /* Protocols */,
+				3DF21C9C1A32100A005921A5 /* SugarRecord.swift */,
+				3DF21C9D1A32100A005921A5 /* SugarRecordFinder.swift */,
+				3DF21C9E1A32100A005921A5 /* SugarRecordLogger.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3DF21C981A32100A005921A5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21C991A32100A005921A5 /* SugarRecordContextProtocol.swift */,
+				3DF21C9A1A32100A005921A5 /* SugarRecordObjectProtocol.swift */,
+				3DF21C9B1A32100A005921A5 /* SugarRecordStackProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3DF21C9F1A32100A005921A5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21CA01A32100A005921A5 /* Base */,
+				3DF21CA61A32100A005921A5 /* RestKit */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		3DF21CA01A32100A005921A5 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21CA11A32100A005921A5 /* DefaultCDStack.swift */,
+				3DF21CA21A32100A005921A5 /* iCloudCDStack.swift */,
+				3DF21CA31A32100A005921A5 /* NSManagedObject+SugarRecord.swift */,
+				3DF21CA41A32100A005921A5 /* SugarRecordCDContext.swift */,
+				3DF21CA51A32100A005921A5 /* SugarRecordFinder+FetchedResultsController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		3DF21CA61A32100A005921A5 /* RestKit */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21CA71A32100A005921A5 /* RestkitCDStack.swift */,
+			);
+			path = RestKit;
+			sourceTree = "<group>";
+		};
+		3DF21CA81A32100A005921A5 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21CA91A32100A005921A5 /* DefaultREALMStack.swift */,
+				3DF21CAE1A32100A005921A5 /* RLMObject+SugarRecord.swift */,
+				3DF21CAF1A32100A005921A5 /* RLMObjectMigration.swift */,
+				3DF21CB11A32100A005921A5 /* SugarRecordRLMContext.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		3DF21CB51A3210F7005921A5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21CB61A3210F7005921A5 /* SugarRecordFinderTests.swift */,
+				3DF21CB71A3210F7005921A5 /* SugarRecordLoggerTests.swift */,
+				3DF21CB81A3210F7005921A5 /* SugarRecordTests.swift */,
+			);
+			name = Core;
+			path = ../../spec/Core;
+			sourceTree = "<group>";
+		};
+		3DF21CB91A3210F7005921A5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21CBA1A3210F7005921A5 /* CoreDataFetchResultsControllerTests.swift */,
+				3DF21CBB1A3210F7005921A5 /* DefaultCDStackTests.swift */,
+				3DF21CBC1A3210F7005921A5 /* iCloudCDStackTests.swift */,
+				3DF21CBD1A3210F7005921A5 /* NSManagedObject+SugarRecordTests.swift */,
+				3DF21CBE1A3210F7005921A5 /* RestkitCDStackTests.swift */,
+				3DF21CBF1A3210F7005921A5 /* SugarRecordCDContextTests.swift */,
+			);
+			name = CoreData;
+			path = ../../spec/CoreData;
+			sourceTree = "<group>";
+		};
+		3DF21CC01A3210F7005921A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21CC11A3210F7005921A5 /* CoreDataObject.swift */,
+				3DF21CC21A3210F7005921A5 /* CoreDataObjectTests.swift */,
+				3DF21CC31A3210F7005921A5 /* RealmObject.swift */,
+				3DF21CC41A3210F7005921A5 /* RealmObjectTests.swift */,
+				3DF21CDC1A3211F9005921A5 /* TestsDataModel.xcdatamodeld */,
+			);
+			name = Models;
+			path = ../../spec/Models;
+			sourceTree = "<group>";
+		};
+		3DF21CC51A3210F7005921A5 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21CC61A3210F7005921A5 /* DefaultREALMStackTests.swift */,
+				3DF21CC71A3210F7005921A5 /* RLMObject+SugarRecordTests.swift */,
+				3DF21CC81A3210F7005921A5 /* SugarRecordRLMContextTests.swift */,
+			);
+			name = Realm;
+			path = ../../spec/Realm;
+			sourceTree = "<group>";
+		};
+		3DF21CCD1A321174005921A5 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21CCE1A321174005921A5 /* realm */,
+			);
+			path = frameworks;
+			sourceTree = "<group>";
+		};
+		3DF21CCE1A321174005921A5 /* realm */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21CCF1A321174005921A5 /* Realm.framework */,
+				3DF21CD01A321174005921A5 /* RLMSupport.swift */,
+			);
+			path = realm;
+			sourceTree = "<group>";
+		};
+		E93226C98BCADAA899056771 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DF21CD91A3211BD005921A5 /* libc++.dylib */,
+				3DF21CB21A3210C0005921A5 /* CoreData.framework */,
+				605A17441A635B9127C0C7FF /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3DF21C611A320D74005921A5 /* project */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DF21C811A320D74005921A5 /* Build configuration list for PBXNativeTarget "project" */;
+			buildPhases = (
+				31A82C46C66C1D07C9C3FAE8 /* Check Pods Manifest.lock */,
+				3DF21C5E1A320D74005921A5 /* Sources */,
+				3DF21C5F1A320D74005921A5 /* Frameworks */,
+				3DF21C601A320D74005921A5 /* Resources */,
+				205E93A9ADFD03F408A6E6BC /* Copy Pods Resources */,
+				3DF21CD51A32118D005921A5 /* Copy Realm */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = project;
+			productName = project;
+			productReference = 3DF21C621A320D74005921A5 /* project.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3DF21C8A1A320DA8005921A5 /* tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DF21C931A320DA8005921A5 /* Build configuration list for PBXNativeTarget "tests" */;
+			buildPhases = (
+				BE116BE24F6504AA92DD01B1 /* Check Pods Manifest.lock */,
+				3DF21C871A320DA8005921A5 /* Sources */,
+				3DF21C881A320DA8005921A5 /* Frameworks */,
+				3DF21C891A320DA8005921A5 /* Resources */,
+				3DF21CD71A3211A0005921A5 /* Copy Realm */,
+				32D07D9FF8DD11FC7ACB0821 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3DF21C921A320DA8005921A5 /* PBXTargetDependency */,
+			);
+			name = tests;
+			productName = tests;
+			productReference = 3DF21C8B1A320DA8005921A5 /* tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3DF21C5A1A320D74005921A5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = SugarRecord;
+				TargetAttributes = {
+					3DF21C611A320D74005921A5 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					3DF21C8A1A320DA8005921A5 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 3DF21C5D1A320D74005921A5 /* Build configuration list for PBXProject "project" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3DF21C591A320D74005921A5;
+			productRefGroup = 3DF21C631A320D74005921A5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3DF21C611A320D74005921A5 /* project */,
+				3DF21C8A1A320DA8005921A5 /* tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3DF21C601A320D74005921A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DF21C6D1A320D74005921A5 /* Main.storyboard in Resources */,
+				3DF21C721A320D74005921A5 /* LaunchScreen.xib in Resources */,
+				3DF21C6F1A320D74005921A5 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DF21C891A320DA8005921A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		205E93A9ADFD03F408A6E6BC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		31A82C46C66C1D07C9C3FAE8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		32D07D9FF8DD11FC7ACB0821 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE116BE24F6504AA92DD01B1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3DF21C5E1A320D74005921A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DF21CF01A32129B005921A5 /* SugarRecordCDContext.swift in Sources */,
+				3DF21C6A1A320D74005921A5 /* ViewController.swift in Sources */,
+				3DF21CE61A32127C005921A5 /* SugarRecord.swift in Sources */,
+				3DF21CF41A3212A1005921A5 /* DefaultCDStack.swift in Sources */,
+				3DF21CF21A32129E005921A5 /* iCloudCDStack.swift in Sources */,
+				3DF21CE41A321278005921A5 /* SugarRecordFinder.swift in Sources */,
+				3DF21CEA1A321285005921A5 /* SugarRecordObjectProtocol.swift in Sources */,
+				3DF21C681A320D74005921A5 /* AppDelegate.swift in Sources */,
+				3DF21CF61A3212A6005921A5 /* NSManagedObject+SugarRecord.swift in Sources */,
+				3DF21CEE1A321297005921A5 /* SugarRecordFinder+FetchedResultsController.swift in Sources */,
+				3DF21CE81A321281005921A5 /* SugarRecordStackProtocol.swift in Sources */,
+				3DF21CEC1A321288005921A5 /* SugarRecordContextProtocol.swift in Sources */,
+				3DF21CE21A321275005921A5 /* SugarRecordLogger.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DF21C871A320DA8005921A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DF21D141A321A98005921A5 /* SugarRecordCDContextTests.swift in Sources */,
+				3DF21CE11A321275005921A5 /* SugarRecordLogger.swift in Sources */,
+				3DF21D121A321A8B005921A5 /* RealmObject.swift in Sources */,
+				3DF21D0C1A3219BB005921A5 /* SugarRecordRLMContext.swift in Sources */,
+				3DF21CFF1A3215D7005921A5 /* DefaultCDStackTests.swift in Sources */,
+				3DF21CE31A321278005921A5 /* SugarRecordFinder.swift in Sources */,
+				3DF21CFE1A3215D3005921A5 /* CoreDataFetchResultsControllerTests.swift in Sources */,
+				3DF21D071A321899005921A5 /* RestkitCDStack.swift in Sources */,
+				3DF21CF11A32129D005921A5 /* iCloudCDStack.swift in Sources */,
+				3DF21D091A32199C005921A5 /* SugarRecordRLMContextTests.swift in Sources */,
+				3DF21CFB1A3215AF005921A5 /* SugarRecordFinderTests.swift in Sources */,
+				3DF21CED1A321296005921A5 /* SugarRecordFinder+FetchedResultsController.swift in Sources */,
+				3DF21CF81A3212ED005921A5 /* CoreDataObject.swift in Sources */,
+				3DF21D131A321A8D005921A5 /* RealmObjectTests.swift in Sources */,
+				3DF21D021A3215E0005921A5 /* RestkitCDStackTests.swift in Sources */,
+				3DF21D0F1A3219C3005921A5 /* RLMObject+SugarRecord.swift in Sources */,
+				3DF21CE71A321281005921A5 /* SugarRecordStackProtocol.swift in Sources */,
+				3DF21CE51A32127B005921A5 /* SugarRecord.swift in Sources */,
+				3DF21CEF1A32129A005921A5 /* SugarRecordCDContext.swift in Sources */,
+				3DF21CFC1A3215AF005921A5 /* SugarRecordLoggerTests.swift in Sources */,
+				3DF21CD41A321174005921A5 /* RLMSupport.swift in Sources */,
+				3DF21CF31A3212A0005921A5 /* DefaultCDStack.swift in Sources */,
+				3DF21D011A3215DC005921A5 /* NSManagedObject+SugarRecordTests.swift in Sources */,
+				3DF21CEB1A321287005921A5 /* SugarRecordContextProtocol.swift in Sources */,
+				3DF21D001A3215DA005921A5 /* iCloudCDStackTests.swift in Sources */,
+				3DF21CF51A3212A5005921A5 /* NSManagedObject+SugarRecord.swift in Sources */,
+				3DF21D0A1A32199E005921A5 /* RLMObject+SugarRecordTests.swift in Sources */,
+				3DF21D0E1A3219C0005921A5 /* RLMObjectMigration.swift in Sources */,
+				3DF21D0B1A3219A1005921A5 /* DefaultREALMStackTests.swift in Sources */,
+				3DF21D101A3219C5005921A5 /* DefaultREALMStack.swift in Sources */,
+				3DF21CDF1A321263005921A5 /* CoreDataObjectTests.swift in Sources */,
+				3DF21D151A321A9E005921A5 /* SugarRecordTests.swift in Sources */,
+				3DF21CDE1A3211F9005921A5 /* TestsDataModel.xcdatamodeld in Sources */,
+				3DF21CE91A321284005921A5 /* SugarRecordObjectProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3DF21C921A320DA8005921A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DF21C611A320D74005921A5 /* project */;
+			targetProxy = 3DF21C911A320DA8005921A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3DF21C6B1A320D74005921A5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DF21C6C1A320D74005921A5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3DF21C701A320D74005921A5 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DF21C711A320D74005921A5 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3DF21C7F1A320D74005921A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3DF21C801A320D74005921A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3DF21C821A320D74005921A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AF2637D0AC9F5C28E3FC400 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/frameworks/realm",
+				);
+				GCC_PREFIX_HEADER = "projec/Supporting Files/tests-prefix.h";
+				INFOPLIST_FILE = project/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3DF21C831A320D74005921A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED1EAF0C4BE0B24914CA636A /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/frameworks/realm",
+				);
+				GCC_PREFIX_HEADER = "projec/Supporting Files/tests-prefix.h";
+				INFOPLIST_FILE = project/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3DF21C941A320DA8005921A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AF2637D0AC9F5C28E3FC400 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/frameworks/realm",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tests/Supporting Files/testss-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "tests/tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3DF21C951A320DA8005921A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED1EAF0C4BE0B24914CA636A /* Pods.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/frameworks/realm",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tests/Supporting Files/testss-prefix.pch";
+				INFOPLIST_FILE = tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "tests/tests-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3DF21C5D1A320D74005921A5 /* Build configuration list for PBXProject "project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DF21C7F1A320D74005921A5 /* Debug */,
+				3DF21C801A320D74005921A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DF21C811A320D74005921A5 /* Build configuration list for PBXNativeTarget "project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DF21C821A320D74005921A5 /* Debug */,
+				3DF21C831A320D74005921A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DF21C931A320DA8005921A5 /* Build configuration list for PBXNativeTarget "tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DF21C941A320DA8005921A5 /* Debug */,
+				3DF21C951A320DA8005921A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3DF21CDC1A3211F9005921A5 /* TestsDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3DF21CDD1A3211F9005921A5 /* TestsDataModel.xcdatamodel */,
+			);
+			currentVersion = 3DF21CDD1A3211F9005921A5 /* TestsDataModel.xcdatamodel */;
+			path = TestsDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3DF21C5A1A320D74005921A5 /* Project object */;
+}

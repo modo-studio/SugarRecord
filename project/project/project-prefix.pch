@@ -1,0 +1,9 @@
+//
+//  project-prefix.h
+//  project
+//
+//  Created by Pedro Piñera Buendía on 05/12/14.
+//  Copyright (c) 2014 SugarRecord. All rights reserved.
+//
+
+#import <RestKit/RestKit.h>
