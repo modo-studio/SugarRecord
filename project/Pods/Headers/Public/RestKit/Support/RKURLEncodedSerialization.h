@@ -1,0 +1,1 @@
+../../../../RestKit/Code/Support/RKURLEncodedSerialization.h
