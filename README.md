@@ -39,6 +39,7 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 5th-December-2014 | Updated the project structure and the setup steps |
 | 21th-November-2014 | Closed the issue related with RestKit dependency |
 | 21th-November-2014 | Filled the Wiki page covering existing features |
 | 21th-November-2014 | Added AutoSaving feature to CoreData stacks |
@@ -86,6 +87,10 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 - More powerful features to discover!
 
 ## Versions
+### Version 1.0.3 - [WIP]
+- Updated the project structure and added easy setup steps (without CocoaPods)
+
+
 ### Version 1.0.2 Beta - Features
 - Updated the project structure to package the libary in bundles
 - Added `cancelWriting()` feature
@@ -116,7 +121,7 @@ CoreDataObject.all().fetchedResultsController("name")
 
 - 100% **Unit Test** Coverage
 - Complete **Documentation** in CocoaDocs and tutorials made with Playgrounds
-- Fully redesigned structure based on stacks 
+- Fully redesigned structure based on stacks
 - **REALM support**
 - Fully detailed steps to **integrate all components in your project** (*while waiting the integration of CocoaPods*)
 
@@ -161,7 +166,7 @@ If you want to communicate any issue, suggestion or even make a contribution, yo
 - How to **document your project**: http://www.raywenderlich.com/66395/documenting-in-xcode-with-headerdoc-tutorial
 - Tests interesting articles: http://www.objc.io/issue-15/
 - **iCloud + CoreData** (objc.io): http://www.objc.io/issue-10/icloud-core-data.html
-- **Appledoc**, documentation generator: https://github.com/tomaz/appledoc 
+- **Appledoc**, documentation generator: https://github.com/tomaz/appledoc
 - **AlecrimCoreData**: https://github.com/Alecrim/AlecrimCoreData
 
 ## License
