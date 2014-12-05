@@ -1,8 +1,0 @@
-#include "Pods-ISO8601DateFormatterValueTransformer.xcconfig"
-CONFIGURATION_BUILD_DIR = $PODS_FRAMEWORK_BUILD_PATH
-FRAMEWORK_SEARCH_PATHS = "$PODS_FRAMEWORK_BUILD_PATH"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/ISO8601DateFormatterValueTransformer" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/ISO8601DateFormatterValueTransformer" "${PODS_ROOT}/Headers/Public/RKValueTransformers" "${PODS_ROOT}/Headers/Public/RestKit" "${PODS_ROOT}/Headers/Public/RestKit/CoreData" "${PODS_ROOT}/Headers/Public/RestKit/Network" "${PODS_ROOT}/Headers/Public/RestKit/ObjectMapping" "${PODS_ROOT}/Headers/Public/RestKit/Support" "${PODS_ROOT}/Headers/Public/SOCKit" "${PODS_ROOT}/Headers/Public/SugarRecord" "${PODS_ROOT}/Headers/Public/TransitionKit" "${PODS_ROOT}/Headers/Public/Vendor/LibComponentLogging/Core" "${PODS_ROOT}/Headers/Public/Vendor/LibComponentLogging/NSLog"
-OTHER_LDFLAGS = $(inherited) -framework "RKValueTransformers"
-PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods
-PODS_ROOT = ${SRCROOT}

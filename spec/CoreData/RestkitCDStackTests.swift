@@ -39,7 +39,7 @@ class RestkitCDStackTests: XCTestCase
         }
         
         let bundle: NSBundle = NSBundle(forClass: CoreDataObjectTests.classForCoder())
-        let modelPath: NSString = bundle.pathForResource("SugarRecord", ofType: "momd")!
+        let modelPath: NSString = bundle.pathForResource("TestsDataModel", ofType: "momd")!
         let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath)!)!
         let stack: MockReskitCDStack = MockReskitCDStack(databaseName: "Restkit.sqlite", model: model, automigrating: true)
         stack.initialize()
