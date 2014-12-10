@@ -39,6 +39,7 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 10th-December-2014 | Added an example project with a CoreData example |
 | 5th-December-2014 | Updated the project structure and the setup steps |
 | 21th-November-2014 | Closed the issue related with RestKit dependency |
 | 21th-November-2014 | Filled the Wiki page covering existing features |
@@ -89,7 +90,7 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 ## Versions
 ### Version 1.0.3 - [WIP]
 - Updated the project structure and added easy setup steps (without CocoaPods)
-
+- Added example project
 
 ### Version 1.0.2 Beta - Features
 - Updated the project structure to package the libary in bundles
