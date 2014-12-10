@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E1526DAA1A3899D700BC6E1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DA91A3899D700BC6E1E /* AppDelegate.swift */; };
-		E1526DAF1A3899D700BC6E1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1526DAD1A3899D700BC6E1E /* Main.storyboard */; };
-		E1526DB11A3899D700BC6E1E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1526DB01A3899D700BC6E1E /* Images.xcassets */; };
-		E1526DB41A3899D700BC6E1E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1526DB21A3899D700BC6E1E /* LaunchScreen.xib */; };
-		E1526DCA1A389A8000BC6E1E /* StacksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DC91A389A8000BC6E1E /* StacksTableViewController.swift */; };
-		E1526DCC1A389B9C00BC6E1E /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DCB1A389B9C00BC6E1E /* CoreDataTableViewController.swift */; };
+		3DF36C801A38F5A800A73311 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF36C721A38F5A800A73311 /* Images.xcassets */; };
+		3DF36C811A38F5A800A73311 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF36C731A38F5A800A73311 /* LaunchScreen.xib */; };
+		3DF36C821A38F5A800A73311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF36C741A38F5A800A73311 /* Main.storyboard */; };
+		3DF36C831A38F5A800A73311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C771A38F5A800A73311 /* AppDelegate.swift */; };
+		3DF36C841A38F5A800A73311 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C791A38F5A800A73311 /* CoreDataTableViewController.swift */; };
+		3DF36C851A38F5A800A73311 /* StacksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C7A1A38F5A800A73311 /* StacksTableViewController.swift */; };
+		3DF36C861A38F5A800A73311 /* StackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C7B1A38F5A800A73311 /* StackTableViewController.swift */; };
+		3DF36C871A38F5A800A73311 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C7D1A38F5A800A73311 /* CoreDataModel.swift */; };
+		3DF36C881A38F5A800A73311 /* Models.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C7E1A38F5A800A73311 /* Models.xcdatamodeld */; };
 		E1526DD11A389F3200BC6E1E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1526DD01A389F3200BC6E1E /* CoreData.framework */; };
 		E1526DEF1A38A05C00BC6E1E /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DE01A38A05C00BC6E1E /* SugarRecordContextProtocol.swift */; };
 		E1526DF01A38A05C00BC6E1E /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DE11A38A05C00BC6E1E /* SugarRecordObjectProtocol.swift */; };
@@ -25,20 +28,19 @@
 		E1526DF71A38A05C00BC6E1E /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DEA1A38A05C00BC6E1E /* NSManagedObject+SugarRecord.swift */; };
 		E1526DF81A38A05C00BC6E1E /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DEB1A38A05C00BC6E1E /* SugarRecordCDContext.swift */; };
 		E1526DF91A38A05C00BC6E1E /* SugarRecordFinder+FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DEC1A38A05C00BC6E1E /* SugarRecordFinder+FetchedResultsController.swift */; };
-		E1526DFC1A38A1DB00BC6E1E /* StackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DFB1A38A1DB00BC6E1E /* StackTableViewController.swift */; };
-		E1526DFF1A38A39600BC6E1E /* Models.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1526DFD1A38A39600BC6E1E /* Models.xcdatamodeld */; };
-		E1526E021A38A51600BC6E1E /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526E011A38A51600BC6E1E /* CoreDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3DF36C721A38F5A800A73311 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3DF36C731A38F5A800A73311 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		3DF36C741A38F5A800A73311 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3DF36C771A38F5A800A73311 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3DF36C791A38F5A800A73311 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
+		3DF36C7A1A38F5A800A73311 /* StacksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StacksTableViewController.swift; sourceTree = "<group>"; };
+		3DF36C7B1A38F5A800A73311 /* StackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTableViewController.swift; sourceTree = "<group>"; };
+		3DF36C7D1A38F5A800A73311 /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		3DF36C7F1A38F5A800A73311 /* Models.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Models.xcdatamodel; sourceTree = "<group>"; };
 		E1526DA41A3899D700BC6E1E /* SugarRecordExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SugarRecordExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1526DA81A3899D700BC6E1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1526DA91A3899D700BC6E1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1526DAE1A3899D700BC6E1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E1526DB01A3899D700BC6E1E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		E1526DB31A3899D700BC6E1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		E1526DC91A389A8000BC6E1E /* StacksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StacksTableViewController.swift; sourceTree = "<group>"; };
-		E1526DCB1A389B9C00BC6E1E /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		E1526DD01A389F3200BC6E1E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E1526DE01A38A05C00BC6E1E /* SugarRecordContextProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordContextProtocol.swift; sourceTree = "<group>"; };
 		E1526DE11A38A05C00BC6E1E /* SugarRecordObjectProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordObjectProtocol.swift; sourceTree = "<group>"; };
@@ -52,9 +54,6 @@
 		E1526DEB1A38A05C00BC6E1E /* SugarRecordCDContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordCDContext.swift; sourceTree = "<group>"; };
 		E1526DEC1A38A05C00BC6E1E /* SugarRecordFinder+FetchedResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecordFinder+FetchedResultsController.swift"; sourceTree = "<group>"; };
 		E1526DEE1A38A05C00BC6E1E /* RestkitCDStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestkitCDStack.swift; sourceTree = "<group>"; };
-		E1526DFB1A38A1DB00BC6E1E /* StackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTableViewController.swift; sourceTree = "<group>"; };
-		E1526DFE1A38A39600BC6E1E /* Models.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Models.xcdatamodel; sourceTree = "<group>"; };
-		E1526E011A38A51600BC6E1E /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +68,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DF36C711A38F5A800A73311 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3DF36C721A38F5A800A73311 /* Images.xcassets */,
+				3DF36C731A38F5A800A73311 /* LaunchScreen.xib */,
+				3DF36C741A38F5A800A73311 /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3DF36C751A38F5A800A73311 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3DF36C761A38F5A800A73311 /* Application */,
+				3DF36C781A38F5A800A73311 /* Controllers */,
+				3DF36C7C1A38F5A800A73311 /* Models */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		3DF36C761A38F5A800A73311 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3DF36C771A38F5A800A73311 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3DF36C781A38F5A800A73311 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3DF36C791A38F5A800A73311 /* CoreDataTableViewController.swift */,
+				3DF36C7A1A38F5A800A73311 /* StacksTableViewController.swift */,
+				3DF36C7B1A38F5A800A73311 /* StackTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3DF36C7C1A38F5A800A73311 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3DF36C7D1A38F5A800A73311 /* CoreDataModel.swift */,
+				3DF36C7E1A38F5A800A73311 /* Models.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E1526D9B1A3899D700BC6E1E = {
 			isa = PBXGroup;
 			children = (
@@ -88,11 +134,9 @@
 		E1526DA61A3899D700BC6E1E /* SugarRecordExample */ = {
 			isa = PBXGroup;
 			children = (
-				E1526DA91A3899D700BC6E1E /* AppDelegate.swift */,
-				E1526DC91A389A8000BC6E1E /* StacksTableViewController.swift */,
-				E1526DCD1A389CA400BC6E1E /* Stacks */,
+				3DF36C711A38F5A800A73311 /* Resources */,
+				3DF36C751A38F5A800A73311 /* Shared */,
 				E1526DCF1A389DC600BC6E1E /* SugarRecord */,
-				E1526DCE1A389CAB00BC6E1E /* Resources */,
 				E1526DA71A3899D700BC6E1E /* Supporting Files */,
 			);
 			path = SugarRecordExample;
@@ -102,29 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				E1526DD01A389F3200BC6E1E /* CoreData.framework */,
-				E1526DA81A3899D700BC6E1E /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E1526DCD1A389CA400BC6E1E /* Stacks */ = {
-			isa = PBXGroup;
-			children = (
-				E1526DFB1A38A1DB00BC6E1E /* StackTableViewController.swift */,
-				E1526DFD1A38A39600BC6E1E /* Models.xcdatamodeld */,
-				E1526E001A38A4E100BC6E1E /* CoreData */,
-			);
-			name = Stacks;
-			sourceTree = "<group>";
-		};
-		E1526DCE1A389CAB00BC6E1E /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E1526DB01A3899D700BC6E1E /* Images.xcassets */,
-				E1526DAD1A3899D700BC6E1E /* Main.storyboard */,
-				E1526DB21A3899D700BC6E1E /* LaunchScreen.xib */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		E1526DCF1A389DC600BC6E1E /* SugarRecord */ = {
@@ -188,15 +211,6 @@
 			path = RestKit;
 			sourceTree = "<group>";
 		};
-		E1526E001A38A4E100BC6E1E /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				E1526DCB1A389B9C00BC6E1E /* CoreDataTableViewController.swift */,
-				E1526E011A38A51600BC6E1E /* CoreDataModel.swift */,
-			);
-			name = CoreData;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,9 +268,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1526DAF1A3899D700BC6E1E /* Main.storyboard in Resources */,
-				E1526DB41A3899D700BC6E1E /* LaunchScreen.xib in Resources */,
-				E1526DB11A3899D700BC6E1E /* Images.xcassets in Resources */,
+				3DF36C821A38F5A800A73311 /* Main.storyboard in Resources */,
+				3DF36C811A38F5A800A73311 /* LaunchScreen.xib in Resources */,
+				3DF36C801A38F5A800A73311 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,10 +281,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1526DAA1A3899D700BC6E1E /* AppDelegate.swift in Sources */,
-				E1526DFC1A38A1DB00BC6E1E /* StackTableViewController.swift in Sources */,
-				E1526DCC1A389B9C00BC6E1E /* CoreDataTableViewController.swift in Sources */,
-				E1526E021A38A51600BC6E1E /* CoreDataModel.swift in Sources */,
+				3DF36C831A38F5A800A73311 /* AppDelegate.swift in Sources */,
+				3DF36C861A38F5A800A73311 /* StackTableViewController.swift in Sources */,
+				3DF36C871A38F5A800A73311 /* CoreDataModel.swift in Sources */,
 				E1526DF21A38A05C00BC6E1E /* SugarRecord.swift in Sources */,
 				E1526DF31A38A05C00BC6E1E /* SugarRecordFinder.swift in Sources */,
 				E1526DF61A38A05C00BC6E1E /* iCloudCDStack.swift in Sources */,
@@ -278,35 +291,17 @@
 				E1526DF11A38A05C00BC6E1E /* SugarRecordStackProtocol.swift in Sources */,
 				E1526DF51A38A05C00BC6E1E /* DefaultCDStack.swift in Sources */,
 				E1526DF41A38A05C00BC6E1E /* SugarRecordLogger.swift in Sources */,
+				3DF36C851A38F5A800A73311 /* StacksTableViewController.swift in Sources */,
 				E1526DEF1A38A05C00BC6E1E /* SugarRecordContextProtocol.swift in Sources */,
-				E1526DFF1A38A39600BC6E1E /* Models.xcdatamodeld in Sources */,
 				E1526DF91A38A05C00BC6E1E /* SugarRecordFinder+FetchedResultsController.swift in Sources */,
-				E1526DCA1A389A8000BC6E1E /* StacksTableViewController.swift in Sources */,
+				3DF36C841A38F5A800A73311 /* CoreDataTableViewController.swift in Sources */,
 				E1526DF01A38A05C00BC6E1E /* SugarRecordObjectProtocol.swift in Sources */,
+				3DF36C881A38F5A800A73311 /* Models.xcdatamodeld in Sources */,
 				E1526DF71A38A05C00BC6E1E /* NSManagedObject+SugarRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		E1526DAD1A3899D700BC6E1E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E1526DAE1A3899D700BC6E1E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E1526DB21A3899D700BC6E1E /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E1526DB31A3899D700BC6E1E /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E1526DC11A3899D800BC6E1E /* Debug */ = {
@@ -392,7 +387,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SugarRecordExample/Info.plist;
+				INFOPLIST_FILE = "SugarRecordExample/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -402,7 +397,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SugarRecordExample/Info.plist;
+				INFOPLIST_FILE = "SugarRecordExample/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -432,12 +427,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E1526DFD1A38A39600BC6E1E /* Models.xcdatamodeld */ = {
+		3DF36C7E1A38F5A800A73311 /* Models.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E1526DFE1A38A39600BC6E1E /* Models.xcdatamodel */,
+				3DF36C7F1A38F5A800A73311 /* Models.xcdatamodel */,
 			);
-			currentVersion = E1526DFE1A38A39600BC6E1E /* Models.xcdatamodel */;
+			currentVersion = 3DF36C7F1A38F5A800A73311 /* Models.xcdatamodel */;
 			path = Models.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
