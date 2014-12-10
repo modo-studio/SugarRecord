@@ -194,3 +194,7 @@ THE SOFTWARE.
 
 ## Who uses SugarRecord?
 If you are currently using SugarRecord in your app, let me know and I'll add it to the list.
+
+## Donations
+SugarRecord is almost completely the work of one man: me; Pedro Pinñera. I thoroughly enjoyed making SugarRecord, but nevertheless if you have found it useful then your bitcoin will give me a warm fuzzy feeling from my head right down to my toes
+<a class="coinbase-button" data-code="1ec3e63d01a2bda96275e24a81c478c6" data-button-style="custom_large" href="https://www.coinbase.com/checkouts/1ec3e63d01a2bda96275e24a81c478c6">Donate Bitcoins</a><script src="https://www.coinbase.com/assets/button.js" type="text/javascript"></script>
