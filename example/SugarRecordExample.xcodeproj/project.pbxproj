@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17789BF20854A2251ACB4763 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93387547534B0073B3B4B328 /* libPods.a */; };
 		3DF36C801A38F5A800A73311 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF36C721A38F5A800A73311 /* Images.xcassets */; };
 		3DF36C811A38F5A800A73311 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF36C731A38F5A800A73311 /* LaunchScreen.xib */; };
 		3DF36C821A38F5A800A73311 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF36C741A38F5A800A73311 /* Main.storyboard */; };
@@ -16,12 +17,7 @@
 		3DF36C861A38F5A800A73311 /* StackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C7B1A38F5A800A73311 /* StackTableViewController.swift */; };
 		3DF36C871A38F5A800A73311 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C7D1A38F5A800A73311 /* CoreDataModel.swift */; };
 		3DF36C881A38F5A800A73311 /* Models.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C7E1A38F5A800A73311 /* Models.xcdatamodeld */; };
-		3DF36C8E1A39056B00A73311 /* DefaultREALMStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C8A1A39056B00A73311 /* DefaultREALMStack.swift */; };
-		3DF36C8F1A39056B00A73311 /* RLMObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C8B1A39056B00A73311 /* RLMObject+SugarRecord.swift */; };
-		3DF36C901A39056B00A73311 /* RLMObjectMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C8C1A39056B00A73311 /* RLMObjectMigration.swift */; };
-		3DF36C911A39056B00A73311 /* SugarRecordRLMContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C8D1A39056B00A73311 /* SugarRecordRLMContext.swift */; };
 		3DF36C941A39057F00A73311 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF36C921A39057F00A73311 /* Realm.framework */; };
-		3DF36C951A39057F00A73311 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C931A39057F00A73311 /* RLMSupport.swift */; };
 		3DF36C971A39059D00A73311 /* Realm.framework in Copy Realm */ = {isa = PBXBuildFile; fileRef = 3DF36C921A39057F00A73311 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DF36C991A3905CE00A73311 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF36C981A3905CE00A73311 /* libc++.dylib */; };
 		E1526DD11A389F3200BC6E1E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1526DD01A389F3200BC6E1E /* CoreData.framework */; };
@@ -69,6 +65,9 @@
 		3DF36C921A39057F00A73311 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../../project/frameworks/realm/Realm.framework; sourceTree = "<group>"; };
 		3DF36C931A39057F00A73311 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RLMSupport.swift; path = ../../project/frameworks/realm/RLMSupport.swift; sourceTree = "<group>"; };
 		3DF36C981A3905CE00A73311 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		93387547534B0073B3B4B328 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BED8AACE3217C166E177ACA9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E14DAC421A3A01BB008AC983 /* SugarRecordExample-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SugarRecordExample-Bridging-Header.h"; path = "Supporting Files/SugarRecordExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		E1526DA41A3899D700BC6E1E /* SugarRecordExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SugarRecordExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1526DD01A389F3200BC6E1E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E1526DE01A38A05C00BC6E1E /* SugarRecordContextProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordContextProtocol.swift; sourceTree = "<group>"; };
@@ -83,6 +82,7 @@
 		E1526DEB1A38A05C00BC6E1E /* SugarRecordCDContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordCDContext.swift; sourceTree = "<group>"; };
 		E1526DEC1A38A05C00BC6E1E /* SugarRecordFinder+FetchedResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecordFinder+FetchedResultsController.swift"; sourceTree = "<group>"; };
 		E1526DEE1A38A05C00BC6E1E /* RestkitCDStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestkitCDStack.swift; sourceTree = "<group>"; };
+		FE2383080BC2BC9A829E8C5C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,12 +93,22 @@
 				3DF36C991A3905CE00A73311 /* libc++.dylib in Frameworks */,
 				3DF36C941A39057F00A73311 /* Realm.framework in Frameworks */,
 				E1526DD11A389F3200BC6E1E /* CoreData.framework in Frameworks */,
+				17789BF20854A2251ACB4763 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06139A41F50F729D918D5606 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BED8AACE3217C166E177ACA9 /* Pods.debug.xcconfig */,
+				FE2383080BC2BC9A829E8C5C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3DF36C711A38F5A800A73311 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,11 +168,21 @@
 			path = ../../library/Realm;
 			sourceTree = "<group>";
 		};
+		D817149565B1162A3517E14E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93387547534B0073B3B4B328 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E1526D9B1A3899D700BC6E1E = {
 			isa = PBXGroup;
 			children = (
 				E1526DA61A3899D700BC6E1E /* SugarRecordExample */,
 				E1526DA51A3899D700BC6E1E /* Products */,
+				06139A41F50F729D918D5606 /* Pods */,
+				D817149565B1162A3517E14E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,9 +208,10 @@
 		E1526DA71A3899D700BC6E1E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E14DAC421A3A01BB008AC983 /* SugarRecordExample-Bridging-Header.h */,
 				3DF36C981A3905CE00A73311 /* libc++.dylib */,
-				3DF36C921A39057F00A73311 /* Realm.framework */,
 				3DF36C931A39057F00A73311 /* RLMSupport.swift */,
+				3DF36C921A39057F00A73311 /* Realm.framework */,
 				E1526DD01A389F3200BC6E1E /* CoreData.framework */,
 			);
 			name = "Supporting Files";
@@ -199,9 +220,9 @@
 		E1526DCF1A389DC600BC6E1E /* SugarRecord */ = {
 			isa = PBXGroup;
 			children = (
-				3DF36C891A39056B00A73311 /* Realm */,
 				E1526DDE1A38A05C00BC6E1E /* Core */,
 				E1526DE61A38A05C00BC6E1E /* CoreData */,
+				3DF36C891A39056B00A73311 /* Realm */,
 			);
 			name = SugarRecord;
 			sourceTree = "<group>";
@@ -265,10 +286,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1526DC31A3899D800BC6E1E /* Build configuration list for PBXNativeTarget "SugarRecordExample" */;
 			buildPhases = (
+				7340E3678668088BAE6B58B7 /* Check Pods Manifest.lock */,
 				E1526DA01A3899D700BC6E1E /* Sources */,
 				E1526DA11A3899D700BC6E1E /* Frameworks */,
 				E1526DA21A3899D700BC6E1E /* Resources */,
 				3DF36C961A39059200A73311 /* Copy Realm */,
+				E9DB33720A807CDF7AA5F6A3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,25 +347,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7340E3678668088BAE6B58B7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E9DB33720A807CDF7AA5F6A3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E1526DA01A3899D700BC6E1E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3DF36C831A38F5A800A73311 /* AppDelegate.swift in Sources */,
-				3DF36C951A39057F00A73311 /* RLMSupport.swift in Sources */,
 				3DF36C861A38F5A800A73311 /* StackTableViewController.swift in Sources */,
-				3DF36C8E1A39056B00A73311 /* DefaultREALMStack.swift in Sources */,
 				3DF36C871A38F5A800A73311 /* CoreDataModel.swift in Sources */,
 				E1526DF21A38A05C00BC6E1E /* SugarRecord.swift in Sources */,
 				E1526DF31A38A05C00BC6E1E /* SugarRecordFinder.swift in Sources */,
-				3DF36C8F1A39056B00A73311 /* RLMObject+SugarRecord.swift in Sources */,
-				3DF36C911A39056B00A73311 /* SugarRecordRLMContext.swift in Sources */,
 				E1526DF61A38A05C00BC6E1E /* iCloudCDStack.swift in Sources */,
 				E1526DF81A38A05C00BC6E1E /* SugarRecordCDContext.swift in Sources */,
 				E1526DF11A38A05C00BC6E1E /* SugarRecordStackProtocol.swift in Sources */,
 				E1526DF51A38A05C00BC6E1E /* DefaultCDStack.swift in Sources */,
-				3DF36C901A39056B00A73311 /* RLMObjectMigration.swift in Sources */,
 				E1526DF41A38A05C00BC6E1E /* SugarRecordLogger.swift in Sources */,
 				3DF36C851A38F5A800A73311 /* StacksTableViewController.swift in Sources */,
 				E1526DEF1A38A05C00BC6E1E /* SugarRecordContextProtocol.swift in Sources */,
@@ -438,29 +489,33 @@
 		};
 		E1526DC41A3899D800BC6E1E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BED8AACE3217C166E177ACA9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/pepibumur/code/SugarRecord/project/frameworks/realm,
+					../project/frameworks/realm,
 				);
 				INFOPLIST_FILE = "SugarRecordExample/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SugarRecordExample/Supporting Files/SugarRecordExample-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		E1526DC51A3899D800BC6E1E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE2383080BC2BC9A829E8C5C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/pepibumur/code/SugarRecord/project/frameworks/realm,
+					../project/frameworks/realm,
 				);
 				INFOPLIST_FILE = "SugarRecordExample/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SugarRecordExample/Supporting Files/SugarRecordExample-Bridging-Header.h";
 			};
 			name = Release;
 		};
