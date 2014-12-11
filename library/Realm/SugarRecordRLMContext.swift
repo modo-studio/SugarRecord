@@ -90,6 +90,7 @@ public class SugarRecordRLMContext: SugarRecordContext
             filteredObjects = objectClass.objectsWithPredicate(finder.predicate)
         }
         else {
+            let array: Array<Int>?
             filteredObjects = objectClass.allObjectsInRealm(self.realmContext)
         }
         var sortedObjects: RLMResults = filteredObjects!
