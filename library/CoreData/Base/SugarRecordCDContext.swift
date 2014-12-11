@@ -86,13 +86,18 @@ public class SugarRecordCDContext: SugarRecordContext
     
     :returns: Objects fetched
     */
-    public func find(finder: SugarRecordFinder) -> [AnyObject]?
+    public func find(finder: SugarRecordFinder) -> [AnyObject]
     {
         let fetchRequest: NSFetchRequest = SugarRecordCDContext.fetchRequest(fromFinder: finder)
         var error: NSError?
         var objects: [AnyObject]? = self.contextCD.executeFetchRequest(fetchRequest, error: &error)
         SugarRecordLogger.logLevelInfo.log("Found \(objects?.count) objects in database")
-        return objects
+        if objects == nil  {
+            return [AnyObject]()
+        }
+        else {
+            return objects!
+        }
     }
     
     /**
