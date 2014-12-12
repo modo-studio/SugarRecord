@@ -39,6 +39,7 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 10th-December-2014 | Query response array is now non-optional |
 | 10th-December-2014 | Generated documentation using Jazzy |
 | 10th-December-2014 | Added an example project with a CoreData example |
 | 5th-December-2014 | Updated the project structure and the setup steps |

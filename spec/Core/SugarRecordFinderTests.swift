@@ -31,9 +31,9 @@ class SugarRecordSugarRecordFinderTests: XCTestCase
         class MockContext: SugarRecordCDContext
         {
             var findCalled: Bool = false
-            override func find(finder: SugarRecordFinder) -> [AnyObject]? {
+            override func find(finder: SugarRecordFinder) -> [AnyObject] {
                 findCalled = true
-                return nil
+                return [AnyObject]()
             }
         }
         let context: MockContext = MockContext(context: NSManagedObjectContext())
