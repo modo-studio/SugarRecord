@@ -69,6 +69,7 @@
 		3DF36CA61A39378600A73311 /* SugarRecordCDResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36CA41A39378600A73311 /* SugarRecordCDResults.swift */; };
 		3DF36CA81A3937C700A73311 /* SugarRecordRLMResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36CA71A3937C700A73311 /* SugarRecordRLMResults.swift */; };
 		3DF36CA91A3937C700A73311 /* SugarRecordRLMResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36CA71A3937C700A73311 /* SugarRecordRLMResults.swift */; };
+		3DF36CAA1A3A6EE800A73311 /* SugarRecordResultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36CA21A39367500A73311 /* SugarRecordResultsProtocol.swift */; };
 		5684F0786ACF6409567AABF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 605A17441A635B9127C0C7FF /* libPods.a */; };
 		597593CACD2F7CEE76E936B9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 605A17441A635B9127C0C7FF /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -642,6 +643,7 @@
 				3DF36CA61A39378600A73311 /* SugarRecordCDResults.swift in Sources */,
 				3DF21D0A1A32199E005921A5 /* RLMObject+SugarRecordTests.swift in Sources */,
 				3DF21D0E1A3219C0005921A5 /* RLMObjectMigration.swift in Sources */,
+				3DF36CAA1A3A6EE800A73311 /* SugarRecordResultsProtocol.swift in Sources */,
 				3DF21D0B1A3219A1005921A5 /* DefaultREALMStackTests.swift in Sources */,
 				3DF21D101A3219C5005921A5 /* DefaultREALMStack.swift in Sources */,
 				3DF21CDF1A321263005921A5 /* CoreDataObjectTests.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SugarRecordCDResults: SugarRecordResultsProtocol
+class SugarRecordCDResults
 {
-    
+
 }
