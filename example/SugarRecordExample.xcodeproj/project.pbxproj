@@ -20,6 +20,8 @@
 		3DF36C941A39057F00A73311 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF36C921A39057F00A73311 /* Realm.framework */; };
 		3DF36C971A39059D00A73311 /* Realm.framework in Copy Realm */ = {isa = PBXBuildFile; fileRef = 3DF36C921A39057F00A73311 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DF36C991A3905CE00A73311 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF36C981A3905CE00A73311 /* libc++.dylib */; };
+		E14DAC441A3A0448008AC983 /* RestKitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14DAC431A3A0448008AC983 /* RestKitTableViewController.swift */; };
+		E14DAC451A3A053B008AC983 /* RestkitCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DEE1A38A05C00BC6E1E /* RestkitCDStack.swift */; };
 		E1526DD11A389F3200BC6E1E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1526DD01A389F3200BC6E1E /* CoreData.framework */; };
 		E1526DEF1A38A05C00BC6E1E /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DE01A38A05C00BC6E1E /* SugarRecordContextProtocol.swift */; };
 		E1526DF01A38A05C00BC6E1E /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DE11A38A05C00BC6E1E /* SugarRecordObjectProtocol.swift */; };
@@ -32,6 +34,7 @@
 		E1526DF71A38A05C00BC6E1E /* NSManagedObject+SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DEA1A38A05C00BC6E1E /* NSManagedObject+SugarRecord.swift */; };
 		E1526DF81A38A05C00BC6E1E /* SugarRecordCDContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DEB1A38A05C00BC6E1E /* SugarRecordCDContext.swift */; };
 		E1526DF91A38A05C00BC6E1E /* SugarRecordFinder+FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DEC1A38A05C00BC6E1E /* SugarRecordFinder+FetchedResultsController.swift */; };
+		E197C9CD1A3F97AA000533A4 /* RestKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197C9CC1A3F97AA000533A4 /* RestKitModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +71,7 @@
 		93387547534B0073B3B4B328 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED8AACE3217C166E177ACA9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E14DAC421A3A01BB008AC983 /* SugarRecordExample-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SugarRecordExample-Bridging-Header.h"; path = "Supporting Files/SugarRecordExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		E14DAC431A3A0448008AC983 /* RestKitTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestKitTableViewController.swift; sourceTree = "<group>"; };
 		E1526DA41A3899D700BC6E1E /* SugarRecordExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SugarRecordExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1526DD01A389F3200BC6E1E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E1526DE01A38A05C00BC6E1E /* SugarRecordContextProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordContextProtocol.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 		E1526DEB1A38A05C00BC6E1E /* SugarRecordCDContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordCDContext.swift; sourceTree = "<group>"; };
 		E1526DEC1A38A05C00BC6E1E /* SugarRecordFinder+FetchedResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SugarRecordFinder+FetchedResultsController.swift"; sourceTree = "<group>"; };
 		E1526DEE1A38A05C00BC6E1E /* RestkitCDStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestkitCDStack.swift; sourceTree = "<group>"; };
+		E197C9CB1A3F977C000533A4 /* Models 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Models 2.xcdatamodel"; sourceTree = "<group>"; };
+		E197C9CC1A3F97AA000533A4 /* RestKitModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestKitModel.swift; sourceTree = "<group>"; };
 		FE2383080BC2BC9A829E8C5C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				3DF36C791A38F5A800A73311 /* CoreDataTableViewController.swift */,
+				E14DAC431A3A0448008AC983 /* RestKitTableViewController.swift */,
 				3DF36C7A1A38F5A800A73311 /* StacksTableViewController.swift */,
 				3DF36C7B1A38F5A800A73311 /* StackTableViewController.swift */,
 			);
@@ -151,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				3DF36C7D1A38F5A800A73311 /* CoreDataModel.swift */,
+				E197C9CC1A3F97AA000533A4 /* RestKitModel.swift */,
 				3DF36C7E1A38F5A800A73311 /* Models.xcdatamodeld */,
 			);
 			path = Models;
@@ -385,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E197C9CD1A3F97AA000533A4 /* RestKitModel.swift in Sources */,
 				3DF36C831A38F5A800A73311 /* AppDelegate.swift in Sources */,
 				3DF36C861A38F5A800A73311 /* StackTableViewController.swift in Sources */,
 				3DF36C871A38F5A800A73311 /* CoreDataModel.swift in Sources */,
@@ -392,7 +401,9 @@
 				E1526DF31A38A05C00BC6E1E /* SugarRecordFinder.swift in Sources */,
 				E1526DF61A38A05C00BC6E1E /* iCloudCDStack.swift in Sources */,
 				E1526DF81A38A05C00BC6E1E /* SugarRecordCDContext.swift in Sources */,
+				E14DAC451A3A053B008AC983 /* RestkitCDStack.swift in Sources */,
 				E1526DF11A38A05C00BC6E1E /* SugarRecordStackProtocol.swift in Sources */,
+				E14DAC441A3A0448008AC983 /* RestKitTableViewController.swift in Sources */,
 				E1526DF51A38A05C00BC6E1E /* DefaultCDStack.swift in Sources */,
 				E1526DF41A38A05C00BC6E1E /* SugarRecordLogger.swift in Sources */,
 				3DF36C851A38F5A800A73311 /* StacksTableViewController.swift in Sources */,
@@ -546,9 +557,10 @@
 		3DF36C7E1A38F5A800A73311 /* Models.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E197C9CB1A3F977C000533A4 /* Models 2.xcdatamodel */,
 				3DF36C7F1A38F5A800A73311 /* Models.xcdatamodel */,
 			);
-			currentVersion = 3DF36C7F1A38F5A800A73311 /* Models.xcdatamodel */;
+			currentVersion = E197C9CB1A3F977C000533A4 /* Models 2.xcdatamodel */;
 			path = Models.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

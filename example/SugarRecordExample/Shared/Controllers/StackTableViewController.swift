@@ -25,8 +25,6 @@ class StackTableViewController: UITableViewController {
     // MARK: - UIViewController
 
     override func viewDidLoad() {
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ModelCell")
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "add:")
         
         super.viewDidLoad()
@@ -42,21 +40,19 @@ class StackTableViewController: UITableViewController {
     // MARK: - StackTableViewController
     
     @IBAction func add(sender: AnyObject?) {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "MMMM d yyyy - HH:mm:ss"
         
-        let model = self.entityClass.create() as CoreDataModel
-        model.text = formatter.stringFromDate(NSDate())
-        model.save()
-        
-        self.fetchData()
-        
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Top)
     }
     
     func fetchData() {
-        self.data = self.entityClass.all().sorted(by: "text", ascending: false).find()! as? [NSManagedObject]
+        
+    }
+    
+    func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
+        
+    }
+    
+    func cellIdentifier() -> String {
+        return "ModelCell"
     }
 
     // MARK: - UITableViewDataSource
@@ -70,10 +66,9 @@ class StackTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ModelCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier(), forIndexPath: indexPath) as UITableViewCell
 
-        let model = self.data![indexPath.row] as CoreDataModel
-        cell.textLabel?.text = model.text
+        self.configureCell(cell, indexPath: indexPath)
 
         return cell
     }

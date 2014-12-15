@@ -11,7 +11,8 @@ import UIKit
 class StacksTableViewController: UITableViewController {
     
     var stacks: [String] = [
-        "CoreData"
+        "CoreData",
+        "RestKit"
     ]
 
     override func viewDidLoad() {
@@ -37,12 +38,16 @@ class StacksTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         var viewController: UITableViewController?
         let stack = self.stacks[indexPath.row]
         
         switch (stack) {
         case "CoreData":
             viewController = CoreDataTableViewController()
+            
+        case "RestKit":
+            viewController = storyBoard.instantiateViewControllerWithIdentifier("RestKitTableViewController") as? UITableViewController
             
         default:
             println("View Controller not found for stack: \(stack)")
