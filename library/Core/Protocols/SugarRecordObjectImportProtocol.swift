@@ -1,7 +1,7 @@
-protocol SugarRecordObjectImportProtocol
+protocol SugarRecordObjectImportProtocol: SugarRecordObjectProtocol
 {
 	class func mapAttributes(#remoteObject: JSON, localObject: SugarRecordObjectProtocol, mappingModel: MappingModel)
-	
+	class func mapRelationships(#remoteObject: JSON, localObject: SugarRecordObjectProtocol, mappingModel: MappingModel, cache: [RemoteKey: [String: Anyobject]])
 	class func import(#object: JSON, inContext context: SugarRecordContext, scheme: MappinScheme?) -> SugarRecordObjectProtocol
 	class func import(#array: JSON, inContext context: SugarRecordContext, scheme: MappingScheme?) -> [SugarRecordObjectProtocol]
 
@@ -21,7 +21,7 @@ enum MappingScheme
 enum MappingAttributeType
 {
 	case simpleAttribute, identiferAttribute,
-	case relationshipAttribute(let prefetch: Bool, dest: SugarRecordObjectImportProtocol)
+	case relationshipAttribute(let prefetch: Bool, dest: AnyClass) // Check if dest conforms SugarRecordObjectProtocol
 }
 
 struct MappingAttribute
@@ -50,6 +50,9 @@ class MappingModel
 		attributes.append
 	}
 }
+
+// Project.by(NSPredicate(...)).find() as [Project]
+
 
 // return MappingModel.builder().
 // add("name").
