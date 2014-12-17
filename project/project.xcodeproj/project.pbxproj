@@ -66,6 +66,9 @@
 		3DF21D151A321A9E005921A5 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CB81A3210F7005921A5 /* SugarRecordTests.swift */; };
 		5684F0786ACF6409567AABF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 605A17441A635B9127C0C7FF /* libPods.a */; };
 		597593CACD2F7CEE76E936B9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 605A17441A635B9127C0C7FF /* libPods.a */; };
+		6A714C8E1A41047000C6FEA5 /* SugarRecordObjectImportProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714C8D1A41047000C6FEA5 /* SugarRecordObjectImportProtocol.swift */; };
+		6A714C901A41049700C6FEA5 /* NSManagedObject+Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714C8F1A41049700C6FEA5 /* NSManagedObject+Import.swift */; };
+		6A714C921A4104A800C6FEA5 /* RLMObject+Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714C911A4104A800C6FEA5 /* RLMObject+Import.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +159,9 @@
 		3DF21D031A32180B005921A5 /* tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		4AF2637D0AC9F5C28E3FC400 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		605A17441A635B9127C0C7FF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A714C8D1A41047000C6FEA5 /* SugarRecordObjectImportProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordObjectImportProtocol.swift; sourceTree = "<group>"; };
+		6A714C8F1A41049700C6FEA5 /* NSManagedObject+Import.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Import.swift"; sourceTree = "<group>"; };
+		6A714C911A4104A800C6FEA5 /* RLMObject+Import.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RLMObject+Import.swift"; sourceTree = "<group>"; };
 		ED1EAF0C4BE0B24914CA636A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -287,6 +293,7 @@
 		3DF21C981A32100A005921A5 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				6A714C8D1A41047000C6FEA5 /* SugarRecordObjectImportProtocol.swift */,
 				3DF21C991A32100A005921A5 /* SugarRecordContextProtocol.swift */,
 				3DF21C9A1A32100A005921A5 /* SugarRecordObjectProtocol.swift */,
 				3DF21C9B1A32100A005921A5 /* SugarRecordStackProtocol.swift */,
@@ -310,6 +317,7 @@
 				3DF21CA21A32100A005921A5 /* iCloudCDStack.swift */,
 				3DF21CA31A32100A005921A5 /* NSManagedObject+SugarRecord.swift */,
 				3DF21CA41A32100A005921A5 /* SugarRecordCDContext.swift */,
+				6A714C8F1A41049700C6FEA5 /* NSManagedObject+Import.swift */,
 				3DF21CA51A32100A005921A5 /* SugarRecordFinder+FetchedResultsController.swift */,
 			);
 			path = Base;
@@ -330,6 +338,7 @@
 				3DF21CAE1A32100A005921A5 /* RLMObject+SugarRecord.swift */,
 				3DF21CAF1A32100A005921A5 /* RLMObjectMigration.swift */,
 				3DF21CB11A32100A005921A5 /* SugarRecordRLMContext.swift */,
+				6A714C911A4104A800C6FEA5 /* RLMObject+Import.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -583,9 +592,12 @@
 				3DF21CE61A32127C005921A5 /* SugarRecord.swift in Sources */,
 				3DF21CF41A3212A1005921A5 /* DefaultCDStack.swift in Sources */,
 				3DF21CF21A32129E005921A5 /* iCloudCDStack.swift in Sources */,
+				6A714C8E1A41047000C6FEA5 /* SugarRecordObjectImportProtocol.swift in Sources */,
 				3DF21CE41A321278005921A5 /* SugarRecordFinder.swift in Sources */,
 				3DF21CEA1A321285005921A5 /* SugarRecordObjectProtocol.swift in Sources */,
 				3DF21C681A320D74005921A5 /* AppDelegate.swift in Sources */,
+				6A714C921A4104A800C6FEA5 /* RLMObject+Import.swift in Sources */,
+				6A714C901A41049700C6FEA5 /* NSManagedObject+Import.swift in Sources */,
 				3DF21CF61A3212A6005921A5 /* NSManagedObject+SugarRecord.swift in Sources */,
 				3DF21CEE1A321297005921A5 /* SugarRecordFinder+FetchedResultsController.swift in Sources */,
 				3DF21CE81A321281005921A5 /* SugarRecordStackProtocol.swift in Sources */,
