@@ -1,1 +1,0 @@
-SugarRecordLogger.currentLevel = SugarRecordLogger.logLevelVerbose
