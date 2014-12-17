@@ -19,3 +19,4 @@ class CoreDataObject: NSManagedObject {
     @NSManaged var name: String
 
 }
+

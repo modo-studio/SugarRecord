@@ -69,6 +69,12 @@
 		6A714C8E1A41047000C6FEA5 /* SugarRecordObjectImportProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714C8D1A41047000C6FEA5 /* SugarRecordObjectImportProtocol.swift */; };
 		6A714C901A41049700C6FEA5 /* NSManagedObject+Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714C8F1A41049700C6FEA5 /* NSManagedObject+Import.swift */; };
 		6A714C921A4104A800C6FEA5 /* RLMObject+Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714C911A4104A800C6FEA5 /* RLMObject+Import.swift */; };
+		6A714C941A4104FA00C6FEA5 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714C931A4104FA00C6FEA5 /* SwiftyJSON.swift */; };
+		6AA3F3311A41138700D3F935 /* NSManagedObject+Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714C8F1A41049700C6FEA5 /* NSManagedObject+Import.swift */; };
+		6AA3F3321A41138A00D3F935 /* SugarRecordObjectImportProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714C8D1A41047000C6FEA5 /* SugarRecordObjectImportProtocol.swift */; };
+		6AA3F3331A41138F00D3F935 /* RLMObject+Import.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714C911A4104A800C6FEA5 /* RLMObject+Import.swift */; };
+		6AA3F3351A4113DC00D3F935 /* NSManagedObject+ImportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3F3341A4113DC00D3F935 /* NSManagedObject+ImportTests.swift */; };
+		6AA3F3361A41152D00D3F935 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A714C931A4104FA00C6FEA5 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +168,8 @@
 		6A714C8D1A41047000C6FEA5 /* SugarRecordObjectImportProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordObjectImportProtocol.swift; sourceTree = "<group>"; };
 		6A714C8F1A41049700C6FEA5 /* NSManagedObject+Import.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Import.swift"; sourceTree = "<group>"; };
 		6A714C911A4104A800C6FEA5 /* RLMObject+Import.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RLMObject+Import.swift"; sourceTree = "<group>"; };
+		6A714C931A4104FA00C6FEA5 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		6AA3F3341A4113DC00D3F935 /* NSManagedObject+ImportTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+ImportTests.swift"; sourceTree = "<group>"; };
 		ED1EAF0C4BE0B24914CA636A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -363,6 +371,7 @@
 				3DF21CBD1A3210F7005921A5 /* NSManagedObject+SugarRecordTests.swift */,
 				3DF21CBE1A3210F7005921A5 /* RestkitCDStackTests.swift */,
 				3DF21CBF1A3210F7005921A5 /* SugarRecordCDContextTests.swift */,
+				6AA3F3341A4113DC00D3F935 /* NSManagedObject+ImportTests.swift */,
 			);
 			name = CoreData;
 			path = ../../spec/CoreData;
@@ -395,6 +404,7 @@
 		3DF21CCD1A321174005921A5 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A714C931A4104FA00C6FEA5 /* SwiftyJSON.swift */,
 				3DF21CCE1A321174005921A5 /* realm */,
 			);
 			path = frameworks;
@@ -601,6 +611,7 @@
 				3DF21CF61A3212A6005921A5 /* NSManagedObject+SugarRecord.swift in Sources */,
 				3DF21CEE1A321297005921A5 /* SugarRecordFinder+FetchedResultsController.swift in Sources */,
 				3DF21CE81A321281005921A5 /* SugarRecordStackProtocol.swift in Sources */,
+				6A714C941A4104FA00C6FEA5 /* SwiftyJSON.swift in Sources */,
 				3DF21CEC1A321288005921A5 /* SugarRecordContextProtocol.swift in Sources */,
 				3DF21CE21A321275005921A5 /* SugarRecordLogger.swift in Sources */,
 			);
@@ -610,6 +621,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AA3F3351A4113DC00D3F935 /* NSManagedObject+ImportTests.swift in Sources */,
 				3DF21D141A321A98005921A5 /* SugarRecordCDContextTests.swift in Sources */,
 				3DF21CE11A321275005921A5 /* SugarRecordLogger.swift in Sources */,
 				3DF21D121A321A8B005921A5 /* RealmObject.swift in Sources */,
@@ -620,6 +632,7 @@
 				3DF21D071A321899005921A5 /* RestkitCDStack.swift in Sources */,
 				3DF21CF11A32129D005921A5 /* iCloudCDStack.swift in Sources */,
 				3DF21D091A32199C005921A5 /* SugarRecordRLMContextTests.swift in Sources */,
+				6AA3F3331A41138F00D3F935 /* RLMObject+Import.swift in Sources */,
 				3DF21CFB1A3215AF005921A5 /* SugarRecordFinderTests.swift in Sources */,
 				3DF21CED1A321296005921A5 /* SugarRecordFinder+FetchedResultsController.swift in Sources */,
 				3DF21CF81A3212ED005921A5 /* CoreDataObject.swift in Sources */,
@@ -631,6 +644,8 @@
 				3DF21CEF1A32129A005921A5 /* SugarRecordCDContext.swift in Sources */,
 				3DF21CFC1A3215AF005921A5 /* SugarRecordLoggerTests.swift in Sources */,
 				3DF21CD41A321174005921A5 /* RLMSupport.swift in Sources */,
+				6AA3F3321A41138A00D3F935 /* SugarRecordObjectImportProtocol.swift in Sources */,
+				6AA3F3361A41152D00D3F935 /* SwiftyJSON.swift in Sources */,
 				3DF21CF31A3212A0005921A5 /* DefaultCDStack.swift in Sources */,
 				3DF21D011A3215DC005921A5 /* NSManagedObject+SugarRecordTests.swift in Sources */,
 				3DF21CEB1A321287005921A5 /* SugarRecordContextProtocol.swift in Sources */,
@@ -644,6 +659,7 @@
 				3DF21D151A321A9E005921A5 /* SugarRecordTests.swift in Sources */,
 				3DF21CDE1A3211F9005921A5 /* TestsDataModel.xcdatamodeld in Sources */,
 				3DF21CE91A321284005921A5 /* SugarRecordObjectProtocol.swift in Sources */,
+				6AA3F3311A41138700D3F935 /* NSManagedObject+Import.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,5 +11,23 @@ import Realm
 
 extension RLMObject: SugarRecordObjectImportProtocol
 {
-	
+    class func mapAttributes(#remoteObject: JSON, localObject: SugarRecordObjectProtocol, mappingModel: MappingModel)
+    {
+        
+    }
+    
+    class func mapRelationships(#remoteObject: JSON, localObject: SugarRecordObjectProtocol, mappingModel: MappingModel, cache: [String: [String: AnyObject]])
+    {
+        
+    }
+    
+    class func importFrom(object: JSON, inContext context: SugarRecordContext, scheme: MappingScheme?) -> SugarRecordObjectProtocol?
+    {
+        return nil
+    }
+    
+    class func importFrom(array: JSON, inContext context: SugarRecordContext, scheme: MappingScheme?) -> [SugarRecordObjectProtocol]
+    {
+        return []
+    }
 }

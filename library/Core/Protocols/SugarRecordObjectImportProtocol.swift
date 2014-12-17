@@ -1,16 +1,26 @@
-protocol SugarRecordObjectImportProtocol: SugarRecordObjectProtocol
+//
+//  SugarRecordObjectImportProtocol.swift
+//  SugarRecord
+//
+//  Created by Isaac Roldán Armengol on 11/09/14.
+//  Copyright (c) 2014 SugarRecord. All rights reserved.
+//
+
+import Foundation
+
+
+protocol SugarRecordObjectImportProtocol
 {
 	class func mapAttributes(#remoteObject: JSON, localObject: SugarRecordObjectProtocol, mappingModel: MappingModel)
-	class func mapRelationships(#remoteObject: JSON, localObject: SugarRecordObjectProtocol, mappingModel: MappingModel, cache: [RemoteKey: [String: Anyobject]])
-	class func import(#object: JSON, inContext context: SugarRecordContext, scheme: MappinScheme?) -> SugarRecordObjectProtocol
-	class func import(#array: JSON, inContext context: SugarRecordContext, scheme: MappingScheme?) -> [SugarRecordObjectProtocol]
-
+	class func mapRelationships(#remoteObject: JSON, localObject: SugarRecordObjectProtocol, mappingModel: MappingModel, cache: [String: [String: AnyObject]])
+	class func importFrom(object: JSON, inContext context: SugarRecordContext, scheme: MappingScheme?) -> SugarRecordObjectProtocol?
+	class func importFrom(array: JSON, inContext context: SugarRecordContext, scheme: MappingScheme?) -> [SugarRecordObjectProtocol]
 }
 
 protocol SugarRecordObjectMappingProtocol
 {
 	//class func mappingModel(scheme: MappingScheme?) -> MappingModel
-	var mappingModel: MappingModel
+    class func mappingModel() -> MappingModel
 }
 
 enum MappingScheme
@@ -20,8 +30,8 @@ enum MappingScheme
 
 enum MappingAttributeType
 {
-	case simpleAttribute, identiferAttribute,
-	case relationshipAttribute(let prefetch: Bool, dest: AnyClass) // Check if dest conforms SugarRecordObjectProtocol
+	case simpleAttribute, identiferAttribute
+	case relationshipAttribute(Bool, Any) // Check if dest conforms SugarRecordObjectProtocol
 }
 
 struct MappingAttribute
@@ -29,27 +39,63 @@ struct MappingAttribute
 	let localKey: String?
 	let remoteKey: String?
 	let type: MappingAttributeType?
-	// let class: ??????
+	let attributeClass: Any?
 }
 
 class MappingModel
 {
-	var attributes: [MappingAttribute]
+	var mappingAttributes: [MappingAttribute] = []
 
-	func prefetchRelationships() -> ([MappingAttribute])
-	func simpleRelationships() -> ([MappingAttribute])
-	func attributes() -> ([MappingAttribute])
-	func relationships() -> ([MappingAttribute])
+    func prefetchRelationships() -> ([MappingAttribute])
+    {
+        return []
+    }
+    
+    func simpleRelationships() -> ([MappingAttribute])
+    {
+        return []
+    }
+    
+    func attributes() -> ([MappingAttribute])
+    {
+        return []
+    }
+    
+    func relationships() -> ([MappingAttribute])
+    {
+        return []
+    }
 
-	class func builder() {
-		return MappingModel()
+    func add(attribute: String, objectType: AnyClass) -> MappingModel
+    {
+        let newAttribute = MappingAttribute(localKey: attribute, remoteKey: attribute, type: MappingAttributeType.simpleAttribute, attributeClass: objectType)
+		mappingAttributes.append(newAttribute)
+        return self
 	}
-
-	func add(attribute: String) -> MapingModel
-	 {
-		attributes.append
-	}
+    
+    func add(attribute: String, remoteKey: String, objectType: AnyClass) -> MappingModel
+    {
+        let newAttribute = MappingAttribute(localKey: attribute, remoteKey: remoteKey, type: MappingAttributeType.simpleAttribute, attributeClass: objectType)
+        mappingAttributes.append(newAttribute)
+        return self
+    }
+    
+    func add(relationship: String, prefetch: Bool, objectType: AnyClass, destinationType: AnyClass) -> MappingModel
+    {
+        let newAttribute = MappingAttribute(localKey: relationship, remoteKey: relationship, type: MappingAttributeType.relationshipAttribute(prefetch, destinationType), attributeClass: objectType)
+        mappingAttributes.append(newAttribute)
+        return self
+    }
+    
+    func add(relationship: String, remoteKey: String, prefetch:Bool, objectType: AnyClass, destinationType: AnyClass) -> MappingModel
+    {
+        let newAttribute = MappingAttribute(localKey: relationship, remoteKey: remoteKey, type: MappingAttributeType.relationshipAttribute(prefetch, destinationType), attributeClass: objectType)
+        mappingAttributes.append(newAttribute)
+        return self
+    }
 }
+
+
 
 // Project.by(NSPredicate(...)).find() as [Project]
 
