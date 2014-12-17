@@ -12,8 +12,6 @@ import Realm
 class SugarRecordRLMResults: SugarRecordResultsProtocol
 {
     //MARK: - Attributes
-    typealias T = RLMObject
-    typealias R = SugarRecordRLMResults
     private var realmResults: RLMResults
     
     //MARK: - Constructors
@@ -31,24 +29,24 @@ class SugarRecordRLMResults: SugarRecordResultsProtocol
         }
     }
     
-    func objectAtIndex(index: UInt) -> T!
+    func objectAtIndex(index: UInt) -> AnyObject!
     {
-        return realmResults.objectAtIndex(index) as T
+        return realmResults.objectAtIndex(index) as RLMObject
     }
     
-    func firstObject() -> T!
+    func firstObject() -> AnyObject!
     {
-        return realmResults.firstObject() as T
+        return realmResults.firstObject() as RLMObject
     }
     
-    func lastObject() -> T!
+    func lastObject() -> AnyObject!
     {
-        return realmResults.lastObject() as T
+        return realmResults.lastObject() as RLMObject
     }
     
-    func indexOfObject(object: T) -> UInt
+    func indexOfObject(object: AnyObject) -> UInt
     {
-        return realmResults.indexOfObject(object)
+        return realmResults.indexOfObject(object as RLMObject)
     }
     
     func indexOfObjectWithPredicate(predicate: NSPredicate!) -> UInt
@@ -56,24 +54,24 @@ class SugarRecordRLMResults: SugarRecordResultsProtocol
         return realmResults.indexOfObjectWithPredicate(predicate)
     }
     
-    func objectsWithPredicate(predicate: NSPredicate!) -> R!
+    func objectsWithPredicate(predicate: NSPredicate!) -> SugarRecordResultsProtocol!
     {
         return SugarRecordRLMResults(realmResults: realmResults.objectsWithPredicate(predicate))
     }
     
-    func sortedResultsUsingProperty(property: String!, ascending: Bool) -> R!
+    func sortedResultsUsingProperty(property: String!, ascending: Bool) -> SugarRecordResultsProtocol!
     {
         return SugarRecordRLMResults(realmResults: realmResults.sortedResultsUsingProperty(property, ascending: ascending))
     }
     
-    func sortedResultsUsingDescriptors(properties: [AnyObject]!) -> R!
+    func sortedResultsUsingDescriptors(properties: [AnyObject]!) -> SugarRecordResultsProtocol!
     {
         return SugarRecordRLMResults(realmResults: realmResults.sortedResultsUsingDescriptors(properties))
     }
     
-    subscript (index: UInt) -> T! {
+    subscript (index: UInt) -> AnyObject! {
         get {
-            return realmResults[index] as T
+            return realmResults[index]
         }
     }
 }

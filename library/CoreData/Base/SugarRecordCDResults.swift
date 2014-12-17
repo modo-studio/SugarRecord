@@ -12,9 +12,7 @@ import CoreData
 class SugarRecordCDResults: SugarRecordResultsProtocol
 {
     //MARK: - Attributes
-    typealias T = NSManagedObject
-    typealias R = SugarRecordCDResults
-    private var results: [T]
+    private var results: [NSManagedObject]
     
     //MARK: - Constructors
     
@@ -31,24 +29,24 @@ class SugarRecordCDResults: SugarRecordResultsProtocol
         }
     }
     
-    func objectAtIndex(index: UInt) -> T!
+    func objectAtIndex(index: UInt) -> AnyObject!
     {
-        return results[Int(index)] as T
+        return results[Int(index)] as AnyObject
     }
     
-    func firstObject() -> T!
+    func firstObject() -> AnyObject!
     {
-        return results.first! as T
+        return results.first! as AnyObject
     }
     
-    func lastObject() -> T!
+    func lastObject() -> AnyObject!
     {
-        return results.last! as T
+        return results.last! as AnyObject
     }
     
-    func indexOfObject(object: T) -> UInt
+    func indexOfObject(object: AnyObject) -> UInt
     {
-        if let i = find(results, object) {
+        if let i = find(results, object as NSManagedObject) {
             return UInt(i)
         }
         else {
@@ -58,8 +56,8 @@ class SugarRecordCDResults: SugarRecordResultsProtocol
     
     func indexOfObjectWithPredicate(predicate: NSPredicate!) -> UInt
     {
-        var filteredArray: R! = objectsWithPredicate(predicate)
-        var first: T! = filteredArray.firstObject()
+        var filteredArray: SugarRecordResultsProtocol! = objectsWithPredicate(predicate)
+        var first: AnyObject! = filteredArray.firstObject()
         if first != nil {
             return indexOfObject(first)
         }
@@ -68,27 +66,27 @@ class SugarRecordCDResults: SugarRecordResultsProtocol
         }
     }
     
-    func objectsWithPredicate(predicate: NSPredicate!) -> R!
+    func objectsWithPredicate(predicate: NSPredicate!) -> SugarRecordResultsProtocol!
     {
         var array: NSArray = NSArray(array: results)
-        return SugarRecordCDResults(results: (array.filteredArrayUsingPredicate(predicate) as [T]))
+        return SugarRecordCDResults(results: (array.filteredArrayUsingPredicate(predicate) as [NSManagedObject]))
     }
     
-    func sortedResultsUsingProperty(property: String!, ascending: Bool) -> R!
+    func sortedResultsUsingProperty(property: String!, ascending: Bool) -> SugarRecordResultsProtocol!
     {
         var array: NSArray = NSArray(array: results)
-        return SugarRecordCDResults(results: (array.sortedArrayUsingDescriptors([NSSortDescriptor(key: property, ascending: ascending)]) as [T]))
+        return SugarRecordCDResults(results: (array.sortedArrayUsingDescriptors([NSSortDescriptor(key: property, ascending: ascending)]) as [NSManagedObject]))
     }
     
-    func sortedResultsUsingDescriptors(properties: [AnyObject]!) -> R!
+    func sortedResultsUsingDescriptors(properties: [AnyObject]!) -> SugarRecordResultsProtocol!
     {
         var array: NSArray = NSArray(array: results)
-        return SugarRecordCDResults(results: (array.sortedArrayUsingDescriptors(properties) as [T]))
+        return SugarRecordCDResults(results: (array.sortedArrayUsingDescriptors(properties) as [NSManagedObject]))
     }
     
-    subscript (index: UInt) -> T! {
+    subscript (index: UInt) -> AnyObject! {
         get {
-            return results[Int(index)] as T
+            return results[Int(index)] as AnyObject
         }
     }
 }

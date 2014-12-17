@@ -10,16 +10,14 @@ import Foundation
 
 protocol SugarRecordResultsProtocol
 {
-    typealias T
-    typealias R
     var count: UInt { get }
-    func objectAtIndex(index: UInt) -> T!
-    func firstObject() -> T!
-    func lastObject() -> T!
-    func indexOfObject(object: T) -> UInt
+    func objectAtIndex(index: UInt) -> AnyObject!
+    func firstObject() -> AnyObject!
+    func lastObject() -> AnyObject!
+    func indexOfObject(object: AnyObject) -> UInt
     func indexOfObjectWithPredicate(predicate: NSPredicate!) -> UInt
-    func objectsWithPredicate(predicate: NSPredicate!) -> R!
-    func sortedResultsUsingProperty(property: String!, ascending: Bool) -> R!
-    func sortedResultsUsingDescriptors(properties: [AnyObject]!) -> R!
-    subscript (index: UInt) -> T! { get }
+    func objectsWithPredicate(predicate: NSPredicate!) -> SugarRecordResultsProtocol!
+    func sortedResultsUsingProperty(property: String!, ascending: Bool) -> SugarRecordResultsProtocol!
+    func sortedResultsUsingDescriptors(properties: [AnyObject]!) -> SugarRecordResultsProtocol!
+    subscript (index: UInt) -> AnyObject! { get }
 }
