@@ -25,7 +25,7 @@ public protocol SugarRecordObjectProtocol
     /**
     *  Returns the entity name
     */
-    class func entityName() -> String
+    class func modelName() -> String
     
     //MARK: - Filtering
     

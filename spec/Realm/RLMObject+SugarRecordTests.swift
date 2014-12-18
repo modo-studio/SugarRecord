@@ -35,7 +35,7 @@ class RLMObjectSugarRecordTests: XCTestCase
     
     func testIfReturnsTheEntityNameWithoutNamespace()
     {
-        XCTAssertEqual(RealmObject.entityName(), "RealmObject", "The entity name shouldn't include the namespace")
+        XCTAssertEqual(RealmObject.modelName(), "RealmObject", "The entity name shouldn't include the namespace")
     }
     
     func testIfTheFinderReturnsTheProperStackType()
