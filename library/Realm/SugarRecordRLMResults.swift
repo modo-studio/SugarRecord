@@ -13,65 +13,102 @@ class SugarRecordRLMResults: SugarRecordResultsProtocol
 {
     //MARK: - Attributes
     private var realmResults: RLMResults
+    private var finder: SugarRecordFinder
     
     //MARK: - Constructors
     
-    init(realmResults: RLMResults)
+    init(realmResults: RLMResults, finder: SugarRecordFinder)
     {
         self.realmResults = realmResults
+        self.finder = finder
     }
     
     //MARK: - SugarRecordResultsProtocol
     
-    var count:UInt {
-        get {
-            return realmResults.count
-        }
+    var count: Int {
+        let (firstIndex, lastIndex) = indexes()
+        if (lastIndex == 0 && firstIndex == 0) { return Int(realmResults.count) }
+        return lastIndex - firstIndex + 1
     }
     
     func objectAtIndex(index: UInt) -> AnyObject!
     {
-        return realmResults.objectAtIndex(index) as RLMObject
+        let (firstIndex, lastIndex) = indexes()
+        return realmResults.objectAtIndex(firstIndex + index)
     }
     
     func firstObject() -> AnyObject!
     {
-        return realmResults.firstObject() as RLMObject
+        let (firstIndex, lastIndex) = indexes()
+        return realmResults.objectAtIndex(UInt(firstIndex))
     }
     
     func lastObject() -> AnyObject!
     {
-        return realmResults.lastObject() as RLMObject
+        let (firstIndex, lastIndex) = indexes()
+        return realmResults.objectAtIndex(UInt(lastIndex))
     }
     
-    func indexOfObject(object: AnyObject) -> UInt
+    func indexOfObject(object: AnyObject) -> Int
     {
-        return realmResults.indexOfObject(object as RLMObject)
+        let (firstIndex, lastIndex) = indexes()
+        return Int(realmResults.indexOfObject(object as RLMObject)) - firstIndex
     }
     
-    func indexOfObjectWithPredicate(predicate: NSPredicate!) -> UInt
+    func indexOfObjectWithPredicate(predicate: NSPredicate!) -> Int
     {
-        return realmResults.indexOfObjectWithPredicate(predicate)
+        let (firstIndex, lastIndex) = indexes()
+        return Int(realmResults.indexOfObjectWithPredicate(predicate)) - firstIndex
     }
     
     func objectsWithPredicate(predicate: NSPredicate!) -> SugarRecordResultsProtocol!
     {
-        return SugarRecordRLMResults(realmResults: realmResults.objectsWithPredicate(predicate))
+        return SugarRecordRLMResults(realmResults: realmResults.objectsWithPredicate(predicate), finder: SugarRecordFinder())
     }
     
     func sortedResultsUsingProperty(property: String!, ascending: Bool) -> SugarRecordResultsProtocol!
     {
-        return SugarRecordRLMResults(realmResults: realmResults.sortedResultsUsingProperty(property, ascending: ascending))
+        return SugarRecordRLMResults(realmResults: realmResults.sortedResultsUsingProperty(property, ascending: ascending), finder: SugarRecordFinder())
     }
     
     func sortedResultsUsingDescriptors(properties: [AnyObject]!) -> SugarRecordResultsProtocol!
     {
-        return SugarRecordRLMResults(realmResults: realmResults.sortedResultsUsingDescriptors(properties))
+        return SugarRecordRLMResults(realmResults: realmResults.sortedResultsUsingDescriptors(properties), finder: SugarRecordFinder())
     }
     
-    subscript (index: UInt) -> AnyObject! {
+    subscript (index: Int) -> AnyObject! {
         get {
-            return realmResults[index]
+            let (firstIndex, lastIndex) = indexes()
+            return realmResults[UInt(index+firstIndex)]
         }
+    }
+    
+    
+    //MARK: - Helpers
+    
+    func indexes() -> (Int, Int)
+    {
+        var firstIndex: Int = 0
+        var lastIndex: Int = Int(realmResults.count) - 1
+        
+        switch(finder.elements) {
+        case .first:
+            firstIndex = 0
+            lastIndex = 0
+        case .last:
+            lastIndex = Int(realmResults.count) - 1
+            firstIndex = Int(realmResults.count) - 1
+        case .firsts(let number):
+            firstIndex = 0
+            lastIndex = firstIndex + number - 1
+            if (lastIndex > Int(realmResults.count) - 1) { lastIndex = Int(realmResults.count) - 1 }
+        case .lasts(let number):
+            lastIndex = Int(realmResults.count) - 1
+            firstIndex = firstIndex - (number - 1)
+            if (firstIndex < 0) { firstIndex = 0 }
+        default:
+            break
+        }
+        return (firstIndex, lastIndex)
     }
 }

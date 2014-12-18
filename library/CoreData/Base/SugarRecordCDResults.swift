@@ -23,9 +23,9 @@ class SugarRecordCDResults: SugarRecordResultsProtocol
     
     //MARK: - SugarRecordResultsProtocol
     
-    var count:UInt {
+    var count:Int {
         get {
-            return UInt(results.count)
+            return results.count
         }
     }
     
@@ -44,17 +44,17 @@ class SugarRecordCDResults: SugarRecordResultsProtocol
         return results.last! as AnyObject
     }
     
-    func indexOfObject(object: AnyObject) -> UInt
+    func indexOfObject(object: AnyObject) -> Int
     {
         if let i = find(results, object as NSManagedObject) {
-            return UInt(i)
+            return i
         }
         else {
-            return UInt(NSNotFound)
+            return NSNotFound
         }
     }
     
-    func indexOfObjectWithPredicate(predicate: NSPredicate!) -> UInt
+    func indexOfObjectWithPredicate(predicate: NSPredicate!) -> Int
     {
         var filteredArray: SugarRecordResultsProtocol! = objectsWithPredicate(predicate)
         var first: AnyObject! = filteredArray.firstObject()
@@ -62,7 +62,7 @@ class SugarRecordCDResults: SugarRecordResultsProtocol
             return indexOfObject(first)
         }
         else {
-            return UInt(NSNotFound)
+            return NSNotFound
         }
     }
     
@@ -84,9 +84,14 @@ class SugarRecordCDResults: SugarRecordResultsProtocol
         return SugarRecordCDResults(results: (array.sortedArrayUsingDescriptors(properties) as [NSManagedObject]))
     }
     
-    subscript (index: UInt) -> AnyObject! {
+    func realCollection() -> AnyObject
+    {
+        return results
+    }
+    
+    subscript (index: Int) -> AnyObject! {
         get {
-            return results[Int(index)] as AnyObject
+            return results[index] as AnyObject
         }
     }
 }

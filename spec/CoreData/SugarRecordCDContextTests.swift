@@ -80,8 +80,16 @@ class SugarRecordCDContextTests: XCTestCase
             }
         }
         
+        class MockManagedObject: NSManagedObject
+        {
+            var name: String = "Mock"
+            init(name: String) {
+                self.name = name
+            }
+        }
+        
         let context: MockCDContext = MockCDContext(context: NSManagedObjectContext())
-        context.deleteObjects(["object"])
+        context.deleteObjects(SugarRecordCDResults(results: [MockManagedObject(name: "")]))
         XCTAssertTrue(context.deleteObjectCalled, "Delete object should be called when deleting multiple objects")
     }
     

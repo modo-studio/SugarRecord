@@ -338,16 +338,16 @@ public class SugarRecordFinder
     
     :returns: Fetch result
     */
-    public func find() -> [AnyObject]?
+    public func find() -> SugarRecordResultsProtocol
     {
-        var objects: [AnyObject]?
+        var objects: SugarRecordResultsProtocol!
         SugarRecord.operation(stackType!, closure: { (context) -> () in
             objects = context.find(self)
         })
         return objects
     }
     
-    public func find(inContext context:SugarRecordContext) -> [AnyObject]?
+    public func find(inContext context:SugarRecordContext) -> SugarRecordResultsProtocol
     {
         return context.find(self)
     }
@@ -373,7 +373,7 @@ public class SugarRecordFinder
     public func delete (asynchronously: Bool, completion: () -> ())
     {
         SugarRecord.operation(inBackground: asynchronously, stackType: stackType!) { (context) -> () in
-            let objects: [AnyObject]? = context.find(self)
+            let objects: SugarRecordResultsProtocol! = context.find(self)
             if objects == nil {
                 SugarRecordLogger.logLevelInfo.log("No objects have been deleted")
                 return
@@ -397,9 +397,9 @@ public class SugarRecordFinder
     */
     public func count() -> Int
     {
-        let objects: [AnyObject]? = find()
+        let objects: SugarRecordResultsProtocol! = find()
         if objects != nil {
-            return objects!.count
+            return objects.count
         }
         else {
             return 0
@@ -415,9 +415,9 @@ public class SugarRecordFinder
     */
     public func count(inContext context:SugarRecordContext) -> Int
     {
-        let objects: [AnyObject]? = find(inContext: context)
+        let objects: SugarRecordResultsProtocol! = find(inContext: context)
         if objects != nil {
-            return objects!.count
+            return objects.count
         }
         else {
             return 0
