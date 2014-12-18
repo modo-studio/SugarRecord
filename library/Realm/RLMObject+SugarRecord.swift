@@ -89,10 +89,10 @@ extension RLMObject: SugarRecordObjectProtocol
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func by(key: String, equalTo value: String) -> SugarRecordFinder
+    public class func by<T: StringLiteralConvertible, R: StringLiteralConvertible>(key: T, equalTo value: R) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
-        finder.setPredicate(byKey: key, andValue: value)
+        finder.setPredicate(byKey: "\(key)", andValue: "\(value)")
         finder.objectClass = self
         finder.stackType = stackType()
         return finder
@@ -108,10 +108,10 @@ extension RLMObject: SugarRecordObjectProtocol
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func sorted(by sortingKey: String, ascending: Bool) -> SugarRecordFinder
+    public class func sorted<T: StringLiteralConvertible>(by sortingKey: T, ascending: Bool) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
-        finder.addSortDescriptor(byKey: sortingKey, ascending: ascending)
+        finder.addSortDescriptor(byKey: "\(sortingKey)", ascending: ascending)
         finder.objectClass = self
         finder.stackType = stackType()
         return finder

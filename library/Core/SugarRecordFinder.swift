@@ -120,12 +120,12 @@ public class SugarRecordFinder
     
     :returns: Current finder
     */
-    public func by(key: String, equalTo value: String) -> SugarRecordFinder
+    public func by<T: StringLiteralConvertible, R: StringLiteralConvertible>(key: T, equalTo value: R) -> SugarRecordFinder
     {
         if self.predicate != nil {
             SugarRecordLogger.logLevelWarn.log("You are overriding an existing predicate")
         }
-        self.setPredicate(byKey: key, andValue: value)
+        self.setPredicate(byKey: "\(key)", andValue: "\(value)")
         return self
     }
     
@@ -137,9 +137,9 @@ public class SugarRecordFinder
     
     :returns: Current finder
     */
-    public func sorted(by sortingKey: String, ascending: Bool) -> SugarRecordFinder
+    public func sorted<T: StringLiteralConvertible>(by sortingKey: T, ascending: Bool) -> SugarRecordFinder
     {
-        self.addSortDescriptor(byKey: sortingKey, ascending: ascending)
+        self.addSortDescriptor(byKey: "\(sortingKey)", ascending: ascending)
         return self
     }
     
@@ -196,9 +196,9 @@ public class SugarRecordFinder
     
     :returns: Current finder
     */
-    public func addSortDescriptor(byKey key: String, ascending: Bool) -> SugarRecordFinder
+    public func addSortDescriptor<T: StringLiteralConvertible>(byKey key: T, ascending: Bool) -> SugarRecordFinder
     {
-        sortDescriptors.append(NSSortDescriptor(key: key, ascending: ascending))
+        sortDescriptors.append(NSSortDescriptor(key: "\(key)", ascending: ascending))
         return self
     }
     
@@ -262,7 +262,7 @@ public class SugarRecordFinder
     
     :returns: Current finder
     */
-    public func setPredicate(byKey key: String, andValue value: String) -> SugarRecordFinder
+    public func setPredicate<T: StringLiteralConvertible, R: StringLiteralConvertible>(byKey key: T, andValue value: R) -> SugarRecordFinder
     {
         self.predicate = NSPredicate(format: "\(key) == \(value)")
         return self

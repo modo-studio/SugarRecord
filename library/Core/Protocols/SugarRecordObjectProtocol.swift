@@ -42,7 +42,7 @@ public protocol SugarRecordObjectProtocol
     /**
     *  Returns a SugarRecord finder passing a predicate in a value-key format
     */
-    class func by(key: String, equalTo value: String) -> SugarRecordFinder
+    class func by<T: StringLiteralConvertible, R: StringLiteralConvertible>(key: T, equalTo value: R) -> SugarRecordFinder
     
     
     //MARK: - Sorting
@@ -50,7 +50,7 @@ public protocol SugarRecordObjectProtocol
     /**
     *  Returns a SugarRecord finder passing a sorter key
     */
-    class func sorted(by sorterKey: String, ascending: Bool) -> SugarRecordFinder
+    class func sorted<T: StringLiteralConvertible>(by sorterKey: T, ascending: Bool) -> SugarRecordFinder
     
     /**
     *  Returns a SugarRecord finder pasing a sort descriptor
