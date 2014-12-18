@@ -172,6 +172,19 @@ public class SugarRecordCDContext: SugarRecordContext
         SugarRecordLogger.logLevelInfo.log("Deleted \(objects.count) objects")
     }
     
+    /**
+    *  Count the number of entities of the given type
+    */
+    public func count(objectClass: AnyClass) -> Int
+    {
+        let managedObjectClass: NSManagedObject.Type = objectClass as NSManagedObject.Type
+        let fetchRequest: NSFetchRequest = NSFetchRequest(entityName: managedObjectClass.modelName())
+        var error: NSError?
+        var count = self.contextCD.countForFetchRequest(fetchRequest, error: &error)
+        SugarRecordLogger.logLevelInfo.log("Found \(count) objects in database")
+        return count
+    }
+
     
     //MARK: - HELPER METHODS
     

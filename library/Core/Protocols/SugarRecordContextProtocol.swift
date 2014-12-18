@@ -49,4 +49,9 @@ public protocol SugarRecordContext
     *  Executes the finder query to return filtered values
     */
     func find(finder: SugarRecordFinder) -> [AnyObject]
+    
+    /**
+    *  Count the number of entities of the given type
+    */
+    func count(objectClass: AnyClass) -> Int
 }

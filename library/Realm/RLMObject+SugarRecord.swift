@@ -167,6 +167,17 @@ extension RLMObject: SugarRecordObjectProtocol
     }
     
     
+    //MARK: - Count
+    
+    /**
+    *  Returns the count of items of the class type
+    */
+    public class func count() -> Int
+    {
+        return all().count()
+    }
+    
+    
     //MARK: - Deletion
     
     /**

@@ -143,7 +143,7 @@ class CoreDataObjectTests: XCTestCase
         coreDataObject2!.city = "TestCity2"
         coreDataObject2!.birth = NSDate()
         let saved2: Bool = coreDataObject2!.save()
-        XCTAssertEqual(CoreDataObject.all().count(), 2, "The count should be equal to 2")
+        XCTAssertEqual(CoreDataObject.count(), 2, "The count should be equal to 2")
         coreDataObject!.beginWriting().delete().endWriting()
         coreDataObject2!.beginWriting().delete().endWriting()
     }

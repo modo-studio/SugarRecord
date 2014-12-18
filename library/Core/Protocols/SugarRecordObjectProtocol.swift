@@ -71,6 +71,14 @@ public protocol SugarRecordObjectProtocol
     class func all() -> SugarRecordFinder
     
     
+    //MARK: - Count
+    
+    /**
+    *  Returns the count of items of the class type
+    */
+    class func count() -> Int
+    
+    
     //MARK: - Deletion
     
     /**
