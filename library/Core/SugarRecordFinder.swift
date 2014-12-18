@@ -399,7 +399,7 @@ public class SugarRecordFinder
     {
         var count: Int = 0
         SugarRecord.operation(stackType!, closure: { (context) -> () in
-            count = context.count(self.objectClass!)
+            count = context.count(self.objectClass!, predicate: self.predicate)
         })
         return count
     }
@@ -413,6 +413,6 @@ public class SugarRecordFinder
     */
     public func count(inContext context:SugarRecordContext) -> Int
     {
-        return context.count(self.objectClass!)
+        return context.count(self.objectClass!, predicate: self.predicate)
     }
 }

@@ -138,6 +138,7 @@ class RealmObjectTests: XCTestCase
         realmObject2!.birthday = NSDate()
         let saved2: Bool = realmObject2!.save()
         XCTAssertEqual(RealmObject.count(), 2, "The count should be equal to 2")
+        XCTAssertEqual(RealmObject.by("name", equalTo: "'Realmy2'").count(), 1, "The count should be equal to 1")
         realmObject!.beginWriting().delete().endWriting()
         realmObject2!.beginWriting().delete().endWriting()
     }

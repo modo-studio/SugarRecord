@@ -175,10 +175,11 @@ public class SugarRecordCDContext: SugarRecordContext
     /**
     *  Count the number of entities of the given type
     */
-    public func count(objectClass: AnyClass) -> Int
+    public func count(objectClass: AnyClass, predicate: NSPredicate? = nil) -> Int
     {
         let managedObjectClass: NSManagedObject.Type = objectClass as NSManagedObject.Type
         let fetchRequest: NSFetchRequest = NSFetchRequest(entityName: managedObjectClass.modelName())
+        fetchRequest.predicate = predicate
         var error: NSError?
         var count = self.contextCD.countForFetchRequest(fetchRequest, error: &error)
         SugarRecordLogger.logLevelInfo.log("Found \(count) objects in database")

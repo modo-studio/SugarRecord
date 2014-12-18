@@ -53,5 +53,5 @@ public protocol SugarRecordContext
     /**
     *  Count the number of entities of the given type
     */
-    func count(objectClass: AnyClass) -> Int
+    func count(objectClass: AnyClass, predicate: NSPredicate?) -> Int
 }
