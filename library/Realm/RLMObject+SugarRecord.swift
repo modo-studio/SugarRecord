@@ -33,7 +33,7 @@ extension RLMObject: SugarRecordObjectProtocol
     
     :returns: String with the entity name
     */
-    public class func entityName() -> String
+    public class func modelName() -> String
     {
         return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }

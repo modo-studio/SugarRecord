@@ -38,7 +38,7 @@ class NSManagedObjectSugarRecordTests: XCTestCase
     
     func testIfReturnsTheEntityNameWithoutNamespace()
     {
-        XCTAssertEqual(CoreDataObject.entityName(), "CoreDataObject", "The entity name shouldn't include the namespace")
+        XCTAssertEqual(CoreDataObject.modelName(), "CoreDataObject", "The entity name shouldn't include the namespace")
     }
     
     func testIfTheFinderReturnsTheProperStackType()

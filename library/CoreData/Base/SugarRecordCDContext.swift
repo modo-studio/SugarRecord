@@ -65,7 +65,7 @@ public class SugarRecordCDContext: SugarRecordContext
     public func createObject(objectClass: AnyClass) -> AnyObject?
     {
         let managedObjectClass: NSManagedObject.Type = objectClass as NSManagedObject.Type
-        var object: AnyObject = NSEntityDescription.insertNewObjectForEntityForName(managedObjectClass.entityName(), inManagedObjectContext: self.contextCD)
+        var object: AnyObject = NSEntityDescription.insertNewObjectForEntityForName(managedObjectClass.modelName(), inManagedObjectContext: self.contextCD)
         return object
     }
     
@@ -111,7 +111,7 @@ public class SugarRecordCDContext: SugarRecordContext
     {
         let objectClass: NSObject.Type = finder.objectClass!
         let managedObjectClass: NSManagedObject.Type = objectClass as NSManagedObject.Type
-        let fetchRequest: NSFetchRequest = NSFetchRequest(entityName: managedObjectClass.entityName())
+        let fetchRequest: NSFetchRequest = NSFetchRequest(entityName: managedObjectClass.modelName())
         fetchRequest.predicate = finder.predicate
         var sortDescriptors: [NSSortDescriptor] = finder.sortDescriptors
         switch finder.elements {
