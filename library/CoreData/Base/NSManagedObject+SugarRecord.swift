@@ -165,6 +165,21 @@ extension NSManagedObject: SugarRecordObjectProtocol
         return finder
     }
     
+    //MARK: - Count
+    
+    /**
+    Returns a the count of elements of this type
+    
+    :returns: Int
+    */
+    public class func count() -> Int
+    {
+        var finder: SugarRecordFinder = SugarRecordFinder()
+        finder.objectClass = self
+        finder.stackType = stackType()
+        return finder.count()
+    }
+    
     //MARK: - Deletion
     
     /**
