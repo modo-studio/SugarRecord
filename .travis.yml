@@ -1,6 +1,5 @@
-language: objective-c
-xcode_sdk: iphonesimulator
-rvm: 2.0.0
+language: swift
+osx_image: xcode61
 notifications:
   email: false
 before_install:
@@ -9,4 +8,4 @@ before_install:
   - cd project
   - pod install
 script:
-  - xcodebuild -workspace project.xcworkspace -scheme project -configuration Debug -sdk iphonesimulator8.1 ONLY_ACTIVE_ARCH=NO test | xcpretty -tc --no-utf && exit ${PIPESTATUS[0]}
+  - xctool -workspace project.xcworkspace -scheme project -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO build test
