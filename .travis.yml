@@ -5,7 +5,9 @@ notifications:
   email: false
 podfile: path/to/Podfile
 before_install:
-  - gem install xcpretty
+  - brew update
+  - brew install xctool
   - cd project
 script:
-  - xcodebuild -project project.xcodeproj -scheme project test -sdk iphonesimulator8.1 | xcpretty -c; exit ${PIPESTATUS[0]}
+  - xctool test -workspace project.xcworkspace -scheme project -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  #- xcodebuild -project project.xcodeproj -scheme project test -sdk iphonesimulator8.1 | xcpretty -c; exit ${PIPESTATUS[0]}
