@@ -9,9 +9,11 @@
 import UIKit
 import CoreData
 
-class StackTableViewController: UITableViewController {
-
+class StackTableViewController: UITableViewController
+{
+    
     //MARK: - Attributes
+    
     var stack: SugarRecordStackProtocol?
     
     

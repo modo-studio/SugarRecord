@@ -11,6 +11,7 @@ import UIKit
 class RestKitTableViewController: CoreDataTableViewController {
 
     //MARK: - Viewcontroller Lifecycle
+    
     typealias T = NSManagedObject
     override func viewDidLoad() {
         super.viewDidLoad()
