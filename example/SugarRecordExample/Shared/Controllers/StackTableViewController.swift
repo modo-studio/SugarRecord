@@ -56,7 +56,7 @@ class StackTableViewController: UITableViewController {
     }
     
     func fetchData() {
-        self.data = self.entityClass.all().sorted(by: "text", ascending: false).find()! as? [NSManagedObject]
+        self.data = self.entityClass.all().sorted(by: "text", ascending: false).find().realCollection() as? [NSManagedObject]
     }
 
     // MARK: - UITableViewDataSource
