@@ -1,5 +1,6 @@
 language: swift
 osx_image: xcode61
+rvm: 2.1.0
 notifications:
   email: false
 before_install:
