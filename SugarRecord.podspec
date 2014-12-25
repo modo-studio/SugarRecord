@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/SugarRecord/SugarRecord'
   s.author = { 'Pedro Piñera' => 'pepibumur@gmail.com' }
   s.social_media_url = "https://twitter.com/pepibumur"
-  s.source = { :git => 'https://github.com/SugarRecord/SugarRecord.git', :tag => '1.0.4', :submodules => true }
+  s.source = { :git => 'https://github.com/SugarRecord/SugarRecord.git', :tag => '1.0.4', :submodules => false }
   s.description = "Thanks to SugarRecord you'll be able to use a clean syntax to fetch, filter, create, update CoreData objects in an easy way. Inspired by MagicalRecord and opened to new contributions."
   s.requires_arc = true
   s.documentation_url = "https://github.com/SugarRecord/SugarRecord/wiki"
