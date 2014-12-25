@@ -37,6 +37,9 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 25th-December-2014 | Added Realm example |
+| 25th-December-2014 | Added a continuous integration local script |
+| 25th-December-2014 | Updated Realm to 0.89 |
 | 25th-December-2014 | Setup SugaRecord.podspec file |
 | 25th-December-2014 | Added new results type SugarRecordResults |
 | 10th-December-2014 | Query response array is now non-optional |
