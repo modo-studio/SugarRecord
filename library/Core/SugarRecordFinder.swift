@@ -32,7 +32,7 @@ public class SugarRecordFinder<T>
     public var predicate: NSPredicate?
     
     /// Type of stack where the operations are going to executed
-    public var stackType: SugarRecordStackType?
+    public var stackType: SugarRecordEngine?
     
     /// Class of the object
     public var objectClass: NSObject.Type?
@@ -338,16 +338,16 @@ public class SugarRecordFinder<T>
     
     :returns: Fetch result
     */
-    public func find() -> SugarRecordResultsProtocol
+    public func find() -> SugarRecordResults<T>
     {
-        var objects: SugarRecordResultsProtocol!
+        var objects: SugarRecordResults<T>!
         SugarRecord.operation(stackType!, closure: { (context) -> () in
             objects = context.find(self)
         })
         return objects
     }
     
-    public func find(inContext context:SugarRecordContext) -> SugarRecordResultsProtocol
+    public func find(inContext context:SugarRecordContext) -> SugarRecordResults<T>
     {
         return context.find(self)
     }
@@ -373,7 +373,7 @@ public class SugarRecordFinder<T>
     public func delete (asynchronously: Bool, completion: () -> ())
     {
         SugarRecord.operation(inBackground: asynchronously, stackType: stackType!) { (context) -> () in
-            let objects: SugarRecordResultsProtocol! = context.find(self)
+            let objects: SugarRecordResults<T>! = context.find(self)
             if objects == nil {
                 SugarRecordLogger.logLevelInfo.log("No objects have been deleted")
                 return
@@ -397,7 +397,7 @@ public class SugarRecordFinder<T>
     */
     public func count() -> Int
     {
-        let objects: SugarRecordResultsProtocol! = find()
+        let objects: SugarRecordResults<T>! = find()
         if objects != nil {
             return objects.count
         }
@@ -415,7 +415,7 @@ public class SugarRecordFinder<T>
     */
     public func count(inContext context:SugarRecordContext) -> Int
     {
-        let objects: SugarRecordResultsProtocol! = find(inContext: context)
+        let objects: SugarRecordResults<T>! = find(inContext: context)
         if objects != nil {
             return objects.count
         }

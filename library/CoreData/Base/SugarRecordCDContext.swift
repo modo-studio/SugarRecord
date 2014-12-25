@@ -86,17 +86,17 @@ public class SugarRecordCDContext: SugarRecordContext
     
     :returns: Objects fetched
     */
-    public func find<T>(finder: SugarRecordFinder<T>) -> SugarRecordResultsProtocol
+    public func find<T>(finder: SugarRecordFinder<T>) -> SugarRecordResults<T>
     {
         let fetchRequest: NSFetchRequest = SugarRecordCDContext.fetchRequest(fromFinder: finder)
         var error: NSError?
         var objects: [AnyObject]? = self.contextCD.executeFetchRequest(fetchRequest, error: &error)
         SugarRecordLogger.logLevelInfo.log("Found \(objects?.count) objects in database")
         if objects == nil  {
-            return SugarRecordCDResults(results: [NSManagedObject]())
+            return SugarRecordResults(coredataResults: [NSManagedObject](), finder: finder)
         }
         else {
-            return SugarRecordCDResults(results: objects as [NSManagedObject])
+            return SugarRecordResults(coredataResults: objects as [NSManagedObject], finder: finder)
         }
     }
     
@@ -143,7 +143,7 @@ public class SugarRecordCDContext: SugarRecordContext
     
     :returns: If the object has been properly deleted
     */
-    public func deleteObject(object: AnyObject) -> SugarRecordContext
+    public func deleteObject<T>(object: T) -> SugarRecordContext
     {
         let managedObject: NSManagedObject? = object as? NSManagedObject
         let objectInContext: NSManagedObject? = moveObject(managedObject!, inContext: contextCD)
@@ -163,12 +163,12 @@ public class SugarRecordCDContext: SugarRecordContext
     
     :returns: If the deletion has been successful
     */
-    public func deleteObjects(objects: SugarRecordResultsProtocol) -> ()
+    public func deleteObjects<T>(objects: SugarRecordResults<T>) -> ()
     {
         var objectsDeleted: Int = 0
         
         for (var index = 0; index < Int(objects.count) ; index++) {
-            let object: AnyObject! = objects[index]
+            let object: T! = objects[index]
             if (object != nil) {
                 let _ = deleteObject(object)
             }

@@ -11,12 +11,12 @@ import Foundation
 /**
 Enum with the available stack types
 
-- SugarRecordStackTypeCoreData: Stack type for Core Data stores
-- SugarRecordStackTypeRealm:    Stack type for REALM stores
+- SugarRecordEngineCoreData: Stack type for Core Data stores
+- SugarRecordEngineRealm:    Stack type for REALM stores
 */
-public enum SugarRecordStackType
+public enum SugarRecordEngine
 {
-    case SugarRecordStackTypeCoreData, SugarRecordStackTypeRealm
+    case SugarRecordEngineCoreData, SugarRecordEngineRealm
 }
 
 /**
@@ -28,7 +28,7 @@ public protocol SugarRecordStackProtocol
     var name: String { get }
     
     /// Type of stack
-    var stackType: SugarRecordStackType { get }
+    var stackType: SugarRecordEngine { get }
     
     /// Description of the stack
     var stackDescription: String { get }

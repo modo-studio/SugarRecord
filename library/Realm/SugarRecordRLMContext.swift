@@ -82,7 +82,7 @@ public class SugarRecordRLMContext: SugarRecordContext
     
     :returns: Objects fetched
     */
-    public func find<T>(finder: SugarRecordFinder<T>) -> SugarRecordResultsProtocol
+    public func find<T>(finder: SugarRecordFinder<T>) -> SugarRecordResults<T>
     {
         let objectClass: RLMObject.Type = finder.objectClass as RLMObject.Type
         var filteredObjects: RLMResults? = nil
@@ -96,7 +96,7 @@ public class SugarRecordRLMContext: SugarRecordContext
         for sorter in finder.sortDescriptors {
             sortedObjects = sortedObjects.sortedResultsUsingProperty(sorter.key, ascending: sorter.ascending)
         }
-        return SugarRecordRLMResults(realmResults: sortedObjects, finder: finder)
+        return SugarRecordResults(realmResults: sortedObjects, finder: finder)
     }
     
     /**
@@ -106,7 +106,7 @@ public class SugarRecordRLMContext: SugarRecordContext
     
     :returns: If the object has been properly deleted
     */
-    public func deleteObject(object: AnyObject) -> SugarRecordContext
+    public func deleteObject<T>(object: T) -> SugarRecordContext
     {
         self.realmContext.deleteObject(object as RLMObject)
         return self
@@ -119,10 +119,10 @@ public class SugarRecordRLMContext: SugarRecordContext
     
     :returns: If the delection has been successful
     */
-    public func deleteObjects(objects: SugarRecordResultsProtocol) -> ()
+    public func deleteObjects<T>(objects: SugarRecordResults<T>) -> ()
     {
         for (var index = 0; index < Int(objects.count) ; index++) {
-            let object: AnyObject! = objects[index]
+            let object: T! = objects[index]
             if (object != nil) {
                 let _ = deleteObject(object)
             }

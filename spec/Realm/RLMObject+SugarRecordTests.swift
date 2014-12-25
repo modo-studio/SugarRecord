@@ -40,8 +40,8 @@ class RLMObjectSugarRecordTests: XCTestCase
     
     func testIfTheFinderReturnsTheProperStackType()
     {
-        let sameClass: Bool = RealmObject.stackType() == SugarRecordStackType.SugarRecordStackTypeRealm
-        XCTAssertEqual(sameClass, true, "The stack type should be SugarRecordStackTypeRealm")
+        let sameClass: Bool = RealmObject.stackType() == SugarRecordEngine.SugarRecordEngineRealm
+        XCTAssertEqual(sameClass, true, "The stack type should be SugarRecordEngineRealm")
     }
 
     func testIfTheReturnedFinderIsRight()
@@ -61,15 +61,15 @@ class RLMObjectSugarRecordTests: XCTestCase
         var finder: SugarRecordFinder = RealmObject.by(predicate)
         var sameClass = finder.objectClass? is RealmObject.Type
         XCTAssertTrue(sameClass, "The class of the finder should be the object class")
-        XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
+        XCTAssertTrue(finder.stackType == SugarRecordEngine.SugarRecordEngineRealm, "The stack type should be the CoreData one")
         finder = RealmObject.by("name == Test")
         sameClass = finder.objectClass? is RealmObject.Type
         XCTAssertTrue(sameClass, "The class of the finder should be the object class")
-        XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
+        XCTAssertTrue(finder.stackType == SugarRecordEngine.SugarRecordEngineRealm, "The stack type should be the CoreData one")
         finder = RealmObject.by("name", equalTo: "Test")
         sameClass = finder.objectClass? is RealmObject.Type
         XCTAssertTrue(sameClass, "The class of the finder should be the object class")
-        XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
+        XCTAssertTrue(finder.stackType == SugarRecordEngine.SugarRecordEngineRealm, "The stack type should be the CoreData one")
     }
     
     func testIfTheSortDescriptorsAreProperlySetToTheFinder()
@@ -90,15 +90,15 @@ class RLMObjectSugarRecordTests: XCTestCase
         var finder: SugarRecordFinder = RealmObject.sorted(by: sortDescriptor)
         var sameClass = finder.objectClass? is RealmObject.Type
         XCTAssertTrue(sameClass, "The objectClass of the finder should be the same of the object")
-        XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
+        XCTAssertTrue(finder.stackType == SugarRecordEngine.SugarRecordEngineRealm, "The stack type should be the CoreData one")
         finder = RealmObject.sorted(by: "name", ascending: true)
         sameClass = finder.objectClass? is RealmObject.Type
         XCTAssertTrue(sameClass, "The objectClass of the finder should be the same of the object")
-        XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
+        XCTAssertTrue(finder.stackType == SugarRecordEngine.SugarRecordEngineRealm, "The stack type should be the CoreData one")
         finder = RealmObject.sorted(by: [sortDescriptor])
         sameClass = finder.objectClass? is RealmObject.Type
         XCTAssertTrue(sameClass, "The objectClass of the finder should be the same of the object")
-        XCTAssertTrue(finder.stackType == SugarRecordStackType.SugarRecordStackTypeRealm, "The stack type should be the CoreData one")
+        XCTAssertTrue(finder.stackType == SugarRecordEngine.SugarRecordEngineRealm, "The stack type should be the CoreData one")
     }
     
     func testIfAllIsProperlySetToTheFinder()

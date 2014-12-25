@@ -43,10 +43,10 @@ public protocol SugarRecordContext
     /**
     *  Deletes the objects in the array from the context
     */
-    func deleteObjects(objects: SugarRecordResultsProtocol) -> ()
+    func deleteObjects<T>(objects: SugarRecordResults<T>) -> ()
     
     /**
     *  Executes the finder query to return filtered values
     */
-    func find<T>(finder: SugarRecordFinder<T>) -> SugarRecordResultsProtocol
+    func find<T>(finder: SugarRecordFinder<T>) -> SugarRecordResults<T>
 }

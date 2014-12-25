@@ -39,11 +39,11 @@ extension NSManagedObject
     /**
     Returns the stack type compatible with this object
     
-    :returns: SugarRecordStackType with the type
+    :returns: SugarRecordEngine with the type
     */
-    public class func stackType() -> SugarRecordStackType
+    public class func stackType() -> SugarRecordEngine
     {
-        return SugarRecordStackType.SugarRecordStackTypeCoreData
+        return SugarRecordEngine.SugarRecordEngineCoreData
     }
     
     //MARK: - Filtering

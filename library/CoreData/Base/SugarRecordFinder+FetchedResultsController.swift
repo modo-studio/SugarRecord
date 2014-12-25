@@ -37,7 +37,7 @@ extension SugarRecordFinder
     {
         let fetchRequest: NSFetchRequest = SugarRecordCDContext.fetchRequest(fromFinder: self)
         var coredataContext: SugarRecordCDContext?
-        SugarRecord.operation(SugarRecordStackType.SugarRecordStackTypeCoreData, closure: {(context) -> () in
+        SugarRecord.operation(SugarRecordEngine.SugarRecordEngineCoreData, closure: {(context) -> () in
             coredataContext = context as? SugarRecordCDContext
         })
         var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext:coredataContext!.contextCD , sectionNameKeyPath: section, cacheName: cacheName)
