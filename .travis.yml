@@ -4,7 +4,7 @@ rvm: 2.0.0
 notifications:
   email: false
 before_install:
-  - gem install --no-rdoc --no-ri cocoapods -v 0.35
+  - gem install --no-rdoc --no-ri cocoapods
   - gem install xcpretty
   - cd project
   - pod install
