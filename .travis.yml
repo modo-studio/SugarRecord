@@ -5,8 +5,6 @@ notifications:
   email: false
 podfile: path/to/Podfile
 before_install:
-  - brew update
-  - brew install xctool
   - cd project
 script:
   - xctool test -workspace project.xcworkspace -scheme project -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
