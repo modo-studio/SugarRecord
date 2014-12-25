@@ -43,15 +43,10 @@ public protocol SugarRecordContext
     /**
     *  Deletes the objects in the array from the context
     */
-    func deleteObjects(objects: [AnyObject]) -> ()
+    func deleteObjects<T>(objects: SugarRecordResults<T>) -> ()
     
     /**
     *  Executes the finder query to return filtered values
     */
-    func find(finder: SugarRecordFinder) -> [AnyObject]
-    
-    /**
-    *  Count the number of entities of the given type
-    */
-    func count(objectClass: AnyClass, predicate: NSPredicate?) -> Int
+    func find<T>(finder: SugarRecordFinder<T>) -> SugarRecordResults<T>
 }

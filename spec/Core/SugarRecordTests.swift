@@ -45,8 +45,8 @@ class SugarRecordTests: XCTestCase {
         let coreDataStack: DefaultCDStack = DefaultCDStack(databaseName: "CoreData", automigrating: true)
         SugarRecord.addStack(realmStack)
         SugarRecord.addStack(coreDataStack)
-        XCTAssertNotNil(SugarRecord.stackFortype(SugarRecordStackType.SugarRecordStackTypeCoreData) as DefaultCDStack, "Should return a stack for CoreData")
-        XCTAssertNotNil(SugarRecord.stackFortype(SugarRecordStackType.SugarRecordStackTypeRealm) as DefaultREALMStack, "Should return a stack for CoreData")
+        XCTAssertNotNil(SugarRecord.stackFortype(SugarRecordEngine.SugarRecordEngineCoreData) as DefaultCDStack, "Should return a stack for CoreData")
+        XCTAssertNotNil(SugarRecord.stackFortype(SugarRecordEngine.SugarRecordEngineRealm) as DefaultREALMStack, "Should return a stack for CoreData")
         SugarRecord.removeAllStacks()
     }
     
@@ -145,7 +145,7 @@ class SugarRecordTests: XCTestCase {
                 static var operationCalled: Bool = false
                 static var operationCalledInBackground: Bool = false
             }
-            override class func operation(inBackground background: Bool, stackType: SugarRecordStackType, closure: (context: SugarRecordContext) -> ())
+            override class func operation(inBackground background: Bool, stackType: SugarRecordEngine, closure: (context: SugarRecordContext) -> ())
             {
                 StaticVars.operationCalled = true
                 StaticVars.operationCalledInBackground = background
@@ -159,7 +159,7 @@ class SugarRecordTests: XCTestCase {
                 return StaticVars.operationCalledInBackground
             }
         }
-        MockSugarRecord.operation(SugarRecordStackType.SugarRecordStackTypeCoreData, closure: { (context) -> () in})
+        MockSugarRecord.operation(SugarRecordEngine.SugarRecordEngineCoreData, closure: { (context) -> () in})
         XCTAssertTrue(MockSugarRecord.operationCalled(), "Main operation method should be called")
         XCTAssertFalse(MockSugarRecord.operationCalledInBackground(), "Operation method should be called in the main thread")
     }
@@ -171,7 +171,7 @@ class SugarRecordTests: XCTestCase {
         var sameContextUsed: Bool = false
         var calledInMainThread: Bool = false
         let expectation = expectationWithDescription("Operation")
-        SugarRecord.operation(SugarRecordStackType.SugarRecordStackTypeRealm, closure: { (context) -> () in
+        SugarRecord.operation(SugarRecordEngine.SugarRecordEngineRealm, closure: { (context) -> () in
             expectation.fulfill()
             calledInMainThread = NSThread.isMainThread()
         })
@@ -186,7 +186,7 @@ class SugarRecordTests: XCTestCase {
         SugarRecord.addStack(realmStack)
         var sameContextUsed: Bool = false
         let expectation = expectationWithDescription("Background operation")
-        SugarRecord.operation(inBackground: true, stackType: SugarRecordStackType.SugarRecordStackTypeRealm) { (context) -> () in
+        SugarRecord.operation(inBackground: true, stackType: SugarRecordEngine.SugarRecordEngineRealm) { (context) -> () in
             expectation.fulfill()
             XCTAssertFalse(NSThread.isMainThread(), "Operation should be executed in main thread")
             SugarRecord.removeAllStacks()

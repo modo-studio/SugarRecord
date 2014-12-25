@@ -75,7 +75,7 @@ public class SugarRecord {
     
     :returns: SugarRecord stack
     */
-    internal class func stackFortype(stackType: SugarRecordStackType) -> SugarRecordStackProtocol?
+    internal class func stackFortype(stackType: SugarRecordEngine) -> SugarRecordStackProtocol?
     {
         for stack in StaticVars.stacks {
             if stack.stackType == stackType {
@@ -158,7 +158,7 @@ public class SugarRecord {
     
     :param: closure Closure with operations to be executed
     */
-    public class func operation(stackType: SugarRecordStackType, closure: (context: SugarRecordContext) -> ())
+    public class func operation(stackType: SugarRecordEngine, closure: (context: SugarRecordContext) -> ())
     {
         operation(inBackground: false, stackType: stackType, closure: closure)
     }
@@ -169,7 +169,7 @@ public class SugarRecord {
     :param: background Bool indicating if the operation is in background or not
     :param: closure    Closure with actions to be executed
     */
-    public class func operation(inBackground background: Bool, stackType: SugarRecordStackType, closure: (context: SugarRecordContext) -> ())
+    public class func operation(inBackground background: Bool, stackType: SugarRecordEngine, closure: (context: SugarRecordContext) -> ())
     {
         let stack: SugarRecordStackProtocol? = stackFortype(stackType)
         if stack == nil {

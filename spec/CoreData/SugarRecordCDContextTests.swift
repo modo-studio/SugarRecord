@@ -63,7 +63,7 @@ class SugarRecordCDContextTests: XCTestCase
     
     func testThatCreateObjectsDoesItInTheProperContext()
     {
-        SugarRecord.operation(SugarRecordStackType.SugarRecordStackTypeCoreData, closure: { (context) -> () in
+        SugarRecord.operation(SugarRecordEngine.SugarRecordEngineCoreData, closure: { (context) -> () in
             let object: CoreDataObject = context.createObject(CoreDataObject.self) as CoreDataObject
             XCTAssertEqual(object.managedObjectContext!, (context as SugarRecordCDContext).contextCD, "Returned object should be in the passed context")
         })
@@ -74,14 +74,22 @@ class SugarRecordCDContextTests: XCTestCase
         class MockCDContext: SugarRecordCDContext
         {
             var deleteObjectCalled: Bool = false
-            override func deleteObject(object: AnyObject) -> SugarRecordContext {
+            override func deleteObject<T>(object: T) -> SugarRecordContext {
                 deleteObjectCalled = true
                 return self
             }
         }
         
+        class MockManagedObject: NSManagedObject
+        {
+            var name: String = "Mock"
+            init(name: String) {
+                self.name = name
+            }
+        }
+        
         let context: MockCDContext = MockCDContext(context: NSManagedObjectContext())
-        context.deleteObjects(["object"])
+        context.deleteObjects(SugarRecordResults(coredataResults: [MockManagedObject(name: "")], finder: SugarRecordFinder<NSManagedObject>()))
         XCTAssertTrue(context.deleteObjectCalled, "Delete object should be called when deleting multiple objects")
     }
     
@@ -90,7 +98,7 @@ class SugarRecordCDContextTests: XCTestCase
         var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "test", ascending: true)
         var sortDescriptor2: NSSortDescriptor = NSSortDescriptor(key: "test2", ascending: true)
         let predicate: NSPredicate = NSPredicate()
-        var finder: SugarRecordFinder = SugarRecordFinder()
+        var finder: SugarRecordFinder = SugarRecordFinder<NSManagedObject>()
         finder.addSortDescriptor(sortDescriptor)
         finder.addSortDescriptor(sortDescriptor2)
         finder.setPredicate(predicate)

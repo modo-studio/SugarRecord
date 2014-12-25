@@ -24,7 +24,7 @@ public enum SugarRecordFinderElements
     case lasts(Int)
 }
 
-public class SugarRecordFinder
+public class SugarRecordFinder<T>
 {
     //MARK: - Attributes
     
@@ -32,7 +32,7 @@ public class SugarRecordFinder
     public var predicate: NSPredicate?
     
     /// Type of stack where the operations are going to executed
-    public var stackType: SugarRecordStackType?
+    public var stackType: SugarRecordEngine?
     
     /// Class of the object
     public var objectClass: NSObject.Type?
@@ -338,16 +338,16 @@ public class SugarRecordFinder
     
     :returns: Fetch result
     */
-    public func find() -> [AnyObject]?
+    public func find() -> SugarRecordResults<T>
     {
-        var objects: [AnyObject]?
+        var objects: SugarRecordResults<T>!
         SugarRecord.operation(stackType!, closure: { (context) -> () in
             objects = context.find(self)
         })
         return objects
     }
     
-    public func find(inContext context:SugarRecordContext) -> [AnyObject]?
+    public func find(inContext context:SugarRecordContext) -> SugarRecordResults<T>
     {
         return context.find(self)
     }
@@ -373,7 +373,7 @@ public class SugarRecordFinder
     public func delete (asynchronously: Bool, completion: () -> ())
     {
         SugarRecord.operation(inBackground: asynchronously, stackType: stackType!) { (context) -> () in
-            let objects: [AnyObject]? = context.find(self)
+            let objects: SugarRecordResults<T>! = context.find(self)
             if objects == nil {
                 SugarRecordLogger.logLevelInfo.log("No objects have been deleted")
                 return
@@ -399,7 +399,7 @@ public class SugarRecordFinder
     {
         var count: Int = 0
         SugarRecord.operation(stackType!, closure: { (context) -> () in
-            count = context.count(self.objectClass!, predicate: self.predicate)
+            count = self.count(inContext: context)
         })
         return count
     }
@@ -413,6 +413,11 @@ public class SugarRecordFinder
     */
     public func count(inContext context:SugarRecordContext) -> Int
     {
-        return context.count(self.objectClass!, predicate: self.predicate)
+        if (stackType == SugarRecordEngine.SugarRecordEngineCoreData) {
+            return (context as SugarRecordCDContext).count(self.objectClass!, predicate: self.predicate)
+        }
+        else {
+            return find().count
+        }
     }
 }

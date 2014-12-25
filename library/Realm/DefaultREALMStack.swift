@@ -14,7 +14,7 @@ public class DefaultREALMStack: SugarRecordStackProtocol
 {
     public var name: String
     public var stackDescription: String
-    public var stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeRealm
+    public var stackType: SugarRecordEngine = SugarRecordEngine.SugarRecordEngineRealm
     public var stackInitialized: Bool = false
     lazy public var migrations: [RLMObjectMigration<RLMObject>] = [RLMObjectMigration<RLMObject>]()
     

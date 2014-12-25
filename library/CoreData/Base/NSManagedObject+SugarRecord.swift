@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-extension NSManagedObject: SugarRecordObjectProtocol
+extension NSManagedObject
 {
     typealias SugarRecordObjectType = NSManagedObject
 
@@ -39,11 +39,11 @@ extension NSManagedObject: SugarRecordObjectProtocol
     /**
     Returns the stack type compatible with this object
     
-    :returns: SugarRecordStackType with the type
+    :returns: SugarRecordEngine with the type
     */
-    public class func stackType() -> SugarRecordStackType
+    public class func stackType() -> SugarRecordEngine
     {
-        return SugarRecordStackType.SugarRecordStackTypeCoreData
+        return SugarRecordEngine.SugarRecordEngineCoreData
     }
     
     //MARK: - Filtering
@@ -55,9 +55,9 @@ extension NSManagedObject: SugarRecordObjectProtocol
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func by(predicate: NSPredicate) -> SugarRecordFinder
+    public class func by(predicate: NSPredicate) -> SugarRecordFinder<NSManagedObject>
     {
-        var finder: SugarRecordFinder = SugarRecordFinder(predicate: predicate)
+        var finder: SugarRecordFinder = SugarRecordFinder<NSManagedObject>(predicate: predicate)
         finder.objectClass = self
         finder.stackType = stackType()
         return finder
@@ -70,9 +70,9 @@ extension NSManagedObject: SugarRecordObjectProtocol
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func by(predicateString: NSString) -> SugarRecordFinder
+    public class func by(predicateString: NSString) -> SugarRecordFinder<NSManagedObject>
     {
-        var finder: SugarRecordFinder = SugarRecordFinder()
+        var finder: SugarRecordFinder = SugarRecordFinder<NSManagedObject>()
         finder.setPredicate(predicateString)
         finder.objectClass = self
         finder.stackType = stackType()
@@ -87,9 +87,9 @@ extension NSManagedObject: SugarRecordObjectProtocol
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func by<T: StringLiteralConvertible, R: StringLiteralConvertible>(key: T, equalTo value: R) -> SugarRecordFinder
+    public class func by<T: StringLiteralConvertible, R: StringLiteralConvertible>(key: T, equalTo value: R) -> SugarRecordFinder<NSManagedObject>
     {
-        var finder: SugarRecordFinder = SugarRecordFinder()
+        var finder: SugarRecordFinder = SugarRecordFinder<NSManagedObject>()
         finder.setPredicate(byKey: "\(key)", andValue: "\(value)")
         finder.objectClass = self
         finder.stackType = stackType()
@@ -107,9 +107,9 @@ extension NSManagedObject: SugarRecordObjectProtocol
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func sorted<T: StringLiteralConvertible>(by sortingKey: T, ascending: Bool) -> SugarRecordFinder
+    public class func sorted<T: StringLiteralConvertible>(by sortingKey: T, ascending: Bool) -> SugarRecordFinder<NSManagedObject>
     {
-        var finder: SugarRecordFinder = SugarRecordFinder()
+        var finder: SugarRecordFinder = SugarRecordFinder<NSManagedObject>()
         finder.addSortDescriptor(byKey: "\(sortingKey)", ascending: ascending)
         finder.objectClass = self
         finder.stackType = stackType()
@@ -123,9 +123,9 @@ extension NSManagedObject: SugarRecordObjectProtocol
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func sorted(by sortDescriptor: NSSortDescriptor) -> SugarRecordFinder
+    public class func sorted(by sortDescriptor: NSSortDescriptor) -> SugarRecordFinder<NSManagedObject>
     {
-        var finder: SugarRecordFinder = SugarRecordFinder()
+        var finder: SugarRecordFinder = SugarRecordFinder<NSManagedObject>()
         finder.addSortDescriptor(sortDescriptor)
         finder.objectClass = self
         finder.stackType = stackType()
@@ -139,9 +139,9 @@ extension NSManagedObject: SugarRecordObjectProtocol
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func sorted(by sortDescriptors: [NSSortDescriptor]) -> SugarRecordFinder
+    public class func sorted(by sortDescriptors: [NSSortDescriptor]) -> SugarRecordFinder<NSManagedObject>
     {
-        var finder: SugarRecordFinder = SugarRecordFinder()
+        var finder: SugarRecordFinder = SugarRecordFinder<NSManagedObject>()
         finder.setSortDescriptors(sortDescriptors)
         finder.objectClass = self
         finder.stackType = stackType()
@@ -156,15 +156,16 @@ extension NSManagedObject: SugarRecordObjectProtocol
     
     :returns: SugarRecord finder
     */
-    public class func all() -> SugarRecordFinder
+    public class func all() -> SugarRecordFinder<NSManagedObject>
     {
-        var finder: SugarRecordFinder = SugarRecordFinder()
+        var finder: SugarRecordFinder = SugarRecordFinder<NSManagedObject>()
         finder.all()
         finder.objectClass = self
         finder.stackType = stackType()
         return finder
     }
     
+
     //MARK: - Count
     
     /**
@@ -174,10 +175,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     */
     public class func count() -> Int
     {
-        var finder: SugarRecordFinder = SugarRecordFinder()
-        finder.objectClass = self
-        finder.stackType = stackType()
-        return finder.count()
+        return all().count()
     }
     
     //MARK: - Deletion
@@ -271,7 +269,7 @@ extension NSManagedObject: SugarRecordObjectProtocol
     
     :returns: returns the current object
     */
-    public func beginWriting() -> SugarRecordObjectProtocol
+    public func beginWriting() -> NSManagedObject
     {
         SugarRecordLogger.logLevelVerbose.log("Object did begin writing")
         self.context().beginWriting()
