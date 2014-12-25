@@ -30,8 +30,6 @@
 		3DF21CE61A32127C005921A5 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9C1A32100A005921A5 /* SugarRecord.swift */; };
 		3DF21CE71A321281005921A5 /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9B1A32100A005921A5 /* SugarRecordStackProtocol.swift */; };
 		3DF21CE81A321281005921A5 /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9B1A32100A005921A5 /* SugarRecordStackProtocol.swift */; };
-		3DF21CE91A321284005921A5 /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9A1A32100A005921A5 /* SugarRecordObjectProtocol.swift */; };
-		3DF21CEA1A321285005921A5 /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9A1A32100A005921A5 /* SugarRecordObjectProtocol.swift */; };
 		3DF21CEB1A321287005921A5 /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C991A32100A005921A5 /* SugarRecordContextProtocol.swift */; };
 		3DF21CEC1A321288005921A5 /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C991A32100A005921A5 /* SugarRecordContextProtocol.swift */; };
 		3DF21CED1A321296005921A5 /* SugarRecordFinder+FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA51A32100A005921A5 /* SugarRecordFinder+FetchedResultsController.swift */; };
@@ -119,7 +117,6 @@
 		3DF21C8B1A320DA8005921A5 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF21C8E1A320DA8005921A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DF21C991A32100A005921A5 /* SugarRecordContextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordContextProtocol.swift; sourceTree = "<group>"; };
-		3DF21C9A1A32100A005921A5 /* SugarRecordObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordObjectProtocol.swift; sourceTree = "<group>"; };
 		3DF21C9B1A32100A005921A5 /* SugarRecordStackProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordStackProtocol.swift; sourceTree = "<group>"; };
 		3DF21C9C1A32100A005921A5 /* SugarRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecord.swift; sourceTree = "<group>"; };
 		3DF21C9D1A32100A005921A5 /* SugarRecordFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordFinder.swift; sourceTree = "<group>"; };
@@ -297,7 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				3DF21C991A32100A005921A5 /* SugarRecordContextProtocol.swift */,
-				3DF21C9A1A32100A005921A5 /* SugarRecordObjectProtocol.swift */,
 				3DF21C9B1A32100A005921A5 /* SugarRecordStackProtocol.swift */,
 				3DF36CA21A39367500A73311 /* SugarRecordResultsProtocol.swift */,
 			);
@@ -598,7 +594,6 @@
 				3DF21CF41A3212A1005921A5 /* DefaultCDStack.swift in Sources */,
 				3DF21CF21A32129E005921A5 /* iCloudCDStack.swift in Sources */,
 				3DF21CE41A321278005921A5 /* SugarRecordFinder.swift in Sources */,
-				3DF21CEA1A321285005921A5 /* SugarRecordObjectProtocol.swift in Sources */,
 				3DF21C681A320D74005921A5 /* AppDelegate.swift in Sources */,
 				3DF36CA31A39367500A73311 /* SugarRecordResultsProtocol.swift in Sources */,
 				3DF21CF61A3212A6005921A5 /* NSManagedObject+SugarRecord.swift in Sources */,
@@ -649,7 +644,6 @@
 				3DF21CDF1A321263005921A5 /* CoreDataObjectTests.swift in Sources */,
 				3DF21D151A321A9E005921A5 /* SugarRecordTests.swift in Sources */,
 				3DF21CDE1A3211F9005921A5 /* TestsDataModel.xcdatamodeld in Sources */,
-				3DF21CE91A321284005921A5 /* SugarRecordObjectProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
