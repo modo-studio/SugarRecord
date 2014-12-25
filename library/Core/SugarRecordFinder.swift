@@ -397,13 +397,11 @@ public class SugarRecordFinder<T>
     */
     public func count() -> Int
     {
-        let objects: SugarRecordResults<T>! = find()
-        if objects != nil {
-            return objects.count
-        }
-        else {
-            return 0
-        }
+        var count: Int = 0
+        SugarRecord.operation(stackType!, closure: { (context) -> () in
+            count = self.count(inContext: context)
+        })
+        return count
     }
     
     /**
@@ -415,12 +413,11 @@ public class SugarRecordFinder<T>
     */
     public func count(inContext context:SugarRecordContext) -> Int
     {
-        let objects: SugarRecordResults<T>! = find(inContext: context)
-        if objects != nil {
-            return objects.count
+        if (stackType == SugarRecordEngine.SugarRecordEngineCoreData) {
+            return (context as SugarRecordCDContext).count(self.objectClass!, predicate: self.predicate)
         }
         else {
-            return 0
+            return find().count
         }
     }
 }

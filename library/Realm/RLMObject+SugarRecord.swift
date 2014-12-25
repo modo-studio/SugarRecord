@@ -167,6 +167,19 @@ extension RLMObject
     }
     
     
+    //MARK: - Count
+    
+    /**
+    Returns the count of all existing element
+    
+    :returns: Int with the count
+    */
+    public class func count() -> Int
+    {
+        return all().count()
+    }
+    
+    
     //MARK: - Deletion
     
     /**

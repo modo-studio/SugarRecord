@@ -165,6 +165,19 @@ extension NSManagedObject
         return finder
     }
     
+    
+    //MARK: - Count
+    
+    /**
+    Returns a the count of elements of this type
+    
+    :returns: Int
+    */
+    public class func count() -> Int
+    {
+        return all().count()
+    }
+    
     //MARK: - Deletion
     
     /**
