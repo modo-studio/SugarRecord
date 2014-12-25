@@ -8,4 +8,4 @@ before_install:
   - gem install xcpretty
   - cd project
 script:
-  - xcodebuild -project QueryKit.xcodeproj -scheme QueryKit test | xcpretty -c; exit ${PIPESTATUS[0]}
+  - xcodebuild -project project.xcodeproj -scheme project test | xcpretty -c; exit ${PIPESTATUS[0]}
