@@ -17,8 +17,6 @@ The library is completetly written in Swift and fully tested to ensure the behav
 
 **There's a Google Group where you can leave your topics, question, doubts, suggestions and stuff besides issues https://groups.google.com/forum/#!forum/sugarrecord .**
 
-**Moreover we have a blog to talk about the library, check it here: [http://www.sugarrecord.com/](http://www.sugarrecord.com)**
-
 **Powered by [@pepibumur](http://www.twitter.com/pepibumur)**
 
 ![image](https://raw.githubusercontent.com/SugarRecord/SugarRecord/develop/Resources/scheme.png)
