@@ -24,7 +24,7 @@ public class SugarRecordResults<T>: SequenceType
     private var finder: SugarRecordFinder<T>
     
     /// Database Engine: CoreData, Realm, ...
-    private var engine: SugarRecordEngine {
+    internal var engine: SugarRecordEngine {
         if (coredataResults != nil) {
             return SugarRecordEngine.SugarRecordEngineCoreData
         }
@@ -213,24 +213,6 @@ public class SugarRecordResults<T>: SequenceType
         }
         else {
             return SugarRecordResults(realmResults: realmResults!.sortedResultsUsingProperty(property, ascending: ascending), finder: SugarRecordFinder<T>())
-        }
-    }
-    
-    /**
-    Returns sorted results using an array of sort descriptors
-    
-    :param: properties Array with sort descriptors
-    
-    :returns: Sortered SugarRecordResults
-    */
-    func sortedResultsUsingDescriptors(properties: [AnyObject]!) -> SugarRecordResults<T>!
-    {
-        if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
-            var array: NSArray = NSArray(array: coredataResults!)
-            return SugarRecordResults(coredataResults: (array.sortedArrayUsingDescriptors(properties) as [NSManagedObject]), finder: finder)
-        }
-        else {
-            return SugarRecordResults(realmResults: realmResults!.sortedResultsUsingDescriptors(properties), finder: finder)
         }
     }
     
