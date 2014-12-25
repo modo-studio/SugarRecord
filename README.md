@@ -17,7 +17,7 @@ The library is completetly written in Swift and fully tested to ensure the behav
 
 **There's a Google Group where you can leave your topics, question, doubts, suggestions and stuff besides issues https://groups.google.com/forum/#!forum/sugarrecord .**
 
-**Powered by [@pepibumur](http://www.twitter.com/pepibumur)**
+**Powered by [@pepibumur](http://www.twitter.com/pepibumur) with the help of [@isaacroldan](www.twitter.com/saky), [@rdougan](www.twitter.com/rdougan) and some developers**
 
 ![image](https://raw.githubusercontent.com/SugarRecord/SugarRecord/develop/Resources/scheme.png)
 The scheme above shows the structure of SugarRecord. It's formed by:
