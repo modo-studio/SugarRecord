@@ -31,7 +31,7 @@ extension NSManagedObject
     
     :returns: String with the entity name
     */
-    public class func entityName() -> String
+    public class func modelName() -> String
     {
         return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }
@@ -87,10 +87,10 @@ extension NSManagedObject
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func by(key: String, equalTo value: String) -> SugarRecordFinder<NSManagedObject>
+    public class func by<T: StringLiteralConvertible, R: StringLiteralConvertible>(key: T, equalTo value: R) -> SugarRecordFinder<NSManagedObject>
     {
         var finder: SugarRecordFinder = SugarRecordFinder<NSManagedObject>()
-        finder.setPredicate(byKey: key, andValue: value)
+        finder.setPredicate(byKey: "\(key)", andValue: "\(value)")
         finder.objectClass = self
         finder.stackType = stackType()
         return finder
@@ -107,10 +107,10 @@ extension NSManagedObject
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func sorted(by sortingKey: String, ascending: Bool) -> SugarRecordFinder<NSManagedObject>
+    public class func sorted<T: StringLiteralConvertible>(by sortingKey: T, ascending: Bool) -> SugarRecordFinder<NSManagedObject>
     {
         var finder: SugarRecordFinder = SugarRecordFinder<NSManagedObject>()
-        finder.addSortDescriptor(byKey: sortingKey, ascending: ascending)
+        finder.addSortDescriptor(byKey: "\(sortingKey)", ascending: ascending)
         finder.objectClass = self
         finder.stackType = stackType()
         return finder
@@ -165,7 +165,7 @@ extension NSManagedObject
         return finder
     }
     
-    
+
     //MARK: - Count
     
     /**

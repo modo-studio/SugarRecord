@@ -33,7 +33,7 @@ extension RLMObject
     
     :returns: String with the entity name
     */
-    public class func entityName() -> String
+    public class func modelName() -> String
     {
         return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }
@@ -89,10 +89,10 @@ extension RLMObject
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func by(key: String, equalTo value: String) -> SugarRecordFinder<RLMObject>
+    public class func by<T: StringLiteralConvertible, R: StringLiteralConvertible>(key: T, equalTo value: R) -> SugarRecordFinder<RLMObject>
     {
         var finder: SugarRecordFinder = SugarRecordFinder<RLMObject>()
-        finder.setPredicate(byKey: key, andValue: value)
+        finder.setPredicate(byKey: "\(key)", andValue: "\(value)")
         finder.objectClass = self
         finder.stackType = stackType()
         return finder
@@ -108,10 +108,10 @@ extension RLMObject
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func sorted(by sortingKey: String, ascending: Bool) -> SugarRecordFinder<RLMObject>
+    public class func sorted<T: StringLiteralConvertible>(by sortingKey: T, ascending: Bool) -> SugarRecordFinder<RLMObject>
     {
         var finder: SugarRecordFinder = SugarRecordFinder<RLMObject>()
-        finder.addSortDescriptor(byKey: sortingKey, ascending: ascending)
+        finder.addSortDescriptor(byKey: "\(sortingKey)", ascending: ascending)
         finder.objectClass = self
         finder.stackType = stackType()
         return finder

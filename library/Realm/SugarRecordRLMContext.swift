@@ -129,4 +129,22 @@ public class SugarRecordRLMContext: SugarRecordContext
         }
         SugarRecordLogger.logLevelInfo.log("Deleted \(objects.count) objects")
     }
+    
+    
+    /**
+    *  Count the number of entities of the given type
+    */
+    public func count(objectClass: AnyClass, predicate: NSPredicate? = nil) -> Int
+    {
+        let objectClass: RLMObject.Type = objectClass as RLMObject.Type
+        var objects: RLMResults? = nil
+        if predicate != nil {
+            objects = objectClass.objectsWithPredicate(predicate)
+        }
+        else {
+            objects = objectClass.allObjectsInRealm(self.realmContext)
+        }
+        return Int(objects!.count)
+    }
+
 }
