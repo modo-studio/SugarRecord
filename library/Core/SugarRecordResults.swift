@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import Realm
 
-public class SugarRecordResults<T>
+public class SugarRecordResults<T>: SequenceType
 {
     //MARK: - Attributes
     
@@ -301,5 +301,30 @@ public class SugarRecordResults<T>
     }
     
     
+    //MARK: SequenceType Protocol
     
+    public func generate() -> SugarRecordResultsGenerator<T>
+    {
+        return SugarRecordResultsGenerator(results: self)
+    }
+}
+
+
+//MARK: Generator
+
+public class SugarRecordResultsGenerator<T>: GeneratorType {
+    private var results: SugarRecordResults<T>
+    private var nextIndex: Int
+    
+    init(results: SugarRecordResults<T>) {
+        self.results = results
+        nextIndex = 0
+    }
+    
+    public func next() -> T? {
+        if (nextIndex < 0) {
+            return nil
+        }
+        return self.results[nextIndex--]
+    }
 }
