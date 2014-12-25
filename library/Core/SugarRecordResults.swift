@@ -13,9 +13,17 @@ import Realm
 public class SugarRecordResults<T>
 {
     //MARK: - Attributes
+    
+    /// Array with the results of CoreData
     private var coredataResults: [NSManagedObject]?
+    
+    /// Array with the results of Realm
     private var realmResults: RLMResults?
+    
+    /// Finder element with information about predicates, sortdescriptors,...
     private var finder: SugarRecordFinder<T>
+    
+    /// Database Engine: CoreData, Realm, ...
     private var engine: SugarRecordEngine {
         if (coredataResults != nil) {
             return SugarRecordEngine.SugarRecordEngineCoreData
@@ -27,20 +35,38 @@ public class SugarRecordResults<T>
 
     //MARK: - Constructors
     
-    init(coredataResults: [NSManagedObject], finder: SugarRecordFinder<T>)
+    /**
+    Initializes SugarRecordResults using CoreDataResults
+    
+    :param: coredataResults Array with NSManagedObjects
+    :param: finder          Finder used to query those elements
+    
+    :returns: Initialized SugarRecordResults
+    */
+    internal init(coredataResults: [NSManagedObject], finder: SugarRecordFinder<T>)
     {
         self.coredataResults = coredataResults
         self.finder = finder
     }
     
-    init(realmResults: RLMResults, finder: SugarRecordFinder<T>) {
+    /**
+    Initializes SugarRecordResults using Realm results
+    
+    :param: realmResults RLMResults with the Realm results
+    :param: finder       Finder used to query those elements
+    
+    :returns: Initialized SugarRecordResults
+    */
+    internal init(realmResults: RLMResults, finder: SugarRecordFinder<T>) {
         self.realmResults = realmResults
         self.finder = finder
     }
     
-    //MARK: - SugarRecordResultsProtocol
     
-    var count:Int {
+    //MARK: - Public methods
+    
+    /// Returns the count of elements
+    public var count:Int {
         get {
             if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
                 return coredataResults!.count
@@ -53,6 +79,13 @@ public class SugarRecordResults<T>
         }
     }
     
+    /**
+    Returns the object at a given index
+    
+    :param: index Index of the object to be returned
+    
+    :returns: Object at index position
+    */
     func objectAtIndex(index: UInt) -> T!
     {
         if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
@@ -64,6 +97,11 @@ public class SugarRecordResults<T>
         }
     }
     
+    /**
+    Returns the first object of the results
+    
+    :returns: Object at position 0
+    */
     func firstObject() -> T!
     {
         if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
@@ -75,6 +113,11 @@ public class SugarRecordResults<T>
         }
     }
     
+    /**
+    Returns the last object of the list
+    
+    :returns: Object at last position
+    */
     func lastObject() -> T!
     {
         if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
@@ -86,6 +129,13 @@ public class SugarRecordResults<T>
         }
     }
     
+    /**
+    Returns the index of a given object
+    
+    :param: object Object whose index'll be returned
+    
+    :returns: index of the given object
+    */
     func indexOfObject(object: T) -> Int
     {
         if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
@@ -102,6 +152,13 @@ public class SugarRecordResults<T>
         }
     }
     
+    /**
+    Index of a given object passed a predicate
+    
+    :param: predicate NSPredicate to filter results
+    
+    :returns: Int with the index on the filtered results
+    */
     func indexOfObjectWithPredicate(predicate: NSPredicate!) -> Int
     {
         if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
@@ -120,6 +177,14 @@ public class SugarRecordResults<T>
         }
     }
     
+    
+    /**
+    Returns objects filtered with the given predicate
+    
+    :param: predicate NSPredicate for filtering
+    
+    :returns: Filtered SugarRecordResults
+    */
     func objectsWithPredicate(predicate: NSPredicate!) -> SugarRecordResults<T>!
     {
         if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
@@ -132,6 +197,14 @@ public class SugarRecordResults<T>
         }
     }
     
+    /**
+    Returns objects sortered with the given sort descriptor
+    
+    :param: property  Sort descriptor key as String
+    :param: ascending Sort descriptor ascending value as Bool
+    
+    :returns: Sortered SugarRecordResults
+    */
     func sortedResultsUsingProperty(property: String!, ascending: Bool) -> SugarRecordResults<T>!
     {
         if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
@@ -143,6 +216,13 @@ public class SugarRecordResults<T>
         }
     }
     
+    /**
+    Returns sorted results using an array of sort descriptors
+    
+    :param: properties Array with sort descriptors
+    
+    :returns: Sortered SugarRecordResults
+    */
     func sortedResultsUsingDescriptors(properties: [AnyObject]!) -> SugarRecordResults<T>!
     {
         if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
@@ -154,6 +234,13 @@ public class SugarRecordResults<T>
         }
     }
     
+    /**
+    Returns the REALM database engine collection.
+    - CoreData: Array with NSManagedObjects
+    - Realm: RLMResults object
+    
+    :returns: original collection that depends on the database engine
+    */
     func realCollection() -> AnyObject
     {
         if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
@@ -164,6 +251,9 @@ public class SugarRecordResults<T>
         }
     }
     
+    /**
+    *  Access to the element at a given index
+    */
     subscript (index: Int) -> T! {
         get {
             if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
@@ -176,8 +266,14 @@ public class SugarRecordResults<T>
         }
     }
     
+    
     //MARK: - Helpers
     
+    /**
+    Returns the first and the last element taking into account the SugarRecordFinder options
+    
+    :returns: Tuple with the first and last index
+    */
     func indexes() -> (Int, Int)
     {
         var firstIndex: Int = 0
@@ -203,4 +299,7 @@ public class SugarRecordResults<T>
         }
         return (firstIndex, lastIndex)
     }
+    
+    
+    
 }
