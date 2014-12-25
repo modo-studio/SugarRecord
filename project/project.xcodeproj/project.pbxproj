@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D47547D1A4C2E1B00479D16 /* SugarRecordResultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D47547C1A4C2E1B00479D16 /* SugarRecordResultsTests.swift */; };
+		3D7339601A4C0DEF00D4259F /* SugarRecordResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D73395F1A4C0DEF00D4259F /* SugarRecordResults.swift */; };
+		3D7339611A4C113600D4259F /* SugarRecordResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D73395F1A4C0DEF00D4259F /* SugarRecordResults.swift */; };
 		3DF21C681A320D74005921A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C671A320D74005921A5 /* AppDelegate.swift */; };
 		3DF21C6A1A320D74005921A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C691A320D74005921A5 /* ViewController.swift */; };
 		3DF21C6D1A320D74005921A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF21C6B1A320D74005921A5 /* Main.storyboard */; };
@@ -30,8 +33,6 @@
 		3DF21CE61A32127C005921A5 /* SugarRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9C1A32100A005921A5 /* SugarRecord.swift */; };
 		3DF21CE71A321281005921A5 /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9B1A32100A005921A5 /* SugarRecordStackProtocol.swift */; };
 		3DF21CE81A321281005921A5 /* SugarRecordStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9B1A32100A005921A5 /* SugarRecordStackProtocol.swift */; };
-		3DF21CE91A321284005921A5 /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9A1A32100A005921A5 /* SugarRecordObjectProtocol.swift */; };
-		3DF21CEA1A321285005921A5 /* SugarRecordObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C9A1A32100A005921A5 /* SugarRecordObjectProtocol.swift */; };
 		3DF21CEB1A321287005921A5 /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C991A32100A005921A5 /* SugarRecordContextProtocol.swift */; };
 		3DF21CEC1A321288005921A5 /* SugarRecordContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21C991A32100A005921A5 /* SugarRecordContextProtocol.swift */; };
 		3DF21CED1A321296005921A5 /* SugarRecordFinder+FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF21CA51A32100A005921A5 /* SugarRecordFinder+FetchedResultsController.swift */; };
@@ -103,6 +104,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D47547C1A4C2E1B00479D16 /* SugarRecordResultsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordResultsTests.swift; sourceTree = "<group>"; };
+		3D73395F1A4C0DEF00D4259F /* SugarRecordResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordResults.swift; sourceTree = "<group>"; };
 		3DF21C621A320D74005921A5 /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF21C661A320D74005921A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DF21C671A320D74005921A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,7 +116,6 @@
 		3DF21C8B1A320DA8005921A5 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF21C8E1A320DA8005921A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DF21C991A32100A005921A5 /* SugarRecordContextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordContextProtocol.swift; sourceTree = "<group>"; };
-		3DF21C9A1A32100A005921A5 /* SugarRecordObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordObjectProtocol.swift; sourceTree = "<group>"; };
 		3DF21C9B1A32100A005921A5 /* SugarRecordStackProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordStackProtocol.swift; sourceTree = "<group>"; };
 		3DF21C9C1A32100A005921A5 /* SugarRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecord.swift; sourceTree = "<group>"; };
 		3DF21C9D1A32100A005921A5 /* SugarRecordFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordFinder.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				3DF21C9C1A32100A005921A5 /* SugarRecord.swift */,
 				3DF21C9D1A32100A005921A5 /* SugarRecordFinder.swift */,
 				3DF21C9E1A32100A005921A5 /* SugarRecordLogger.swift */,
+				3D73395F1A4C0DEF00D4259F /* SugarRecordResults.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -288,7 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				3DF21C991A32100A005921A5 /* SugarRecordContextProtocol.swift */,
-				3DF21C9A1A32100A005921A5 /* SugarRecordObjectProtocol.swift */,
 				3DF21C9B1A32100A005921A5 /* SugarRecordStackProtocol.swift */,
 			);
 			path = Protocols;
@@ -340,6 +342,7 @@
 				3DF21CB61A3210F7005921A5 /* SugarRecordFinderTests.swift */,
 				3DF21CB71A3210F7005921A5 /* SugarRecordLoggerTests.swift */,
 				3DF21CB81A3210F7005921A5 /* SugarRecordTests.swift */,
+				3D47547C1A4C2E1B00479D16 /* SugarRecordResultsTests.swift */,
 			);
 			name = Core;
 			path = ../../spec/Core;
@@ -582,9 +585,9 @@
 				3DF21C6A1A320D74005921A5 /* ViewController.swift in Sources */,
 				3DF21CE61A32127C005921A5 /* SugarRecord.swift in Sources */,
 				3DF21CF41A3212A1005921A5 /* DefaultCDStack.swift in Sources */,
+				3D7339611A4C113600D4259F /* SugarRecordResults.swift in Sources */,
 				3DF21CF21A32129E005921A5 /* iCloudCDStack.swift in Sources */,
 				3DF21CE41A321278005921A5 /* SugarRecordFinder.swift in Sources */,
-				3DF21CEA1A321285005921A5 /* SugarRecordObjectProtocol.swift in Sources */,
 				3DF21C681A320D74005921A5 /* AppDelegate.swift in Sources */,
 				3DF21CF61A3212A6005921A5 /* NSManagedObject+SugarRecord.swift in Sources */,
 				3DF21CEE1A321297005921A5 /* SugarRecordFinder+FetchedResultsController.swift in Sources */,
@@ -602,6 +605,7 @@
 				3DF21CE11A321275005921A5 /* SugarRecordLogger.swift in Sources */,
 				3DF21D121A321A8B005921A5 /* RealmObject.swift in Sources */,
 				3DF21D0C1A3219BB005921A5 /* SugarRecordRLMContext.swift in Sources */,
+				3D47547D1A4C2E1B00479D16 /* SugarRecordResultsTests.swift in Sources */,
 				3DF21CFF1A3215D7005921A5 /* DefaultCDStackTests.swift in Sources */,
 				3DF21CE31A321278005921A5 /* SugarRecordFinder.swift in Sources */,
 				3DF21CFE1A3215D3005921A5 /* CoreDataFetchResultsControllerTests.swift in Sources */,
@@ -631,7 +635,7 @@
 				3DF21CDF1A321263005921A5 /* CoreDataObjectTests.swift in Sources */,
 				3DF21D151A321A9E005921A5 /* SugarRecordTests.swift in Sources */,
 				3DF21CDE1A3211F9005921A5 /* TestsDataModel.xcdatamodeld in Sources */,
-				3DF21CE91A321284005921A5 /* SugarRecordObjectProtocol.swift in Sources */,
+				3D7339601A4C0DEF00D4259F /* SugarRecordResults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

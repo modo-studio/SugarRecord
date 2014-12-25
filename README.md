@@ -39,6 +39,7 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 25th-December-2014 | Added new results type SugarRecordResults |
 | 10th-December-2014 | Query response array is now non-optional |
 | 10th-December-2014 | Generated documentation using Jazzy |
 | 10th-December-2014 | Added an example project with a CoreData example |
@@ -93,6 +94,8 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 ### Version 1.0.3 - [WIP]
 - Updated the project structure and added easy setup steps (without CocoaPods)
 - Added example project
+- Added high performance count method
+- Added SugarRecordResults type for results (inspired on RLMResults)
 
 ### Version 1.0.2 Beta - Features
 - Updated the project structure to package the libary in bundles

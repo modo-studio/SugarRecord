@@ -20,7 +20,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     public var name: String = "DefaultCoreDataStack"
     public var stackDescription: String = "Default core data stack with an efficient context management"
     public var defaultStoreName: String = "sugar.sqlite"
-    public let stackType: SugarRecordStackType = SugarRecordStackType.SugarRecordStackTypeCoreData
+    public let stackType: SugarRecordEngine = SugarRecordEngine.SugarRecordEngineCoreData
     public var migrationFailedClosure: () -> ()
     public var stackInitialized: Bool = false
     public var autoSaving: Bool = false

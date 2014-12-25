@@ -1,5 +1,0 @@
-var migrations: [RLMObjectMigration<RLMObject>] = [RLMObjectMigration<RLMObject>]()
-migrations.append(RLMObjectMigration<RLMObject>(toSchema: 13, migrationClosure: { (oldObject, newObject) -> () in // Your code here}))
-migrations.append(RLMObjectMigration<RLMObject>(toSchema: 3, migrationClosure: { (oldObject, newObject) -> () in // Your code here}))
-migrations.append(RLMObjectMigration<RLMObject>(toSchema: 1, migrationClosure: { (oldObject, newObject) -> () in  // Your code here}))
-let stack: DefaultREALMStack = DefaultREALMStack(stackName: "Stack name", stackDescription: "Stack description", migrations: migrations)

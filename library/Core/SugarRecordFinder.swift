@@ -24,7 +24,7 @@ public enum SugarRecordFinderElements
     case lasts(Int)
 }
 
-public class SugarRecordFinder
+public class SugarRecordFinder<T>
 {
     //MARK: - Attributes
     
@@ -32,7 +32,7 @@ public class SugarRecordFinder
     public var predicate: NSPredicate?
     
     /// Type of stack where the operations are going to executed
-    public var stackType: SugarRecordStackType?
+    public var stackType: SugarRecordEngine?
     
     /// Class of the object
     public var objectClass: NSObject.Type?
@@ -120,12 +120,12 @@ public class SugarRecordFinder
     
     :returns: Current finder
     */
-    public func by(key: String, equalTo value: String) -> SugarRecordFinder
+    public func by<T: StringLiteralConvertible, R: StringLiteralConvertible>(key: T, equalTo value: R) -> SugarRecordFinder
     {
         if self.predicate != nil {
             SugarRecordLogger.logLevelWarn.log("You are overriding an existing predicate")
         }
-        self.setPredicate(byKey: key, andValue: value)
+        self.setPredicate(byKey: "\(key)", andValue: "\(value)")
         return self
     }
     
@@ -137,9 +137,9 @@ public class SugarRecordFinder
     
     :returns: Current finder
     */
-    public func sorted(by sortingKey: String, ascending: Bool) -> SugarRecordFinder
+    public func sorted<T: StringLiteralConvertible>(by sortingKey: T, ascending: Bool) -> SugarRecordFinder
     {
-        self.addSortDescriptor(byKey: sortingKey, ascending: ascending)
+        self.addSortDescriptor(byKey: "\(sortingKey)", ascending: ascending)
         return self
     }
     
@@ -196,9 +196,9 @@ public class SugarRecordFinder
     
     :returns: Current finder
     */
-    public func addSortDescriptor(byKey key: String, ascending: Bool) -> SugarRecordFinder
+    public func addSortDescriptor<T: StringLiteralConvertible>(byKey key: T, ascending: Bool) -> SugarRecordFinder
     {
-        sortDescriptors.append(NSSortDescriptor(key: key, ascending: ascending))
+        sortDescriptors.append(NSSortDescriptor(key: "\(key)", ascending: ascending))
         return self
     }
     
@@ -262,7 +262,7 @@ public class SugarRecordFinder
     
     :returns: Current finder
     */
-    public func setPredicate(byKey key: String, andValue value: String) -> SugarRecordFinder
+    public func setPredicate<T: StringLiteralConvertible, R: StringLiteralConvertible>(byKey key: T, andValue value: R) -> SugarRecordFinder
     {
         self.predicate = NSPredicate(format: "\(key) == \(value)")
         return self
@@ -338,16 +338,16 @@ public class SugarRecordFinder
     
     :returns: Fetch result
     */
-    public func find() -> [AnyObject]?
+    public func find() -> SugarRecordResults<T>
     {
-        var objects: [AnyObject]?
+        var objects: SugarRecordResults<T>!
         SugarRecord.operation(stackType!, closure: { (context) -> () in
             objects = context.find(self)
         })
         return objects
     }
     
-    public func find(inContext context:SugarRecordContext) -> [AnyObject]?
+    public func find(inContext context:SugarRecordContext) -> SugarRecordResults<T>
     {
         return context.find(self)
     }
@@ -373,7 +373,7 @@ public class SugarRecordFinder
     public func delete (asynchronously: Bool, completion: () -> ())
     {
         SugarRecord.operation(inBackground: asynchronously, stackType: stackType!) { (context) -> () in
-            let objects: [AnyObject]? = context.find(self)
+            let objects: SugarRecordResults<T>! = context.find(self)
             if objects == nil {
                 SugarRecordLogger.logLevelInfo.log("No objects have been deleted")
                 return
@@ -397,13 +397,11 @@ public class SugarRecordFinder
     */
     public func count() -> Int
     {
-        let objects: [AnyObject]? = find()
-        if objects != nil {
-            return objects!.count
-        }
-        else {
-            return 0
-        }
+        var count: Int = 0
+        SugarRecord.operation(stackType!, closure: { (context) -> () in
+            count = self.count(inContext: context)
+        })
+        return count
     }
     
     /**
@@ -415,12 +413,11 @@ public class SugarRecordFinder
     */
     public func count(inContext context:SugarRecordContext) -> Int
     {
-        let objects: [AnyObject]? = find(inContext: context)
-        if objects != nil {
-            return objects!.count
+        if (stackType == SugarRecordEngine.SugarRecordEngineCoreData) {
+            return (context as SugarRecordCDContext).count(self.objectClass!, predicate: self.predicate)
         }
         else {
-            return 0
+            return find().count
         }
     }
 }

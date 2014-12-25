@@ -37,8 +37,8 @@ public struct RLMObjectMigration<T: RLMObject> {
     :param: realmMigration Realm migration object
     */
     public func migrate(realmMigration: RLMMigration) {
-        let entityName: String = T.entityName()
-        realmMigration.enumerateObjects(entityName, block: { (oldObject: RLMObject!, newObject: RLMObject!) -> Void in
+        let modelName: String = T.modelName()
+        realmMigration.enumerateObjects(modelName, block: { (oldObject: RLMObject!, newObject: RLMObject!) -> Void in
             self.migrationClosure(oldObject: oldObject, newObject: newObject)
         })
     }
