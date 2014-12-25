@@ -94,16 +94,16 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 - More powerful features to discover!
 
 ## Versions
-### Version 1.0.4 [WIP]
+### Version 1.0.5 [WIP]
 
 
-### Version 1.0.3
+### Version 1.0.4
 - Updated the project structure and added easy setup steps (without CocoaPods)
 - Added example project
 - Added high performance count method
 - Added SugarRecordResults type for results (inspired on RLMResults)
 
-### Version 1.0.2 Beta - Features
+### Version 1.0.3 Beta - Features
 - Updated the project structure to package the libary in bundles
 - Added `cancelWriting()` feature
 - Filled the Wiki page of the project
