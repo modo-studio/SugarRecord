@@ -9,15 +9,15 @@
 import Foundation
 import Realm
 
-class SugarRecordRLMResults: SugarRecordResultsProtocol
+class SugarRecordRLMResults<T>: SugarRecordResultsProtocol
 {
     //MARK: - Attributes
     private var realmResults: RLMResults
-    private var finder: SugarRecordFinder
+    private var finder: SugarRecordFinder<T>
     
     //MARK: - Constructors
     
-    init(realmResults: RLMResults, finder: SugarRecordFinder)
+    init(realmResults: RLMResults, finder: SugarRecordFinder<T>)
     {
         self.realmResults = realmResults
         self.finder = finder
@@ -63,12 +63,12 @@ class SugarRecordRLMResults: SugarRecordResultsProtocol
     
     func objectsWithPredicate(predicate: NSPredicate!) -> SugarRecordResultsProtocol!
     {
-        return SugarRecordRLMResults(realmResults: realmResults.objectsWithPredicate(predicate), finder: SugarRecordFinder())
+        return SugarRecordRLMResults(realmResults: realmResults.objectsWithPredicate(predicate), finder: SugarRecordFinder<T>())
     }
     
     func sortedResultsUsingProperty(property: String!, ascending: Bool) -> SugarRecordResultsProtocol!
     {
-        return SugarRecordRLMResults(realmResults: realmResults.sortedResultsUsingProperty(property, ascending: ascending), finder: SugarRecordFinder())
+        return SugarRecordRLMResults(realmResults: realmResults.sortedResultsUsingProperty(property, ascending: ascending), finder: SugarRecordFinder<T>())
     }
     
     func sortedResultsUsingDescriptors(properties: [AnyObject]!) -> SugarRecordResultsProtocol!

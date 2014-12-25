@@ -98,7 +98,7 @@ class SugarRecordCDContextTests: XCTestCase
         var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "test", ascending: true)
         var sortDescriptor2: NSSortDescriptor = NSSortDescriptor(key: "test2", ascending: true)
         let predicate: NSPredicate = NSPredicate()
-        var finder: SugarRecordFinder = SugarRecordFinder()
+        var finder: SugarRecordFinder = SugarRecordFinder<NSManagedObject>()
         finder.addSortDescriptor(sortDescriptor)
         finder.addSortDescriptor(sortDescriptor2)
         finder.setPredicate(predicate)

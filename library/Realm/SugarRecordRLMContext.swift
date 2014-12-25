@@ -82,7 +82,7 @@ public class SugarRecordRLMContext: SugarRecordContext
     
     :returns: Objects fetched
     */
-    public func find(finder: SugarRecordFinder) -> SugarRecordResultsProtocol
+    public func find<T>(finder: SugarRecordFinder<T>) -> SugarRecordResultsProtocol
     {
         let objectClass: RLMObject.Type = finder.objectClass as RLMObject.Type
         var filteredObjects: RLMResults? = nil

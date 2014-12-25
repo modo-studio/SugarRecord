@@ -86,7 +86,7 @@ public class SugarRecordCDContext: SugarRecordContext
     
     :returns: Objects fetched
     */
-    public func find(finder: SugarRecordFinder) -> SugarRecordResultsProtocol
+    public func find<T>(finder: SugarRecordFinder<T>) -> SugarRecordResultsProtocol
     {
         let fetchRequest: NSFetchRequest = SugarRecordCDContext.fetchRequest(fromFinder: finder)
         var error: NSError?
@@ -107,7 +107,7 @@ public class SugarRecordCDContext: SugarRecordContext
     
     :returns: Created NSFetchRequest
     */
-    public class func fetchRequest(fromFinder finder: SugarRecordFinder) -> NSFetchRequest
+    public class func fetchRequest<T>(fromFinder finder: SugarRecordFinder<T>) -> NSFetchRequest
     {
         let objectClass: NSObject.Type = finder.objectClass!
         let managedObjectClass: NSManagedObject.Type = objectClass as NSManagedObject.Type

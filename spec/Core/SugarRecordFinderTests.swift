@@ -13,11 +13,11 @@ import CoreData
 
 class SugarRecordSugarRecordFinderTests: XCTestCase
 {
-    var sugarRecordFinder: SugarRecordFinder!
+    var sugarRecordFinder: SugarRecordFinder<NSManagedObject>!
     override func setUp()
     {
         super.setUp()
-        sugarRecordFinder = SugarRecordFinder()
+        sugarRecordFinder = SugarRecordFinder<NSManagedObject>()
     }
     
     override func tearDown()

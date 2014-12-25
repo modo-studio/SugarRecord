@@ -12,7 +12,7 @@ import CoreData
 
 class CoreDataFetchResultsControllerTests: XCTestCase
 {
-    var finder: SugarRecordFinder?
+    var finder: SugarRecordFinder<NSManagedObject>?
     
     override func setUp()
     {
@@ -23,7 +23,7 @@ class CoreDataFetchResultsControllerTests: XCTestCase
         let stack: DefaultCDStack = DefaultCDStack(databaseName: "TestDB.sqlite", model: model, automigrating: true)
         SugarRecord.addStack(stack)
         
-        finder = SugarRecordFinder()
+        finder = SugarRecordFinder<NSManagedObject>()
         finder!.objectClass = CoreDataObject.self
         finder!.addSortDescriptor(NSSortDescriptor(key: "name", ascending: true))
         finder!.setPredicate("name == test")

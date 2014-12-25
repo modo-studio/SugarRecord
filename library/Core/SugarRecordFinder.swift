@@ -24,7 +24,7 @@ public enum SugarRecordFinderElements
     case lasts(Int)
 }
 
-public class SugarRecordFinder
+public class SugarRecordFinder<T>
 {
     //MARK: - Attributes
     

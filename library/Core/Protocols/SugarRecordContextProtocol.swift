@@ -48,5 +48,5 @@ public protocol SugarRecordContext
     /**
     *  Executes the finder query to return filtered values
     */
-    func find(finder: SugarRecordFinder) -> SugarRecordResultsProtocol
+    func find<T>(finder: SugarRecordFinder<T>) -> SugarRecordResultsProtocol
 }
