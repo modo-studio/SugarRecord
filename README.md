@@ -37,6 +37,7 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 25th-December-2014 | Version 1.0.4 released |
 | 25th-December-2014 | Added Realm example |
 | 25th-December-2014 | Added a continuous integration local script |
 | 25th-December-2014 | Updated Realm to 0.89 |
@@ -93,7 +94,10 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 - More powerful features to discover!
 
 ## Versions
-### Version 1.0.3 - [WIP]
+### Version 1.0.4 [WIP]
+
+
+### Version 1.0.3
 - Updated the project structure and added easy setup steps (without CocoaPods)
 - Added example project
 - Added high performance count method
