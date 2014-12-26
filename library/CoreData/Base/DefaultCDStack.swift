@@ -287,7 +287,9 @@ public class DefaultCDStack: SugarRecordStackProtocol
         context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         context!.parentContext = parentContext!
         context!.addObserverToGetPermanentIDsBeforeSaving()
-        context!.name = "Main context"
+        if context!.respondsToSelector(Selector("name")) {
+            context!.name = "Main context"
+        }
         SugarRecordLogger.logLevelVerbose.log("Created MAIN context")
         return context!
     }
@@ -309,8 +311,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
         context = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         context!.persistentStoreCoordinator = persistentStoreCoordinator!
         context!.addObserverToGetPermanentIDsBeforeSaving()
-        context!.name = "Root saving context"
-        SugarRecordLogger.logLevelVerbose.log("Created MAIN context")
+        if context!.respondsToSelector(Selector("name")) {
+            context!.name = "Root saving context"
+        }
+        SugarRecordLogger.logLevelVerbose.log("Created Root saving context")
         return context!
     }
     
@@ -576,7 +580,7 @@ public extension NSManagedObjectContext
     :param: notification Notification that fired this method call
     */
     func mergeChanges(notification: NSNotification) {
-        SugarRecordLogger.logLevelInfo.log("Merging changes to context \(self.name)")
+        SugarRecordLogger.logLevelInfo.log("Merging changes to context \(self)")
         self.mergeChangesFromContextDidSaveNotification(notification)
         NSNotificationCenter.defaultCenter().postNotificationName(DefaultCDStack.Constants.autoSavingKVOKey, object: nil)
     }
