@@ -10,300 +10,125 @@ import Foundation
 import CoreData
 import Realm
 
-public class SugarRecordResults<T>: SequenceType
+internal protocol SugarRecordResultsProtocol
 {
+    /**
+    Returns the count of elements in Results
+    
+    :param: finder Finder restrict the query results (lasts, first, firsts, ...) which is not possible directly on Realm
+    
+    :returns: Count of elements
+    */
+    func count(#finder: SugarRecordFinder) -> Int
+    
+    /**
+    Returns the object at a given index
+    
+    :param: index  Index of the object
+    :param: finder Finder restrict the query results (lasts, first, firsts, ...) which is not possible directly on Realm
+    
+    :returns: Object at that index (if exists)
+    */
+    func objectAtIndex(index: UInt, finder: SugarRecordFinder) -> AnyObject!
+    
+    /**
+    Returns the first object of the results
+    
+    :param: finder Finder restrict the query results (lasts, first, firsts, ...) which is not possible directly on Realm
+    
+    :returns: First object (if exists)
+    */
+    func firstObject(#finder: SugarRecordFinder) -> AnyObject!
+    
+    /**
+    Returns the last object of the results
+    
+    :param: finder Finder restrict the query results (lasts, first, firsts, ...) which is not possible directly on Realm
+    
+    :returns: Last object (if exists)
+    */
+    func lastObject(#finder: SugarRecordFinder) -> AnyObject!
+}
+
+public class SugarRecordResults: SequenceType
+{
+    
     //MARK: - Attributes
     
-    /// Array with the results of CoreData
-    private var coredataResults: [NSManagedObject]?
+    var results: SugarRecordResultsProtocol
+    private var finder: SugarRecordFinder
     
-    /// Array with the results of Realm
-    private var realmResults: RLMResults?
     
-    /// Finder element with information about predicates, sortdescriptors,...
-    private var finder: SugarRecordFinder<T>
-    
-    /// Database Engine: CoreData, Realm, ...
-    internal var engine: SugarRecordEngine {
-        if (coredataResults != nil) {
-            return SugarRecordEngine.SugarRecordEngineCoreData
-        }
-        else {
-            return SugarRecordEngine.SugarRecordEngineRealm
-        }
-    }
-
     //MARK: - Constructors
     
     /**
-    Initializes SugarRecordResults using CoreDataResults
+    Initializes SRResults passing an object that conforms the protocol SRResultsProtocol
     
-    :param: coredataResults Array with NSManagedObjects
-    :param: finder          Finder used to query those elements
+    :param: results Original results
     
-    :returns: Initialized SugarRecordResults
+    :returns: Initialized SRResults
     */
-    internal init(coredataResults: [NSManagedObject], finder: SugarRecordFinder<T>)
-    {
-        self.coredataResults = coredataResults
-        self.finder = finder
-    }
-    
-    /**
-    Initializes SugarRecordResults using Realm results
-    
-    :param: realmResults RLMResults with the Realm results
-    :param: finder       Finder used to query those elements
-    
-    :returns: Initialized SugarRecordResults
-    */
-    internal init(realmResults: RLMResults, finder: SugarRecordFinder<T>) {
-        self.realmResults = realmResults
+    internal init(results: SugarRecordResultsProtocol, finder: SugarRecordFinder) {
+        self.results = results
         self.finder = finder
     }
     
     
     //MARK: - Public methods
     
-    /// Returns the count of elements
+    /// Returns the number of elements
     public var count:Int {
         get {
-            if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
-                return coredataResults!.count
-            }
-            else {
-                let (firstIndex, lastIndex) = indexes()
-                if (lastIndex == 0 && firstIndex == 0) { return Int(realmResults!.count) }
-                return lastIndex - firstIndex + 1
-            }
+            return results.count(finder: finder)
         }
     }
     
-    /**
-    Returns the object at a given index
-    
-    :param: index Index of the object to be returned
-    
-    :returns: Object at index position
-    */
-    func objectAtIndex(index: UInt) -> T!
+    func objectAtIndex(index: UInt) -> AnyObject!
     {
-        if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
-            return coredataResults![Int(index)] as T
-        }
-        else {
-            let (firstIndex, lastIndex) = indexes()
-            return realmResults!.objectAtIndex(firstIndex + index) as T
-        }
+        return results.objectAtIndex(index, finder: finder)
     }
     
-    /**
-    Returns the first object of the results
-    
-    :returns: Object at position 0
-    */
-    func firstObject() -> T!
+    func firstObject() -> AnyObject!
     {
-        if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
-            return coredataResults!.first! as T
-        }
-        else {
-            let (firstIndex, lastIndex) = indexes()
-            return realmResults!.objectAtIndex(UInt(firstIndex)) as T
-        }
+        return results.firstObject(finder: finder)
     }
     
-    /**
-    Returns the last object of the list
-    
-    :returns: Object at last position
-    */
-    func lastObject() -> T!
+    func lastObject() -> AnyObject!
     {
-        if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
-            return coredataResults!.last! as T
-        }
-        else {
-            let (firstIndex, lastIndex) = indexes()
-            return realmResults!.objectAtIndex(UInt(lastIndex)) as T
-        }
+        return results.lastObject(finder: finder)
     }
-    
-    /**
-    Returns the index of a given object
-    
-    :param: object Object whose index'll be returned
-    
-    :returns: index of the given object
-    */
-    func indexOfObject(object: T) -> Int
-    {
-        if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
-            if let i = find(coredataResults!, object as NSManagedObject) {
-                return i
-            }
-            else {
-                return NSNotFound
-            }
-        }
-        else {
-            let (firstIndex, lastIndex) = indexes()
-            return Int(realmResults!.indexOfObject(object as RLMObject)) - firstIndex
-        }
-    }
-    
-    /**
-    Index of a given object passed a predicate
-    
-    :param: predicate NSPredicate to filter results
-    
-    :returns: Int with the index on the filtered results
-    */
-    func indexOfObjectWithPredicate(predicate: NSPredicate!) -> Int
-    {
-        if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
-            var filteredArray: SugarRecordResults<T>! = objectsWithPredicate(predicate)
-            var first: T! = filteredArray.firstObject()
-            if first != nil {
-                return indexOfObject(first)
-            }
-            else {
-                return NSNotFound
-            }
-        }
-        else {
-            let (firstIndex, lastIndex) = indexes()
-            return Int(realmResults!.indexOfObjectWithPredicate(predicate)) - firstIndex
-        }
-    }
-    
-    
-    /**
-    Returns objects filtered with the given predicate
-    
-    :param: predicate NSPredicate for filtering
-    
-    :returns: Filtered SugarRecordResults
-    */
-    func objectsWithPredicate(predicate: NSPredicate!) -> SugarRecordResults<T>!
-    {
-        if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
-            var array: NSArray = NSArray(array: coredataResults!)
-            return SugarRecordResults(coredataResults: array.filteredArrayUsingPredicate(predicate) as [NSManagedObject], finder: finder)
-        }
-        else {
-            return SugarRecordResults(realmResults: realmResults!.objectsWithPredicate(predicate), finder: SugarRecordFinder<T>())
 
-        }
-    }
-    
-    /**
-    Returns objects sortered with the given sort descriptor
-    
-    :param: property  Sort descriptor key as String
-    :param: ascending Sort descriptor ascending value as Bool
-    
-    :returns: Sortered SugarRecordResults
-    */
-    func sortedResultsUsingProperty(property: String!, ascending: Bool) -> SugarRecordResults<T>!
-    {
-        if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
-            var array: NSArray = NSArray(array: coredataResults!)
-            return SugarRecordResults(coredataResults: (array.sortedArrayUsingDescriptors([NSSortDescriptor(key: property, ascending: ascending)]) as [NSManagedObject]), finder: finder)
-        }
-        else {
-            return SugarRecordResults(realmResults: realmResults!.sortedResultsUsingProperty(property, ascending: ascending), finder: SugarRecordFinder<T>())
-        }
-    }
-    
-    /**
-    Returns the REALM database engine collection.
-    - CoreData: Array with NSManagedObjects
-    - Realm: RLMResults object
-    
-    :returns: original collection that depends on the database engine
-    */
-    func realCollection() -> AnyObject
-    {
-        if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
-            return coredataResults!
-        }
-        else {
-            return realmResults!
-        }
-    }
-    
     /**
     *  Access to the element at a given index
     */
-    subscript (index: Int) -> T! {
+    subscript (index: Int) -> AnyObject! {
         get {
-            if (engine == SugarRecordEngine.SugarRecordEngineCoreData) {
-                return coredataResults![index] as T
-            }
-            else {
-                let (firstIndex, lastIndex) = indexes()
-                return realmResults![UInt(index+firstIndex)] as T
-            }
+            return results.objectAtIndex(UInt(index), finder: finder)
         }
-    }
-    
-    
-    //MARK: - Helpers
-    
-    /**
-    Returns the first and the last element taking into account the SugarRecordFinder options
-    
-    :returns: Tuple with the first and last index
-    */
-    func indexes() -> (Int, Int)
-    {
-        var firstIndex: Int = 0
-        var lastIndex: Int = Int(realmResults!.count) - 1
-        
-        switch(finder.elements) {
-        case .first:
-            firstIndex = 0
-            lastIndex = 0
-        case .last:
-            lastIndex = Int(realmResults!.count) - 1
-            firstIndex = Int(realmResults!.count) - 1
-        case .firsts(let number):
-            firstIndex = 0
-            lastIndex = firstIndex + number - 1
-            if (lastIndex > Int(realmResults!.count) - 1) { lastIndex = Int(realmResults!.count) - 1 }
-        case .lasts(let number):
-            lastIndex = Int(realmResults!.count) - 1
-            firstIndex = firstIndex - (number - 1)
-            if (firstIndex < 0) { firstIndex = 0 }
-        default:
-            break
-        }
-        return (firstIndex, lastIndex)
     }
     
     
     //MARK: SequenceType Protocol
     
-    public func generate() -> SugarRecordResultsGenerator<T>
+    public func generate() -> SRResultsGenerator
     {
-        return SugarRecordResultsGenerator(results: self)
+        return SRResultsGenerator(results: self)
     }
 }
 
 
 //MARK: Generator
 
-public class SugarRecordResultsGenerator<T>: GeneratorType {
-    private var results: SugarRecordResults<T>
+public class SRResultsGenerator: GeneratorType {
+    private var results: SugarRecordResults
     private var nextIndex: Int
     
-    init(results: SugarRecordResults<T>) {
+    init(results: SugarRecordResults) {
         self.results = results
         nextIndex = 0
     }
     
-    public func next() -> T? {
+    public func next() -> AnyObject? {
         if (nextIndex < 0) {
             return nil
         }
