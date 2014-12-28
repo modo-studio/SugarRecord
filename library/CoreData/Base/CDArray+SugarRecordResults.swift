@@ -17,7 +17,8 @@ internal class SugarRecordArray: SugarRecordResultsProtocol
 {
     var array: Array<NSManagedObject>
     
-    init(array: Array<NSManagedObject>) {
+    init(array: Array<NSManagedObject>)
+    {
        self.array = array
     }
     

@@ -9,7 +9,7 @@
 import Foundation
 import Realm
 
-extension RLMResults: SugarRecordResultsProtocol
+ extension RLMResults: SugarRecordResultsProtocol
 {
     func count(#finder: SugarRecordFinder) -> Int
     {
@@ -43,7 +43,7 @@ extension RLMResults: SugarRecordResultsProtocol
     
     :returns: Tuple with the first and last index
     */
-    func indexes(#finder: SugarRecordFinder) -> (Int, Int)
+    private func indexes(#finder: SugarRecordFinder) -> (Int, Int)
     {
         var firstIndex: Int = 0
         var lastIndex: Int = Int(self.count) - 1

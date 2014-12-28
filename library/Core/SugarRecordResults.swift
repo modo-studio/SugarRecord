@@ -7,48 +7,6 @@
 //
 
 import Foundation
-import CoreData
-import Realm
-
-internal protocol SugarRecordResultsProtocol
-{
-    /**
-    Returns the count of elements in Results
-    
-    :param: finder Finder restrict the query results (lasts, first, firsts, ...) which is not possible directly on Realm
-    
-    :returns: Count of elements
-    */
-    func count(#finder: SugarRecordFinder) -> Int
-    
-    /**
-    Returns the object at a given index
-    
-    :param: index  Index of the object
-    :param: finder Finder restrict the query results (lasts, first, firsts, ...) which is not possible directly on Realm
-    
-    :returns: Object at that index (if exists)
-    */
-    func objectAtIndex(index: UInt, finder: SugarRecordFinder) -> AnyObject!
-    
-    /**
-    Returns the first object of the results
-    
-    :param: finder Finder restrict the query results (lasts, first, firsts, ...) which is not possible directly on Realm
-    
-    :returns: First object (if exists)
-    */
-    func firstObject(#finder: SugarRecordFinder) -> AnyObject!
-    
-    /**
-    Returns the last object of the results
-    
-    :param: finder Finder restrict the query results (lasts, first, firsts, ...) which is not possible directly on Realm
-    
-    :returns: Last object (if exists)
-    */
-    func lastObject(#finder: SugarRecordFinder) -> AnyObject!
-}
 
 public class SugarRecordResults: SequenceType
 {
@@ -68,7 +26,8 @@ public class SugarRecordResults: SequenceType
     
     :returns: Initialized SRResults
     */
-    internal init(results: SugarRecordResultsProtocol, finder: SugarRecordFinder) {
+    internal init(results: SugarRecordResultsProtocol, finder: SugarRecordFinder)
+    {
         self.results = results
         self.finder = finder
     }
@@ -77,22 +36,41 @@ public class SugarRecordResults: SequenceType
     //MARK: - Public methods
     
     /// Returns the number of elements
-    public var count:Int {
+    public var count:Int
+    {
         get {
             return results.count(finder: finder)
         }
     }
     
+    /**
+    Returns the object at a given index
+    
+    :param: index Index of the object
+    
+    :returns: Object at the passed index (if exists)
+    */
     func objectAtIndex(index: UInt) -> AnyObject!
     {
         return results.objectAtIndex(index, finder: finder)
     }
     
+    
+    /**
+    Returns the first object of the results
+    
+    :returns: First object (if exists)
+    */
     func firstObject() -> AnyObject!
     {
         return results.firstObject(finder: finder)
     }
     
+    /**
+    Returns the last object of the results
+    
+    :returns: Last object (if exists)
+    */
     func lastObject() -> AnyObject!
     {
         return results.lastObject(finder: finder)
@@ -101,7 +79,8 @@ public class SugarRecordResults: SequenceType
     /**
     *  Access to the element at a given index
     */
-    subscript (index: Int) -> AnyObject! {
+    subscript (index: Int) -> AnyObject!
+    {
         get {
             return results.objectAtIndex(UInt(index), finder: finder)
         }
@@ -123,12 +102,14 @@ public class SRResultsGenerator: GeneratorType {
     private var results: SugarRecordResults
     private var nextIndex: Int
     
-    init(results: SugarRecordResults) {
+    init(results: SugarRecordResults)
+    {
         self.results = results
         nextIndex = 0
     }
     
-    public func next() -> AnyObject? {
+    public func next() -> AnyObject?
+    {
         if (nextIndex < 0) {
             return nil
         }
