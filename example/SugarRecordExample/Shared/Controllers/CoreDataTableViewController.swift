@@ -13,7 +13,7 @@ class CoreDataTableViewController: StackTableViewController {
 
     //MARK: - Attributes
     
-    var data: SugarRecordResults<NSManagedObject>?
+    var data: SugarRecordResults?
     internal let model: NSManagedObjectModel = {
         let modelPath: NSString = NSBundle.mainBundle().pathForResource("Models", ofType: "momd")!
         let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath)!)!
