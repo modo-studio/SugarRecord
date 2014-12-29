@@ -37,6 +37,8 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 29th-December-2014 | Version 1.0.5 released |
+| 29th-December-2014 | Separated SugarRecordResults Logic https://github.com/SugarRecord/SugarRecord/issues/98|
 | 25th-December-2014 | Version 1.0.4 released |
 | 25th-December-2014 | Added Realm example |
 | 25th-December-2014 | Added a continuous integration local script |
@@ -94,8 +96,10 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 - More powerful features to discover!
 
 ## Versions
-### Version 1.0.5 [WIP]
+### Version 1.0.6 [WIP]
 
+### Version 1.0.5
+- Fixed a regression introduced with 1.0.4 that caused users having to import Realm/CoreData even if they were using another database technology https://github.com/SugarRecord/SugarRecord/pull/99
 
 ### Version 1.0.4
 - Updated the project structure and added easy setup steps (without CocoaPods)
