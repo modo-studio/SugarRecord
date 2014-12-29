@@ -83,14 +83,6 @@ class SugarRecordResultsTests: XCTestCase
     
     //MARK: - Tests
     
-    func testIfTheReturnedEngineMatchesTheResultsType()
-    {
-        beforeEach()
-        XCTAssertEqual(CoreDataObject.all().find().engine, SugarRecordEngine.SugarRecordEngineCoreData, "The engine should be CoreData")
-        XCTAssertEqual(RealmObject.all().find().engine, SugarRecordEngine.SugarRecordEngineRealm, "The engine should be Realm")
-        afterEach()
-    }
-    
     func testCount()
     {
         beforeEach()
@@ -120,54 +112,6 @@ class SugarRecordResultsTests: XCTestCase
         beforeEach()
         XCTAssertEqual((CoreDataObject.all().sorted(by: "name", ascending: true).find().objectAtIndex(0) as CoreDataObject).name, "CD1", "The first object should be CD1")
         XCTAssertEqual((RealmObject.all().sorted(by: "name", ascending: true).find().objectAtIndex(0) as RealmObject).name, "R1", "The first object should be R1")
-        afterEach()
-    }
-    
-    func testIndexOfObject()
-    {
-        beforeEach()
-        let coreDataObject: CoreDataObject = CoreDataObject.all().sorted(by: "name", ascending: true).find().firstObject() as CoreDataObject
-        XCTAssertEqual(CoreDataObject.all().sorted(by: "name", ascending: true).find().indexOfObject(coreDataObject), 0, "Index should be 0")
-        let realmObject: RealmObject = RealmObject.all().sorted(by: "name", ascending: true).find().firstObject() as RealmObject
-        XCTAssertEqual(RealmObject.all().sorted(by: "name", ascending: true).find().indexOfObject(realmObject), 0, "Index should be 0")
-        afterEach()
-    }
-    
-    func testIndexOfObjectWithPredicate()
-    {
-        beforeEach()
-        let resultsCD = CoreDataObject.all().find()
-        XCTAssertEqual(resultsCD.indexOfObjectWithPredicate(NSPredicate(format: "name = 'CD2'")), 0, "Index of the object should be 0")
-        let resultsR = RealmObject.all().find().objectsWithPredicate(NSPredicate(format: "name = 'R2'"))
-        XCTAssertEqual(resultsR.indexOfObjectWithPredicate(NSPredicate(format: "name = 'R2'")), 0, "Index of the object should be 0")
-        afterEach()
-    }
-    
-    func testObjectsWithPredicate()
-    {
-        beforeEach()
-        let resultsCD = CoreDataObject.all().find().objectsWithPredicate(NSPredicate(format: "name = 'CD2'"))
-        XCTAssertEqual((resultsCD.firstObject() as CoreDataObject).name, "CD2", "The first object should be CD2")
-        let resultsR = RealmObject.all().find().objectsWithPredicate(NSPredicate(format: "name = 'R2'"))
-        XCTAssertEqual((resultsR.firstObject() as RealmObject).name, "R2", "The first object should be R2")
-        afterEach()
-    }
-    
-    func testSortedResultsUsingDescriptors()
-    {
-        beforeEach()
-        let resultsCD = CoreDataObject.all().find()
-        XCTAssertEqual((resultsCD.sortedResultsUsingProperty("name", ascending: false).firstObject() as CoreDataObject).name, "CD2", "The name should be CD2")
-        let resultsR = RealmObject.all().find()
-        XCTAssertEqual((resultsR.sortedResultsUsingProperty("name", ascending: false).firstObject() as RealmObject).name, "R2", "The name should be R2")
-        afterEach()
-    }
-    
-    func testRealCollectionType()
-    {
-        beforeEach()
-        XCTAssertTrue(CoreDataObject.all().find().realCollection() is Array<NSManagedObject>, "The real collection should be an Array of NSManagedObjects")
-        XCTAssertTrue(RealmObject.all().find().realCollection() is RLMResults, "The real collection should be a RLMResults")
         afterEach()
     }
     

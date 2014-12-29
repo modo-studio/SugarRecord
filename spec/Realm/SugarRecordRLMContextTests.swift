@@ -85,7 +85,7 @@ class SugarRecordRLMContextTests: XCTestCase
         class MockRLMContext: SugarRecordRLMContext
         {
             var deleteObjectCalled: Bool = false
-            override func deleteObject<T>(object: T) -> SugarRecordContext {
+            override func deleteObject(object: AnyObject) -> SugarRecordContext {
                 deleteObjectCalled = true
                 return self
             }

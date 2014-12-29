@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		17789BF20854A2251ACB4763 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93387547534B0073B3B4B328 /* libPods.a */; };
+		3D0B0D211A50D360008340CB /* CDArray+SugarRecordResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B0D201A50D360008340CB /* CDArray+SugarRecordResults.swift */; };
+		3D0B0D231A50D36F008340CB /* RLMResults+SugarRecordResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B0D221A50D36F008340CB /* RLMResults+SugarRecordResults.swift */; };
+		3D0B0D251A50D38A008340CB /* SugarRecordResultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B0D241A50D38A008340CB /* SugarRecordResultsProtocol.swift */; };
 		3D47547F1A4C460100479D16 /* SugarRecordFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D47547E1A4C460100479D16 /* SugarRecordFinder.swift */; };
 		3D4754811A4C461B00479D16 /* SugarRecordResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4754801A4C461B00479D16 /* SugarRecordResults.swift */; };
 		3D4754DF1A4C7C5200479D16 /* RealmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4754DE1A4C7C5200479D16 /* RealmTableViewController.swift */; };
@@ -71,6 +74,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D0B0D201A50D360008340CB /* CDArray+SugarRecordResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDArray+SugarRecordResults.swift"; sourceTree = "<group>"; };
+		3D0B0D221A50D36F008340CB /* RLMResults+SugarRecordResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RLMResults+SugarRecordResults.swift"; sourceTree = "<group>"; };
+		3D0B0D241A50D38A008340CB /* SugarRecordResultsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordResultsProtocol.swift; sourceTree = "<group>"; };
 		3D47547E1A4C460100479D16 /* SugarRecordFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordFinder.swift; sourceTree = "<group>"; };
 		3D4754801A4C461B00479D16 /* SugarRecordResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SugarRecordResults.swift; sourceTree = "<group>"; };
 		3D4754DE1A4C7C5200479D16 /* RealmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTableViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +217,7 @@
 		3DF36C891A39056B00A73311 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				3D0B0D221A50D36F008340CB /* RLMResults+SugarRecordResults.swift */,
 				3DF36C8A1A39056B00A73311 /* DefaultREALMStack.swift */,
 				3DF36C8B1A39056B00A73311 /* RLMObject+SugarRecord.swift */,
 				3DF36C8C1A39056B00A73311 /* RLMObjectMigration.swift */,
@@ -295,6 +302,7 @@
 		E1526DDF1A38A05C00BC6E1E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				3D0B0D241A50D38A008340CB /* SugarRecordResultsProtocol.swift */,
 				E1526DE01A38A05C00BC6E1E /* SugarRecordContextProtocol.swift */,
 				E1526DE21A38A05C00BC6E1E /* SugarRecordStackProtocol.swift */,
 			);
@@ -314,6 +322,7 @@
 		E1526DE71A38A05C00BC6E1E /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				3D0B0D201A50D360008340CB /* CDArray+SugarRecordResults.swift */,
 				E1526DE81A38A05C00BC6E1E /* DefaultCDStack.swift */,
 				E1526DE91A38A05C00BC6E1E /* iCloudCDStack.swift */,
 				E1526DEA1A38A05C00BC6E1E /* NSManagedObject+SugarRecord.swift */,
@@ -443,9 +452,12 @@
 				3D4754EC1A4C7F5300479D16 /* RLMObjectMigration.swift in Sources */,
 				E197C9CD1A3F97AA000533A4 /* RestKitModel.swift in Sources */,
 				3D4754EB1A4C7F5000479D16 /* RLMObject+SugarRecord.swift in Sources */,
+				3D0B0D231A50D36F008340CB /* RLMResults+SugarRecordResults.swift in Sources */,
 				3DF36C831A38F5A800A73311 /* AppDelegate.swift in Sources */,
+				3D0B0D211A50D360008340CB /* CDArray+SugarRecordResults.swift in Sources */,
 				3DF36C861A38F5A800A73311 /* StackTableViewController.swift in Sources */,
 				3D4754E11A4C7CD000479D16 /* RealmModel.swift in Sources */,
+				3D0B0D251A50D38A008340CB /* SugarRecordResultsProtocol.swift in Sources */,
 				3DF36C871A38F5A800A73311 /* CoreDataModel.swift in Sources */,
 				E1526DF21A38A05C00BC6E1E /* SugarRecord.swift in Sources */,
 				E1526DF61A38A05C00BC6E1E /* iCloudCDStack.swift in Sources */,

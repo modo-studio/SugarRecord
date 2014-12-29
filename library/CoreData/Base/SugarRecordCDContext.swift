@@ -86,18 +86,16 @@ public class SugarRecordCDContext: SugarRecordContext
     
     :returns: Objects fetched
     */
-    public func find<T>(finder: SugarRecordFinder<T>) -> SugarRecordResults<T>
+    public func find(finder: SugarRecordFinder) -> SugarRecordResults
     {
         let fetchRequest: NSFetchRequest = SugarRecordCDContext.fetchRequest(fromFinder: finder)
         var error: NSError?
-        var objects: [AnyObject]? = self.contextCD.executeFetchRequest(fetchRequest, error: &error)
+        var objects: [NSManagedObject]? = self.contextCD.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
         SugarRecordLogger.logLevelInfo.log("Found \((objects == nil) ? 0 : objects!.count) objects in database")
         if objects == nil  {
-            return SugarRecordResults(coredataResults: [NSManagedObject](), finder: finder)
+            objects = [NSManagedObject]()
         }
-        else {
-            return SugarRecordResults(coredataResults: objects as [NSManagedObject], finder: finder)
-        }
+        return SugarRecordResults(results: SugarRecordArray(array: objects!), finder: finder)
     }
     
     /**
@@ -107,7 +105,7 @@ public class SugarRecordCDContext: SugarRecordContext
     
     :returns: Created NSFetchRequest
     */
-    public class func fetchRequest<T>(fromFinder finder: SugarRecordFinder<T>) -> NSFetchRequest
+    public class func fetchRequest(fromFinder finder: SugarRecordFinder) -> NSFetchRequest
     {
         let objectClass: NSObject.Type = finder.objectClass!
         let managedObjectClass: NSManagedObject.Type = objectClass as NSManagedObject.Type
@@ -143,7 +141,7 @@ public class SugarRecordCDContext: SugarRecordContext
     
     :returns: If the object has been properly deleted
     */
-    public func deleteObject<T>(object: T) -> SugarRecordContext
+    public func deleteObject(object: AnyObject) -> SugarRecordContext
     {
         let managedObject: NSManagedObject? = object as? NSManagedObject
         let objectInContext: NSManagedObject? = moveObject(managedObject!, inContext: contextCD)
@@ -163,12 +161,12 @@ public class SugarRecordCDContext: SugarRecordContext
     
     :returns: If the deletion has been successful
     */
-    public func deleteObjects<T>(objects: SugarRecordResults<T>) -> ()
+    public func deleteObjects(objects: SugarRecordResults) -> ()
     {
         var objectsDeleted: Int = 0
         
         for (var index = 0; index < Int(objects.count) ; index++) {
-            let object: T! = objects[index]
+            let object: AnyObject! = objects[index]
             if (object != nil) {
                 let _ = deleteObject(object)
             }

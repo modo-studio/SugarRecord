@@ -74,7 +74,7 @@ class SugarRecordCDContextTests: XCTestCase
         class MockCDContext: SugarRecordCDContext
         {
             var deleteObjectCalled: Bool = false
-            override func deleteObject<T>(object: T) -> SugarRecordContext {
+            override func deleteObject(object: AnyObject) -> SugarRecordContext {
                 deleteObjectCalled = true
                 return self
             }
@@ -89,7 +89,7 @@ class SugarRecordCDContextTests: XCTestCase
         }
         
         let context: MockCDContext = MockCDContext(context: NSManagedObjectContext())
-        context.deleteObjects(SugarRecordResults(coredataResults: [MockManagedObject(name: "")], finder: SugarRecordFinder<NSManagedObject>()))
+        context.deleteObjects(SugarRecordResults(results: SugarRecordArray(array: [MockManagedObject(name: "")]), finder: SugarRecordFinder()))
         XCTAssertTrue(context.deleteObjectCalled, "Delete object should be called when deleting multiple objects")
     }
     
@@ -98,7 +98,7 @@ class SugarRecordCDContextTests: XCTestCase
         var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "test", ascending: true)
         var sortDescriptor2: NSSortDescriptor = NSSortDescriptor(key: "test2", ascending: true)
         let predicate: NSPredicate = NSPredicate()
-        var finder: SugarRecordFinder = SugarRecordFinder<NSManagedObject>()
+        var finder: SugarRecordFinder = SugarRecordFinder()
         finder.addSortDescriptor(sortDescriptor)
         finder.addSortDescriptor(sortDescriptor2)
         finder.setPredicate(predicate)

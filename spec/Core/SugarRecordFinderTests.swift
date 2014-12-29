@@ -13,32 +13,17 @@ import CoreData
 
 class SugarRecordSugarRecordFinderTests: XCTestCase
 {
-    var sugarRecordFinder: SugarRecordFinder<NSManagedObject>!
+    var sugarRecordFinder: SugarRecordFinder!
     override func setUp()
     {
         super.setUp()
-        sugarRecordFinder = SugarRecordFinder<NSManagedObject>()
+        sugarRecordFinder = SugarRecordFinder()
     }
     
     override func tearDown()
     {
         sugarRecordFinder = nil
         super.tearDown()
-    }
-    
-    func testIfFindExecutesFindInContext()
-    {
-//        class MockContext: SugarRecordCDContext
-//        {
-//            var findCalled: Bool = false
-//            override func find(finder: SugarRecordFinder) -> [AnyObject] {
-//                findCalled = true
-//                return [AnyObject]()
-//            }
-//        }
-//        let context: MockContext = MockContext(context: NSManagedObjectContext())
-//        SugarRecordFinder().find(inContext: context)
-//        XCTAssertTrue(context.findCalled, "Find call should be propagated to the passed context")
     }
     
     func testIfSortDescriptorsAreAddedToTheArrayUnsingSortDescriptor()

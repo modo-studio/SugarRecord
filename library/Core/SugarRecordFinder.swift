@@ -24,7 +24,7 @@ public enum SugarRecordFinderElements
     case lasts(Int)
 }
 
-public class SugarRecordFinder<T>
+public class SugarRecordFinder
 {
     //MARK: - Attributes
     
@@ -338,16 +338,16 @@ public class SugarRecordFinder<T>
     
     :returns: Fetch result
     */
-    public func find() -> SugarRecordResults<T>
+    public func find() -> SugarRecordResults
     {
-        var objects: SugarRecordResults<T>!
+        var objects: SugarRecordResults!
         SugarRecord.operation(stackType!, closure: { (context) -> () in
             objects = context.find(self)
         })
         return objects
     }
     
-    public func find(inContext context:SugarRecordContext) -> SugarRecordResults<T>
+    public func find(inContext context:SugarRecordContext) -> SugarRecordResults
     {
         return context.find(self)
     }
@@ -373,7 +373,7 @@ public class SugarRecordFinder<T>
     public func delete (asynchronously: Bool, completion: () -> ())
     {
         SugarRecord.operation(inBackground: asynchronously, stackType: stackType!) { (context) -> () in
-            let objects: SugarRecordResults<T>! = context.find(self)
+            let objects: SugarRecordResults! = context.find(self)
             if objects == nil {
                 SugarRecordLogger.logLevelInfo.log("No objects have been deleted")
                 return

@@ -13,7 +13,7 @@ class RealmTableViewController: StackTableViewController
 {
     //MARK: - Attributes
     
-    var data: SugarRecordResults<RLMObject>?
+    var data: SugarRecordResults?
 
     
     //MARK: - Viewcontroller Lifecycle

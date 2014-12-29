@@ -57,9 +57,9 @@ extension RLMObject
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func by(predicate: NSPredicate) -> SugarRecordFinder<RLMObject>
+    public class func by(predicate: NSPredicate) -> SugarRecordFinder
     {
-        var finder: SugarRecordFinder = SugarRecordFinder<RLMObject>(predicate: predicate)
+        var finder: SugarRecordFinder = SugarRecordFinder(predicate: predicate)
         finder.objectClass = self
         finder.stackType = stackType()
         return finder
@@ -72,9 +72,9 @@ extension RLMObject
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func by(predicateString: NSString) -> SugarRecordFinder<RLMObject>
+    public class func by(predicateString: NSString) -> SugarRecordFinder
     {
-        var finder: SugarRecordFinder = SugarRecordFinder<RLMObject>()
+        var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setPredicate(predicateString)
         finder.objectClass = self
         finder.stackType = stackType()
@@ -89,9 +89,9 @@ extension RLMObject
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func by<T: StringLiteralConvertible, R: StringLiteralConvertible>(key: T, equalTo value: R) -> SugarRecordFinder<RLMObject>
+    public class func by<T: StringLiteralConvertible, R: StringLiteralConvertible>(key: T, equalTo value: R) -> SugarRecordFinder
     {
-        var finder: SugarRecordFinder = SugarRecordFinder<RLMObject>()
+        var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setPredicate(byKey: "\(key)", andValue: "\(value)")
         finder.objectClass = self
         finder.stackType = stackType()
@@ -108,9 +108,9 @@ extension RLMObject
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func sorted<T: StringLiteralConvertible>(by sortingKey: T, ascending: Bool) -> SugarRecordFinder<RLMObject>
+    public class func sorted<T: StringLiteralConvertible>(by sortingKey: T, ascending: Bool) -> SugarRecordFinder
     {
-        var finder: SugarRecordFinder = SugarRecordFinder<RLMObject>()
+        var finder: SugarRecordFinder = SugarRecordFinder()
         finder.addSortDescriptor(byKey: "\(sortingKey)", ascending: ascending)
         finder.objectClass = self
         finder.stackType = stackType()
@@ -124,9 +124,9 @@ extension RLMObject
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func sorted(by sortDescriptor: NSSortDescriptor) -> SugarRecordFinder<RLMObject>
+    public class func sorted(by sortDescriptor: NSSortDescriptor) -> SugarRecordFinder
     {
-        var finder: SugarRecordFinder = SugarRecordFinder<RLMObject>()
+        var finder: SugarRecordFinder = SugarRecordFinder()
         finder.addSortDescriptor(sortDescriptor)
         finder.objectClass = self
         finder.stackType = stackType()
@@ -140,9 +140,9 @@ extension RLMObject
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func sorted(by sortDescriptors: [NSSortDescriptor]) -> SugarRecordFinder<RLMObject>
+    public class func sorted(by sortDescriptors: [NSSortDescriptor]) -> SugarRecordFinder
     {
-        var finder: SugarRecordFinder = SugarRecordFinder<RLMObject>()
+        var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setSortDescriptors(sortDescriptors)
         finder.objectClass = self
         finder.stackType = stackType()
@@ -157,9 +157,9 @@ extension RLMObject
     
     :returns: SugarRecord finder
     */
-    public class func all() -> SugarRecordFinder<RLMObject>
+    public class func all() -> SugarRecordFinder
     {
-        var finder: SugarRecordFinder = SugarRecordFinder<RLMObject>()
+        var finder: SugarRecordFinder = SugarRecordFinder()
         finder.all()
         finder.objectClass = self
         finder.stackType = stackType()
