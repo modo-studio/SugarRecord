@@ -44,18 +44,12 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 | 25th-December-2014 | Added a continuous integration local script |
 | 25th-December-2014 | Updated Realm to 0.89 |
 | 25th-December-2014 | Setup SugaRecord.podspec file |
-| 25th-December-2014 | Added new results type SugarRecordResults |
-| 10th-December-2014 | Query response array is now non-optional |
-| 10th-December-2014 | Generated documentation using Jazzy |
-| 10th-December-2014 | Added an example project with a CoreData example |
-| 5th-December-2014 | Updated the project structure and the setup steps |
 
 ## Index
 - [Features](#features)
 - [Versions](#versions)
-- [Version 1.0.2 Beta - Features](#version-1.0.2-beta---features)
-- [Version 1.0.1 Beta - Features](#version-1.0.1-beta---features)
-- [Version 1.0 Beta - Features](#version-1.0-beta---features)
+- [Version 1.0.5](#version-1.0.5)
+- [Version 1.0.4](#version-1.0.4)
 - [Requirements](#requirements)
 - [Wiki](#wiki)
 - [Support](#support)
