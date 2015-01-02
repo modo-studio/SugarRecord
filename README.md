@@ -1,4 +1,4 @@
-# <center>![xcres](/Resources/Slogan.png)</center>
+# <center>![xcres](/resources/Slogan.png)</center>
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/SugarRecord/SugarRecord?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
@@ -19,7 +19,7 @@ The library is completetly written in Swift and fully tested to ensure the behav
 
 **Powered by [@pepibumur](http://www.twitter.com/pepibumur) with the help of [@isaacroldan](www.twitter.com/saky), [@rdougan](www.twitter.com/rdougan) and some developers**
 
-![image](https://raw.githubusercontent.com/SugarRecord/SugarRecord/develop/Resources/scheme.png)
+![image](https://raw.githubusercontent.com/SugarRecord/SugarRecord/develop/resources/scheme.png)
 The scheme above shows the structure of SugarRecord. It's formed by:
 - **Database Models Extensions**: To add the sugar syntax that links these models with SugarRecord and the database.
 - **Finder**: SugarRecord custom element to abstract the querying components from the type of storage (Realm or CoreData)
@@ -37,6 +37,7 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
+| 3st-December-2015 | Solved issue https://github.com/SugarRecord/SugarRecord/issues/101 |
 | 29th-December-2014 | Version 1.0.5 released |
 | 29th-December-2014 | Separated SugarRecordResults Logic https://github.com/SugarRecord/SugarRecord/issues/98|
 | 25th-December-2014 | Version 1.0.4 released |
