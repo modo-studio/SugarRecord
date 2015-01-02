@@ -358,10 +358,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
         // Adding the store
         self.persistentStoreCoordinator!.lock()
         if self.automigrating {
-            store = self.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.databasePath!, options: DefaultCDStack.autoMigrateStoreOptions(), error: &error)!
+            store = self.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.databasePath!, options: DefaultCDStack.autoMigrateStoreOptions(), error: &error)
         }
         else {
-            store = self.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.databasePath!, options: DefaultCDStack.defaultStoreOptions(), error: &error)!
+            store = self.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.databasePath!, options: DefaultCDStack.defaultStoreOptions(), error: &error)
         }
         self.persistentStoreCoordinator!.unlock()
         
@@ -384,7 +384,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
             }
             SugarRecordLogger.logLevelInfo.log("Will recreate store")
             self.persistentStoreCoordinator!.lock()
-            self.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.databasePath, options: DefaultCDStack.defaultStoreOptions(), error: &error)
+            store = self.persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.databasePath, options: DefaultCDStack.defaultStoreOptions(), error: &error)
             SugarRecordLogger.logLevelInfo.log("Did recreate store")
             self.migrationFailedClosure()
             self.persistentStoreCoordinator!.unlock()
