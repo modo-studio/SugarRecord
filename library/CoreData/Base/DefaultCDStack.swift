@@ -11,10 +11,6 @@ import CoreData
 
 public class DefaultCDStack: SugarRecordStackProtocol
 {
-    internal struct Constants
-    {
-        static let autoSavingKVOKey: String = "mainContextDidMergeChanges"
-    }
     
     //MARK: - Class properties
     public var name: String = "DefaultCoreDataStack"
@@ -239,11 +235,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     /**
     Add observers to listen events in the stack
     */
-    internal func addObservers()
-    {
-        // AutoSaving
-        notificationCenter().addObserverForName(Constants.autoSavingKVOKey, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: autoSavingClosure())
-    }
+    internal func addObservers() {}
     
     /**
     Returns the notification center that is going to be used to listen events
@@ -258,7 +250,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     /**
     Closure for AutoSaving changes
     */
-    internal func autoSavingClosure() -> (notification: NSNotification!) -> ()
+    internal func autoSavingClosure() -> () -> ()
     {
         return { [weak self] (notification) -> Void in
             if (self != nil  && self!.autoSaving) {
@@ -311,6 +303,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
         context = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         context!.persistentStoreCoordinator = persistentStoreCoordinator!
         context!.addObserverToGetPermanentIDsBeforeSaving()
+        context!.addObserverWhenObjectsChanged { [weak self] () -> () in
+            let closure = self?.autoSavingClosure()
+            closure?()
+        }
         if context!.respondsToSelector(Selector("name")) {
             context!.name = "Root saving context"
         }
@@ -501,17 +497,12 @@ public class DefaultCDStack: SugarRecordStackProtocol
             context.reset()
         }
         
-        // Saving MAIN CONTEXT and then ROOT SAVING CONTEXT
-        self.mainContext!.performBlockAndWait { () -> Void in
-            if self.mainContext!.hasChanges {
-                save(context: self.mainContext!)
+        // Saving ROOT SAVING CONTEXT
+        self.rootSavingContext!.performBlockAndWait({ () -> Void in
+            if self.rootSavingContext!.hasChanges {
+                save(context: self.rootSavingContext!)
             }
-            self.rootSavingContext!.performBlockAndWait({ () -> Void in
-                if self.rootSavingContext!.hasChanges {
-                    save(context: self.rootSavingContext!)
-                }
-            })
-        }
+        })
     }
 }
 
@@ -528,6 +519,17 @@ public extension NSManagedObjectContext
     */
     func addObserverToGetPermanentIDsBeforeSaving() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("contextWillSave:"), name: NSManagedObjectContextWillSaveNotification, object: self)
+    }
+    
+    /**
+    Adds an observer when the context's objects have changed
+    
+    :param: closure Closure to be executed then objects have changed
+    */
+    func addObserverWhenObjectsChanged(closure: () -> ()) {
+        NSNotificationCenter.defaultCenter().addObserverForName(NSManagedObjectContextObjectsDidChangeNotification, object: self, queue: nil) { (notification) -> Void in
+            _ = closure()
+        }
     }
     
     /**
@@ -582,7 +584,6 @@ public extension NSManagedObjectContext
     func mergeChanges(notification: NSNotification) {
         SugarRecordLogger.logLevelInfo.log("Merging changes to context \(self)")
         self.mergeChangesFromContextDidSaveNotification(notification)
-        NSNotificationCenter.defaultCenter().postNotificationName(DefaultCDStack.Constants.autoSavingKVOKey, object: nil)
     }
     
     /**

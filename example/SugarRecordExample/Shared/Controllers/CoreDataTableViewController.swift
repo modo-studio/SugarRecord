@@ -27,6 +27,7 @@ class CoreDataTableViewController: StackTableViewController {
         self.title = "Core Data"
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier())
         self.stack = DefaultCDStack(databaseName: "CoreData.sqlite", model: self.model, automigrating: true)
+        //(self.stack as DefaultCDStack).autoSaving = true
         SugarRecord.addStack(self.stack!)
     }
     
