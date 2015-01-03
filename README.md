@@ -6,6 +6,12 @@
 [![Language: Swift](https://img.shields.io/badge/lang-Swift-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 [![Build Status](https://travis-ci.org/SugarRecord/SugarRecord.svg?branch=develop)](https://travis-ci.org/SugarRecord/SugarRecord)
 [![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
+[![Issues](https://img.shields.io/github/issues/sugarrecord/sugarrecord.svg?style=flat
+)](https://github.com/SugarRecord/SugarRecord/issues?state=open)
+[![Forks](https://img.shields.io/github/forks/sugarrecord/sugarrecord.svg?style=flat
+)](https://github.com/SugarRecord/SugarRecord/network)
+[![Stars](https://img.shields.io/github/stars/sugarrecord/sugarrecord.svg?style=flat
+)](https://github.com/SugarRecord/SugarRecord)
 
 ## What is SugarRecord?
 SugarRecord is a management library to make it easier work with **CoreData and REALM**. Thanks to SugarRecord you'll be able to start working with **CoreData/REALM** with just a few lines of code:
