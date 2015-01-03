@@ -50,7 +50,7 @@ public class SugarRecordResults: SequenceType
     
     :returns: Object at the passed index (if exists)
     */
-    func objectAtIndex(index: UInt) -> AnyObject!
+    public func objectAtIndex(index: UInt) -> AnyObject!
     {
         return results.objectAtIndex(index, finder: finder)
     }
@@ -61,7 +61,7 @@ public class SugarRecordResults: SequenceType
     
     :returns: First object (if exists)
     */
-    func firstObject() -> AnyObject!
+    public func firstObject() -> AnyObject!
     {
         return results.firstObject(finder: finder)
     }
@@ -71,7 +71,7 @@ public class SugarRecordResults: SequenceType
     
     :returns: Last object (if exists)
     */
-    func lastObject() -> AnyObject!
+    public func lastObject() -> AnyObject!
     {
         return results.lastObject(finder: finder)
     }
@@ -79,7 +79,7 @@ public class SugarRecordResults: SequenceType
     /**
     *  Access to the element at a given index
     */
-    subscript (index: Int) -> AnyObject!
+    public subscript (index: Int) -> AnyObject!
     {
         get {
             return results.objectAtIndex(UInt(index), finder: finder)
