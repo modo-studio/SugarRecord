@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Results</key>
+	<array>
+		<dict>
+			<key>Provider Name</key>
+			<string>project</string>
+			<key>Testable Name</key>
+			<string>tests</string>
+			<key>Testable Tests</key>
+			<array>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CDArraySugarRecordResultsTests/testCount()</string>
+					<key>Test Name</key>
+					<string>testCount()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CDArraySugarRecordResultsTests/testFirstObject()</string>
+					<key>Test Name</key>
+					<string>testFirstObject()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CDArraySugarRecordResultsTests/testLastObject()</string>
+					<key>Test Name</key>
+					<string>testLastObject()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CDArraySugarRecordResultsTests/testObjectAtIndex()</string>
+					<key>Test Name</key>
+					<string>testObjectAtIndex()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CoreDataFetchResultsControllerTests/testIfFetchedResultsControllerHasTheProperCache()</string>
+					<key>Test Name</key>
+					<string>testIfFetchedResultsControllerHasTheProperCache()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CoreDataFetchResultsControllerTests/testIfFetchedResultsControllerIsCalledWithNoCache()</string>
+					<key>Test Name</key>
+					<string>testIfFetchedResultsControllerIsCalledWithNoCache()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CoreDataFetchResultsControllerTests/testIfTheFetchRequestPropertiesAreTheExpected()</string>
+					<key>Test Name</key>
+					<string>testIfTheFetchRequestPropertiesAreTheExpected()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CoreDataObjectTests/testAllObjectsDeletion()</string>
+					<key>Test Name</key>
+					<string>testAllObjectsDeletion()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CoreDataObjectTests/testObjectCreation()</string>
+					<key>Test Name</key>
+					<string>testObjectCreation()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CoreDataObjectTests/testObjectDeletion()</string>
+					<key>Test Name</key>
+					<string>testObjectDeletion()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CoreDataObjectTests/testObjectQuerying()</string>
+					<key>Test Name</key>
+					<string>testObjectQuerying()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CoreDataObjectTests/testObjectsCount()</string>
+					<key>Test Name</key>
+					<string>testObjectsCount()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CoreDataObjectTests/testObjectsEdition()</string>
+					<key>Test Name</key>
+					<string>testObjectsEdition()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>CoreDataObjectTests/testObjectsWritingCancellation()</string>
+					<key>Test Name</key>
+					<string>testObjectsWritingCancellation()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultCDStackTests/testBackgroundContextConcurrencyType()</string>
+					<key>Test Name</key>
+					<string>testBackgroundContextConcurrencyType()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultCDStackTests/testBackgroundContextShouldHaveTheRootSavingContextAsParent()</string>
+					<key>Test Name</key>
+					<string>testBackgroundContextShouldHaveTheRootSavingContextAsParent()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultCDStackTests/testIfTheAutoSavingClosureIsCalledDependingOnTheAutoSavingProperty()</string>
+					<key>Test Name</key>
+					<string>testIfTheAutoSavingClosureIsCalledDependingOnTheAutoSavingProperty()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultCDStackTests/testInitializeOfComponents()</string>
+					<key>Test Name</key>
+					<string>testInitializeOfComponents()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultCDStackTests/testMainContextConcurrencyType()</string>
+					<key>Test Name</key>
+					<string>testMainContextConcurrencyType()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultCDStackTests/testMainContextShouldHaveTheRootSavingContextAsParent()</string>
+					<key>Test Name</key>
+					<string>testMainContextShouldHaveTheRootSavingContextAsParent()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultCDStackTests/testRootSavingContextConcurrencyType()</string>
+					<key>Test Name</key>
+					<string>testRootSavingContextConcurrencyType()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultCDStackTests/testRootSavingContextShouldHaveThePersistentStoreCoordinatorAsParent()</string>
+					<key>Test Name</key>
+					<string>testRootSavingContextShouldHaveThePersistentStoreCoordinatorAsParent()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultCDStackTests/testThatTheRootSavingContextIsSavedInApplicationWillResignActive()</string>
+					<key>Test Name</key>
+					<string>testThatTheRootSavingContextIsSavedInApplicationWillResignActive()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultCDStackTests/testThatTheRootSavingContextIsSavedInApplicationWillTerminate()</string>
+					<key>Test Name</key>
+					<string>testThatTheRootSavingContextIsSavedInApplicationWillTerminate()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultREALMStackTests/testIfInitializeTriesToMigrateIfNeeded()</string>
+					<key>Test Name</key>
+					<string>testIfInitializeTriesToMigrateIfNeeded()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultREALMStackTests/testIfMigrationsAreProperlySorted()</string>
+					<key>Test Name</key>
+					<string>testIfMigrationsAreProperlySorted()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultREALMStackTests/testIfReturnsTheDefaultRLMContextForTheContext()</string>
+					<key>Test Name</key>
+					<string>testIfReturnsTheDefaultRLMContextForTheContext()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultREALMStackTests/testIfReturnsTheDefaultRLMContextForTheContextInBAckground()</string>
+					<key>Test Name</key>
+					<string>testIfReturnsTheDefaultRLMContextForTheContextInBAckground()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>DefaultREALMStackTests/testThatPropertiesAreSetInInit()</string>
+					<key>Test Name</key>
+					<string>testThatPropertiesAreSetInInit()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>NSManagedObjectSugarRecordTests/testIfAllIsProperlySetToTheFinder()</string>
+					<key>Test Name</key>
+					<string>testIfAllIsProperlySetToTheFinder()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>NSManagedObjectSugarRecordTests/testIfCreationPropagatesTheCallUsingOperations()</string>
+					<key>Test Name</key>
+					<string>testIfCreationPropagatesTheCallUsingOperations()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>NSManagedObjectSugarRecordTests/testIfDeletePropagatesTheDeletionCallToTheContext()</string>
+					<key>Test Name</key>
+					<string>testIfDeletePropagatesTheDeletionCallToTheContext()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>NSManagedObjectSugarRecordTests/testIfReturnsTheEntityNameWithoutNamespace()</string>
+					<key>Test Name</key>
+					<string>testIfReturnsTheEntityNameWithoutNamespace()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>NSManagedObjectSugarRecordTests/testIfSaveCallsSaveSynchronously()</string>
+					<key>Test Name</key>
+					<string>testIfSaveCallsSaveSynchronously()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>NSManagedObjectSugarRecordTests/testIfTheFinderReturnsTheProperStackType()</string>
+					<key>Test Name</key>
+					<string>testIfTheFinderReturnsTheProperStackType()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>NSManagedObjectSugarRecordTests/testIfTheObjectClassAndStackTypeAreProperlySetWhenSorting()</string>
+					<key>Test Name</key>
+					<string>testIfTheObjectClassAndStackTypeAreProperlySetWhenSorting()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>NSManagedObjectSugarRecordTests/testIfTheObjectClassAndStackTypeAreSetToTheFinderWhenFiltering()</string>
+					<key>Test Name</key>
+					<string>testIfTheObjectClassAndStackTypeAreSetToTheFinderWhenFiltering()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>NSManagedObjectSugarRecordTests/testIfTheReturnedFinderIsRight()</string>
+					<key>Test Name</key>
+					<string>testIfTheReturnedFinderIsRight()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>NSManagedObjectSugarRecordTests/testIfTheSortDescriptorsAreProperlySetToTheFinder()</string>
+					<key>Test Name</key>
+					<string>testIfTheSortDescriptorsAreProperlySetToTheFinder()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>NSManagedObjectSugarRecordTests/testIfTheSugarRecordCDMatchesTheObjectContext()</string>
+					<key>Test Name</key>
+					<string>testIfTheSugarRecordCDMatchesTheObjectContext()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>NSManagedObjectSugarRecordTests/testSave()</string>
+					<key>Test Name</key>
+					<string>testSave()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RLMObjectSugarRecordTests/testIfAllIsProperlySetToTheFinder()</string>
+					<key>Test Name</key>
+					<string>testIfAllIsProperlySetToTheFinder()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RLMObjectSugarRecordTests/testIfCreationPropagatesTheCallUsingOperations()</string>
+					<key>Test Name</key>
+					<string>testIfCreationPropagatesTheCallUsingOperations()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RLMObjectSugarRecordTests/testIfDeletePropagatesTheDeletionCallToTheContext()</string>
+					<key>Test Name</key>
+					<string>testIfDeletePropagatesTheDeletionCallToTheContext()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RLMObjectSugarRecordTests/testIfReturnsTheEntityNameWithoutNamespace()</string>
+					<key>Test Name</key>
+					<string>testIfReturnsTheEntityNameWithoutNamespace()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RLMObjectSugarRecordTests/testIfSaveCallsSaveSynchronously()</string>
+					<key>Test Name</key>
+					<string>testIfSaveCallsSaveSynchronously()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RLMObjectSugarRecordTests/testIfTheFinderReturnsTheProperStackType()</string>
+					<key>Test Name</key>
+					<string>testIfTheFinderReturnsTheProperStackType()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RLMObjectSugarRecordTests/testIfTheObjectClassAndStackTypeAreProperlySetWhenSorting()</string>
+					<key>Test Name</key>
+					<string>testIfTheObjectClassAndStackTypeAreProperlySetWhenSorting()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RLMObjectSugarRecordTests/testIfTheObjectClassAndStackTypeAreSetToTheFinderWhenFiltering()</string>
+					<key>Test Name</key>
+					<string>testIfTheObjectClassAndStackTypeAreSetToTheFinderWhenFiltering()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RLMObjectSugarRecordTests/testIfTheReturnedFinderIsRight()</string>
+					<key>Test Name</key>
+					<string>testIfTheReturnedFinderIsRight()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RLMObjectSugarRecordTests/testIfTheSortDescriptorsAreProperlySetToTheFinder()</string>
+					<key>Test Name</key>
+					<string>testIfTheSortDescriptorsAreProperlySetToTheFinder()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RLMObjectSugarRecordTests/testIfTheSugarRecordRealmMatchesTheObjectContext()</string>
+					<key>Test Name</key>
+					<string>testIfTheSugarRecordRealmMatchesTheObjectContext()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RLMObjectSugarRecordTests/testSave()</string>
+					<key>Test Name</key>
+					<string>testSave()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RealmObjectTests/testAllObjectsDeletion()</string>
+					<key>Test Name</key>
+					<string>testAllObjectsDeletion()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RealmObjectTests/testObjectCreation()</string>
+					<key>Test Name</key>
+					<string>testObjectCreation()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RealmObjectTests/testObjectDeletion()</string>
+					<key>Test Name</key>
+					<string>testObjectDeletion()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RealmObjectTests/testObjectQuerying()</string>
+					<key>Test Name</key>
+					<string>testObjectQuerying()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RealmObjectTests/testObjectsCount()</string>
+					<key>Test Name</key>
+					<string>testObjectsCount()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RealmObjectTests/testObjectsEdition()</string>
+					<key>Test Name</key>
+					<string>testObjectsEdition()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RealmObjectTests/testObjectsWritingCancellation()</string>
+					<key>Test Name</key>
+					<string>testObjectsWritingCancellation()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>RestkitCDStackTests/testIfInitializeGetContextsFromRestkit()</string>
+					<key>Test Name</key>
+					<string>testIfInitializeGetContextsFromRestkit()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordCDContextTests/testDeleteObjectsShouldCallDeleteObjectForEachObject()</string>
+					<key>Test Name</key>
+					<string>testDeleteObjectsShouldCallDeleteObjectForEachObject()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordCDContextTests/testFetchRequestGenerationFromFinder()</string>
+					<key>Test Name</key>
+					<string>testFetchRequestGenerationFromFinder()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordCDContextTests/testIfCancelWritingCancelChangesInTheCoreDataContext()</string>
+					<key>Test Name</key>
+					<string>testIfCancelWritingCancelChangesInTheCoreDataContext()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordCDContextTests/testThatCreateObjectsDoesItInTheProperContext()</string>
+					<key>Test Name</key>
+					<string>testThatCreateObjectsDoesItInTheProperContext()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordCDContextTests/testThatEndWritingCallSavesTheContext()</string>
+					<key>Test Name</key>
+					<string>testThatEndWritingCallSavesTheContext()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordLoggerTests/testErrorLogLevel()</string>
+					<key>Test Name</key>
+					<string>testErrorLogLevel()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordLoggerTests/testFatalLogLevel()</string>
+					<key>Test Name</key>
+					<string>testFatalLogLevel()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordLoggerTests/testInfoLogLevel()</string>
+					<key>Test Name</key>
+					<string>testInfoLogLevel()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordLoggerTests/testVerboseLogLevel()</string>
+					<key>Test Name</key>
+					<string>testVerboseLogLevel()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordLoggerTests/testWarnLogLevel()</string>
+					<key>Test Name</key>
+					<string>testWarnLogLevel()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordRLMContextTests/testDeleteObjectsShouldCallDeleteObjectForEachObject()</string>
+					<key>Test Name</key>
+					<string>testDeleteObjectsShouldCallDeleteObjectForEachObject()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordRLMContextTests/testInsertObjectShouldInsertTheObjectInRealm()</string>
+					<key>Test Name</key>
+					<string>testInsertObjectShouldInsertTheObjectInRealm()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordRLMContextTests/testObjectCreation()</string>
+					<key>Test Name</key>
+					<string>testObjectCreation()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordRLMContextTests/testThatBegingWritingCallsBeginWriteTransationInRealmContext()</string>
+					<key>Test Name</key>
+					<string>testThatBegingWritingCallsBeginWriteTransationInRealmContext()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordRLMContextTests/testThatCancelWritingCallsCancelWriteTransactionInRealmContext()</string>
+					<key>Test Name</key>
+					<string>testThatCancelWritingCallsCancelWriteTransactionInRealmContext()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordRLMContextTests/testThatEndWritingCallsCommitWriteTransationInRealmContext()</string>
+					<key>Test Name</key>
+					<string>testThatEndWritingCallsCommitWriteTransationInRealmContext()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordResultsTests/testCount()</string>
+					<key>Test Name</key>
+					<string>testCount()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordResultsTests/testFirstObject()</string>
+					<key>Test Name</key>
+					<string>testFirstObject()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordResultsTests/testLastObject()</string>
+					<key>Test Name</key>
+					<string>testLastObject()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordResultsTests/testObjectAtIndex()</string>
+					<key>Test Name</key>
+					<string>testObjectAtIndex()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordResultsTests/testSubscript()</string>
+					<key>Test Name</key>
+					<string>testSubscript()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordSugarRecordFinderTests/testIfAllElementsIsAdded()</string>
+					<key>Test Name</key>
+					<string>testIfAllElementsIsAdded()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordSugarRecordFinderTests/testIfFirstElementsIsAdded()</string>
+					<key>Test Name</key>
+					<string>testIfFirstElementsIsAdded()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordSugarRecordFinderTests/testIfLastElementsIsAdded()</string>
+					<key>Test Name</key>
+					<string>testIfLastElementsIsAdded()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordSugarRecordFinderTests/testIfLastsElementsIsAdded()</string>
+					<key>Test Name</key>
+					<string>testIfLastsElementsIsAdded()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordSugarRecordFinderTests/testIfPredicatesAreAddedPassingThePredicate()</string>
+					<key>Test Name</key>
+					<string>testIfPredicatesAreAddedPassingThePredicate()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordSugarRecordFinderTests/testIfPredicatesAreAddedPassingThePredicateString()</string>
+					<key>Test Name</key>
+					<string>testIfPredicatesAreAddedPassingThePredicateString()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordSugarRecordFinderTests/testIfSortDescriptorsAreAddedToTheArrayUnsingKeyAndAscending()</string>
+					<key>Test Name</key>
+					<string>testIfSortDescriptorsAreAddedToTheArrayUnsingKeyAndAscending()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordSugarRecordFinderTests/testIfSortDescriptorsAreAddedToTheArrayUnsingSortDescriptor()</string>
+					<key>Test Name</key>
+					<string>testIfSortDescriptorsAreAddedToTheArrayUnsingSortDescriptor()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordSugarRecordFinderTests/testsIfFirstsElementsIsAdded()</string>
+					<key>Test Name</key>
+					<string>testsIfFirstsElementsIsAdded()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordTests/testIfAddsTheStacksProperly()</string>
+					<key>Test Name</key>
+					<string>testIfAddsTheStacksProperly()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordTests/testIfOperationIsExecutedInMainThread()</string>
+					<key>Test Name</key>
+					<string>testIfOperationIsExecutedInMainThread()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordTests/testIfReturnsTheProperStackForCoreDataType()</string>
+					<key>Test Name</key>
+					<string>testIfReturnsTheProperStackForCoreDataType()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordTests/testIfStacksAreRemovedProperly()</string>
+					<key>Test Name</key>
+					<string>testIfStacksAreRemovedProperly()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordTests/testThatApplicationWillEnterForegroundIsCalledInStacks()</string>
+					<key>Test Name</key>
+					<string>testThatApplicationWillEnterForegroundIsCalledInStacks()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordTests/testThatApplicationWillResignActiveIsCalledInStacks()</string>
+					<key>Test Name</key>
+					<string>testThatApplicationWillResignActiveIsCalledInStacks()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordTests/testThatApplicationWillTerminateIsCalledInStacks()</string>
+					<key>Test Name</key>
+					<string>testThatApplicationWillTerminateIsCalledInStacks()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordTests/testThatRemoveDatabaseIsCalledInStacks()</string>
+					<key>Test Name</key>
+					<string>testThatRemoveDatabaseIsCalledInStacks()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordTests/testThatStacksAreCleanedAfterDatabaseRemoval()</string>
+					<key>Test Name</key>
+					<string>testThatStacksAreCleanedAfterDatabaseRemoval()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordTests/testThatTheClosureIsCalledPassingTheRightContextInBackgroundThread()</string>
+					<key>Test Name</key>
+					<string>testThatTheClosureIsCalledPassingTheRightContextInBackgroundThread()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>SugarRecordTests/testThatTheClosureIsCalledPassingTheRightContextInMainThread()</string>
+					<key>Test Name</key>
+					<string>testThatTheClosureIsCalledPassingTheRightContextInMainThread()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>iCloudCDStackTests/testIfChangesAreBroughtIfUbiquituousChanges()</string>
+					<key>Test Name</key>
+					<string>testIfChangesAreBroughtIfUbiquituousChanges()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>iCloudCDStackTests/testIfObserversAreAddedToDetectiCloudChanges()</string>
+					<key>Test Name</key>
+					<string>testIfObserversAreAddedToDetectiCloudChanges()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>iCloudCDStackTests/testIfTheRootSavingContextHasTheProperPersistentStoreCoordinator()</string>
+					<key>Test Name</key>
+					<string>testIfTheRootSavingContextHasTheProperPersistentStoreCoordinator()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>iCloudCDStackTests/testStackComponentsAreInitialized()</string>
+					<key>Test Name</key>
+					<string>testStackComponentsAreInitialized()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>iCloudCDStackTests/testStoreOptions()</string>
+					<key>Test Name</key>
+					<string>testStoreOptions()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>iCloudCDStackTests/testStoresWillChange()</string>
+					<key>Test Name</key>
+					<string>testStoresWillChange()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+				<dict>
+					<key>Test Identifier</key>
+					<string>iCloudCDStackTests/testThatContextsAreCreatedOnceDatabaseIsAdded()</string>
+					<key>Test Name</key>
+					<string>testThatContextsAreCreatedOnceDatabaseIsAdded()</string>
+					<key>Test Result</key>
+					<string>Succeeded</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>Version</key>
+	<string>1.0</string>
+</dict>
+</plist>

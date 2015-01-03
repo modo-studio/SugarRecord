@@ -7,9 +7,9 @@ BuilderIdent ProcessPCH\ /Users/pepibumur/code/SugarRecord/build/Build/Intermedi
 InputFile    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.1.sdk/SDKSettings.plist 0 1417652037 964 33204
 InputFile    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.1.sdk/System/Library/CoreServices/SystemVersion.plist 0 1417652041 414 33188
 InputFile    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.0/include/module.map 0 1417652122 2678 33188
-InputFile    /Users/pepibumur/code/SugarRecord/project/Pods/Target Support Files/Pods-SOCKit/Pods-SOCKit-prefix.pch 0 1420243411 77 33188
+InputFile    /Users/pepibumur/code/SugarRecord/project/Pods/Target Support Files/Pods-SOCKit/Pods-SOCKit-prefix.pch 0 1420245714 77 33188
 InputFile    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.1.sdk/SDKSettings.plist 0 1417652037 964 33204
-InputFile    /Users/pepibumur/code/SugarRecord/project/Pods/Target Support Files/Pods-SOCKit/Pods-SOCKit-prefix.pch 0 1420243411 77 33188
+InputFile    /Users/pepibumur/code/SugarRecord/project/Pods/Target Support Files/Pods-SOCKit/Pods-SOCKit-prefix.pch 0 1420245714 77 33188
 InputFile    /Users/pepibumur/code/SugarRecord/build/ModuleCache/3IIFFFMTV3BMT/Darwin-A93YDID5443M.pcm 0 1420243795 3707208 33188
 InputFile    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.1.sdk/usr/include/module.map 0 1417652088 22366 33204
 InputFile    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.1.sdk/usr/include/sys/cdefs.h 0 1417652088 26037 33204
@@ -945,4 +945,4 @@ InputFile    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulato
 InputFile    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIAttachmentBehavior.h 0 1417652055 1271 33204
 InputFile    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UICollisionBehavior.h 0 1417652055 2380 33204
 InputFile    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIGestureRecognizerSubclass.h 0 1417652055 2736 33204
-InputFile    /Users/pepibumur/code/SugarRecord/project/Pods/Target Support Files/Pods/Pods-environment.h 0 1420243411 2666 33188
+InputFile    /Users/pepibumur/code/SugarRecord/project/Pods/Target Support Files/Pods/Pods-environment.h 0 1420245714 2666 33188

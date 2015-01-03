@@ -264,7 +264,7 @@ public class iCloudCDStack: DefaultCDStack
                 
                 /// Getting the database path
                 /// iCloudPath + iCloudDataPath + DatabaseName
-                self!.databasePath = NSURL(fileURLWithPath: "")
+                self!.databasePath = NSURL(fileURLWithPath: iCloudRootPath!.path!.stringByAppendingPathComponent(self!.icloudData!.iCloudDataDirectoryName).stringByAppendingPathComponent(self!.databasePath!.lastPathComponent!))
                 
                 // Adding store
                 self!.persistentStoreCoordinator!.lock()
