@@ -49,8 +49,8 @@ class RestKitTableViewController: CoreDataTableViewController {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMMM d yyyy - HH:mm:ss"
         let model = self.data![indexPath.row] as RestKitModel
-        cell.textLabel?.text = model.name
-        cell.detailTextLabel?.text = formatter.stringFromDate(model.date)
+        cell.textLabel!.text = model.name
+        cell.detailTextLabel!.text = formatter.stringFromDate(model.date)
     }
     
     override func cellIdentifier() -> String {
