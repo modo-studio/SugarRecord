@@ -1,0 +1,29 @@
+dependencies: \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/Network/RKPaginator.m \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/Network/RKPaginator.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/Network/RKHTTPRequestOperation.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/AFNetworking/AFNetworking/AFHTTPClient.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/AFNetworking/AFNetworking/AFURLConnectionOperation.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperation.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/Network/RKObjectRequestOperation.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/ObjectMapping/RKMappingResult.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/ObjectMapping/RKMapperOperation.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/ObjectMapping/RKObjectMapping.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/Support/RKMacros.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/ObjectMapping/RKMapping.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RKValueTransformers/Code/RKValueTransformers.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/ObjectMapping/RKMappingOperation.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/ObjectMapping/RKAttributeMapping.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/ObjectMapping/RKPropertyMapping.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/ObjectMapping/RKMappingOperationDataSource.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/Support/RKErrors.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/SOCKit/SOCKit.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/Support/RKLog.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Vendor/LibComponentLogging/Core/lcl_RK.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/Support/lcl_config_components_RK.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/Support/lcl_config_logger_RK.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/Support/lcl_config_extensions_RK.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/Network/RKPathMatcher.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/ObjectMapping/RKHTTPUtilities.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/Network/RKManagedObjectRequestOperation.h \
+  /Users/pepibumur/code/SugarRecord/project/Pods/RestKit/Code/CoreData/RKManagedObjectCaching.h
