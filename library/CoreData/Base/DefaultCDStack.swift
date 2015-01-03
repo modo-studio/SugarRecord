@@ -489,7 +489,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
             context.save(&error)
             if error != nil {
                 let exception: NSException = NSException(name: "Context saving exception", reason: "Pending changes in the root savinv context couldn't be saved", userInfo: ["error": error!])
-                SugarRecord.handle(NSException())
+                SugarRecord.handle(exception)
             }
             else {
                 SugarRecordLogger.logLevelInfo.log("Existing changes persisted to the database")
