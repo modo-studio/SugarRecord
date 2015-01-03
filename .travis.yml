@@ -1,9 +1,17 @@
 language: objective-c
-osx_image: xcode61
-rvm: 2.1.0
-notifications:
-  email: false
-podfile: project/Podfile
+cache:
+  directories:
+    - vendor/bundle
+    - example/Pods
+    - project/Pods
+install:
+  - bundle install --path=vendor/bundle --binstubs=vendor/bin
+  - bundle exec pod install --project-directory=example/
+  - bundle exec pod install --project-directory=project/
 script:
-  - xctool test -workspace project/project.xcworkspace -scheme project -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-  - xctool build -workspace example/SugarRecordExample.xcworkspace -scheme SugarRecordExample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - bundle exec rake test:ios
+  - bundle exec rake build:ios
+env:
+  global:
+    - LANG=en_US.UTF-8
+    - LC_ALL=en_US.UTF-8
