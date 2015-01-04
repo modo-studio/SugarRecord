@@ -54,6 +54,8 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 ## Index
 - [Features](#features)
 - [Versions](#versions)
+- [Version 1.0.7 [WIP]](#version-1.0.7-[WIP])
+- [Version 1.0.6](#version-1.0.6)
 - [Version 1.0.5](#version-1.0.5)
 - [Version 1.0.4](#version-1.0.4)
 - [Requirements](#requirements)
@@ -82,7 +84,12 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 - More powerful features to discover!
 
 ## Versions
-### Version 1.0.6 [WIP]
+### Version 1.0.7 [WIP]
+
+### Version 1.0.6
+- Fixed autosaving feature on DefaultCDStack
+- Use of printable instead of StringLiteralConvertible
+- Reviewed the CI script (still not working travis :( )
 
 ### Version 1.0.5
 - Fixed a regression introduced with 1.0.4 that caused users having to import Realm/CoreData even if they were using another database technology https://github.com/SugarRecord/SugarRecord/pull/99
