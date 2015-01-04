@@ -25,7 +25,6 @@ The library is completetly written in Swift and fully tested to ensure the behav
 
 **Powered by [@pepibumur](http://www.twitter.com/pepibumur) with the help of [@isaacroldan](www.twitter.com/saky), [@rdougan](www.twitter.com/rdougan) and some developers**
 
-![image](https://raw.githubusercontent.com/SugarRecord/SugarRecord/develop/resources/scheme.png)
 The scheme above shows the structure of SugarRecord. It's formed by:
 - **Database Models Extensions**: To add the sugar syntax that links these models with SugarRecord and the database.
 - **Finder**: SugarRecord custom element to abstract the querying components from the type of storage (Realm or CoreData)
