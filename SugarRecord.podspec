@@ -12,20 +12,27 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.documentation_url = "https://github.com/SugarRecord/SugarRecord/wiki"
 
+  s.subspec "Core" do  |sp|
+    sp.source_files = ['library/Core/**/*.{swift}']
+  end
+
   s.subspec "CoreData+RestKit" do  |sp|
     sp.frameworks = 'CoreData'
     sp.dependency 'RestKit'
-    sp.source_files = ['library/CoreData/Base/**/*.{swift}', 'library/Core/**/*.{swift}', 'library/RestKit/**/*.{swift}']
+    sp.dependency 'SugarRecord/Core'
+    sp.source_files = ['library/CoreData/Base/**/*.{swift}', 'library/RestKit/**/*.{swift}']
   end
 
   s.subspec "CoreData" do  |sp|
     sp.frameworks = 'CoreData'
-    sp.source_files = ['library/CoreData/Base/**/*.{swift}', 'library/Core/**/*.{swift}']
+    sp.dependency 'SugarRecord/Core'
+    sp.source_files = ['library/CoreData/Base/**/*.{swift}']
   end
 
   s.subspec "Realm" do |sp|
     sp.dependency 'Realm'
-    sp.source_files = ['library/Realm/**/*.{swift}', 'library/Core/**/*.{swift}']
+    sp.dependency 'SugarRecord/Core'
+    sp.source_files = ['library/Realm/**/*.{swift}']
   end
 end
 
