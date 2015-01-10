@@ -6,8 +6,8 @@ cache:
     - project/Pods
 install:
   - bundle install --path=vendor/bundle --binstubs=vendor/bin
-  - bundle exec pod install --project-directory=example/
-  #- bundle exec pod install --project-directory=project/
+  #- bundle exec pod install --project-directory=example/
+  - bundle exec pod install --project-directory=project/
 script:
   - bundle exec rake test:ios
   #- bundle exec rake build:ios
