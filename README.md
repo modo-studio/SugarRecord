@@ -42,7 +42,9 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 | **Date**               | **Done**                     |
 |-------------------------------|------------------------------------------------|
-| 3st-December-2015 | Solved issue https://github.com/SugarRecord/SugarRecord/issues/101 |
+| 8th-January-2015 | Fixed Travis-CI Integration |
+| 8th-January-2015 | Finally added CocoaPods support and updated the Wiki |
+| 3st-January-2015 | Solved issue https://github.com/SugarRecord/SugarRecord/issues/101 |
 | 29th-December-2014 | Version 1.0.5 released |
 | 29th-December-2014 | Separated SugarRecordResults Logic https://github.com/SugarRecord/SugarRecord/issues/98|
 | 25th-December-2014 | Version 1.0.4 released |
