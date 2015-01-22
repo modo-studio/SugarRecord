@@ -105,7 +105,7 @@ public class SRResultsGenerator: GeneratorType {
     init(results: SugarRecordResults)
     {
         self.results = results
-        nextIndex = 0
+        nextIndex = results.count - 1
     }
     
     public func next() -> AnyObject?
