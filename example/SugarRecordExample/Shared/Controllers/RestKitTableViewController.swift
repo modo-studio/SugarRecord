@@ -8,7 +8,16 @@
 
 import UIKit
 
-class RestKitTableViewController: CoreDataTableViewController {
+class RestKitTableViewController: StackTableViewController {
+    
+    //MARK: - Attributes
+    
+    var data: SugarRecordResults?
+    internal let model: NSManagedObjectModel = {
+        let modelPath: NSString = NSBundle.mainBundle().pathForResource("Models", ofType: "momd")!
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath)!)!
+        return model
+        }()
 
     //MARK: - Viewcontroller Lifecycle
     
@@ -42,6 +51,11 @@ class RestKitTableViewController: CoreDataTableViewController {
         self.data = RestKitModel.all().sorted(by: "date", ascending: false).find()
     }
     
+    override func dataCount() -> Int {
+        if (data == nil) { return 0 }
+        else { return data!.count }
+    }
+    
     
     //MARK: - Cell
     
@@ -49,8 +63,17 @@ class RestKitTableViewController: CoreDataTableViewController {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMMM d yyyy - HH:mm:ss"
         let model = self.data![indexPath.row] as RestKitModel
-        cell.textLabel!.text = model.name
-        cell.detailTextLabel!.text = formatter.stringFromDate(model.date)
+        cell.textLabel?.text = model.name
+        cell.detailTextLabel?.text = formatter.stringFromDate(model.date)
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == .Delete) {
+            let model = self.data![indexPath.row] as RestKitModel
+            model.beginWriting().delete().endWriting()
+            self.fetchData()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
     }
     
     override func cellIdentifier() -> String {
