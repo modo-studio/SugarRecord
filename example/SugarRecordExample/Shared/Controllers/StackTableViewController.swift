@@ -75,7 +75,7 @@ class StackTableViewController: UITableViewController
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier(), forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier(), forIndexPath: indexPath) as UITableViewCell
         self.configureCell(cell, indexPath: indexPath)
         return cell
     }

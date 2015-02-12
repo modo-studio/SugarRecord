@@ -16,7 +16,7 @@ class CoreDataTableViewController: StackTableViewController {
     var data: SugarRecordResults?
     internal let model: NSManagedObjectModel = {
         let modelPath: NSString = NSBundle.mainBundle().pathForResource("Models", ofType: "momd")!
-        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as! String)!)!
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath)!)!
         return model
         }()
     
@@ -27,7 +27,7 @@ class CoreDataTableViewController: StackTableViewController {
         self.title = "Core Data"
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier())
         self.stack = DefaultCDStack(databaseName: "CoreData.sqlite", model: self.model, automigrating: true)
-        (self.stack as! DefaultCDStack).autoSaving = true
+        (self.stack as DefaultCDStack).autoSaving = true
         SugarRecord.addStack(self.stack!)
     }
     
@@ -37,7 +37,7 @@ class CoreDataTableViewController: StackTableViewController {
     @IBAction override func add(sender: AnyObject?) {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMMM d yyyy - HH:mm:ss"
-        let model = CoreDataModel.create() as! CoreDataModel
+        let model = CoreDataModel.create() as CoreDataModel
         model.text = formatter.stringFromDate(NSDate())
         model.save()
         self.fetchData()
@@ -61,13 +61,13 @@ class CoreDataTableViewController: StackTableViewController {
     //MARK: - Cell
     
     override func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
-        let model = self.data![indexPath.row] as! CoreDataModel
+        let model = self.data![indexPath.row] as CoreDataModel
         cell.textLabel?.text = model.text
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == .Delete) {
-            let model = self.data![indexPath.row] as! CoreDataModel
+            let model = self.data![indexPath.row] as CoreDataModel
             model.beginWriting().delete().endWriting()
             self.fetchData()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)

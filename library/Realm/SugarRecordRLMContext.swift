@@ -61,7 +61,7 @@ public class SugarRecordRLMContext: SugarRecordContext
     */
     public func createObject(objectClass: AnyClass) -> AnyObject?
     {
-        let objectClass: RLMObject.Type = objectClass as! RLMObject.Type
+        let objectClass: RLMObject.Type = objectClass as RLMObject.Type
         return objectClass()
     }
     
@@ -72,7 +72,7 @@ public class SugarRecordRLMContext: SugarRecordContext
     */
     public func insertObject(object: AnyObject)
     {
-        self.realmContext.addObject(object as! RLMObject)
+        self.realmContext.addObject(object as RLMObject)
     }
     
     /**
@@ -84,7 +84,7 @@ public class SugarRecordRLMContext: SugarRecordContext
     */
     public func find(finder: SugarRecordFinder) -> SugarRecordResults
     {
-        let objectClass: RLMObject.Type = finder.objectClass as! RLMObject.Type
+        let objectClass: RLMObject.Type = finder.objectClass as RLMObject.Type
         var filteredObjects: RLMResults! = nil
         if finder.predicate != nil {
             filteredObjects = objectClass.objectsWithPredicate(finder.predicate)
@@ -108,7 +108,7 @@ public class SugarRecordRLMContext: SugarRecordContext
     */
     public func deleteObject(object: AnyObject) -> SugarRecordContext
     {
-        self.realmContext.deleteObject(object as! RLMObject)
+        self.realmContext.deleteObject(object as RLMObject)
         return self
     }
     
@@ -136,7 +136,7 @@ public class SugarRecordRLMContext: SugarRecordContext
     */
     public func count(objectClass: AnyClass, predicate: NSPredicate? = nil) -> Int
     {
-        let objectClass: RLMObject.Type = objectClass as! RLMObject.Type
+        let objectClass: RLMObject.Type = objectClass as RLMObject.Type
         var objects: RLMResults? = nil
         if predicate != nil {
             objects = objectClass.objectsWithPredicate(predicate)
