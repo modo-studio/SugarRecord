@@ -26,7 +26,7 @@ class RestKitTableViewController: CoreDataTableViewController {
     @IBAction override func add(sender: AnyObject?) {
         let names = ["Sweet", "Chocolate", "Cookie", "Fudge", "Caramel"]
         let randomIndex = Int(arc4random_uniform(UInt32(names.count)))
-        let model = RestKitModel.create() as! RestKitModel
+        let model = RestKitModel.create() as RestKitModel
         model.date = NSDate()
         model.name = names[randomIndex]
         model.save()
@@ -48,9 +48,8 @@ class RestKitTableViewController: CoreDataTableViewController {
     override func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMMM d yyyy - HH:mm:ss"
-        let model = self.data![indexPath.row] as! RestKitModel
+        let model = self.data![indexPath.row] as RestKitModel
         cell.textLabel!.text = model.name
-        println("Date: \(model.date)")
         cell.detailTextLabel!.text = formatter.stringFromDate(model.date)
     }
     
