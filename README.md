@@ -32,27 +32,6 @@ The scheme above shows the structure of SugarRecord. It's formed by:
 - **SugarRecord contexts**: Altough Realm doesn't have contexts as we have in CoreData, we have created abstracted contexts that surround the user operations with models independently if you are using CoreData or Realm. Yeah!
 - **Stack**: The storage stack is another key piece in SugarRecord because it knows how and when persist/fetch/delete your objects into the database. You can tell SugarRecord which stack it should use.
 
-## Mailing list
-
-If you want to stay updated we have a mailing list. We'll send emails with new updates, features, important bugs fixed, ...
-
-[![image](https://cdn0.iconfinder.com/data/icons/flat-designed-circle-icon/128/mail.png)](http://eepurl.com/57tqX)
-
-## Updates
-
-| **Date**               | **Done**                     |
-|-------------------------------|------------------------------------------------|
-| 8th-January-2015 | Fixed Travis-CI Integration |
-| 8th-January-2015 | Finally added CocoaPods support and updated the Wiki |
-| 3st-January-2015 | Solved issue https://github.com/SugarRecord/SugarRecord/issues/101 |
-| 29th-December-2014 | Version 1.0.5 released |
-| 29th-December-2014 | Separated SugarRecordResults Logic https://github.com/SugarRecord/SugarRecord/issues/98|
-| 25th-December-2014 | Version 1.0.4 released |
-| 25th-December-2014 | Added Realm example |
-| 25th-December-2014 | Added a continuous integration local script |
-| 25th-December-2014 | Updated Realm to 0.89 |
-| 25th-December-2014 | Setup SugaRecord.podspec file |
-
 ## Index
 - [Features](#features)
 - [Versions](#versions)
