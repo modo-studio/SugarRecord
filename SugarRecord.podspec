@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SugarRecord"
-  s.version          = "1.0.7"
+  s.version          = "1.0.8"
   s.summary          = "CoreData management library implemented with the sugar Swift language."
   s.homepage         = "https://github.com/SugarRecord/SugarRecord"
   s.description = "Thanks to SugarRecord you'll be able to use a clean syntax to fetch, filter, create, update CoreData objects in an easy way. Inspired by MagicalRecord and opened to new contributions."
