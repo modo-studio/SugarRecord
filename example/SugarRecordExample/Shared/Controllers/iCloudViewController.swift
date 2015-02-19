@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class iCloudViewController: StackTableViewController {
     
@@ -25,16 +26,19 @@ class iCloudViewController: StackTableViewController {
         super.viewDidLoad()
         self.title = "iCloud"
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier())
+        
         let data = iCloudData(iCloudAppID: "com.sugarrecord.example.SugarRecordExample", iCloudDataDirectoryName: "data.nosync", iCloudLogsDirectory: "")
         self.stack = iCloudCDStack(databaseName: "iCloud.sqlite", model: self.model, icloudData: data)
         (self.stack as iCloudCDStack).autoSaving = true
         SugarRecord.addStack(self.stack!)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "icloudInitialized", name: "iCloudStackInitialized", object: nil)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(animated: Bool) {
+        // Stop StackTableViewController's fetchData from happening
     }
+    
     
     //MARK: - Actions
     
@@ -47,6 +51,15 @@ class iCloudViewController: StackTableViewController {
         self.fetchData()
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Top)
+    }
+    
+    //MARK: - Listeners
+    
+    func icloudInitialized() {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.fetchData()
+            self.tableView.reloadData()
+        })
     }
     
     

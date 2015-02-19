@@ -163,7 +163,7 @@ public class iCloudCDStack: DefaultCDStack
     override public func dataBaseAddedClosure() -> CompletionClosure {
         return { [weak self] (error) -> () in
             if self == nil {
-                SugarRecordLogger.logLevelFatal.log("The stack was released whil trying to initialize it")
+                SugarRecordLogger.logLevelFatal.log("The stack was released while trying to initialize it")
                 return
             }
             else if error != nil {
@@ -174,6 +174,8 @@ public class iCloudCDStack: DefaultCDStack
             self!.mainContext = self!.createMainContext(self!.rootSavingContext)
             self!.addObservers()
             self!.stackInitialized = true
+            
+            NSNotificationCenter.defaultCenter().postNotificationName("iCloudStackInitialized", object: nil)
         }
     }
     
