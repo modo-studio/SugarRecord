@@ -58,6 +58,7 @@ public class SugarRecord {
         stack.initialize()
     }
     
+    
     /**
     Remove all the stacks from the list
     */

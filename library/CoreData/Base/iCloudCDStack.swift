@@ -163,7 +163,7 @@ public class iCloudCDStack: DefaultCDStack
     override public func dataBaseAddedClosure() -> CompletionClosure {
         return { [weak self] (error) -> () in
             if self == nil {
-                SugarRecordLogger.logLevelFatal.log("The stack was released whil trying to initialize it")
+                SugarRecordLogger.logLevelFatal.log("The stack was released while trying to initialize it")
                 return
             }
             else if error != nil {
@@ -174,6 +174,8 @@ public class iCloudCDStack: DefaultCDStack
             self!.mainContext = self!.createMainContext(self!.rootSavingContext)
             self!.addObservers()
             self!.stackInitialized = true
+            
+            NSNotificationCenter.defaultCenter().postNotificationName("iCloudStackInitialized", object: nil)
         }
     }
     
@@ -333,7 +335,7 @@ public class iCloudCDStack: DefaultCDStack
     
     :param: notification Notification with these changes
     */
-    internal func persistentStoreDidImportUbiquitousContentChanges(notification: NSNotification)
+    dynamic internal func persistentStoreDidImportUbiquitousContentChanges(notification: NSNotification)
     {
         SugarRecordLogger.logLevelVerbose.log("Changes detected from iCloud. Merging them into the current CoreData stack")
         self.rootSavingContext!.performBlock { [weak self] () -> Void in
@@ -353,7 +355,7 @@ public class iCloudCDStack: DefaultCDStack
     
     :param: notification Notification with these changes
     */
-    internal func storesWillChange(notification: NSNotification)
+    dynamic internal func storesWillChange(notification: NSNotification)
     {
         SugarRecordLogger.logLevelVerbose.log("Stores will change, saving pending changes before changing store")
         self.saveChanges()
@@ -365,7 +367,7 @@ public class iCloudCDStack: DefaultCDStack
     
     :param: notification Notification with the information
     */
-    internal func storeDidChange(notification: NSNotification)
+    dynamic internal func storeDidChange(notification: NSNotification)
     {
         SugarRecordLogger.logLevelVerbose.log("The persistent store of the psc did change")
         // Nothing to do here
