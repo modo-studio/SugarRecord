@@ -13,7 +13,8 @@ class StacksTableViewController: UITableViewController {
     var stacks: [String] = [
         "CoreData",
         "RestKit",
-        "Realm"
+        "Realm",
+        "iCloud"
     ]
 
     override func viewDidLoad() {
@@ -48,10 +49,13 @@ class StacksTableViewController: UITableViewController {
             viewController = CoreDataTableViewController()
             
         case "RestKit":
-            viewController = storyBoard.instantiateViewControllerWithIdentifier("RestKitTableViewController") as? UITableViewController
+            viewController = RestKitTableViewController()
             
         case "Realm":
-            viewController = storyBoard.instantiateViewControllerWithIdentifier("RealmTableViewController") as? UITableViewController
+            viewController = RealmTableViewController()
+            
+        case "iCloud":
+            viewController = iCloudViewController()
             
         default:
             println("View Controller not found for stack: \(stack)")

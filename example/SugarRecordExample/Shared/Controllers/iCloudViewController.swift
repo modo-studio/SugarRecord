@@ -1,14 +1,14 @@
 //
-//  RestKitTableViewController.swift
+//  iCloudViewController.swift
 //  SugarRecordExample
 //
-//  Created by Robert Dougan on 11/12/14.
-//  Copyright (c) 2014 Robert Dougan. All rights reserved.
+//  Created by David Chavez on 2/19/15.
+//  Copyright (c) 2015 David Chavez. All rights reserved.
 //
 
 import UIKit
 
-class RestKitTableViewController: StackTableViewController {
+class iCloudViewController: StackTableViewController {
     
     //MARK: - Attributes
     
@@ -19,26 +19,30 @@ class RestKitTableViewController: StackTableViewController {
         return model
         }()
 
-    //MARK: - Viewcontroller Lifecycle
+    //MARK: - ViewController Lifecycle
     
-    typealias T = NSManagedObject
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "RestKit"
-         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier())
-        self.stack = DefaultCDStack(databaseName: "RestKit.sqlite", model: self.model, automigrating: true)
+        self.title = "iCloud"
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier())
+        let data = iCloudData(iCloudAppID: "com.sugarrecord.example.SugarRecordExample", iCloudDataDirectoryName: "data.nosync", iCloudLogsDirectory: "")
+        self.stack = iCloudCDStack(databaseName: "iCloud.sqlite", model: self.model, icloudData: data)
+        (self.stack as iCloudCDStack).autoSaving = true
         SugarRecord.addStack(self.stack!)
     }
-    
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     //MARK: - Actions
     
     @IBAction override func add(sender: AnyObject?) {
-        let names = ["Sweet", "Chocolate", "Cookie", "Fudge", "Caramel"]
-        let randomIndex = Int(arc4random_uniform(UInt32(names.count)))
-        let model = RestKitModel.create() as RestKitModel
-        model.date = NSDate()
-        model.name = names[randomIndex]
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MMMM d yyyy - HH:mm:ss"
+        let model = ICloudModel.create() as ICloudModel
+        model.text = formatter.stringFromDate(NSDate())
         model.save()
         self.fetchData()
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
@@ -49,7 +53,7 @@ class RestKitTableViewController: StackTableViewController {
     //MARK: - Data Source
     
     override func fetchData() {
-        self.data = RestKitModel.all().sorted(by: "date", ascending: false).find()
+        self.data = ICloudModel.all().sorted(by: "text", ascending: false).find()
     }
     
     override func dataCount() -> Int {
@@ -61,23 +65,17 @@ class RestKitTableViewController: StackTableViewController {
     //MARK: - Cell
     
     override func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "MMMM d yyyy - HH:mm:ss"
-        let model = self.data![indexPath.row] as RestKitModel
-        cell.textLabel?.text = model.name
-        cell.detailTextLabel?.text = formatter.stringFromDate(model.date)
+        let model = self.data![indexPath.row] as ICloudModel
+        cell.textLabel?.text = model.text
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == .Delete) {
-            let model = self.data![indexPath.row] as RestKitModel
+            let model = self.data![indexPath.row] as ICloudModel
             model.beginWriting().delete().endWriting()
             self.fetchData()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
-    
-    override func cellIdentifier() -> String {
-        return "ModelCell"
-    }
+
 }

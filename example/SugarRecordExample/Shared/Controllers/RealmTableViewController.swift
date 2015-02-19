@@ -21,6 +21,7 @@ class RealmTableViewController: StackTableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Realm"
+         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier())
         self.stack = DefaultREALMStack(stackName: "Realm", stackDescription: "")
         SugarRecord.addStack(self.stack!)
     }

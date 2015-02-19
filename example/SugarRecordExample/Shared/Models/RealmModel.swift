@@ -9,6 +9,7 @@
 import Foundation
 import Realm
 
+@objc(RealmModel)
 class RealmModel: RLMObject {
     dynamic var name = ""
     dynamic var date = NSDate()
