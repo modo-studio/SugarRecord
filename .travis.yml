@@ -1,17 +1,15 @@
+# references:
+# * http://www.objc.io/issue-6/travis-ci.html
+# * https://github.com/supermarin/xcpretty#usage
+
 language: objective-c
-cache:
-  directories:
-    - vendor/bundle
-    - example/Pods
-    - project/Pods
+# cache: cocoapods
+# podfile: Example/Podfile
+# before_install:
+# - gem install cocoapods # Since Travis is not always on latest version
+# - pod install --project-directory=Example
 install:
-  - bundle install --path=vendor/bundle --binstubs=vendor/bin
-  #- bundle exec pod install --project-directory=example/
-  - bundle exec pod install --project-directory=project/
+- gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
-  - bundle exec rake test:ios
-  #- bundle exec rake build:ios
-env:
-  global:
-    - LANG=en_US.UTF-8
-    - LC_ALL=en_US.UTF-8
+- set -o pipefail && xcodebuild test -workspace Example/SugarRecord.xcworkspace -scheme SugarRecord-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
+- pod lib lint --quick

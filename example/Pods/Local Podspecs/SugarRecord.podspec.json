@@ -1,0 +1,74 @@
+{
+  "name": "SugarRecord",
+  "version": "1.0.7",
+  "summary": "CoreData management library implemented with the sugar Swift language.",
+  "homepage": "https://github.com/SugarRecord/SugarRecord",
+  "description": "Thanks to SugarRecord you'll be able to use a clean syntax to fetch, filter, create, update CoreData objects in an easy way. Inspired by MagicalRecord and opened to new contributions.",
+  "license": "MIT",
+  "authors": {
+    "Pedro": "pepibumur@gmail.com",
+    "David": "david@psychosity.net"
+  },
+  "source": {
+    "git": "https://github.com/SugarRecord/SugarRecord.git",
+    "tag": "1.0.7"
+  },
+  "social_media_url": "https://twitter.com/sugarrecord",
+  "documentation_url": "https://github.com/SugarRecord/SugarRecord/wiki",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "resource_bundles": {
+    "SugarRecord": [
+      "Pod/Assets/*.png"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "Pod/Classes/Core/**/*.{swift}"
+      ]
+    },
+    {
+      "name": "CoreData",
+      "frameworks": "CoreData",
+      "dependencies": {
+        "SugarRecord/Core": [
+
+        ]
+      },
+      "source_files": [
+        "Pod/Classes/CoreData/Base/**/*.{swift}"
+      ],
+      "subspecs": [
+        {
+          "name": "RestKit",
+          "dependencies": {
+            "RestKit": [
+
+            ]
+          },
+          "source_files": [
+            "Pod/Classes/CoreData/RestKit/**/*.{swift}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Realm",
+      "dependencies": {
+        "Realm": [
+
+        ],
+        "SugarRecord/Core": [
+
+        ]
+      },
+      "source_files": [
+        "Pod/Classes/Realm/**/*.{swift}"
+      ]
+    }
+  ]
+}
