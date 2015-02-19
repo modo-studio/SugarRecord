@@ -19,7 +19,7 @@ SugarRecord is a management library to make it easier work with **CoreData and R
 1. Choose your preferred stack among the available ones (*You can even propose your own!*)
 2. Enjoy with your database operations
 
-The library is completetly written in Swift and fully tested to ensure the behaviour is the expected one.
+The library is completely written in Swift and fully tested to ensure it behaves as expected.
 
 **There's a Google Group where you can leave your topics, question, doubts, suggestions and stuff besides issues https://groups.google.com/forum/#!forum/sugarrecord .**
 
