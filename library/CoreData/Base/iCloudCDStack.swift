@@ -49,6 +49,9 @@ public struct iCloudData
 */
 public class iCloudCDStack: DefaultCDStack
 {
+    //MARK: - Class properties
+    public var loadCompletedClosure: ()->() = {}
+    
     //MARK: - Properties
     
     /// iCloud Data struct with the information
@@ -64,12 +67,14 @@ public class iCloudCDStack: DefaultCDStack
     :param: model         NSManagedObjectModel with the database model
     :param: automigrating Bool Indicating if the migration has to be automatically executed
     :param: icloudData    iCloudData information
+    :param: completion Closure to be executed when iCloud stack finishes initializing
     
     :returns: iCloudCDStack object
     */
-    public init(databaseURL: NSURL, model: NSManagedObjectModel?, automigrating: Bool, icloudData: iCloudData)
+    public init(databaseURL: NSURL, model: NSManagedObjectModel?, automigrating: Bool, icloudData: iCloudData, completion: ()->())
     {
         super.init(databaseURL: databaseURL, model: model, automigrating: automigrating)
+        self.loadCompletedClosure = completion
         self.icloudData = icloudData
         self.automigrating = automigrating
         self.databasePath = databaseURL
@@ -84,12 +89,13 @@ public class iCloudCDStack: DefaultCDStack
     
     :param: databaseName  String with the database name
     :param: icloudData iCloud Data struct
+    :param: completion Closure to be executed when iCloud stack finishes initializing
     
     :returns: DefaultCDStack object
     */
-    convenience public init(databaseName: String, icloudData: iCloudData)
+    convenience public init(databaseName: String, icloudData: iCloudData, completion: ()->())
     {
-        self.init(databaseURL: iCloudCDStack.databasePathURLFromName(databaseName), icloudData: icloudData)
+        self.init(databaseURL: iCloudCDStack.databasePathURLFromName(databaseName), icloudData: icloudData, completion: completion)
     }
     
     /**
@@ -97,12 +103,13 @@ public class iCloudCDStack: DefaultCDStack
     
     :param: databasePath  String with the database path
     :param: icloudData iCloud Data struct
+    :param: completion Closure to be executed when iCloud stack finishes initializing
     
     :returns: DefaultCDStack object
     */
-    convenience public init(databasePath: String, icloudData: iCloudData)
+    convenience public init(databasePath: String, icloudData: iCloudData, completion: ()->())
     {
-        self.init(databaseURL: NSURL(fileURLWithPath: databasePath)!, icloudData: icloudData)
+        self.init(databaseURL: NSURL(fileURLWithPath: databasePath)!, icloudData: icloudData, completion: completion)
     }
     
     /**
@@ -110,12 +117,13 @@ public class iCloudCDStack: DefaultCDStack
     
     :param: databaseURL   NSURL with the database path
     :param: icloudData iCloud Data struct
+    :param: completion Closure to be executed when iCloud stack finishes initializing
 
     :returns: DefaultCDStack object
     */
-    convenience public init(databaseURL: NSURL, icloudData: iCloudData)
+    convenience public init(databaseURL: NSURL, icloudData: iCloudData, completion: ()->())
     {
-        self.init(databaseURL: databaseURL, model: nil, automigrating: true,icloudData: icloudData)
+        self.init(databaseURL: databaseURL, model: nil, automigrating: true,icloudData: icloudData, completion: completion)
     }
     
     /**
@@ -124,12 +132,13 @@ public class iCloudCDStack: DefaultCDStack
     :param: databaseName  String with the database name
     :param: model         NSManagedObjectModel with the database model
     :param: icloudData iCloud Data struct
+    :param: completion Closure to be executed when iCloud stack finishes initializing
 
     :returns: DefaultCDStack object
     */
-    convenience public init(databaseName: String, model: NSManagedObjectModel, icloudData: iCloudData)
+    convenience public init(databaseName: String, model: NSManagedObjectModel, icloudData: iCloudData, completion: ()->())
     {
-        self.init(databaseURL: DefaultCDStack.databasePathURLFromName(databaseName), model: model, automigrating: true, icloudData: icloudData)
+        self.init(databaseURL: DefaultCDStack.databasePathURLFromName(databaseName), model: model, automigrating: true, icloudData: icloudData, completion: completion)
     }
     
     /**
@@ -138,12 +147,13 @@ public class iCloudCDStack: DefaultCDStack
     :param: databasePath  String with the database path
     :param: model         NSManagedObjectModel with the database model
     :param: icloudData iCloud Data struct
+    :param: completion Closure to be executed when iCloud stack finishes initializing
     
     :returns: DefaultCDStack object
     */
-    convenience public init(databasePath: String, model: NSManagedObjectModel, icloudData: iCloudData)
+    convenience public init(databasePath: String, model: NSManagedObjectModel, icloudData: iCloudData, completion: ()->())
     {
-        self.init(databaseURL: NSURL(fileURLWithPath: databasePath)!, model: model, automigrating: true, icloudData: icloudData)
+        self.init(databaseURL: NSURL(fileURLWithPath: databasePath)!, model: model, automigrating: true, icloudData: icloudData, completion: completion)
     }
     
     /**
@@ -175,7 +185,7 @@ public class iCloudCDStack: DefaultCDStack
             self!.addObservers()
             self!.stackInitialized = true
             
-            NSNotificationCenter.defaultCenter().postNotificationName("iCloudStackInitialized", object: nil)
+            self!.loadCompletedClosure()
         }
     }
     

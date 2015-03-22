@@ -33,7 +33,7 @@
 		3DF36C881A38F5A800A73311 /* Models.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DF36C7E1A38F5A800A73311 /* Models.xcdatamodeld */; };
 		3DF36C971A39059D00A73311 /* Realm.framework in Copy Realm */ = {isa = PBXBuildFile; fileRef = 3DF36C921A39057F00A73311 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DF36C991A3905CE00A73311 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF36C981A3905CE00A73311 /* libc++.dylib */; };
-		A290563A1A9634B600F47010 /* iCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29056391A9634B600F47010 /* iCloudViewController.swift */; };
+		A290563A1A9634B600F47010 /* iCloudTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29056391A9634B600F47010 /* iCloudTableViewController.swift */; };
 		A29056431A9638DA00F47010 /* ICloudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29056421A9638DA00F47010 /* ICloudModel.swift */; };
 		E14DAC441A3A0448008AC983 /* RestKitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14DAC431A3A0448008AC983 /* RestKitTableViewController.swift */; };
 		E14DAC451A3A053B008AC983 /* RestkitCDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1526DEE1A38A05C00BC6E1E /* RestkitCDStack.swift */; };
@@ -102,7 +102,7 @@
 		3DF36C931A39057F00A73311 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RLMSupport.swift; path = ../../project/frameworks/realm/RLMSupport.swift; sourceTree = "<group>"; };
 		3DF36C981A3905CE00A73311 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		93387547534B0073B3B4B328 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A29056391A9634B600F47010 /* iCloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudViewController.swift; sourceTree = "<group>"; };
+		A29056391A9634B600F47010 /* iCloudTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudTableViewController.swift; sourceTree = "<group>"; };
 		A29056421A9638DA00F47010 /* ICloudModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICloudModel.swift; sourceTree = "<group>"; };
 		BED8AACE3217C166E177ACA9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E14DAC421A3A01BB008AC983 /* SugarRecordExample-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SugarRecordExample-Bridging-Header.h"; path = "Supporting Files/SugarRecordExample-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 				3DF36C791A38F5A800A73311 /* CoreDataTableViewController.swift */,
 				E14DAC431A3A0448008AC983 /* RestKitTableViewController.swift */,
 				3D4754DE1A4C7C5200479D16 /* RealmTableViewController.swift */,
-				A29056391A9634B600F47010 /* iCloudViewController.swift */,
+				A29056391A9634B600F47010 /* iCloudTableViewController.swift */,
 				3DF36C7B1A38F5A800A73311 /* StackTableViewController.swift */,
 			);
 			path = Controllers;
@@ -455,7 +455,7 @@
 			files = (
 				3D4754E71A4C7D3400479D16 /* RLMSupport.swift in Sources */,
 				3D4754ED1A4C7F5500479D16 /* SugarRecordRLMContext.swift in Sources */,
-				A290563A1A9634B600F47010 /* iCloudViewController.swift in Sources */,
+				A290563A1A9634B600F47010 /* iCloudTableViewController.swift in Sources */,
 				3D4754EC1A4C7F5300479D16 /* RLMObjectMigration.swift in Sources */,
 				E197C9CD1A3F97AA000533A4 /* RestKitModel.swift in Sources */,
 				3D4754EB1A4C7F5000479D16 /* RLMObject+SugarRecord.swift in Sources */,

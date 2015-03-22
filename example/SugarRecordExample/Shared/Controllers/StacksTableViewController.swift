@@ -55,7 +55,7 @@ class StacksTableViewController: UITableViewController {
             viewController = RealmTableViewController()
             
         case "iCloud":
-            viewController = iCloudViewController()
+            viewController = iCloudTableViewController()
             
         default:
             println("View Controller not found for stack: \(stack)")

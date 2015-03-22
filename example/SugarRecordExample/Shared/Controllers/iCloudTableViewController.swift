@@ -1,5 +1,5 @@
 //
-//  iCloudViewController.swift
+//  iCloudTableViewController.swift
 //  SugarRecordExample
 //
 //  Created by David Chavez on 2/19/15.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class iCloudViewController: StackTableViewController {
+class iCloudTableViewController: StackTableViewController {
     
     //MARK: - Attributes
     
@@ -28,11 +28,15 @@ class iCloudViewController: StackTableViewController {
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier())
         
         let data = iCloudData(iCloudAppID: "com.sugarrecord.example.SugarRecordExample", iCloudDataDirectoryName: "data.nosync", iCloudLogsDirectory: "")
-        self.stack = iCloudCDStack(databaseName: "iCloud.sqlite", model: self.model, icloudData: data)
+        self.stack = iCloudCDStack(databaseName: "iCloud.sqlite", model: self.model, icloudData: data, completion: {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.fetchData()
+                self.tableView.reloadData()
+            })
+            
+        })
         (self.stack as iCloudCDStack).autoSaving = true
         SugarRecord.addStack(self.stack!)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "icloudInitialized", name: "iCloudStackInitialized", object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -52,16 +56,6 @@ class iCloudViewController: StackTableViewController {
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Top)
     }
-    
-    //MARK: - Listeners
-    
-    func icloudInitialized() {
-        dispatch_async(dispatch_get_main_queue(), {
-            self.fetchData()
-            self.tableView.reloadData()
-        })
-    }
-    
     
     //MARK: - Data Source
     
