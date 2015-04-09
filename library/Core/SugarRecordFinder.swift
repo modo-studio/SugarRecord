@@ -264,7 +264,7 @@ public class SugarRecordFinder
     */
     public func setPredicate<T: StringLiteralConvertible, R: StringLiteralConvertible>(byKey key: T, andValue value: R) -> SugarRecordFinder
     {
-        self.predicate = NSPredicate(format: "\(key) == \(value)")
+        self.predicate = NSPredicate(format: "\(key) == '\(value)'")
         return self
     }
     
