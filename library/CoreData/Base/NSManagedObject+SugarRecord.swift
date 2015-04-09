@@ -87,7 +87,7 @@ extension NSManagedObject
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func by<T: Printable, R: Printable>(key: T, equalTo value: R) -> SugarRecordFinder
+    public class func by<T: StringLiteralConvertible, R: StringLiteralConvertible>(key: T, equalTo value: R) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.setPredicate(byKey: "\(key)", andValue: "\(value)")
@@ -107,7 +107,7 @@ extension NSManagedObject
     
     :returns: SugarRecord finder with the predicate set
     */
-    public class func sorted<T: Printable>(by sortingKey: T, ascending: Bool) -> SugarRecordFinder
+    public class func sorted<T: StringLiteralConvertible>(by sortingKey: T, ascending: Bool) -> SugarRecordFinder
     {
         var finder: SugarRecordFinder = SugarRecordFinder()
         finder.addSortDescriptor(byKey: "\(sortingKey)", ascending: ascending)
