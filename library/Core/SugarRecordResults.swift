@@ -123,14 +123,14 @@ extension SugarRecordResults {
     func filter<T>(predicate:(T) -> Bool) -> [T] {
         var result = [T]()
         for obj in self {
-            if predicate(obj as T) { result.append(obj as T) }
+            if predicate(obj as! T) { result.append(obj as! T) }
         }
         return result
     }
     func map<T, U>(transform:(T) -> (U)) -> [U] {
         var result = [U]()
         for obj in self {
-            result.append(transform(obj as T))
+            result.append(transform(obj as! T))
         }
         return result
     }
