@@ -14,23 +14,38 @@
 )](https://github.com/SugarRecord/SugarRecord)
 
 ## What is SugarRecord?
-SugarRecord is a management library to make it easier work with **CoreData and REALM**. Thanks to SugarRecord you'll be able to start working with **CoreData/REALM** with just a few lines of code:
+SugarRecord is a data management library designed to make working with **CoreData** and **Realm** simpler. Thanks to SugarRecord you’ll be able to use **CoreData/Realm** with just a few lines of code:
 
-1. Choose your preferred stack among the available ones (*You can even propose your own!*)
-2. Enjoy with your database operations
+1. Choose your preferred stack from the provided stacks (_you can also implement your own!_)
+2. Enjoy how easy database operations are with our library
 
-The library is completely written in Swift and fully tested to ensure it behaves as expected.
+The library is completely written in Swift and is fully tested to ensure the behavior is as expected.
 
-**There's a Google Group where you can leave your topics, question, doubts, suggestions and stuff besides issues https://groups.google.com/forum/#!forum/sugarrecord .**
+**NOTE: We have a Google Group where you can leave your questions, doubts, suggestions, and other comments [here]. We also have a blog where we’ll post about the library’s development which you can check out [here].**
 
-**Powered by [@pepibumur](http://www.twitter.com/pepibumur) with the help of [@isaacroldan](www.twitter.com/saky), [@rdougan](www.twitter.com/rdougan) and some developers**
+**The library was started by [@pepibumur](http://www.twitter.com/pepibumur) and is now maintained by [@dchavezlive](https://twitter.come/dchavezlive)**
 
+## Features
+
+- Support for Realm and CoreData using same syntax
+- Multiple stacks (for Realm, CoreData, CoreData+iCloud)
+- Simple and modern syntax, forget about complicated lines of code to fetch your last 20 users!
+- Written 100% in Swift and compatible with Swift projects
+- Compatible with OSX and iOS
+- Fully documented with a playground tutorial and an updated Wiki page
+- Fully tested (all components are tested using XCTest)
+- Actively supported, issues covered in less than a week.
+- More powerful features to discover!
+
+## Components
+
+![image](https://raw.githubusercontent.com/SugarRecord/SugarRecord/develop/Resources/scheme.png)
 The scheme above shows the structure of SugarRecord. It's formed by:
-- **Database Models Extensions**: To add the sugar syntax that links these models with SugarRecord and the database.
+- **Database Models Extensions**: Adds our custom syntax that links these models with SugarRecord and the database.
 - **Finder**: SugarRecord custom element to abstract the querying components from the type of storage (Realm or CoreData)
-- **Core**: Main component of the library that translates Save/Delete/Find calls into internal operations using the stacks set.
-- **SugarRecord contexts**: Altough Realm doesn't have contexts as we have in CoreData, we have created abstracted contexts that surround the user operations with models independently if you are using CoreData or Realm. Yeah!
-- **Stack**: The storage stack is another key piece in SugarRecord because it knows how and when persist/fetch/delete your objects into the database. You can tell SugarRecord which stack it should use.
+- **Core**: Main component of the library that translates Save/Delete/Find calls into the appropriate internal operations for the stack.
+- **SugarRecord contexts**: Although Realm doesn't have contexts as we have in CoreData, we have created abstracted contexts that surround the user operations with models independently of which stack you’re using. Yeah!
+- **Stack**: The storage stack is another key piece in SugarRecord because it knows how and when to persist/fetch/delete your objects into the database. You can tell SugarRecord which stack it should use.
 
 ## Mailing list
 
