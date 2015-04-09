@@ -32,7 +32,7 @@ class RealmTableViewController: StackTableViewController
     @IBAction override func add(sender: AnyObject?) {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMMM d yyyy - HH:mm:ss"
-        let model = RealmModel.create() as RealmModel
+        let model = RealmModel.create() as! RealmModel
         model.name = formatter.stringFromDate(NSDate())
         model.save()
         self.fetchData()
@@ -58,14 +58,14 @@ class RealmTableViewController: StackTableViewController
     override func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMMM d yyyy - HH:mm:ss"
-        let model = self.data![indexPath.row] as RealmModel
+        let model = self.data![indexPath.row] as! RealmModel
         cell.textLabel?.text = model.name
         cell.detailTextLabel?.text = formatter.stringFromDate(model.date)
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == .Delete) {
-            let model = self.data![indexPath.row] as RealmModel
+            let model = self.data![indexPath.row] as! RealmModel
             model.beginWriting().delete().endWriting()
             self.fetchData()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)

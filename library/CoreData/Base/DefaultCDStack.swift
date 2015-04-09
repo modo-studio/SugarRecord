@@ -452,7 +452,7 @@ public class DefaultCDStack: SugarRecordStackProtocol
     */
     internal class func databasePathURLFromName(name: String) -> NSURL
     {
-        let documentsPath: String = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)[0] as String
+        let documentsPath: String = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)[0] as! String
         let mainBundleInfo: [NSObject: AnyObject] = NSBundle.mainBundle().infoDictionary!
         let applicationPath: String = documentsPath.stringByAppendingPathComponent("store")
         
@@ -538,7 +538,7 @@ public extension NSManagedObjectContext
     :param: notification Notification that fired this method
     */
     func contextWillSave(notification: NSNotification) {
-        let context: NSManagedObjectContext = notification.object as NSManagedObjectContext
+        let context: NSManagedObjectContext = notification.object as! NSManagedObjectContext
         let insertedObjects: NSSet = context.insertedObjects
         if insertedObjects.count == 0{
             return

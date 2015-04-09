@@ -115,7 +115,7 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     */
     public func removeDatabase()
     {
-        let documentsPath: String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let documentsPath: String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         let databaseName: String = documentsPath.stringByAppendingPathComponent("default.realm")
         var error: NSError?
         NSFileManager.defaultManager().removeItemAtPath(databaseName, error: &error)

@@ -16,7 +16,7 @@ class iCloudTableViewController: StackTableViewController {
     var data: SugarRecordResults?
     internal let model: NSManagedObjectModel = {
         let modelPath: NSString = NSBundle.mainBundle().pathForResource("Models", ofType: "momd")!
-        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath)!)!
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as! String)!)!
         return model
         }()
 
@@ -35,7 +35,7 @@ class iCloudTableViewController: StackTableViewController {
             })
             
         })
-        (self.stack as iCloudCDStack).autoSaving = true
+        (self.stack as! iCloudCDStack).autoSaving = true
         SugarRecord.addStack(self.stack!)
     }
     
@@ -49,7 +49,7 @@ class iCloudTableViewController: StackTableViewController {
     @IBAction override func add(sender: AnyObject?) {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMMM d yyyy - HH:mm:ss"
-        let model = ICloudModel.create() as ICloudModel
+        let model = ICloudModel.create() as! ICloudModel
         model.text = formatter.stringFromDate(NSDate())
         model.save()
         self.fetchData()
@@ -72,13 +72,13 @@ class iCloudTableViewController: StackTableViewController {
     //MARK: - Cell
     
     override func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
-        let model = self.data![indexPath.row] as ICloudModel
+        let model = self.data![indexPath.row] as! ICloudModel
         cell.textLabel?.text = model.text
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == .Delete) {
-            let model = self.data![indexPath.row] as ICloudModel
+            let model = self.data![indexPath.row] as! ICloudModel
             model.beginWriting().delete().endWriting()
             self.fetchData()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)

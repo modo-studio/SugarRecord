@@ -17,9 +17,9 @@ public struct iCloudData
     /// Is the full AppID (including the Team Prefix). It's needed to change tihs to match the Team Prefix found in the iOS Provisioning profile
     internal let iCloudAppID: String
     /// Is the name of the directory where the database will be stored in. It should always end with .nosync
-    internal let iCloudDataDirectoryName: String = "Data.nosync"
+    internal var iCloudDataDirectoryName: String = "Data.nosync"
     /// Is the name of the directory where the database change logs will be stored in
-    internal let iCloudLogsDirectory: String = "Logs"
+    internal var iCloudLogsDirectory: String = "Logs"
     
     /**
     Note:
@@ -55,7 +55,7 @@ public class iCloudCDStack: DefaultCDStack
     //MARK: - Properties
     
     /// iCloud Data struct with the information
-    private let icloudData: iCloudData?
+    private var icloudData: iCloudData?
     
     /// Notification center used for iCloud Notifications
     lazy var notificationCenter: NSNotificationCenter = NSNotificationCenter.defaultCenter()
@@ -164,7 +164,7 @@ public class iCloudCDStack: DefaultCDStack
         SugarRecordLogger.logLevelInfo.log("Initializing the stack: \(self.stackDescription)")
         createManagedObjecModelIfNeeded()
         persistentStoreCoordinator = createPersistentStoreCoordinator()
-        addDatabase(foriCloud: true, self.dataBaseAddedClosure())
+        addDatabase(foriCloud: true, completionClosure: self.dataBaseAddedClosure())
     }
     
     /**

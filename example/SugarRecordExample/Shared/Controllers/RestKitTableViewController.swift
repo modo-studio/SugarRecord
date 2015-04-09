@@ -15,7 +15,7 @@ class RestKitTableViewController: StackTableViewController {
     var data: SugarRecordResults?
     internal let model: NSManagedObjectModel = {
         let modelPath: NSString = NSBundle.mainBundle().pathForResource("Models", ofType: "momd")!
-        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath)!)!
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as! String)!)!
         return model
         }()
 
@@ -36,7 +36,7 @@ class RestKitTableViewController: StackTableViewController {
     @IBAction override func add(sender: AnyObject?) {
         let names = ["Sweet", "Chocolate", "Cookie", "Fudge", "Caramel"]
         let randomIndex = Int(arc4random_uniform(UInt32(names.count)))
-        let model = RestKitModel.create() as RestKitModel
+        let model = RestKitModel.create() as! RestKitModel
         model.date = NSDate()
         model.name = names[randomIndex]
         model.save()
@@ -63,14 +63,14 @@ class RestKitTableViewController: StackTableViewController {
     override func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMMM d yyyy - HH:mm:ss"
-        let model = self.data![indexPath.row] as RestKitModel
+        let model = self.data![indexPath.row] as! RestKitModel
         cell.textLabel?.text = model.name
         cell.detailTextLabel?.text = formatter.stringFromDate(model.date)
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == .Delete) {
-            let model = self.data![indexPath.row] as RestKitModel
+            let model = self.data![indexPath.row] as! RestKitModel
             model.beginWriting().delete().endWriting()
             self.fetchData()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)

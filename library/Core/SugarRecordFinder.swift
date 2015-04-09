@@ -108,7 +108,7 @@ public class SugarRecordFinder
         if self.predicate != nil {
             SugarRecordLogger.logLevelWarn.log("You are overriding an existing predicate")
         }
-        self.setPredicate(predicateString)
+        self.setPredicate(predicateString as! String)
         return self
     }
     
@@ -414,7 +414,7 @@ public class SugarRecordFinder
     public func count(inContext context:SugarRecordContext) -> Int
     {
         if (stackType == SugarRecordEngine.SugarRecordEngineCoreData) {
-            return (context as SugarRecordCDContext).count(self.objectClass!, predicate: self.predicate)
+            return (context as! SugarRecordCDContext).count(self.objectClass!, predicate: self.predicate)
         }
         else {
             return find().count

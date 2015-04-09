@@ -32,7 +32,7 @@ class StacksTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("StackCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("StackCell", forIndexPath: indexPath) as! UITableViewCell
 
         cell.textLabel?.text = self.stacks[indexPath.row]
 
