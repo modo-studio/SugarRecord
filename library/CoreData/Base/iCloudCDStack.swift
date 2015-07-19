@@ -60,6 +60,8 @@ public class iCloudCDStack: DefaultCDStack
     /// Notification center used for iCloud Notifications
     lazy var notificationCenter: NSNotificationCenter = NSNotificationCenter.defaultCenter()
     
+    internal var rootSavingContext: NSManagedObjectContext?
+    
     /**
     Initialize the CoreData stack
     
@@ -189,6 +191,30 @@ public class iCloudCDStack: DefaultCDStack
         }
     }
     
+    /**
+    Creates the main stack context
+    
+    :param: parentContext NSManagedObjectContext to be set as the parent of the main context
+    
+    :returns: Main NSManageObjectContext
+    */
+    internal func createMainContext(parentContext: NSManagedObjectContext?) -> NSManagedObjectContext
+    {
+        SugarRecordLogger.logLevelVerbose.log("Creating Main context")
+        var context: NSManagedObjectContext?
+        if parentContext == nil {
+            SugarRecord.handle(NSError(domain: "The root saving context is not initialized", code: SugarRecordErrorCodes.CoreDataError.rawValue, userInfo: nil))
+        }
+        context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        context!.parentContext = parentContext!
+        context!.addObserverToGetPermanentIDsBeforeSaving()
+        if context!.respondsToSelector(Selector("name")) {
+            context!.name = "Main context"
+        }
+        SugarRecordLogger.logLevelVerbose.log("Created MAIN context")
+        return context!
+    }
+    
     
     //MARK: - Contexts
     
@@ -200,7 +226,7 @@ public class iCloudCDStack: DefaultCDStack
     
     :returns: Private NSManageObjectContext
     */
-    override internal func createRootSavingContext(persistentStoreCoordinator: NSPersistentStoreCoordinator?) -> NSManagedObjectContext
+    internal func createRootSavingContext(persistentStoreCoordinator: NSPersistentStoreCoordinator?) -> NSManagedObjectContext
     {
         SugarRecordLogger.logLevelVerbose.log("Creating Root Saving context")
         var context: NSManagedObjectContext?
