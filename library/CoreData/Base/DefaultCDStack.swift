@@ -20,13 +20,15 @@ public class DefaultCDStack: SugarRecordStackProtocol
     public var migrationFailedClosure: () -> ()
     public var stackInitialized: Bool = false
     public var autoSaving: Bool = false
+    
     internal var managedObjectModel: NSManagedObjectModel?
     internal var databasePath: NSURL?
     internal var automigrating: Bool
     internal var persistentStoreCoordinator: NSPersistentStoreCoordinator?
-    internal var rootSavingContext: NSManagedObjectContext?
-    internal var mainContext: NSManagedObjectContext?
     internal var persistentStore: NSPersistentStore?
+    
+    public var mainContext: NSManagedObjectContext?
+    public var privateContext: NSManagedObjectContext?
     
     //MARK: - Initializers
     
@@ -139,8 +141,13 @@ public class DefaultCDStack: SugarRecordStackProtocol
                 SugarRecordLogger.logLevelFatal.log("Something went wrong adding the database")
                 return
             }
-            self!.rootSavingContext = self!.createRootSavingContext(self!.persistentStoreCoordinator)
-            self!.mainContext = self!.createMainContext(self!.rootSavingContext)
+            
+            self!.mainContext = self!.createMainContext(self!.persistentStoreCoordinator)
+            self!.privateContext = self!.createPrivateContext(self!.persistentStoreCoordinator)
+            if self!.mainContext != nil && self!.privateContext != nil {
+                self!.mainContext!.startObserving(self!.privateContext!)
+                self!.privateContext!.startObserving(self!.mainContext!)
+            }
             self!.stackInitialized = true
         }
     }
@@ -181,25 +188,6 @@ public class DefaultCDStack: SugarRecordStackProtocol
     }
     
     /**
-    Creates a background saving context and returns a SugarRecord CoreData context with it
-    
-    :returns: SugarRecordCDContext with the background context
-    */
-    public func backgroundContext() -> SugarRecordContext?
-    {
-        if self.rootSavingContext == nil {
-            return nil
-        }
-        var context: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: .ConfinementConcurrencyType)
-        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        context.parentContext = self.rootSavingContext!
-        if self.mainContext != nil {
-            self.mainContext?.startObserving(context, inMainThread: true)
-        }
-        return SugarRecordCDContext(context: context)
-    }
-    
-    /**
     Returns a SugarRecordCDContext with the main stack context to be used in the main thread
     
     :returns: SugarRecordCDContext with the main context
@@ -210,6 +198,19 @@ public class DefaultCDStack: SugarRecordStackProtocol
             return nil
         }
         return SugarRecordCDContext(context: self.mainContext!)
+    }
+    
+    /**
+    Returns a SugarRecordCDContext with the private stack context to be used in the private thread
+    
+    :returns: SugarRecordCDContext with the private context
+    */
+    public func backgroundContext() -> SugarRecordContext?
+    {
+        if self.privateContext == nil {
+            return nil
+        }
+        return SugarRecordCDContext(context: self.privateContext!)
     }
     
     /**
@@ -265,20 +266,20 @@ public class DefaultCDStack: SugarRecordStackProtocol
     /**
     Creates the main stack context
     
-    :param: parentContext NSManagedObjectContext to be set as the parent of the main context
+    :param: persistentStoreCoordinator NSPersistentStoreCoordinator to be set as the persistent store coordinator of the created context
     
     :returns: Main NSManageObjectContext
     */
-    internal func createMainContext(parentContext: NSManagedObjectContext?) -> NSManagedObjectContext
+    internal func createMainContext(persistentStoreCoordinator: NSPersistentStoreCoordinator?) -> NSManagedObjectContext
     {
         SugarRecordLogger.logLevelVerbose.log("Creating Main context")
         var context: NSManagedObjectContext?
-        if parentContext == nil {
-            SugarRecord.handle(NSError(domain: "The root saving context is not initialized", code: SugarRecordErrorCodes.CoreDataError.rawValue, userInfo: nil))
+        if persistentStoreCoordinator == nil {
+            SugarRecord.handle(NSError(domain: "The persistent store coordinator is not initialized", code: SugarRecordErrorCodes.CoreDataError.rawValue, userInfo: nil))
         }
         context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-        context!.parentContext = parentContext!
-        context!.addObserverToGetPermanentIDsBeforeSaving()
+        context!.persistentStoreCoordinator = persistentStoreCoordinator!
+        context!.undoManager = nil
         if context!.respondsToSelector(Selector("name")) {
             context!.name = "Main context"
         }
@@ -287,30 +288,26 @@ public class DefaultCDStack: SugarRecordStackProtocol
     }
     
     /**
-    Creates a temporary root saving context to be used in background operations
+    Creates the background stack context
     
-    :param: persistentStoreCoordinator NSPersistentStoreCoordinator to be set as the persistent store coordinator of the created context
-    
-    :returns: Private NSManageObjectContext
+    :returns: SugarRecordCDContext with the background context
     */
-    internal func createRootSavingContext(persistentStoreCoordinator: NSPersistentStoreCoordinator?) -> NSManagedObjectContext
+    public func createPrivateContext(persistentStoreCoordinator: NSPersistentStoreCoordinator?) -> NSManagedObjectContext
     {
-        SugarRecordLogger.logLevelVerbose.log("Creating Root Saving context")
+        SugarRecordLogger.logLevelVerbose.log("Creating Private context")
         var context: NSManagedObjectContext?
         if persistentStoreCoordinator == nil {
             SugarRecord.handle(NSError(domain: "The persistent store coordinator is not initialized", code: SugarRecordErrorCodes.CoreDataError.rawValue, userInfo: nil))
         }
         context = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         context!.persistentStoreCoordinator = persistentStoreCoordinator!
-        context!.addObserverToGetPermanentIDsBeforeSaving()
-        context!.addObserverWhenObjectsChanged { [weak self] () -> () in
-            let closure = self?.autoSavingClosure()
-            closure?()
-        }
+        context!.mergePolicy = NSOverwriteMergePolicy
+        context!.undoManager = nil
         if context!.respondsToSelector(Selector("name")) {
-            context!.name = "Root saving context"
+            context!.name = "Private context"
         }
-        SugarRecordLogger.logLevelVerbose.log("Created Root Saving context")
+        
+        SugarRecordLogger.logLevelVerbose.log("Created PRIVATE context")
         return context!
     }
     
@@ -467,18 +464,14 @@ public class DefaultCDStack: SugarRecordStackProtocol
         return NSURL(fileURLWithPath: databasePath)!
     }
     
-    
     //MARK: - Saving helper
     
     /**
     Apply the changes of the context to be persisted in the database
     */
-    internal func saveChanges ()
+    internal func saveChanges()
     {
-        if self.rootSavingContext == nil {
-            assert(true, "Fatal error. The private context is not initialized")
-        }
-        else if self.mainContext == nil {
+        if self.mainContext == nil {
             assert(true, "Fatal error. The main context is not initialized")
         }
         
@@ -497,10 +490,10 @@ public class DefaultCDStack: SugarRecordStackProtocol
             context.reset()
         }
         
-        // Saving ROOT SAVING CONTEXT
-        self.rootSavingContext!.performBlockAndWait({ () -> Void in
-            if self.rootSavingContext!.hasChanges {
-                save(context: self.rootSavingContext!)
+        // Saving MAIN CONTEXT
+        self.mainContext!.performBlockAndWait({ () -> Void in
+            if self.mainContext!.hasChanges {
+                save(context: self.mainContext!)
             }
         })
     }
@@ -557,13 +550,17 @@ public extension NSManagedObjectContext
     :param: context    NSManagedObjectContext to be observed
     :param: mainThread Bool indicating if it's the main thread
     */
-    func startObserving(context: NSManagedObjectContext, inMainThread mainThread: Bool) {
+    func startObserving(context: NSManagedObjectContext) {
         SugarRecordLogger.logLevelVerbose.log("\(self) context now observing the context \(context)")
-        if mainThread {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "mergeChangesInMainThread:", name: NSManagedObjectContextDidSaveNotification, object: context)
-        }
-        else {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "mergeChanges:", name: NSManagedObjectContextDidSaveNotification, object: context)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "contextDidSaveContext:", name: NSManagedObjectContextDidSaveNotification, object: context)
+    }
+    
+    func realizeObjectsFromNotification(notification: NSNotification) {
+        if let updatedObjs = notification.userInfo?[NSUpdatedObjectsKey] as? [NSManagedObject] {
+            for updatedObj in updatedObjs {
+                let obj = self.objectWithID(updatedObj.objectID)
+                obj.willAccessValueForKey(nil)
+            }
         }
     }
     
@@ -587,13 +584,15 @@ public extension NSManagedObjectContext
     }
     
     /**
-    Method to merge changes from other contexts (in the main thread)
+    Method to merge changes from other contexts (fired by KVO)
     
     :param: notification Notification that fired this method call
     */
-    func mergeChangesInMainThread(notification: NSNotification) {
-        dispatch_async(dispatch_get_main_queue(), {
-            self.mergeChanges(notification)
-        })
+    func contextDidSaveContext(notification: NSNotification) {
+        SugarRecordLogger.logLevelInfo.log("Merging changes to context \(self)")
+        self.performBlock { () -> Void in
+            self.realizeObjectsFromNotification(notification)
+            self.mergeChangesFromContextDidSaveNotification(notification)
+        }
     }
 }
