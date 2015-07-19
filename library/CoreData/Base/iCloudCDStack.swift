@@ -306,11 +306,11 @@ public class iCloudCDStack: DefaultCDStack
                 self!.databasePath = NSURL(fileURLWithPath: path!)
                 
                 // Adding store
-                self!.persistentStoreCoordinator!.lock()
-                error = nil
-                var store: NSPersistentStore? = self!.persistentStoreCoordinator?.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self!.databasePath, options: iCloudCDStack.icloudStoreOptions(contentNameKey: self!.icloudData!.iCloudAppID, contentURLKey: iCloudLogsPath), error: &error)
-                self!.persistentStoreCoordinator!.unlock()
-                self!.persistentStore = store!
+                self!.persistentStoreCoordinator!.performBlockAndWait() {
+                    error = nil
+                    var store: NSPersistentStore? = self!.persistentStoreCoordinator?.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self!.databasePath, options: iCloudCDStack.icloudStoreOptions(contentNameKey: self!.icloudData!.iCloudAppID, contentURLKey: iCloudLogsPath), error: &error)
+                    self!.persistentStore = store!
+                }
 
                 // Calling completion closure
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
