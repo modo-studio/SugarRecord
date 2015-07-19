@@ -211,4 +211,12 @@ public class SugarRecordCDContext: SugarRecordContext
             return objectInContext
         }
     }
+    
+    public func performBlock(block: () -> Void) {
+        self.contextCD.performBlock(block)
+    }
+    
+    public func performBlockAndWait(block: () -> Void) {
+        self.contextCD.performBlockAndWait(block)
+    }
 }
