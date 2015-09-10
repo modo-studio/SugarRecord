@@ -361,7 +361,7 @@ public class SugarRecordFinder
     */
     public func delete () -> ()
     {
-        delete(true, completion: { () -> () in })
+        delete(false, completion: { () -> () in })
     }
     
     /**
