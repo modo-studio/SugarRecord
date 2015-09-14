@@ -18,9 +18,9 @@ class RestkitCDStackTests: XCTestCase
         {
             var addSQliteCalled: Bool = false
             var createManagedObjectContextsCalled: Bool = false
-            override func addSQLitePersistentStoreAtPath(storePath: String!, fromSeedDatabaseAtPath seedPath: String!, withConfiguration nilOrConfigurationName: String!, options nilOrOptions: [NSObject : AnyObject]!, error: NSErrorPointer) -> NSPersistentStore! {
+            override func addSQLitePersistentStoreAtPath(storePath: String!, fromSeedDatabaseAtPath seedPath: String!, withConfiguration nilOrConfigurationName: String!, options nilOrOptions: [NSObject : AnyObject]!) throws -> NSPersistentStore {
                 addSQliteCalled = true
-                return super.addSQLitePersistentStoreAtPath(storePath, fromSeedDatabaseAtPath: seedPath, withConfiguration: nilOrConfigurationName, options: nilOrOptions, error: error)
+                return try super.addSQLitePersistentStoreAtPath(storePath, fromSeedDatabaseAtPath: seedPath, withConfiguration: nilOrConfigurationName, options: nilOrOptions)
             }
             override func createManagedObjectContexts()
             {
@@ -40,7 +40,7 @@ class RestkitCDStackTests: XCTestCase
         
         let bundle: NSBundle = NSBundle(forClass: CoreDataObjectTests.classForCoder())
         let modelPath: NSString = bundle.pathForResource("TestsDataModel", ofType: "momd")!
-        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath)!)!
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as String)!)!
         let stack: MockReskitCDStack = MockReskitCDStack(databaseName: "Restkit.sqlite", model: model, automigrating: true)
         stack.initialize()
         XCTAssertTrue(stack.rkStore!.addSQliteCalled, "The stack should initialize SQLite from RestKit")

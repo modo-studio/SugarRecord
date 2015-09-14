@@ -28,7 +28,7 @@ class SugarRecordSugarRecordFinderTests: XCTestCase
     
     func testIfSortDescriptorsAreAddedToTheArrayUnsingSortDescriptor()
     {
-        var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "test", ascending: true)
+        let sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "test", ascending: true)
         sugarRecordFinder.addSortDescriptor(sortDescriptor)
         XCTAssertEqual(sugarRecordFinder.sortDescriptorsCount(), 1, "The number of sort descriptors should be 1")
     }

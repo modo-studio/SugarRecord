@@ -19,9 +19,9 @@ public class SugarRecordRLMContext: SugarRecordContext
     /**
     SugarRecordRLMContext initializer passing a RLMRealm object
     
-    :param: realmContext RLMRealm context linked to this SugarRecord context
+    - parameter realmContext: RLMRealm context linked to this SugarRecord context
     
-    :returns: Initialized SugarRecordRLMContext
+    - returns: Initialized SugarRecordRLMContext
     */
     init (realmContext: RLMRealm)
     {
@@ -55,20 +55,20 @@ public class SugarRecordRLMContext: SugarRecordContext
     /**
     Creates an object in the context
     
-    :param: objectClass ObectClass of the created object
+    - parameter objectClass: ObectClass of the created object
     
-    :returns: The created object in the context
+    - returns: The created object in the context
     */
     public func createObject(objectClass: AnyClass) -> AnyObject?
     {
         let objectClass: RLMObject.Type = objectClass as! RLMObject.Type
-        return objectClass()
+        return objectClass.init()
     }
     
     /**
     Insert an object in the context
     
-    :param: object Realm object to be inserted
+    - parameter object: Realm object to be inserted
     */
     public func insertObject(object: AnyObject)
     {
@@ -78,9 +78,9 @@ public class SugarRecordRLMContext: SugarRecordContext
     /**
     Find Realm objects in the database using the passed finder
     
-    :param: finder SugarRecordFinder used for querying (filtering/sorting)
+    - parameter finder: SugarRecordFinder used for querying (filtering/sorting)
     
-    :returns: Objects fetched
+    - returns: Objects fetched
     */
     public func find(finder: SugarRecordFinder) -> SugarRecordResults
     {
@@ -102,9 +102,9 @@ public class SugarRecordRLMContext: SugarRecordContext
     /**
     Deletes a given object
     
-    :param: object Realm object to be deleted
+    - parameter object: Realm object to be deleted
     
-    :returns: If the object has been properly deleted
+    - returns: If the object has been properly deleted
     */
     public func deleteObject(object: AnyObject) -> SugarRecordContext
     {
@@ -115,9 +115,9 @@ public class SugarRecordRLMContext: SugarRecordContext
     /**
     Deletes Realm objects from an array
     
-    :param: objects Realm objects to be deleted
+    - parameter objects: Realm objects to be deleted
     
-    :returns: If the delection has been successful
+    - returns: If the delection has been successful
     */
     public func deleteObjects(objects: SugarRecordResults) -> ()
     {

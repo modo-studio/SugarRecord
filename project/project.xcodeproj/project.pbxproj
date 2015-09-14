@@ -481,6 +481,8 @@
 		3DF21C5A1A320D74005921A5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = SugarRecord;
 				TargetAttributes = {

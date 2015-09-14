@@ -17,7 +17,7 @@ class CoreDataObjectTests: XCTestCase
         super.setUp()
         let bundle: NSBundle = NSBundle(forClass: CoreDataObjectTests.classForCoder())
         let modelPath: NSString = bundle.pathForResource("TestsDataModel", ofType: "momd")!
-        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath)!)!
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as String)!)!
         let stack: DefaultCDStack = DefaultCDStack(databaseName: "TestDB.sqlite", model: model, automigrating: true)
         SugarRecord.addStack(stack)
     }
@@ -30,14 +30,14 @@ class CoreDataObjectTests: XCTestCase
     
     func testObjectCreation()
     {
-        var coreDataObject: CoreDataObject = CoreDataObject.create() as CoreDataObject
+        var coreDataObject: CoreDataObject = CoreDataObject.create() as! CoreDataObject
         coreDataObject.name = "Testy"
         coreDataObject.age = 21
         coreDataObject.email = "test@test.com"
         coreDataObject.birth = NSDate()
         coreDataObject.city = "Springfield"
         let saved: Bool = coreDataObject.save()
-        var coreDataObject2: CoreDataObject = CoreDataObject.create() as CoreDataObject
+        var coreDataObject2: CoreDataObject = CoreDataObject.create() as! CoreDataObject
         coreDataObject2.name = "Testy2"
         coreDataObject2.age = 22
         coreDataObject2.email = "test2@test.com"
@@ -51,7 +51,7 @@ class CoreDataObjectTests: XCTestCase
     
     func testObjectDeletion()
     {
-        var coreDataObject: CoreDataObject = CoreDataObject.create() as CoreDataObject
+        var coreDataObject: CoreDataObject = CoreDataObject.create() as! CoreDataObject
         coreDataObject.name = "Realmy"
         coreDataObject.age = 22
         coreDataObject.email = "test@mail.com"
@@ -64,14 +64,14 @@ class CoreDataObjectTests: XCTestCase
     
     func testAllObjectsDeletion()
     {
-        var coreDataObject: CoreDataObject = CoreDataObject.create() as CoreDataObject
+        var coreDataObject: CoreDataObject = CoreDataObject.create() as! CoreDataObject
         coreDataObject.name = "Realmy"
         coreDataObject.age = 22
         coreDataObject.email = "test@mail.com"
         coreDataObject.city = "TestCity"
         coreDataObject.birth = NSDate()
         let saved: Bool = coreDataObject.save()
-        var coreDataObject2: CoreDataObject = CoreDataObject.create() as CoreDataObject
+        var coreDataObject2: CoreDataObject = CoreDataObject.create() as! CoreDataObject
         coreDataObject2.name = "Realmy"
         coreDataObject2.age = 22
         coreDataObject2.email = "test@mail.com"
@@ -91,7 +91,7 @@ class CoreDataObjectTests: XCTestCase
         coreDataObject!.beginWriting()
         coreDataObject!.name = "Testy"
         coreDataObject!.endWriting()
-        let fetchedObject: CoreDataObject = CoreDataObject.all().find().firstObject() as CoreDataObject
+        let fetchedObject: CoreDataObject = CoreDataObject.all().find().firstObject() as! CoreDataObject
         XCTAssertEqual(fetchedObject.name, "Testy", "The name of the fetched object should be Testy")
         coreDataObject!.beginWriting().delete().endWriting()
     }
@@ -117,8 +117,8 @@ class CoreDataObjectTests: XCTestCase
         XCTAssertEqual(CoreDataObject.all().find().count, 2, "It should return 2 elements")
         XCTAssertEqual(CoreDataObject.by("age", equalTo: "22").find().count, 2, "It should return 2 elements with the age of 22")
         XCTAssertEqual(CoreDataObject.by("age", equalTo: "10").find().count, 0, "It should return 0 elements with the age of 10")
-        XCTAssertEqual((CoreDataObject.sorted(by: "name", ascending: true).first() .find().firstObject() as CoreDataObject).name, "Realmy", "The name of the first object returned should be Realmy")
-        XCTAssertEqual((CoreDataObject.sorted(by: "name", ascending: true).last().find().firstObject() as CoreDataObject).name, "Realmy2", "The name of the first object returned should be Realmy2")
+        XCTAssertEqual((CoreDataObject.sorted(by: "name", ascending: true).first() .find().firstObject() as! CoreDataObject).name, "Realmy", "The name of the first object returned should be Realmy")
+        XCTAssertEqual((CoreDataObject.sorted(by: "name", ascending: true).last().find().firstObject() as! CoreDataObject).name, "Realmy2", "The name of the first object returned should be Realmy2")
         XCTAssertEqual(CoreDataObject.sorted(by: "name", ascending: true).firsts(20).find().count, 2, "The number of fetched elements using firsts should be equal to 2")
         XCTAssertEqual(CoreDataObject.sorted(by: "name", ascending: true).lasts(20).find().count, 2, "The number of fetched elements using lasts should be equal to 2")
         coreDataObject!.beginWriting().delete().endWriting()
@@ -162,7 +162,7 @@ class CoreDataObjectTests: XCTestCase
         coreDataObject!.beginWriting().delete().cancelWriting()
         XCTAssertEqual(CoreDataObject.all().find().count, 1, "It should return 1 element because the writing transaction was cancelled")
         let objects = CoreDataObject.all().find()
-        (objects.firstObject() as CoreDataObject).beginWriting().delete().endWriting()
+        (objects.firstObject() as! CoreDataObject).beginWriting().delete().endWriting()
         XCTAssertEqual(CoreDataObject.all().find().count, 0, "It should return 0 element because the writing transaction was commited")
     }
 }

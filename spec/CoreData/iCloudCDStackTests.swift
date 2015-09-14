@@ -76,7 +76,7 @@ class iCloudCDStackTests: XCTestCase {
         let psc: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator()
         let rootSavingContext: NSManagedObjectContext = stack.createRootSavingContext(psc)
         XCTAssertEqual(rootSavingContext.concurrencyType, NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType, "The concurrency type should be PrivateQueue")
-        let sameMergePolicy: Bool = (rootSavingContext.mergePolicy as NSObject).isKindOfClass((NSMergeByPropertyObjectTrumpMergePolicy as NSObject).classForCoder)
+        let sameMergePolicy: Bool = (rootSavingContext.mergePolicy as! NSObject).isKindOfClass((NSMergeByPropertyObjectTrumpMergePolicy as! NSObject).classForCoder)
         XCTAssertTrue(sameMergePolicy, "The merge policy should be by property object trump")
     }
     
@@ -86,10 +86,10 @@ class iCloudCDStackTests: XCTestCase {
     func testStoreOptions()
     {
         let options: [NSObject: AnyObject] = iCloudCDStack.icloudStoreOptions(contentNameKey: "name", contentURLKey: NSURL(string: "url")!)
-        XCTAssertEqual(options[NSMigratePersistentStoresAutomaticallyOption] as NSNumber, NSNumber(bool: true), "NSMigratePersistentStoresAutomaticallyOption should be true")
-        XCTAssertEqual(options[NSInferMappingModelAutomaticallyOption] as NSNumber, NSNumber(bool: true), "NSInferMappingModelAutomaticallyOption should be true")
-         XCTAssertEqual(options[NSPersistentStoreUbiquitousContentNameKey] as NSString, "name", "NSPersistentStoreUbiquitousContentNameKey should be name")
-         XCTAssertEqual(options[NSPersistentStoreUbiquitousContentURLKey] as NSURL, NSURL(string: "url")!, "NSPersistentStoreUbiquitousContentNameKey should be url")
+        XCTAssertEqual(options[NSMigratePersistentStoresAutomaticallyOption] as! NSNumber, NSNumber(bool: true), "NSMigratePersistentStoresAutomaticallyOption should be true")
+        XCTAssertEqual(options[NSInferMappingModelAutomaticallyOption] as! NSNumber, NSNumber(bool: true), "NSInferMappingModelAutomaticallyOption should be true")
+         XCTAssertEqual(options[NSPersistentStoreUbiquitousContentNameKey] as! NSString, "name", "NSPersistentStoreUbiquitousContentNameKey should be name")
+         XCTAssertEqual(options[NSPersistentStoreUbiquitousContentURLKey] as! NSURL, NSURL(string: "url")!, "NSPersistentStoreUbiquitousContentNameKey should be url")
     }
     
     

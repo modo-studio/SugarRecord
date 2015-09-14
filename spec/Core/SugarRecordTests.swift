@@ -45,8 +45,8 @@ class SugarRecordTests: XCTestCase {
         let coreDataStack: DefaultCDStack = DefaultCDStack(databaseName: "CoreData", automigrating: true)
         SugarRecord.addStack(realmStack)
         SugarRecord.addStack(coreDataStack)
-        XCTAssertNotNil(SugarRecord.stackFortype(SugarRecordEngine.SugarRecordEngineCoreData) as DefaultCDStack, "Should return a stack for CoreData")
-        XCTAssertNotNil(SugarRecord.stackFortype(SugarRecordEngine.SugarRecordEngineRealm) as DefaultREALMStack, "Should return a stack for CoreData")
+        XCTAssertNotNil(SugarRecord.stackFortype(SugarRecordEngine.SugarRecordEngineCoreData) as! DefaultCDStack, "Should return a stack for CoreData")
+        XCTAssertNotNil(SugarRecord.stackFortype(SugarRecordEngine.SugarRecordEngineRealm) as! DefaultREALMStack, "Should return a stack for CoreData")
         SugarRecord.removeAllStacks()
     }
     

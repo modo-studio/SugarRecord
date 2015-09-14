@@ -20,11 +20,11 @@ public struct RLMObjectMigration<T: RLMObject> {
     /**
     Migrationinitializer
     
-    :param: fromSchema       Version of the schema before the migration
-    :param: toSchema         Version of the schema after the migration
-    :param: migrationClosure Migration closure to be executed
+    - parameter fromSchema:       Version of the schema before the migration
+    - parameter toSchema:         Version of the schema after the migration
+    - parameter migrationClosure: Migration closure to be executed
     
-    :returns: Initialized migration struct
+    - returns: Initialized migration struct
     */
     init(toSchema: Int, migrationClosure: (oldObject: RLMObject, newObject: RLMObject) -> ()) {
         self.toSchema = toSchema
@@ -34,7 +34,7 @@ public struct RLMObjectMigration<T: RLMObject> {
     /**
     Executes the migration using the Realm migration object
     
-    :param: realmMigration Realm migration object
+    - parameter realmMigration: Realm migration object
     */
     public func migrate(realmMigration: RLMMigration) {
         let modelName: String = T.modelName()

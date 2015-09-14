@@ -66,7 +66,7 @@ class SugarRecordRLMContextTests: XCTestCase
         let context: MockRLMRealm = MockRLMRealm()
         let srContext: SugarRecordRLMContext = SugarRecordRLMContext(realmContext: context)
         srContext.endWriting()
-        let realmObject: RealmObject = srContext.createObject(RealmObject.self) as RealmObject
+        let realmObject: RealmObject = srContext.createObject(RealmObject.self) as! RealmObject
         XCTAssertNil(realmObject.realm, "Created realm object shouldn't have a realm object")
     }
     
@@ -75,7 +75,7 @@ class SugarRecordRLMContextTests: XCTestCase
         let context: MockRLMRealm = MockRLMRealm()
         let srContext: SugarRecordRLMContext = SugarRecordRLMContext(realmContext: context)
         srContext.endWriting()
-        let realmObject: RealmObject = srContext.createObject(RealmObject.self) as RealmObject
+        let realmObject: RealmObject = srContext.createObject(RealmObject.self) as! RealmObject
         srContext.insertObject(realmObject)
         XCTAssertTrue(context.objectAdded, "Object should be added to Realm")
     }

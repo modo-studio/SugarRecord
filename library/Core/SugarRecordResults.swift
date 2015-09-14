@@ -22,9 +22,9 @@ public class SugarRecordResults: SequenceType
     /**
     Initializes SRResults passing an object that conforms the protocol SRResultsProtocol
     
-    :param: results Original results
+    - parameter results: Original results
     
-    :returns: Initialized SRResults
+    - returns: Initialized SRResults
     */
     internal init(results: SugarRecordResultsProtocol, finder: SugarRecordFinder)
     {
@@ -46,9 +46,9 @@ public class SugarRecordResults: SequenceType
     /**
     Returns the object at a given index
     
-    :param: index Index of the object
+    - parameter index: Index of the object
     
-    :returns: Object at the passed index (if exists)
+    - returns: Object at the passed index (if exists)
     */
     public func objectAtIndex(index: UInt) -> AnyObject!
     {
@@ -59,7 +59,7 @@ public class SugarRecordResults: SequenceType
     /**
     Returns the first object of the results
     
-    :returns: First object (if exists)
+    - returns: First object (if exists)
     */
     public func firstObject() -> AnyObject!
     {
@@ -69,7 +69,7 @@ public class SugarRecordResults: SequenceType
     /**
     Returns the last object of the results
     
-    :returns: Last object (if exists)
+    - returns: Last object (if exists)
     */
     public func lastObject() -> AnyObject!
     {

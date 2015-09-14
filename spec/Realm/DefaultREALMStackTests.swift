@@ -32,7 +32,7 @@ class DefaultREALMStackTests: XCTestCase {
     func testIfReturnsTheDefaultRLMContextForTheContext()
     {
         let stack: DefaultREALMStack = DefaultREALMStack(stackName: "name", stackDescription: "description")
-        XCTAssertEqual((stack.mainThreadContext() as SugarRecordRLMContext).realmContext, RLMRealm.defaultRealm(), "Default stack should return the default realm object")
+        XCTAssertEqual((stack.mainThreadContext() as! SugarRecordRLMContext).realmContext, RLMRealm.defaultRealm(), "Default stack should return the default realm object")
     }
     
     func testIfReturnsTheDefaultRLMContextForTheContextInBAckground()
@@ -40,7 +40,7 @@ class DefaultREALMStackTests: XCTestCase {
         let stack: DefaultREALMStack = DefaultREALMStack(stackName: "name", stackDescription: "description")
         let expectation = expectationWithDescription("background operation")
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
-            XCTAssertEqual((stack.backgroundContext() as SugarRecordRLMContext).realmContext, RLMRealm.defaultRealm(), "Default stack should return the default realm object")
+            XCTAssertEqual((stack.backgroundContext() as! SugarRecordRLMContext).realmContext, RLMRealm.defaultRealm(), "Default stack should return the default realm object")
             expectation.fulfill()
         })
         waitForExpectationsWithTimeout(0.2, handler: nil)
@@ -65,7 +65,7 @@ class DefaultREALMStackTests: XCTestCase {
         migrations.append(RLMObjectMigration<RLMObject>(toSchema: 3, migrationClosure: { (oldObject, newObject) -> () in }))
         migrations.append(RLMObjectMigration<RLMObject>(toSchema: 1, migrationClosure: { (oldObject, newObject) -> () in }))
         let stack: DefaultREALMStack = DefaultREALMStack(stackName: "Stack name", stackDescription: "Stack description", migrations: migrations)
-        var sortedMigrations: [RLMObjectMigration<RLMObject>] = DefaultREALMStack.sorteredAndFiltered(migrations: migrations, fromOldSchema: 2)
+        let sortedMigrations: [RLMObjectMigration<RLMObject>] = DefaultREALMStack.sorteredAndFiltered(migrations: migrations, fromOldSchema: 2)
         XCTAssertEqual(sortedMigrations.first!.toSchema, 3, "First migration in the array should have toSchema = 3")
         XCTAssertEqual(sortedMigrations.last!.toSchema, 13, "First migration in the array should have toSchema = 13")
     }

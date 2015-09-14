@@ -17,7 +17,7 @@ class NSManagedObjectSugarRecordTests: XCTestCase
         super.setUp()
         let bundle: NSBundle = NSBundle(forClass: CoreDataObjectTests.classForCoder())
         let modelPath: NSString = bundle.pathForResource("TestsDataModel", ofType: "momd")!
-        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath)!)!
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as String)!)!
         let stack: DefaultCDStack = DefaultCDStack(databaseName: "TestDB.sqlite", model: model, automigrating: true)
         SugarRecord.addStack(stack)
     }
@@ -31,8 +31,8 @@ class NSManagedObjectSugarRecordTests: XCTestCase
     
     func testIfTheSugarRecordCDMatchesTheObjectContext()
     {
-        let object: CoreDataObject = CoreDataObject.create() as CoreDataObject
-        let context: SugarRecordCDContext = object.context() as SugarRecordCDContext
+        let object: CoreDataObject = CoreDataObject.create() as! CoreDataObject
+        let context: SugarRecordCDContext = object.context() as! SugarRecordCDContext
         XCTAssertEqual(context.contextCD, object.managedObjectContext!, "SugarRecord context should have the object context")
     }
     
@@ -49,7 +49,7 @@ class NSManagedObjectSugarRecordTests: XCTestCase
     
     func testIfTheReturnedFinderIsRight()
     {
-        var predicate: NSPredicate = NSPredicate()
+        let predicate: NSPredicate = NSPredicate()
         var finder: SugarRecordFinder = NSManagedObject.by(predicate)
         XCTAssertEqual(finder.predicate!, predicate, "The finder predicate should be the one passed to the object class using by")
         finder = NSManagedObject.by("name == Test")
@@ -60,7 +60,7 @@ class NSManagedObjectSugarRecordTests: XCTestCase
     
     func testIfTheObjectClassAndStackTypeAreSetToTheFinderWhenFiltering()
     {
-        var predicate: NSPredicate = NSPredicate()
+        let predicate: NSPredicate = NSPredicate()
         var finder: SugarRecordFinder = CoreDataObject.by(predicate)
         var sameClass = finder.objectClass? is NSManagedObject.Type
         XCTAssertTrue(sameClass, "The class of the finder should be the object class")
@@ -77,7 +77,7 @@ class NSManagedObjectSugarRecordTests: XCTestCase
     
     func testIfTheSortDescriptorsAreProperlySetToTheFinder()
     {
-        var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         var finder: SugarRecordFinder = NSManagedObject.sorted(by: sortDescriptor)
         XCTAssertEqual(finder.sortDescriptors.last!, sortDescriptor, "Sort descriptor should be added to the stack of the finder")
         finder = NSManagedObject.sorted(by: "name", ascending: true)
@@ -90,7 +90,7 @@ class NSManagedObjectSugarRecordTests: XCTestCase
     func testIfTheObjectClassAndStackTypeAreProperlySetWhenSorting()
     {
         
-        var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         var finder: SugarRecordFinder = NSManagedObject.sorted(by: sortDescriptor)
         var sameClass = finder.objectClass? is NSManagedObject.Type
         XCTAssertTrue(sameClass, "The objectClass of the finder should be the same of the object")
@@ -107,7 +107,7 @@ class NSManagedObjectSugarRecordTests: XCTestCase
     
     func testIfAllIsProperlySetToTheFinder()
     {
-        var finder: SugarRecordFinder = NSManagedObject.all()
+        let finder: SugarRecordFinder = NSManagedObject.all()
         var isAll: Bool?
         switch finder.elements {
         case .all:

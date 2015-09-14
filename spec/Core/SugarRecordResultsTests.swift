@@ -18,18 +18,18 @@ class SugarRecordResultsTests: XCTestCase
     func beforeEach()
     {
         // Core Data
-        var coreDataObject: CoreDataObject = CoreDataObject.create() as CoreDataObject
+        var coreDataObject: CoreDataObject = CoreDataObject.create() as! CoreDataObject
         coreDataObject.name = "CD1"
         let saved: Bool = coreDataObject.save()
-        var coreDataObject2: CoreDataObject = CoreDataObject.create() as CoreDataObject
+        var coreDataObject2: CoreDataObject = CoreDataObject.create() as! CoreDataObject
         coreDataObject2.name = "CD2"
         let saved2: Bool = coreDataObject2.save()
         
         // Realm
-        var realmObject: RealmObject = RealmObject.create() as RealmObject
+        var realmObject: RealmObject = RealmObject.create() as! RealmObject
         realmObject.name = "R1"
         let savedRealm: Bool = realmObject.save()
-        var realmObject2: RealmObject = RealmObject.create() as RealmObject
+        var realmObject2: RealmObject = RealmObject.create() as! RealmObject
         realmObject2.name = "R2"
         let savedRealm2: Bool = realmObject2.save()
     }
@@ -61,7 +61,7 @@ class SugarRecordResultsTests: XCTestCase
         super.setUp()
         let bundle: NSBundle = NSBundle(forClass: CoreDataObjectTests.classForCoder())
         let modelPath: NSString = bundle.pathForResource("TestsDataModel", ofType: "momd")!
-        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath)!)!
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as String)!)!
         let stack: DefaultCDStack = DefaultCDStack(databaseName: "TestDB.sqlite", model: model, automigrating: true)
         SugarRecord.addStack(stack)
         
@@ -94,32 +94,32 @@ class SugarRecordResultsTests: XCTestCase
     func testFirstObject()
     {
         beforeEach()
-        XCTAssertEqual((CoreDataObject.all().sorted(by: "name", ascending: true).find().firstObject() as CoreDataObject).name, "CD1", "The first object should be CD1")
-        XCTAssertEqual((RealmObject.all().sorted(by: "name", ascending: true).find().firstObject() as RealmObject).name, "R1", "The first object should be R1")
+        XCTAssertEqual((CoreDataObject.all().sorted(by: "name", ascending: true).find().firstObject() as! CoreDataObject).name, "CD1", "The first object should be CD1")
+        XCTAssertEqual((RealmObject.all().sorted(by: "name", ascending: true).find().firstObject() as! RealmObject).name, "R1", "The first object should be R1")
         afterEach()
     }
     
     func testLastObject()
     {
         beforeEach()
-        XCTAssertEqual((CoreDataObject.all().sorted(by: "name", ascending: true).find().lastObject() as CoreDataObject).name, "CD2", "The first object should be CD2")
-        XCTAssertEqual((RealmObject.all().sorted(by: "name", ascending: true).find().lastObject() as RealmObject).name, "R2", "The first object should be R2")
+        XCTAssertEqual((CoreDataObject.all().sorted(by: "name", ascending: true).find().lastObject() as! CoreDataObject).name, "CD2", "The first object should be CD2")
+        XCTAssertEqual((RealmObject.all().sorted(by: "name", ascending: true).find().lastObject() as! RealmObject).name, "R2", "The first object should be R2")
         afterEach()
     }
     
     func testObjectAtIndex()
     {
         beforeEach()
-        XCTAssertEqual((CoreDataObject.all().sorted(by: "name", ascending: true).find().objectAtIndex(0) as CoreDataObject).name, "CD1", "The first object should be CD1")
-        XCTAssertEqual((RealmObject.all().sorted(by: "name", ascending: true).find().objectAtIndex(0) as RealmObject).name, "R1", "The first object should be R1")
+        XCTAssertEqual((CoreDataObject.all().sorted(by: "name", ascending: true).find().objectAtIndex(0) as! CoreDataObject).name, "CD1", "The first object should be CD1")
+        XCTAssertEqual((RealmObject.all().sorted(by: "name", ascending: true).find().objectAtIndex(0) as! RealmObject).name, "R1", "The first object should be R1")
         afterEach()
     }
     
     func testSubscript()
     {
         beforeEach()
-        XCTAssertEqual((CoreDataObject.all().sorted(by: "name", ascending: true).find()[0] as CoreDataObject).name, "CD1", "The first object should be CD1")
-        XCTAssertEqual((RealmObject.all().sorted(by: "name", ascending: true).find()[0] as RealmObject).name, "R1", "The first object should be R1")
+        XCTAssertEqual((CoreDataObject.all().sorted(by: "name", ascending: true).find()[0] as! CoreDataObject).name, "CD1", "The first object should be CD1")
+        XCTAssertEqual((RealmObject.all().sorted(by: "name", ascending: true).find()[0] as! RealmObject).name, "R1", "The first object should be R1")
         afterEach()
     }
 }

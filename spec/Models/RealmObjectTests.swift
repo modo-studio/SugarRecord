@@ -24,14 +24,14 @@ class RealmObjectTests: XCTestCase
     
     func testObjectCreation()
     {
-        var realmObject: RealmObject = RealmObject.create() as RealmObject
+        var realmObject: RealmObject = RealmObject.create() as! RealmObject
         realmObject.name = "Realmy"
         realmObject.age = 22
         realmObject.email = "test@mail.com"
         realmObject.city = "TestCity"
         realmObject.birthday = NSDate()
         let saved: Bool = realmObject.save()
-        var realmObject2: RealmObject = RealmObject.create() as RealmObject
+        var realmObject2: RealmObject = RealmObject.create() as! RealmObject
         realmObject2.name = "Realmy"
         realmObject2.age = 22
         realmObject2.email = "test@mail.com"
@@ -45,7 +45,7 @@ class RealmObjectTests: XCTestCase
     
     func testObjectDeletion()
     {
-        var realmObject: RealmObject = RealmObject.create() as RealmObject
+        var realmObject: RealmObject = RealmObject.create() as! RealmObject
         realmObject.name = "Realmy"
         realmObject.age = 22
         realmObject.email = "test@mail.com"
@@ -58,14 +58,14 @@ class RealmObjectTests: XCTestCase
     
     func testAllObjectsDeletion()
     {
-        var realmObject: RealmObject = RealmObject.create() as RealmObject
+        var realmObject: RealmObject = RealmObject.create() as! RealmObject
         realmObject.name = "Realmy"
         realmObject.age = 22
         realmObject.email = "test@mail.com"
         realmObject.city = "TestCity"
         realmObject.birthday = NSDate()
         let saved: Bool = realmObject.save()
-        var realmObject2: RealmObject = RealmObject.create() as RealmObject
+        var realmObject2: RealmObject = RealmObject.create() as! RealmObject
         realmObject2.name = "Realmy"
         realmObject2.age = 22
         realmObject2.email = "test@mail.com"
@@ -85,7 +85,7 @@ class RealmObjectTests: XCTestCase
         realmObject!.beginWriting()
         realmObject!.name = "Testy"
         realmObject!.endWriting()
-        let fetchedObject: RealmObject = RealmObject.allObjects().firstObject() as RealmObject
+        let fetchedObject: RealmObject = RealmObject.allObjects().firstObject() as! RealmObject
         XCTAssertEqual(fetchedObject.name, "Testy", "The name of the fetched object should be Testy")
         realmObject!.beginWriting().delete().endWriting()
     }
@@ -111,8 +111,8 @@ class RealmObjectTests: XCTestCase
         XCTAssertEqual(RealmObject.all().find().count, 2, "It should return 2 elements")
         XCTAssertEqual(RealmObject.by("age", equalTo: "22").find().count, 2, "It should return 2 elements with the age of 22")
         XCTAssertEqual(RealmObject.by("age", equalTo: "10").find().count, 0, "It should return 0 elements with the age of 10")
-        XCTAssertEqual((RealmObject.sorted(by: "name", ascending: true).first().find().firstObject() as RealmObject).name, "Realmy", "The name of the first object returned should be Realmy")
-        XCTAssertEqual((RealmObject.sorted(by: "name", ascending: true).last().find().firstObject() as RealmObject).name, "Realmy2", "The name of the first object returned should be Realmy2")
+        XCTAssertEqual((RealmObject.sorted(by: "name", ascending: true).first().find().firstObject() as! RealmObject).name, "Realmy", "The name of the first object returned should be Realmy")
+        XCTAssertEqual((RealmObject.sorted(by: "name", ascending: true).last().find().firstObject() as! RealmObject).name, "Realmy2", "The name of the first object returned should be Realmy2")
         XCTAssertEqual(RealmObject.sorted(by: "name", ascending: true).firsts(20).find().count, 2, "The number of fetched elements using firsts should be equal to 2")
         XCTAssertEqual(RealmObject.sorted(by: "name", ascending: true).lasts(20).find().count, 2, "The number of fetched elements using lasts should be equal to 2")
         realmObject!.beginWriting().delete().endWriting()
@@ -156,7 +156,7 @@ class RealmObjectTests: XCTestCase
         realmObject!.beginWriting().delete().cancelWriting()
         XCTAssertEqual(RealmObject.all().find().count, 1, "It should return 1 element because the writing transaction was cancelled")
         let objects = RealmObject.all().find()
-        (objects.firstObject() as RealmObject).beginWriting().delete().endWriting()
+        (objects.firstObject() as! RealmObject).beginWriting().delete().endWriting()
         XCTAssertEqual(RealmObject.all().find().count, 0, "It should return 0 element because the writing transaction was commited")
     }
 }

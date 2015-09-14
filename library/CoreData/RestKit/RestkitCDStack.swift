@@ -17,7 +17,11 @@ public class RestkitCDStack: DefaultCDStack
         let store = createRKManagedObjectStore()
         var error: NSError?
         let storePath: String = RKApplicationDataDirectory().stringByAppendingPathComponent("RestKit")
-        store.addSQLitePersistentStoreAtPath(storePath, fromSeedDatabaseAtPath: nil, withConfiguration: nil, options: nil, error: &error)
+        do {
+            try store.addSQLitePersistentStoreAtPath(storePath, fromSeedDatabaseAtPath: nil, withConfiguration: nil, options: nil)
+        } catch let error1 as NSError {
+            error = error1
+        }
         if error != nil {
             SugarRecord.handle(error)
         }

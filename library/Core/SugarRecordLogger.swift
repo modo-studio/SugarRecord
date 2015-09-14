@@ -68,7 +68,7 @@ public enum SugarRecordLogger: Int {
     
     func printLog(msg : String) ->() {
         if SugarRecordLogger.loggerEnabled {
-            print(msg)
+            print(msg, terminator: "")
         }
     }
 }
