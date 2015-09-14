@@ -244,7 +244,8 @@ public class iCloudCDStack: DefaultCDStack
             
             // Checking that the PSC exists before adding the store
             if self!.persistentStoreCoordinator == nil {
-                SugarRecord.handle(NSError())
+                let error = NSError(domain: "", code: 0, userInfo: nil)
+                SugarRecord.handle(error)
             }
             
             // Logging some data
@@ -261,15 +262,15 @@ public class iCloudCDStack: DefaultCDStack
             *  If iCloud if accesible keep creating the PSC
             */
             if iCloudRootPath != nil {
-                let iCloudLogsPath: NSURL = NSURL(fileURLWithPath: iCloudRootPath!.path!.stringByAppendingPathComponent(self!.icloudData!.iCloudLogsDirectory))
-                let iCloudDataPath: NSURL = NSURL(fileURLWithPath: iCloudRootPath!.path!.stringByAppendingPathComponent(self!.icloudData!.iCloudDataDirectoryName))
+                let iCloudLogsPath: NSURL = NSURL(fileURLWithPath: (iCloudRootPath!.path! as NSString).stringByAppendingPathComponent(self!.icloudData!.iCloudLogsDirectory))
+                let iCloudDataPath: NSURL = NSURL(fileURLWithPath: (iCloudRootPath!.path! as NSString).stringByAppendingPathComponent(self!.icloudData!.iCloudDataDirectoryName))
 
                 // Creating data path in case of doesn't existing
                 var error: NSError?
                 if !fileManager.fileExistsAtPath(iCloudDataPath.path!) {
                     do {
                         try fileManager.createDirectoryAtPath(iCloudDataPath.path!, withIntermediateDirectories: true, attributes: nil)
-                    } catch var error1 as NSError {
+                    } catch let error1 as NSError {
                         error = error1
                     } catch {
                         fatalError()
@@ -282,28 +283,33 @@ public class iCloudCDStack: DefaultCDStack
                 
                 /// Getting the database path
                 /// iCloudPath + iCloudDataPath + DatabaseName
-                let path: String? = iCloudRootPath?.path?.stringByAppendingPathComponent((self?.icloudData?.iCloudDataDirectoryName)!).stringByAppendingPathComponent((self?.databasePath?.lastPathComponent)!)
+                let iCloudPathString : NSString = iCloudRootPath?.path as NSString!
+                let path: String? = (iCloudPathString.stringByAppendingPathComponent((self?.icloudData?.iCloudDataDirectoryName)!) as NSString).stringByAppendingPathComponent((self?.databasePath?.lastPathComponent)!)
                 self!.databasePath = NSURL(fileURLWithPath: path!)
                 
                 // Adding store
-                self!.persistentStoreCoordinator!.lock()
-                error = nil
-                var store: NSPersistentStore?
-                do {
-                    store = try self!.persistentStoreCoordinator?.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self!.databasePath, options: iCloudCDStack.icloudStoreOptions(contentNameKey: self!.icloudData!.iCloudAppID, contentURLKey: iCloudLogsPath))
-                } catch var error1 as NSError {
-                    error = error1
-                    store = nil
-                } catch {
-                    fatalError()
-                }
-                self!.persistentStoreCoordinator!.unlock()
-                self!.persistentStore = store!
-
-                // Calling completion closure
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionClosure(error: nil)
+                
+                self!.persistentStoreCoordinator!.performBlockAndWait({ () -> Void in
+                    error = nil
+                    var store: NSPersistentStore?
+                    do {
+                        store = try self!.persistentStoreCoordinator?.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self!.databasePath, options: iCloudCDStack.icloudStoreOptions(contentNameKey: self!.icloudData!.iCloudAppID, contentURLKey: iCloudLogsPath))
+                    } catch let error1 as NSError {
+                        error = error1
+                        store = nil
+                    } catch {
+                        fatalError()
+                    }
+                    
+                    self!.persistentStore = store!
+                    
+                    // Calling completion closure
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completionClosure(error: nil)
+                    })
                 })
+
+
             }
             /**
             *  Otherwise use the local store

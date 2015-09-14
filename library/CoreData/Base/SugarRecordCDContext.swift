@@ -93,13 +93,25 @@ public class SugarRecordCDContext: SugarRecordContext
     public func find(finder: SugarRecordFinder) -> SugarRecordResults
     {
         let fetchRequest: NSFetchRequest = SugarRecordCDContext.fetchRequest(fromFinder: finder)
-        var error: NSError?
-        var objects: [NSManagedObject]? = self.contextCD.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+        
+        // var error: NSError?
+        
+        var objects: [NSManagedObject]?
+        
+        do {
+            objects = try self.contextCD.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+        } catch _ {
+            return SugarRecordResults.init(results: nil, finder: finder)
+        }
+        
         SugarRecordLogger.logLevelInfo.log("Found \((objects == nil) ? 0 : objects!.count) objects in database")
         if objects == nil  {
             objects = [NSManagedObject]()
         }
         return SugarRecordResults(results: SugarRecordArray(array: objects!), finder: finder)
+
+        
+       
     }
     
     /**
@@ -167,8 +179,6 @@ public class SugarRecordCDContext: SugarRecordContext
     */
     public func deleteObjects(objects: SugarRecordResults) -> ()
     {
-        var objectsDeleted: Int = 0
-        
         for (var index = 0; index < Int(objects.count) ; index++) {
             let object: AnyObject! = objects[index]
             if (object != nil) {

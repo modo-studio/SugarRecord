@@ -492,16 +492,16 @@ public class DefaultCDStack: SugarRecordStackProtocol
     {
         let documentsPath: String = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)[0] 
         let mainBundleInfo: [NSObject: AnyObject] = NSBundle.mainBundle().infoDictionary!
-        let applicationPath: String = documentsPath.stringByAppendingPathComponent("store")
+        let applicationPath: String = (documentsPath as NSString).stringByAppendingPathComponent("store")
         
         let paths: [String] = [documentsPath, applicationPath]
         for path in paths {
-            let databasePath: String = path.stringByAppendingPathComponent(name)
+            let databasePath: String = (path as NSString).stringByAppendingPathComponent(name)
             if NSFileManager.defaultManager().fileExistsAtPath(databasePath) {
                 return NSURL(fileURLWithPath: databasePath)
             }
         }
-        let databasePath: String = applicationPath.stringByAppendingPathComponent(name)
+        let databasePath: String = (applicationPath as NSString).stringByAppendingPathComponent(name)
         return NSURL(fileURLWithPath: databasePath)
     }
     
@@ -591,12 +591,13 @@ public extension NSManagedObjectContext
         var error: NSError?
         let saved: Bool
         do {
-            try context.obtainPermanentIDsForObjects(insertedObjects.allObjects)
+            try context.obtainPermanentIDsForObjects(insertedObjects.allObjects as! [NSManagedObject])
             saved = true
         } catch let error1 as NSError {
             error = error1
             saved = false
         }
+        
         if !saved {
             SugarRecordLogger.logLevelError.log("Error moving temporary IDs into permanent ones - \(error)")
         }

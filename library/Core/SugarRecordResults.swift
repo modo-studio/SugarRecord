@@ -13,7 +13,7 @@ public class SugarRecordResults: SequenceType
     
     //MARK: - Attributes
     
-    var results: SugarRecordResultsProtocol
+    var results: SugarRecordResultsProtocol?
     private var finder: SugarRecordFinder
     
     
@@ -26,7 +26,7 @@ public class SugarRecordResults: SequenceType
     
     - returns: Initialized SRResults
     */
-    internal init(results: SugarRecordResultsProtocol, finder: SugarRecordFinder)
+    internal init(results: SugarRecordResultsProtocol?, finder: SugarRecordFinder)
     {
         self.results = results
         self.finder = finder
@@ -39,7 +39,7 @@ public class SugarRecordResults: SequenceType
     public var count:Int
     {
         get {
-            return results.count(finder: finder)
+            return results!.count(finder: finder)
         }
     }
     
@@ -52,7 +52,7 @@ public class SugarRecordResults: SequenceType
     */
     public func objectAtIndex(index: UInt) -> AnyObject!
     {
-        return results.objectAtIndex(index, finder: finder)
+        return results!.objectAtIndex(index, finder: finder)
     }
     
     
@@ -63,7 +63,7 @@ public class SugarRecordResults: SequenceType
     */
     public func firstObject() -> AnyObject!
     {
-        return results.firstObject(finder: finder)
+        return results!.firstObject(finder: finder)
     }
     
     /**
@@ -73,7 +73,7 @@ public class SugarRecordResults: SequenceType
     */
     public func lastObject() -> AnyObject!
     {
-        return results.lastObject(finder: finder)
+        return results!.lastObject(finder: finder)
     }
 
     /**
@@ -82,7 +82,7 @@ public class SugarRecordResults: SequenceType
     public subscript (index: Int) -> AnyObject!
     {
         get {
-            return results.objectAtIndex(UInt(index), finder: finder)
+            return results!.objectAtIndex(UInt(index), finder: finder)
         }
     }
     
