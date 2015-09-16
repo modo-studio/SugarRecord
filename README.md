@@ -4,7 +4,6 @@
 
 [![Twitter: @pepibumur](https://img.shields.io/badge/contact-@pepibumur-blue.svg?style=flat)](https://twitter.com/pepibumur)
 [![Language: Swift](https://img.shields.io/badge/lang-Swift-yellow.svg?style=flat)](https://developer.apple.com/swift/)
-[![Build Status](https://travis-ci.org/SugarRecord/SugarRecord.svg?branch=develop)](https://travis-ci.org/SugarRecord/SugarRecord)
 [![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Issues](https://img.shields.io/github/issues/sugarrecord/sugarrecord.svg?style=flat
 )](https://github.com/SugarRecord/SugarRecord/issues?state=open)
@@ -12,6 +11,36 @@
 )](https://github.com/SugarRecord/SugarRecord/network)
 [![Stars](https://img.shields.io/github/stars/sugarrecord/sugarrecord.svg?style=flat
 )](https://github.com/SugarRecord/SugarRecord)
+
+# SugarRecord 2.0 is coming
+
+After a lot of time without oo much support we're back with a new library version with Swift 2.0 support amongs other features (listed below). The currently version is currently on hold and we won't give more support to it, the new version is going to be developed from the scratch with a new interface based on the 1.xx one but taking advantange of the new Swift 2.0 features and proposals sent by users:
+
+**Ideas**
+- Add a block based syntax for operations with contexts: https://github.com/gitdoapp/SugarRecord/issues/166
+- Support multiple stacks simultaneously: https://github.com/gitdoapp/SugarRecord/issues/152
+- Support encryption: https://github.com/gitdoapp/SugarRecord/issues/149
+- Log levels: https://github.com/gitdoapp/SugarRecord/issues/141
+
+**Don't forget**
+- Document fetched results controller: https://github.com/gitdoapp/SugarRecord/issues/158
+- Explain how to integrate it using CocoaPods https://github.com/gitdoapp/SugarRecord/issues/150
+- Give the option to use the components behind SugarRecord *(contexts, stacks, ...)*: https://github.com/gitdoapp/SugarRecord/issues/155
+- Add migrations support and document it: https://github.com/gitdoapp/SugarRecord/issues/153
+- Support find without arguments: https://github.com/gitdoapp/SugarRecord/issues/147
+- Support fetch offset: https://github.com/gitdoapp/SugarRecord/issues/109
+- Support indexOf in results: https://github.com/gitdoapp/SugarRecord/issues/116
+- GroupBy support: https://github.com/gitdoapp/SugarRecord/issues/123
+
+**Bugs**
+- NSSortDescriptors not working properly: https://github.com/gitdoapp/SugarRecord/issues/159
+- Entities cannot be deleted: https://github.com/gitdoapp/SugarRecord/issues/156
+- Typo: https://github.com/gitdoapp/SugarRecord/issues/148
+- Context created and used in the wrong thread: https://github.com/gitdoapp/SugarRecord/issues/135
+- Compile error with CocoaPods: https://github.com/gitdoapp/SugarRecord/issues/121
+- Exception merging changes from another CoreData context: https://github.com/gitdoapp/SugarRecord/issues/118
+- https://github.com/gitdoapp/SugarRecord/issues/154
+
 
 ## What is SugarRecord?
 SugarRecord is a data management library designed to make working with **CoreData** and **Realm** simpler. Thanks to SugarRecord you’ll be able to use **CoreData/Realm** with just a few lines of code:
