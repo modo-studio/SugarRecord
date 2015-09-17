@@ -49,4 +49,14 @@ public protocol SugarRecordContext
     *  Executes the finder query to return filtered values
     */
     func find(finder: SugarRecordFinder) -> SugarRecordResults
+    
+    /**
+    *  Executes performBlock with block on the context
+    */
+    func performBlock(block: () -> Void)
+
+    /**
+    *  Executes performBlockAndWait with block on the context
+    */
+    func performBlockAndWait(block: () -> Void)
 }

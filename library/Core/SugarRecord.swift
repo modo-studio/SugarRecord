@@ -185,7 +185,7 @@ public class SugarRecord {
             SugarRecord.handle(NSError(domain: "Something went wrong, the stack is set as initialized but there's no contexts", code: SugarRecordErrorCodes.LibraryError.rawValue, userInfo: nil))
         }
         if background {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
+            context?.performBlock({ () -> Void in
                 closure(context: context!)
             })
         }
