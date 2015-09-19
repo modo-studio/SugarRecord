@@ -11,7 +11,7 @@ import Realm
 
  extension RLMResults: SugarRecordResultsProtocol
 {
-    func count(#finder: SugarRecordFinder) -> Int
+    func count(finder finder: SugarRecordFinder) -> Int
     {
         let (firstIndex, lastIndex) = indexes(finder: finder)
         if (lastIndex == 0 && firstIndex == 0) { return Int(self.count) }
@@ -20,19 +20,19 @@ import Realm
     
     func objectAtIndex(index: UInt, finder: SugarRecordFinder) -> AnyObject!
     {
-        let (firstIndex, lastIndex) = indexes(finder: finder)
+        let (firstIndex, _) = indexes(finder: finder)
         return self.objectAtIndex(UInt(firstIndex) + index)
     }
     
-    func firstObject(#finder: SugarRecordFinder) -> AnyObject!
+    func firstObject(finder finder: SugarRecordFinder) -> AnyObject!
     {
-        let (firstIndex, lastIndex) = indexes(finder: finder)
+        let (firstIndex, _) = indexes(finder: finder)
         return self.objectAtIndex(UInt(firstIndex))
     }
     
-    func lastObject(#finder: SugarRecordFinder) -> AnyObject!
+    func lastObject(finder finder: SugarRecordFinder) -> AnyObject!
     {
-        let (firstIndex, lastIndex) = indexes(finder: finder)
+        let (_, lastIndex) = indexes(finder: finder)
         return self.objectAtIndex(UInt(lastIndex))
     }
     
@@ -41,9 +41,9 @@ import Realm
     /**
     Returns the first and the last element taking into account the SugarRecordFinder options
     
-    :returns: Tuple with the first and last index
+    - returns: Tuple with the first and last index
     */
-    private func indexes(#finder: SugarRecordFinder) -> (Int, Int)
+    private func indexes(finder finder: SugarRecordFinder) -> (Int, Int)
     {
         var firstIndex: Int = 0
         var lastIndex: Int = Int(self.count) - 1

@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@available(iOS 8.0, *)
 public class RestkitCDStack: DefaultCDStack
 {
     override public func initialize() {
@@ -16,8 +17,12 @@ public class RestkitCDStack: DefaultCDStack
         createManagedObjecModelIfNeeded()
         let store = createRKManagedObjectStore()
         var error: NSError?
-        let storePath: String = RKApplicationDataDirectory().stringByAppendingPathComponent("RestKit")
-        store.addSQLitePersistentStoreAtPath(storePath, fromSeedDatabaseAtPath: nil, withConfiguration: nil, options: nil, error: &error)
+        let storePath: String = (RKApplicationDataDirectory() as NSString).stringByAppendingPathComponent("RestKit")
+        do {
+            try store.addSQLitePersistentStoreAtPath(storePath, fromSeedDatabaseAtPath: nil, withConfiguration: nil, options: nil)
+        } catch let error1 as NSError {
+            error = error1
+        }
         if error != nil {
             SugarRecord.handle(error)
         }

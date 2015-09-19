@@ -9,6 +9,7 @@
 import UIKit
 import XCTest
 
+@available(iOS 8.0, *)
 class iCloudCDStackTests: XCTestCase {
     
     //MARK: - Initialization
@@ -36,7 +37,9 @@ class iCloudCDStackTests: XCTestCase {
             }
         }
         
-        let mock: MockStack = MockStack(databaseName: "Test.sqlite", icloudData: iCloudData(iCloudAppID: "Testid", iCloudDataDirectoryName: nil, iCloudLogsDirectory: nil))
+        let mock: MockStack = MockStack(databaseName: "Test.sqlite", icloudData: iCloudData(iCloudAppID: "Testid", iCloudDataDirectoryName: nil, iCloudLogsDirectory: nil)) { () -> () in
+            
+        }
         mock.initialize()
         XCTAssertTrue(mock.createManagedObjecModelIfNeededCalled, "It should initialize object model")
         XCTAssertTrue(mock.createPersistentStoreCoordinatorCalled, "It should initialize the persistent store coordinator")
@@ -61,7 +64,10 @@ class iCloudCDStackTests: XCTestCase {
                 addObserversCaled = true
             }
         }
-        let mock: MockStack = MockStack(databaseName: "Test.sqlite", icloudData: iCloudData(iCloudAppID: "Testid", iCloudDataDirectoryName: nil, iCloudLogsDirectory: nil))
+        let mock: MockStack = MockStack(databaseName: "Test.sqlite", icloudData: iCloudData(iCloudAppID: "Testid", iCloudDataDirectoryName: nil, iCloudLogsDirectory: nil)) { () -> () in
+            
+        }
+        
         let completion: CompletionClosure = mock.dataBaseAddedClosure()
         completion(error: nil)
         XCTAssertTrue(mock.createRootSavingContextCalled, "It should create the root saving context")
@@ -72,11 +78,13 @@ class iCloudCDStackTests: XCTestCase {
     
     func testIfTheRootSavingContextHasTheProperPersistentStoreCoordinator()
     {
-        let stack: iCloudCDStack = iCloudCDStack(databaseName: "Test.sqlite", icloudData: iCloudData(iCloudAppID: "Testid", iCloudDataDirectoryName: nil, iCloudLogsDirectory: nil))
+        let stack: iCloudCDStack = iCloudCDStack(databaseName: "Test.sqlite", icloudData: iCloudData(iCloudAppID: "Testid", iCloudDataDirectoryName: nil, iCloudLogsDirectory: nil)) { () -> () in
+            
+        }
         let psc: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator()
         let rootSavingContext: NSManagedObjectContext = stack.createRootSavingContext(psc)
         XCTAssertEqual(rootSavingContext.concurrencyType, NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType, "The concurrency type should be PrivateQueue")
-        let sameMergePolicy: Bool = (rootSavingContext.mergePolicy as NSObject).isKindOfClass((NSMergeByPropertyObjectTrumpMergePolicy as NSObject).classForCoder)
+        let sameMergePolicy: Bool = (rootSavingContext.mergePolicy as! NSObject).isKindOfClass((NSMergeByPropertyObjectTrumpMergePolicy as! NSObject).classForCoder)
         XCTAssertTrue(sameMergePolicy, "The merge policy should be by property object trump")
     }
     
@@ -86,10 +94,10 @@ class iCloudCDStackTests: XCTestCase {
     func testStoreOptions()
     {
         let options: [NSObject: AnyObject] = iCloudCDStack.icloudStoreOptions(contentNameKey: "name", contentURLKey: NSURL(string: "url")!)
-        XCTAssertEqual(options[NSMigratePersistentStoresAutomaticallyOption] as NSNumber, NSNumber(bool: true), "NSMigratePersistentStoresAutomaticallyOption should be true")
-        XCTAssertEqual(options[NSInferMappingModelAutomaticallyOption] as NSNumber, NSNumber(bool: true), "NSInferMappingModelAutomaticallyOption should be true")
-         XCTAssertEqual(options[NSPersistentStoreUbiquitousContentNameKey] as NSString, "name", "NSPersistentStoreUbiquitousContentNameKey should be name")
-         XCTAssertEqual(options[NSPersistentStoreUbiquitousContentURLKey] as NSURL, NSURL(string: "url")!, "NSPersistentStoreUbiquitousContentNameKey should be url")
+        XCTAssertEqual(options[NSMigratePersistentStoresAutomaticallyOption] as! NSNumber, NSNumber(bool: true), "NSMigratePersistentStoresAutomaticallyOption should be true")
+        XCTAssertEqual(options[NSInferMappingModelAutomaticallyOption] as! NSNumber, NSNumber(bool: true), "NSInferMappingModelAutomaticallyOption should be true")
+         XCTAssertEqual(options[NSPersistentStoreUbiquitousContentNameKey] as! NSString, "name", "NSPersistentStoreUbiquitousContentNameKey should be name")
+         XCTAssertEqual(options[NSPersistentStoreUbiquitousContentURLKey] as! NSURL, NSURL(string: "url")!, "NSPersistentStoreUbiquitousContentNameKey should be url")
     }
     
     
@@ -118,7 +126,7 @@ class iCloudCDStackTests: XCTestCase {
         class MockStack: iCloudCDStack
         {
             convenience init(nc: MockNotificationCenter) {
-                self.init(databaseName: "Test.sqlite", icloudData: iCloudData(iCloudAppID: "Testid", iCloudDataDirectoryName: nil, iCloudLogsDirectory: nil))
+                self.init(databaseName: "Test.sqlite", icloudData: iCloudData(iCloudAppID: "Testid", iCloudDataDirectoryName: nil, iCloudLogsDirectory: nil)) { () -> () in }
                 self.notificationCenter = nc
             }
         }
@@ -139,7 +147,7 @@ class iCloudCDStackTests: XCTestCase {
                 saveChangesCalled = true
             }
         }
-        let mock: MockStack = MockStack(databaseName: "Test.sqlite", icloudData: iCloudData(iCloudAppID: "Testid", iCloudDataDirectoryName: nil, iCloudLogsDirectory: nil))
+        let mock: MockStack = MockStack(databaseName: "Test.sqlite", icloudData: iCloudData(iCloudAppID: "Testid", iCloudDataDirectoryName: nil, iCloudLogsDirectory: nil))  { () -> () in }
         mock.storesWillChange(NSNotification(name: "test", object: nil))
         XCTAssertTrue(mock.saveChangesCalled, "It should save the changes if the store is going to change")
     }
@@ -159,7 +167,9 @@ class iCloudCDStackTests: XCTestCase {
         class MockStack: iCloudCDStack
         {
             convenience init(mainContext: MockContext, rootSavingContext: MockContext) {
-                self.init(databaseName: "Test.sqlite", icloudData: iCloudData(iCloudAppID: "Testid", iCloudDataDirectoryName: nil, iCloudLogsDirectory: nil))
+                self.init(databaseName: "Test.sqlite", icloudData: iCloudData(iCloudAppID: "Testid", iCloudDataDirectoryName: nil, iCloudLogsDirectory: nil)) { () -> () in
+                    
+                }
                 self.rootSavingContext = rootSavingContext
                 self.mainContext = mainContext
             }

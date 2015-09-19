@@ -23,10 +23,10 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     /**
     Default initializer
     
-    :param: stackName        String with the stack name
-    :param: stackDescription String with the stack description
+    - parameter stackName:        String with the stack name
+    - parameter stackDescription: String with the stack description
     
-    :returns: Created stack with the properties set
+    - returns: Created stack with the properties set
     */
     required public init(stackName:String, stackDescription: String) {
         self.name = stackName
@@ -36,11 +36,11 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     /**
     Initializer with support for migrations
     
-    :param: stackName        String with the stack name
-    :param: stackDescription String with the stack description
-    :param: migrations       Array with the migrations
+    - parameter stackName:        String with the stack name
+    - parameter stackDescription: String with the stack description
+    - parameter migrations:       Array with the migrations
     
-    :returns: Created stack with the migrations and properties set
+    - returns: Created stack with the migrations and properties set
     */
     convenience public init(stackName:String, stackDescription: String, migrations: [RLMObjectMigration<RLMObject>]) {
         self.init(stackName: stackName, stackDescription: stackDescription)
@@ -93,7 +93,7 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     /**
     Returns a background context to execute the background operations there
     
-    :returns: Created SugarRecord background context
+    - returns: Created SugarRecord background context
     */
     public func backgroundContext() -> SugarRecordContext?
     {
@@ -103,7 +103,7 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     /**
     Returns a context to execute the main operations there
     
-    :returns: Created SugarRecord context
+    - returns: Created SugarRecord context
     */
     public func mainThreadContext() -> SugarRecordContext?
     {
@@ -115,10 +115,14 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     */
     public func removeDatabase()
     {
-        let documentsPath: String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
-        let databaseName: String = documentsPath.stringByAppendingPathComponent("default.realm")
+        let documentsPath: String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
+        let databaseName: String = (documentsPath as NSString).stringByAppendingPathComponent("default.realm")
         var error: NSError?
-        NSFileManager.defaultManager().removeItemAtPath(databaseName, error: &error)
+        do {
+            try NSFileManager.defaultManager().removeItemAtPath(databaseName)
+        } catch let error1 as NSError {
+            error = error1
+        }
         if error != nil {
             let exception: NSException = NSException(name: "Database operations", reason: "Couldn't delete the database \(databaseName)", userInfo: ["error": error!])
             SugarRecord.handle(exception)
@@ -134,7 +138,7 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     func migrateIfNeeded()
     {
         if self.migrations.isEmpty { return }
-        var lastSchema: Int = DefaultREALMStack.sorteredAndFiltered(migrations: self.migrations, fromOldSchema: 0).last!.toSchema
+        let lastSchema: Int = DefaultREALMStack.sorteredAndFiltered(migrations: self.migrations, fromOldSchema: 0).last!.toSchema
         RLMRealm.setSchemaVersion(UInt(lastSchema), withMigrationBlock: { (realmMigration: RLMMigration!, oldSchema: UInt) -> Void in
             let filteredMigrations: [RLMObjectMigration<RLMObject>] = DefaultREALMStack.sorteredAndFiltered(migrations: self.migrations, fromOldSchema:Int(oldSchema))
             filteredMigrations.map({ (migration: RLMObjectMigration<RLMObject>) -> RLMObjectMigration<RLMObject> in
@@ -147,26 +151,26 @@ public class DefaultREALMStack: SugarRecordStackProtocol
     /**
     Returns migrations ascending
     
-    :param: migrations Migrations to be sorted
-    :param: oldSchema  Previous schema to filter the older migrations
+    - parameter migrations: Migrations to be sorted
+    - parameter oldSchema:  Previous schema to filter the older migrations
     
-    :returns: Sorted & Filtered migrations
+    - returns: Sorted & Filtered migrations
     */
-    internal class func sorteredAndFiltered(#migrations: [RLMObjectMigration<RLMObject>], fromOldSchema oldSchema: Int) -> [RLMObjectMigration<RLMObject>]
+    internal class func sorteredAndFiltered(migrations migrations: [RLMObjectMigration<RLMObject>], fromOldSchema oldSchema: Int) -> [RLMObjectMigration<RLMObject>]
     {
-        var filteredMigrations: [RLMObjectMigration<RLMObject>] = migrations.filter({ (migration: RLMObjectMigration<RLMObject>) -> Bool in return migration.toSchema > Int(oldSchema)})
+        let filteredMigrations: [RLMObjectMigration<RLMObject>] = migrations.filter({ (migration: RLMObjectMigration<RLMObject>) -> Bool in return migration.toSchema > Int(oldSchema)})
         return sorted(migrations: filteredMigrations)
     }
     
     /**
     Returns migrations sorted
     
-    :param: migrations Migrations to be sorted
+    - parameter migrations: Migrations to be sorted
     
-    :returns: Filtered migrations
+    - returns: Filtered migrations
     */
-    internal class func sorted(#migrations: [RLMObjectMigration<RLMObject>]) -> [RLMObjectMigration<RLMObject>]
+    internal class func sorted(migrations migrations: [RLMObjectMigration<RLMObject>]) -> [RLMObjectMigration<RLMObject>]
     {
-        return migrations.sorted({ (first: RLMObjectMigration<RLMObject>, second: RLMObjectMigration<RLMObject>) -> Bool in return first.toSchema <= second.toSchema})
+        return migrations.sort({ (first: RLMObjectMigration<RLMObject>, second: RLMObjectMigration<RLMObject>) -> Bool in return first.toSchema <= second.toSchema})
     }
 }

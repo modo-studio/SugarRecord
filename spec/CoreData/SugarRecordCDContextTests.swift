@@ -10,6 +10,7 @@ import Foundation
 import XCTest
 import CoreData
 
+@available(iOS 8.0, *)
 class SugarRecordCDContextTests: XCTestCase
 {
     override func setUp()
@@ -17,7 +18,7 @@ class SugarRecordCDContextTests: XCTestCase
         super.setUp()
         let bundle: NSBundle = NSBundle(forClass: CoreDataObjectTests.classForCoder())
         let modelPath: NSString = bundle.pathForResource("TestsDataModel", ofType: "momd")!
-        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath)!)!
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as String))!
         let stack: DefaultCDStack = DefaultCDStack(databaseName: "TestDB.sqlite", model: model, automigrating: true)
         SugarRecord.addStack(stack)
     }
@@ -35,9 +36,8 @@ class SugarRecordCDContextTests: XCTestCase
         class MockCoreDataContext: NSManagedObjectContext
         {
             var contextSaved: Bool = false
-            override func save(error: NSErrorPointer) -> Bool {
+            override func save() throws {
                 contextSaved = true
-                return true
             }
         }
         let mockContext = MockCoreDataContext()
@@ -64,8 +64,8 @@ class SugarRecordCDContextTests: XCTestCase
     func testThatCreateObjectsDoesItInTheProperContext()
     {
         SugarRecord.operation(SugarRecordEngine.SugarRecordEngineCoreData, closure: { (context) -> () in
-            let object: CoreDataObject = context.createObject(CoreDataObject.self) as CoreDataObject
-            XCTAssertEqual(object.managedObjectContext!, (context as SugarRecordCDContext).contextCD, "Returned object should be in the passed context")
+            let object: CoreDataObject = context.createObject(CoreDataObject.self) as! CoreDataObject
+            XCTAssertEqual(object.managedObjectContext!, (context as! SugarRecordCDContext).contextCD, "Returned object should be in the passed context")
         })
     }
     
@@ -95,10 +95,10 @@ class SugarRecordCDContextTests: XCTestCase
     
     func testFetchRequestGenerationFromFinder()
     {
-        var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "test", ascending: true)
-        var sortDescriptor2: NSSortDescriptor = NSSortDescriptor(key: "test2", ascending: true)
+        let sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "test", ascending: true)
+        let sortDescriptor2: NSSortDescriptor = NSSortDescriptor(key: "test2", ascending: true)
         let predicate: NSPredicate = NSPredicate()
-        var finder: SugarRecordFinder = SugarRecordFinder()
+        let finder: SugarRecordFinder = SugarRecordFinder()
         finder.addSortDescriptor(sortDescriptor)
         finder.addSortDescriptor(sortDescriptor2)
         finder.setPredicate(predicate)

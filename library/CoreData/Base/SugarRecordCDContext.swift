@@ -17,9 +17,9 @@ public class SugarRecordCDContext: SugarRecordContext
     /**
     SugarRecordCDContext initializer passing the CoreData context
     
-    :param: context NSManagedObjectContext linked to this SugarRecord context
+    - parameter context: NSManagedObjectContext linked to this SugarRecord context
     
-    :returns: Initialized SugarRecordCDContext
+    - returns: Initialized SugarRecordCDContext
     */
     init (context: NSManagedObjectContext)
     {
@@ -40,7 +40,11 @@ public class SugarRecordCDContext: SugarRecordContext
     public func endWriting()
     {
         var error: NSError?
-        self.contextCD.save(&error)
+        do {
+            try self.contextCD.save()
+        } catch let error1 as NSError {
+            error = error1
+        }
         if error != nil {
             let exception: NSException = NSException(name: "Database operations", reason: "Couldn't perform your changes in the context", userInfo: ["error": error!])
             SugarRecord.handle(exception)
@@ -58,21 +62,21 @@ public class SugarRecordCDContext: SugarRecordContext
     /**
     Creates and object in the context (without saving)
     
-    :param: objectClass Class of the created object
+    - parameter objectClass: Class of the created object
     
-    :returns: The created object in the context
+    - returns: The created object in the context
     */
     public func createObject(objectClass: AnyClass) -> AnyObject?
     {
         let managedObjectClass: NSManagedObject.Type = objectClass as! NSManagedObject.Type
-        var object: AnyObject = NSEntityDescription.insertNewObjectForEntityForName(managedObjectClass.modelName(), inManagedObjectContext: self.contextCD)
+        let object: AnyObject = NSEntityDescription.insertNewObjectForEntityForName(managedObjectClass.modelName(), inManagedObjectContext: self.contextCD)
         return object
     }
     
     /**
     Insert an object in the context
     
-    :param: object NSManagedObject to be inserted in the context
+    - parameter object: NSManagedObject to be inserted in the context
     */
     public func insertObject(object: AnyObject)
     {
@@ -82,15 +86,24 @@ public class SugarRecordCDContext: SugarRecordContext
     /**
     Find NSManagedObject objects in the database using the passed finder
     
-    :param: finder SugarRecordFinder usded for querying (filtering/sorting)
+    - parameter finder: SugarRecordFinder usded for querying (filtering/sorting)
     
-    :returns: Objects fetched
+    - returns: Objects fetched
     */
     public func find(finder: SugarRecordFinder) -> SugarRecordResults
     {
         let fetchRequest: NSFetchRequest = SugarRecordCDContext.fetchRequest(fromFinder: finder)
-        var error: NSError?
-        var objects: [NSManagedObject]? = self.contextCD.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
+        
+        // var error: NSError?
+        
+        var objects: [NSManagedObject]?
+        
+        do {
+            objects = try self.contextCD.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+        } catch _ {
+            return SugarRecordResults.init(results: nil, finder: finder)
+        }
+        
         SugarRecordLogger.logLevelInfo.log("Found \((objects == nil) ? 0 : objects!.count) objects in database")
         if objects == nil  {
             objects = [NSManagedObject]()
@@ -101,9 +114,9 @@ public class SugarRecordCDContext: SugarRecordContext
     /**
     Returns the NSFetchRequest from a given Finder
     
-    :param: finder SugarRecord finder with the information about the filtering and sorting
+    - parameter finder: SugarRecord finder with the information about the filtering and sorting
     
-    :returns: Created NSFetchRequest
+    - returns: Created NSFetchRequest
     */
     public class func fetchRequest(fromFinder finder: SugarRecordFinder) -> NSFetchRequest
     {
@@ -137,9 +150,9 @@ public class SugarRecordCDContext: SugarRecordContext
     /**
     Deletes a given object
     
-    :param: object NSManagedObject to be deleted
+    - parameter object: NSManagedObject to be deleted
     
-    :returns: If the object has been properly deleted
+    - returns: If the object has been properly deleted
     */
     public func deleteObject(object: AnyObject) -> SugarRecordContext
     {
@@ -157,14 +170,12 @@ public class SugarRecordCDContext: SugarRecordContext
     /**
     Deletes NSManagedObject objecs from an array
     
-    :param: objects NSManagedObject objects to be dleeted
+    - parameter objects: NSManagedObject objects to be dleeted
     
-    :returns: If the deletion has been successful
+    - returns: If the deletion has been successful
     */
     public func deleteObjects(objects: SugarRecordResults) -> ()
     {
-        var objectsDeleted: Int = 0
-        
         for (var index = 0; index < Int(objects.count) ; index++) {
             let object: AnyObject! = objects[index]
             if (object != nil) {
@@ -183,7 +194,7 @@ public class SugarRecordCDContext: SugarRecordContext
         let fetchRequest: NSFetchRequest = NSFetchRequest(entityName: managedObjectClass.modelName())
         fetchRequest.predicate = predicate
         var error: NSError?
-        var count = self.contextCD.countForFetchRequest(fetchRequest, error: &error)
+        let count = self.contextCD.countForFetchRequest(fetchRequest, error: &error)
         SugarRecordLogger.logLevelInfo.log("Found \(count) objects in database")
         return count
     }
@@ -193,15 +204,21 @@ public class SugarRecordCDContext: SugarRecordContext
     /**
     Moves an NSManagedObject from one context to another
     
-    :param: object  NSManagedObject to be moved
-    :param: context NSManagedObjectContext where the object is going to be moved to
+    - parameter object:  NSManagedObject to be moved
+    - parameter context: NSManagedObjectContext where the object is going to be moved to
     
-    :returns: NSManagedObject in the new context
+    - returns: NSManagedObject in the new context
     */
     func moveObject(object: NSManagedObject, inContext context: NSManagedObjectContext) -> NSManagedObject?
     {
         var error: NSError?
-        let objectInContext: NSManagedObject? = context.existingObjectWithID(object.objectID, error: &error)
+        let objectInContext: NSManagedObject?
+        do {
+            objectInContext = try context.existingObjectWithID(object.objectID)
+        } catch let error1 as NSError {
+            error = error1
+            objectInContext = nil
+        }
         if error != nil {
             let exception: NSException = NSException(name: "Database operations", reason: "Couldn't move the object into the new context", userInfo: nil)
             SugarRecord.handle(exception)

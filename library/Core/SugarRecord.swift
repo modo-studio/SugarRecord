@@ -49,7 +49,7 @@ public class SugarRecord {
     /**
     Set the stack of SugarRecord. The stack should be previously initialized with the custom user configuration.
     
-    :param: stack Stack by default where objects are going to be persisted
+    - parameter stack: Stack by default where objects are going to be persisted
     */
     public class func addStack(stack: protocol<SugarRecordStackProtocol>)
     {
@@ -72,9 +72,9 @@ public class SugarRecord {
     /**
     Returns a valid stack for a given type
     
-    :param: stackType StackType of the required stack
+    - parameter stackType: StackType of the required stack
     
-    :returns: SugarRecord stack
+    - returns: SugarRecord stack
     */
     internal class func stackFortype(stackType: SugarRecordEngine) -> SugarRecordStackProtocol?
     {
@@ -145,7 +145,7 @@ public class SugarRecord {
     /**
      Returns the current version of SugarRecord
 
-     :returns: String with the version value
+     - returns: String with the version value
      */
     public class func currentVersion() -> String
     {
@@ -157,7 +157,7 @@ public class SugarRecord {
     /**
     Executes an operation closure in the main thread
     
-    :param: closure Closure with operations to be executed
+    - parameter closure: Closure with operations to be executed
     */
     public class func operation(stackType: SugarRecordEngine, closure: (context: SugarRecordContext) -> ())
     {
@@ -167,8 +167,8 @@ public class SugarRecord {
     /**
     Executes an operation closure passing it the context to perform operations
     
-    :param: background Bool indicating if the operation is in background or not
-    :param: closure    Closure with actions to be executed
+    - parameter background: Bool indicating if the operation is in background or not
+    - parameter closure:    Closure with actions to be executed
     */
     public class func operation(inBackground background: Bool, stackType: SugarRecordEngine, closure: (context: SugarRecordContext) -> ())
     {
@@ -201,7 +201,7 @@ public class SugarRecord {
     Handles an error around the SugarRecordLibrary
     Note: It asserts the error
     
-    :param: error NSError to be processed
+    - parameter error: NSError to be processed
     */
     internal class func handle(error: NSError?) {
         if error == nil  { return }
@@ -212,7 +212,7 @@ public class SugarRecord {
     /**
     Handles an exception around the library
     
-    :param: exception NSException to be processed
+    - parameter exception: NSException to be processed
     */
     internal class func handle(exception: NSException?) {
         if exception == nil { return }

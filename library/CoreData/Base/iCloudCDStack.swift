@@ -30,11 +30,11 @@ public struct iCloudData
     /**
     Initializer for the struct
     
-    :param: iCloudAppID             iCloud app identifier
-    :param: iCloudDataDirectoryName Directory of the database
-    :param: iCloudLogsDirectory     Directory of the database logs
+    - parameter iCloudAppID:             iCloud app identifier
+    - parameter iCloudDataDirectoryName: Directory of the database
+    - parameter iCloudLogsDirectory:     Directory of the database logs
     
-    :returns: Initialized struct
+    - returns: Initialized struct
     */
     public init (iCloudAppID: String, iCloudDataDirectoryName: String?, iCloudLogsDirectory: String?)
     {
@@ -47,6 +47,7 @@ public struct iCloudData
 /**
 *  iCloud stack for SugarRecord
 */
+@available(iOS 8.0, *)
 public class iCloudCDStack: DefaultCDStack
 {
     //MARK: - Class properties
@@ -63,13 +64,13 @@ public class iCloudCDStack: DefaultCDStack
     /**
     Initialize the CoreData stack
     
-    :param: databaseURL   NSURL with the database path
-    :param: model         NSManagedObjectModel with the database model
-    :param: automigrating Bool Indicating if the migration has to be automatically executed
-    :param: icloudData    iCloudData information
-    :param: completion Closure to be executed when iCloud stack finishes initializing
+    - parameter databaseURL:   NSURL with the database path
+    - parameter model:         NSManagedObjectModel with the database model
+    - parameter automigrating: Bool Indicating if the migration has to be automatically executed
+    - parameter icloudData:    iCloudData information
+    - parameter completion: Closure to be executed when iCloud stack finishes initializing
     
-    :returns: iCloudCDStack object
+    - returns: iCloudCDStack object
     */
     public init(databaseURL: NSURL, model: NSManagedObjectModel?, automigrating: Bool, icloudData: iCloudData, completion: ()->())
     {
@@ -87,11 +88,11 @@ public class iCloudCDStack: DefaultCDStack
     /**
     Initialize the CoreData default stack passing the database name and a flag indicating if the automigration has to be automatically executed
     
-    :param: databaseName  String with the database name
-    :param: icloudData iCloud Data struct
-    :param: completion Closure to be executed when iCloud stack finishes initializing
+    - parameter databaseName:  String with the database name
+    - parameter icloudData: iCloud Data struct
+    - parameter completion: Closure to be executed when iCloud stack finishes initializing
     
-    :returns: DefaultCDStack object
+    - returns: DefaultCDStack object
     */
     convenience public init(databaseName: String, icloudData: iCloudData, completion: ()->())
     {
@@ -101,25 +102,25 @@ public class iCloudCDStack: DefaultCDStack
     /**
     Initialize the CoreData default stack passing the database path in String format and a flag indicating if the automigration has to be automatically executed
     
-    :param: databasePath  String with the database path
-    :param: icloudData iCloud Data struct
-    :param: completion Closure to be executed when iCloud stack finishes initializing
+    - parameter databasePath:  String with the database path
+    - parameter icloudData: iCloud Data struct
+    - parameter completion: Closure to be executed when iCloud stack finishes initializing
     
-    :returns: DefaultCDStack object
+    - returns: DefaultCDStack object
     */
     convenience public init(databasePath: String, icloudData: iCloudData, completion: ()->())
     {
-        self.init(databaseURL: NSURL(fileURLWithPath: databasePath)!, icloudData: icloudData, completion: completion)
+        self.init(databaseURL: NSURL(fileURLWithPath: databasePath), icloudData: icloudData, completion: completion)
     }
     
     /**
     Initialize the CoreData default stack passing the database path URL and a flag indicating if the automigration has to be automatically executed
     
-    :param: databaseURL   NSURL with the database path
-    :param: icloudData iCloud Data struct
-    :param: completion Closure to be executed when iCloud stack finishes initializing
+    - parameter databaseURL:   NSURL with the database path
+    - parameter icloudData: iCloud Data struct
+    - parameter completion: Closure to be executed when iCloud stack finishes initializing
 
-    :returns: DefaultCDStack object
+    - returns: DefaultCDStack object
     */
     convenience public init(databaseURL: NSURL, icloudData: iCloudData, completion: ()->())
     {
@@ -129,12 +130,12 @@ public class iCloudCDStack: DefaultCDStack
     /**
     Initialize the CoreData default stack passing the database name, the database model object and a flag indicating if the automigration has to be automatically executed
     
-    :param: databaseName  String with the database name
-    :param: model         NSManagedObjectModel with the database model
-    :param: icloudData iCloud Data struct
-    :param: completion Closure to be executed when iCloud stack finishes initializing
+    - parameter databaseName:  String with the database name
+    - parameter model:         NSManagedObjectModel with the database model
+    - parameter icloudData: iCloud Data struct
+    - parameter completion: Closure to be executed when iCloud stack finishes initializing
 
-    :returns: DefaultCDStack object
+    - returns: DefaultCDStack object
     */
     convenience public init(databaseName: String, model: NSManagedObjectModel, icloudData: iCloudData, completion: ()->())
     {
@@ -144,16 +145,16 @@ public class iCloudCDStack: DefaultCDStack
     /**
     Initialize the CoreData default stack passing the database path in String format, the database model object and a flag indicating if the automigration has to be automatically executed
     
-    :param: databasePath  String with the database path
-    :param: model         NSManagedObjectModel with the database model
-    :param: icloudData iCloud Data struct
-    :param: completion Closure to be executed when iCloud stack finishes initializing
+    - parameter databasePath:  String with the database path
+    - parameter model:         NSManagedObjectModel with the database model
+    - parameter icloudData: iCloud Data struct
+    - parameter completion: Closure to be executed when iCloud stack finishes initializing
     
-    :returns: DefaultCDStack object
+    - returns: DefaultCDStack object
     */
     convenience public init(databasePath: String, model: NSManagedObjectModel, icloudData: iCloudData, completion: ()->())
     {
-        self.init(databaseURL: NSURL(fileURLWithPath: databasePath)!, model: model, automigrating: true, icloudData: icloudData, completion: completion)
+        self.init(databaseURL: NSURL(fileURLWithPath: databasePath), model: model, automigrating: true, icloudData: icloudData, completion: completion)
     }
     
     /**
@@ -196,9 +197,9 @@ public class iCloudCDStack: DefaultCDStack
     Creates a temporary root saving context to be used in background operations
     Note: This overriding is due to the fact that in this case the merge policy is different
     
-    :param: persistentStoreCoordinator NSPersistentStoreCoordinator to be set as the persistent store coordinator of the created context
+    - parameter persistentStoreCoordinator: NSPersistentStoreCoordinator to be set as the persistent store coordinator of the created context
     
-    :returns: Private NSManageObjectContext
+    - returns: Private NSManageObjectContext
     */
     override internal func createRootSavingContext(persistentStoreCoordinator: NSPersistentStoreCoordinator?) -> NSManagedObjectContext
     {
@@ -244,7 +245,8 @@ public class iCloudCDStack: DefaultCDStack
             
             // Checking that the PSC exists before adding the store
             if self!.persistentStoreCoordinator == nil {
-                SugarRecord.handle(NSError())
+                let error = NSError(domain: "", code: 0, userInfo: nil)
+                SugarRecord.handle(error)
             }
             
             // Logging some data
@@ -261,13 +263,19 @@ public class iCloudCDStack: DefaultCDStack
             *  If iCloud if accesible keep creating the PSC
             */
             if iCloudRootPath != nil {
-                let iCloudLogsPath: NSURL = NSURL(fileURLWithPath: iCloudRootPath!.path!.stringByAppendingPathComponent(self!.icloudData!.iCloudLogsDirectory))!
-                let iCloudDataPath: NSURL = NSURL(fileURLWithPath: iCloudRootPath!.path!.stringByAppendingPathComponent(self!.icloudData!.iCloudDataDirectoryName))!
+                let iCloudLogsPath: NSURL = NSURL(fileURLWithPath: (iCloudRootPath!.path! as NSString).stringByAppendingPathComponent(self!.icloudData!.iCloudLogsDirectory))
+                let iCloudDataPath: NSURL = NSURL(fileURLWithPath: (iCloudRootPath!.path! as NSString).stringByAppendingPathComponent(self!.icloudData!.iCloudDataDirectoryName))
 
                 // Creating data path in case of doesn't existing
                 var error: NSError?
                 if !fileManager.fileExistsAtPath(iCloudDataPath.path!) {
-                    fileManager.createDirectoryAtPath(iCloudDataPath.path!, withIntermediateDirectories: true, attributes: nil, error: &error)
+                    do {
+                        try fileManager.createDirectoryAtPath(iCloudDataPath.path!, withIntermediateDirectories: true, attributes: nil)
+                    } catch let error1 as NSError {
+                        error = error1
+                    } catch {
+                        fatalError()
+                    }
                 }
                 if error != nil {
                     completionClosure(error: error!)
@@ -276,20 +284,33 @@ public class iCloudCDStack: DefaultCDStack
                 
                 /// Getting the database path
                 /// iCloudPath + iCloudDataPath + DatabaseName
-                let path: String? = iCloudRootPath?.path?.stringByAppendingPathComponent((self?.icloudData?.iCloudDataDirectoryName)!).stringByAppendingPathComponent((self?.databasePath?.lastPathComponent)!)
+                let iCloudPathString : NSString = iCloudRootPath?.path as NSString!
+                let path: String? = (iCloudPathString.stringByAppendingPathComponent((self?.icloudData?.iCloudDataDirectoryName)!) as NSString).stringByAppendingPathComponent((self?.databasePath?.lastPathComponent)!)
                 self!.databasePath = NSURL(fileURLWithPath: path!)
                 
                 // Adding store
-                self!.persistentStoreCoordinator!.lock()
-                error = nil
-                var store: NSPersistentStore? = self!.persistentStoreCoordinator?.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self!.databasePath, options: iCloudCDStack.icloudStoreOptions(contentNameKey: self!.icloudData!.iCloudAppID, contentURLKey: iCloudLogsPath), error: &error)
-                self!.persistentStoreCoordinator!.unlock()
-                self!.persistentStore = store!
-
-                // Calling completion closure
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionClosure(error: nil)
+                
+                self!.persistentStoreCoordinator!.performBlockAndWait({ () -> Void in
+                    error = nil
+                    var store: NSPersistentStore?
+                    do {
+                        store = try self!.persistentStoreCoordinator?.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self!.databasePath, options: iCloudCDStack.icloudStoreOptions(contentNameKey: self!.icloudData!.iCloudAppID, contentURLKey: iCloudLogsPath))
+                    } catch let error1 as NSError {
+                        error = error1
+                        store = nil
+                    } catch {
+                        fatalError()
+                    }
+                    
+                    self!.persistentStore = store!
+                    
+                    // Calling completion closure
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completionClosure(error: nil)
+                    })
                 })
+
+
             }
             /**
             *  Otherwise use the local store
@@ -306,9 +327,9 @@ public class iCloudCDStack: DefaultCDStack
     /**
     Returns the iCloud options to be used when the NSPersistentStore is initialized
     
-    :returns: [NSObject: AnyObject] with the options
+    - returns: [NSObject: AnyObject] with the options
     */
-    internal class func icloudStoreOptions(#contentNameKey: String, contentURLKey: NSURL) -> [NSObject: AnyObject]
+    internal class func icloudStoreOptions(contentNameKey contentNameKey: String, contentURLKey: NSURL) -> [NSObject: AnyObject]
     {
         var options: [NSObject: AnyObject] = [NSObject: AnyObject] ()
         options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
@@ -343,7 +364,7 @@ public class iCloudCDStack: DefaultCDStack
     /**
     Detects changes in the Ubiquituous Container (iCloud) and bring them to the stack contexts
     
-    :param: notification Notification with these changes
+    - parameter notification: Notification with these changes
     */
     dynamic internal func persistentStoreDidImportUbiquitousContentChanges(notification: NSNotification)
     {
@@ -363,7 +384,7 @@ public class iCloudCDStack: DefaultCDStack
     /**
     Posted before the list of open persistent stores changes.
     
-    :param: notification Notification with these changes
+    - parameter notification: Notification with these changes
     */
     dynamic internal func storesWillChange(notification: NSNotification)
     {
@@ -375,7 +396,7 @@ public class iCloudCDStack: DefaultCDStack
     /**
     Called when the store did change from the persistent store coordinator
     
-    :param: notification Notification with the information
+    - parameter notification: Notification with the information
     */
     dynamic internal func storeDidChange(notification: NSNotification)
     {

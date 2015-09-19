@@ -13,7 +13,7 @@ public class SugarRecordResults: SequenceType
     
     //MARK: - Attributes
     
-    var results: SugarRecordResultsProtocol
+    var results: SugarRecordResultsProtocol?
     private var finder: SugarRecordFinder
     
     
@@ -22,11 +22,11 @@ public class SugarRecordResults: SequenceType
     /**
     Initializes SRResults passing an object that conforms the protocol SRResultsProtocol
     
-    :param: results Original results
+    - parameter results: Original results
     
-    :returns: Initialized SRResults
+    - returns: Initialized SRResults
     */
-    internal init(results: SugarRecordResultsProtocol, finder: SugarRecordFinder)
+    internal init(results: SugarRecordResultsProtocol?, finder: SugarRecordFinder)
     {
         self.results = results
         self.finder = finder
@@ -39,41 +39,41 @@ public class SugarRecordResults: SequenceType
     public var count:Int
     {
         get {
-            return results.count(finder: finder)
+            return results!.count(finder: finder)
         }
     }
     
     /**
     Returns the object at a given index
     
-    :param: index Index of the object
+    - parameter index: Index of the object
     
-    :returns: Object at the passed index (if exists)
+    - returns: Object at the passed index (if exists)
     */
     public func objectAtIndex(index: UInt) -> AnyObject!
     {
-        return results.objectAtIndex(index, finder: finder)
+        return results!.objectAtIndex(index, finder: finder)
     }
     
     
     /**
     Returns the first object of the results
     
-    :returns: First object (if exists)
+    - returns: First object (if exists)
     */
     public func firstObject() -> AnyObject!
     {
-        return results.firstObject(finder: finder)
+        return results!.firstObject(finder: finder)
     }
     
     /**
     Returns the last object of the results
     
-    :returns: Last object (if exists)
+    - returns: Last object (if exists)
     */
     public func lastObject() -> AnyObject!
     {
-        return results.lastObject(finder: finder)
+        return results!.lastObject(finder: finder)
     }
 
     /**
@@ -82,7 +82,7 @@ public class SugarRecordResults: SequenceType
     public subscript (index: Int) -> AnyObject!
     {
         get {
-            return results.objectAtIndex(UInt(index), finder: finder)
+            return results!.objectAtIndex(UInt(index), finder: finder)
         }
     }
     

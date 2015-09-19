@@ -22,7 +22,7 @@ internal class SugarRecordArray: SugarRecordResultsProtocol
        self.array = array
     }
     
-    func count(#finder: SugarRecordFinder) -> Int
+    func count(finder finder: SugarRecordFinder) -> Int
     {
         return self.array.count
     }
@@ -35,12 +35,12 @@ internal class SugarRecordArray: SugarRecordResultsProtocol
         return nil
     }
     
-    func firstObject(#finder: SugarRecordFinder) -> AnyObject!
+    func firstObject(finder finder: SugarRecordFinder) -> AnyObject!
     {
         return (self.array.count != 0) ? self.array[0] : nil
     }
     
-    func lastObject(#finder: SugarRecordFinder) -> AnyObject!
+    func lastObject(finder finder: SugarRecordFinder) -> AnyObject!
     {
         return (self.array.count != 0) ? self.array[self.array.count-1] : nil
     }
