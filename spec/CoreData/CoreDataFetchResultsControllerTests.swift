@@ -10,6 +10,7 @@ import Foundation
 import XCTest
 import CoreData
 
+@available(iOS 8.0, *)
 class CoreDataFetchResultsControllerTests: XCTestCase
 {
     var finder: SugarRecordFinder?
@@ -19,15 +20,17 @@ class CoreDataFetchResultsControllerTests: XCTestCase
         super.setUp()
         let bundle: NSBundle = NSBundle(forClass: CoreDataObjectTests.classForCoder())
         let modelPath: NSString = bundle.pathForResource("TestsDataModel", ofType: "momd")!
-        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as String)!)!
-        let stack: DefaultCDStack = DefaultCDStack(databaseName: "TestDB.sqlite", model: model, automigrating: true)
-        SugarRecord.addStack(stack)
-        
-        finder = SugarRecordFinder()
-        finder!.objectClass = CoreDataObject.self
-        finder!.addSortDescriptor(NSSortDescriptor(key: "name", ascending: true))
-        finder!.setPredicate("name == test")
-        finder!.elements = SugarRecordFinderElements.first
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as String))!
+        if #available(iOS 8.0, *) {
+            let stack: DefaultCDStack = DefaultCDStack(databaseName: "TestDB.sqlite", model: model, automigrating: true)
+            SugarRecord.addStack(stack)
+            
+            finder = SugarRecordFinder()
+            finder!.objectClass = CoreDataObject.self
+            finder!.addSortDescriptor(NSSortDescriptor(key: "name", ascending: true))
+            finder!.setPredicate("name == test")
+            finder!.elements = SugarRecordFinderElements.first
+        }
     }
     
     override func tearDown() {

@@ -11,6 +11,7 @@ import XCTest
 import CoreData
 import Realm
 
+@available(iOS 8.0, *)
 class SugarRecordResultsTests: XCTestCase
 {
     //MARK: - Setup
@@ -61,12 +62,15 @@ class SugarRecordResultsTests: XCTestCase
         super.setUp()
         let bundle: NSBundle = NSBundle(forClass: CoreDataObjectTests.classForCoder())
         let modelPath: NSString = bundle.pathForResource("TestsDataModel", ofType: "momd")!
-        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as String)!)!
-        let stack: DefaultCDStack = DefaultCDStack(databaseName: "TestDB.sqlite", model: model, automigrating: true)
-        SugarRecord.addStack(stack)
-        
-        // Realm
-        SugarRecord.addStack(DefaultREALMStack(stackName: "RealmTest", stackDescription: "Realm stack for tests"))
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as String))!
+        if #available(iOS 8.0, *) {
+            let stack: DefaultCDStack = DefaultCDStack(databaseName: "TestDB.sqlite", model: model, automigrating: true)
+            SugarRecord.addStack(stack)
+            
+            // Realm
+            SugarRecord.addStack(DefaultREALMStack(stackName: "RealmTest", stackDescription: "Realm stack for tests"))
+
+        }
     }
     
     override func tearDown() {

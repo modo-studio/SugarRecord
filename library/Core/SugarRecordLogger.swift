@@ -18,9 +18,6 @@ SugarRecordLogger is a logger to show messages coming from the library depending
 - logLevelVerbose: Messages related with verbose events
 */
 public enum SugarRecordLogger: Int {
-    
-    public static var loggerEnabled : Bool = true
-    
     /// Current SugarRecord log level
     public static var currentLevel: SugarRecordLogger = .logLevelInfo
     
@@ -31,20 +28,20 @@ public enum SugarRecordLogger: Int {
     func log(let logMessage: String) -> Bool {
         switch self {
         case .logLevelFatal:
-            printLog("SR-Fatal: \(logMessage) \n")
+            print("SR-Fatal: \(logMessage) \n")
             return true
         case .logLevelError:
             if SugarRecordLogger.currentLevel == .logLevelFatal {
                 return false
             }
-            printLog("SR-Error: \(logMessage) \n")
+            print("SR-Error: \(logMessage) \n")
             return true
         case .logLevelWarn:
             if SugarRecordLogger.currentLevel == .logLevelFatal ||
                 SugarRecordLogger.currentLevel == .logLevelError {
                     return false
             }
-            printLog("SR-Warm: \(logMessage) \n")
+            print("SR-Warm: \(logMessage) \n")
             return true
         case .logLevelInfo:
             if SugarRecordLogger.currentLevel == .logLevelFatal ||
@@ -52,7 +49,7 @@ public enum SugarRecordLogger: Int {
                 SugarRecordLogger.currentLevel == .logLevelWarn {
                     return false
             }
-            printLog("SR-Info: \(logMessage) \n")
+            print("SR-Info: \(logMessage) \n")
             return true
         default:
             if SugarRecordLogger.currentLevel == .logLevelFatal ||
@@ -61,14 +58,8 @@ public enum SugarRecordLogger: Int {
                 SugarRecordLogger.currentLevel == .logLevelInfo{
                     return false
             }
-            printLog("SR-Verbose: \(logMessage) \n")
+            print("SR-Verbose: \(logMessage) \n")
             return true
-        }
-    }
-    
-    func printLog(msg : String) ->() {
-        if SugarRecordLogger.loggerEnabled {
-            print(msg, terminator: "")
         }
     }
 }

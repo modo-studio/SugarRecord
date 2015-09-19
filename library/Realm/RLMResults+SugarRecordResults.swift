@@ -20,19 +20,19 @@ import Realm
     
     func objectAtIndex(index: UInt, finder: SugarRecordFinder) -> AnyObject!
     {
-        let (firstIndex, lastIndex) = indexes(finder: finder)
+        let (firstIndex, _) = indexes(finder: finder)
         return self.objectAtIndex(UInt(firstIndex) + index)
     }
     
     func firstObject(finder finder: SugarRecordFinder) -> AnyObject!
     {
-        let (firstIndex, lastIndex) = indexes(finder: finder)
+        let (firstIndex, _) = indexes(finder: finder)
         return self.objectAtIndex(UInt(firstIndex))
     }
     
     func lastObject(finder finder: SugarRecordFinder) -> AnyObject!
     {
-        let (firstIndex, lastIndex) = indexes(finder: finder)
+        let (_, lastIndex) = indexes(finder: finder)
         return self.objectAtIndex(UInt(lastIndex))
     }
     

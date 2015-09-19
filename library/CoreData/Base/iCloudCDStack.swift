@@ -47,6 +47,7 @@ public struct iCloudData
 /**
 *  iCloud stack for SugarRecord
 */
+@available(iOS 8.0, *)
 public class iCloudCDStack: DefaultCDStack
 {
     //MARK: - Class properties

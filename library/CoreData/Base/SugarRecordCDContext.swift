@@ -109,9 +109,6 @@ public class SugarRecordCDContext: SugarRecordContext
             objects = [NSManagedObject]()
         }
         return SugarRecordResults(results: SugarRecordArray(array: objects!), finder: finder)
-
-        
-       
     }
     
     /**

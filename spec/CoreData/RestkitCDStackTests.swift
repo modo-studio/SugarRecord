@@ -10,6 +10,7 @@ import Foundation
 import XCTest
 import CoreData
 
+@available(iOS 8.0, *)
 class RestkitCDStackTests: XCTestCase
 {
     func testIfInitializeGetContextsFromRestkit()
@@ -40,7 +41,7 @@ class RestkitCDStackTests: XCTestCase
         
         let bundle: NSBundle = NSBundle(forClass: CoreDataObjectTests.classForCoder())
         let modelPath: NSString = bundle.pathForResource("TestsDataModel", ofType: "momd")!
-        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as String)!)!
+        let model: NSManagedObjectModel = NSManagedObjectModel(contentsOfURL: NSURL(fileURLWithPath: modelPath as String))!
         let stack: MockReskitCDStack = MockReskitCDStack(databaseName: "Restkit.sqlite", model: model, automigrating: true)
         stack.initialize()
         XCTAssertTrue(stack.rkStore!.addSQliteCalled, "The stack should initialize SQLite from RestKit")

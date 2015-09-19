@@ -9,6 +9,7 @@
 import UIKit
 import XCTest
 
+@available(iOS 8.0, *)
 class SugarRecordTests: XCTestCase {
 
     override func setUp() {
