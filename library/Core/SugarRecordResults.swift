@@ -113,7 +113,7 @@ public class SRResultsGenerator: GeneratorType {
         if (nextIndex < 0) {
             return nil
         }
-        return self.results[nextIndex--]
+        return self.results[nextIndex++]
     }
 }
 
