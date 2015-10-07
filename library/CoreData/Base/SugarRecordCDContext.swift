@@ -21,7 +21,7 @@ public class SugarRecordCDContext: SugarRecordContext
     
     :returns: Initialized SugarRecordCDContext
     */
-    init (context: NSManagedObjectContext)
+    public init (context: NSManagedObjectContext)
     {
         self.contextCD = context
     }
