@@ -8,6 +8,6 @@ notifications:
 install:
 - brew install carthage
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
-- brew update
+- carthage update
 script:
 - set -o pipefail && xcodebuild test -project SugarRecord/SugarRecord.xcodeproj -scheme "SugarRecord-iOS" -sdk iphonesimulator9.1 ONLY_ACTIVE_ARCH=NO | xcpretty -c
