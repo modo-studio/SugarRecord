@@ -1,0 +1,10 @@
+framework module Quick {
+    umbrella header "Quick.h"
+    
+    header "QuickSpec.h"
+    header "QCKDSL.h"
+    header "QuickConfiguration.h"
+
+    export *
+    module * { export * }
+}

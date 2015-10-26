@@ -12,7 +12,7 @@ SugarRecord is a CoreData wrapper designed to make working with CoreData easier.
 The library is maintained by [@pepibumur](https://github.com/pepibumur) under [GitDo](https://github.com/gitdoapp). You can reach me at [pedro@gitdo.io](mailto://pedro@gitdo.io) for help or whatever you need to commend about the library.
 
 ## Features
-- Swift 2.1 compatible.
+- Swift 2.1 compatible (XCode 7.1).
 - Fully rewritten from the version 1.0.
 - Reactive API (using ReactiveCocoa).
 - Protocols based design.
