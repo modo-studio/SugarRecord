@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = 'SugarRecord/SugarRecord/Source/**/*'
   s.frameworks = ['CoreData']
+  s.dependency 'ReactiveCocoa', '~> 4.0'
 end

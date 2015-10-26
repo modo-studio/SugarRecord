@@ -36,7 +36,11 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [G
 *Note: You can also test the last commits by specifying it directly in the Podfile line*
 
 ### Using Carthage
-//TODO
+1. Install [Carthage](https://github.com/carthage/carthage) on your computer using `brew install carthage`
+3. Edit your `Cartfile` file adding the following line `github 'gitdoapp/sugarrecord'`
+4. Update and build frameworks with `carthage update`
+5. Add generated frameworks to your app main target following the steps [here](https://github.com/carthage/carthage)
+6. Link your target with **CoreData** library *(from Build Phases)*
 
 ## How to use it
 //TODO
