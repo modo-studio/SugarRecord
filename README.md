@@ -1,14 +1,10 @@
+# <center>![xcres](/Assets/Banner.png)</center>
+
 # SugarRecord
 
 [![Twitter: @pepibumur](https://img.shields.io/badge/contact-@pepibumur-blue.svg?style=flat)](https://twitter.com/pepibumur)
 [![Language: Swift](https://img.shields.io/badge/lang-Swift-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 [![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
-[![Issues](https://img.shields.io/github/issues/gitdoapp/sugarrecord.svg?style=flat
-)](https://github.com/SugarRecord/SugarRecord/issues?state=open)
-[![Forks](https://img.shields.io/github/forks/gitdoapp/sugarrecord.svg?style=flat
-)](https://github.com/SugarRecord/SugarRecord/network)
-[![Stars](https://img.shields.io/github/stars/gitdoapp/sugarrecord.svg?style=flat
-)](https://github.com/SugarRecord/SugarRecord)
 
 ## What is SugarRecord?
 SugarRecord is a CoreData wrapper designed to make working with CoreData easier. Thanks to SugarRecord you'll be able to use CoreData with just a few lines of code: Just choose your stack and start playing with your data.
@@ -34,6 +30,9 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [G
 //TODO
 
 ### Using Carthage
+//TODO
+
+## How to use it
 //TODO
 
 ## Support
