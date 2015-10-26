@@ -1,17 +1,13 @@
+# references:
+# * http://www.objc.io/issue-6/travis-ci.html
+# * https://github.com/supermarin/xcpretty#usage
 language: objective-c
-cache:
-  directories:
-    - vendor/bundle
-    - example/Pods
-    - project/Pods
+osx_image: xcode7.1
+notifications:
+  email: false
 install:
-  - bundle install --path=vendor/bundle --binstubs=vendor/bin
-  #- bundle exec pod install --project-directory=example/
-  - bundle exec pod install --project-directory=project/
+- brew install carthage
+- gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+- brew update
 script:
-  - bundle exec rake test:ios
-  #- bundle exec rake build:ios
-env:
-  global:
-    - LANG=en_US.UTF-8
-    - LC_ALL=en_US.UTF-8
+- set -o pipefail && xcodebuild test -project SugarRecord/SugarRecord.xcodeproj -scheme "SugarRecord-iOS" -sdk iphonesimulator9.1 ONLY_ACTIVE_ARCH=NO | xcpretty -c
