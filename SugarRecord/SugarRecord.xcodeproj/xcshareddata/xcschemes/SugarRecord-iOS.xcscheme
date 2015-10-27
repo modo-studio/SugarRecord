@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3DB2B86F1BDEE67C005B7EF2"
-               BuildableName = "SugarRecord-iOS.framework"
+               BuildableName = "SugarRecord.framework"
                BlueprintName = "SugarRecord-iOS"
                ReferencedContainer = "container:SugarRecord.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3DB2B8141BDED648005B7EF2"
+               BlueprintIdentifier = "3DB2B8781BDEE67C005B7EF2"
                BuildableName = "SugarRecordTests.xctest"
                BlueprintName = "SugarRecordTests"
                ReferencedContainer = "container:SugarRecord.xcodeproj">
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DB2B86F1BDEE67C005B7EF2"
-            BuildableName = "SugarRecord-iOS.framework"
+            BuildableName = "SugarRecord.framework"
             BlueprintName = "SugarRecord-iOS"
             ReferencedContainer = "container:SugarRecord.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DB2B86F1BDEE67C005B7EF2"
-            BuildableName = "SugarRecord-iOS.framework"
+            BuildableName = "SugarRecord.framework"
             BlueprintName = "SugarRecord-iOS"
             ReferencedContainer = "container:SugarRecord.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DB2B86F1BDEE67C005B7EF2"
-            BuildableName = "SugarRecord-iOS.framework"
+            BuildableName = "SugarRecord.framework"
             BlueprintName = "SugarRecord-iOS"
             ReferencedContainer = "container:SugarRecord.xcodeproj">
          </BuildableReference>

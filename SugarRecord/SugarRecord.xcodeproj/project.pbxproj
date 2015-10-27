@@ -41,6 +41,18 @@
 		3DB2B9131BDEF14E005B7EF2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8D01BDEED0A005B7EF2 /* Result.framework */; };
 		3DB2B9141BDEF158005B7EF2 /* ReactiveCocoa.framework in Carthage */ = {isa = PBXBuildFile; fileRef = 3DB2B8CF1BDEED0A005B7EF2 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DB2B9151BDEF158005B7EF2 /* Result.framework in Carthage */ = {isa = PBXBuildFile; fileRef = 3DB2B8D01BDEED0A005B7EF2 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DB2B9171BDEF356005B7EF2 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2B9161BDEF356005B7EF2 /* Entity.swift */; };
+		3DB2B9181BDEF356005B7EF2 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2B9161BDEF356005B7EF2 /* Entity.swift */; };
+		3DB2B9191BDEF356005B7EF2 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2B9161BDEF356005B7EF2 /* Entity.swift */; };
+		3DB2B91A1BDEF356005B7EF2 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2B9161BDEF356005B7EF2 /* Entity.swift */; };
+		3DB2B91C1BDEF376005B7EF2 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2B91B1BDEF376005B7EF2 /* NSManagedObject.swift */; };
+		3DB2B91D1BDEF376005B7EF2 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2B91B1BDEF376005B7EF2 /* NSManagedObject.swift */; };
+		3DB2B91E1BDEF376005B7EF2 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2B91B1BDEF376005B7EF2 /* NSManagedObject.swift */; };
+		3DB2B91F1BDEF376005B7EF2 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2B91B1BDEF376005B7EF2 /* NSManagedObject.swift */; };
+		3DB2B9211BDEF579005B7EF2 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2B9201BDEF579005B7EF2 /* Requestable.swift */; };
+		3DB2B9221BDEF579005B7EF2 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2B9201BDEF579005B7EF2 /* Requestable.swift */; };
+		3DB2B9231BDEF579005B7EF2 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2B9201BDEF579005B7EF2 /* Requestable.swift */; };
+		3DB2B9241BDEF579005B7EF2 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2B9201BDEF579005B7EF2 /* Requestable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +134,9 @@
 		3DB2B9081BDEF0F5005B7EF2 /* SugarRecord.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SugarRecord.xcodeproj; sourceTree = "<group>"; };
 		3DB2B90B1BDEF106005B7EF2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		3DB2B90C1BDEF106005B7EF2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		3DB2B9161BDEF356005B7EF2 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		3DB2B91B1BDEF376005B7EF2 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
+		3DB2B9201BDEF579005B7EF2 /* Requestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +393,8 @@
 			isa = PBXGroup;
 			children = (
 				3DB2B8F21BDEEF56005B7EF2 /* Context.swift */,
+				3DB2B9161BDEF356005B7EF2 /* Entity.swift */,
+				3DB2B9201BDEF579005B7EF2 /* Requestable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -386,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				3DB2B9011BDEF068005B7EF2 /* NSManagedObjectContext.swift */,
+				3DB2B91B1BDEF376005B7EF2 /* NSManagedObject.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -632,7 +650,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB2B9211BDEF579005B7EF2 /* Requestable.swift in Sources */,
+				3DB2B9171BDEF356005B7EF2 /* Entity.swift in Sources */,
 				3DB2B8F31BDEEF56005B7EF2 /* Context.swift in Sources */,
+				3DB2B91C1BDEF376005B7EF2 /* NSManagedObject.swift in Sources */,
 				3DB2B9021BDEF068005B7EF2 /* NSManagedObjectContext.swift in Sources */,
 				3DB2B8FD1BDEEFEB005B7EF2 /* Request.swift in Sources */,
 			);
@@ -642,7 +663,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB2B9221BDEF579005B7EF2 /* Requestable.swift in Sources */,
+				3DB2B9181BDEF356005B7EF2 /* Entity.swift in Sources */,
 				3DB2B8F41BDEEF56005B7EF2 /* Context.swift in Sources */,
+				3DB2B91D1BDEF376005B7EF2 /* NSManagedObject.swift in Sources */,
 				3DB2B9031BDEF068005B7EF2 /* NSManagedObjectContext.swift in Sources */,
 				3DB2B8FE1BDEEFEB005B7EF2 /* Request.swift in Sources */,
 			);
@@ -652,7 +676,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB2B9231BDEF579005B7EF2 /* Requestable.swift in Sources */,
+				3DB2B9191BDEF356005B7EF2 /* Entity.swift in Sources */,
 				3DB2B8F51BDEEF56005B7EF2 /* Context.swift in Sources */,
+				3DB2B91E1BDEF376005B7EF2 /* NSManagedObject.swift in Sources */,
 				3DB2B9041BDEF068005B7EF2 /* NSManagedObjectContext.swift in Sources */,
 				3DB2B8FF1BDEEFEB005B7EF2 /* Request.swift in Sources */,
 			);
@@ -662,7 +689,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB2B9241BDEF579005B7EF2 /* Requestable.swift in Sources */,
+				3DB2B91A1BDEF356005B7EF2 /* Entity.swift in Sources */,
 				3DB2B8F61BDEEF56005B7EF2 /* Context.swift in Sources */,
+				3DB2B91F1BDEF376005B7EF2 /* NSManagedObject.swift in Sources */,
 				3DB2B9051BDEF068005B7EF2 /* NSManagedObjectContext.swift in Sources */,
 				3DB2B9001BDEEFEB005B7EF2 /* Request.swift in Sources */,
 			);
@@ -1033,6 +1063,7 @@
 				3DB2B8341BDEE187005B7EF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DB2B8411BDEE1AD005B7EF2 /* Build configuration list for PBXNativeTarget "SugarRecord-tvOS" */ = {
 			isa = XCConfigurationList;
@@ -1041,6 +1072,7 @@
 				3DB2B8431BDEE1AD005B7EF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DB2B8501BDEE1C7005B7EF2 /* Build configuration list for PBXNativeTarget "SugarRecord-OSX" */ = {
 			isa = XCConfigurationList;
@@ -1049,6 +1081,7 @@
 				3DB2B8521BDEE1C7005B7EF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DB2B8811BDEE67C005B7EF2 /* Build configuration list for PBXNativeTarget "SugarRecord-iOS" */ = {
 			isa = XCConfigurationList;
@@ -1057,6 +1090,7 @@
 				3DB2B8831BDEE67C005B7EF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DB2B8841BDEE67C005B7EF2 /* Build configuration list for PBXNativeTarget "SugarRecordTests" */ = {
 			isa = XCConfigurationList;
@@ -1065,6 +1099,7 @@
 				3DB2B8861BDEE67C005B7EF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
