@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DA8D6591BDEFA57000352E4 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA8D6581BDEFA57000352E4 /* Stack.swift */; };
 		3DB2B87A1BDEE67C005B7EF2 /* SugarRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8701BDEE67C005B7EF2 /* SugarRecord.framework */; };
 		3DB2B88D1BDEE6C3005B7EF2 /* SugarRecord_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2B88C1BDEE6BA005B7EF2 /* SugarRecord_iOSTests.swift */; };
 		3DB2B8D11BDEED0A005B7EF2 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8CF1BDEED0A005B7EF2 /* ReactiveCocoa.framework */; };
@@ -83,6 +84,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3DA8D6581BDEFA57000352E4 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		3DB2B82D1BDEE187005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB2B83C1BDEE1AD005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB2B84B1BDEE1C7005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -419,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				3DB2B8FC1BDEEFEB005B7EF2 /* Request.swift */,
+				3DA8D6581BDEFA57000352E4 /* Stack.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				3DB2B9211BDEF579005B7EF2 /* Requestable.swift in Sources */,
 				3DB2B9171BDEF356005B7EF2 /* Entity.swift in Sources */,
 				3DB2B8F31BDEEF56005B7EF2 /* Context.swift in Sources */,
+				3DA8D6591BDEFA57000352E4 /* Stack.swift in Sources */,
 				3DB2B91C1BDEF376005B7EF2 /* NSManagedObject.swift in Sources */,
 				3DB2B9021BDEF068005B7EF2 /* NSManagedObjectContext.swift in Sources */,
 				3DB2B8FD1BDEEFEB005B7EF2 /* Request.swift in Sources */,
