@@ -1,7 +1,7 @@
 import Foundation
 import ReactiveCocoa
 
-public struct Request<T> {
+public struct Request<T: Entity> {
     
     // MARK: - Attributes
     
@@ -19,12 +19,14 @@ public struct Request<T> {
     
     // MARK: - Public
     
-    func inThread(thread: Thread) -> SignalProducer<T, RequestError> {
-        return fetch(self, thread: thread)
+    func inThread(priority: Priority) -> SignalProducer<[T], Error> {
+        return priority.run({ (context) -> SignalProducer<[T], Error> in
+            return context.fetch(self)
+        })
     }
     
-    func inStack(stack: Stack) -> SignalProducer<T, RequestError> {
-        return fetch(self, stack: stack)
+    func inStack(stack: Stack) -> SignalProducer<[T], Error> {
+        return inThread(.Same(stack.mainContext))
     }
     
     
@@ -37,18 +39,4 @@ public struct Request<T> {
     func request(withSortDescriptor sortDescriptor: NSSortDescriptor) -> Request<T> {
         return Request<T>(sortDescriptor: sortDescriptor, predicate: predicate)
     }
-}
-
-
-// MARK: - Private funcs
-
-private func fetch<T>(request: Request<T>, thread: Thread) -> SignalProducer<T, RequestError> {
-    
-    // Requet
-    
-    //TODO
-}
-
-private func fetch<T>(request: Request<T>, stack: Stack) -> SignalProducer<T, RequestError> {
-    //TODO
 }
