@@ -7,5 +7,5 @@ install:
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 - carthage update
 script:
-- set -o pipefail && xcodebuild test -project SugarRecord/SugarRecord.xcodeproj -scheme "SugarRecord-iOS" ONLY_ACTIVE_ARCH=NO | xcpretty -c
-- set -o pipefail && xcodebuild build -project SugarRecord/SugarRecord.xcodeproj -scheme "SugarRecord-iOS" ONLY_ACTIVE_ARCH=NO | xcpretty -c
+- make build
+- make test

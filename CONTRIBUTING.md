@@ -10,7 +10,17 @@ If you're planning to contribute with SugarRecord there're some things you shoul
 ## Rake tasks
 In order to simplify some tasks there's a set of tasks defined in a `Makefile` that you can use:
 
-- Generate documentation
+- Generate documentation: `make doc`
+- Build all schemes: `make build`
+- Run tests: `make tests`
+
+## New version checklist
+- [x] `make build` passes 
+- [x] `make tests` passes
+- [x] Bump the version in project targets
+- [x] Bump the version in `SugarRecord.podspec`
+- [x] Tag the last commit with the proper version
+- [x] Create a **Release** entry on Github
 
 
 ## Public / Private / Internal / Final
@@ -21,7 +31,6 @@ In order to simplify some tasks there's a set of tasks defined in a `Makefile` t
 - **Final**: If the class shouldn't be extendible, don't forget specifying it with the *final* keyword.
 
 
+## Others
+- Swift Style guideline: [RayWenderlich](https://github.com/raywenderlich/swift-style-guide)
 
-
-
-Style guidelin
