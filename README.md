@@ -7,7 +7,7 @@
 [![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
 
 ## What is SugarRecord?
-SugarRecord is a CoreData wrapper designed to make working with CoreData easier. Thanks to SugarRecord you'll be able to use CoreData with just a few lines of code: Just choose your stack and start playing with your data.
+SugarRecord is a persistence wrapper designed to make working with persistence solutions like CoreData/Realm/... in a much easier way. Thanks to SugarRecord you'll be able to use CoreData with just a few lines of code: Just choose your stack and start playing with your data.
 
 The library is maintained by [@pepibumur](https://github.com/pepibumur) under [GitDo](https://github.com/gitdoapp). You can reach me at [pedro@gitdo.io](mailto://pedro@gitdo.io) for help or whatever you need to commend about the library.
 
