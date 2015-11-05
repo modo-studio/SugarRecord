@@ -1,6 +1,3 @@
-# references:
-# * http://www.objc.io/issue-6/travis-ci.html
-# * https://github.com/supermarin/xcpretty#usage
 language: objective-c
 osx_image: xcode7.1
 notifications:
@@ -10,4 +7,5 @@ install:
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 - carthage update
 script:
-- set -o pipefail && xcodebuild test -project SugarRecord/SugarRecord.xcodeproj -scheme "SugarRecord-iOS" -sdk iphonesimulator9.1 ONLY_ACTIVE_ARCH=NO | xcpretty -c
+- set -o pipefail && xcodebuild test -project SugarRecord/SugarRecord.xcodeproj -scheme "SugarRecord-iOS" ONLY_ACTIVE_ARCH=NO | xcpretty -c
+- set -o pipefail && xcodebuild build -project SugarRecord/SugarRecord.xcodeproj -scheme "SugarRecord-iOS" ONLY_ACTIVE_ARCH=NO | xcpretty -c

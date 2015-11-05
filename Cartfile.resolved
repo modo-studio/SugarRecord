@@ -1,4 +1,5 @@
 github "gitdoapp/Nimble" "bac9992a4c8daaae8deed4ed70906e4a1c7999e6"
 github "gitdoapp/Quick" "f0d56016fcb8d5fbf36f92df8e101f9014c34241"
 github "antitypical/Result" "0.6.0-beta.5"
-github "ReactiveCocoa/ReactiveCocoa" "37616fd2e465bb01b16e40425d5204b00c46d415"
+github "realm/realm-cocoa" "v0.96.2"
+github "ReactiveCocoa/ReactiveCocoa" "49d75631c0daf4c470cb5d9c5efb8b1d19aab05c"

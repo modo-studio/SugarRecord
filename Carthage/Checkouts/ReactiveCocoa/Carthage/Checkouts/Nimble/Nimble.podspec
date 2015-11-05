@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Nimble"
-  s.version      = "2.0.0"
+  s.version      = "3.0.0"
   s.summary      = "A Matcher Framework for Swift and Objective-C"
   s.description  = <<-DESC
                    Use Nimble to express the expected outcomes of Swift or Objective-C expressions. Inspired by Cedar.
@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.author       = "Quick Contributors"
   s.ios.deployment_target = "7.0"
   s.osx.deployment_target = "10.9"
+  s.tvos.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/Quick/Nimble.git", :tag => "v#{s.version}" }
 
   s.source_files = "Nimble", "Nimble/**/*.{swift,h,m}"

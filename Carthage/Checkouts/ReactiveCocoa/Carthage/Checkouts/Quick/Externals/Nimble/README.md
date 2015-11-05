@@ -475,10 +475,6 @@ expect(actual).to(beIdenticalTo(expected));
 expect(actual).toNot(beIdenticalTo(expected));
 ```
 
-> `beIdenticalTo` only supports Objective-C objects: subclasses
-  of `NSObject`, or Swift objects bridged to Objective-C with the
-  `@objc` prefix.
-
 ## Comparisons
 
 ```swift
@@ -1127,11 +1123,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'YOUR_APP_NAME_HERE_Tests', :exclusive => true do
   use_frameworks!
   # If you're using Swift 2.0 (Xcode 7), use this:
-  pod 'Nimble', '2.0.0-rc.2'
+  pod 'Nimble', '~> 2.0.0'
   # If you're using Swift 1.2 (Xcode 6), use this:
   pod 'Nimble', '~> 1.0.0'
-  # Otherwise, use this commented out line for Swift 1.1 (Xcode 6.2):
-  # pod 'Nimble', '~> 0.3.0'
 end
 ```
 

@@ -1,7 +1,7 @@
 import Foundation
 import ReactiveCocoa
 
-public struct Request<T: Entity> {
+public struct Request<T> {
     
     // MARK: - Attributes
     
@@ -19,17 +19,15 @@ public struct Request<T: Entity> {
     
     // MARK: - Public
     
-    func inThread(priority: Priority) -> SignalProducer<[T], Error> {
-        return priority.run({ (context) -> SignalProducer<[T], Error> in
-            return context.fetch(self)
-        })
-    }
+//    func inContext(context: Context) -> ([T], Error?) {
+//        return context.fetch(self)
+//    }
     
-    func inStack(stack: Stack) -> SignalProducer<[T], Error> {
-        return inThread(.Same(stack.mainContext))
-    }
-    
-    
+//    func inStorage(storage: Storage) -> ([T], Error?) {
+//        return inContext(storage.mainContext)
+//    }
+//    
+//    
     // MARK: - Internal
     
     func request(withPredicate predicate: NSPredicate) -> Request<T> {
