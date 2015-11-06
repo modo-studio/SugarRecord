@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2353E60C1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E60B1BED429C0081E6E7 /* CoreDataDefaultStorage.swift */; };
+		2353E60D1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E60B1BED429C0081E6E7 /* CoreDataDefaultStorage.swift */; };
+		2353E60E1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E60B1BED429C0081E6E7 /* CoreDataDefaultStorage.swift */; };
+		2353E60F1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E60B1BED429C0081E6E7 /* CoreDataDefaultStorage.swift */; };
 		3DB2B8D11BDEED0A005B7EF2 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8CF1BDEED0A005B7EF2 /* ReactiveCocoa.framework */; };
 		3DB2B8D21BDEED0A005B7EF2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8D01BDEED0A005B7EF2 /* Result.framework */; };
 		3DB2B8D91BDEEDF4005B7EF2 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8D71BDEEDF4005B7EF2 /* ReactiveCocoa.framework */; };
@@ -98,6 +102,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2353E60B1BED429C0081E6E7 /* CoreDataDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDefaultStorage.swift; sourceTree = "<group>"; };
 		3DB2B82D1BDEE187005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB2B83C1BDEE1AD005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB2B84B1BDEE1C7005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -456,6 +461,7 @@
 			children = (
 				3DE3FD251BEBF4D500009071 /* NSManagedObject.swift */,
 				3DE3FD261BEBF4D500009071 /* NSManagedObjectContext.swift */,
+				2353E60B1BED429C0081E6E7 /* CoreDataDefaultStorage.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -714,6 +720,7 @@
 				3DE3FD611BEBFAA300009071 /* NSPredicateConvertible.swift in Sources */,
 				3DE3FD3E1BEBF4D500009071 /* Context.swift in Sources */,
 				3DE3FD321BEBF4D500009071 /* Storage.swift in Sources */,
+				2353E60C1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
 				3DE3FD2E1BEBF4D500009071 /* Request.swift in Sources */,
 				3DE3FD4E1BEBF4D500009071 /* NSManagedObjectContext.swift in Sources */,
 			);
@@ -731,6 +738,7 @@
 				3DE3FD621BEBFAA300009071 /* NSPredicateConvertible.swift in Sources */,
 				3DE3FD3F1BEBF4D500009071 /* Context.swift in Sources */,
 				3DE3FD331BEBF4D500009071 /* Storage.swift in Sources */,
+				2353E60D1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
 				3DE3FD2F1BEBF4D500009071 /* Request.swift in Sources */,
 				3DE3FD4F1BEBF4D500009071 /* NSManagedObjectContext.swift in Sources */,
 			);
@@ -748,6 +756,7 @@
 				3DE3FD631BEBFAA300009071 /* NSPredicateConvertible.swift in Sources */,
 				3DE3FD401BEBF4D500009071 /* Context.swift in Sources */,
 				3DE3FD341BEBF4D500009071 /* Storage.swift in Sources */,
+				2353E60E1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
 				3DE3FD301BEBF4D500009071 /* Request.swift in Sources */,
 				3DE3FD501BEBF4D500009071 /* NSManagedObjectContext.swift in Sources */,
 			);
@@ -765,6 +774,7 @@
 				3DE3FD641BEBFAA300009071 /* NSPredicateConvertible.swift in Sources */,
 				3DE3FD411BEBF4D500009071 /* Context.swift in Sources */,
 				3DE3FD351BEBF4D500009071 /* Storage.swift in Sources */,
+				2353E60F1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
 				3DE3FD311BEBF4D500009071 /* Request.swift in Sources */,
 				3DE3FD511BEBF4D500009071 /* NSManagedObjectContext.swift in Sources */,
 			);
@@ -1165,6 +1175,7 @@
 				3DE3FD871BEC166000009071 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
