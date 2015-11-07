@@ -7,10 +7,70 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2353E60C1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E60B1BED429C0081E6E7 /* CoreDataDefaultStorage.swift */; };
-		2353E60D1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E60B1BED429C0081E6E7 /* CoreDataDefaultStorage.swift */; };
-		2353E60E1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E60B1BED429C0081E6E7 /* CoreDataDefaultStorage.swift */; };
-		2353E60F1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E60B1BED429C0081E6E7 /* CoreDataDefaultStorage.swift */; };
+		2353E6391BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
+		2353E63A1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
+		2353E63B1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
+		2353E63C1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
+		2353E63D1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */; };
+		2353E63E1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */; };
+		2353E63F1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */; };
+		2353E6401BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */; };
+		2353E6411BED4AC00081E6E7 /* CoreDataDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E62B1BED4AC00081E6E7 /* CoreDataDefaultStorage.swift */; };
+		2353E6421BED4AC00081E6E7 /* CoreDataDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E62B1BED4AC00081E6E7 /* CoreDataDefaultStorage.swift */; };
+		2353E6431BED4AC00081E6E7 /* CoreDataDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E62B1BED4AC00081E6E7 /* CoreDataDefaultStorage.swift */; };
+		2353E6441BED4AC00081E6E7 /* CoreDataDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E62B1BED4AC00081E6E7 /* CoreDataDefaultStorage.swift */; };
+		2353E6451BED4AC00081E6E7 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E62E1BED4AC00081E6E7 /* Request.swift */; };
+		2353E6461BED4AC00081E6E7 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E62E1BED4AC00081E6E7 /* Request.swift */; };
+		2353E6471BED4AC00081E6E7 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E62E1BED4AC00081E6E7 /* Request.swift */; };
+		2353E6481BED4AC00081E6E7 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E62E1BED4AC00081E6E7 /* Request.swift */; };
+		2353E6491BED4AC00081E6E7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E62F1BED4AC00081E6E7 /* Storage.swift */; };
+		2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E62F1BED4AC00081E6E7 /* Storage.swift */; };
+		2353E64B1BED4AC00081E6E7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E62F1BED4AC00081E6E7 /* Storage.swift */; };
+		2353E64C1BED4AC00081E6E7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E62F1BED4AC00081E6E7 /* Storage.swift */; };
+		2353E64D1BED4AC00081E6E7 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6311BED4AC00081E6E7 /* Error.swift */; };
+		2353E64E1BED4AC00081E6E7 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6311BED4AC00081E6E7 /* Error.swift */; };
+		2353E64F1BED4AC00081E6E7 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6311BED4AC00081E6E7 /* Error.swift */; };
+		2353E6501BED4AC00081E6E7 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6311BED4AC00081E6E7 /* Error.swift */; };
+		2353E6511BED4AC00081E6E7 /* RequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6331BED4AC00081E6E7 /* RequestExtension.swift */; };
+		2353E6521BED4AC00081E6E7 /* RequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6331BED4AC00081E6E7 /* RequestExtension.swift */; };
+		2353E6531BED4AC00081E6E7 /* RequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6331BED4AC00081E6E7 /* RequestExtension.swift */; };
+		2353E6541BED4AC00081E6E7 /* RequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6331BED4AC00081E6E7 /* RequestExtension.swift */; };
+		2353E6551BED4AC00081E6E7 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6351BED4AC00081E6E7 /* Context.swift */; };
+		2353E6561BED4AC00081E6E7 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6351BED4AC00081E6E7 /* Context.swift */; };
+		2353E6571BED4AC00081E6E7 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6351BED4AC00081E6E7 /* Context.swift */; };
+		2353E6581BED4AC00081E6E7 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6351BED4AC00081E6E7 /* Context.swift */; };
+		2353E6591BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6361BED4AC00081E6E7 /* NSPredicateConvertible.swift */; };
+		2353E65A1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6361BED4AC00081E6E7 /* NSPredicateConvertible.swift */; };
+		2353E65B1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6361BED4AC00081E6E7 /* NSPredicateConvertible.swift */; };
+		2353E65C1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6361BED4AC00081E6E7 /* NSPredicateConvertible.swift */; };
+		2353E65D1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6371BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift */; };
+		2353E65E1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6371BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift */; };
+		2353E65F1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6371BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift */; };
+		2353E6601BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6371BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift */; };
+		2353E6611BED4AC00081E6E7 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6381BED4AC00081E6E7 /* Requestable.swift */; };
+		2353E6621BED4AC00081E6E7 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6381BED4AC00081E6E7 /* Requestable.swift */; };
+		2353E6631BED4AC00081E6E7 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6381BED4AC00081E6E7 /* Requestable.swift */; };
+		2353E6641BED4AC00081E6E7 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6381BED4AC00081E6E7 /* Requestable.swift */; };
+		2353E6671BED4B250081E6E7 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6661BED4B250081E6E7 /* CoreData.swift */; };
+		2353E6681BED4B250081E6E7 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6661BED4B250081E6E7 /* CoreData.swift */; };
+		2353E6691BED4B250081E6E7 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6661BED4B250081E6E7 /* CoreData.swift */; };
+		2353E66A1BED4B250081E6E7 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6661BED4B250081E6E7 /* CoreData.swift */; };
+		2353E66C1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E66B1BED4B9C0081E6E7 /* CoreDataErrors.swift */; };
+		2353E66D1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E66B1BED4B9C0081E6E7 /* CoreDataErrors.swift */; };
+		2353E66E1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E66B1BED4B9C0081E6E7 /* CoreDataErrors.swift */; };
+		2353E66F1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E66B1BED4B9C0081E6E7 /* CoreDataErrors.swift */; };
+		2353E6711BED4DF50081E6E7 /* ObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6701BED4DF50081E6E7 /* ObjectModel.swift */; };
+		2353E6721BED4DF50081E6E7 /* ObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6701BED4DF50081E6E7 /* ObjectModel.swift */; };
+		2353E6731BED4DF50081E6E7 /* ObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6701BED4DF50081E6E7 /* ObjectModel.swift */; };
+		2353E6741BED4DF50081E6E7 /* ObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6701BED4DF50081E6E7 /* ObjectModel.swift */; };
+		2353E6761BED4E420081E6E7 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6751BED4E420081E6E7 /* Store.swift */; };
+		2353E6771BED4E420081E6E7 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6751BED4E420081E6E7 /* Store.swift */; };
+		2353E6781BED4E420081E6E7 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6751BED4E420081E6E7 /* Store.swift */; };
+		2353E6791BED4E420081E6E7 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6751BED4E420081E6E7 /* Store.swift */; };
+		2353E67B1BED52150081E6E7 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E67A1BED52150081E6E7 /* Options.swift */; };
+		2353E67C1BED52150081E6E7 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E67A1BED52150081E6E7 /* Options.swift */; };
+		2353E67D1BED52150081E6E7 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E67A1BED52150081E6E7 /* Options.swift */; };
+		2353E67E1BED52150081E6E7 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E67A1BED52150081E6E7 /* Options.swift */; };
 		3DB2B8D11BDEED0A005B7EF2 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8CF1BDEED0A005B7EF2 /* ReactiveCocoa.framework */; };
 		3DB2B8D21BDEED0A005B7EF2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8D01BDEED0A005B7EF2 /* Result.framework */; };
 		3DB2B8D91BDEEDF4005B7EF2 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8D71BDEEDF4005B7EF2 /* ReactiveCocoa.framework */; };
@@ -23,46 +83,6 @@
 		3DB2B8E61BDEEE97005B7EF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8E51BDEEE97005B7EF2 /* CoreData.framework */; };
 		3DB2B8E81BDEEEA4005B7EF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8E71BDEEEA4005B7EF2 /* CoreData.framework */; };
 		3DB2B8EA1BDEEEB0005B7EF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8E91BDEEEB0005B7EF2 /* CoreData.framework */; };
-		3DE3FD2E1BEBF4D500009071 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD191BEBF4D500009071 /* Request.swift */; };
-		3DE3FD2F1BEBF4D500009071 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD191BEBF4D500009071 /* Request.swift */; };
-		3DE3FD301BEBF4D500009071 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD191BEBF4D500009071 /* Request.swift */; };
-		3DE3FD311BEBF4D500009071 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD191BEBF4D500009071 /* Request.swift */; };
-		3DE3FD321BEBF4D500009071 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD1A1BEBF4D500009071 /* Storage.swift */; };
-		3DE3FD331BEBF4D500009071 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD1A1BEBF4D500009071 /* Storage.swift */; };
-		3DE3FD341BEBF4D500009071 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD1A1BEBF4D500009071 /* Storage.swift */; };
-		3DE3FD351BEBF4D500009071 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD1A1BEBF4D500009071 /* Storage.swift */; };
-		3DE3FD361BEBF4D500009071 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD1C1BEBF4D500009071 /* Error.swift */; };
-		3DE3FD371BEBF4D500009071 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD1C1BEBF4D500009071 /* Error.swift */; };
-		3DE3FD381BEBF4D500009071 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD1C1BEBF4D500009071 /* Error.swift */; };
-		3DE3FD391BEBF4D500009071 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD1C1BEBF4D500009071 /* Error.swift */; };
-		3DE3FD3E1BEBF4D500009071 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD201BEBF4D500009071 /* Context.swift */; };
-		3DE3FD3F1BEBF4D500009071 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD201BEBF4D500009071 /* Context.swift */; };
-		3DE3FD401BEBF4D500009071 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD201BEBF4D500009071 /* Context.swift */; };
-		3DE3FD411BEBF4D500009071 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD201BEBF4D500009071 /* Context.swift */; };
-		3DE3FD461BEBF4D500009071 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD221BEBF4D500009071 /* Requestable.swift */; };
-		3DE3FD471BEBF4D500009071 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD221BEBF4D500009071 /* Requestable.swift */; };
-		3DE3FD481BEBF4D500009071 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD221BEBF4D500009071 /* Requestable.swift */; };
-		3DE3FD491BEBF4D500009071 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD221BEBF4D500009071 /* Requestable.swift */; };
-		3DE3FD4A1BEBF4D500009071 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD251BEBF4D500009071 /* NSManagedObject.swift */; };
-		3DE3FD4B1BEBF4D500009071 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD251BEBF4D500009071 /* NSManagedObject.swift */; };
-		3DE3FD4C1BEBF4D500009071 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD251BEBF4D500009071 /* NSManagedObject.swift */; };
-		3DE3FD4D1BEBF4D500009071 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD251BEBF4D500009071 /* NSManagedObject.swift */; };
-		3DE3FD4E1BEBF4D500009071 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD261BEBF4D500009071 /* NSManagedObjectContext.swift */; };
-		3DE3FD4F1BEBF4D500009071 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD261BEBF4D500009071 /* NSManagedObjectContext.swift */; };
-		3DE3FD501BEBF4D500009071 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD261BEBF4D500009071 /* NSManagedObjectContext.swift */; };
-		3DE3FD511BEBF4D500009071 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD261BEBF4D500009071 /* NSManagedObjectContext.swift */; };
-		3DE3FD611BEBFAA300009071 /* NSPredicateConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD5F1BEBFAA300009071 /* NSPredicateConvertible.swift */; };
-		3DE3FD621BEBFAA300009071 /* NSPredicateConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD5F1BEBFAA300009071 /* NSPredicateConvertible.swift */; };
-		3DE3FD631BEBFAA300009071 /* NSPredicateConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD5F1BEBFAA300009071 /* NSPredicateConvertible.swift */; };
-		3DE3FD641BEBFAA300009071 /* NSPredicateConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD5F1BEBFAA300009071 /* NSPredicateConvertible.swift */; };
-		3DE3FD651BEBFAA300009071 /* NSSortDescriptorConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD601BEBFAA300009071 /* NSSortDescriptorConvertible.swift */; };
-		3DE3FD661BEBFAA300009071 /* NSSortDescriptorConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD601BEBFAA300009071 /* NSSortDescriptorConvertible.swift */; };
-		3DE3FD671BEBFAA300009071 /* NSSortDescriptorConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD601BEBFAA300009071 /* NSSortDescriptorConvertible.swift */; };
-		3DE3FD681BEBFAA300009071 /* NSSortDescriptorConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD601BEBFAA300009071 /* NSSortDescriptorConvertible.swift */; };
-		3DE3FD6B1BEC0B3A00009071 /* RequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD6A1BEC0B3A00009071 /* RequestExtension.swift */; };
-		3DE3FD6C1BEC0B3A00009071 /* RequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD6A1BEC0B3A00009071 /* RequestExtension.swift */; };
-		3DE3FD6D1BEC0B3A00009071 /* RequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD6A1BEC0B3A00009071 /* RequestExtension.swift */; };
-		3DE3FD6E1BEC0B3A00009071 /* RequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD6A1BEC0B3A00009071 /* RequestExtension.swift */; };
 		3DE3FD801BEC166000009071 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD7F1BEC166000009071 /* SugarRecordTests.swift */; };
 		3DE3FD821BEC166000009071 /* SugarRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8701BDEE67C005B7EF2 /* SugarRecord.framework */; };
 		3DE3FD8A1BEC168900009071 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8E91BDEEEB0005B7EF2 /* CoreData.framework */; };
@@ -102,7 +122,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2353E60B1BED429C0081E6E7 /* CoreDataDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDefaultStorage.swift; sourceTree = "<group>"; };
+		2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
+		2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
+		2353E62B1BED4AC00081E6E7 /* CoreDataDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDefaultStorage.swift; sourceTree = "<group>"; };
+		2353E62E1BED4AC00081E6E7 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		2353E62F1BED4AC00081E6E7 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		2353E6311BED4AC00081E6E7 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		2353E6331BED4AC00081E6E7 /* RequestExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestExtension.swift; sourceTree = "<group>"; };
+		2353E6351BED4AC00081E6E7 /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		2353E6361BED4AC00081E6E7 /* NSPredicateConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPredicateConvertible.swift; sourceTree = "<group>"; };
+		2353E6371BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSSortDescriptorConvertible.swift; sourceTree = "<group>"; };
+		2353E6381BED4AC00081E6E7 /* Requestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
+		2353E6661BED4B250081E6E7 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		2353E66B1BED4B9C0081E6E7 /* CoreDataErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataErrors.swift; sourceTree = "<group>"; };
+		2353E6701BED4DF50081E6E7 /* ObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectModel.swift; sourceTree = "<group>"; };
+		2353E6751BED4E420081E6E7 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		2353E67A1BED52150081E6E7 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		3DB2B82D1BDEE187005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB2B83C1BDEE1AD005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB2B84B1BDEE1C7005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,16 +184,6 @@
 		3DB2B9081BDEF0F5005B7EF2 /* SugarRecord.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SugarRecord.xcodeproj; sourceTree = "<group>"; };
 		3DB2B90B1BDEF106005B7EF2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		3DB2B90C1BDEF106005B7EF2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
-		3DE3FD191BEBF4D500009071 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		3DE3FD1A1BEBF4D500009071 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		3DE3FD1C1BEBF4D500009071 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		3DE3FD201BEBF4D500009071 /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
-		3DE3FD221BEBF4D500009071 /* Requestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
-		3DE3FD251BEBF4D500009071 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
-		3DE3FD261BEBF4D500009071 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
-		3DE3FD5F1BEBFAA300009071 /* NSPredicateConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPredicateConvertible.swift; sourceTree = "<group>"; };
-		3DE3FD601BEBFAA300009071 /* NSSortDescriptorConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSSortDescriptorConvertible.swift; sourceTree = "<group>"; };
-		3DE3FD6A1BEC0B3A00009071 /* RequestExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestExtension.swift; sourceTree = "<group>"; };
 		3DE3FD7D1BEC166000009071 /* SugarRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE3FD7F1BEC166000009071 /* SugarRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordTests.swift; sourceTree = "<group>"; };
 		3DE3FD811BEC166000009071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -219,6 +244,100 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2353E6251BED4AC00081E6E7 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2353E6651BED4B0A0081E6E7 /* Entities */,
+				2353E6261BED4AC00081E6E7 /* Errors */,
+				2353E6271BED4AC00081E6E7 /* Extensions */,
+				2353E62A1BED4AC00081E6E7 /* Storages */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		2353E6261BED4AC00081E6E7 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				2353E66B1BED4B9C0081E6E7 /* CoreDataErrors.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		2353E6271BED4AC00081E6E7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */,
+				2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2353E62A1BED4AC00081E6E7 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				2353E62B1BED4AC00081E6E7 /* CoreDataDefaultStorage.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		2353E62C1BED4AC00081E6E7 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				2353E62D1BED4AC00081E6E7 /* Entities */,
+				2353E6301BED4AC00081E6E7 /* Errors */,
+				2353E6321BED4AC00081E6E7 /* Extensions */,
+				2353E6341BED4AC00081E6E7 /* Protocols */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		2353E62D1BED4AC00081E6E7 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2353E62E1BED4AC00081E6E7 /* Request.swift */,
+				2353E62F1BED4AC00081E6E7 /* Storage.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		2353E6301BED4AC00081E6E7 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				2353E6311BED4AC00081E6E7 /* Error.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		2353E6321BED4AC00081E6E7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2353E6331BED4AC00081E6E7 /* RequestExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2353E6341BED4AC00081E6E7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2353E6351BED4AC00081E6E7 /* Context.swift */,
+				2353E6361BED4AC00081E6E7 /* NSPredicateConvertible.swift */,
+				2353E6371BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift */,
+				2353E6381BED4AC00081E6E7 /* Requestable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2353E6651BED4B0A0081E6E7 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2353E6661BED4B250081E6E7 /* CoreData.swift */,
+				2353E6701BED4DF50081E6E7 /* ObjectModel.swift */,
+				2353E6751BED4E420081E6E7 /* Store.swift */,
+				2353E67A1BED52150081E6E7 /* Options.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		3DB2B8011BDED648005B7EF2 = {
 			isa = PBXGroup;
 			children = (
@@ -405,11 +524,8 @@
 		3DB2B8EB1BDEEEE7005B7EF2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				3DE3FD171BEBF4D500009071 /* Entities */,
-				3DE3FD1B1BEBF4D500009071 /* Errors */,
-				3DE3FD691BEC0B3A00009071 /* Extensions */,
-				3DE3FD1F1BEBF4D500009071 /* Protocols */,
-				3DE3FD231BEBF4D500009071 /* Storages */,
+				2353E6251BED4AC00081E6E7 /* CoreData */,
+				2353E62C1BED4AC00081E6E7 /* Foundation */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -417,68 +533,6 @@
 		3DB2B9091BDEF0F5005B7EF2 /* Products */ = {
 			isa = PBXGroup;
 			name = Products;
-			sourceTree = "<group>";
-		};
-		3DE3FD171BEBF4D500009071 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				3DE3FD191BEBF4D500009071 /* Request.swift */,
-				3DE3FD1A1BEBF4D500009071 /* Storage.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		3DE3FD1B1BEBF4D500009071 /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				3DE3FD1C1BEBF4D500009071 /* Error.swift */,
-			);
-			path = Errors;
-			sourceTree = "<group>";
-		};
-		3DE3FD1F1BEBF4D500009071 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				3DE3FD201BEBF4D500009071 /* Context.swift */,
-				3DE3FD221BEBF4D500009071 /* Requestable.swift */,
-				3DE3FD5F1BEBFAA300009071 /* NSPredicateConvertible.swift */,
-				3DE3FD601BEBFAA300009071 /* NSSortDescriptorConvertible.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		3DE3FD231BEBF4D500009071 /* Storages */ = {
-			isa = PBXGroup;
-			children = (
-				3DE3FD241BEBF4D500009071 /* CoreData */,
-				3DE3FD291BEBF4D500009071 /* Realm */,
-			);
-			path = Storages;
-			sourceTree = "<group>";
-		};
-		3DE3FD241BEBF4D500009071 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				3DE3FD251BEBF4D500009071 /* NSManagedObject.swift */,
-				3DE3FD261BEBF4D500009071 /* NSManagedObjectContext.swift */,
-				2353E60B1BED429C0081E6E7 /* CoreDataDefaultStorage.swift */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		3DE3FD291BEBF4D500009071 /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Realm;
-			sourceTree = "<group>";
-		};
-		3DE3FD691BEC0B3A00009071 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				3DE3FD6A1BEC0B3A00009071 /* RequestExtension.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3DE3FD7E1BEC166000009071 /* SugarRecordTests */ = {
@@ -712,17 +766,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DE3FD361BEBF4D500009071 /* Error.swift in Sources */,
-				3DE3FD461BEBF4D500009071 /* Requestable.swift in Sources */,
-				3DE3FD4A1BEBF4D500009071 /* NSManagedObject.swift in Sources */,
-				3DE3FD6B1BEC0B3A00009071 /* RequestExtension.swift in Sources */,
-				3DE3FD651BEBFAA300009071 /* NSSortDescriptorConvertible.swift in Sources */,
-				3DE3FD611BEBFAA300009071 /* NSPredicateConvertible.swift in Sources */,
-				3DE3FD3E1BEBF4D500009071 /* Context.swift in Sources */,
-				3DE3FD321BEBF4D500009071 /* Storage.swift in Sources */,
-				2353E60C1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
-				3DE3FD2E1BEBF4D500009071 /* Request.swift in Sources */,
-				3DE3FD4E1BEBF4D500009071 /* NSManagedObjectContext.swift in Sources */,
+				2353E6761BED4E420081E6E7 /* Store.swift in Sources */,
+				2353E6391BED4AC00081E6E7 /* NSManagedObject.swift in Sources */,
+				2353E6451BED4AC00081E6E7 /* Request.swift in Sources */,
+				2353E6411BED4AC00081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
+				2353E67B1BED52150081E6E7 /* Options.swift in Sources */,
+				2353E66C1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */,
+				2353E6711BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
+				2353E65D1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
+				2353E6671BED4B250081E6E7 /* CoreData.swift in Sources */,
+				2353E63D1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
+				2353E6591BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
+				2353E64D1BED4AC00081E6E7 /* Error.swift in Sources */,
+				2353E6551BED4AC00081E6E7 /* Context.swift in Sources */,
+				2353E6511BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
+				2353E6611BED4AC00081E6E7 /* Requestable.swift in Sources */,
+				2353E6491BED4AC00081E6E7 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,17 +789,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DE3FD371BEBF4D500009071 /* Error.swift in Sources */,
-				3DE3FD471BEBF4D500009071 /* Requestable.swift in Sources */,
-				3DE3FD4B1BEBF4D500009071 /* NSManagedObject.swift in Sources */,
-				3DE3FD6C1BEC0B3A00009071 /* RequestExtension.swift in Sources */,
-				3DE3FD661BEBFAA300009071 /* NSSortDescriptorConvertible.swift in Sources */,
-				3DE3FD621BEBFAA300009071 /* NSPredicateConvertible.swift in Sources */,
-				3DE3FD3F1BEBF4D500009071 /* Context.swift in Sources */,
-				3DE3FD331BEBF4D500009071 /* Storage.swift in Sources */,
-				2353E60D1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
-				3DE3FD2F1BEBF4D500009071 /* Request.swift in Sources */,
-				3DE3FD4F1BEBF4D500009071 /* NSManagedObjectContext.swift in Sources */,
+				2353E6771BED4E420081E6E7 /* Store.swift in Sources */,
+				2353E63A1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */,
+				2353E6461BED4AC00081E6E7 /* Request.swift in Sources */,
+				2353E6421BED4AC00081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
+				2353E67C1BED52150081E6E7 /* Options.swift in Sources */,
+				2353E66D1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */,
+				2353E6721BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
+				2353E65E1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
+				2353E6681BED4B250081E6E7 /* CoreData.swift in Sources */,
+				2353E63E1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
+				2353E65A1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
+				2353E64E1BED4AC00081E6E7 /* Error.swift in Sources */,
+				2353E6561BED4AC00081E6E7 /* Context.swift in Sources */,
+				2353E6521BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
+				2353E6621BED4AC00081E6E7 /* Requestable.swift in Sources */,
+				2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,17 +812,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DE3FD381BEBF4D500009071 /* Error.swift in Sources */,
-				3DE3FD481BEBF4D500009071 /* Requestable.swift in Sources */,
-				3DE3FD4C1BEBF4D500009071 /* NSManagedObject.swift in Sources */,
-				3DE3FD6D1BEC0B3A00009071 /* RequestExtension.swift in Sources */,
-				3DE3FD671BEBFAA300009071 /* NSSortDescriptorConvertible.swift in Sources */,
-				3DE3FD631BEBFAA300009071 /* NSPredicateConvertible.swift in Sources */,
-				3DE3FD401BEBF4D500009071 /* Context.swift in Sources */,
-				3DE3FD341BEBF4D500009071 /* Storage.swift in Sources */,
-				2353E60E1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
-				3DE3FD301BEBF4D500009071 /* Request.swift in Sources */,
-				3DE3FD501BEBF4D500009071 /* NSManagedObjectContext.swift in Sources */,
+				2353E6781BED4E420081E6E7 /* Store.swift in Sources */,
+				2353E63B1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */,
+				2353E6471BED4AC00081E6E7 /* Request.swift in Sources */,
+				2353E6431BED4AC00081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
+				2353E67D1BED52150081E6E7 /* Options.swift in Sources */,
+				2353E66E1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */,
+				2353E6731BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
+				2353E65F1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
+				2353E6691BED4B250081E6E7 /* CoreData.swift in Sources */,
+				2353E63F1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
+				2353E65B1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
+				2353E64F1BED4AC00081E6E7 /* Error.swift in Sources */,
+				2353E6571BED4AC00081E6E7 /* Context.swift in Sources */,
+				2353E6531BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
+				2353E6631BED4AC00081E6E7 /* Requestable.swift in Sources */,
+				2353E64B1BED4AC00081E6E7 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,17 +835,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DE3FD391BEBF4D500009071 /* Error.swift in Sources */,
-				3DE3FD491BEBF4D500009071 /* Requestable.swift in Sources */,
-				3DE3FD4D1BEBF4D500009071 /* NSManagedObject.swift in Sources */,
-				3DE3FD6E1BEC0B3A00009071 /* RequestExtension.swift in Sources */,
-				3DE3FD681BEBFAA300009071 /* NSSortDescriptorConvertible.swift in Sources */,
-				3DE3FD641BEBFAA300009071 /* NSPredicateConvertible.swift in Sources */,
-				3DE3FD411BEBF4D500009071 /* Context.swift in Sources */,
-				3DE3FD351BEBF4D500009071 /* Storage.swift in Sources */,
-				2353E60F1BED429C0081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
-				3DE3FD311BEBF4D500009071 /* Request.swift in Sources */,
-				3DE3FD511BEBF4D500009071 /* NSManagedObjectContext.swift in Sources */,
+				2353E6791BED4E420081E6E7 /* Store.swift in Sources */,
+				2353E63C1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */,
+				2353E6481BED4AC00081E6E7 /* Request.swift in Sources */,
+				2353E6441BED4AC00081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
+				2353E67E1BED52150081E6E7 /* Options.swift in Sources */,
+				2353E66F1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */,
+				2353E6741BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
+				2353E6601BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
+				2353E66A1BED4B250081E6E7 /* CoreData.swift in Sources */,
+				2353E6401BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
+				2353E65C1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
+				2353E6501BED4AC00081E6E7 /* Error.swift in Sources */,
+				2353E6581BED4AC00081E6E7 /* Context.swift in Sources */,
+				2353E6541BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
+				2353E6641BED4AC00081E6E7 /* Requestable.swift in Sources */,
+				2353E64C1BED4AC00081E6E7 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

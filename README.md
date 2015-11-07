@@ -48,6 +48,10 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [G
 ## How to use it
 //TODO
 
+## Features backlog
+- Reactive API
+- Logging support
+
 ## Support
 
 If you want to communicate any issue, suggestion or even make a contribution, you have to keep in mind the flow bellow:

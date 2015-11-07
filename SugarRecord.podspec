@@ -14,21 +14,15 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.dependency 'ReactiveCocoa', '~> 4.0'
-
-  source_files = []
-  source_files << 'SugarRecord/SugarRecord/Source/Entities/**/*'
-  source_files << 'SugarRecord/SugarRecord/Source/Errors/**/*'
-  source_files << 'SugarRecord/SugarRecord/Source/Extensions/**/*'
-  source_files << 'SugarRecord/SugarRecord/Source/Protocols/**/*'
-  s.source_files = source_files
+  s.source_files = ['SugarRecord/SugarRecord/Source/Foundation/**/*']
 
   s.subspec "CoreData" do |sp|
-    sp.source_files = 'SugarRecord/SugarRecord/Source/Storages/CoreData/**/*'
+    sp.source_files = ['SugarRecord/SugarRecord/Source/CoreData/**/*']
     sp.frameworks = ['CoreData']
   end
 
   s.subspec "Realm" do |sp|
-    sp.source_files = 'SugarRecord/SugarRecord/Source/Storages/Realm/**/*'
+    sp.source_files = ['SugarRecord/SugarRecord/Source/Realm/**/*']
     sp.dependency 'Realm', '~> 0.96'
   end
 end
