@@ -33,6 +33,9 @@ public extension CoreData {
             }
         }
         
+        
+        // MARK: - CustomStringConvertible
+        
         public var description: String {
             get {
                 switch self {

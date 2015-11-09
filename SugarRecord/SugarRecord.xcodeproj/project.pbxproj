@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2305F8EC1BF0F89200F9D379 /* StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8EB1BF0F89200F9D379 /* StoreTests.swift */; };
 		2353E6391BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
 		2353E63A1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
 		2353E63B1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
@@ -83,7 +84,6 @@
 		3DB2B8E61BDEEE97005B7EF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8E51BDEEE97005B7EF2 /* CoreData.framework */; };
 		3DB2B8E81BDEEEA4005B7EF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8E71BDEEEA4005B7EF2 /* CoreData.framework */; };
 		3DB2B8EA1BDEEEB0005B7EF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8E91BDEEEB0005B7EF2 /* CoreData.framework */; };
-		3DE3FD801BEC166000009071 /* SugarRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD7F1BEC166000009071 /* SugarRecordTests.swift */; };
 		3DE3FD821BEC166000009071 /* SugarRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8701BDEE67C005B7EF2 /* SugarRecord.framework */; };
 		3DE3FD8A1BEC168900009071 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8E91BDEEEB0005B7EF2 /* CoreData.framework */; };
 		3DE3FD8C1BEC16A600009071 /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8CF1BDEED0A005B7EF2 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -122,6 +122,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2305F8EB1BF0F89200F9D379 /* StoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTests.swift; sourceTree = "<group>"; };
 		2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		2353E62B1BED4AC00081E6E7 /* CoreDataDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDefaultStorage.swift; sourceTree = "<group>"; };
@@ -143,7 +144,6 @@
 		3DB2B84B1BDEE1C7005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB2B8701BDEE67C005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB2B8881BDEE6BA005B7EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DB2B88B1BDEE6BA005B7EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DB2B8991BDEE795005B7EF2 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		3DB2B89B1BDEE795005B7EF2 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		3DB2B89C1BDEE795005B7EF2 /* Profile.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Profile.xcconfig; sourceTree = "<group>"; };
@@ -185,7 +185,6 @@
 		3DB2B90B1BDEF106005B7EF2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		3DB2B90C1BDEF106005B7EF2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		3DE3FD7D1BEC166000009071 /* SugarRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DE3FD7F1BEC166000009071 /* SugarRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugarRecordTests.swift; sourceTree = "<group>"; };
 		3DE3FD811BEC166000009071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -244,6 +243,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2305F8E51BF0F82400F9D379 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2305F8E61BF0F82400F9D379 /* CoreData */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		2305F8E61BF0F82400F9D379 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2305F8E71BF0F82400F9D379 /* Entities */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		2305F8E71BF0F82400F9D379 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2305F8EB1BF0F89200F9D379 /* StoreTests.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		2305F8E81BF0F83700F9D379 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2305F8E91BF0F83700F9D379 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2305F8EA1BF0F83700F9D379 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		2353E6251BED4AC00081E6E7 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,7 +387,6 @@
 			children = (
 				3DB2B8971BDEE795005B7EF2 /* Config */,
 				3DB2B8871BDEE6BA005B7EF2 /* SugarRecord */,
-				3DB2B88A1BDEE6BA005B7EF2 /* SugarRecordTests */,
 				3DE3FD7E1BEC166000009071 /* SugarRecordTests */,
 				3DB2B8271BDEE159005B7EF2 /* Frameworks */,
 				3DB2B80C1BDED648005B7EF2 /* Products */,
@@ -381,14 +424,6 @@
 				3DB2B8881BDEE6BA005B7EF2 /* Info.plist */,
 			);
 			path = SugarRecord;
-			sourceTree = "<group>";
-		};
-		3DB2B88A1BDEE6BA005B7EF2 /* SugarRecordTests */ = {
-			isa = PBXGroup;
-			children = (
-				3DB2B88B1BDEE6BA005B7EF2 /* Info.plist */,
-			);
-			path = SugarRecordTests;
 			sourceTree = "<group>";
 		};
 		3DB2B8971BDEE795005B7EF2 /* Config */ = {
@@ -538,7 +573,10 @@
 		3DE3FD7E1BEC166000009071 /* SugarRecordTests */ = {
 			isa = PBXGroup;
 			children = (
-				3DE3FD7F1BEC166000009071 /* SugarRecordTests.swift */,
+				2305F8E81BF0F83700F9D379 /* Helpers */,
+				2305F8E91BF0F83700F9D379 /* Models */,
+				2305F8EA1BF0F83700F9D379 /* Resources */,
+				2305F8E51BF0F82400F9D379 /* Source */,
 				3DE3FD811BEC166000009071 /* Info.plist */,
 			);
 			path = SugarRecordTests;
@@ -858,7 +896,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DE3FD801BEC166000009071 /* SugarRecordTests.swift in Sources */,
+				2305F8EC1BF0F89200F9D379 /* StoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1175,17 +1213,20 @@
 		3DE3FD861BEC166000009071 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = SugarRecordTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.gitdo.SugarRecordTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		3DE3FD871BEC166000009071 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = SugarRecordTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

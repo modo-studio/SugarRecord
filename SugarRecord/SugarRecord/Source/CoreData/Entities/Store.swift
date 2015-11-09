@@ -2,6 +2,7 @@ import CoreData
 import Foundation
 
 // MARK: - CoreData.Store
+
 public extension CoreData {
     
     /**
@@ -19,14 +20,17 @@ public extension CoreData {
          
          - returns: store path
          */
-        func path() -> NSURL {
+        public func path() -> NSURL {
             switch self {
             case .URL(let url): return url
-            case .Named(let _):
-                //FIXME
-                return NSURL()
+            case .Named(let name):
+                return NSURL(fileURLWithPath: documentsDirectory()).URLByAppendingPathComponent(name)
             }
         }
     }
-    
+}
+
+func documentsDirectory() -> String {
+    let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+    return paths[0]
 }
