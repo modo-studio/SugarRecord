@@ -54,9 +54,8 @@ extension CoreData.ObjectModel: CustomStringConvertible {
 
 // MARK: - ObjectModel Extension (Equatable)
 
-
 extension CoreData.ObjectModel: Equatable {}
 
 public func ==(lhs: CoreData.ObjectModel, rhs: CoreData.ObjectModel) -> Bool {
-    return true
+    return lhs.model() == rhs.model()
 }
