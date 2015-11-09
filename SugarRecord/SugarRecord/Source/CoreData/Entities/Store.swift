@@ -30,7 +30,25 @@ public extension CoreData {
     }
 }
 
-func documentsDirectory() -> String {
-    let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-    return paths[0]
+
+// MARK: - Store extension (CustomStringConvertible)
+
+extension CoreData.Store: CustomStringConvertible {
+    
+    public var description: String {
+        get {
+            return "CoreData Store: \(self.path())"
+        }
+    }
+    
 }
+
+
+// MARK: - Store Extension (Equatable)
+
+extension CoreData.Store: Equatable {}
+
+public func ==(lhs: CoreData.Store, rhs: CoreData.Store) -> Bool {
+    return lhs.path() == rhs.path()
+}
+

@@ -5,10 +5,19 @@ import CoreData
 
 extension CoreData {
     
-    struct Options {
-        
-        static var main: [NSObject: AnyObject] {
-            get {
+    /**
+     NSPersistantStore initialization options
+     
+     - Default:      Default options
+     - Migration: Automatic migration options
+     */
+    enum Options {
+        case Default
+        case Migration
+    
+        func dict() -> [NSObject: AnyObject] {
+            switch self {
+            case .Default:
                 var sqliteOptions: [String: String] = [String: String] ()
                 sqliteOptions["WAL"] = "journal_mode"
                 var options: [NSObject: AnyObject] = [NSObject: AnyObject] ()
@@ -16,11 +25,7 @@ extension CoreData {
                 options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: false)
                 options[NSSQLitePragmasOption] = sqliteOptions
                 return options
-            }
-        }
-        
-        static var migration: [NSObject: AnyObject] {
-            get {
+            case .Migration:
                 var sqliteOptions: [String: String] = [String: String] ()
                 sqliteOptions["WAL"] = "journal_mode"
                 var options: [NSObject: AnyObject] = [NSObject: AnyObject] ()
@@ -31,5 +36,4 @@ extension CoreData {
             }
         }
     }
-    
 }

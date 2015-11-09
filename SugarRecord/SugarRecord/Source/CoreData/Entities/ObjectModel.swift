@@ -12,7 +12,7 @@ public extension CoreData {
      - Merged: Merging all the data models in the app bundle
      - URL:    Referenced by the provided URL
      */
-    public enum ObjectModel: CustomStringConvertible {
+    public enum ObjectModel {
         case Named(String)
         case Merged([NSBundle]?)
         case URL(NSURL)
@@ -32,19 +32,31 @@ public extension CoreData {
                 return NSManagedObjectModel(contentsOfURL: url)
             }
         }
-        
-        
-        // MARK: - CustomStringConvertible
-        
-        public var description: String {
-            get {
-                switch self {
-                case .Named(let name): return "NSManagedObject model named: \(name) in the main NSBundle"
-                case .Merged(_): return "Merged NSManagedObjec models in the provided bundles"
-                case .URL(let url): return "NSManagedObject model in the URL: \(url)"
-                }
+    }
+}
+
+// MARK: - ObjectModel Extension (CustomStringConvertible)
+
+extension CoreData.ObjectModel: CustomStringConvertible {
+    
+    public var description: String {
+        get {
+            switch self {
+            case .Named(let name): return "NSManagedObject model named: \(name) in the main NSBundle"
+            case .Merged(_): return "Merged NSManagedObjec models in the provided bundles"
+            case .URL(let url): return "NSManagedObject model in the URL: \(url)"
             }
         }
     }
+    
+}
+
+
+// MARK: - ObjectModel Extension (Equatable)
+
+
+extension CoreData.ObjectModel: Equatable {}
+
+public func ==(lhs: CoreData.ObjectModel, rhs: CoreData.ObjectModel) -> Bool {
     
 }
