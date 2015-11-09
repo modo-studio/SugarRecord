@@ -13,7 +13,7 @@ public extension CoreData {
      - URL:    Referenced by the provided URL
      */
     public enum ObjectModel {
-        case Named(String)
+        case Named(String, NSBundle)
         case Merged([NSBundle]?)
         case URL(NSURL)
         
@@ -26,8 +26,8 @@ public extension CoreData {
             switch self {
             case .Merged(let bundles):
                 return NSManagedObjectModel.mergedModelFromBundles(bundles)
-            case .Named(let name):
-                return NSManagedObjectModel(contentsOfURL: NSBundle.mainBundle().URLForResource(name, withExtension: "xcdatamodel")!)
+            case .Named(let name, let bundle):
+                return NSManagedObjectModel(contentsOfURL: bundle.URLForResource(name, withExtension: "momd")!)
             case .URL(let url):
                 return NSManagedObjectModel(contentsOfURL: url)
             }
@@ -58,5 +58,5 @@ extension CoreData.ObjectModel: CustomStringConvertible {
 extension CoreData.ObjectModel: Equatable {}
 
 public func ==(lhs: CoreData.ObjectModel, rhs: CoreData.ObjectModel) -> Bool {
-    
+    return true
 }

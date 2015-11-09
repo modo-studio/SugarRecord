@@ -97,6 +97,7 @@
 		3DE3FD901BEC16E900009071 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B90C1BDEF106005B7EF2 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DE3FD911BEC171E00009071 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B90B1BDEF106005B7EF2 /* Nimble.framework */; };
 		3DE3FD921BEC172500009071 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B90B1BDEF106005B7EF2 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DE3FD961BF12B8C00009071 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD941BF12B8C00009071 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +194,7 @@
 		3DB2B90C1BDEF106005B7EF2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		3DE3FD7D1BEC166000009071 /* SugarRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE3FD811BEC166000009071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DE3FD951BF12B8C00009071 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +294,7 @@
 		2305F8EA1BF0F83700F9D379 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3DE3FD941BF12B8C00009071 /* DataModel.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -917,6 +920,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DE3FD961BF12B8C00009071 /* DataModel.xcdatamodeld in Sources */,
 				2305F8EE1BF0FAFC00F9D379 /* ObjectModelTests.swift in Sources */,
 				2305F8EC1BF0F89200F9D379 /* StoreTests.swift in Sources */,
 			);
@@ -1315,6 +1319,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3DE3FD941BF12B8C00009071 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3DE3FD951BF12B8C00009071 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 3DE3FD951BF12B8C00009071 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3DB2B8021BDED648005B7EF2 /* Project object */;
 }
