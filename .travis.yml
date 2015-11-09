@@ -5,7 +5,7 @@ notifications:
 install:
 - brew install carthage
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
-- carthage bootstrap --no-use-binaries
+- carthage bootstrap
 script:
 - make build
 - make test
