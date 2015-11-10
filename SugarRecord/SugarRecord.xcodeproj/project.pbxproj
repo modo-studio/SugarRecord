@@ -13,6 +13,15 @@
 		2305F8F21BF0FE4500F9D379 /* DirUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8F01BF0FE4500F9D379 /* DirUtils.swift */; };
 		2305F8F31BF0FE4500F9D379 /* DirUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8F01BF0FE4500F9D379 /* DirUtils.swift */; };
 		2305F8F41BF0FE4500F9D379 /* DirUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8F01BF0FE4500F9D379 /* DirUtils.swift */; };
+		2305F8F71BF1E87200F9D379 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8F61BF1E87200F9D379 /* Results.swift */; };
+		2305F8F81BF1E87200F9D379 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8F61BF1E87200F9D379 /* Results.swift */; };
+		2305F8F91BF1E87200F9D379 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8F61BF1E87200F9D379 /* Results.swift */; };
+		2305F8FB1BF1EA5900F9D379 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FA1BF1EA5900F9D379 /* Object.swift */; };
+		2305F8FC1BF1EA5900F9D379 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FA1BF1EA5900F9D379 /* Object.swift */; };
+		2305F8FD1BF1EA5900F9D379 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FA1BF1EA5900F9D379 /* Object.swift */; };
+		2305F8FF1BF1EA8D00F9D379 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
+		2305F9001BF1EA8D00F9D379 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
+		2305F9011BF1EA8D00F9D379 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
 		2353E6391BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
 		2353E63A1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
 		2353E63B1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
@@ -149,6 +158,9 @@
 		2305F8EB1BF0F89200F9D379 /* StoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTests.swift; sourceTree = "<group>"; };
 		2305F8ED1BF0FAFC00F9D379 /* ObjectModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectModelTests.swift; sourceTree = "<group>"; };
 		2305F8F01BF0FE4500F9D379 /* DirUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DirUtils.swift; path = Utils/DirUtils.swift; sourceTree = "<group>"; };
+		2305F8F61BF1E87200F9D379 /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		2305F8FA1BF1EA5900F9D379 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		2305F8FE1BF1EA8D00F9D379 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		2353E62B1BED4AC00081E6E7 /* CoreDataDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDefaultStorage.swift; sourceTree = "<group>"; };
@@ -421,6 +433,7 @@
 				2353E6361BED4AC00081E6E7 /* NSPredicateConvertible.swift */,
 				2353E6371BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift */,
 				2353E6381BED4AC00081E6E7 /* Requestable.swift */,
+				2305F8FE1BF1EA8D00F9D379 /* Entity.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -647,32 +660,18 @@
 		3DE3FD991BF15BBC00009071 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				3DE3FD9A1BF15BBC00009071 /* Entities */,
-				3DE3FD9B1BF15BBC00009071 /* Errors */,
 				3DE3FD9C1BF15BBC00009071 /* Extensions */,
 				3DE3FD9D1BF15BBC00009071 /* Storages */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
 		};
-		3DE3FD9A1BF15BBC00009071 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		3DE3FD9B1BF15BBC00009071 /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Errors;
-			sourceTree = "<group>";
-		};
 		3DE3FD9C1BF15BBC00009071 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				3DE3FDA31BF15C5500009071 /* Realm.swift */,
+				2305F8F61BF1E87200F9D379 /* Results.swift */,
+				2305F8FA1BF1EA5900F9D379 /* Object.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -911,12 +910,15 @@
 				2353E6711BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E65D1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
 				2353E6671BED4B250081E6E7 /* CoreData.swift in Sources */,
+				2305F8FB1BF1EA5900F9D379 /* Object.swift in Sources */,
 				2353E63D1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
 				2353E6591BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
 				2353E64D1BED4AC00081E6E7 /* Error.swift in Sources */,
 				2353E6551BED4AC00081E6E7 /* Context.swift in Sources */,
+				2305F8F71BF1E87200F9D379 /* Results.swift in Sources */,
 				2353E6511BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
 				2353E6611BED4AC00081E6E7 /* Requestable.swift in Sources */,
+				2305F8FF1BF1EA8D00F9D379 /* Entity.swift in Sources */,
 				2353E6491BED4AC00081E6E7 /* Storage.swift in Sources */,
 				2305F8F11BF0FE4500F9D379 /* DirUtils.swift in Sources */,
 				3DE3FD9F1BF15BD200009071 /* RealmDefaultStorage.swift in Sources */,
@@ -961,12 +963,15 @@
 				2353E6731BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E65F1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
 				2353E6691BED4B250081E6E7 /* CoreData.swift in Sources */,
+				2305F8FC1BF1EA5900F9D379 /* Object.swift in Sources */,
 				2353E63F1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
 				2353E65B1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
 				2353E64F1BED4AC00081E6E7 /* Error.swift in Sources */,
 				2353E6571BED4AC00081E6E7 /* Context.swift in Sources */,
+				2305F8F81BF1E87200F9D379 /* Results.swift in Sources */,
 				2353E6531BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
 				2353E6631BED4AC00081E6E7 /* Requestable.swift in Sources */,
+				2305F9001BF1EA8D00F9D379 /* Entity.swift in Sources */,
 				2353E64B1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				2305F8F31BF0FE4500F9D379 /* DirUtils.swift in Sources */,
 				3DE3FDA11BF15BD200009071 /* RealmDefaultStorage.swift in Sources */,
@@ -987,12 +992,15 @@
 				2353E6741BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E6601BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
 				2353E66A1BED4B250081E6E7 /* CoreData.swift in Sources */,
+				2305F8FD1BF1EA5900F9D379 /* Object.swift in Sources */,
 				2353E6401BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
 				2353E65C1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
 				2353E6501BED4AC00081E6E7 /* Error.swift in Sources */,
 				2353E6581BED4AC00081E6E7 /* Context.swift in Sources */,
+				2305F8F91BF1E87200F9D379 /* Results.swift in Sources */,
 				2353E6541BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
 				2353E6641BED4AC00081E6E7 /* Requestable.swift in Sources */,
+				2305F9011BF1EA8D00F9D379 /* Entity.swift in Sources */,
 				2353E64C1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				2305F8F41BF0FE4500F9D379 /* DirUtils.swift in Sources */,
 				3DE3FDA21BF15BD200009071 /* RealmDefaultStorage.swift in Sources */,

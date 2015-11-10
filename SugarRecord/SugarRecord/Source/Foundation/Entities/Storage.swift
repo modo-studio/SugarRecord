@@ -16,9 +16,6 @@ public enum StorageType {
  *  Protocol that identifies a persistence storage
  */
 public protocol Storage: CustomStringConvertible {
-
-    /// Storage name
-    var name: String { get }
     
     /// Storage type
     var type: StorageType { get }
@@ -33,17 +30,17 @@ public protocol Storage: CustomStringConvertible {
     var memoryContext: Context { get }
     
     /**
-     Removes the storage     
+     Removes the store     
      */
-    func remove()
+    func removeStore() throws
     
     /**
      Executes the provided operation in background
-     
+    
+     - parameter write: true if the context has to persist the changes
      - parameter operation: operation to be executed
-     - parameter save:      save closure that must be called to persist the changes
      */
-    func operation(operation: (context: Context, save: () -> Void) -> Void)
+    func operation(write: Bool, operation: (context: Context) -> Void)
     
     /**
      Executes the provided operation in a given queue
@@ -51,10 +48,10 @@ public protocol Storage: CustomStringConvertible {
      Some storages require propagating these saves across the stack of contexts (e.g. CoreData)
      
      - parameter queue:     queue where the operation will be executed
+     - parameter write: true if the context has to persist the changes
      - parameter operation: operation to be executed
-     - parameter save:      save closure that must be called to persist the changes
      */
-    func operation(queue: dispatch_queue_t, operation: (context: Context, save: () -> Void) -> Void)
+    func operation(queue: dispatch_queue_t, write: Bool, operation: (context: Context) -> Void)
 }
 
 
@@ -62,22 +59,9 @@ public protocol Storage: CustomStringConvertible {
 
 public extension Storage {
     
-    func operation(operation: (context: Context, save: () -> Void) -> Void) {
+    func operation(write: Bool, operation: (context: Context) -> Void) {
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
-        self.operation(queue, operation: operation)
-    }
-    
-}
-
-
-// MARK: - Storage extension (CustomStringConvertible)
-
-public extension Storage {
-    
-    public var description: String {
-        get {
-            return "Sugar Record Storage: \(self.name)"
-        }
+        self.operation(queue, write: write, operation: operation)
     }
     
 }

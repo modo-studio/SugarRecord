@@ -13,14 +13,14 @@ public protocol Context {
      
      - returns: request results and an error (in case of any)
      */
-    func fetch<T>(request: Request<T>) -> Result<[T], Error>
+    func fetch<T: Entity>(request: Request<T>) -> Result<[T], Error>
     
      /**
      Inserts an object into the context
      
      - returns: inserted object and an error (incase of any)
      */
-    func insert<T>() -> Result<T, Error>
+    func insert<T: Entity>() -> Result<T, Error>
     
      /**
      Removes objets from the context
@@ -29,5 +29,5 @@ public protocol Context {
      
      - returns: error (in case of any)
      */
-    func remove<T>(objects: [T]) -> Result<Void, Error>
+    func remove<T: Entity>(objects: [T]) -> Result<Void, Error>
 }
