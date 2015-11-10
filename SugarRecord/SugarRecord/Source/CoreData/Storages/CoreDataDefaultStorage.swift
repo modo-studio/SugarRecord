@@ -3,7 +3,7 @@
 //
 ///// Default CoreData storage with an stack base on PSC <=> Private Context <=> Main Context <=> Private Context
 ///// High load operations are executed in private contexts without affecting the Main Context used from the main thread for UI data presentation
-//public class CoreDataDefaultStorage: Storage {
+//public class CoreDataDefaultStorage {
 //    
 //    
 //    // MARK: - Attributes
@@ -58,10 +58,11 @@
 //
 //private func initializeStore(store: CoreData.Store, storeCoordinator: NSPersistentStoreCoordinator, migrate: Bool) throws -> NSPersistentStore {
 //    try createStoreParentPathIfNeeded(store)
-//    let options: [NSObject: AnyObject] = migrate ? CoreData.Options.migration : CoreData.Options.main
-//    let store: NSPersistentStore = try addPersistentStore(store, storeCoordinator: storeCoordinator, options: options)
+//    let options = migrate ? CoreData.Options.Migration : CoreData.Options.Default
+//    let store: NSPersistentStore = try addPersistentStore(store, storeCoordinator: storeCoordinator, options: options.dict())
 //    
 //}
+//
 //
 //private func createStoreParentPathIfNeeded(store: CoreData.Store) throws {
 //    if let databaseParentPath = store.path().URLByDeletingLastPathComponent  {
@@ -69,6 +70,17 @@
 //    }
 //}
 //
+///**
+// Creates a NSpersistentStore
+// 
+// - parameter store:            store information
+// - parameter storeCoordinator: persistent store coordinator
+// - parameter options:          store options
+// 
+// - throws: an error if the store cannot be added co the coordinator
+// 
+// - returns: persistent store
+// */
 //private func addPersistentStore(store: CoreData.Store, storeCoordinator: NSPersistentStoreCoordinator, options: [NSObject: AnyObject]) throws -> NSPersistentStore {
 //    var persistentStore: NSPersistentStore?
 //    storeCoordinator.performBlockAndWait { () -> Void in

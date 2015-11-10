@@ -1,2 +1,2 @@
 github "ReactiveCocoa/ReactiveCocoa" "49d75631c0daf4c470cb5d9c5efb8b1d19aab05c"
-github "realm/realm-cocoa"
+github "realm/realm-cocoa" "365c534d2f3ed4790534a212a5721be88b734bef"
