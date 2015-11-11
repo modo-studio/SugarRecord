@@ -20,7 +20,8 @@ extension Realm: Context {
         if let sortDescriptor = request.sortDescriptor, key = sortDescriptor.key {
             results = results.sorted(key, ascending: sortDescriptor.ascending)
         }
-        return Result(value: results.toArray() as Any as! [T])
+        let array = results.toArray().map({$0 as Any as! T})
+        return Result(value: array)
     }
     
     /**
@@ -30,7 +31,16 @@ extension Realm: Context {
      */
     public func insert<T: Entity>() -> Result<T, Error> {
         guard let E = T.self as? Object.Type else { return Result(error: .InvalidType) }
-        return Result(value: E.init() as Any as! T)
+        let inserted = E.init()
+        self.beginWrite()
+        self.add(inserted)
+        do {
+            try self.commitWrite()
+            return Result(value: inserted as Any as! T)
+        }
+        catch {
+            return Result(error: .WriteError)
+        }
     }
     
     /**
@@ -41,8 +51,15 @@ extension Realm: Context {
      - returns: error (in case of any)
      */
     public func remove<T: Entity>(objects: [T]) -> Result<Void, Error> {
-        guard let _ = T.self as? Object.Type else { return Result(error: .InvalidType) }
-        self.remove(objects as Any as! [Object])
-        return Result(value: ())
+        self.beginWrite()
+        self.delete(objects.map({$0.realm}).filter({$0 != nil}).map({$0!}))
+        print("count \(objects.count)")
+        do {
+            try self.commitWrite()
+            return Result(value: ())
+        }
+        catch {
+            return Result(error: .WriteError)
+        }
     }
 }
