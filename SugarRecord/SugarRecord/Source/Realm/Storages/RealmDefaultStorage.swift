@@ -60,12 +60,13 @@ public class RealmDefaultStorage: Storage {
      - parameter write: true if the context has to persist the changes
      - parameter operation: operation to be executed
      */
-    public func operation(queue: dispatch_queue_t, write: Bool, operation: (context: Context) -> Void) {
+    public func operation(queue: dispatch_queue_t, write: Bool, operation: (context: Context) -> Void, completed: (() -> Void)?) {
         dispatch_async(queue) { () -> Void in
             let _context: Realm = self.saveContext as! Realm
             if (write) { _context.beginWrite() }
             operation(context: _context)
             if (write) { _ = try? _context.commitWrite() } // FIXME: Propagate the exception out of the scope
+            completed?()
         }
     }
 }

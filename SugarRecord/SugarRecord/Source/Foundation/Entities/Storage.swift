@@ -39,8 +39,9 @@ public protocol Storage: CustomStringConvertible {
     
      - parameter write: true if the context has to persist the changes
      - parameter operation: operation to be executed
+     - parameter completed: closure called when the execution is completed
      */
-    func operation(write: Bool, operation: (context: Context) -> Void)
+    func operation(write: Bool, operation: (context: Context) -> Void, completed: (() -> Void))
     
     /**
      Executes the provided operation in a given queue
@@ -50,8 +51,9 @@ public protocol Storage: CustomStringConvertible {
      - parameter queue:     queue where the operation will be executed
      - parameter write: true if the context has to persist the changes
      - parameter operation: operation to be executed
+     - parameter completed: closure called when the execution is completed
      */
-    func operation(queue: dispatch_queue_t, write: Bool, operation: (context: Context) -> Void)
+    func operation(queue: dispatch_queue_t, write: Bool, operation: (context: Context) -> Void, completed: (() -> Void)?)
 }
 
 
@@ -59,9 +61,9 @@ public protocol Storage: CustomStringConvertible {
 
 public extension Storage {
     
-    func operation(write: Bool, operation: (context: Context) -> Void) {
+    func operation(write: Bool, operation: (context: Context) -> Void, completed: (() -> Void)) {
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
-        self.operation(queue, write: write, operation: operation)
+        self.operation(queue, write: write, operation: operation, completed: completed)
     }
     
 }

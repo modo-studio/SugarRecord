@@ -32,15 +32,8 @@ extension Realm: Context {
     public func insert<T: Entity>() -> Result<T, Error> {
         guard let E = T.self as? Object.Type else { return Result(error: .InvalidType) }
         let inserted = E.init()
-        self.beginWrite()
         self.add(inserted)
-        do {
-            try self.commitWrite()
-            return Result(value: inserted as Any as! T)
-        }
-        catch {
-            return Result(error: .WriteError)
-        }
+        return Result(value: inserted as Any as! T)
     }
     
     /**

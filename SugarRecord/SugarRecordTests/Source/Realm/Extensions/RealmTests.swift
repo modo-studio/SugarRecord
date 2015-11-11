@@ -36,7 +36,9 @@ class RealmTests: QuickSpec {
         
         describe("insert") {
             it("should return the object inserted in the Realm") {
+                subject!.beginWrite()
                 let inserted: Result<Issue, Error> = subject!.insert()
+                _ = try? subject!.commitWrite()
                 _ = inserted
                 expect(subject!.objects(Issue.self).count) == 1
             }
