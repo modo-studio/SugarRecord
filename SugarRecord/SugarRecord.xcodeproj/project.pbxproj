@@ -22,6 +22,7 @@
 		2305F8FF1BF1EA8D00F9D379 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
 		2305F9001BF1EA8D00F9D379 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
 		2305F9011BF1EA8D00F9D379 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
+		230CBDC21BF37F7A00C43A48 /* ResultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CBDC11BF37F7900C43A48 /* ResultsTests.swift */; };
 		2353E6391BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
 		2353E63A1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
 		2353E63B1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
@@ -86,6 +87,16 @@
 		2353E67C1BED52150081E6E7 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E67A1BED52150081E6E7 /* Options.swift */; };
 		2353E67D1BED52150081E6E7 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E67A1BED52150081E6E7 /* Options.swift */; };
 		2353E67E1BED52150081E6E7 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E67A1BED52150081E6E7 /* Options.swift */; };
+		23AC16271BF370BA00FAF97A /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
+		23AC16291BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
+		23AC162A1BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
+		23AC162B1BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
+		23AC162C1BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
+		23AC162D1BF3725800FAF97A /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FDA31BF15C5500009071 /* Realm.swift */; };
+		23B15C501BF352540059008E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C4F1BF352540059008E /* Repository.swift */; };
+		23B15C521BF352AD0059008E /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C511BF352AD0059008E /* Issue.swift */; };
+		23B15C571BF3535E0059008E /* RealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C561BF3535E0059008E /* RealmTests.swift */; };
+		23B15C591BF353F70059008E /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C581BF353F70059008E /* Realm.swift */; };
 		3DB2B8D11BDEED0A005B7EF2 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8CF1BDEED0A005B7EF2 /* ReactiveCocoa.framework */; };
 		3DB2B8D21BDEED0A005B7EF2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8D01BDEED0A005B7EF2 /* Result.framework */; };
 		3DB2B8D91BDEEDF4005B7EF2 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8D71BDEEDF4005B7EF2 /* ReactiveCocoa.framework */; };
@@ -161,6 +172,7 @@
 		2305F8F61BF1E87200F9D379 /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		2305F8FA1BF1EA5900F9D379 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		2305F8FE1BF1EA8D00F9D379 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		230CBDC11BF37F7900C43A48 /* ResultsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTests.swift; sourceTree = "<group>"; };
 		2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		2353E62B1BED4AC00081E6E7 /* CoreDataDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDefaultStorage.swift; sourceTree = "<group>"; };
@@ -177,6 +189,11 @@
 		2353E6701BED4DF50081E6E7 /* ObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectModel.swift; sourceTree = "<group>"; };
 		2353E6751BED4E420081E6E7 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		2353E67A1BED52150081E6E7 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
+		23AC16281BF3716200FAF97A /* RealmEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmEntity.swift; sourceTree = "<group>"; };
+		23B15C4F1BF352540059008E /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		23B15C511BF352AD0059008E /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		23B15C561BF3535E0059008E /* RealmTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTests.swift; sourceTree = "<group>"; };
+		23B15C581BF353F70059008E /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		3DB2B82D1BDEE187005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB2B83C1BDEE1AD005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB2B84B1BDEE1C7005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,6 +317,7 @@
 		2305F8E51BF0F82400F9D379 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				23B15C531BF353530059008E /* Realm */,
 				2305F8E61BF0F82400F9D379 /* CoreData */,
 			);
 			path = Source;
@@ -308,6 +326,7 @@
 		2305F8E61BF0F82400F9D379 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				23B15C4A1BF351F50059008E /* Realm */,
 				3DE3FD971BF15AFE00009071 /* Storage */,
 				2305F8E71BF0F82400F9D379 /* Entities */,
 			);
@@ -326,6 +345,7 @@
 		2305F8E81BF0F83700F9D379 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				23B15C581BF353F70059008E /* Realm.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -333,6 +353,8 @@
 		2305F8E91BF0F83700F9D379 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				23B15C4D1BF352470059008E /* CoreData */,
+				23B15C4E1BF352470059008E /* Realm */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -447,6 +469,71 @@
 				2353E67A1BED52150081E6E7 /* Options.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		23B15C4A1BF351F50059008E /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				23B15C4B1BF351F50059008E /* Extensions */,
+				23B15C4C1BF351F50059008E /* Storages */,
+			);
+			name = Realm;
+			path = SugarRecordTests/Source/Realm;
+			sourceTree = SOURCE_ROOT;
+		};
+		23B15C4B1BF351F50059008E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		23B15C4C1BF351F50059008E /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		23B15C4D1BF352470059008E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		23B15C4E1BF352470059008E /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				23B15C4F1BF352540059008E /* Repository.swift */,
+				23B15C511BF352AD0059008E /* Issue.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		23B15C531BF353530059008E /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				23B15C541BF353530059008E /* Extensions */,
+				23B15C551BF353530059008E /* Storages */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		23B15C541BF353530059008E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				23B15C561BF3535E0059008E /* RealmTests.swift */,
+				230CBDC11BF37F7900C43A48 /* ResultsTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		23B15C551BF353530059008E /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storages;
 			sourceTree = "<group>";
 		};
 		3DB2B8011BDED648005B7EF2 = {
@@ -672,6 +759,7 @@
 				3DE3FDA31BF15C5500009071 /* Realm.swift */,
 				2305F8F61BF1E87200F9D379 /* Results.swift */,
 				2305F8FA1BF1EA5900F9D379 /* Object.swift */,
+				23AC16281BF3716200FAF97A /* RealmEntity.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -910,6 +998,7 @@
 				2353E6711BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E65D1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
 				2353E6671BED4B250081E6E7 /* CoreData.swift in Sources */,
+				23AC16291BF3716200FAF97A /* RealmEntity.swift in Sources */,
 				2305F8FB1BF1EA5900F9D379 /* Object.swift in Sources */,
 				2353E63D1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
 				2353E6591BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
@@ -943,7 +1032,10 @@
 				2353E64E1BED4AC00081E6E7 /* Error.swift in Sources */,
 				2353E6561BED4AC00081E6E7 /* Context.swift in Sources */,
 				2353E6521BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
+				23AC16271BF370BA00FAF97A /* Entity.swift in Sources */,
+				23AC162D1BF3725800FAF97A /* Realm.swift in Sources */,
 				2353E6621BED4AC00081E6E7 /* Requestable.swift in Sources */,
+				23AC162A1BF3716200FAF97A /* RealmEntity.swift in Sources */,
 				2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				2305F8F21BF0FE4500F9D379 /* DirUtils.swift in Sources */,
 			);
@@ -963,6 +1055,7 @@
 				2353E6731BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E65F1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
 				2353E6691BED4B250081E6E7 /* CoreData.swift in Sources */,
+				23AC162B1BF3716200FAF97A /* RealmEntity.swift in Sources */,
 				2305F8FC1BF1EA5900F9D379 /* Object.swift in Sources */,
 				2353E63F1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
 				2353E65B1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
@@ -992,6 +1085,7 @@
 				2353E6741BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E6601BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
 				2353E66A1BED4B250081E6E7 /* CoreData.swift in Sources */,
+				23AC162C1BF3716200FAF97A /* RealmEntity.swift in Sources */,
 				2305F8FD1BF1EA5900F9D379 /* Object.swift in Sources */,
 				2353E6401BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
 				2353E65C1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
@@ -1011,9 +1105,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23B15C521BF352AD0059008E /* Issue.swift in Sources */,
 				3DE3FD961BF12B8C00009071 /* DataModel.xcdatamodeld in Sources */,
+				230CBDC21BF37F7A00C43A48 /* ResultsTests.swift in Sources */,
 				2305F8EE1BF0FAFC00F9D379 /* ObjectModelTests.swift in Sources */,
+				23B15C591BF353F70059008E /* Realm.swift in Sources */,
+				23B15C571BF3535E0059008E /* RealmTests.swift in Sources */,
 				2305F8EC1BF0F89200F9D379 /* StoreTests.swift in Sources */,
+				23B15C501BF352540059008E /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
