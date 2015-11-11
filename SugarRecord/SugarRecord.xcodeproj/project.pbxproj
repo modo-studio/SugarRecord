@@ -23,6 +23,7 @@
 		2305F9001BF1EA8D00F9D379 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
 		2305F9011BF1EA8D00F9D379 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
 		230CBDC21BF37F7A00C43A48 /* ResultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CBDC11BF37F7900C43A48 /* ResultsTests.swift */; };
+		230CBDC61BF383D700C43A48 /* RealmDefaultStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CBDC51BF383D700C43A48 /* RealmDefaultStorageTests.swift */; };
 		2353E6391BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
 		2353E63A1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
 		2353E63B1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
@@ -173,6 +174,7 @@
 		2305F8FA1BF1EA5900F9D379 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		2305F8FE1BF1EA8D00F9D379 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		230CBDC11BF37F7900C43A48 /* ResultsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTests.swift; sourceTree = "<group>"; };
+		230CBDC51BF383D700C43A48 /* RealmDefaultStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDefaultStorageTests.swift; sourceTree = "<group>"; };
 		2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		2353E62B1BED4AC00081E6E7 /* CoreDataDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDefaultStorage.swift; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 		23B15C551BF353530059008E /* Storages */ = {
 			isa = PBXGroup;
 			children = (
+				230CBDC51BF383D700C43A48 /* RealmDefaultStorageTests.swift */,
 			);
 			path = Storages;
 			sourceTree = "<group>";
@@ -1105,6 +1108,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230CBDC61BF383D700C43A48 /* RealmDefaultStorageTests.swift in Sources */,
 				23B15C521BF352AD0059008E /* Issue.swift in Sources */,
 				3DE3FD961BF12B8C00009071 /* DataModel.xcdatamodeld in Sources */,
 				230CBDC21BF37F7A00C43A48 /* ResultsTests.swift in Sources */,
