@@ -5,8 +5,11 @@ public struct Request<T> {
     
     // MARK: - Attributes
     
-    let sortDescriptor: NSSortDescriptor?
-    let predicate: NSPredicate?
+    /// Sort descriptor
+    public let sortDescriptor: NSSortDescriptor?
+    
+    /// Predicate
+    public let predicate: NSPredicate?
     
     
     // MARK: - Init

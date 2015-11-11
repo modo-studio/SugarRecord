@@ -5,7 +5,7 @@ import Foundation
 
 extension Request: NSPredicateConvertible {
     
-    init(predicate: NSPredicate) {
+    public init(predicate: NSPredicate) {
         self = Request(predicate: predicate)
     }
 }
@@ -15,7 +15,7 @@ extension Request: NSPredicateConvertible {
 
 extension Request: NSSortDescriptorConvertible {
     
-    init(sortDescriptor: NSSortDescriptor) {
+    public init(sortDescriptor: NSSortDescriptor) {
         self = Request(sortDescriptor: sortDescriptor)
     }
 }
