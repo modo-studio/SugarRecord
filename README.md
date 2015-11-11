@@ -48,12 +48,29 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [G
 5. Add generated frameworks to your app main target following the steps [here](https://github.com/carthage/carthage)
 6. Link your target with **CoreData** library *(from Build Phases)*
 
-## How to use it
-//TODO
+## Version 2.0 Checklist :white_check_mark:
+- [ ] Development
+ - [ ] CoreDataDefaultStorage
+ - [ ] Request fluent interface
+- [ ] Create 2.0 Wiki:
+  -  Setup:
+    - CoreData
+    - Carthage
+  -  Getting started
+  -  Storages. Build your own!
+  -  Fetching
+  -  Operations
+  -  Testing
+  -  Good practices
+- [ ] Create Contribution document
+  - Make tasks
+  - Style guideline
+  - Unit testing
+
 
 ## Features backlog
-- Reactive API
-- Logging support
+- [ ] Reactive API
+- [ ] Logging support
 
 ## Support
 
@@ -99,4 +116,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ## Who uses SugarRecord?
-Are you using SugarRecord? Let us know, and we'll list you here. We :heart: to hear about companies, apps that are using us with CoreData. 
+Are you using SugarRecord? Let us know, and we'll list you here. We :heart: to hear about companies, apps that are using us with CoreData.
