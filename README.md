@@ -48,8 +48,9 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [G
 
 ## Version 2.0 Checklist :white_check_mark:
 - [ ] Development
- - [ ] CoreDataDefaultStorage
+ - [ ] CoreDataDefaultStorage tests
  - [ ] Request fluent interface
+- [ ] Documentation (Jazzy): *Make sure all the components are documented*
 - [ ] Create 2.0 Wiki:
   -  Setup:
     - CoreData
@@ -64,7 +65,6 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [G
   - Make tasks
   - Style guideline
   - Unit testing
-
 
 ## Features backlog
 - [ ] Reactive API
