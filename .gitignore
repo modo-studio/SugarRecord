@@ -3,6 +3,7 @@
 ### AppCode ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio
 
+build
 *.iml
 
 ## Directory-based project format:
