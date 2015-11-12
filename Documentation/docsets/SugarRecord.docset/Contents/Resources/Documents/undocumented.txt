@@ -35,6 +35,10 @@ Error.swift
 	case WriteError
 	case InvalidType
 	case Nothing
+Queue.swift
+	case Main
+	case Background
+	case Custom(dispatch_queue_t)
 RequestExtension.swift
 	public init(predicate: NSPredicate)
 	public init(sortDescriptor: NSSortDescriptor)

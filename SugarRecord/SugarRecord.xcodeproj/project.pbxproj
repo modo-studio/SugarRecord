@@ -93,6 +93,10 @@
 		239C8E061BF48B680025DB9A /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E041BF48B680025DB9A /* ContextParent.swift */; };
 		239C8E071BF48B680025DB9A /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E041BF48B680025DB9A /* ContextParent.swift */; };
 		239C8E081BF48B680025DB9A /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E041BF48B680025DB9A /* ContextParent.swift */; };
+		239C8E0A1BF4A5870025DB9A /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E091BF4A5860025DB9A /* Queue.swift */; };
+		239C8E0B1BF4A5870025DB9A /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E091BF4A5860025DB9A /* Queue.swift */; };
+		239C8E0C1BF4A5870025DB9A /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E091BF4A5860025DB9A /* Queue.swift */; };
+		239C8E0D1BF4A5870025DB9A /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E091BF4A5860025DB9A /* Queue.swift */; };
 		23AC16271BF370BA00FAF97A /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
 		23AC16291BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
 		23AC162A1BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
@@ -197,6 +201,7 @@
 		2353E6751BED4E420081E6E7 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		2353E67A1BED52150081E6E7 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		239C8E041BF48B680025DB9A /* ContextParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextParent.swift; sourceTree = "<group>"; };
+		239C8E091BF4A5860025DB9A /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		23AC16281BF3716200FAF97A /* RealmEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmEntity.swift; sourceTree = "<group>"; };
 		23B15C4F1BF352540059008E /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		23B15C511BF352AD0059008E /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
@@ -436,6 +441,7 @@
 			children = (
 				2353E62E1BED4AC00081E6E7 /* Request.swift */,
 				2353E62F1BED4AC00081E6E7 /* Storage.swift */,
+				239C8E091BF4A5860025DB9A /* Queue.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1013,6 +1019,7 @@
 				2353E63D1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
 				2353E6591BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
 				2353E64D1BED4AC00081E6E7 /* Error.swift in Sources */,
+				239C8E0A1BF4A5870025DB9A /* Queue.swift in Sources */,
 				2353E6551BED4AC00081E6E7 /* Context.swift in Sources */,
 				2305F8F71BF1E87200F9D379 /* Results.swift in Sources */,
 				239C8E051BF48B680025DB9A /* ContextParent.swift in Sources */,
@@ -1051,6 +1058,7 @@
 				2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				2305F8F21BF0FE4500F9D379 /* DirUtils.swift in Sources */,
 				239C8E031BF4805C0025DB9A /* RealmDefaultStorage.swift in Sources */,
+				239C8E0B1BF4A5870025DB9A /* Queue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1073,6 +1081,7 @@
 				2353E63F1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
 				2353E65B1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
 				2353E64F1BED4AC00081E6E7 /* Error.swift in Sources */,
+				239C8E0C1BF4A5870025DB9A /* Queue.swift in Sources */,
 				2353E6571BED4AC00081E6E7 /* Context.swift in Sources */,
 				2305F8F81BF1E87200F9D379 /* Results.swift in Sources */,
 				239C8E071BF48B680025DB9A /* ContextParent.swift in Sources */,
@@ -1104,6 +1113,7 @@
 				2353E6401BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
 				2353E65C1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
 				2353E6501BED4AC00081E6E7 /* Error.swift in Sources */,
+				239C8E0D1BF4A5870025DB9A /* Queue.swift in Sources */,
 				2353E6581BED4AC00081E6E7 /* Context.swift in Sources */,
 				2305F8F91BF1E87200F9D379 /* Results.swift in Sources */,
 				239C8E081BF48B680025DB9A /* ContextParent.swift in Sources */,

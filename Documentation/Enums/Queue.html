@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Request Struct Reference</title>
+    <title>Queue Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/Request" class="dashAnchor"></a>
-    <a title="Request Struct Reference"></a>
+    <a name="//apple_ref/swift/Enum/Queue" class="dashAnchor"></a>
+    <a title="Queue Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">SugarRecord Docs</a> (56% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">SugarRecord Reference</a>
         <img id="carat" src="../img/carat.png" />
-        Request Struct Reference
+        Queue Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -113,26 +113,31 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Request</h1>
-            <p>Undocumented</p>
+            <h1>Queue</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Queue</span></code></pre>
+
+                </div>
+              </div>
+            <p>Enum that represents a thread queue where operations get executed.</p>
+
+<ul>
+<li><strong>Main:</strong> Main thread queue.</li>
+<li><strong>Background:</strong> Background thread queue.</li>
+<li><strong>Custom:</strong> Custom Grand Central Dispatch Queue.</li>
+</ul>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Attributes"></a>
-                <a name="//apple_ref/swift/Section/Attributes" class="dashAnchor"></a>
-                <a href="#/Attributes">
-                  <h3 class="section-name">Attributes</h3>
-                </a>
-              </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV11SugarRecord7Request14sortDescriptorGSqCSo16NSSortDescriptor_"></a>
-                    <a name="//apple_ref/swift/Property/sortDescriptor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV11SugarRecord7Request14sortDescriptorGSqCSo16NSSortDescriptor_">sortDescriptor</a>
+                    <a name="/s:FO11SugarRecord5Queue4MainFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Main" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11SugarRecord5Queue4MainFMS0_S0_">Main</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -140,41 +145,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sort descriptor</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">sortDescriptor</span><span class="p">:</span> <span class="kt">NSSortDescriptor</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vV11SugarRecord7Request9predicateGSqCSo11NSPredicate_"></a>
-                    <a name="//apple_ref/swift/Property/predicate" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV11SugarRecord7Request9predicateGSqCSo11NSPredicate_">predicate</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Predicate</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">predicate</span><span class="p">:</span> <span class="kt">NSPredicate</span><span class="p">?</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Queue</span></code></pre>
 
                         </div>
                       </div>
@@ -188,9 +166,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV11SugarRecord7RequestcurFMGS0_q__FT9predicateCSo11NSPredicate_GS0_q__"></a>
-                    <a name="//apple_ref/swift/Method/init(predicate:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV11SugarRecord7RequestcurFMGS0_q__FT9predicateCSo11NSPredicate_GS0_q__">init(predicate:)</a>
+                    <a name="/s:FO11SugarRecord5Queue10BackgroundFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Background" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11SugarRecord5Queue10BackgroundFMS0_S0_">Background</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -200,6 +178,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Queue</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -211,9 +197,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV11SugarRecord7RequestcurFMGS0_q__FT14sortDescriptorCSo16NSSortDescriptor_GS0_q__"></a>
-                    <a name="//apple_ref/swift/Method/init(sortDescriptor:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV11SugarRecord7RequestcurFMGS0_q__FT14sortDescriptorCSo16NSSortDescriptor_GS0_q__">init(sortDescriptor:)</a>
+                    <a name="/s:FO11SugarRecord5Queue6CustomFMS0_FPSo17OS_dispatch_queue_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Custom" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11SugarRecord5Queue6CustomFMS0_FPSo17OS_dispatch_queue_S0_">Custom</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -223,6 +209,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Queue</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

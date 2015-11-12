@@ -13,7 +13,7 @@
     <a title="RealmDefaultStorage Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">SugarRecord Docs</a> (58% documented)</p>
+        <p><a href="../index.html">SugarRecord Docs</a> (56% documented)</p>
         <p class="header-right"><a href="https://github.com/gitdoapp/sugarrecord"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -43,6 +43,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/Error.html">Error</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Queue.html">Queue</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/StorageType.html">StorageType</a>
@@ -117,16 +120,16 @@
 
                 </div>
               </div>
-            <p><a href="../Extensions/Realm.html">Realm</a> default storage</p>
+            <p>Default <a href="../Extensions/Realm.html">Realm</a> storage. In this case the structure is much simpler (compared with <a href="../Structs/CoreData.html">CoreData</a>) contexts are represented by <a href="../Extensions/Realm.html">Realm</a> instances in the thread where they are requested.</p>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Storage"></a>
-                <a name="//apple_ref/swift/Section/Storage" class="dashAnchor"></a>
-                <a href="#/Storage">
-                  <h3 class="section-name">Storage</h3>
+                <a name="/Storage%20conformance"></a>
+                <a name="//apple_ref/swift/Section/Storage conformance" class="dashAnchor"></a>
+                <a href="#/Storage%20conformance">
+                  <h3 class="section-name">Storage conformance</h3>
                 </a>
               </div>
               <ul>
@@ -143,7 +146,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><a href="../Protocols/Storage.html">Storage</a> name</p>
+                        <p><a href="../Protocols/Storage.html">Storage</a> description. This description property is defined in the CustomStringLiteralConvertible protocol</p>
 
                       </div>
                       <div class="declaration">
@@ -197,7 +200,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Main context. This context is mostly used for querying operations</p>
+                        <p>Main context. This context is mostly used for querying operations.
+Note: Use this context with the main thread only</p>
 
                       </div>
                       <div class="declaration">
@@ -278,11 +282,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes the store</p>
+                        <p>It removes the store. If you use this method the <a href="../Structs/CoreData.html">CoreData</a> make sure you initialize everything again before starting using <a href="../Structs/CoreData.html">CoreData</a> again</p>
 
 <div class="aside aside-throws">
           <p class="aside-title">Throws</p>
-          error if the store cannot be removed
+          NSError returned by NSFileManager when the removal operation fails
 
         </div>
 
@@ -301,9 +305,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11SugarRecord19RealmDefaultStorage9operationFS0_FT5queuePSo17OS_dispatch_queue_9operationFT7contextPS_7Context_4saveFT_T__T_9completedGSqFT_T___T_"></a>
+                    <a name="/s:FC11SugarRecord19RealmDefaultStorage9operationFS0_FT5queueOS_5Queue9operationFT7contextPS_7Context_4saveFT_T__T_9completedGSqFT_T___T_"></a>
                     <a name="//apple_ref/swift/Method/operation(queue:operation:completed:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11SugarRecord19RealmDefaultStorage9operationFS0_FT5queuePSo17OS_dispatch_queue_9operationFT7contextPS_7Context_4saveFT_T__T_9completedGSqFT_T___T_">operation(queue:operation:completed:)</a>
+                    <a class="token" href="#/s:FC11SugarRecord19RealmDefaultStorage9operationFS0_FT5queueOS_5Queue9operationFT7contextPS_7Context_4saveFT_T__T_9completedGSqFT_T___T_">operation(queue:operation:completed:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -318,7 +322,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">operation</span><span class="p">(</span><span class="n">queue</span> <span class="nv">queue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span><span class="p">,</span> <span class="nv">operation</span><span class="p">:</span> <span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">,</span> <span class="nv">save</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">completed</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">operation</span><span class="p">(</span><span class="n">queue</span> <span class="nv">queue</span><span class="p">:</span> <span class="kt">Queue</span><span class="p">,</span> <span class="nv">operation</span><span class="p">:</span> <span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">,</span> <span class="nv">save</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">completed</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
 
                         </div>
                       </div>
@@ -334,20 +338,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>queue where the operation will be executed</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>save</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>closure to be called to persist the changes</p>
+                                  <p>Queue where the operation will be executed</p>
 
                                 </div>
                               </td>
@@ -360,7 +351,20 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>operation to be executed</p>
+                                  <p>Operation closure that will be executed. This operation receives a context that can be use for fetching/persisting/removing data. It also receives a save closure. When this closure is called the operations against the context are persisted. If this method is not called the context will be removed and the operations won&rsquo;t be persisted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completed</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Closure that is called once the operation &amp; saving finishes. It&rsquo;s called from the Queue where the operation was executed.</p>
 
                                 </div>
                               </td>
