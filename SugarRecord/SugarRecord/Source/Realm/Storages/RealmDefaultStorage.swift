@@ -58,7 +58,7 @@ public class RealmDefaultStorage: Storage {
      - parameter save:      closure to be called to persist the changes
      - parameter operation: operation to be executed
      */
-    public func operation(queue: dispatch_queue_t, operation: (context: Context, save: () -> Void) -> Void, completed: (() -> Void)?) {
+    public func operation(queue queue: dispatch_queue_t, operation: (context: Context, save: () -> Void) -> Void, completed: (() -> Void)?) {
         dispatch_async(queue) { () -> Void in
             let _context: Realm = self.saveContext as! Realm
             _context.beginWrite()

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CoreDataDefaultStorage Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/CoreDataDefaultStorage" class="dashAnchor"></a>
+    <a title="CoreDataDefaultStorage Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">SugarRecord Docs</a> (58% documented)</p>
+        <p class="header-right"><a href="https://github.com/gitdoapp/sugarrecord"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">SugarRecord Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CoreDataDefaultStorage Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CoreDataDefaultStorage.html">CoreDataDefaultStorage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RealmDefaultStorage.html">RealmDefaultStorage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Error.html">Error</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/StorageType.html">StorageType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/NSManagedObject.html">NSManagedObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSManagedObjectContext.html">NSManagedObjectContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Realm.html">Realm</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF11SugarRecordoi2eeFTOVS_8CoreData5StoreS1__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF11SugarRecordoi2eeFTOVS_8CoreData11ObjectModelS1__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Context.html">Context</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:P11SugarRecord6Entity">Entity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NSPredicateConvertible.html">NSPredicateConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NSSortDescriptorConvertible.html">NSSortDescriptorConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Storage.html">Storage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/CoreData.html">CoreData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request.html">Request</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CoreDataDefaultStorage</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CoreDataDefaultStorage</span><span class="p">:</span> <span class="kt">Storage</span></code></pre>
+
+                </div>
+              </div>
+            <p>Default <a href="../Structs/CoreData.html">CoreData</a> storage with an stack based on a private root context that is connected to the persistent store coordinator. A main context connected to that private root context is using for main thread operations such as data fetching, and then high load operations are executed in temporary private context that has the root context as parent context. Operations persisted in these contexts are automatically merged into the main context in order to reflect the changes in UI components.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Storage%20conformance"></a>
+                <a name="//apple_ref/swift/Section/Storage conformance" class="dashAnchor"></a>
+                <a href="#/Storage%20conformance">
+                  <h3 class="section-name">Storage conformance</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11SugarRecord22CoreDataDefaultStorage11descriptionSS"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11SugarRecord22CoreDataDefaultStorage11descriptionSS">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><a href="../Protocols/Storage.html">Storage</a> description. This description property is defined in the CustomStringLiteralConvertible protocol</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11SugarRecord22CoreDataDefaultStorage4typeOS_11StorageType"></a>
+                    <a name="//apple_ref/swift/Property/type" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11SugarRecord22CoreDataDefaultStorage4typeOS_11StorageType">type</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><a href="../Protocols/Storage.html">Storage</a> type</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">StorageType</span> <span class="o">=</span> <span class="o">.</span><span class="kt">CoreData</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11SugarRecord22CoreDataDefaultStorage11mainContextGSQPS_7Context__"></a>
+                    <a name="//apple_ref/swift/Property/mainContext" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11SugarRecord22CoreDataDefaultStorage11mainContextGSQPS_7Context__">mainContext</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Main context. This context is mostly used for querying operations.
+Note: Use this context with the main thread only</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">mainContext</span><span class="p">:</span> <span class="kt">Context</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11SugarRecord22CoreDataDefaultStorage11saveContextGSQPS_7Context__"></a>
+                    <a name="//apple_ref/swift/Property/saveContext" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11SugarRecord22CoreDataDefaultStorage11saveContextGSQPS_7Context__">saveContext</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Save context. This context is mostly used for save operations</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">saveContext</span><span class="p">:</span> <span class="kt">Context</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11SugarRecord22CoreDataDefaultStorage13memoryContextGSQPS_7Context__"></a>
+                    <a name="//apple_ref/swift/Property/memoryContext" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11SugarRecord22CoreDataDefaultStorage13memoryContextGSQPS_7Context__">memoryContext</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Memory context. This context is mostly used for testing (not persisted)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">memoryContext</span><span class="p">:</span> <span class="kt">Context</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Storage%20(methods)"></a>
+                <a name="//apple_ref/swift/Section/Storage (methods)" class="dashAnchor"></a>
+                <a href="#/Storage%20(methods)">
+                  <h3 class="section-name">Storage (methods)</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11SugarRecord22CoreDataDefaultStorage9operationFS0_FT5queuePSo17OS_dispatch_queue_9operationFT7contextPS_7Context_4saveFT_T__T_9completedGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/operation(queue:operation:completed:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11SugarRecord22CoreDataDefaultStorage9operationFS0_FT5queuePSo17OS_dispatch_queue_9operationFT7contextPS_7Context_4saveFT_T__T_9completedGSqFT_T___T_">operation(queue:operation:completed:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Executes the provided operation in a given queue</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">operation</span><span class="p">(</span><span class="n">queue</span> <span class="nv">queue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span><span class="p">,</span> <span class="nv">operation</span><span class="p">:</span> <span class="p">(</span><span class="nv">context</span><span class="p">:</span> <span class="kt">Context</span><span class="p">,</span> <span class="nv">save</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">completed</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>GCD queue where the operation will be executed</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>operation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Operation closure that will be executed. This operation receives a context that can be use for fetching/persisting/removing data. It also receives a save closure. When this closure is called the operations against the context are persisted. If this method is not called the context will be removed and the operations won&rsquo;t be persisted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completed</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Closure that is called once the operation &amp; saving finishes. It&rsquo;s called from the Queue where the operation was executed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11SugarRecord22CoreDataDefaultStorage11removeStoreFS0_FzT_T_"></a>
+                    <a name="//apple_ref/swift/Method/removeStore()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11SugarRecord22CoreDataDefaultStorage11removeStoreFS0_FzT_T_">removeStore()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>It removes the store. If you use this method the <a href="../Structs/CoreData.html">CoreData</a> make sure you initialize everything again before starting using <a href="../Structs/CoreData.html">CoreData</a> again</p>
+
+<div class="aside aside-throws">
+          <p class="aside-title">Throws</p>
+          NSError returned by NSFileManager when the removal operation fails
+
+        </div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">removeStore</span><span class="p">()</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Init"></a>
+                <a name="//apple_ref/swift/Section/Init" class="dashAnchor"></a>
+                <a href="#/Init">
+                  <h3 class="section-name">Init</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11SugarRecord22CoreDataDefaultStoragecFMS0_FzT5storeOVS_8CoreData5Store5modelOS1_11ObjectModel7migrateSb_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(store:model:migrate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11SugarRecord22CoreDataDefaultStoragecFMS0_FzT5storeOVS_8CoreData5Store5modelOS1_11ObjectModel7migrateSb_S0_">init(store:model:migrate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes the <a href="../Classes/CoreDataDefaultStorage.html">CoreDataDefaultStorage</a></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">store</span><span class="p">:</span> <span class="kt">CoreData</span><span class="o">.</span><span class="kt">Store</span><span class="p">,</span> <span class="nv">model</span><span class="p">:</span> <span class="kt">CoreData</span><span class="o">.</span><span class="kt">ObjectModel</span><span class="p">,</span> <span class="nv">migrate</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>store</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Entity that represents a CoreData store</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>model</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Entity that represetns the CoreData object model that contains the database schema</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>migrate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>True if the store has to be migrated when it&rsquo;s initialized</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>initialized <a href="../Structs/CoreData.html">CoreData</a> default storage</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="http://gitdo.io" target="_blank" rel="external">@pepibumur</a>. All rights reserved. (Last updated: 2015-11-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Classes  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a title="Classes  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">SugarRecord Docs</a> (58% documented)</p>
+        <p class="header-right"><a href="https://github.com/gitdoapp/sugarrecord"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">SugarRecord Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Classes  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/CoreDataDefaultStorage.html">CoreDataDefaultStorage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/RealmDefaultStorage.html">RealmDefaultStorage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/Error.html">Error</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/StorageType.html">StorageType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/NSManagedObject.html">NSManagedObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/NSManagedObjectContext.html">NSManagedObjectContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Realm.html">Realm</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:ZF11SugarRecordoi2eeFTOVS_8CoreData5StoreS1__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:ZF11SugarRecordoi2eeFTOVS_8CoreData11ObjectModelS1__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/Context.html">Context</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:P11SugarRecord6Entity">Entity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/NSPredicateConvertible.html">NSPredicateConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/NSSortDescriptorConvertible.html">NSSortDescriptorConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Storage.html">Storage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/CoreData.html">CoreData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Request.html">Request</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Classes</h1>
+            <p>The following classes are available globally.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C11SugarRecord22CoreDataDefaultStorage"></a>
+                    <a name="//apple_ref/swift/Class/CoreDataDefaultStorage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C11SugarRecord22CoreDataDefaultStorage">CoreDataDefaultStorage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default <a href="Structs/CoreData.html">CoreData</a> storage with an stack based on a private root context that is connected to the persistent store coordinator. A main context connected to that private root context is using for main thread operations such as data fetching, and then high load operations are executed in temporary private context that has the root context as parent context. Operations persisted in these contexts are automatically merged into the main context in order to reflect the changes in UI components.</p>
+
+                        <a href="Classes/CoreDataDefaultStorage.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CoreDataDefaultStorage</span><span class="p">:</span> <span class="kt">Storage</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C11SugarRecord19RealmDefaultStorage"></a>
+                    <a name="//apple_ref/swift/Class/RealmDefaultStorage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C11SugarRecord19RealmDefaultStorage">RealmDefaultStorage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><a href="Extensions/Realm.html">Realm</a> default storage</p>
+
+                        <a href="Classes/RealmDefaultStorage.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">RealmDefaultStorage</span><span class="p">:</span> <span class="kt">Storage</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="http://gitdo.io" target="_blank" rel="external">@pepibumur</a>. All rights reserved. (Last updated: 2015-11-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

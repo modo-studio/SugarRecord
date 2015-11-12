@@ -12,10 +12,10 @@ In order to simplify some tasks there's a set of tasks defined in a `Makefile` t
 
 - Generate documentation: `make doc`
 - Build all schemes: `make build`
-- Run tests: `make tests`
+- Run tests: `make test`
 
 ## New version checklist
-- [x] `make build` passes 
+- [x] `make build` passes
 - [x] `make tests` passes
 - [x] Bump the version in project targets
 - [x] Bump the version in `SugarRecord.podspec`
@@ -33,4 +33,3 @@ In order to simplify some tasks there's a set of tasks defined in a `Makefile` t
 
 ## Others
 - Swift Style guideline: [RayWenderlich](https://github.com/raywenderlich/swift-style-guide)
-

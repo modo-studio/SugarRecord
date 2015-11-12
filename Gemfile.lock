@@ -40,7 +40,7 @@ GEM
     escape (0.0.4)
     fuzzy_match (2.0.4)
     i18n (0.7.0)
-    jazzy (0.3.2)
+    jazzy (0.4.0)
       cocoapods (~> 0.38)
       mustache (~> 0.99)
       open4

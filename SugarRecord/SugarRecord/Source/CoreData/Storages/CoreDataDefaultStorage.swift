@@ -1,22 +1,30 @@
 import Foundation
 import CoreData
 
-/// Default CoreData storage with an stack base on PSC <=> Private Context <=> Main Context <=> Private Context
-/// High load operations are executed in private contexts without affecting the Main Context used from the main thread for UI data presentation
+/// Default CoreData storage with an stack based on a private root context that is connected to the persistent store coordinator. A main context connected to that private root context is using for main thread operations such as data fetching, and then high load operations are executed in temporary private context that has the root context as parent context. Operations persisted in these contexts are automatically merged into the main context in order to reflect the changes in UI components.
 public class CoreDataDefaultStorage: Storage {
     
     
     // MARK: - Attributes
     
+    /// CoreData store
     private let store: CoreData.Store
+    
+    /// CoreData managed object model
     private var objectModel: NSManagedObjectModel! = nil
+    
+    /// CoreData persistent store
     private var persistentStore: NSPersistentStore! = nil
+    
+    /// CoreData persistent store coordinator
     private var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil
+    
+    /// CoreData root saving context
     private var rootSavingContext: NSManagedObjectContext! = nil
     
-    // MARK: - Storage (Attributes)
+    // MARK: - Storage conformance
     
-    /// Storage name
+    /// Storage description. This description property is defined in the CustomStringLiteralConvertible protocol
     public var description: String {
         get {
             return "CoreDataDefaultStorage"
@@ -26,7 +34,8 @@ public class CoreDataDefaultStorage: Storage {
     /// Storage type
     public var type: StorageType = .CoreData
     
-    /// Main context. This context is mostly used for querying operations
+    /// Main context. This context is mostly used for querying operations.
+    /// Note: Use this context with the main thread only
     public var mainContext: Context!
 
     /// Save context. This context is mostly used for save operations
@@ -48,17 +57,14 @@ public class CoreDataDefaultStorage: Storage {
         }
     }
     
-    
-    // MARK: - Storage (methods)
-    
     /**
     Executes the provided operation in a given queue
     
-    - parameter queue:     queue where the operation will be executed
-    - parameter save:      closure to be called to persist the changes
-    - parameter operation: operation to be executed
+    - parameter queue:     GCD queue where the operation will be executed
+    - parameter operation: Operation closure that will be executed. This operation receives a context that can be use for fetching/persisting/removing data. It also receives a save closure. When this closure is called the operations against the context are persisted. If this method is not called the context will be removed and the operations won't be persisted.
+    - parameter completed: Closure that is called once the operation & saving finishes. It's called from the Queue where the operation was executed.
     */
-    public func operation(queue: dispatch_queue_t, operation: (context: Context, save: () -> Void) -> Void, completed: (() -> Void)?) {
+    public func operation(queue queue: dispatch_queue_t, operation: (context: Context, save: () -> Void) -> Void, completed: (() -> Void)?) {
         dispatch_async(queue) { () -> Void in
             let context: NSManagedObjectContext = self.saveContext as! NSManagedObjectContext
             context.performBlockAndWait {
@@ -70,29 +76,33 @@ public class CoreDataDefaultStorage: Storage {
                     if mainContext.hasChanges {
                         _ = try? mainContext.save()
                     }
+                    completed?()
+                }
+                else {
+                    completed?()
                 }
             }
         }
     }
     
     /**
-     It removes the store. If you use this method the CoreData make sure you initialize everything again before stargint using CoreData again
+     It removes the store. If you use this method the CoreData make sure you initialize everything again before starting using CoreData again
      
-     - throws: error if the store cannot be deleted
+     - throws: NSError returned by NSFileManager when the removal operation fails
      */
     public func removeStore() throws {
         try NSFileManager.defaultManager().removeItemAtURL(store.path())
     }
     
     
-    // MARK: - Init
+    // MARK: - Constructors
     
     /**
-    Initializes the default CoreData storage
+    Initializes the CoreDataDefaultStorage
     
-    - parameter store:   store information
-    - parameter model:   object model
-    - parameter migrate: true if the database has to be migrated in case the schema changed
+    - parameter store:   Entity that represents a CoreData store
+    - parameter model:   Entity that represetns the CoreData object model that contains the database schema
+    - parameter migrate: True if the store has to be migrated when it's initialized
     
     - returns: initialized CoreData default storage
     */

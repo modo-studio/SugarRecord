@@ -55,7 +55,7 @@ public protocol Storage: CustomStringConvertible {
      - parameter save:      closure to be called to persist the changes
      - parameter completed: closure called when the execution is completed
      */
-    func operation(queue: dispatch_queue_t, operation: (context: Context, save: Saver) -> Void, completed: (() -> Void)?)
+    func operation(queue queue: dispatch_queue_t, operation: (context: Context, save: Saver) -> Void, completed: (() -> Void)?)
 }
 
 
@@ -65,7 +65,7 @@ public extension Storage {
     
     func operation(operation: (context: Context, save: Saver) -> Void, completed: (() -> Void)?) {
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
-        self.operation(queue, operation: operation, completed: completed)
+        self.operation(queue: queue, operation: operation, completed: completed)
     }
     
 }
