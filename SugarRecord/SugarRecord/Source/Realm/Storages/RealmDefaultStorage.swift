@@ -22,23 +22,23 @@ public class RealmDefaultStorage: Storage {
     }
     
     /// Main context. This context is mostly used for querying operations
-    public var mainContext: Context {
+    public var mainContext: Context! {
         get {
-            return try! Realm()
+            return try? Realm()
         }
     }
     
     /// Save context. This context is mostly used for save operations
-    public var saveContext: Context {
+    public var saveContext: Context! {
         get {
-            return try! Realm()
+            return try? Realm()
         }
     }
     
     /// Memory context. This context is mostly used for testing (not persisted)
-    public var memoryContext: Context {
+    public var memoryContext: Context! {
         get {
-            return try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: "MemoryRealm"))
+            return try? Realm(configuration: Realm.Configuration(inMemoryIdentifier: "MemoryRealm"))
         }
     }
     

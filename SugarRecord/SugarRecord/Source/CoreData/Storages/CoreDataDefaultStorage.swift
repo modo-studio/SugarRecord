@@ -9,10 +9,10 @@ public class CoreDataDefaultStorage: Storage {
     // MARK: - Attributes
     
     private let store: CoreData.Store
-    private let objectModel: NSManagedObjectModel
-    private let persistentStore: NSPersistentStore
-    private let persistentStoreCoordinator: NSPersistentStoreCoordinator
-    private let rootSavingContext: NSManagedObjectContext
+    private var objectModel: NSManagedObjectModel! = nil
+    private var persistentStore: NSPersistentStore! = nil
+    private var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil
+    private var rootSavingContext: NSManagedObjectContext! = nil
     
     // MARK: - Storage (Attributes)
     
@@ -27,10 +27,10 @@ public class CoreDataDefaultStorage: Storage {
     public var type: StorageType = .CoreData
     
     /// Main context. This context is mostly used for querying operations
-    public let mainContext: Context
+    public var mainContext: Context!
 
     /// Save context. This context is mostly used for save operations
-    public var saveContext: Context {
+    public var saveContext: Context! {
         get {
             let _context = context(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType)
             _context.observe(inMainThread: true) { [weak self] (notification) -> Void in
@@ -41,7 +41,7 @@ public class CoreDataDefaultStorage: Storage {
     }
     
     /// Memory context. This context is mostly used for testing (not persisted)
-    public var memoryContext: Context {
+    public var memoryContext: Context! {
         get {
             let _context =  context(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType)
             return _context
@@ -96,11 +96,11 @@ public class CoreDataDefaultStorage: Storage {
     
     - returns: initialized CoreData default storage
     */
-    public init(store: CoreData.Store, model: CoreData.ObjectModel, migrate: Bool = true) {
+    public init(store: CoreData.Store, model: CoreData.ObjectModel, migrate: Bool = true) throws {
         self.store   = store
         self.objectModel = model.model()!
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
-        self.persistentStore = try! initializeStore(store, storeCoordinator: persistentStoreCoordinator, migrate: migrate)
+        self.persistentStore = try initializeStore(store, storeCoordinator: persistentStoreCoordinator, migrate: migrate)
         self.rootSavingContext = context(withParent: .Coordinator(self.persistentStoreCoordinator), concurrencyType: .PrivateQueueConcurrencyType)
         self.mainContext = context(withParent: .Context(self.rootSavingContext), concurrencyType: .MainQueueConcurrencyType)
     }

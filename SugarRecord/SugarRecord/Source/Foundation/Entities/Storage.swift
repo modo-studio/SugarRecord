@@ -23,13 +23,13 @@ public protocol Storage: CustomStringConvertible {
     var type: StorageType { get }
     
     /// Main context. This context is mostly used for querying operations
-    var mainContext: Context { get }
+    var mainContext: Context! { get }
     
     /// Save context. This context is mostly used for save operations
-    var saveContext: Context { get }
+    var saveContext: Context! { get }
     
     /// Memory context. This context is mostly used for testing (not persisted)
-    var memoryContext: Context { get }
+    var memoryContext: Context! { get }
     
     /**
      Removes the store     
