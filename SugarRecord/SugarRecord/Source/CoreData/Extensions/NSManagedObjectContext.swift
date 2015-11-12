@@ -2,6 +2,9 @@ import Foundation
 import CoreData
 import Result
 
+
+// MARK: - NSManagedObjectContext Extension (Context)
+
 extension NSManagedObjectContext: Context {
     
     public func fetch<T>(request: Request<T>) -> Result<[T], Error> {
@@ -27,4 +30,25 @@ extension NSManagedObjectContext: Context {
         }
         return Result(value: ())
     }
+}
+
+
+// MARK: - NSManagedObjectContext Extension (Utils)
+
+extension NSManagedObjectContext {
+    //NSManagedObjectContextWillSaveNotification
+    
+    func observe(inMainThread mainThread: Bool, saveNotification: (notification: NSNotification) -> Void) {
+        let queue: NSOperationQueue = mainThread ? NSOperationQueue.mainQueue() : NSOperationQueue()
+        NSNotificationCenter.defaultCenter().addObserverForName(NSManagedObjectContextDidSaveNotification, object: self, queue: queue, usingBlock: saveNotification)
+    }
+    
+    func observeToGetPermanentIDsBeforeSaving() {
+        NSNotificationCenter.defaultCenter().addObserverForName(NSManagedObjectContextWillSaveNotification, object: self, queue: nil, usingBlock: { [weak self] (notification) in
+            guard let s = self else { return }
+            if s.insertedObjects.count == 0 { return }
+            _ = try? s.obtainPermanentIDsForObjects(Array(s.insertedObjects))
+        })
+    }
+    
 }

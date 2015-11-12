@@ -53,8 +53,6 @@ public class RealmDefaultStorage: Storage {
 
     /**
      Executes the provided operation in a given queue
-     Note: This method must be implemented by the Storage that conforms this protocol.
-     Some storages require propagating these saves across the stack of contexts (e.g. CoreData)
      
      - parameter queue:     queue where the operation will be executed
      - parameter save:      closure to be called to persist the changes
@@ -65,9 +63,7 @@ public class RealmDefaultStorage: Storage {
             let _context: Realm = self.saveContext as! Realm
             _context.beginWrite()
             var save: Bool = false
-            operation(context: _context, save: { () -> Void in
-                save = true
-            })
+            operation(context: _context, save: { save = true })
             if (save) {
                 _ = try? _context.commitWrite()
             }
