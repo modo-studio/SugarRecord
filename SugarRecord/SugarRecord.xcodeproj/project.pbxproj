@@ -88,6 +88,7 @@
 		2353E67C1BED52150081E6E7 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E67A1BED52150081E6E7 /* Options.swift */; };
 		2353E67D1BED52150081E6E7 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E67A1BED52150081E6E7 /* Options.swift */; };
 		2353E67E1BED52150081E6E7 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E67A1BED52150081E6E7 /* Options.swift */; };
+		239C8E031BF4805C0025DB9A /* RealmDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD9E1BF15BD200009071 /* RealmDefaultStorage.swift */; };
 		23AC16271BF370BA00FAF97A /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
 		23AC16291BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
 		23AC162A1BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
@@ -1041,6 +1042,7 @@
 				23AC162A1BF3716200FAF97A /* RealmEntity.swift in Sources */,
 				2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				2305F8F21BF0FE4500F9D379 /* DirUtils.swift in Sources */,
+				239C8E031BF4805C0025DB9A /* RealmDefaultStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

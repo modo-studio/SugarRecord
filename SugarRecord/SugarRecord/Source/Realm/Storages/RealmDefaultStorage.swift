@@ -57,15 +57,23 @@ public class RealmDefaultStorage: Storage {
      Some storages require propagating these saves across the stack of contexts (e.g. CoreData)
      
      - parameter queue:     queue where the operation will be executed
-     - parameter write: true if the context has to persist the changes
+     - parameter save:      closure to be called to persist the changes
      - parameter operation: operation to be executed
      */
-    public func operation(queue: dispatch_queue_t, write: Bool, operation: (context: Context) -> Void, completed: (() -> Void)?) {
+    public func operation(queue: dispatch_queue_t, operation: (context: Context, save: () -> Void) -> Void, completed: (() -> Void)?) {
         dispatch_async(queue) { () -> Void in
             let _context: Realm = self.saveContext as! Realm
-            if (write) { _context.beginWrite() }
-            operation(context: _context)
-            if (write) { _ = try? _context.commitWrite() } // FIXME: Propagate the exception out of the scope
+            _context.beginWrite()
+            var save: Bool = false
+            operation(context: _context, save: { () -> Void in
+                save = true
+            })
+            if (save) {
+                _ = try? _context.commitWrite()
+            }
+            else {
+                _context.cancelWrite()
+            }
             completed?()
         }
     }
