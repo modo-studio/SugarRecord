@@ -23,14 +23,14 @@ class ObjectModelTests: QuickSpec {
             
             context("named", {
                 it("should return the object model", closure: {
-                    expect(CoreData.ObjectModel.Named("DataModel", NSBundle(forClass: self.classForCoder)).model()?.entities.count) == 2
+                    expect(CoreData.ObjectModel.Named("DataModel", NSBundle(forClass: self.classForCoder)).model()?.entities.count) == 1
                 })
             })
             
             context("url", { () -> Void in
                 it("should return an object model if the url is valid") {
                     let url = NSBundle(forClass: self.classForCoder).URLForResource("DataModel", withExtension: "momd")
-                    expect(CoreData.ObjectModel.URL(url!).model()?.entities.count) == 2
+                    expect(CoreData.ObjectModel.URL(url!).model()?.entities.count) == 1
                 }
             })
             

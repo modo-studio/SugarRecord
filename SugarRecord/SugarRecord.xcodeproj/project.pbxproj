@@ -119,6 +119,8 @@
 		3DB2B8E61BDEEE97005B7EF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8E51BDEEE97005B7EF2 /* CoreData.framework */; };
 		3DB2B8E81BDEEEA4005B7EF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8E71BDEEEA4005B7EF2 /* CoreData.framework */; };
 		3DB2B8EA1BDEEEB0005B7EF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8E91BDEEEB0005B7EF2 /* CoreData.framework */; };
+		3DDE7D451BF4E45E00D166C4 /* Track+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE7D431BF4E45E00D166C4 /* Track+CoreDataProperties.swift */; };
+		3DDE7D461BF4E45E00D166C4 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDE7D441BF4E45E00D166C4 /* Track.swift */; };
 		3DE3FD821BEC166000009071 /* SugarRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8701BDEE67C005B7EF2 /* SugarRecord.framework */; };
 		3DE3FD8A1BEC168900009071 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8E91BDEEEB0005B7EF2 /* CoreData.framework */; };
 		3DE3FD8C1BEC16A600009071 /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8CF1BDEED0A005B7EF2 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -251,6 +253,8 @@
 		3DB2B8E91BDEEEB0005B7EF2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3DB2B90B1BDEF106005B7EF2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		3DB2B90C1BDEF106005B7EF2 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		3DDE7D431BF4E45E00D166C4 /* Track+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Track+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3DDE7D441BF4E45E00D166C4 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		3DE3FD7D1BEC166000009071 /* SugarRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE3FD811BEC166000009071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DE3FD951BF12B8C00009071 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -513,6 +517,8 @@
 		23B15C4D1BF352470059008E /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				3DDE7D431BF4E45E00D166C4 /* Track+CoreDataProperties.swift */,
+				3DDE7D441BF4E45E00D166C4 /* Track.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1131,8 +1137,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				230CBDC61BF383D700C43A48 /* RealmDefaultStorageTests.swift in Sources */,
+				3DDE7D461BF4E45E00D166C4 /* Track.swift in Sources */,
 				23B15C521BF352AD0059008E /* Issue.swift in Sources */,
 				3DE3FD961BF12B8C00009071 /* DataModel.xcdatamodeld in Sources */,
+				3DDE7D451BF4E45E00D166C4 /* Track+CoreDataProperties.swift in Sources */,
 				230CBDC21BF37F7A00C43A48 /* ResultsTests.swift in Sources */,
 				2305F8EE1BF0FAFC00F9D379 /* ObjectModelTests.swift in Sources */,
 				23B15C591BF353F70059008E /* Realm.swift in Sources */,

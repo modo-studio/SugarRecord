@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F27" minimumToolsVersion="Xcode 7.0">
-    <entity name="Issue" syncable="YES">
-        <attribute name="closed" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="repository" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Repository" inverseName="issues" inverseEntity="Repository" syncable="YES"/>
-    </entity>
-    <entity name="Repository" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F1021" minimumToolsVersion="Xcode 7.0">
+    <entity name="Track" representedClassName=".Track" syncable="YES">
+        <attribute name="artist" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="issues" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Issue" inverseName="repository" inverseEntity="Issue" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Issue" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Repository" positionX="-54" positionY="0" width="128" height="75"/>
+        <element name="Track" positionX="-63" positionY="-18" width="128" height="75"/>
     </elements>
 </model>
