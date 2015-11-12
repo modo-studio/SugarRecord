@@ -70,6 +70,9 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [G
 - [ ] Reactive API
 - [ ] Logging support
 
+## Reference
+You can check the SugarRecord documentation [here](http://blog.gitdo.io/SugarRecord/). Thanks [**Jazzy**](https://github.com/realm/jazzy) for that powerful tool for generating documentation :tada:
+
 ## Support
 
 If you want to communicate any issue, suggestion or even make a contribution, you have to keep in mind the flow bellow:
