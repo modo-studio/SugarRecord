@@ -21,28 +21,51 @@ public struct Request<T: Entity> {
     }
     
     
-    // MARK: - Public
+    // MARK: - Public Fetching Methods
     
     func inContext(context: Context) -> Result<[T], Error> {
         return context.fetch(self)
     }
     
-    func inStorage(storage: Storage) -> Result<[T], Error> {
-        
-        
-        storage.mainContext.fetch(self)
-        return Result(error: Error.InvalidType)
+    
+    // MARK: - Public Builder Methods
+    
+    public func filteredWith(predicate predicate: NSPredicate)  -> Request<T> {
+        return self
+            .request(withPredicate: predicate)
     }
     
-//    func inContext(context: Context) -> ([T], Error?) {
-//        return context.fetch(self)
-//    }
+    public func filteredWith(format predicateFormat: String, arguments argList: CVaListPointer) -> Request<T> {
+        return self
+            .request(withPredicate: NSPredicate(format: predicateFormat, arguments: argList))
+    }
     
-//    func inStorage(storage: Storage) -> ([T], Error?) {
-//        return inContext(storage.mainContext)
-//    }
-//    
-//    
+    public func filteredWith(key: String, equalTo value: String) -> Request<T>{
+        return self
+            .request(withPredicate: NSPredicate(format: "\(key) == %@", value))
+    }
+    
+    public func sortedWith(sortDescriptor sortDescriptor: NSSortDescriptor)  -> Request<T> {
+        return self
+            .request(withSortDescriptor: sortDescriptor)
+    }
+    
+    public func sortedWith(key: String?, ascending: Bool, comparator cmptr: NSComparator) -> Request<T> {
+        return self
+            .request(withSortDescriptor: NSSortDescriptor(key: key, ascending: ascending, comparator: cmptr))
+    }
+    
+    public func sortedWith(key: String?, ascending: Bool) -> Request<T> {
+        return self
+            .request(withSortDescriptor: NSSortDescriptor(key: key, ascending: ascending))
+    }
+    
+    public func sortedWith(key: String?, ascending: Bool, selector: Selector) -> Request<T> {
+        return self
+            .request(withSortDescriptor: NSSortDescriptor(key: key, ascending: ascending, selector: selector))
+    }
+    
+    
     // MARK: - Internal
     
     func request(withPredicate predicate: NSPredicate) -> Request<T> {
