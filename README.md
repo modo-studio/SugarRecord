@@ -1,14 +1,14 @@
 # <center>![xcres](/resources/Slogan.png)</center>
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/SugarRecord/SugarRecord?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/gitdoapp/SugarRecord?utm_campaign=pr-badge&utm_content=badge&utm_medium=badge&utm_source=badge)
 
 
 [![Twitter: @pepibumur](https://img.shields.io/badge/contact-@pepibumur-blue.svg?style=flat)](https://twitter.com/pepibumur)
 [![Language: Swift](https://img.shields.io/badge/lang-Swift-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 [![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Issues](https://img.shields.io/github/issues/sugarrecord/sugarrecord.svg?style=flat
-)](https://github.com/SugarRecord/SugarRecord/issues?state=open)
+)](https://github.com/gitdoapp/SugarRecord/issues?state=open)
 [![Forks](https://img.shields.io/github/forks/sugarrecord/sugarrecord.svg?style=flat
-)](https://github.com/SugarRecord/SugarRecord/network)
+)](https://github.com/gitdoapp/SugarRecord/network)
 [![Stars](https://img.shields.io/github/stars/sugarrecord/sugarrecord.svg?style=flat
 )](https://github.com/SugarRecord/SugarRecord)
 
@@ -52,7 +52,7 @@ The library is completely written in Swift and is fully tested to ensure the beh
 
 **NOTE: We have a Google Group where you can leave your questions, doubts, suggestions, and other comments [here]. We also have a blog where we’ll post about the library’s development which you can check out [here].**
 
-**The library was started by [@pepibumur](http://www.twitter.com/pepibumur) and is now maintained by [@dchavezlive](https://twitter.come/dchavezlive)**
+**The library was started by [@pepibumur](https://twitter.com/pepibumur) and is now maintained by [@dchavezlive](https://twitter.come/dchavezlive)**
 
 ## Features
 
@@ -88,9 +88,9 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 |-------------------------------|------------------------------------------------|
 | 8th-January-2015 | Fixed Travis-CI Integration |
 | 8th-January-2015 | Finally added CocoaPods support and updated the Wiki |
-| 3st-January-2015 | Solved issue https://github.com/SugarRecord/SugarRecord/issues/101 |
+| 3st-January-2015 | Solved issue https://github.com/gitdoapp/SugarRecord/issues/101 |
 | 29th-December-2014 | Version 1.0.5 released |
-| 29th-December-2014 | Separated SugarRecordResults Logic https://github.com/SugarRecord/SugarRecord/issues/98|
+| 29th-December-2014 | Separated SugarRecordResults Logic https://github.com/gitdoapp/SugarRecord/issues/98|
 | 25th-December-2014 | Version 1.0.4 released |
 | 25th-December-2014 | Added Realm example |
 | 25th-December-2014 | Added a continuous integration local script |
@@ -138,7 +138,7 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 - Reviewed the CI script (still not working travis :( )
 
 ### Version 1.0.5
-- Fixed a regression introduced with 1.0.4 that caused users having to import Realm/CoreData even if they were using another database technology https://github.com/SugarRecord/SugarRecord/pull/99
+- Fixed a regression introduced with 1.0.4 that caused users having to import Realm/CoreData even if they were using another database technology https://github.com/gitdoapp/SugarRecord/pull/99
 
 ### Version 1.0.4
 - Updated the project structure and added easy setup steps (without CocoaPods)
@@ -157,14 +157,14 @@ If you want to stay updated we have a mailing list. We'll send emails with new u
 
 If you want to know about how to use SugarRecord we have some Wiki pages in the repo to guide you through the integration in your project. Availble Wiki pages are:
 
-- About SugarRecord: [Link](https://github.com/SugarRecord/SugarRecord/wiki/SugarRecord)
-- Setup SugarRecord: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Setup-SugarRecord)
-- Working with Stacks: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Working-with-Stacks)
-- Operations: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Operations)
-- Advanced operations with SugarRecord: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Advanced-operations-with-SugarRecord)
-- Mapping models: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Mapping-models)
-- Advices: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Advices)
-- Contribution tips: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Contribution-tips)
+- About SugarRecord: [Link](https://github.com/gitdoapp/SugarRecord/wiki/SugarRecord)
+- Setup SugarRecord: [Link](https://github.com/gitdoapp/SugarRecord/wiki/Setup-SugarRecord)
+- Working with Stacks: [Link](https://github.com/gitdoapp/SugarRecord/wiki/Working-with-Stacks)
+- Operations: [Link](https://github.com/gitdoapp/SugarRecord/wiki/Operations)
+- Advanced operations with SugarRecord: [Link](https://github.com/gitdoapp/SugarRecord/wiki/Advanced-operations-with-SugarRecord)
+- Mapping models: [Link](https://github.com/gitdoapp/SugarRecord/wiki/Mapping-models)
+- Advices: [Link](https://github.com/gitdoapp/SugarRecord/wiki/Advices)
+- Contribution tips: [Link](https://github.com/gitdoapp/SugarRecord/wiki/Contribution-tips)
 
 ## Support
 
@@ -183,8 +183,8 @@ If you want to communicate any issue, suggestion or even make a contribution, yo
 - **Alamofire**, the swift AFNetworking: https://github.com/Alamofire/Alamofire
 - **Jazzy**, a library to generate documentation: https://github.com/realm/jazzy
 - How to **document your project**: http://www.raywenderlich.com/66395/documenting-in-xcode-with-headerdoc-tutorial
-- Tests interesting articles: http://www.objc.io/issue-15/
-- **iCloud + CoreData** (objc.io): http://www.objc.io/issue-10/icloud-core-data.html
+- Tests interesting articles: https://www.objc.io/issues/15-testing/
+- **iCloud + CoreData** (objc.io): https://www.objc.io/issues/10-syncing-data/icloud-core-data/
 - **Appledoc**, documentation generator: https://github.com/tomaz/appledoc
 - **AlecrimCoreData**: https://github.com/Alecrim/AlecrimCoreData
 
