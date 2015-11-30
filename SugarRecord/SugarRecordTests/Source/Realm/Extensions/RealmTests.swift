@@ -28,8 +28,10 @@ class RealmTests: QuickSpec {
                 subject?.beginWrite()
                 subject?.add(issue)
                 _ = try? subject?.commitWrite()
+                //                        let fetched = storage?.mainContext.request(Issue.self).fetch().value
+
                 
-                let fetched: Result<[Issue], Error> = subject!.fetch(Request<Issue>())
+                let fetched: Result<[Issue], Error> = subject!.request(Issue.self).fetch()
                 expect(fetched.value?.count) == 1
             }
         }

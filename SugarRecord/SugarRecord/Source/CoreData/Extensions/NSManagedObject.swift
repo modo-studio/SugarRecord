@@ -14,11 +14,6 @@ extension NSManagedObject {
 }
 
 
-// MARK: - NSManagedObject Extension (Requestable)
-
-extension NSManagedObject: Requestable {}
-
-
 // MARK: - NSManagedobjecte Extension (Entity)
 
 extension NSManagedObject: Entity {}
