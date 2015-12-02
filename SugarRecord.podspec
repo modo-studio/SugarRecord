@@ -15,6 +15,8 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = ['SugarRecord/SugarRecord/Source/Foundation/**/*']
 
+  s.dependency 'Result', '~> 1.0'
+
   s.subspec "CoreData" do |sp|
     sp.source_files = ['SugarRecord/SugarRecord/Source/CoreData/**/*']
     sp.frameworks = ['CoreData']
