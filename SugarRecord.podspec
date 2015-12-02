@@ -7,7 +7,6 @@ Pod::Spec.new do |s|
   s.author           = { "Pedro" => "pedro@gitdo.io" }
   s.source           = { :git => "https://github.com/gitdoapp/SugarRecord.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/pepibumur'
-  s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.source_files = ['SugarRecord/SugarRecord/Source/Foundation/**/*']
 
