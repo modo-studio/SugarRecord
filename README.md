@@ -56,6 +56,7 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [G
   - Make tasks
   - Style guideline
   - Unit testing
+- [ ] Cocoapods support
 
 ## Features backlog
 - [ ] Reactive API
