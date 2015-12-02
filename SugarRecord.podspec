@@ -23,7 +23,6 @@ Pod::Spec.new do |s|
   end
 
   s.subspec "Realm" do |sp|
-    sp.watchos.deployment_target = '2.0'
     sp.ios.deployment_target = '8.0'
     sp.osx.deployment_target = "10.10"
     sp.source_files = ['SugarRecord/SugarRecord/Source/Realm/**/*']
