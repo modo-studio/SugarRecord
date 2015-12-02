@@ -1,5 +1,4 @@
 import Foundation
-import ReactiveCocoa
 import Result
 
 public struct Request<T: Entity> {
