@@ -17,7 +17,6 @@ Pod::Spec.new do |s|
   s.dependency 'Result', '~> 1.0'
 
   s.subspec "CoreData" do |sp|
-    sp.tvos.deployment_target = '9.0'
     sp.source_files = ['SugarRecord/SugarRecord/Source/CoreData/**/*']
     sp.frameworks = ['CoreData']
   end
