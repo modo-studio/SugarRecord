@@ -88,7 +88,6 @@
 		2353E67C1BED52150081E6E7 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E67A1BED52150081E6E7 /* Options.swift */; };
 		2353E67D1BED52150081E6E7 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E67A1BED52150081E6E7 /* Options.swift */; };
 		2353E67E1BED52150081E6E7 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E67A1BED52150081E6E7 /* Options.swift */; };
-		239C8E031BF4805C0025DB9A /* RealmDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD9E1BF15BD200009071 /* RealmDefaultStorage.swift */; };
 		239C8E051BF48B680025DB9A /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E041BF48B680025DB9A /* ContextParent.swift */; };
 		239C8E061BF48B680025DB9A /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E041BF48B680025DB9A /* ContextParent.swift */; };
 		239C8E071BF48B680025DB9A /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E041BF48B680025DB9A /* ContextParent.swift */; };
@@ -99,10 +98,8 @@
 		239C8E0D1BF4A5870025DB9A /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E091BF4A5860025DB9A /* Queue.swift */; };
 		23AC16271BF370BA00FAF97A /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
 		23AC16291BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
-		23AC162A1BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
 		23AC162B1BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
 		23AC162C1BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
-		23AC162D1BF3725800FAF97A /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FDA31BF15C5500009071 /* Realm.swift */; };
 		23B15C501BF352540059008E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C4F1BF352540059008E /* Repository.swift */; };
 		23B15C521BF352AD0059008E /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C511BF352AD0059008E /* Issue.swift */; };
 		23B15C571BF3535E0059008E /* RealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C561BF3535E0059008E /* RealmTests.swift */; };
@@ -1058,12 +1055,9 @@
 				2353E6561BED4AC00081E6E7 /* Context.swift in Sources */,
 				2353E6521BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
 				23AC16271BF370BA00FAF97A /* Entity.swift in Sources */,
-				23AC162D1BF3725800FAF97A /* Realm.swift in Sources */,
 				2353E6621BED4AC00081E6E7 /* Requestable.swift in Sources */,
-				23AC162A1BF3716200FAF97A /* RealmEntity.swift in Sources */,
 				2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				2305F8F21BF0FE4500F9D379 /* DirUtils.swift in Sources */,
-				239C8E031BF4805C0025DB9A /* RealmDefaultStorage.swift in Sources */,
 				239C8E0B1BF4A5870025DB9A /* Queue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
