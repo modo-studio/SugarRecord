@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec "Realm" do |sp|
+    sp.tvos.deployment_target = nil
     sp.source_files = ['SugarRecord/SugarRecord/Source/Realm/**/*']
     sp.dependency 'Realm', '~> 0.96'
   end
