@@ -10,9 +10,9 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = ['SugarRecord/SugarRecord/Source/Foundation/**/*']
 
-  s.deployment_target = '8.0'
-  s.deployment_target = "10.10"
-  s.deployment_target = "9.0"
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = "10.10"
+  s.watchos.deployment_target = "2.0"
 
   s.dependency 'Result', '~> 1.0'
 
