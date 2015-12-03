@@ -36,7 +36,12 @@ public struct Request<T: Entity> {
     
     // MARK: - Public Fetching Methods
     
-    func fetch() -> Result<[T], Error> {
+    /**
+    Execute the fetch request
+    
+    - returns: Result of the fetch reques(
+    */
+    public func fetch() -> Result<[T], Error> {
         return context.fetch(self)
     }
     

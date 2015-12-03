@@ -100,7 +100,7 @@
 		23B15C521BF352AD0059008E /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C511BF352AD0059008E /* Issue.swift */; };
 		23B15C571BF3535E0059008E /* RealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C561BF3535E0059008E /* RealmTests.swift */; };
 		23B15C591BF353F70059008E /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C581BF353F70059008E /* Realm.swift */; };
-		3D733FD21C0C20AF00B74DA1 /* RequestableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D733FD11C0C20AF00B74DA1 /* RequestableTests.swift */; };
+		3D733FD51C0C2AC400B74DA1 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D733FD41C0C2AC400B74DA1 /* RequestTests.swift */; };
 		3DB2B8D11BDEED0A005B7EF2 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8CF1BDEED0A005B7EF2 /* ReactiveCocoa.framework */; };
 		3DB2B8D21BDEED0A005B7EF2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8D01BDEED0A005B7EF2 /* Result.framework */; };
 		3DB2B8D91BDEEDF4005B7EF2 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8D71BDEEDF4005B7EF2 /* ReactiveCocoa.framework */; };
@@ -202,7 +202,7 @@
 		23B15C511BF352AD0059008E /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		23B15C561BF3535E0059008E /* RealmTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTests.swift; sourceTree = "<group>"; };
 		23B15C581BF353F70059008E /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
-		3D733FD11C0C20AF00B74DA1 /* RequestableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestableTests.swift; sourceTree = "<group>"; };
+		3D733FD41C0C2AC400B74DA1 /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
 		3DB2B82D1BDEE187005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB2B83C1BDEE1AD005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB2B84B1BDEE1C7005B7EF2 /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -555,17 +555,17 @@
 		3D733FCF1C0C20A400B74DA1 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				3D733FD01C0C20A400B74DA1 /* Protocols */,
+				3D733FD31C0C2AB400B74DA1 /* Entities */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
 		};
-		3D733FD01C0C20A400B74DA1 /* Protocols */ = {
+		3D733FD31C0C2AB400B74DA1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				3D733FD11C0C20AF00B74DA1 /* RequestableTests.swift */,
+				3D733FD41C0C2AC400B74DA1 /* RequestTests.swift */,
 			);
-			path = Protocols;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		3DB2B8011BDED648005B7EF2 = {
@@ -1150,7 +1150,7 @@
 				2305F8EE1BF0FAFC00F9D379 /* ObjectModelTests.swift in Sources */,
 				23B15C591BF353F70059008E /* Realm.swift in Sources */,
 				23B15C571BF3535E0059008E /* RealmTests.swift in Sources */,
-				3D733FD21C0C20AF00B74DA1 /* RequestableTests.swift in Sources */,
+				3D733FD51C0C2AC400B74DA1 /* RequestTests.swift in Sources */,
 				2305F8EC1BF0F89200F9D379 /* StoreTests.swift in Sources */,
 				23B15C501BF352540059008E /* Repository.swift in Sources */,
 			);
