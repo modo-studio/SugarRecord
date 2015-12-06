@@ -1,12 +1,25 @@
 language: objective-c
-osx_image: xcode7.1
 notifications:
   email: false
-install:
-- brew update
+osx_image: xcode7.1
+xcode_project: SugarRecord/SugarRecord.xcodeproj
+xcode_scheme: SugarRecord
+xcode_sdk: iphonesimulator9.1
+env:
+  global:
+  - FRAMEWORK_NAME=SugarRecord
+before_install:
 - brew install carthage
-- gem install xcpretty --no-rdoc --no-ri --no-document --quiet
-- carthage update
-script:
-- make build
-- make test
+before_script:
+- carthage bootstrap
+before_deploy:
+- carthage build --no-skip-current
+- carthage archive $FRAMEWORK_NAME
+deploy:
+  provider: releases
+  api_key:
+    secure: Ie2KeV7dK/7gNVomv/Z6d/KYexzOJusMtiLrHyk0WIYXJfWPa2/grwIJx5h9KmZw1T3+BYnlzpRvz1vUHvVroZ1iBNEZNKZFYdkATNeb8pRaQ76uVZrXV2idWOSH3l6YVJLqk3timwwMF3RI0gKL34Q/0IC9/3LDqhipUbqCXFg9LYWs8BRdc55Mk4xEPXCunXEjOquXYveTiFqEsPgjuCyuX0uv5HdlgNiSIZS8FCxCFrtAqoyEFeiQrY98O5zNUbW4qKhIz5Z+HRug/33euBXQX6DNTBrBgBwGwN+uJ/f5un2hC38aEcB30TMuFBLv9VR5HgRFQEKS0QOOn9tWJ8iuEZT9+LvR7/EUafJR9s1vN6cjrWhA8mskrYXiNVARN+Qr8h8LGeaKE2g/3hUIb3Z8ZNF9ljL4ThRKN8bxT4gSQF3aT00rwSawN97f3J01kPPx5vlDzBNGT+1dFJcKga9+7svwhCh6fQ+s3vGmWPmd/BR+9EuZOqJV4IgEz0LoNA/7IpQ6HHlyKpr6hoi/nbw+a6h2tixPWk7sLNGy8Gi73RUTpUPNDInq7/7c3oFlx+ideM5mZ8NNq9FJYUCaVNQghwYtWTO9yc7TOcjN0YDK4/jsf+2Evi1ird70PGOyVahpV42BwRyHCazEsSAMi5+lRGoe/B0ewsRK9zbomJ4=
+  file: SugarRecord.framework.zip
+  on:
+    repo: pepibumur/SugarRecord
+    tags: true
