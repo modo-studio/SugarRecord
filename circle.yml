@@ -1,6 +1,0 @@
-dependencies:
-  pre:
-    - carthage update
-test:
-  override:
-    - make test
