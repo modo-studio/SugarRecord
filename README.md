@@ -47,20 +47,8 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [G
 5. Add generated frameworks to your app main target following the steps [here](https://github.com/carthage/carthage)
 6. Link your target with **CoreData** library *(from Build Phases)*
 
-## Version 2.0 Checklist :white_check_mark:
-- [ ] Development
- - [ ] CoreDataDefaultStorage tests
- - [ ] Request fluent interface
-- [ ] Documentation (Jazzy): *Make sure all the components are documented*
-- [ ] Create Contribution document
-  - Make tasks
-  - Style guideline
-  - Unit testing
-- [ ] Cocoapods support
-
-## Features backlog
-- [ ] Reactive API
-- [ ] Logging support
+## Trello board :white_check_mark:
+We :heart: love transparency and decided to make the Trello board that use for organization public. You can access it [here](https://trello.com/c/BovsGc0E/4-contribution-document). You can check there the upcoming features and bugs pending to be fixed. You can also contribute proposing yours.
 
 ## Reference
 You can check the SugarRecord documentation [here](http://blog.gitdo.io/SugarRecord/). Thanks [**Jazzy**](https://github.com/realm/jazzy) for that powerful tool for generating documentation :tada:
