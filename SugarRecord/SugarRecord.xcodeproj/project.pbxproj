@@ -846,6 +846,7 @@
 				3DB2B8291BDEE187005B7EF2 /* Frameworks */,
 				3DB2B82A1BDEE187005B7EF2 /* Headers */,
 				3DB2B82B1BDEE187005B7EF2 /* Resources */,
+				3D7586481C1615E500F64E22 /* Bump version */,
 			);
 			buildRules = (
 			);
@@ -864,6 +865,7 @@
 				3DB2B8381BDEE1AD005B7EF2 /* Frameworks */,
 				3DB2B8391BDEE1AD005B7EF2 /* Headers */,
 				3DB2B83A1BDEE1AD005B7EF2 /* Resources */,
+				3D7586491C16160A00F64E22 /* Bump version */,
 			);
 			buildRules = (
 			);
@@ -882,6 +884,7 @@
 				3DB2B8471BDEE1C7005B7EF2 /* Frameworks */,
 				3DB2B8481BDEE1C7005B7EF2 /* Headers */,
 				3DB2B8491BDEE1C7005B7EF2 /* Resources */,
+				3D75864A1C16161400F64E22 /* Bump version */,
 			);
 			buildRules = (
 			);
@@ -900,6 +903,7 @@
 				3DB2B86C1BDEE67C005B7EF2 /* Frameworks */,
 				3DB2B86D1BDEE67C005B7EF2 /* Headers */,
 				3DB2B86E1BDEE67C005B7EF2 /* Resources */,
+				3D75864B1C16161D00F64E22 /* Bump version */,
 			);
 			buildRules = (
 			);
@@ -1015,6 +1019,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3D7586481C1615E500F64E22 /* Bump version */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bump version";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/env ruby";
+			shellScript = "git = `sh /etc/profile; which git`.chomp\napp_build = `#{git} rev-list --all | wc -l`.chomp.to_i\n`/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion #{app_build}\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\nputs \"Updated #{ENV['TARGET_BUILD_DIR']}/#{ENV['INFOPLIST_PATH']}\"";
+		};
+		3D7586491C16160A00F64E22 /* Bump version */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bump version";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/env ruby";
+			shellScript = "git = `sh /etc/profile; which git`.chomp\napp_build = `#{git} rev-list --all | wc -l`.chomp.to_i\n`/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion #{app_build}\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\nputs \"Updated #{ENV['TARGET_BUILD_DIR']}/#{ENV['INFOPLIST_PATH']}\"";
+		};
+		3D75864A1C16161400F64E22 /* Bump version */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bump version";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/env ruby";
+			shellScript = "git = `sh /etc/profile; which git`.chomp\napp_build = `#{git} rev-list --all | wc -l`.chomp.to_i\n`/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion #{app_build}\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\nputs \"Updated #{ENV['TARGET_BUILD_DIR']}/#{ENV['INFOPLIST_PATH']}\"";
+		};
+		3D75864B1C16161D00F64E22 /* Bump version */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bump version";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/env ruby";
+			shellScript = "git = `sh /etc/profile; which git`.chomp\napp_build = `#{git} rev-list --all | wc -l`.chomp.to_i\n`/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion #{app_build}\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\nputs \"Updated #{ENV['TARGET_BUILD_DIR']}/#{ENV['INFOPLIST_PATH']}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3DB2B8281BDEE187005B7EF2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1067,8 +1130,6 @@
 				2353E6561BED4AC00081E6E7 /* Context.swift in Sources */,
 				2353E6521BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
 				23AC16271BF370BA00FAF97A /* Entity.swift in Sources */,
-				23AC162D1BF3725800FAF97A /* Realm.swift in Sources */,
-				23AC162A1BF3716200FAF97A /* RealmEntity.swift in Sources */,
 				2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				2305F8F21BF0FE4500F9D379 /* DirUtils.swift in Sources */,
 				239C8E0B1BF4A5870025DB9A /* Queue.swift in Sources */,
