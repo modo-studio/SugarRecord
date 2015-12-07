@@ -12,18 +12,17 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "8.0"
   s.osx.deployment_target = "10.10"
   s.watchos.deployment_target = "2.0"
+  s.platforms = [:ios, :osx, :watchos]
 
   s.dependency 'Result', '~> 1.0'
 
   s.subspec "Foundation" do |sp|
-    sp.platforms = [:ios, :osx, :watchos, :tvos]
     sp.source_files = ['SugarRecord/Source/Foundation/**/*']
     sp.dependency "ReactiveCocoa", "4.0.4-alpha-4"
     sp.tvos.deployment_target = '9.0'
   end
 
   s.subspec "CoreData" do |sp|
-    sp.platforms = [:ios, :osx, :watchos, :tvos]
     sp.source_files = ['SugarRecord/Source/CoreData/**/*']
     sp.dependency 'SugarRecord/Foundation'
     sp.frameworks = ['CoreData']
