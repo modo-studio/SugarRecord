@@ -16,12 +16,14 @@ Pod::Spec.new do |s|
   s.dependency 'Result', '~> 1.0'
 
   s.subspec "Foundation" do |sp|
+    ss.platforms = [:ios, :osx, :watchos, :tvos]
     sp.source_files = ['SugarRecord/Source/Foundation/**/*']
     sp.dependency "ReactiveCocoa", "4.0.4-alpha-4"
     sp.tvos.deployment_target = '9.0'
   end
 
   s.subspec "CoreData" do |sp|
+    ss.platforms = [:ios, :osx, :watchos, :tvos]
     sp.source_files = ['SugarRecord/Source/CoreData/**/*']
     sp.dependency 'SugarRecord/Foundation'
     sp.frameworks = ['CoreData']
@@ -29,6 +31,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec "Realm" do |sp|
+    ss.platforms = [:ios, :osx, :watchos]
     sp.source_files = ['SugarRecord/Source/Realm/**/*']
     sp.dependency 'SugarRecord/Foundation'
     sp.dependency 'RealmSwift'
