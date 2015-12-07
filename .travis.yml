@@ -3,7 +3,7 @@ notifications:
   email: false
 osx_image: xcode7.1
 script: 
-- ../script/cibuild SugarRecord-iOS SugarRecord-OSX
+- script/cibuild SugarRecord-iOS SugarRecord-OSX
 env:
   global:
   - FRAMEWORK_NAME=SugarRecord
