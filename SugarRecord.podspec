@@ -14,8 +14,6 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = "2.0"
   s.platforms = [:ios, :osx, :watchos]
 
-  s.dependency 'Result', '~> 1.0'
-
   s.subspec "Foundation" do |sp|
     sp.source_files = ['SugarRecord/Source/Foundation/**/*']
     sp.dependency "ReactiveCocoa", "4.0.4-alpha-4"
