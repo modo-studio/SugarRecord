@@ -1,11 +1,11 @@
-# <center>![xcres](https://github.com/gitdoapp/SugarRecord/raw/version2/Assets/Banner.png)</center>
+# <center>![xcres](https://github.com/swiftreactive/SugarRecord/raw/version2/Assets/Banner.png)</center>
 
 # SugarRecord
 
 [![Twitter: @pepibumur](https://img.shields.io/badge/contact-@pepibumur-blue.svg?style=flat)](https://twitter.com/pepibumur)
 [![Language: Swift](https://img.shields.io/badge/lang-Swift-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 [![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
-[![Build Status](https://travis-ci.org/gitdoapp/SugarRecord.svg?branch=version2)](https://travis-ci.org/gitdoapp/SugarRecord)
+[![Build Status](https://travis-ci.org/swiftreactive/SugarRecord.svg?branch=version2)](https://travis-ci.org/swiftreactive/SugarRecord)
 [![Slack Status](https://sugarrecord-slack.herokuapp.com/badge.svg)](https://sugarrecord-slack.herokuapp.com)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
@@ -14,7 +14,7 @@
 ## What is SugarRecord?
 SugarRecord is a persistence wrapper designed to make working with persistence solutions like CoreData/Realm/... in a much easier way. Thanks to SugarRecord you'll be able to use CoreData with just a few lines of code: Just choose your stack and start playing with your data.
 
-The library is maintained by [@pepibumur](https://github.com/pepibumur) under [GitDo](https://github.com/gitdoapp). You can reach me at [pedro@gitdo.io](mailto://pedro@gitdo.io) for help or whatever you need to commend about the library.
+The library is maintained by [@pepibumur](https://github.com/pepibumur) under [SwiftReactive](https://github.com/swiftreactive). You can reach me at [pepibumur@gmail.com](mailto://pepibumur@gmail.com) for help or whatever you need to commend about the library.
 
 ## Features
 - Swift 2.1 compatible (XCode 7.1).
@@ -42,7 +42,7 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [G
 
 ### Using Carthage
 1. Install [Carthage](https://github.com/carthage/carthage) on your computer using `brew install carthage`
-3. Edit your `Cartfile` file adding the following line `github 'gitdoapp/sugarrecord'`
+3. Edit your `Cartfile` file adding the following line `github 'swiftreactive/sugarrecord'`
 4. Update and build frameworks with `carthage update`
 5. Add generated frameworks to your app main target following the steps [here](https://github.com/carthage/carthage)
 6. Link your target with **CoreData** library *(from Build Phases)*
