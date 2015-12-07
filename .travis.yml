@@ -12,7 +12,6 @@ before_install:
 - sudo installer -pkg "Carthage.pkg" -target /
 - rm "Carthage.pkg"
 before_script:
-- cd SugarRecord
 - carthage bootstrap
 before_deploy:
 - carthage build --no-skip-current

@@ -160,7 +160,7 @@ private func initializeStore(store: CoreData.Store, storeCoordinator: NSPersiste
 
 /**
  It creates the parent directory for the store if needed
- 
+
  - parameter store: store
  
  - throws: error if something went wrong
