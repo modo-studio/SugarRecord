@@ -118,7 +118,7 @@ public class CoreDataDefaultStorage: Storage {
 
 
 /**
- It creates and returnsn a context with the given concurrency type and parent
+ It creates and returns a context with the given concurrency type and parent
  
  - parameter parent:          context parent
  - parameter concurrencyType: context concurrency type
