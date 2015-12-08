@@ -53,11 +53,6 @@ public struct Request<T: Entity> {
             .request(withPredicate: predicate)
     }
     
-    public func filteredWith(format predicateFormat: String, arguments argList: CVaListPointer) -> Request<T> {
-        return self
-            .request(withPredicate: NSPredicate(format: predicateFormat, arguments: argList))
-    }
-    
     public func filteredWith(key: String, equalTo value: String) -> Request<T>{
         return self
             .request(withPredicate: NSPredicate(format: "\(key) == %@", value))
