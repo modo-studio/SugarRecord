@@ -1,192 +1,172 @@
-# <center>![xcres](/resources/Slogan.png)</center>
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/SugarRecord/SugarRecord?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# <center>![xcres](https://github.com/swiftreactive/SugarRecord/raw/version2/Assets/Banner.png)</center>
 
+# SugarRecord
 
 [![Twitter: @pepibumur](https://img.shields.io/badge/contact-@pepibumur-blue.svg?style=flat)](https://twitter.com/pepibumur)
 [![Language: Swift](https://img.shields.io/badge/lang-Swift-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 [![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
-[![Issues](https://img.shields.io/github/issues/sugarrecord/sugarrecord.svg?style=flat
-)](https://github.com/SugarRecord/SugarRecord/issues?state=open)
-[![Forks](https://img.shields.io/github/forks/sugarrecord/sugarrecord.svg?style=flat
-)](https://github.com/SugarRecord/SugarRecord/network)
-[![Stars](https://img.shields.io/github/stars/sugarrecord/sugarrecord.svg?style=flat
-)](https://github.com/SugarRecord/SugarRecord)
+[![Build Status](https://travis-ci.org/SwiftReactive/SugarRecord.svg)](https://travis-ci.org/SwiftReactive/SugarRecord)
+[![Slack Status](https://sugarrecord-slack.herokuapp.com/badge.svg)](https://sugarrecord-slack.herokuapp.com)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-# SugarRecord 2.0 is coming
-
-After a lot of time without oo much support we're back with a new library version with Swift 2.0 support amongs other features (listed below). The currently version is currently on hold and we won't give more support to it, the new version is going to be developed from the scratch with a new interface based on the 1.xx one but taking advantange of the new Swift 2.0 features and proposals sent by users:
-
-**Ideas**
-- Add a block based syntax for operations with contexts: https://github.com/gitdoapp/SugarRecord/issues/166
-- Support multiple stacks simultaneously: https://github.com/gitdoapp/SugarRecord/issues/152
-- Support encryption: https://github.com/gitdoapp/SugarRecord/issues/149
-- Log levels: https://github.com/gitdoapp/SugarRecord/issues/141
-
-**Don't forget**
-- Document fetched results controller: https://github.com/gitdoapp/SugarRecord/issues/158
-- Explain how to integrate it using CocoaPods https://github.com/gitdoapp/SugarRecord/issues/150
-- Give the option to use the components behind SugarRecord *(contexts, stacks, ...)*: https://github.com/gitdoapp/SugarRecord/issues/155
-- Add migrations support and document it: https://github.com/gitdoapp/SugarRecord/issues/153
-- Support find without arguments: https://github.com/gitdoapp/SugarRecord/issues/147
-- Support fetch offset: https://github.com/gitdoapp/SugarRecord/issues/109
-- Support indexOf in results: https://github.com/gitdoapp/SugarRecord/issues/116
-- GroupBy support: https://github.com/gitdoapp/SugarRecord/issues/123
-
-**Bugs**
-- NSSortDescriptors not working properly: https://github.com/gitdoapp/SugarRecord/issues/159
-- Entities cannot be deleted: https://github.com/gitdoapp/SugarRecord/issues/156
-- Typo: https://github.com/gitdoapp/SugarRecord/issues/148
-- Context created and used in the wrong thread: https://github.com/gitdoapp/SugarRecord/issues/135
-- Compile error with CocoaPods: https://github.com/gitdoapp/SugarRecord/issues/121
-- Exception merging changes from another CoreData context: https://github.com/gitdoapp/SugarRecord/issues/118
-- https://github.com/gitdoapp/SugarRecord/issues/154
-
+**If you want to receive updates about the status of SugarRecord, you can subscribe to our mailing list [here](http://eepurl.com/57tqX)**
 
 ## What is SugarRecord?
-SugarRecord is a data management library designed to make working with **CoreData** and **Realm** simpler. Thanks to SugarRecord you’ll be able to use **CoreData/Realm** with just a few lines of code:
+SugarRecord is a persistence wrapper designed to make working with persistence solutions like CoreData/Realm/... in a much easier way. Thanks to SugarRecord you'll be able to use CoreData with just a few lines of code: Just choose your stack and start playing with your data.
 
-1. Choose your preferred stack from the provided stacks (_you can also implement your own!_)
-2. Enjoy how easy database operations are with our library
-
-The library is completely written in Swift and is fully tested to ensure the behavior is as expected.
-
-**NOTE: We have a Google Group where you can leave your questions, doubts, suggestions, and other comments [here]. We also have a blog where we’ll post about the library’s development which you can check out [here].**
-
-**The library was started by [@pepibumur](http://www.twitter.com/pepibumur) and is now maintained by [@dchavezlive](https://twitter.come/dchavezlive)**
+The library is maintained by [@pepibumur](https://github.com/pepibumur) under [SwiftReactive](https://github.com/swiftreactive). You can reach me at [pepibumur@gmail.com](mailto://pepibumur@gmail.com) for help or whatever you need to commend about the library.
 
 ## Features
+- Swift 2.1 compatible (XCode 7.1).
+- Fully rewritten from the version 1.0.
+- Reactive API (using ReactiveCocoa).
+- Protocols based design.
+- For **beginners** and **advanced** users
+- Fully customizable. Build your own stack!
+- Friendly syntax (fluent)
+- Away from Singleton patterns! No shared states :tada:
+- Compatible with OSX/iOS/watchOS/tvOS
+- Fully tested (thanks Nimble and Quick)
+- Actively supported
 
-- Support for Realm and CoreData using same syntax
-- Multiple stacks (for Realm, CoreData, CoreData+iCloud)
-- Simple and modern syntax, forget about complicated lines of code to fetch your last 20 users!
-- Written 100% in Swift and compatible with Swift projects
-- Compatible with OSX and iOS
-- Fully documented with a playground tutorial and an updated Wiki page
-- Fully tested (all components are tested using XCTest)
-- Actively supported, issues covered in less than a week.
-- More powerful features to discover!
+## Setup
 
-## Components
+### [Cocoapods](https://cocoapods.org)
 
-![image](https://raw.githubusercontent.com/SugarRecord/SugarRecord/develop/Resources/scheme.png)
-The scheme above shows the structure of SugarRecord. It's formed by:
-- **Database Models Extensions**: Adds our custom syntax that links these models with SugarRecord and the database.
-- **Finder**: SugarRecord custom element to abstract the querying components from the type of storage (Realm or CoreData)
-- **Core**: Main component of the library that translates Save/Delete/Find calls into the appropriate internal operations for the stack.
-- **SugarRecord contexts**: Although Realm doesn't have contexts as we have in CoreData, we have created abstracted contexts that surround the user operations with models independently of which stack you’re using. Yeah!
-- **Stack**: The storage stack is another key piece in SugarRecord because it knows how and when to persist/fetch/delete your objects into the database. You can tell SugarRecord which stack it should use.
+1. Install [CocoaPods](https://cocoapods.org). You can do it with `gem install cocoapods`
+2. Edit your `Podfile` file and add the following line `pod 'SugarRecord'
+3. Update your pods with the command `pod install`
+4. Open the project from the generated workspace (`.xcworkspace` file).
 
-## Mailing list
+*Note: You can also test the last commits by specifying it directly in the Podfile line*
 
-If you want to stay updated we have a mailing list. We'll send emails with new updates, features, important bugs fixed, ...
+### [Carthage](https://carthage)
+1. Install [Carthage](https://github.com/carthage/carthage) on your computer using `brew install carthage`
+3. Edit your `Cartfile` file adding the following line `github 'swiftreactive/sugarrecord'`
+4. Update and build frameworks with `carthage update`
+5. Add generated frameworks to your app main target following the steps [here](https://github.com/carthage/carthage)
+6. Link your target with **CoreData** library *(from Build Phases)*
 
-[![image](https://cdn0.iconfinder.com/data/icons/flat-designed-circle-icon/128/mail.png)](http://eepurl.com/57tqX)
+#### Notes
+- The CocoaPods integration doesn't support Realm yet. Use Realm instead.
+- Carthage integration includes both, CoreData and Carthage. We're planning to separate it in multiple frameworks. [Task](https://trello.com/c/hyhN1Tp2/11-create-separated-frameworks-for-foundation-coredata-and-realm)
+- SugarRecord 2.0 is not compatible with the 1.x interface. If you were using that version you'll have to update your project to support this version.
 
-## Updates
+## Reference
+You can check generated SugarRecord documentation [here](http://cocoadocs.org/docsets/SugarRecord/2.0.0/) generated automatically with [CocoaDocs](http://cocoadocs.org/) 
 
-| **Date**               | **Done**                     |
-|-------------------------------|------------------------------------------------|
-| 8th-January-2015 | Fixed Travis-CI Integration |
-| 8th-January-2015 | Finally added CocoaPods support and updated the Wiki |
-| 3st-January-2015 | Solved issue https://github.com/SugarRecord/SugarRecord/issues/101 |
-| 29th-December-2014 | Version 1.0.5 released |
-| 29th-December-2014 | Separated SugarRecordResults Logic https://github.com/SugarRecord/SugarRecord/issues/98|
-| 25th-December-2014 | Version 1.0.4 released |
-| 25th-December-2014 | Added Realm example |
-| 25th-December-2014 | Added a continuous integration local script |
-| 25th-December-2014 | Updated Realm to 0.89 |
-| 25th-December-2014 | Setup SugaRecord.podspec file |
+# How to use
 
-## Index
-- [Features](#features)
-- [Versions](#versions)
-- [Version 1.0.7 [WIP]](#version-1.0.7-[WIP])
-- [Version 1.0.6](#version-1.0.6)
-- [Version 1.0.5](#version-1.0.5)
-- [Version 1.0.4](#version-1.0.4)
-- [Requirements](#requirements)
-- [Wiki](#wiki)
-- [Support](#support)
-- [Useful Swift Resources](#useful-swift-resources)
-- [License](#license)
-- [Who uses SugarRecord?](#who-uses-sugarrecord?)
+#### Creating your Storage
+A storage represents your database, Realm, or CoreData. The first step to start using SugarRecord is initializing the storage. SugarRecord provides two default storages, one for CoreData, `CoreDataDefaultStorage` and another one for Realm, `RealmDefaultStorage`.
 
-## Features
+```swift
+// Initializing CoreDataDefaultStorage
+func coreDataStorage() -> CoreDataDefaultStorage {
+    let store = CoreData.Store.Named("db")
+    let bundle = NSBundle(forClass: CoreDataDefaultStorageTests.classForCoder())
+    let model = CoreData.ObjectModel.Merged([bundle])
+    let defaultStorage = try! CoreDataDefaultStorage(store: store, model: model)
+    return defaultStorage
+}
 
-- For beginners and advanced users
-- **Fully customizable**. Implement your own stack and set it as your SugarRecord stack to work with.
-- **Friendly syntax**. Forget about NSPredicates and NSSortDescriptors
-- You can change between different stacks without affecting to the rest of your app.
-- In case of a transition from CoreData to Realm or viceversa you've only to ensure the objecs have the same property names, and nothing more.
-- Background operations are automatically managed by Sugar Record
-- Support for Realm and CoreData using the same syntax
-- Multiple stacks (for Realm, CoreData, CoreData+iCloud)
-- Sugar syntax, forget about complicated lines of code to fetch your last 20 users!
-- Written 100% in Swift and compatible with Swift projects (in case of Objective-C a wrapper is needed)
-- Compatible with OSX and iOS
-- Fully documented with a playground tutorial and an updated Wiki page
-- Fully tested (all components are tested using XCTest)
-- Actively supported, issues covered in less than a week.
-- More powerful features to discover!
+// Initializing RealmDefaultStorage
+func realmStorage() -> RealmDefaultStorage {
+  return RealmDefaultStorage()
+}
+```
 
-## Versions
-### Version 1.0.7 [WIP]
+#### Contexts
+Storages offer multiple kind of contexts that are the entry points to the database. For curious developers, in case of CoreData a context is a wrapper around `NSManagedObjectContext`, in case of Realm a wrapper around `Realm`. The available contexts are:
 
-### Version 1.0.6
-- Fixed autosaving feature on DefaultCDStack
-- Use of printable instead of StringLiteralConvertible
-- Reviewed the CI script (still not working travis :( )
+- **MainContext:** Use it for main thread operations, for example fetches whose data will be presented in the UI.
+- **SaveContext:** Use this context for background operations, the property `saveContext` of the storage is a computed property so every time you call it you get a new fresh context to be used.
+- **MemoryContext:** Use this context when you want to do some tests and you don't want your changes to be persisted.
 
-### Version 1.0.5
-- Fixed a regression introduced with 1.0.4 that caused users having to import Realm/CoreData even if they were using another database technology https://github.com/SugarRecord/SugarRecord/pull/99
+#### Fetching data
+Once you know that the context is the point to access the storage let's see how we can request objects since SugarRecord also provides a fluent interface to make things easier:
 
-### Version 1.0.4
-- Updated the project structure and added easy setup steps (without CocoaPods)
-- Added example project
-- Added high performance count method
-- Added SugarRecordResults type for results (inspired on RLMResults)
+1. Use the context `request()` method passing the type of object you want to fetch.
+2. Specify filters and sort descriptors for that request. We'll expand this in the future to include more request features Realm/CoreData related.
+3. Once you have your request, just use the fetch method which will return a `Result<[Value], Error>` object that wraps both your result or an error in case of something went wrong with the request. You can unwrap the value with `result.value!`.
 
-## Requirements
+```swift
+let pedros: [Person] = db.mainContext.request(Person.self).filteredWith("name", equalTo: "Pedro").fetch().value!
+let tasks: [Task] = db.mainContext.request(Task.self).fetch().value!
+let citiesByName: [City] = db.mainContext.request(City.self).sortedWith("name", ascending: true).fetch().value!
 
-- Xcode 6
-- iOS 7.0+ / Mac OS X 10.9+
-- If you have troubles with the compilation try to clean the DerivedData Xcode directory: `rm -rf ~/Library/Developer/Xcode/DerivedData/`
+let predicate: NSPredicate = NSPredicate(format: "id == %@", "AAAA")
+let john: User? = db.mainContext.request(User.self).filteredWith(predicate: predicate).fetch().value!.first
+```
 
+#### Remove/Insert/Update operations
 
-## Wiki
+Although `Context`s offer `insertion` and `deletion` methods that you can use it directly SugarRecords aims at using the `operation` method method provided by the storage for operations that imply modifications of the database models:
 
-If you want to know about how to use SugarRecord we have some Wiki pages in the repo to guide you through the integration in your project. Availble Wiki pages are:
+- **Context**: You can use it for fetching, inserting, deleting. Whatever you need to do with your data.
+- **Save**: All the changes you apply to that context are in a memory state unless you call the `save()` method. That method will persist the changes to your store and propagate them across all the available contexts.
 
-- About SugarRecord: [Link](https://github.com/SugarRecord/SugarRecord/wiki/SugarRecord)
-- Setup SugarRecord: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Setup-SugarRecord)
-- Working with Stacks: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Working-with-Stacks)
-- Operations: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Operations)
-- Advanced operations with SugarRecord: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Advanced-operations-with-SugarRecord)
-- Mapping models: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Mapping-models)
-- Advices: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Advices)
-- Contribution tips: [Link](https://github.com/SugarRecord/SugarRecord/wiki/Contribution-tips)
+```swift
+db?.operation({ (context, save) -> Void in
+  // Do your operations here
+  save()
+}, completed: {
+  // Everything was completed. :tada:
+})
+```
+##### Inserting a model
+You can use the `insert()` method of context that needs the type of object you want to insert:
+
+```swift
+db?.operation({ (context, save) -> Void in
+  let newTask: Track = memoryContext.insert().value!
+  newTask.name = "Make CoreData easier!"
+  save()
+}, completed: {
+  // Everything was completed. :tada:
+})
+```
+
+##### Delete a model
+In a similar way you can use the `remove()` method from the context passing the objects you want to remove from the database:
+
+```swift
+db?.operation({ (context, save) -> Void in
+  guard let john = db.mainContext.request(User.self).filteredWith("id", equalTo: "1234").fetch().value!.first else { return }
+  context.remove([john])
+  save()
+}, completed: {
+  // Everything was completed. :tada:
+})
+```
+
+<br>
+<br>
+> This is the first approach of SugarRecord for the  interface. We'll improve it with the feedback you can report and according to the use of the framework. Do not hesitate to reach us with your proposals. Everything that has to be with making the use of CoreData/Realm easier, funnier, and enjoyable is welcome! :tada:
+
+# Contributing
+
+## Trello board :white_check_mark:
+We :heart: love transparency and decided to make the Trello board that use for organization public. You can access it [here](https://trello.com/c/BovsGc0E/4-contribution-document). You can check there the upcoming features and bugs pending to be fixed. You can also contribute proposing yours.
 
 ## Support
 
 If you want to communicate any issue, suggestion or even make a contribution, you have to keep in mind the flow bellow:
 
-- If you **need help**, ask your doubt in Stack Overflow using the tag 'sugarrecord'
+- If you need help, ask your doubt in Stack Overflow using the tag 'sugarrecord'
 - If you want to ask something in general, use Stack Overflow too.
-- **Open an issue** either when you have an error to report or a feature request.
-- If you want to **contribute**, submit a pull request, and remember the rules to follow related with the code style, testing, ...
+- Open an issue either when you have an error to report or a feature request.
+- If you want to contribute, submit a pull request, and remember the rules to follow related with the code style, testing, ...
 
+## Contribution
+- You'll find more details about contribution with SugarRecord in [contribution](CONTRIBUTION.md)
 
-## Useful Swift Resources
-- **Tests with Swift (Matt)**: http://nshipster.com/xctestcase/
-- **Quick**, a library for testing written in swift https://github.com/modocache/personal-fork-of-Quick
-- **CoreData and threads with GCD**: http://www.cimgf.com/2011/05/04/core-data-and-threads-without-the-headache/
-- **Alamofire**, the swift AFNetworking: https://github.com/Alamofire/Alamofire
-- **Jazzy**, a library to generate documentation: https://github.com/realm/jazzy
-- How to **document your project**: http://www.raywenderlich.com/66395/documenting-in-xcode-with-headerdoc-tutorial
-- Tests interesting articles: http://www.objc.io/issue-15/
-- **iCloud + CoreData** (objc.io): http://www.objc.io/issue-10/icloud-core-data.html
-- **Appledoc**, documentation generator: https://github.com/tomaz/appledoc
-- **AlecrimCoreData**: https://github.com/Alecrim/AlecrimCoreData
+## Resources
+- [Quick](https://github.com/quick/quick)
+- [Nimble](https://github.com/quick/nimble)
+- [CoreData and threads with GCD](http://www.cimgf.com/2011/05/04/core-data-and-threads-without-the-headache/)
+- [Jazzy](https://github.com/realm/jazzy)
+- [iCloud + CoreData (objc.io)](http://www.objc.io/issue-10/icloud-core-data.html)
 
 ## License
 The MIT License (MIT)
@@ -212,8 +192,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ## Who uses SugarRecord?
-If you are currently using SugarRecord in your app, let me know and I'll add it to the list.
-
-## Donations
-SugarRecord is almost completely the work of one man: me; Pedro Pinñera. I thoroughly enjoyed making SugarRecord, but nevertheless if you have found it useful then your bitcoin will give me a warm fuzzy feeling from my head right down to my toes
-<a class="coinbase-button" data-code="1ec3e63d01a2bda96275e24a81c478c6" data-button-style="custom_large" href="https://www.coinbase.com/checkouts/1ec3e63d01a2bda96275e24a81c478c6">Donate Bitcoins</a><script src="https://www.coinbase.com/assets/button.js" type="text/javascript"></script>
+Are you using SugarRecord? Let us know, and we'll list you here. We :heart: to hear about companies, apps that are using us with CoreData.

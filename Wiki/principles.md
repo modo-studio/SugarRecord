@@ -1,0 +1,22 @@
+Design principles
+==========
+
+SugarRecord is designed as a wrapper around existing persistence solutions. Although there're solutions like Realm that offer a clear and easy to use interface (fluent) there are others like CoreData whose setup and operations are not so straightforward. Most of companies and projects end up building their own wrapper around CoreData with their own needs. For most projects, these basic needs are always the same, and having a solution like SugarRecord saves time and more than one headache.
+
+- **Protocol Oriented Design**: Compared with SugarRecord 1.0 where we used the early version of Swift we tried for this version to stick to the Protocol Oriented Programming idea. Most of components have been designed starting from a set of protocols and them extending existing components to add the SugarRecord behaviour. Thanks to this approach we can keep using the elements behind SugarRecord but we add that extra layer, these extra behaviours that make CoreData/Realm/.. easier.
+
+- **Beginner & Advanced users would fall in love**: We designed it to make it easier for beginners but we didn't want to restrict it only for these target of developers. That's why SugarRecord also allows advanced developers to push the wrapper to their limits doing whatever they need.
+
+- **Friendly syntax**: Because we want our code to be readable. We got very inspired here by [Realm](http://realm.io) whose interface is worth of analisys. We wanted to avoid all these lines that you need for example in CoreData to fetch elements from the database. SugarRecord interface is fluent starting from models, thus you can do something like `Person.filteredBy("name", equalTo: "Pedro")` and SugarRecord does the rest.
+
+- **Multi-Platform**: In the last two years we've seen more SDKs coming out, the most recent one, *tvOS*. CoreData and Realm the main supported persistence solutions offer their frameworks for these platforms, why not giving support to them? You can enjoy using CoreData building your app for AppleTV or your OSX app, SugarRecord is multi platform.
+
+- **Flexible**: One idea we loved from our version 1.0 and that we wanted to keep here was the customization freedom. Although we offer some defined Storages *(stacks in SugarRecord 1.0)* for Realm and CoreData, `Storage` is a protocol, you can implement your own CoreData configuration or even any other persistence solution. SugarRecord is just the wrapper! :tada:
+
+- **Code and quality and TDD**: Compared with other frameworks that we can find in the community we didn't want to end up with a library and tons of tasks for adding tests. SugarRecord is designed and implemented starting from tests, the library is fully covered with unit tests to ensure stability on these apps that are using SugarRecord. We strongly encourage new contributors to stick to these coding style. *Thanks [Quick](https://github.com/Quick/Quick) and [Nimble](https://github.com/Quick/Nimble) for their great frameworks we used for testing SugarRecord*s
+
+- **Actively Supported**: Something we admit we didn't do on the right way with the version 1.0 was giving an active support. The language was changing faster than we could afford and we ended up leaving the project on hold. This time the language is much more stable, and we're building a group of contributors that actively will support the library to make it a reference in the Swift community. If you are interested in contribute with us, drop me a line [pedro@gitdo.io](mailto://pedro@gitdo.io)
+
+- **Reactive**: Something that 1.0 didn't have and that we wanted for this version is having a Reactive interface. We offer it as a complement for these developer that use *Functional Reactive Programming* concepts in their projects. If you haven't heard about it yet or haven't use it before SugarRecord could be a great opportunity to play with it. *Thanks here to [ReactiveCocoa](https://github.com/reactivecocoa/reactivecocoa) for its incredible Framework that brings Reactive concepts to Swift*
+
+- **Anti singleton, shared states**: SugarRecord doesn't offer shared instances, or default stacks. We removed that and instead we leave that responsibility to the developer. We strongly think that a Singleton based design is something de developer has to decide depending on the context where it's using the library. SugarRecord can perfectly work without shared instances but it's not closed to them, you can use them!
