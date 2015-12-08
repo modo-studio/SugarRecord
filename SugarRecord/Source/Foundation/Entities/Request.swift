@@ -21,14 +21,14 @@ public struct Request<T: Entity> {
     /**
      Initializes the request with the provided context, sort descriptor and predicate
      
-     - parameter context:        context
+     - parameter requestable:    requestable
      - parameter sortDescriptor: sort descriptor
      - parameter predicate:      predicate
      
      - returns: initialized Request
      */
-    init(context: Context, sortDescriptor: NSSortDescriptor? = nil, predicate: NSPredicate? = nil) {
-        self.context = context
+    init(_ requestable: Requestable, sortDescriptor: NSSortDescriptor? = nil, predicate: NSPredicate? = nil) {
+        self.context = requestable.requestContext()
         self.sortDescriptor = sortDescriptor
         self.predicate = predicate
     }
@@ -82,10 +82,10 @@ public struct Request<T: Entity> {
     // MARK: - Internal
     
     func request(withPredicate predicate: NSPredicate) -> Request<T> {
-        return Request<T>(context: context, sortDescriptor: sortDescriptor, predicate: predicate)
+        return Request<T>(context, sortDescriptor: sortDescriptor, predicate: predicate)
     }
     
     func request(withSortDescriptor sortDescriptor: NSSortDescriptor) -> Request<T> {
-        return Request<T>(context: context, sortDescriptor: sortDescriptor, predicate: predicate)
+        return Request<T>(context, sortDescriptor: sortDescriptor, predicate: predicate)
     }
 }

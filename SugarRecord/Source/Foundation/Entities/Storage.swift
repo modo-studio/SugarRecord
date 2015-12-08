@@ -15,7 +15,7 @@ public enum StorageType {
 /**
  *  Protocol that identifies a persistence storage
  */
-public protocol Storage: CustomStringConvertible {
+public protocol Storage: CustomStringConvertible, Requestable {
     
     typealias Saver = () -> Void
     

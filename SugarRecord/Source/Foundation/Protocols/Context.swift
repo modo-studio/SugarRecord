@@ -4,7 +4,7 @@ import Result
 /**
  *  Context protocol. It works as a proxy for accessing the persistence solution.
  */
-public protocol Context {
+public protocol Context: Requestable {
     
      /**
      Fetches objects and returns them using the provided request
@@ -51,6 +51,6 @@ public extension Context {
      - returns: initialized request
      */
     public func request<T>(model: T.Type) -> Request<T> {
-        return Request<T>(context: self)
+        return Request<T>(self)
     }
 }

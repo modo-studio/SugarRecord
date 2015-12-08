@@ -94,6 +94,11 @@
 		239C8E0D1BF4A5870025DB9A /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E091BF4A5860025DB9A /* Queue.swift */; };
 		23A916751C17365A005E57D8 /* DirUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A916741C17365A005E57D8 /* DirUtilsTests.swift */; };
 		23A916771C173CAF005E57D8 /* OptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A916761C173CAF005E57D8 /* OptionsTests.swift */; };
+		23A916791C173E5F005E57D8 /* CoreDataDefaultStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A916781C173E5F005E57D8 /* CoreDataDefaultStorageTests.swift */; };
+		23A9167D1C173FCF005E57D8 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A9167C1C173FCF005E57D8 /* Requestable.swift */; };
+		23A9167E1C173FCF005E57D8 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A9167C1C173FCF005E57D8 /* Requestable.swift */; };
+		23A9167F1C173FCF005E57D8 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A9167C1C173FCF005E57D8 /* Requestable.swift */; };
+		23A916801C173FCF005E57D8 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A9167C1C173FCF005E57D8 /* Requestable.swift */; };
 		23AC16271BF370BA00FAF97A /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
 		23AC16291BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
 		23AC162B1BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
@@ -198,6 +203,8 @@
 		239C8E091BF4A5860025DB9A /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		23A916741C17365A005E57D8 /* DirUtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirUtilsTests.swift; sourceTree = "<group>"; };
 		23A916761C173CAF005E57D8 /* OptionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTests.swift; sourceTree = "<group>"; };
+		23A916781C173E5F005E57D8 /* CoreDataDefaultStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataDefaultStorageTests.swift; path = Storage/CoreDataDefaultStorageTests.swift; sourceTree = "<group>"; };
+		23A9167C1C173FCF005E57D8 /* Requestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		23AC16281BF3716200FAF97A /* RealmEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmEntity.swift; sourceTree = "<group>"; };
 		23B15C4F1BF352540059008E /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		23B15C511BF352AD0059008E /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
@@ -466,6 +473,7 @@
 				2353E6371BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift */,
 				2353E6351BED4AC00081E6E7 /* Context.swift */,
 				2305F8FE1BF1EA8D00F9D379 /* Entity.swift */,
+				23A9167C1C173FCF005E57D8 /* Requestable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -755,6 +763,7 @@
 		3DE3FD971BF15AFE00009071 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				23A916781C173E5F005E57D8 /* CoreDataDefaultStorageTests.swift */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -1078,6 +1087,7 @@
 				2353E6671BED4B250081E6E7 /* CoreData.swift in Sources */,
 				23AC16291BF3716200FAF97A /* RealmEntity.swift in Sources */,
 				2305F8FB1BF1EA5900F9D379 /* Object.swift in Sources */,
+				23A9167D1C173FCF005E57D8 /* Requestable.swift in Sources */,
 				2353E63D1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
 				2353E6591BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
 				2353E64D1BED4AC00081E6E7 /* Error.swift in Sources */,
@@ -1114,6 +1124,7 @@
 				2353E6521BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
 				23AC16271BF370BA00FAF97A /* Entity.swift in Sources */,
 				2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */,
+				23A9167E1C173FCF005E57D8 /* Requestable.swift in Sources */,
 				2305F8F21BF0FE4500F9D379 /* DirUtils.swift in Sources */,
 				239C8E0B1BF4A5870025DB9A /* Queue.swift in Sources */,
 			);
@@ -1135,6 +1146,7 @@
 				2353E6691BED4B250081E6E7 /* CoreData.swift in Sources */,
 				23AC162B1BF3716200FAF97A /* RealmEntity.swift in Sources */,
 				2305F8FC1BF1EA5900F9D379 /* Object.swift in Sources */,
+				23A9167F1C173FCF005E57D8 /* Requestable.swift in Sources */,
 				2353E63F1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
 				2353E65B1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
 				2353E64F1BED4AC00081E6E7 /* Error.swift in Sources */,
@@ -1166,6 +1178,7 @@
 				2353E66A1BED4B250081E6E7 /* CoreData.swift in Sources */,
 				23AC162C1BF3716200FAF97A /* RealmEntity.swift in Sources */,
 				2305F8FD1BF1EA5900F9D379 /* Object.swift in Sources */,
+				23A916801C173FCF005E57D8 /* Requestable.swift in Sources */,
 				2353E6401BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
 				2353E65C1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
 				2353E6501BED4AC00081E6E7 /* Error.swift in Sources */,
@@ -1193,6 +1206,7 @@
 				3DDE7D451BF4E45E00D166C4 /* Track+CoreDataProperties.swift in Sources */,
 				230CBDC21BF37F7A00C43A48 /* ResultsTests.swift in Sources */,
 				2305F8EE1BF0FAFC00F9D379 /* ObjectModelTests.swift in Sources */,
+				23A916791C173E5F005E57D8 /* CoreDataDefaultStorageTests.swift in Sources */,
 				23B15C591BF353F70059008E /* Realm.swift in Sources */,
 				23B15C571BF3535E0059008E /* RealmTests.swift in Sources */,
 				3D733FD51C0C2AC400B74DA1 /* RequestTests.swift in Sources */,
