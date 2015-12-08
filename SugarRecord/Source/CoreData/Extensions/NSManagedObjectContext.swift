@@ -8,8 +8,18 @@ import Result
 extension NSManagedObjectContext: Context {
     
     public func fetch<T>(request: Request<T>) -> Result<[T], Error> {
-        //TODO
-        return Result(value: [])
+        guard let E = T.self as? NSManagedObject.Type else { return Result(error: .InvalidType) }
+        let fetchRequest: NSFetchRequest =  NSFetchRequest(entityName: E.entityName)
+        fetchRequest.predicate = request.predicate
+        fetchRequest.sortDescriptors = request.sortDescriptor.map({[$0]})
+        do {
+            let results = try self.executeFetchRequest(fetchRequest)
+            let typedResults = results.map({$0 as! T})
+            return Result(value: typedResults)
+        }
+        catch {
+            return Result(error: .FetchError(error))
+        }
     }
     
     public func insert<T>() -> Result<T, Error> {
