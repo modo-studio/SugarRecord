@@ -8,19 +8,19 @@ public class CoreDataDefaultStorage: Storage {
     // MARK: - Attributes
     
     /// CoreData store
-    private let store: CoreData.Store
+    internal let store: CoreData.Store
     
     /// CoreData managed object model
-    private var objectModel: NSManagedObjectModel! = nil
+    internal var objectModel: NSManagedObjectModel! = nil
     
     /// CoreData persistent store
-    private var persistentStore: NSPersistentStore! = nil
+    internal var persistentStore: NSPersistentStore! = nil
     
     /// CoreData persistent store coordinator
-    private var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil
+    internal var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil
     
     /// CoreData root saving context
-    private var rootSavingContext: NSManagedObjectContext! = nil
+    internal var rootSavingContext: NSManagedObjectContext! = nil
     
     // MARK: - Storage conformance
     
@@ -41,7 +41,7 @@ public class CoreDataDefaultStorage: Storage {
     /// Save context. This context is mostly used for save operations
     public var saveContext: Context! {
         get {
-            let _context = context(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType)
+            let _context = context(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType, inMemory: false)
             _context.observe(inMainThread: true) { [weak self] (notification) -> Void in
                 (self?.mainContext as? NSManagedObjectContext)?.mergeChangesFromContextDidSaveNotification(notification)
             }
@@ -52,7 +52,7 @@ public class CoreDataDefaultStorage: Storage {
     /// Memory context. This context is mostly used for testing (not persisted)
     public var memoryContext: Context! {
         get {
-            let _context =  context(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType)
+            let _context =  context(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType, inMemory: true)
             return _context
         }
     }
@@ -111,8 +111,8 @@ public class CoreDataDefaultStorage: Storage {
         self.objectModel = model.model()!
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
         self.persistentStore = try initializeStore(store, storeCoordinator: persistentStoreCoordinator, migrate: migrate)
-        self.rootSavingContext = context(withParent: .Coordinator(self.persistentStoreCoordinator), concurrencyType: .PrivateQueueConcurrencyType)
-        self.mainContext = context(withParent: .Context(self.rootSavingContext), concurrencyType: .MainQueueConcurrencyType)
+        self.rootSavingContext = context(withParent: .Coordinator(self.persistentStoreCoordinator), concurrencyType: .PrivateQueueConcurrencyType, inMemory: false)
+        self.mainContext = context(withParent: .Context(self.rootSavingContext), concurrencyType: .MainQueueConcurrencyType, inMemory: false)
     }
 }
 
@@ -125,18 +125,24 @@ public class CoreDataDefaultStorage: Storage {
  
  - returns: initialized managed object context
  */
-private func context(withParent parent: CoreData.ContextParent?, concurrencyType: NSManagedObjectContextConcurrencyType) -> NSManagedObjectContext {
-    let context: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: concurrencyType)
+private func context(withParent parent: CoreData.ContextParent?, concurrencyType: NSManagedObjectContextConcurrencyType, inMemory: Bool) -> NSManagedObjectContext {
+    var context: NSManagedObjectContext?
+    if inMemory {
+        context = NSManagedObjectMemoryContext(concurrencyType: concurrencyType)
+    }
+    else {
+        context = NSManagedObjectContext(concurrencyType: concurrencyType)
+    }
     if let parent = parent {
         switch parent {
         case .Context(let parentContext):
-            context.parentContext = parentContext
+            context!.parentContext = parentContext
         case .Coordinator(let storeCoordinator):
-            context.persistentStoreCoordinator = storeCoordinator
+            context!.persistentStoreCoordinator = storeCoordinator
         }
     }
-    context.observeToGetPermanentIDsBeforeSaving()
-    return context
+    context!.observeToGetPermanentIDsBeforeSaving()
+    return context!
 }
 
 

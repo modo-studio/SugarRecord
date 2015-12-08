@@ -60,5 +60,4 @@ extension NSManagedObjectContext {
             _ = try? s.obtainPermanentIDsForObjects(Array(s.insertedObjects))
         })
     }
-    
 }

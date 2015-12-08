@@ -24,6 +24,11 @@
 		2305F9011BF1EA8D00F9D379 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
 		230CBDC21BF37F7A00C43A48 /* ResultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CBDC11BF37F7900C43A48 /* ResultsTests.swift */; };
 		230CBDC61BF383D700C43A48 /* RealmDefaultStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CBDC51BF383D700C43A48 /* RealmDefaultStorageTests.swift */; };
+		231C61EF1C17482100CD6532 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C61EE1C17482100CD6532 /* CoreData.swift */; };
+		231C61F11C174BE000CD6532 /* NSManagedObjectMemoryContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C61F01C174BE000CD6532 /* NSManagedObjectMemoryContext.swift */; };
+		231C61F21C174BE000CD6532 /* NSManagedObjectMemoryContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C61F01C174BE000CD6532 /* NSManagedObjectMemoryContext.swift */; };
+		231C61F31C174BE000CD6532 /* NSManagedObjectMemoryContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C61F01C174BE000CD6532 /* NSManagedObjectMemoryContext.swift */; };
+		231C61F41C174BE000CD6532 /* NSManagedObjectMemoryContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C61F01C174BE000CD6532 /* NSManagedObjectMemoryContext.swift */; };
 		2353E6391BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
 		2353E63A1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
 		2353E63B1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
@@ -184,6 +189,8 @@
 		2305F8FE1BF1EA8D00F9D379 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		230CBDC11BF37F7900C43A48 /* ResultsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTests.swift; sourceTree = "<group>"; };
 		230CBDC51BF383D700C43A48 /* RealmDefaultStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDefaultStorageTests.swift; sourceTree = "<group>"; };
+		231C61EE1C17482100CD6532 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		231C61F01C174BE000CD6532 /* NSManagedObjectMemoryContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectMemoryContext.swift; sourceTree = "<group>"; };
 		2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		2353E62B1BED4AC00081E6E7 /* CoreDataDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDefaultStorage.swift; sourceTree = "<group>"; };
@@ -363,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				23B15C581BF353F70059008E /* Realm.swift */,
+				231C61EE1C17482100CD6532 /* CoreData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -416,6 +424,7 @@
 			children = (
 				2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */,
 				2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */,
+				231C61F01C174BE000CD6532 /* NSManagedObjectMemoryContext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1075,6 +1084,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231C61F11C174BE000CD6532 /* NSManagedObjectMemoryContext.swift in Sources */,
 				2353E6761BED4E420081E6E7 /* Store.swift in Sources */,
 				2353E6391BED4AC00081E6E7 /* NSManagedObject.swift in Sources */,
 				2353E6451BED4AC00081E6E7 /* Request.swift in Sources */,
@@ -1122,6 +1132,7 @@
 				2353E64E1BED4AC00081E6E7 /* Error.swift in Sources */,
 				2353E6561BED4AC00081E6E7 /* Context.swift in Sources */,
 				2353E6521BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
+				231C61F21C174BE000CD6532 /* NSManagedObjectMemoryContext.swift in Sources */,
 				23AC16271BF370BA00FAF97A /* Entity.swift in Sources */,
 				2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				23A9167E1C173FCF005E57D8 /* Requestable.swift in Sources */,
@@ -1134,6 +1145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231C61F31C174BE000CD6532 /* NSManagedObjectMemoryContext.swift in Sources */,
 				2353E6781BED4E420081E6E7 /* Store.swift in Sources */,
 				2353E63B1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */,
 				2353E6471BED4AC00081E6E7 /* Request.swift in Sources */,
@@ -1166,6 +1178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231C61F41C174BE000CD6532 /* NSManagedObjectMemoryContext.swift in Sources */,
 				2353E6791BED4E420081E6E7 /* Store.swift in Sources */,
 				2353E63C1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */,
 				2353E6481BED4AC00081E6E7 /* Request.swift in Sources */,
@@ -1210,6 +1223,7 @@
 				23B15C591BF353F70059008E /* Realm.swift in Sources */,
 				23B15C571BF3535E0059008E /* RealmTests.swift in Sources */,
 				3D733FD51C0C2AC400B74DA1 /* RequestTests.swift in Sources */,
+				231C61EF1C17482100CD6532 /* CoreData.swift in Sources */,
 				2305F8EC1BF0F89200F9D379 /* StoreTests.swift in Sources */,
 				23B15C501BF352540059008E /* Repository.swift in Sources */,
 				23A916751C17365A005E57D8 /* DirUtilsTests.swift in Sources */,
