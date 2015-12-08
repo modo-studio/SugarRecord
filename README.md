@@ -47,11 +47,107 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [S
 5. Add generated frameworks to your app main target following the steps [here](https://github.com/carthage/carthage)
 6. Link your target with **CoreData** library *(from Build Phases)*
 
-## Trello board :white_check_mark:
-We :heart: love transparency and decided to make the Trello board that use for organization public. You can access it [here](https://trello.com/c/BovsGc0E/4-contribution-document). You can check there the upcoming features and bugs pending to be fixed. You can also contribute proposing yours.
+#### Notes
+- The CocoaPods integration doesn't support Realm yet. Use Realm instead.
+- Carthage integration includes both, CoreData and Carthage. We're planning to separate it in multiple frameworks. [Task](https://trello.com/c/hyhN1Tp2/11-create-separated-frameworks-for-foundation-coredata-and-realm)
+- SugarRecord 2.0 is not compatible with the 1.x interface. If you were using that version you'll have to update your project to support this version.
 
 ## Reference
 You can check the SugarRecord documentation [here](http://blog.gitdo.io/SugarRecord/). Thanks [**Jazzy**](https://github.com/realm/jazzy) for that powerful tool for generating documentation :tada:
+
+# How to use
+
+#### Creating your Storage
+A storage represents your database, Realm, or CoreData. The first step to start using SugarRecord is initializing the storage. SugarRecord provides two default storages, one for CoreData, `CoreDataDefaultStorage` and another one for Realm, `RealmDefaultStorage`.
+
+```swift
+// Initializing CoreDataDefaultStorage
+func coreDataStorage() -> CoreDataDefaultStorage {
+    let store = CoreData.Store.Named("db")
+    let bundle = NSBundle(forClass: CoreDataDefaultStorageTests.classForCoder())
+    let model = CoreData.ObjectModel.Merged([bundle])
+    let defaultStorage = try! CoreDataDefaultStorage(store: store, model: model)
+    return defaultStorage
+}
+
+// Initializing RealmDefaultStorage
+func realmStorage() -> RealmDefaultStorage {
+  return RealmDefaultStorage()
+}
+```
+
+#### Contexts
+Storages offer multiple kind of contexts that are the entry points to the database. For curious developers, in case of CoreData a context is a wrapper around `NSManagedObjectContext`, in case of Realm a wrapper around `Realm`. The available contexts are:
+
+- **MainContext:** Use it for main thread operations, for example fetches whose data will be presented in the UI.
+- **SaveContext:** Use this context for background operations, the property `saveContext` of the storage is a computed property so every time you call it you get a new fresh context to be used.
+- **MemoryContext:** Use this context when you want to do some tests and you don't want your changes to be persisted.
+
+#### Fetching data
+Once you know that the context is the point to access the storage let's see how we can request objects since SugarRecord also provides a fluent interface to make things easier:
+
+1. Use the context `request()` method passing the type of object you want to fetch.
+2. Specify filters and sort descriptors for that request. We'll expand this in the future to include more request features Realm/CoreData related.
+3. Once you have your request, just use the fetch method which will return a `Result<[Value], Error>` object that wraps both your result or an error in case of something went wrong with the request. You can unwrap the value with `result.value!`.
+
+```swift
+let pedros: [Person] = db.mainContext.request(Person.self).filteredWith("name", equalTo: "Pedro").fetch().value!
+let tasks: [Task] = db.mainContext.request(Task.self).fetch().value!
+let citiesByName: [City] = db.mainContext.request(City.self).sortedWith("name", ascending: true).fetch().value!
+
+let predicate: NSPredicate = NSPredicate(format: "id == %@", "AAAA")
+let john: User? = db.mainContext.request(User.self).filteredWith(predicate: predicate).fetch().value!.first
+```
+
+#### Remove/Insert/Update operations
+
+Although `Context`s offer `insertion` and `deletion` methods that you can use it directly SugarRecords aims at using the `operation` method method provided by the storage for operations that imply modifications of the database models:
+
+- **Context**: You can use it for fetching, inserting, deleting. Whatever you need to do with your data.
+- **Save**: All the changes you apply to that context are in a memory state unless you call the `save()` method. That method will persist the changes to your store and propagate them across all the available contexts.
+
+```swift
+db?.operation({ (context, save) -> Void in
+  // Do your operations here
+  save()
+}, completed: {
+  // Everything was completed. :tada:
+})
+```
+##### Inserting a model
+You can use the `insert()` method of context that needs the type of object you want to insert:
+
+```swift
+db?.operation({ (context, save) -> Void in
+  let newTask: Track = memoryContext.insert().value!
+  newTask.name = "Make CoreData easier!"
+  save()
+}, completed: {
+  // Everything was completed. :tada:
+})
+```
+
+##### Delete a model
+In a similar way you can use the `remove()` method from the context passing the objects you want to remove from the database:
+
+```swift
+db?.operation({ (context, save) -> Void in
+  guard let john = db.mainContext.request(User.self).filteredWith("id", equalTo: "1234").fetch().value!.first else { return }
+  context.remove([john])
+  save()
+}, completed: {
+  // Everything was completed. :tada:
+})
+```
+
+<br>
+<br>
+> This is the first approach of SugarRecord for the  interface. We'll improve it with the feedback you can report and according to the use of the framework. Do not hesitate to reach us with your proposals. Everything that has to be with making the use of CoreData/Realm easier, funnier, and enjoyable is welcome! :tada:
+
+# Contributing
+
+## Trello board :white_check_mark:
+We :heart: love transparency and decided to make the Trello board that use for organization public. You can access it [here](https://trello.com/c/BovsGc0E/4-contribution-document). You can check there the upcoming features and bugs pending to be fixed. You can also contribute proposing yours.
 
 ## Support
 
