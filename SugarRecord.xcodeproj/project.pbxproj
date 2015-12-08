@@ -92,6 +92,7 @@
 		239C8E0B1BF4A5870025DB9A /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E091BF4A5860025DB9A /* Queue.swift */; };
 		239C8E0C1BF4A5870025DB9A /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E091BF4A5860025DB9A /* Queue.swift */; };
 		239C8E0D1BF4A5870025DB9A /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E091BF4A5860025DB9A /* Queue.swift */; };
+		23A916751C17365A005E57D8 /* DirUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A916741C17365A005E57D8 /* DirUtilsTests.swift */; };
 		23AC16271BF370BA00FAF97A /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305F8FE1BF1EA8D00F9D379 /* Entity.swift */; };
 		23AC16291BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
 		23AC162B1BF3716200FAF97A /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AC16281BF3716200FAF97A /* RealmEntity.swift */; };
@@ -194,6 +195,7 @@
 		2353E67A1BED52150081E6E7 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		239C8E041BF48B680025DB9A /* ContextParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextParent.swift; sourceTree = "<group>"; };
 		239C8E091BF4A5860025DB9A /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		23A916741C17365A005E57D8 /* DirUtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirUtilsTests.swift; sourceTree = "<group>"; };
 		23AC16281BF3716200FAF97A /* RealmEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmEntity.swift; sourceTree = "<group>"; };
 		23B15C4F1BF352540059008E /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		23B15C511BF352AD0059008E /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
@@ -332,7 +334,6 @@
 		2305F8E61BF0F82400F9D379 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				23B15C4A1BF351F50059008E /* Realm */,
 				3DE3FD971BF15AFE00009071 /* Storage */,
 				2305F8E71BF0F82400F9D379 /* Entities */,
 			);
@@ -458,9 +459,9 @@
 		2353E6341BED4AC00081E6E7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				2353E6351BED4AC00081E6E7 /* Context.swift */,
 				2353E6361BED4AC00081E6E7 /* NSPredicateConvertible.swift */,
 				2353E6371BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift */,
+				2353E6351BED4AC00081E6E7 /* Context.swift */,
 				2305F8FE1BF1EA8D00F9D379 /* Entity.swift */,
 			);
 			path = Protocols;
@@ -478,28 +479,12 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		23B15C4A1BF351F50059008E /* Realm */ = {
+		23A916731C173650005E57D8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				23B15C4B1BF351F50059008E /* Extensions */,
-				23B15C4C1BF351F50059008E /* Storages */,
+				23A916741C17365A005E57D8 /* DirUtilsTests.swift */,
 			);
-			name = Realm;
-			path = SugarRecordTests/Source/Realm;
-			sourceTree = SOURCE_ROOT;
-		};
-		23B15C4B1BF351F50059008E /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		23B15C4C1BF351F50059008E /* Storages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Storages;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		23B15C4D1BF352470059008E /* CoreData */ = {
@@ -549,6 +534,7 @@
 		3D733FCF1C0C20A400B74DA1 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				23A916731C173650005E57D8 /* Utils */,
 				3D733FD31C0C2AB400B74DA1 /* Entities */,
 			);
 			path = Foundation;
@@ -1208,6 +1194,7 @@
 				3D733FD51C0C2AC400B74DA1 /* RequestTests.swift in Sources */,
 				2305F8EC1BF0F89200F9D379 /* StoreTests.swift in Sources */,
 				23B15C501BF352540059008E /* Repository.swift in Sources */,
+				23A916751C17365A005E57D8 /* DirUtilsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

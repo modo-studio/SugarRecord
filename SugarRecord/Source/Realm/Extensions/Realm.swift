@@ -46,7 +46,6 @@ extension Realm: Context {
     public func remove<T: Entity>(objects: [T]) -> Result<Void, Error> {
         self.beginWrite()
         self.delete(objects.map({$0.realm}).filter({$0 != nil}).map({$0!}))
-        print("count \(objects.count)")
         do {
             try self.commitWrite()
             return Result(value: ())

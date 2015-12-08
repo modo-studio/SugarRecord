@@ -31,7 +31,7 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [S
 
 ## Setup
 
-### Using Cocoapods
+### [Cocoapods](https://cocoapods.org)
 
 1. Install [CocoaPods](https://cocoapods.org). You can do it with `gem install cocoapods`
 2. Edit your `Podfile` file and add the following line `pod 'SugarRecord'
@@ -40,7 +40,7 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [S
 
 *Note: You can also test the last commits by specifying it directly in the Podfile line*
 
-### Using Carthage
+### [Carthage](https://carthage)
 1. Install [Carthage](https://github.com/carthage/carthage) on your computer using `brew install carthage`
 3. Edit your `Cartfile` file adding the following line `github 'swiftreactive/sugarrecord'`
 4. Update and build frameworks with `carthage update`
