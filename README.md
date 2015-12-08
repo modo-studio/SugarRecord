@@ -53,7 +53,7 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [S
 - SugarRecord 2.0 is not compatible with the 1.x interface. If you were using that version you'll have to update your project to support this version.
 
 ## Reference
-You can check the SugarRecord documentation [here](http://blog.gitdo.io/SugarRecord/). Thanks [**Jazzy**](https://github.com/realm/jazzy) for that powerful tool for generating documentation :tada:
+You can check generated SugarRecord documentation [here](http://cocoadocs.org/docsets/SugarRecord/2.0.0/) generated automatically with [CocoaDocs](http://cocoadocs.org/) 
 
 # How to use
 
@@ -167,7 +167,6 @@ If you want to communicate any issue, suggestion or even make a contribution, yo
 - [CoreData and threads with GCD](http://www.cimgf.com/2011/05/04/core-data-and-threads-without-the-headache/)
 - [Jazzy](https://github.com/realm/jazzy)
 - [iCloud + CoreData (objc.io)](http://www.objc.io/issue-10/icloud-core-data.html)
-
 
 ## License
 The MIT License (MIT)
