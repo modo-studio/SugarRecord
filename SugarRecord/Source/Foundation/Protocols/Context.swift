@@ -31,26 +31,4 @@ public protocol Context: Requestable {
      */
     func remove<T: Entity>(objects: [T]) -> Result<Void, Error>
     
-    /**
-     Creates a request for the given model
-     
-     - parameter model: model
-     
-     - returns: initialized request
-     */
-    func request<T>(model: T.Type) -> Request<T>
-}
-
-public extension Context {
-    
-    /**
-     Creates a request for the given model
-     
-     - parameter model: model
-     
-     - returns: initialized request
-     */
-    public func request<T>(model: T.Type) -> Request<T> {
-        return Request<T>(self)
-    }
 }

@@ -21,7 +21,5 @@ class StoreTests: QuickSpec {
             })
             
         }
-        
     }
-    
 }

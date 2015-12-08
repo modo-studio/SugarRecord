@@ -14,6 +14,19 @@ extension NSManagedObject {
 }
 
 
-// MARK: - NSManagedobjecte Extension (Entity)
+// MARK: - NSManagedObject Extension (Entity)
 
 extension NSManagedObject: Entity {}
+
+
+// MARK: - NSManagedObject (Request builder)
+
+extension NSManagedObject {
+    
+    
+    static func request<T: Entity>(requestable: Requestable) -> Request<T> {
+        return Request(requestable)
+    }
+
+}
+
