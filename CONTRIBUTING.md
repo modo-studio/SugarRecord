@@ -73,11 +73,11 @@ Thanks for contributing! :boom::camel:
 
 ### Rake tasks
 In order to simplify some tasks there's a set of tasks defined in a `Makefile` that you can use:
-- Build all schemes: `make build`
+- Build all schemes: `make ci`
 - Run tests: `make test`
 
 ### New version checklist
-- [x] `make build` passes.
+- [x] `make ci` passes.
 - [x] `make tests` passes.
 - [x] Bump the version in project targets.
 - [x] Bump the version in `SugarRecord.podspec`.
