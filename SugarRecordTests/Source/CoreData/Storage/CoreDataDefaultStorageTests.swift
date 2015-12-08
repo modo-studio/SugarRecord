@@ -95,7 +95,6 @@ class CoreDataDefaultStorageTests: QuickSpec {
                     waitUntil(action: { (done) -> Void in
                         let memoryContext = defaultStorage!.memoryContext as! NSManagedObjectContext!
                         let _: Track = memoryContext.insert().value!
-                        memoryContext.remove(<#T##objects: [T]##[T]#>)
                         try! memoryContext.save()
                         defaultStorage?.operation({ (context, save) -> Void in
                             let resultsCount = context.request(Track.self).fetch().value!.count
