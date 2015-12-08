@@ -1,4 +1,4 @@
-# <center>![xcres](https://github.com/swiftreactive/SugarRecord/raw/version2/Assets/Banner.png)</center>
+# <center>![xcres](https://github.com/swiftreactive/SugarRecord/raw/master/Assets/Banner.png)</center>
 
 # SugarRecord
 
