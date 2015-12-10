@@ -119,7 +119,7 @@ You can use the `insert()` method of context that needs the type of object you w
 
 ```swift
 db?.operation({ (context, save) -> Void in
-  let newTask: Track = memoryContext.insert().value!
+  let newTask: Track = context.insert().value!
   newTask.name = "Make CoreData easier!"
   save()
 }, completed: {
