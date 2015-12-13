@@ -37,34 +37,9 @@ public protocol Storage: CustomStringConvertible, Requestable {
     func removeStore() throws
     
     /**
-     Executes the provided operation in background
-    
-     - parameter operation: operation to be executed
-     - parameter save:      closure to be called to persist the changes
-     - parameter completed: closure called when the execution is completed
-     */
-    func operation(operation: (context: Context, save: Saver) -> Void, completed: (() -> Void)?)
-    
-    /**
-     Executes the provided operation in a given queue
-     Note: This method must be implemented by the Storage that conforms this protocol.
-     Some storages require propagating these saves across the stack of contexts (e.g. CoreData)
+     Executes the provided operation.
      
-     - parameter queue:     queue where the operation will be executed
-     - parameter operation: operation to be executed
-     - parameter save:      closure to be called to persist the changes
-     - parameter completed: closure called when the execution is completed
+     - parameter operation: Operation to be executed.
      */
-    func operation(queue queue: Queue, operation: (context: Context, save: Saver) -> Void, completed: (() -> Void)?)
-}
-
-
-// MARK: - Storage extension
-
-public extension Storage {
-    
-    func operation(operation: (context: Context, save: Saver) -> Void, completed: (() -> Void)?) {
-        self.operation(queue: Queue.Background, operation: operation, completed: completed)
-    }
-    
+    func operation(operation: (context: Context, save: Saver) -> Void)
 }

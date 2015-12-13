@@ -58,28 +58,20 @@ public class CoreDataDefaultStorage: Storage {
     }
     
     /**
-    Executes the provided operation in a given queue
-    
-    - parameter queue:     Queue where the operation will be executed
-    - parameter operation: Operation closure that will be executed. This operation receives a context that can be use for fetching/persisting/removing data. It also receives a save closure. When this closure is called the operations against the context are persisted. If this method is not called the context will be removed and the operations won't be persisted.
-    - parameter completed: Closure that is called once the operation & saving finishes. It's called from the Queue where the operation was executed.
-    */
-    public func operation(queue queue: Queue, operation: (context: Context, save: () -> Void) -> Void, completed: (() -> Void)?) {
-        dispatch_async(queue.gcd()) { () -> Void in
-            let context: NSManagedObjectContext = self.saveContext as! NSManagedObjectContext
-            context.performBlockAndWait {
-                var save: Bool = false
-                operation(context: context, save: { save = true })
-                if save {
-                    _ = try? context.save()
-                    let mainContext = self.mainContext as! NSManagedObjectContext
-                    if mainContext.hasChanges {
-                        _ = try? mainContext.save()
-                    }
-                    completed?()
-                }
-                else {
-                    completed?()
+     Executes the provided operation.
+     
+     - parameter operation: Operation to be executed.
+     */
+    public func operation(operation: (context: Context, save: () -> Void) -> Void) {
+        let context: NSManagedObjectContext = self.saveContext as! NSManagedObjectContext
+        context.performBlockAndWait {
+            var save: Bool = false
+            operation(context: context, save: { save = true })
+            if save {
+                _ = try? context.save()
+                let mainContext = self.mainContext as! NSManagedObjectContext
+                if mainContext.hasChanges {
+                    _ = try? mainContext.save()
                 }
             }
         }

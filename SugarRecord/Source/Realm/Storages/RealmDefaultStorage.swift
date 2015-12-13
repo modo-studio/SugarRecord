@@ -52,25 +52,20 @@ public class RealmDefaultStorage: Storage {
     }
 
     /**
-     Executes the provided operation in a given queue
+     Executes the provided operation.
      
-     - parameter queue:     Queue where the operation will be executed
-     - parameter operation: Operation closure that will be executed. This operation receives a context that can be use for fetching/persisting/removing data. It also receives a save closure. When this closure is called the operations against the context are persisted. If this method is not called the context will be removed and the operations won't be persisted.
-     - parameter completed: Closure that is called once the operation & saving finishes. It's called from the Queue where the operation was executed.
+     - parameter operation: Operation to be executed.
      */
-    public func operation(queue queue: Queue, operation: (context: Context, save: () -> Void) -> Void, completed: (() -> Void)?) {
-        dispatch_async(queue.gcd()) { () -> Void in
-            let _context: Realm = self.saveContext as! Realm
-            _context.beginWrite()
-            var save: Bool = false
-            operation(context: _context, save: { save = true })
-            if (save) {
-                _ = try? _context.commitWrite()
-            }
-            else {
-                _context.cancelWrite()
-            }
-            completed?()
+    public func operation(operation: (context: Context, save: () -> Void) -> Void) {
+        let _context: Realm = self.saveContext as! Realm
+        _context.beginWrite()
+        var save: Bool = false
+        operation(context: _context, save: { save = true })
+        if (save) {
+            _ = try? _context.commitWrite()
+        }
+        else {
+            _context.cancelWrite()
         }
     }
 }
