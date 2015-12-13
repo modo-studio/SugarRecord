@@ -82,7 +82,6 @@ In order to simplify some tasks there's a set of tasks defined in a `Makefile` t
 - [x] Bump the version in project targets.
 - [x] Bump the version in `SugarRecord.podspec`.
 - [x] Close the issues that have been fixed.
-- [x] Update the wiki with the last changes.
 - [x] Tag the last commit with the proper version.
 - [x] Create a **Release** entry on Github and update the CHANGELOG.md document.
 - [x] Archive Carthage framework and upload it with the Release on Github.
