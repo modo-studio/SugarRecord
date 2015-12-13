@@ -64,6 +64,7 @@ public protocol Context: Requestable, ReactiveContext {
     func remove<T: Entity>(object: T) throws
 }
 
+
 // MARK: - Extension of Context implementing convenience methods.
 public extension Context {
     

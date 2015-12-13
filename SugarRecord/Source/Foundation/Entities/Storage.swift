@@ -42,4 +42,31 @@ public protocol Storage: CustomStringConvertible, Requestable {
      - parameter operation: Operation to be executed.
      */
     func operation(operation: (context: Context, save: Saver) -> Void)
+    
+    /**
+     Fetches objects and returns them using the provided request.
+     
+     - parameter request: Request to fetch the objects.
+     
+     - throws: Throws an Error in case the object couldn't be fetched.
+     
+     - returns: Array with the results.
+     */
+    func fetch<T: Entity>(request: Request<T>) throws -> [T]
+}
+
+public extension Storage {
+    
+    /**
+     Fetches objects and returns them using the provided request.
+     
+     - parameter request: Request to fetch the objects.
+     
+     - throws: Throws an Error in case the object couldn't be fetched.
+     
+     - returns: Array with the results.
+     */
+    func fetch<T: Entity>(request: Request<T>) throws -> [T] {
+        return try self.mainContext.fetch(request)
+    }
 }
