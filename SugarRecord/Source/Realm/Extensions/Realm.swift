@@ -1,18 +1,19 @@
 import Foundation
 import RealmSwift
-import Result
 
 extension Realm: Context {
     
     /**
-     Fetches objects and returns them using the provided request
+     Fetches objects and returns them using the provided request.
      
-     - parameter request: request to fetch the object
+     - parameter request: Request to fetch the objects.
      
-     - returns: request results and an error (in case of any)
+     - throws: Throws an Error in case the object couldn't be fetched.
+     
+     - returns: Array with the results.
      */
-    public func fetch<T: Entity>(request: Request<T>) -> Result<[T], Error> {
-        guard let E = T.self as? Object.Type else { return Result(error: .InvalidType) }
+    public func fetch<T: Entity>(request: Request<T>) throws -> [T] {
+        guard let E = T.self as? Object.Type else { throw Error.InvalidType }
         var results = self.objects(E.self)
         if let predicate = request.predicate {
             results = results.filter(predicate)
@@ -20,38 +21,43 @@ extension Realm: Context {
         if let sortDescriptor = request.sortDescriptor, key = sortDescriptor.key {
             results = results.sorted(key, ascending: sortDescriptor.ascending)
         }
-        let array = results.toArray().map({$0 as Any as! T})
-        return Result(value: array)
+        return results.toArray().map({$0 as Any as! T})
     }
     
     /**
-     Inserts an object into the context
+     Adds the entity to the Storage without saving it.
      
-     - returns: inserted object and an error (incase of any)
+     - parameter entity: Entity to be added.
+     
+     - throws: Throws an Error.InvalidType or Internal Storage error in case the object couldn't be added.
      */
-    public func insert<T: Entity>() -> Result<T, Error> {
-        guard let E = T.self as? Object.Type else { return Result(error: .InvalidType) }
-        let inserted = E.init()
-        self.add(inserted)
-        return Result(value: inserted as Any as! T)
+    public func add<T: Entity>(entity: T) throws {
+        guard let _ = T.self as? Object.Type else { throw Error.InvalidType }
+        try self.add(entity)
     }
     
     /**
-     Removes objets from the context
+     Creates an instance of type T and returns it.
      
-     - parameter objects: objects to be removed
+     - throws: Throws an Error.InvalidType error in case of an usupported model type by the Storage.
      
-     - returns: error (in case of any)
+     - returns: Created instance.
      */
-    public func remove<T: Entity>(objects: [T]) -> Result<Void, Error> {
+    public func new<T: Entity>() throws -> T {
+        guard let E = T.self as? Object.Type else { throw Error.InvalidType }
+        return E.init() as! T
+    }
+    
+    /**
+     Removes objects from the context.
+     
+     - parameter objects: Objects to be removed.
+     
+     - throws: Throws an Error if the objects couldn't be removed.
+     */
+    public func remove<T: Entity>(objects: [T]) throws {
         self.beginWrite()
         self.delete(objects.map({$0.realm}).filter({$0 != nil}).map({$0!}))
-        do {
-            try self.commitWrite()
-            return Result(value: ())
-        }
-        catch {
-            return Result(error: .WriteError)
-        }
+        try self.commitWrite()
     }
 }

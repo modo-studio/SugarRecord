@@ -1,6 +1,5 @@
 import Foundation
 import RealmSwift
-import Result
 
 /// Default Realm storage. In this case the structure is much simpler (compared with CoreData) contexts are represented by Realm instances in the thread where they are requested.
 public class RealmDefaultStorage: Storage {

@@ -1,5 +1,4 @@
 import Foundation
-import Result
 
 public struct Request<T: Entity> {
     
@@ -37,12 +36,14 @@ public struct Request<T: Entity> {
     // MARK: - Public Fetching Methods
     
     /**
-    Execute the fetch request
+    Executes the fetch request.
     
-    - returns: Result of the fetch reques(
+    - throws: Throws an Error if the request couldn't be executed.
+    
+    - returns: Fetch results.
     */
-    public func fetch() -> Result<[T], Error> {
-        return context.fetch(self)
+    public func fetch() throws -> [T] {
+        return try context.fetch(self)
     }
     
     
