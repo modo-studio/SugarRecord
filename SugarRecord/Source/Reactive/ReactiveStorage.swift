@@ -27,6 +27,15 @@ public protocol ReactiveStorage {
      - returns: SignalProducer that executes the action.
      */
     func rac_backgroundOperation(operation: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, NoError>
+    
+    /**
+     Executes a request.
+     
+     - parameter request: Request to be executed.
+     
+     - returns: SignalProducer that executes the action.
+     */
+    func rac_fetch<T>(request: Request<T>) -> SignalProducer<[T], Error>
 
     /**
      Executes a background fetch mapping the response into a PONSO thread safe entity.
@@ -37,15 +46,6 @@ public protocol ReactiveStorage {
      - returns: SignalProducer that executes the action.
      */
     func rac_backgroundFetch<T, U>(request: Request<T>, mapper: T -> U) -> SignalProducer<[U], Error>
-    
-    /**
-     Executes a request.
-     
-     - parameter request: Request to be executed.
-     
-     - returns: SignalProducer that executes the action.
-     */
-    func rac_fetch<T>(request: Request<T>) -> SignalProducer<[T], Error>
 }
 
 
@@ -83,7 +83,7 @@ public extension ReactiveStorage where Self: Storage {
                 self.operation { (context, saver) in
                     observer.sendCompleted()
                 }
-            }            
+            }
         }
     }
     
