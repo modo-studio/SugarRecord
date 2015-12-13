@@ -55,6 +55,7 @@ public protocol Storage: CustomStringConvertible, Requestable {
     func fetch<T: Entity>(request: Request<T>) throws -> [T]
 }
 
+// MARK: - Storage extension (Fetching)
 public extension Storage {
     
     /**
