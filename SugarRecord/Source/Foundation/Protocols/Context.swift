@@ -4,7 +4,7 @@ import Result
 /**
  *  Context protocol. It works as a proxy for accessing the persistence solution.
  */
-public protocol Context: Requestable {
+public protocol Context: Requestable, ReactiveContext {
     
      /**
      Fetches objects and returns them using the provided request
@@ -30,5 +30,4 @@ public protocol Context: Requestable {
      - returns: error (in case of any)
      */
     func remove<T: Entity>(objects: [T]) -> Result<Void, Error>
-    
 }

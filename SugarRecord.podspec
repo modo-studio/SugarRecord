@@ -18,17 +18,12 @@ Pod::Spec.new do |s|
   s.subspec "Foundation" do |sp|
     sp.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}']
     sp.dependency "Result", "~> 1.0"
+    spp.dependency "ReactiveCocoa", "4.0.4-alpha-4" 
   end
 
   s.subspec "CoreData" do |sp|
     sp.source_files = ['SugarRecord/Source/CoreData/**/*.{swift}']
     sp.dependency 'SugarRecord/Foundation'
     sp.frameworks = ['CoreData']
-
-    s.subspec "Reactive" do |spp|
-      spp.dependency 'SugarRecord/CoreData'
-      spp.source_files = ['SugarRecord/Source/Reactive/**/*.{swift}']
-      spp.dependency "ReactiveCocoa", "4.0.4-alpha-4" 
-    end
   end
 end

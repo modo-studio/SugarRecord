@@ -112,10 +112,26 @@
 		23B15C521BF352AD0059008E /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C511BF352AD0059008E /* Issue.swift */; };
 		23B15C571BF3535E0059008E /* RealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C561BF3535E0059008E /* RealmTests.swift */; };
 		23B15C591BF353F70059008E /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C581BF353F70059008E /* Realm.swift */; };
-		23F3F3651C1DF2D6009A5CC1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3641C1DF2D6009A5CC1 /* Test.swift */; };
-		23F3F3661C1DF2D6009A5CC1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3641C1DF2D6009A5CC1 /* Test.swift */; };
-		23F3F3671C1DF2D6009A5CC1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3641C1DF2D6009A5CC1 /* Test.swift */; };
-		23F3F3681C1DF2D6009A5CC1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3641C1DF2D6009A5CC1 /* Test.swift */; };
+		23F3F3651C1DF2D6009A5CC1 /* ReactiveStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3641C1DF2D6009A5CC1 /* ReactiveStorage.swift */; };
+		23F3F3661C1DF2D6009A5CC1 /* ReactiveStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3641C1DF2D6009A5CC1 /* ReactiveStorage.swift */; };
+		23F3F3671C1DF2D6009A5CC1 /* ReactiveStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3641C1DF2D6009A5CC1 /* ReactiveStorage.swift */; };
+		23F3F3681C1DF2D6009A5CC1 /* ReactiveStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3641C1DF2D6009A5CC1 /* ReactiveStorage.swift */; };
+		23F3F36A1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3691C1DFA6D009A5CC1 /* ReactiveError.swift */; };
+		23F3F36B1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3691C1DFA6D009A5CC1 /* ReactiveError.swift */; };
+		23F3F36C1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3691C1DFA6D009A5CC1 /* ReactiveError.swift */; };
+		23F3F36D1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3691C1DFA6D009A5CC1 /* ReactiveError.swift */; };
+		23F3F3781C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3771C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift */; };
+		23F3F3791C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3771C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift */; };
+		23F3F37A1C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3771C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift */; };
+		23F3F37B1C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3771C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift */; };
+		23F3F37E1C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F37D1C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift */; };
+		23F3F37F1C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F37D1C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift */; };
+		23F3F3801C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F37D1C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift */; };
+		23F3F3811C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F37D1C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift */; };
+		23F3F3831C1DFDAD009A5CC1 /* ReactiveContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3821C1DFDAD009A5CC1 /* ReactiveContext.swift */; };
+		23F3F3841C1DFDAD009A5CC1 /* ReactiveContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3821C1DFDAD009A5CC1 /* ReactiveContext.swift */; };
+		23F3F3851C1DFDAD009A5CC1 /* ReactiveContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3821C1DFDAD009A5CC1 /* ReactiveContext.swift */; };
+		23F3F3861C1DFDAD009A5CC1 /* ReactiveContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3821C1DFDAD009A5CC1 /* ReactiveContext.swift */; };
 		3D733FD51C0C2AC400B74DA1 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D733FD41C0C2AC400B74DA1 /* RequestTests.swift */; };
 		3D7586511C16186D00F64E22 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D75864D1C16186C00F64E22 /* ReactiveCocoa.framework */; };
 		3D7586521C16186D00F64E22 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D75864E1C16186D00F64E22 /* Realm.framework */; };
@@ -221,7 +237,11 @@
 		23B15C511BF352AD0059008E /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		23B15C561BF3535E0059008E /* RealmTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTests.swift; sourceTree = "<group>"; };
 		23B15C581BF353F70059008E /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
-		23F3F3641C1DF2D6009A5CC1 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		23F3F3641C1DF2D6009A5CC1 /* ReactiveStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveStorage.swift; sourceTree = "<group>"; };
+		23F3F3691C1DFA6D009A5CC1 /* ReactiveError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveError.swift; sourceTree = "<group>"; };
+		23F3F3771C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RealmDefaultStorage+Reactive.swift"; path = "Reactive/RealmDefaultStorage+Reactive.swift"; sourceTree = "<group>"; };
+		23F3F37D1C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DefaultCoreDataStorage+Reactive.swift"; path = "Reactive/DefaultCoreDataStorage+Reactive.swift"; sourceTree = "<group>"; };
+		23F3F3821C1DFDAD009A5CC1 /* ReactiveContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveContext.swift; sourceTree = "<group>"; };
 		3D733FD41C0C2AC400B74DA1 /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
 		3D75864D1C16186C00F64E22 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		3D75864E1C16186D00F64E22 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -408,6 +428,7 @@
 		2353E6251BED4AC00081E6E7 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				23F3F37C1C1DFD22009A5CC1 /* Reactive */,
 				2353E6651BED4B0A0081E6E7 /* Entities */,
 				2353E6261BED4AC00081E6E7 /* Errors */,
 				2353E6271BED4AC00081E6E7 /* Extensions */,
@@ -559,9 +580,27 @@
 		23F3F3631C1DF2D0009A5CC1 /* Reactive */ = {
 			isa = PBXGroup;
 			children = (
-				23F3F3641C1DF2D6009A5CC1 /* Test.swift */,
+				23F3F3641C1DF2D6009A5CC1 /* ReactiveStorage.swift */,
+				23F3F3691C1DFA6D009A5CC1 /* ReactiveError.swift */,
+				23F3F3821C1DFDAD009A5CC1 /* ReactiveContext.swift */,
 			);
 			path = Reactive;
+			sourceTree = "<group>";
+		};
+		23F3F3761C1DFCF6009A5CC1 /* Reactive */ = {
+			isa = PBXGroup;
+			children = (
+				23F3F3771C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift */,
+			);
+			name = Reactive;
+			sourceTree = "<group>";
+		};
+		23F3F37C1C1DFD22009A5CC1 /* Reactive */ = {
+			isa = PBXGroup;
+			children = (
+				23F3F37D1C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift */,
+			);
+			name = Reactive;
 			sourceTree = "<group>";
 		};
 		3D733FCF1C0C20A400B74DA1 /* Foundation */ = {
@@ -794,6 +833,7 @@
 		3DE3FD991BF15BBC00009071 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				23F3F3761C1DFCF6009A5CC1 /* Reactive */,
 				3DE3FD9C1BF15BBC00009071 /* Extensions */,
 				3DE3FD9D1BF15BBC00009071 /* Storages */,
 			);
@@ -1108,22 +1148,26 @@
 				2353E66C1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */,
 				2353E6711BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E65D1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
+				23F3F3781C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift in Sources */,
 				2353E6671BED4B250081E6E7 /* CoreData.swift in Sources */,
 				23AC16291BF3716200FAF97A /* RealmEntity.swift in Sources */,
 				2305F8FB1BF1EA5900F9D379 /* Object.swift in Sources */,
 				23A9167D1C173FCF005E57D8 /* Requestable.swift in Sources */,
 				2353E63D1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
+				23F3F36A1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */,
 				2353E6591BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
 				2353E64D1BED4AC00081E6E7 /* Error.swift in Sources */,
 				239C8E0A1BF4A5870025DB9A /* Queue.swift in Sources */,
 				2353E6551BED4AC00081E6E7 /* Context.swift in Sources */,
 				2305F8F71BF1E87200F9D379 /* Results.swift in Sources */,
-				23F3F3651C1DF2D6009A5CC1 /* Test.swift in Sources */,
+				23F3F3651C1DF2D6009A5CC1 /* ReactiveStorage.swift in Sources */,
 				239C8E051BF48B680025DB9A /* ContextParent.swift in Sources */,
 				2353E6511BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
+				23F3F37E1C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift in Sources */,
 				2305F8FF1BF1EA8D00F9D379 /* Entity.swift in Sources */,
 				2353E6491BED4AC00081E6E7 /* Storage.swift in Sources */,
 				2305F8F11BF0FE4500F9D379 /* DirUtils.swift in Sources */,
+				23F3F3831C1DFDAD009A5CC1 /* ReactiveContext.swift in Sources */,
 				3DE3FD9F1BF15BD200009071 /* RealmDefaultStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1132,12 +1176,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F3F3841C1DFDAD009A5CC1 /* ReactiveContext.swift in Sources */,
 				2353E6771BED4E420081E6E7 /* Store.swift in Sources */,
 				2353E63A1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */,
 				2353E6461BED4AC00081E6E7 /* Request.swift in Sources */,
 				2353E6421BED4AC00081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
 				2353E67C1BED52150081E6E7 /* Options.swift in Sources */,
-				23F3F3661C1DF2D6009A5CC1 /* Test.swift in Sources */,
+				23F3F3661C1DF2D6009A5CC1 /* ReactiveStorage.swift in Sources */,
 				2353E66D1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */,
 				2353E6721BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E65E1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
@@ -1147,12 +1192,15 @@
 				2353E65A1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
 				2353E64E1BED4AC00081E6E7 /* Error.swift in Sources */,
 				2353E6561BED4AC00081E6E7 /* Context.swift in Sources */,
+				23F3F37F1C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift in Sources */,
 				2353E6521BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
 				231C61F21C174BE000CD6532 /* NSManagedObjectMemoryContext.swift in Sources */,
+				23F3F36B1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */,
 				23AC16271BF370BA00FAF97A /* Entity.swift in Sources */,
 				2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				23A9167E1C173FCF005E57D8 /* Requestable.swift in Sources */,
 				2305F8F21BF0FE4500F9D379 /* DirUtils.swift in Sources */,
+				23F3F3791C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift in Sources */,
 				239C8E0B1BF4A5870025DB9A /* Queue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1171,22 +1219,26 @@
 				2353E66E1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */,
 				2353E6731BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E65F1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
+				23F3F37A1C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift in Sources */,
 				2353E6691BED4B250081E6E7 /* CoreData.swift in Sources */,
 				23AC162B1BF3716200FAF97A /* RealmEntity.swift in Sources */,
 				2305F8FC1BF1EA5900F9D379 /* Object.swift in Sources */,
 				23A9167F1C173FCF005E57D8 /* Requestable.swift in Sources */,
 				2353E63F1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
+				23F3F36C1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */,
 				2353E65B1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
 				2353E64F1BED4AC00081E6E7 /* Error.swift in Sources */,
 				239C8E0C1BF4A5870025DB9A /* Queue.swift in Sources */,
 				2353E6571BED4AC00081E6E7 /* Context.swift in Sources */,
 				2305F8F81BF1E87200F9D379 /* Results.swift in Sources */,
-				23F3F3671C1DF2D6009A5CC1 /* Test.swift in Sources */,
+				23F3F3671C1DF2D6009A5CC1 /* ReactiveStorage.swift in Sources */,
 				239C8E071BF48B680025DB9A /* ContextParent.swift in Sources */,
 				2353E6531BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
+				23F3F3801C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift in Sources */,
 				2305F9001BF1EA8D00F9D379 /* Entity.swift in Sources */,
 				2353E64B1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				2305F8F31BF0FE4500F9D379 /* DirUtils.swift in Sources */,
+				23F3F3851C1DFDAD009A5CC1 /* ReactiveContext.swift in Sources */,
 				3DE3FDA11BF15BD200009071 /* RealmDefaultStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1205,22 +1257,26 @@
 				2353E66F1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */,
 				2353E6741BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E6601BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
+				23F3F37B1C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift in Sources */,
 				2353E66A1BED4B250081E6E7 /* CoreData.swift in Sources */,
 				23AC162C1BF3716200FAF97A /* RealmEntity.swift in Sources */,
 				2305F8FD1BF1EA5900F9D379 /* Object.swift in Sources */,
 				23A916801C173FCF005E57D8 /* Requestable.swift in Sources */,
 				2353E6401BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
+				23F3F36D1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */,
 				2353E65C1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
 				2353E6501BED4AC00081E6E7 /* Error.swift in Sources */,
 				239C8E0D1BF4A5870025DB9A /* Queue.swift in Sources */,
 				2353E6581BED4AC00081E6E7 /* Context.swift in Sources */,
 				2305F8F91BF1E87200F9D379 /* Results.swift in Sources */,
-				23F3F3681C1DF2D6009A5CC1 /* Test.swift in Sources */,
+				23F3F3681C1DF2D6009A5CC1 /* ReactiveStorage.swift in Sources */,
 				239C8E081BF48B680025DB9A /* ContextParent.swift in Sources */,
 				2353E6541BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
+				23F3F3811C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift in Sources */,
 				2305F9011BF1EA8D00F9D379 /* Entity.swift in Sources */,
 				2353E64C1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				2305F8F41BF0FE4500F9D379 /* DirUtils.swift in Sources */,
+				23F3F3861C1DFDAD009A5CC1 /* ReactiveContext.swift in Sources */,
 				3DE3FDA21BF15BD200009071 /* RealmDefaultStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
