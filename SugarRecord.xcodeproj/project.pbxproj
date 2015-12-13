@@ -112,6 +112,10 @@
 		23B15C521BF352AD0059008E /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C511BF352AD0059008E /* Issue.swift */; };
 		23B15C571BF3535E0059008E /* RealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C561BF3535E0059008E /* RealmTests.swift */; };
 		23B15C591BF353F70059008E /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C581BF353F70059008E /* Realm.swift */; };
+		23F3F3651C1DF2D6009A5CC1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3641C1DF2D6009A5CC1 /* Test.swift */; };
+		23F3F3661C1DF2D6009A5CC1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3641C1DF2D6009A5CC1 /* Test.swift */; };
+		23F3F3671C1DF2D6009A5CC1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3641C1DF2D6009A5CC1 /* Test.swift */; };
+		23F3F3681C1DF2D6009A5CC1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3641C1DF2D6009A5CC1 /* Test.swift */; };
 		3D733FD51C0C2AC400B74DA1 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D733FD41C0C2AC400B74DA1 /* RequestTests.swift */; };
 		3D7586511C16186D00F64E22 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D75864D1C16186C00F64E22 /* ReactiveCocoa.framework */; };
 		3D7586521C16186D00F64E22 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D75864E1C16186D00F64E22 /* Realm.framework */; };
@@ -217,6 +221,7 @@
 		23B15C511BF352AD0059008E /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		23B15C561BF3535E0059008E /* RealmTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTests.swift; sourceTree = "<group>"; };
 		23B15C581BF353F70059008E /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		23F3F3641C1DF2D6009A5CC1 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		3D733FD41C0C2AC400B74DA1 /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
 		3D75864D1C16186C00F64E22 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		3D75864E1C16186D00F64E22 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -551,6 +556,14 @@
 			path = Storages;
 			sourceTree = "<group>";
 		};
+		23F3F3631C1DF2D0009A5CC1 /* Reactive */ = {
+			isa = PBXGroup;
+			children = (
+				23F3F3641C1DF2D6009A5CC1 /* Test.swift */,
+			);
+			path = Reactive;
+			sourceTree = "<group>";
+		};
 		3D733FCF1C0C20A400B74DA1 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -750,6 +763,7 @@
 		3DB2B8EB1BDEEEE7005B7EF2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				23F3F3631C1DF2D0009A5CC1 /* Reactive */,
 				3DE3FD991BF15BBC00009071 /* Realm */,
 				2353E6251BED4AC00081E6E7 /* CoreData */,
 				2353E62C1BED4AC00081E6E7 /* Foundation */,
@@ -1104,6 +1118,7 @@
 				239C8E0A1BF4A5870025DB9A /* Queue.swift in Sources */,
 				2353E6551BED4AC00081E6E7 /* Context.swift in Sources */,
 				2305F8F71BF1E87200F9D379 /* Results.swift in Sources */,
+				23F3F3651C1DF2D6009A5CC1 /* Test.swift in Sources */,
 				239C8E051BF48B680025DB9A /* ContextParent.swift in Sources */,
 				2353E6511BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
 				2305F8FF1BF1EA8D00F9D379 /* Entity.swift in Sources */,
@@ -1122,6 +1137,7 @@
 				2353E6461BED4AC00081E6E7 /* Request.swift in Sources */,
 				2353E6421BED4AC00081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
 				2353E67C1BED52150081E6E7 /* Options.swift in Sources */,
+				23F3F3661C1DF2D6009A5CC1 /* Test.swift in Sources */,
 				2353E66D1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */,
 				2353E6721BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E65E1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
@@ -1165,6 +1181,7 @@
 				239C8E0C1BF4A5870025DB9A /* Queue.swift in Sources */,
 				2353E6571BED4AC00081E6E7 /* Context.swift in Sources */,
 				2305F8F81BF1E87200F9D379 /* Results.swift in Sources */,
+				23F3F3671C1DF2D6009A5CC1 /* Test.swift in Sources */,
 				239C8E071BF48B680025DB9A /* ContextParent.swift in Sources */,
 				2353E6531BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
 				2305F9001BF1EA8D00F9D379 /* Entity.swift in Sources */,
@@ -1198,6 +1215,7 @@
 				239C8E0D1BF4A5870025DB9A /* Queue.swift in Sources */,
 				2353E6581BED4AC00081E6E7 /* Context.swift in Sources */,
 				2305F8F91BF1E87200F9D379 /* Results.swift in Sources */,
+				23F3F3681C1DF2D6009A5CC1 /* Test.swift in Sources */,
 				239C8E081BF48B680025DB9A /* ContextParent.swift in Sources */,
 				2353E6541BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
 				2305F9011BF1EA8D00F9D379 /* Entity.swift in Sources */,
