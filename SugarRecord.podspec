@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.subspec "Foundation" do |sp|
     sp.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}']
     sp.dependency "Result", "~> 1.0"
-    spp.dependency "ReactiveCocoa", "4.0.4-alpha-4"
+    sp.dependency "ReactiveCocoa", "4.0.4-alpha-4"
   end
 
   s.subspec "CoreData" do |sp|
