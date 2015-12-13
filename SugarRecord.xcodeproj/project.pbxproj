@@ -117,7 +117,6 @@
 		23F3F36C1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3691C1DFA6D009A5CC1 /* ReactiveError.swift */; };
 		23F3F36D1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3691C1DFA6D009A5CC1 /* ReactiveError.swift */; };
 		23F3F3781C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3771C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift */; };
-		23F3F3791C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3771C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift */; };
 		23F3F37A1C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3771C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift */; };
 		23F3F37B1C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3771C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift */; };
 		23F3F37E1C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F37D1C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift */; };
@@ -1197,7 +1196,6 @@
 				2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				23A9167E1C173FCF005E57D8 /* Requestable.swift in Sources */,
 				2305F8F21BF0FE4500F9D379 /* DirUtils.swift in Sources */,
-				23F3F3791C1DFD0C009A5CC1 /* RealmDefaultStorage+Reactive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
