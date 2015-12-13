@@ -64,6 +64,7 @@ public extension ReactiveStorage where Self: Storage {
     func rac_operation(operation: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, NoError> {
         return SignalProducer { (observer, disposable) in
             self.operation { (context, saver) in
+                operation(context: context, save: saver)
                 observer.sendCompleted()
             }
         }
@@ -81,6 +82,7 @@ public extension ReactiveStorage where Self: Storage {
             let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
             dispatch_async(dispatch_get_global_queue(priority, 0)) {
                 self.operation { (context, saver) in
+                    operation(context: context, save: saver)
                     observer.sendCompleted()
                 }
             }
