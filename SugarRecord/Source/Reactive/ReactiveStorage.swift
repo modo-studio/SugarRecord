@@ -11,7 +11,7 @@ public protocol ReactiveStorage {
     // MARK: - Operations
     
     /**
-    Executes the given operation in the provided Queue.
+    Executes the given operation.
     
     - parameter operation: Operation to be executed. Context must be used to save your changes in and the save() closure must be called in order to get the changes persisted in the storage.
     
@@ -19,6 +19,15 @@ public protocol ReactiveStorage {
     */
     func rac_operation(operation: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, NoError>
     
+    /**
+     Executes the given operation in a background thread.
+     
+     - parameter operation: Operation to be executed. Context must be used to save your changes in and the save() closure must be called in order to get the changes persisted in the storage.
+     
+     - returns: SignalProducer that executes the action.
+     */
+    func rac_backgroundOperation(operation: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, NoError>
+
     /**
      Executes a background fetch mapping the response into a PONSO thread safe entity.
      
@@ -57,6 +66,24 @@ public extension ReactiveStorage where Self: Storage {
             self.operation { (context, saver) in
                 observer.sendCompleted()
             }
+        }
+    }
+    
+    /**
+     Executes the given operation in a background thread.
+     
+     - parameter operation: Operation to be executed. Context must be used to save your changes in and the save() closure must be called in order to get the changes persisted in the storage.
+     
+     - returns: SignalProducer that executes the action.
+     */
+    func rac_backgroundOperation(operation: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, NoError> {
+        return SignalProducer { (observer, disposable) in
+            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+            dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                self.operation { (context, saver) in
+                    observer.sendCompleted()
+                }
+            }            
         }
     }
     
