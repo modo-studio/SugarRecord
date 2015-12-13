@@ -18,13 +18,13 @@ public protocol Context: Requestable, ReactiveContext {
     
 
     /**
-     Adds the entity to the Storage without saving it.
+     Inserts the entity to the Storage without saving it.
      
      - parameter entity: Entity to be added.
      
      - throws: Throws an Error.InvalidType or Internal Storage error in case the object couldn't be added.
      */
-    func add<T: Entity>(entity: T) throws
+    func insert<T: Entity>(entity: T) throws
     
      /**
      Initializes an instance of type T and returns it.
@@ -76,7 +76,7 @@ public extension Context {
      */
     public func create<T: Entity>() throws -> T {
         let instance: T = try self.new()
-        try self.add(instance)
+        try self.insert(instance)
         return instance
     }
     

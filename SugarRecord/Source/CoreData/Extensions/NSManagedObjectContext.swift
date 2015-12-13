@@ -26,13 +26,13 @@ extension NSManagedObjectContext: Context {
     }
     
     /**
-     Adds the entity to the Storage without saving it.
+     Inserts the entity to the Storage without saving it.
      
      - parameter entity: Entity to be added.
      
      - throws: Throws an Error.InvalidType or Internal Storage error in case the object couldn't be added.
      */
-    public func add<T: Entity>(entity: T) throws {}
+    public func insert<T: Entity>(entity: T) throws {}
     
     /**
      Initializes an instance of type T and returns it.

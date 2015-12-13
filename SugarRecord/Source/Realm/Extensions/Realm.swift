@@ -25,15 +25,15 @@ extension Realm: Context {
     }
     
     /**
-     Adds the entity to the Storage without saving it.
+     Inserts the entity to the Storage without saving it.
      
      - parameter entity: Entity to be added.
      
      - throws: Throws an Error.InvalidType or Internal Storage error in case the object couldn't be added.
      */
-    public func add<T: Entity>(entity: T) throws {
+    public func insert<T: Entity>(entity: T) throws {
         guard let _ = T.self as? Object.Type else { throw Error.InvalidType }
-        try self.add(entity)
+        self.add(entity as! Object)
     }
     
     /**
