@@ -53,7 +53,7 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [S
 - SugarRecord 2.0 is not compatible with the 1.x interface. If you were using that version you'll have to update your project to support this version.
 
 ## Reference
-You can check generated SugarRecord documentation [here](http://cocoadocs.org/docsets/SugarRecord/2.0.0/) generated automatically with [CocoaDocs](http://cocoadocs.org/) 
+You can check generated SugarRecord documentation [here](http://cocoadocs.org/docsets/SugarRecord/2.0.0/) generated automatically with [CocoaDocs](http://cocoadocs.org/)
 
 # How to use
 
@@ -84,19 +84,13 @@ Storages offer multiple kind of contexts that are the entry points to the databa
 - **MemoryContext:** Use this context when you want to do some tests and you don't want your changes to be persisted.
 
 #### Fetching data
-Once you know that the context is the point to access the storage let's see how we can request objects since SugarRecord also provides a fluent interface to make things easier:
-
-1. Use the context `request()` method passing the type of object you want to fetch.
-2. Specify filters and sort descriptors for that request. We'll expand this in the future to include more request features Realm/CoreData related.
-3. Once you have your request, just use the fetch method which will return a `Result<[Value], Error>` object that wraps both your result or an error in case of something went wrong with the request. You can unwrap the value with `result.value!`.
 
 ```swift
-let pedros: [Person] = db.mainContext.request(Person.self).filteredWith("name", equalTo: "Pedro").fetch().value!
-let tasks: [Task] = db.mainContext.request(Task.self).fetch().value!
-let citiesByName: [City] = db.mainContext.request(City.self).sortedWith("name", ascending: true).fetch().value!
-
+let pedros: [Person] = try! db.fetch(Request<Person>().filteredWith("name", equalTo: "Pedro"))
+let tasks: [Task] = try! db.fetch(Request<Task>())
+let citiesByName: [City] = try! db.fetch(Request<City>().sortedWith("name", ascending: true))
 let predicate: NSPredicate = NSPredicate(format: "id == %@", "AAAA")
-let john: User? = db.mainContext.request(User.self).filteredWith(predicate: predicate).fetch().value!.first
+let john: User? = try! db.fetch(Request<User>().filteredWith(predicate: predicate)).first
 ```
 
 #### Remove/Insert/Update operations
@@ -107,40 +101,67 @@ Although `Context`s offer `insertion` and `deletion` methods that you can use it
 - **Save**: All the changes you apply to that context are in a memory state unless you call the `save()` method. That method will persist the changes to your store and propagate them across all the available contexts.
 
 ```swift
-db?.operation({ (context, save) -> Void in
+db.operation { (context, save) -> Void in
   // Do your operations here
   save()
-}, completed: {
-  // Everything was completed. :tada:
-})
+}
 ```
-##### Inserting a model
-You can use the `insert()` method of context that needs the type of object you want to insert:
+
+##### New model
+You can use the context `new()` method to initialize a model **without inserting it in the context**:
 
 ```swift
-db?.operation({ (context, save) -> Void in
-  let newTask: Track = context.insert().value!
+db.operation { (context, save) -> Void in
+  let newTask: Track = try! context.new()
+  newTask.name = "Make CoreData easier!"
+  try! context.insert(newTask)
+  save()
+}
+```
+> In order to insert the model into the context you use the insert() method.
+
+##### Creating a model
+You can use the `create()` for initializing and inserting in the context in the same operation:
+
+```swift
+db.operation { (context, save) -> Void in
+  let newTask: Track = try! context.create()
   newTask.name = "Make CoreData easier!"
   save()
-}, completed: {
-  // Everything was completed. :tada:
-})
+}
 ```
 
 ##### Delete a model
 In a similar way you can use the `remove()` method from the context passing the objects you want to remove from the database:
 
 ```swift
-db?.operation({ (context, save) -> Void in
-  guard let john = db.mainContext.request(User.self).filteredWith("id", equalTo: "1234").fetch().value!.first else { return }
-  context.remove([john])
-  save()
-}, completed: {
-  // Everything was completed. :tada:
-})
+db.operation { (context, save) -> Void in
+  let john: User? = try! context.request(User.self).filteredWith("id", equalTo: "1234").fetch().first
+  if let john = john {
+    try! context.remove([john])
+    save()
+  }
+}
 ```
 
-<br>
+### Reactive Interface
+`Storage`s offer a reactive API that you can use if your app follows the Reactive paradigm. The current offered methods are:
+
+```swift
+// Executes the operation and notifies the completion/error to the producer.
+func rac_operation(operation: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, NoError>
+
+// Executes the operation in background and notifies the completion/error to the producer.
+func rac_backgroundOperation(operation: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, NoError>
+
+// Executes a fetch in a background thread mapping them into thread safe plain entities forwarding the results to the producer.
+func rac_backgroundFetch<T, U>(request: Request<T>, mapper: T -> U) -> SignalProducer<[U], Error>
+
+// Executes the fetch in the main thread forwarding the results to the producer.
+func rac_fetch<T>(request: Request<T>) -> SignalProducer<[T], Error>
+```
+
+
 <br>
 > This is the first approach of SugarRecord for the  interface. We'll improve it with the feedback you can report and according to the use of the framework. Do not hesitate to reach us with your proposals. Everything that has to be with making the use of CoreData/Realm easier, funnier, and enjoyable is welcome! :tada:
 

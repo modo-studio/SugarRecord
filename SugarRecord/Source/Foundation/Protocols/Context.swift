@@ -53,7 +53,6 @@ public protocol Context: Requestable {
      */
     func remove<T: Entity>(objects: [T]) throws
     
-    
     /**
      Removes an object from the context.
      
