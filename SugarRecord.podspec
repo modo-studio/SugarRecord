@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
 
   s.subspec "Foundation" do |sp|
-    sp.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}']
+    sp.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/Reactive/**/*.{swift}']
     sp.dependency "Result", "~> 1.0"
     sp.dependency "ReactiveCocoa", "4.0.4-alpha-4"
   end
