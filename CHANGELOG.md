@@ -1,4 +1,9 @@
 ### Version 2.1.1
+- Added [Realm 0.97](https://realm.io/news/realm-objc-swift-0.97.0/) version. That version includes:
+  - Support for tvOS. You can use now SugarRecord+Realm with your tvOS.
+  - Better integration with Carthage. Installing SugarRecord+Realm should be faster now.
+- Improved Carthage integration. Now each platform has two schemes, `SugarRecordRealm` & `SugarRecordCoreData`. Drag only the one you need in your app plus Realm in case you are using the Realm integration.
+
 
 ### Version 2.1.0
 **Date:** 13th December 2015<br>
