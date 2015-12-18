@@ -1,5 +1,4 @@
 import Foundation
-import Result
 
 public struct Request<T: Entity> {
     
@@ -13,7 +12,7 @@ public struct Request<T: Entity> {
     
     
     /// Context
-    let context: Context
+    let context: Context?
     
     
     // MARK: - Init
@@ -27,8 +26,8 @@ public struct Request<T: Entity> {
      
      - returns: initialized Request
      */
-    init(_ requestable: Requestable, sortDescriptor: NSSortDescriptor? = nil, predicate: NSPredicate? = nil) {
-        self.context = requestable.requestContext()
+    public init(_ requestable: Requestable? = nil, sortDescriptor: NSSortDescriptor? = nil, predicate: NSPredicate? = nil) {
+        self.context = requestable?.requestContext()
         self.sortDescriptor = sortDescriptor
         self.predicate = predicate
     }
@@ -37,12 +36,27 @@ public struct Request<T: Entity> {
     // MARK: - Public Fetching Methods
     
     /**
-    Execute the fetch request
+    Executes the fetch request.
     
-    - returns: Result of the fetch reques(
+    - throws: Throws an Error if the request couldn't be executed.
+    
+    - returns: Fetch results.
     */
-    public func fetch() -> Result<[T], Error> {
-        return context.fetch(self)
+    public func fetch() throws -> [T] {
+        return try context!.fetch(self)
+    }
+    
+    /**
+     Executes the fetch request in the given requestable.
+     
+     - parameter requestable: Requestable where the request will be executed.
+     
+     - throws: Throws an Error if the request couldn't be executed.
+     
+     - returns: Fetch results.
+     */
+    public func fetch(requestable: Requestable) throws -> [T] {
+        return try requestable.requestContext().fetch(self)
     }
     
     

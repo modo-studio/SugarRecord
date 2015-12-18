@@ -37,34 +37,37 @@ public protocol Storage: CustomStringConvertible, Requestable {
     func removeStore() throws
     
     /**
-     Executes the provided operation in background
-    
-     - parameter operation: operation to be executed
-     - parameter save:      closure to be called to persist the changes
-     - parameter completed: closure called when the execution is completed
+     Executes the provided operation.
+     
+     - parameter operation: Operation to be executed.
      */
-    func operation(operation: (context: Context, save: Saver) -> Void, completed: (() -> Void)?)
+    func operation(operation: (context: Context, save: Saver) -> Void)
     
     /**
-     Executes the provided operation in a given queue
-     Note: This method must be implemented by the Storage that conforms this protocol.
-     Some storages require propagating these saves across the stack of contexts (e.g. CoreData)
+     Fetches objects and returns them using the provided request.
      
-     - parameter queue:     queue where the operation will be executed
-     - parameter operation: operation to be executed
-     - parameter save:      closure to be called to persist the changes
-     - parameter completed: closure called when the execution is completed
+     - parameter request: Request to fetch the objects.
+     
+     - throws: Throws an Error in case the object couldn't be fetched.
+     
+     - returns: Array with the results.
      */
-    func operation(queue queue: Queue, operation: (context: Context, save: Saver) -> Void, completed: (() -> Void)?)
+    func fetch<T: Entity>(request: Request<T>) throws -> [T]
 }
 
-
-// MARK: - Storage extension
-
+// MARK: - Storage extension (Fetching)
 public extension Storage {
     
-    func operation(operation: (context: Context, save: Saver) -> Void, completed: (() -> Void)?) {
-        self.operation(queue: Queue.Background, operation: operation, completed: completed)
+    /**
+     Fetches objects and returns them using the provided request.
+     
+     - parameter request: Request to fetch the objects.
+     
+     - throws: Throws an Error in case the object couldn't be fetched.
+     
+     - returns: Array with the results.
+     */
+    func fetch<T: Entity>(request: Request<T>) throws -> [T] {
+        return try self.mainContext.fetch(request)
     }
-    
 }

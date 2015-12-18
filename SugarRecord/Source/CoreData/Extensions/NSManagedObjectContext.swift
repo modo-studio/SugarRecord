@@ -1,44 +1,69 @@
 import Foundation
 import CoreData
-import Result
 
 
 // MARK: - NSManagedObjectContext Extension (Context)
 
 extension NSManagedObjectContext: Context {
     
-    public func fetch<T>(request: Request<T>) -> Result<[T], Error> {
-        guard let E = T.self as? NSManagedObject.Type else { return Result(error: .InvalidType) }
+    /**
+     Fetches objects and returns them using the provided request.
+     
+     - parameter request: Request to fetch the objects.
+     
+     - throws: Throws an Error in case the object couldn't be fetched.
+     
+     - returns: Array with the results.
+     */
+    public func fetch<T: Entity>(request: Request<T>) throws -> [T] {
+        guard let E = T.self as? NSManagedObject.Type else { throw Error.InvalidType }
         let fetchRequest: NSFetchRequest =  NSFetchRequest(entityName: E.entityName)
         fetchRequest.predicate = request.predicate
         fetchRequest.sortDescriptors = request.sortDescriptor.map({[$0]})
-        do {
-            let results = try self.executeFetchRequest(fetchRequest)
-            let typedResults = results.map({$0 as! T})
-            return Result(value: typedResults)
-        }
-        catch {
-            return Result(error: .FetchError(error))
-        }
+        let results = try self.executeFetchRequest(fetchRequest)
+        let typedResults = results.map({$0 as! T})
+        return typedResults
     }
     
-    public func insert<T>() -> Result<T, Error> {
-        guard let E = T.self as? NSManagedObject.Type else { return Result(error: .InvalidType) }
+    /**
+     Inserts the entity to the Storage without saving it.
+     
+     - parameter entity: Entity to be added.
+     
+     - throws: Throws an Error.InvalidType or Internal Storage error in case the object couldn't be added.
+     */
+    public func insert<T: Entity>(entity: T) throws {}
+    
+    /**
+     Initializes an instance of type T and returns it.
+     
+     - throws: Throws an Error.InvalidType error in case of an usupported model type by the Storage.
+     
+     - returns: Created instance.
+     */
+    public func new<T: Entity>() throws -> T {
+        guard let E = T.self as? NSManagedObject.Type else { throw Error.InvalidType }
         let object = NSEntityDescription.insertNewObjectForEntityForName(E.entityName, inManagedObjectContext: self)
         if let inserted = object as? T {
-            return Result(value: inserted)
+            return inserted
         }
         else {
-            return Result(error: .InvalidType)
+            throw Error.InvalidType
         }
     }
     
-    public func remove<T>(objects: [T]) -> Result<Void, Error> {
+    /**
+     Removes objects from the context.
+     
+     - parameter objects: Objects to be removed.
+     
+     - throws: Throws an Error if the objects couldn't be removed.
+     */
+    public func remove<T: Entity>(objects: [T]) throws {
         for object in objects {
             guard let object = object as? NSManagedObject else { continue }
             self.deleteObject(object)
         }
-        return Result(value: ())
     }
 }
 

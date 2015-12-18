@@ -1,2 +1,0 @@
-Unit testing with SugarRecord
-============================

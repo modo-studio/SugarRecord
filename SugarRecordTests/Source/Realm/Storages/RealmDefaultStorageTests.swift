@@ -64,27 +64,25 @@ class RealmDefaultStorageTests: QuickSpec {
             it("should save the changes if the save closure is called") {
                 waitUntil(action: { (done) -> Void in
                     storage?.operation({ (context, save) -> Void in
-                        let issue: Issue = context.insert().value!
+                        let issue: Issue = try! context.create()
                         issue.name = "test"
                         save()
-                    }, completed: { () -> Void in
-                        let fetched = storage?.mainContext.request(Issue.self).fetch().value
-                        expect(fetched?.count) == 1
-                        done()
                     })
+                    let fetched = try! storage?.mainContext.request(Issue.self).fetch()
+                    expect(fetched?.count) == 1
+                    done()
                 })
             }
             
             it("shouldn't persist the changes if the save closure is not called") {
                 waitUntil(action: { (done) -> Void in
                     storage?.operation({ (context, save) -> Void in
-                        let issue: Issue = context.insert().value!
+                        let issue: Issue = try! context.create()
                         issue.name = "test"
-                    }, completed: { () -> Void in
-                        let fetched = storage?.mainContext.request(Issue.self).fetch().value
-                        expect(fetched?.count) == 0
-                        done()
                     })
+                    let fetched = try! storage?.mainContext.request(Issue.self).fetch()
+                    expect(fetched?.count) == 0
+                    done()
                 })
             }
             

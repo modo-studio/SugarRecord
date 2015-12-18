@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SugarRecord"
-  s.version          = "2.0.0"
+  s.version          = "2.1.0"
   s.summary          = "CoreData wrapper written on Swift"
   s.homepage         = "https://github.com/SwiftReactive/SugarRecord"
   s.license          = 'MIT'
@@ -16,22 +16,14 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
 
   s.subspec "Foundation" do |sp|
-    sp.source_files = ['SugarRecord/Source/Foundation/**/*']
+    sp.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/Reactive/**/*.{swift}']
+    sp.dependency "Result", "~> 1.0"
     sp.dependency "ReactiveCocoa", "4.0.4-alpha-4"
   end
 
   s.subspec "CoreData" do |sp|
-    sp.source_files = ['SugarRecord/Source/CoreData/**/*']
+    sp.source_files = ['SugarRecord/Source/CoreData/**/*.{swift}']
     sp.dependency 'SugarRecord/Foundation'
     sp.frameworks = ['CoreData']
   end
-
-  # No tvOS support yet
-  # s.subspec "Realm" do |sp|
-  #   sp.platforms = [:ios, :tvos]
-  #   sp.source_files = ['SugarRecord/Source/Realm/**/*']
-  #   sp.dependency 'SugarRecord/Foundation'
-  #   sp.dependency 'RealmSwift'
-  # end
-
 end
