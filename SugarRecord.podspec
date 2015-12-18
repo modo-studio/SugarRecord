@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SugarRecord"
-  s.version          = "2.1.0"
+  s.version          = "2.1.1"
   s.summary          = "CoreData wrapper written on Swift"
   s.homepage         = "https://github.com/SwiftReactive/SugarRecord"
   s.license          = 'MIT'
@@ -25,5 +25,11 @@ Pod::Spec.new do |s|
     sp.source_files = ['SugarRecord/Source/CoreData/**/*.{swift}']
     sp.dependency 'SugarRecord/Foundation'
     sp.frameworks = ['CoreData']
+  end
+
+  s.subspec "Realm" do |sp|
+    sp.source_files = ['SugarRecord/Source/Realm/**/*.{swift}']
+    sp.dependency 'SugarRecord/Foundation'
+    sp.dependency "RealmSwift", "~> 0.97"
   end
 end

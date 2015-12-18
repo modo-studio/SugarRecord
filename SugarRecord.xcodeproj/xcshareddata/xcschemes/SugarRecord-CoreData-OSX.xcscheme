@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3DB2B84A1BDEE1C7005B7EF2"
-               BuildableName = "SugarRecord.framework"
-               BlueprintName = "SugarRecord-OSX"
+               BuildableName = "SugarRecordCoreData.framework"
+               BlueprintName = "SugarRecord-CoreData-OSX"
                ReferencedContainer = "container:SugarRecord.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DB2B84A1BDEE1C7005B7EF2"
-            BuildableName = "SugarRecord.framework"
-            BlueprintName = "SugarRecord-OSX"
+            BuildableName = "SugarRecordCoreData.framework"
+            BlueprintName = "SugarRecord-CoreData-OSX"
             ReferencedContainer = "container:SugarRecord.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DB2B84A1BDEE1C7005B7EF2"
-            BuildableName = "SugarRecord.framework"
-            BlueprintName = "SugarRecord-OSX"
+            BuildableName = "SugarRecordCoreData.framework"
+            BlueprintName = "SugarRecord-CoreData-OSX"
             ReferencedContainer = "container:SugarRecord.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

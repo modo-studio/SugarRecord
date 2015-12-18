@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3DB2B82C1BDEE187005B7EF2"
-               BuildableName = "SugarRecord.framework"
-               BlueprintName = "SugarRecord-watchOS"
+               BlueprintIdentifier = "3DB2B83B1BDEE1AD005B7EF2"
+               BuildableName = "SugarRecordCoreData.framework"
+               BlueprintName = "SugarRecord-CoreData-tvOS"
                ReferencedContainer = "container:SugarRecord.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3DB2B82C1BDEE187005B7EF2"
-            BuildableName = "SugarRecord.framework"
-            BlueprintName = "SugarRecord-watchOS"
+            BlueprintIdentifier = "3DB2B83B1BDEE1AD005B7EF2"
+            BuildableName = "SugarRecordCoreData.framework"
+            BlueprintName = "SugarRecord-CoreData-tvOS"
             ReferencedContainer = "container:SugarRecord.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3DB2B82C1BDEE187005B7EF2"
-            BuildableName = "SugarRecord.framework"
-            BlueprintName = "SugarRecord-watchOS"
+            BlueprintIdentifier = "3DB2B83B1BDEE1AD005B7EF2"
+            BuildableName = "SugarRecordCoreData.framework"
+            BlueprintName = "SugarRecord-CoreData-tvOS"
             ReferencedContainer = "container:SugarRecord.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
