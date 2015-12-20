@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2319B8831C2402490050ABE8"
-               BuildableName = "SugarRecord-Realm-iOS.framework"
+               BuildableName = "SugarRecordRealm.framework"
                BlueprintName = "SugarRecord-Realm-iOS"
                ReferencedContainer = "container:SugarRecord.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2319B8831C2402490050ABE8"
-            BuildableName = "SugarRecord-Realm-iOS.framework"
+            BuildableName = "SugarRecordRealm.framework"
             BlueprintName = "SugarRecord-Realm-iOS"
             ReferencedContainer = "container:SugarRecord.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2319B8831C2402490050ABE8"
-            BuildableName = "SugarRecord-Realm-iOS.framework"
+            BuildableName = "SugarRecordRealm.framework"
             BlueprintName = "SugarRecord-Realm-iOS"
             ReferencedContainer = "container:SugarRecord.xcodeproj">
          </BuildableReference>
