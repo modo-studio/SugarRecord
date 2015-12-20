@@ -14,7 +14,7 @@
 ## Join our Slack channel
 [![Slack Status](https://swiftreactive.herokuapp.com/badge.svg)](https://swiftreactive.herokuapp.com)
 
-We have an Slack channel available where you can comment your problems, give suggestions and talk directly with the developers involved in this library. 
+We have an Slack channel available where you can comment your problems, give suggestions and talk directly with the developers involved in this library.
 
 ## What is SugarRecord?
 SugarRecord is a persistence wrapper designed to make working with persistence solutions like CoreData/Realm/... in a much easier way. Thanks to SugarRecord you'll be able to use CoreData with just a few lines of code: Just choose your stack and start playing with your data.
@@ -150,20 +150,24 @@ db.operation { (context, save) -> Void in
 ```
 
 ### Reactive Interface
-`Storage`s offer a reactive API that you can use if your app follows the Reactive paradigm. The current offered methods are:
+`Storage`s offer a reactive API that you can use if your app follows the Reactive paradigm. SugarRecord supports the two main Reactive libraries for Swift, [ReactiveCocoa](https://github.com/reactivecocoa/reactivecocoa) and [RxSwift](https://github.com/ReactiveX/RxSwift). Methods prefixes are `rac_` and `rx_` respectively:
 
 ```swift
 // Executes the operation and notifies the completion/error to the producer.
 func rac_operation(operation: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, NoError>
+func rx_operation(operation: (context: Context, save: Saver) -> Void) -> Observable<Void>
 
 // Executes the operation in background and notifies the completion/error to the producer.
 func rac_backgroundOperation(operation: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, NoError>
+func rx_backgroundOperation(operation: (context: Context, save: Saver) -> Void) -> Observable<Void>
 
 // Executes a fetch in a background thread mapping them into thread safe plain entities forwarding the results to the producer.
 func rac_backgroundFetch<T, U>(request: Request<T>, mapper: T -> U) -> SignalProducer<[U], Error>
+func rx_backgroundFetch<T, U>(request: Request<T>, mapper: T -> U) -> Observable<[U]>
 
 // Executes the fetch in the main thread forwarding the results to the producer.
 func rac_fetch<T>(request: Request<T>) -> SignalProducer<[T], Error>
+func rx_fetch<T>(request: Request<T>) -> Observable<[T]>
 ```
 
 
