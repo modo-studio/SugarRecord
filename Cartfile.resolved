@@ -1,5 +1,6 @@
 github "Quick/Nimble" "v3.0.0"
 github "Quick/Quick" "v0.8.0"
 github "antitypical/Result" "1.0.1"
+github "ReactiveX/RxSwift" "2.0.0-beta.4"
 github "realm/realm-cocoa" "v0.97.0"
 github "ReactiveCocoa/ReactiveCocoa" "v4.0.0-RC.1"

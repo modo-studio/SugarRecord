@@ -246,6 +246,33 @@
 		3DE3FD961BF12B8C00009071 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD941BF12B8C00009071 /* DataModel.xcdatamodeld */; };
 		3DE3FD9F1BF15BD200009071 /* RealmDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD9E1BF15BD200009071 /* RealmDefaultStorage.swift */; };
 		3DE3FDA41BF15C5500009071 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FDA31BF15C5500009071 /* Realm.swift */; };
+		3DE84A401C2713DA00F7ADF3 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A3D1C2713DA00F7ADF3 /* RxBlocking.framework */; };
+		3DE84A411C2713DA00F7ADF3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A3E1C2713DA00F7ADF3 /* RxCocoa.framework */; };
+		3DE84A421C2713DA00F7ADF3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A3F1C2713DA00F7ADF3 /* RxSwift.framework */; };
+		3DE84A431C2713E700F7ADF3 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A3D1C2713DA00F7ADF3 /* RxBlocking.framework */; };
+		3DE84A441C2713E700F7ADF3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A3E1C2713DA00F7ADF3 /* RxCocoa.framework */; };
+		3DE84A451C2713E700F7ADF3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A3F1C2713DA00F7ADF3 /* RxSwift.framework */; };
+		3DE84A491C27141000F7ADF3 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A461C27141000F7ADF3 /* RxBlocking.framework */; };
+		3DE84A4A1C27141000F7ADF3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A471C27141000F7ADF3 /* RxCocoa.framework */; };
+		3DE84A4B1C27141000F7ADF3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A481C27141000F7ADF3 /* RxSwift.framework */; };
+		3DE84A4C1C27141E00F7ADF3 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A461C27141000F7ADF3 /* RxBlocking.framework */; };
+		3DE84A4D1C27141E00F7ADF3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A471C27141000F7ADF3 /* RxCocoa.framework */; };
+		3DE84A4E1C27141E00F7ADF3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A481C27141000F7ADF3 /* RxSwift.framework */; };
+		3DE84A521C27142D00F7ADF3 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A4F1C27142D00F7ADF3 /* RxBlocking.framework */; };
+		3DE84A531C27142D00F7ADF3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A501C27142D00F7ADF3 /* RxCocoa.framework */; };
+		3DE84A541C27142D00F7ADF3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A511C27142D00F7ADF3 /* RxSwift.framework */; };
+		3DE84A551C27143500F7ADF3 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A4F1C27142D00F7ADF3 /* RxBlocking.framework */; };
+		3DE84A561C27143500F7ADF3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A501C27142D00F7ADF3 /* RxCocoa.framework */; };
+		3DE84A571C27143500F7ADF3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A511C27142D00F7ADF3 /* RxSwift.framework */; };
+		3DE84A5B1C27144C00F7ADF3 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A581C27144C00F7ADF3 /* RxBlocking.framework */; };
+		3DE84A5C1C27144C00F7ADF3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A591C27144C00F7ADF3 /* RxCocoa.framework */; };
+		3DE84A5D1C27144C00F7ADF3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A5A1C27144C00F7ADF3 /* RxSwift.framework */; };
+		3DE84A5E1C27145900F7ADF3 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A581C27144C00F7ADF3 /* RxBlocking.framework */; };
+		3DE84A5F1C27145900F7ADF3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A591C27144C00F7ADF3 /* RxCocoa.framework */; };
+		3DE84A601C27145900F7ADF3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A5A1C27144C00F7ADF3 /* RxSwift.framework */; };
+		3DE84A671C27147400F7ADF3 /* RxBlocking.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A581C27144C00F7ADF3 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DE84A681C27147400F7ADF3 /* RxCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A591C27144C00F7ADF3 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DE84A691C27147400F7ADF3 /* RxSwift.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A5A1C27144C00F7ADF3 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -271,6 +298,9 @@
 				3D7586601C1618AE00F64E22 /* Quick.framework in Copy Frameworks */,
 				3D75865D1C16189600F64E22 /* Realm.framework in Copy Frameworks */,
 				3D75865E1C16189600F64E22 /* RealmSwift.framework in Copy Frameworks */,
+				3DE84A671C27147400F7ADF3 /* RxBlocking.framework in Copy Frameworks */,
+				3DE84A681C27147400F7ADF3 /* RxCocoa.framework in Copy Frameworks */,
+				3DE84A691C27147400F7ADF3 /* RxSwift.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,6 +412,18 @@
 		3DE3FD951BF12B8C00009071 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		3DE3FD9E1BF15BD200009071 /* RealmDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDefaultStorage.swift; sourceTree = "<group>"; };
 		3DE3FDA31BF15C5500009071 /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		3DE84A3D1C2713DA00F7ADF3 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/watchOS/RxBlocking.framework; sourceTree = "<group>"; };
+		3DE84A3E1C2713DA00F7ADF3 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/watchOS/RxCocoa.framework; sourceTree = "<group>"; };
+		3DE84A3F1C2713DA00F7ADF3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/watchOS/RxSwift.framework; sourceTree = "<group>"; };
+		3DE84A461C27141000F7ADF3 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/tvOS/RxBlocking.framework; sourceTree = "<group>"; };
+		3DE84A471C27141000F7ADF3 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/tvOS/RxCocoa.framework; sourceTree = "<group>"; };
+		3DE84A481C27141000F7ADF3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/tvOS/RxSwift.framework; sourceTree = "<group>"; };
+		3DE84A4F1C27142D00F7ADF3 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/Mac/RxBlocking.framework; sourceTree = "<group>"; };
+		3DE84A501C27142D00F7ADF3 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
+		3DE84A511C27142D00F7ADF3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
+		3DE84A581C27144C00F7ADF3 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		3DE84A591C27144C00F7ADF3 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		3DE84A5A1C27144C00F7ADF3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +435,9 @@
 				2319B7F11C23FF8F0050ABE8 /* Realm.framework in Frameworks */,
 				2319B7F21C23FF8F0050ABE8 /* RealmSwift.framework in Frameworks */,
 				2319B7F31C23FF8F0050ABE8 /* Result.framework in Frameworks */,
+				3DE84A431C2713E700F7ADF3 /* RxBlocking.framework in Frameworks */,
+				3DE84A441C2713E700F7ADF3 /* RxCocoa.framework in Frameworks */,
+				3DE84A451C2713E700F7ADF3 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +450,9 @@
 				2319B8181C2400420050ABE8 /* Result.framework in Frameworks */,
 				2319B8231C24008F0050ABE8 /* Realm.framework in Frameworks */,
 				2319B8241C24008F0050ABE8 /* RealmSwift.framework in Frameworks */,
+				3DE84A4C1C27141E00F7ADF3 /* RxBlocking.framework in Frameworks */,
+				3DE84A4D1C27141E00F7ADF3 /* RxCocoa.framework in Frameworks */,
+				3DE84A4E1C27141E00F7ADF3 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +464,9 @@
 				2319B84D1C2400D10050ABE8 /* Realm.framework in Frameworks */,
 				2319B84E1C2400D10050ABE8 /* RealmSwift.framework in Frameworks */,
 				2319B84F1C2400D10050ABE8 /* Result.framework in Frameworks */,
+				3DE84A551C27143500F7ADF3 /* RxBlocking.framework in Frameworks */,
+				3DE84A561C27143500F7ADF3 /* RxCocoa.framework in Frameworks */,
+				3DE84A571C27143500F7ADF3 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +478,9 @@
 				2319B8A51C2402490050ABE8 /* Realm.framework in Frameworks */,
 				2319B8A61C2402490050ABE8 /* RealmSwift.framework in Frameworks */,
 				2319B8A71C2402490050ABE8 /* Result.framework in Frameworks */,
+				3DE84A5E1C27145900F7ADF3 /* RxBlocking.framework in Frameworks */,
+				3DE84A5F1C27145900F7ADF3 /* RxCocoa.framework in Frameworks */,
+				3DE84A601C27145900F7ADF3 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +493,9 @@
 				3D75866A1C1618F800F64E22 /* Realm.framework in Frameworks */,
 				3D75866B1C1618F800F64E22 /* RealmSwift.framework in Frameworks */,
 				3D75866C1C1618F800F64E22 /* Result.framework in Frameworks */,
+				3DE84A401C2713DA00F7ADF3 /* RxBlocking.framework in Frameworks */,
+				3DE84A411C2713DA00F7ADF3 /* RxCocoa.framework in Frameworks */,
+				3DE84A421C2713DA00F7ADF3 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +506,9 @@
 				3DB2B8E41BDEEE8E005B7EF2 /* CoreData.framework in Frameworks */,
 				3D75866F1C16190B00F64E22 /* ReactiveCocoa.framework in Frameworks */,
 				3D7586701C16190B00F64E22 /* Result.framework in Frameworks */,
+				3DE84A491C27141000F7ADF3 /* RxBlocking.framework in Frameworks */,
+				3DE84A4A1C27141000F7ADF3 /* RxCocoa.framework in Frameworks */,
+				3DE84A4B1C27141000F7ADF3 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +519,9 @@
 				2319B8591C2401CD0050ABE8 /* CoreData.framework in Frameworks */,
 				3D7586751C16191D00F64E22 /* ReactiveCocoa.framework in Frameworks */,
 				3D7586781C16191D00F64E22 /* Result.framework in Frameworks */,
+				3DE84A521C27142D00F7ADF3 /* RxBlocking.framework in Frameworks */,
+				3DE84A531C27142D00F7ADF3 /* RxCocoa.framework in Frameworks */,
+				3DE84A541C27142D00F7ADF3 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +532,9 @@
 				3DB2B8EA1BDEEEB0005B7EF2 /* CoreData.framework in Frameworks */,
 				3D7586511C16186D00F64E22 /* ReactiveCocoa.framework in Frameworks */,
 				3D7586541C16186D00F64E22 /* Result.framework in Frameworks */,
+				3DE84A5B1C27144C00F7ADF3 /* RxBlocking.framework in Frameworks */,
+				3DE84A5C1C27144C00F7ADF3 /* RxCocoa.framework in Frameworks */,
+				3DE84A5D1C27144C00F7ADF3 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -888,6 +954,9 @@
 		3DB2B8D31BDEEDAD005B7EF2 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				3DE84A581C27144C00F7ADF3 /* RxBlocking.framework */,
+				3DE84A591C27144C00F7ADF3 /* RxCocoa.framework */,
+				3DE84A5A1C27144C00F7ADF3 /* RxSwift.framework */,
 				3D7586591C16187B00F64E22 /* Nimble.framework */,
 				3D75865A1C16187B00F64E22 /* Quick.framework */,
 				3D75864D1C16186C00F64E22 /* ReactiveCocoa.framework */,
@@ -902,6 +971,9 @@
 		3DB2B8D41BDEEDD1005B7EF2 /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
+				3DE84A3D1C2713DA00F7ADF3 /* RxBlocking.framework */,
+				3DE84A3E1C2713DA00F7ADF3 /* RxCocoa.framework */,
+				3DE84A3F1C2713DA00F7ADF3 /* RxSwift.framework */,
 				3D7586651C1618F800F64E22 /* ReactiveCocoa.framework */,
 				3D7586661C1618F800F64E22 /* Realm.framework */,
 				3D7586671C1618F800F64E22 /* RealmSwift.framework */,
@@ -914,6 +986,9 @@
 		3DB2B8D51BDEEDD7005B7EF2 /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
+				3DE84A461C27141000F7ADF3 /* RxBlocking.framework */,
+				3DE84A471C27141000F7ADF3 /* RxCocoa.framework */,
+				3DE84A481C27141000F7ADF3 /* RxSwift.framework */,
 				2319B8211C24008F0050ABE8 /* Realm.framework */,
 				2319B8221C24008F0050ABE8 /* RealmSwift.framework */,
 				3D75866D1C16190B00F64E22 /* ReactiveCocoa.framework */,
@@ -926,6 +1001,9 @@
 		3DB2B8D61BDEEDDD005B7EF2 /* OSX */ = {
 			isa = PBXGroup;
 			children = (
+				3DE84A4F1C27142D00F7ADF3 /* RxBlocking.framework */,
+				3DE84A501C27142D00F7ADF3 /* RxCocoa.framework */,
+				3DE84A511C27142D00F7ADF3 /* RxSwift.framework */,
 				3D7586711C16191D00F64E22 /* ReactiveCocoa.framework */,
 				3D7586721C16191D00F64E22 /* Realm.framework */,
 				3D7586731C16191D00F64E22 /* RealmSwift.framework */,

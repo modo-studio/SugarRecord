@@ -19,6 +19,9 @@ Pod::Spec.new do |s|
     sp.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/Reactive/**/*.{swift}']
     sp.dependency "Result", "~> 1.0"
     sp.dependency "ReactiveCocoa", "4.0.4-alpha-4"
+    sp.dependency 'RxSwift', '~> 2.0.0-beta'
+    sp.dependency 'RxCocoa', '~> 2.0.0-beta'
+    sp.dependency 'RxBlocking', '~> 2.0.0-beta'
   end
 
   s.subspec "CoreData" do |sp|
