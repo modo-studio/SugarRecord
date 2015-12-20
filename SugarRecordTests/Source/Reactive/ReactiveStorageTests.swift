@@ -3,7 +3,7 @@ import ReactiveCocoa
 import Quick
 import Nimble
 
-@testable import SugarRecord
+@testable import SugarRecordRealm
 
 class ReactiveStorageTests: QuickSpec {
     override func spec() {

@@ -4,7 +4,7 @@ import Nimble
 import RealmSwift
 import Result
 
-@testable import SugarRecord
+@testable import SugarRecordRealm
 
 class RealmTests: QuickSpec {
     
@@ -54,7 +54,7 @@ class RealmTests: QuickSpec {
                 
                 // Fetching
                 let _issue = subject!.objects(Issue.self).filter("name == %@", "test").first!
-                try! subject!.remove([_issue])
+                try! (subject as? Context)!.remove([_issue])
                 
                 // Testing
                 expect(subject!.objects(Issue.self).count) == 0

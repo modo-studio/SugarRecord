@@ -59,7 +59,7 @@ extension NSManagedObjectContext: Context {
      
      - throws: Throws an Error if the objects couldn't be removed.
      */
-    public func remove<T: Entity>(objects: [T]) throws {
+    public func remove<T: Entity>(objects: [T]) throws{
         for object in objects {
             guard let object = object as? NSManagedObject else { continue }
             self.deleteObject(object)
