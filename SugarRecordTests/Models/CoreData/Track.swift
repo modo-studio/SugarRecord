@@ -1,11 +1,3 @@
-//
-//  Track.swift
-//  SugarRecord
-//
-//  Created by Pedro Piñera Buendía on 12/11/15.
-//  Copyright © 2015 GitDo. All rights reserved.
-//
-
 import Foundation
 import CoreData
 
