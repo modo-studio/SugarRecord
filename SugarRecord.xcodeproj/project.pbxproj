@@ -255,6 +255,7 @@
 		3DE84A671C27147400F7ADF3 /* RxBlocking.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A581C27144C00F7ADF3 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DE84A681C27147400F7ADF3 /* RxCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A591C27144C00F7ADF3 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DE84A691C27147400F7ADF3 /* RxSwift.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE84A5A1C27144C00F7ADF3 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DE84A6A1C271B6000F7ADF3 /* SugarRecordRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2319B8AE1C2402490050ABE8 /* SugarRecordRealm.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,6 +265,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3DB2B86F1BDEE67C005B7EF2;
 			remoteInfo = "SugarRecord-iOS";
+		};
+		3DE84A6B1C271B6A00F7ADF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DB2B8021BDED648005B7EF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2319B8831C2402490050ABE8;
+			remoteInfo = "SugarRecord-Realm-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -524,6 +532,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DE84A6A1C271B6000F7ADF3 /* SugarRecordRealm.framework in Frameworks */,
 				3DE3FD821BEC166000009071 /* SugarRecordCoreData.framework in Frameworks */,
 				3D75865B1C16187B00F64E22 /* Nimble.framework in Frameworks */,
 				3D75865C1C16187B00F64E22 /* Quick.framework in Frameworks */,
@@ -1282,6 +1291,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3DE84A6C1C271B6A00F7ADF3 /* PBXTargetDependency */,
 				3DE3FD841BEC166000009071 /* PBXTargetDependency */,
 			);
 			name = SugarRecordTests;
@@ -1774,6 +1784,11 @@
 			isa = PBXTargetDependency;
 			target = 3DB2B86F1BDEE67C005B7EF2 /* SugarRecord-CoreData-iOS */;
 			targetProxy = 3DE3FD831BEC166000009071 /* PBXContainerItemProxy */;
+		};
+		3DE84A6C1C271B6A00F7ADF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2319B8831C2402490050ABE8 /* SugarRecord-Realm-iOS */;
+			targetProxy = 3DE84A6B1C271B6A00F7ADF3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
