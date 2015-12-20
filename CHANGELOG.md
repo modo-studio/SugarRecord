@@ -1,3 +1,7 @@
+### Version 2.2.2
+- First version giving support to [RxSwift](https://github.com/ReactiveX/RxSwift)
+- Fixed broken unit tests after the refactor for Carthage for having `SugarRecordCoreData` and `SugarRecordRealm`
+
 ### Version 2.1.1
 - Added [Realm 0.97](https://realm.io/news/realm-objc-swift-0.97.0/) version. That version includes:
   - Support for tvOS. You can use now SugarRecord+Realm with your tvOS.
