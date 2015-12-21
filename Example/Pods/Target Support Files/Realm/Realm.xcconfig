@@ -1,0 +1,9 @@
+APPLICATION_EXTENSION_API_ONLY = YES
+CLANG_CXX_LANGUAGE_STANDARD = compiler-default
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Realm" "${PODS_ROOT}/Headers/Public"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Realm/core"
+OTHER_CPLUSPLUSFLAGS = -std=c++1y $(inherited) -std=c++1y $(inherited)
+OTHER_LDFLAGS = -l"c++" -l"realm-ios"
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES

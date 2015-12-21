@@ -1,0 +1,6 @@
+framework module SugarRecord {
+  umbrella header "SugarRecord-umbrella.h"
+
+  export *
+  module * { export * }
+}
