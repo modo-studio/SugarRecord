@@ -1,6 +1,0 @@
-framework module Pods_SugarRecordExamples {
-  umbrella header "Pods-SugarRecordExamples-umbrella.h"
-
-  export *
-  module * { export * }
-}
