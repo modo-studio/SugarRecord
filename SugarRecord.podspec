@@ -1,5 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SugarRecord"
+<<<<<<< 0f3a815a5d5edfad807b59fa0f068358568d5431
   s.version          = "2.1.3"
   s.summary          = "CoreData wrapper written on Swift"
   s.homepage         = "https://github.com/SwiftReactive/SugarRecord"
@@ -19,6 +20,9 @@ Pod::Spec.new do |s|
     sp.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/Reactive/**/*.{swift}']
     sp.dependency "Result", "~> 1.0"
     sp.dependency "ReactiveCocoa", "4.0.4-alpha-4"
+    sp.dependency 'RxSwift', '~> 2.0.0-beta'
+    sp.dependency 'RxCocoa', '~> 2.0.0-beta'
+    sp.dependency 'RxBlocking', '~> 2.0.0-beta'
   end
 
   s.subspec "CoreData" do |sp|

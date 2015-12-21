@@ -1,9 +1,10 @@
 import Foundation
 import ReactiveCocoa
+import RxSwift
 import Quick
 import Nimble
 
-@testable import SugarRecord
+@testable import SugarRecordRealm
 
 class ReactiveStorageTests: QuickSpec {
     override func spec() {
@@ -30,6 +31,17 @@ class ReactiveStorageTests: QuickSpec {
             }
         }
         
+        describe("rx_operation") {
+            it("should execute the operation notifying when completed") {
+                _ = storage?.rx_operation({ (context, save) -> Void in
+                    let _: Issue = try! context.create()
+                }).subscribeCompleted({ () -> Void in
+                    let count = try! storage?.mainContext.request(Issue.self).fetch().count
+                    expect(count) == 1
+                })
+            }
+        }
+        
         describe("rac_backgroundOperation") {
             it("should execute the operation notifying when completed") {
                 waitUntil(action: { (done) -> Void in
@@ -45,13 +57,27 @@ class ReactiveStorageTests: QuickSpec {
             }
         }
         
+        describe("rx_backgroundOperation") {
+            it("should execute the operation notifying when completed") {
+                waitUntil(action: { (done) -> Void in
+                    _ = storage?.rx_backgroundOperation({ (context, save) -> Void in
+                        let _: Issue = try! context.create()
+                    }).subscribeCompleted({ () -> Void in
+                        let count = try! storage?.mainContext.request(Issue.self).fetch().count
+                        expect(count) == 1
+                        done()
+                    })
+                })
+            }
+        }
+        
         describe("rac_fetch") {
             it("should execute the fetch and return the results") {
                 storage?.operation({ (context, save) -> Void in
                     let _: Issue = try! context.create()
                     save()
                 })
-                storage?.rac_fetch(Request<Issue>()).startWithNext({ (issues) -> () in
+                _ = storage?.rx_fetch(Request<Issue>()).subscribeNext({ (issues) -> Void in
                     expect(issues.count) == 1
                 })
             }
@@ -70,6 +96,22 @@ class ReactiveStorageTests: QuickSpec {
                             expect(results.first) == "olakase"
                             done()
                         })
+                })
+            }
+        }
+        
+        describe("rx_backgroundFetch") {
+            it("should execute the fetch mapping the returned objects") {
+                storage?.operation({ (context, save) -> Void in
+                    let issue: Issue = try! context.create()
+                    issue.name = "olakase"
+                    save()
+                })
+                waitUntil(action: { (done) -> Void in
+                    _ = storage?.rx_backgroundFetch(Request<Issue>(), mapper: mapper).subscribeNext({ (results) -> Void in
+                        expect(results.first) == "olakase"
+                        done()
+                    })
                 })
             }
         }
