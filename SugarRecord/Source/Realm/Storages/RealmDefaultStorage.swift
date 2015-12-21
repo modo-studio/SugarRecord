@@ -4,6 +4,18 @@ import RealmSwift
 /// Default Realm storage. In this case the structure is much simpler (compared with CoreData) contexts are represented by Realm instances in the thread where they are requested.
 public class RealmDefaultStorage: Storage {
     
+    // MARK: - Attributes
+    
+    private let configuration: Realm.Configuration?
+    
+    
+    ///  MARK: - Init
+    
+    public init(configuration: Realm.Configuration? = nil) {
+        self.configuration = configuration
+    }
+    
+    
     // MARK: - Storage conformance
     
     /// Storage description. This description property is defined in the CustomStringLiteralConvertible protocol
@@ -24,14 +36,24 @@ public class RealmDefaultStorage: Storage {
     /// Note: Use this context with the main thread only
     public var mainContext: Context! {
         get {
-            return try? Realm()
+            if let configuration = self.configuration {
+                return try? Realm(configuration: configuration)
+            }
+            else {
+                return try? Realm()
+            }
         }
     }
     
     /// Save context. This context is mostly used for save operations
     public var saveContext: Context! {
         get {
-            return try? Realm()
+            if let configuration = self.configuration {
+                return try? Realm(configuration: configuration)
+            }
+            else {
+                return try? Realm()
+            }
         }
     }
     
