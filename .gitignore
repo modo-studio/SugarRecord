@@ -4,7 +4,7 @@
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio
 
 ./Carthage
-./Example/Pods
+Example/Pods
 
 build
 *.iml
