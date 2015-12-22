@@ -69,7 +69,7 @@ A storage represents your database, Realm, or CoreData. The first step to start 
 // Initializing CoreDataDefaultStorage
 func coreDataStorage() -> CoreDataDefaultStorage {
     let store = CoreData.Store.Named("db")
-    let bundle = NSBundle(forClass: CoreDataDefaultStorageTests.classForCoder())
+    let bundle = NSBundle(forClass: self.classForCoder())
     let model = CoreData.ObjectModel.Merged([bundle])
     let defaultStorage = try! CoreDataDefaultStorage(store: store, model: model)
     return defaultStorage
