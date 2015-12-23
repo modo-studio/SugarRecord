@@ -53,7 +53,6 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur) under [S
 6. Link your target with **CoreData** library *(from Build Phases)*
 
 #### Notes
-- The CocoaPods integration doesn't support Realm yet. Use Realm instead.
 - Carthage integration includes both, CoreData and Carthage. We're planning to separate it in multiple frameworks. [Task](https://trello.com/c/hyhN1Tp2/11-create-separated-frameworks-for-foundation-coredata-and-realm)
 - SugarRecord 2.0 is not compatible with the 1.x interface. If you were using that version you'll have to update your project to support this version.
 
