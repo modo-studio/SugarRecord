@@ -1,6 +1,9 @@
 ### Version 2.1.4
 - Integrated with Travis-CI
 
+### Version 2.1.3
+- Added initializer to RealmDefaultStorage that takes a Realm.Configuration as initializer.
+
 ### Version 2.1.2
 - First version giving support to [RxSwift](https://github.com/ReactiveX/RxSwift)
 - Fixed broken unit tests after the refactor for Carthage for having `SugarRecordCoreData` and `SugarRecordRealm`
