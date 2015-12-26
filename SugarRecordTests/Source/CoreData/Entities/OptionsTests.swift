@@ -3,7 +3,7 @@ import Quick
 import Nimble
 import CoreData
 
-@testable import SugarRecord
+@testable import SugarRecordCoreData
 
 class OptionsTests: QuickSpec {
     

@@ -22,9 +22,9 @@ env:
   - secure: GDfGPDE6Q8ryNCDG+2XLgrzlrB0pvT5RinZuHdtR/DKFRdyt7LhJnjTFuH/v5HG6Ule6hwuFV0ca7dRNNLb9udql2U/gqSOLphobZyJlMCzLE0G4XUeCNag6ymA8gHwEeXWjbQqY6nOnx+XZj/ZiiOdKCkKQrVsdBsfvniF7yKUX9dZnuZyaj5842WTXJ7XxmbxDrQMOl6JL1oegbF4M0PWYmgSZSre1Q5IAHgeY/ERHBp75MyKrJj6rBmmKka0U5OaFhFzXV8EtqSHSiWfXEEl6OfBzuLoHPrpZOzgV32DKDeqOlw4ikUkBAYl6FToMm3Q1wQKFL+AoutkHcB83U37h/D7Po2VEIy7SygBMm7bvCQZTnH/x89ZC4pMlvvlB97SucW+9YW7NCO1+8j6tcmS91Q3I2dRRjk3B8ZRg2sT6+LogjPqvRDaV7PcybGWHP0+JdtpZmHg56S/xT5a4zHCd3l8lVAh9ubc08YPLU4jUMfNaBEnfNZFQv8QUMX03283/cZYUVSj3fUkApR2tinhWVjGnWPj3AUn1nSCiAgIQ2zcFtA8H7bRQrJwpxxIGdw1S5L7xu4tdM6mNUJg2lhOw3EI2vDZ9QNsKyO2Xj5+0jmx47jTtpKHRG0SzE/UJFpK9vR6olZoMSfqp7a7kUUV876eWiUIj9si9ykGOa8Q=
   matrix:
   - SCHEME="SugarRecord-CoreData-iOS"       DESTINATION="OS=9.2,name=iPhone 6S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
-  - SCHEME="SugarRecord-CoreData-iOS"       DESTINATION="OS=8.0,name=iPhone 4S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
+  - SCHEME="SugarRecord-CoreData-iOS"       DESTINATION="OS=8.1,name=iPhone 4S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
   - SCHEME="SugarRecord-Realm-iOS"          DESTINATION="OS=9.2,name=iPhone 6S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
-  - SCHEME="SugarRecord-Realm-iOS"          DESTINATION="OS=8.0,name=iPhone 4S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
+  - SCHEME="SugarRecord-Realm-iOS"          DESTINATION="OS=8.1,name=iPhone 4S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
   - SCHEME="SugarRecord-CoreData-OSX"       DESTINATION="arch=x86_64"                     SDK="$OSX_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
   - SCHEME="SugarRecord-Realm-OSX"          DESTINATION="arch=x86_64"                     SDK="$OSX_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
   - SCHEME="SugarRecord-CoreData-tvOS"      DESTINATION="OS=9.1,name=Apple TV 1080p"      SDK="$TVOS_SDK"     RUN_TESTS="NO"    POD_LINT="NO"

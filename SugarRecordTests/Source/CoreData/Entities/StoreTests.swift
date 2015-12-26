@@ -2,7 +2,7 @@ import Foundation
 import Quick
 import Nimble
 
-@testable import SugarRecord
+@testable import SugarRecordCoreData
 
 class StoreTests: QuickSpec {
     
