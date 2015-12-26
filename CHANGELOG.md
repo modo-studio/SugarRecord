@@ -1,4 +1,7 @@
-### Version 2.2.2
+### Version 2.1.4
+- Integrated with Travis-CI
+
+### Version 2.1.2
 - First version giving support to [RxSwift](https://github.com/ReactiveX/RxSwift)
 - Fixed broken unit tests after the refactor for Carthage for having `SugarRecordCoreData` and `SugarRecordRealm`
 
