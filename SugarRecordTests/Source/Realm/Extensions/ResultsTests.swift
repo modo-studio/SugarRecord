@@ -3,7 +3,7 @@ import Quick
 import Nimble
 import RealmSwift
 
-@testable import SugarRecord
+@testable import SugarRecordRealm
 
 class ResultsTests: QuickSpec {
     

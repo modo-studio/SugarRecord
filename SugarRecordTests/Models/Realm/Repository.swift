@@ -1,7 +1,7 @@
 import Foundation
 import RealmSwift
 
-@testable import SugarRecord
+@testable import SugarRecordRealm
 
 class Repository: Object {
     

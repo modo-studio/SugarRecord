@@ -1,7 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SugarRecord"
-<<<<<<< 0f3a815a5d5edfad807b59fa0f068358568d5431
-  s.version          = "2.1.3"
+  s.version          = "2.1.4"
   s.summary          = "CoreData wrapper written on Swift"
   s.homepage         = "https://github.com/SwiftReactive/SugarRecord"
   s.license          = 'MIT'

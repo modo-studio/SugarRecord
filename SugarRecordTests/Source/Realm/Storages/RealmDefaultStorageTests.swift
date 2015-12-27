@@ -3,7 +3,6 @@ import Quick
 import Nimble
 import RealmSwift
 
-@testable import SugarRecordCoreData
 @testable import SugarRecordRealm
 
 class RealmDefaultStorageTests: QuickSpec {

@@ -4,7 +4,6 @@ import Nimble
 import CoreData
 
 @testable import SugarRecordCoreData
-@testable import SugarRecordRealm
 
 class CoreDataDefaultStorageTests: QuickSpec {
     override func spec() {
