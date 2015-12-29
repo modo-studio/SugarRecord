@@ -175,9 +175,6 @@ func rx_fetch<T>(request: Request<T>) -> Observable<[T]>
 
 # Contributing
 
-## Trello board :white_check_mark:
-We :heart: love transparency and decided to make the Trello board that use for organization public. You can access it [here](https://trello.com/c/BovsGc0E/4-contribution-document). You can check there the upcoming features and bugs pending to be fixed. You can also contribute proposing yours.
-
 ## Support
 
 If you want to communicate any issue, suggestion or even make a contribution, you have to keep in mind the flow bellow:
