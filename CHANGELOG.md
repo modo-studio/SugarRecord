@@ -1,3 +1,7 @@
+### Version 2.1.6
+- Implemented example project.
+- Fixed a bug with the CoreDataDefaultStorage that didn't persist the changes.
+
 ### Version 2.1.4
 - Integrated with Travis-CI
 
