@@ -93,8 +93,8 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
             let name = entities[indexPath.row].name
             db.operation({ (context, save) -> Void in
                 guard let obj = try! context.request(RealmBasicObject.self).filteredWith("name", equalTo: name).fetch().first else { return }
-                _ = try? context.remove(obj)
-                save()
+//                _ = try? context.remove(obj)
+//                save()
             })
             updateData()
         }

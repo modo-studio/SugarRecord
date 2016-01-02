@@ -54,7 +54,9 @@ class RealmTests: QuickSpec {
                 
                 // Fetching
                 let _issue = subject!.objects(Issue.self).filter("name == %@", "test").first!
+                subject?.beginWrite()
                 try! (subject as? Context)!.remove([_issue])
+                try! subject?.commitWrite()
                 
                 // Testing
                 expect(subject!.objects(Issue.self).count) == 0
