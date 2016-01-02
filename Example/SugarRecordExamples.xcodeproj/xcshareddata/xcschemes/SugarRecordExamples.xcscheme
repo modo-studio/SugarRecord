@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0710"
+   LastUpgradeVersion = "0720"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3DB2B86F1BDEE67C005B7EF2"
-               BuildableName = "SugarRecordCoreData.framework"
-               BlueprintName = "SugarRecord-CoreData-iOS"
-               ReferencedContainer = "container:SugarRecord.xcodeproj">
+               BlueprintIdentifier = "23D5925C1C2834DC00441B41"
+               BuildableName = "SugarRecordExamples.app"
+               BlueprintName = "SugarRecordExamples"
+               ReferencedContainer = "container:SugarRecordExamples.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3DB2B86F1BDEE67C005B7EF2"
-            BuildableName = "SugarRecordCoreData.framework"
-            BlueprintName = "SugarRecord-CoreData-iOS"
-            ReferencedContainer = "container:SugarRecord.xcodeproj">
+            BlueprintIdentifier = "23D5925C1C2834DC00441B41"
+            BuildableName = "SugarRecordExamples.app"
+            BlueprintName = "SugarRecordExamples"
+            ReferencedContainer = "container:SugarRecordExamples.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -51,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3DB2B86F1BDEE67C005B7EF2"
-            BuildableName = "SugarRecordCoreData.framework"
-            BlueprintName = "SugarRecord-CoreData-iOS"
-            ReferencedContainer = "container:SugarRecord.xcodeproj">
+            BlueprintIdentifier = "23D5925C1C2834DC00441B41"
+            BuildableName = "SugarRecordExamples.app"
+            BlueprintName = "SugarRecordExamples"
+            ReferencedContainer = "container:SugarRecordExamples.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -69,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3DB2B86F1BDEE67C005B7EF2"
-            BuildableName = "SugarRecordCoreData.framework"
-            BlueprintName = "SugarRecord-CoreData-iOS"
-            ReferencedContainer = "container:SugarRecord.xcodeproj">
+            BlueprintIdentifier = "23D5925C1C2834DC00441B41"
+            BuildableName = "SugarRecordExamples.app"
+            BlueprintName = "SugarRecordExamples"
+            ReferencedContainer = "container:SugarRecordExamples.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

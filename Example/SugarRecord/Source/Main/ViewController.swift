@@ -77,7 +77,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            self.navigationController?.pushViewController(RealmBasicView(), animated: true)
+            self.navigationController?.pushViewController(CoreDataBasicView(), animated: true)
         case 1:
             self.navigationController?.pushViewController(RealmBasicView(), animated: true)
         default:

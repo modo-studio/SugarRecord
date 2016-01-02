@@ -4,6 +4,6 @@
 use_frameworks!
 
 target 'SugarRecordExamples' do
-pod 'SugarRecord'
 pod 'SnapKit'
+pod 'SugarRecord', :path => "../"
 end
