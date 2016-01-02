@@ -116,7 +116,7 @@ public extension ReactiveStorage where Self: Storage {
      - returns: Observable that executes the action.
      */
     func rx_operation(op: (context: Context, save: Saver) -> Void) -> Observable<Void> {
-        return create({ (observer) -> RxSwift.Disposable in
+        return Observable.create({ (observer) -> RxSwift.Disposable in
             self.operation({ (context, saver) -> Void in
                 op(context: context, save: saver)
                 observer.onCompleted()
@@ -152,7 +152,7 @@ public extension ReactiveStorage where Self: Storage {
      - returns: Observable that executes the action.
      */
     func rx_backgroundOperation(op: (context: Context, save: Saver) -> Void) -> Observable<Void> {
-        return create { (observer) -> RxSwift.Disposable in
+        return Observable.create { (observer) -> RxSwift.Disposable in
             self.operation { (context, saver) in
                 op(context: context, save: saver)
                 observer.onCompleted()
@@ -201,7 +201,7 @@ public extension ReactiveStorage where Self: Storage {
      - returns: Observable that executes the action.
      */
     func rx_backgroundFetch<T, U>(request: Request<T>, mapper: T -> U) -> Observable<[U]> {
-        let observable: Observable<[T]> = create({ (observer) -> RxSwift.Disposable in
+        let observable: Observable<[T]> = Observable.create({ (observer) -> RxSwift.Disposable in
             let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
             dispatch_async(dispatch_get_global_queue(priority, 0)) {
                 do {
@@ -221,7 +221,7 @@ public extension ReactiveStorage where Self: Storage {
             }
             return NopDisposable.instance
         })
-        return observable.map({$0.map(mapper)}).observeOn(MainScheduler.sharedInstance)
+        return observable.map({$0.map(mapper)}).observeOn(MainScheduler.instance)
     }
     
     /**
@@ -257,7 +257,7 @@ public extension ReactiveStorage where Self: Storage {
      - returns: Observable that executes the action.
      */
     func rx_fetch<T>(request: Request<T>) -> Observable<[T]> {
-        return create({ (observer) -> RxSwift.Disposable in
+        return Observable.create({ (observer) -> RxSwift.Disposable in
             do {
                 try observer.onNext(self.fetch(request))
                 observer.onCompleted()
