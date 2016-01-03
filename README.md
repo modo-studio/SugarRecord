@@ -173,6 +173,15 @@ func rx_fetch<T>(request: Request<T>) -> Observable<[T]>
 <br>
 > This is the first approach of SugarRecord for the  interface. We'll improve it with the feedback you can report and according to the use of the framework. Do not hesitate to reach us with your proposals. Everything that has to be with making the use of CoreData/Realm easier, funnier, and enjoyable is welcome! :tada:
 
+### Example project
+
+There's an example project available in `Example` folder.
+
+1. Open the folder and execute `pod install`
+2. Open the project using `SugarRecordExamples.xcworkspace`
+
+Feel free to propose new examples using SugarRecord :heart:
+
 # Contributing
 
 ## Support

@@ -56,8 +56,6 @@ extension Realm: Context {
      - throws: Throws an Error if the objects couldn't be removed.
      */
     public func remove<T: Entity>(objects: [T]) throws {
-        self.beginWrite()
         self.delete(objects.map({$0.realm}).filter({$0 != nil}).map({$0!}))
-        try self.commitWrite()
     }
 }

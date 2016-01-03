@@ -69,9 +69,8 @@ public class CoreDataDefaultStorage: Storage {
             operation(context: context, save: { save = true })
             if save {
                 _ = try? context.save()
-                let mainContext = self.mainContext as! NSManagedObjectContext
-                if mainContext.hasChanges {
-                    _ = try? mainContext.save()
+                if self.rootSavingContext.hasChanges {
+                    _ = try? self.rootSavingContext.save()
                 }
             }
         }

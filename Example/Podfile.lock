@@ -1,0 +1,60 @@
+PODS:
+  - ReactiveCocoa (4.0.0-RC.1):
+    - ReactiveCocoa/UI (= 4.0.0-RC.1)
+    - Result (~> 1.0)
+  - ReactiveCocoa/Core (4.0.0-RC.1):
+    - ReactiveCocoa/no-arc
+    - Result (~> 1.0)
+  - ReactiveCocoa/no-arc (4.0.0-RC.1):
+    - Result (~> 1.0)
+  - ReactiveCocoa/UI (4.0.0-RC.1):
+    - ReactiveCocoa/Core
+    - Result (~> 1.0)
+  - Realm (0.97.0):
+    - Realm/Headers (= 0.97.0)
+  - Realm/Headers (0.97.0)
+  - RealmSwift (0.97.0):
+    - Realm (= 0.97.0)
+  - Result (1.0.1)
+  - RxBlocking (2.0.0):
+    - RxSwift (~> 2.0)
+  - RxCocoa (2.0.0):
+    - RxSwift (~> 2.0)
+  - RxSwift (2.0.0)
+  - SnapKit (0.18.0)
+  - SugarRecord (2.1.5):
+    - SugarRecord/CoreData (= 2.1.5)
+    - SugarRecord/Foundation (= 2.1.5)
+    - SugarRecord/Realm (= 2.1.5)
+  - SugarRecord/CoreData (2.1.5):
+    - SugarRecord/Foundation
+  - SugarRecord/Foundation (2.1.5):
+    - ReactiveCocoa (= 4.0.0-RC.1)
+    - Result (~> 1.0)
+    - RxBlocking (~> 2.0.0)
+    - RxCocoa (~> 2.0.0)
+    - RxSwift (~> 2.0.0)
+  - SugarRecord/Realm (2.1.5):
+    - RealmSwift (~> 0.97)
+    - SugarRecord/Foundation
+
+DEPENDENCIES:
+  - SnapKit
+  - SugarRecord (from `../`)
+
+EXTERNAL SOURCES:
+  SugarRecord:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ReactiveCocoa: 2b0f654beb7642b82cfd3fdb845205ae9889422c
+  Realm: b498a6fb9d288b171ff98d0e2d4384c295be8990
+  RealmSwift: d014810dec75c9a3f1a33926d2dabfed855c582c
+  Result: caef80340451e1f07492fa1e89117f83613bce24
+  RxBlocking: a95a10ed54eb5d116f6c9a87047ff671e181d07b
+  RxCocoa: b0ebd70b4f7450bdb3c8987b122f8fd568dc1e2f
+  RxSwift: d83246efa6f16c50c143bec134649d045498f601
+  SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
+  SugarRecord: 2194056941f398858fd1864b71dd4d78bc8cac6e
+
+COCOAPODS: 0.39.0
