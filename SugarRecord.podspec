@@ -2,10 +2,10 @@ Pod::Spec.new do |s|
   s.name             = "SugarRecord"
   s.version          = "2.1.6"
   s.summary          = "CoreData wrapper written on Swift"
-  s.homepage         = "https://github.com/SwiftReactive/SugarRecord"
+  s.homepage         = "https://github.com/pepibumur/SugarRecord"
   s.license          = 'MIT'
   s.author           = { "Pedro" => "pedro@gitdo.io" }
-  s.source           = { :git => "https://github.com/SwiftReactive/SugarRecord.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/pepibumur/SugarRecord.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/pepibumur'
   s.requires_arc = true
 
