@@ -1,6 +1,4 @@
 import Foundation
 
 
-public enum ReactiveError: ErrorType {
-    
-}
+public enum ReactiveError: ErrorType {}

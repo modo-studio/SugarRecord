@@ -4,10 +4,8 @@ import CoreData
 // MARK: - CoreData.ObjectModel
 
 public extension CoreData {
-    
     /**
      It represents a CoreData Object Model
-     
      - Named:  With the provided name. The model must be in the Main Bundle with the name NAME.xcdatamodel
      - Merged: Merging all the data models in the app bundle
      - URL:    Referenced by the provided URL
@@ -19,7 +17,6 @@ public extension CoreData {
         
         /**
          Returns the NSManagedObjectModel from the enum
-         
          - returns: managed object model
          */
         func model() -> NSManagedObjectModel? {
@@ -31,14 +28,15 @@ public extension CoreData {
             case .URL(let url):
                 return NSManagedObjectModel(contentsOfURL: url)
             }
+            
         }
+        
     }
 }
 
 // MARK: - ObjectModel Extension (CustomStringConvertible)
 
 extension CoreData.ObjectModel: CustomStringConvertible {
-    
     public var description: String {
         get {
             switch self {
@@ -48,7 +46,6 @@ extension CoreData.ObjectModel: CustomStringConvertible {
             }
         }
     }
-    
 }
 
 

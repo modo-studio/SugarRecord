@@ -70,4 +70,5 @@ public extension Storage {
     func fetch<T: Entity>(request: Request<T>) throws -> [T] {
         return try self.mainContext.fetch(request)
     }
+    
 }

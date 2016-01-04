@@ -16,4 +16,5 @@ public protocol NSSortDescriptorConvertible {
     
     /// Sort descriptor
     var sortDescriptor: NSSortDescriptor? { get }
+
 }

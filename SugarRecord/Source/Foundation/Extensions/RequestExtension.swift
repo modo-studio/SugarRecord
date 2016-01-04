@@ -18,4 +18,5 @@ extension Request: NSSortDescriptorConvertible {
     public init(sortDescriptor: NSSortDescriptor) {
         self = Request(sortDescriptor: sortDescriptor)
     }
+
 }

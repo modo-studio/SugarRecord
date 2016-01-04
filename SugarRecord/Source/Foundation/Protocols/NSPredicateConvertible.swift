@@ -16,4 +16,5 @@ public protocol NSPredicateConvertible {
     
     /// Predicate
     var predicate: NSPredicate? { get }
+
 }

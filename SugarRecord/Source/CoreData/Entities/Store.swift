@@ -27,6 +27,7 @@ public extension CoreData {
                 return NSURL(fileURLWithPath: documentsDirectory()).URLByAppendingPathComponent(name)
             }
         }
+        
     }
 }
 
@@ -51,4 +52,3 @@ extension CoreData.Store: Equatable {}
 public func ==(lhs: CoreData.Store, rhs: CoreData.Store) -> Bool {
     return lhs.path() == rhs.path()
 }
-

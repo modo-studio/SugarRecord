@@ -62,17 +62,17 @@ public struct Request<T: Entity> {
     
     // MARK: - Public Builder Methods
     
-    public func filteredWith(predicate predicate: NSPredicate)  -> Request<T> {
+    public func filteredWith(predicate predicate: NSPredicate) -> Request<T> {
         return self
             .request(withPredicate: predicate)
     }
     
-    public func filteredWith(key: String, equalTo value: String) -> Request<T>{
+    public func filteredWith(key: String, equalTo value: String) -> Request<T> {
         return self
             .request(withPredicate: NSPredicate(format: "\(key) == %@", value))
     }
     
-    public func sortedWith(sortDescriptor sortDescriptor: NSSortDescriptor)  -> Request<T> {
+    public func sortedWith(sortDescriptor sortDescriptor: NSSortDescriptor) -> Request<T> {
         return self
             .request(withSortDescriptor: sortDescriptor)
     }
@@ -102,4 +102,5 @@ public struct Request<T: Entity> {
     func request(withSortDescriptor sortDescriptor: NSSortDescriptor) -> Request<T> {
         return Request<T>(context, sortDescriptor: sortDescriptor, predicate: predicate)
     }
+    
 }
