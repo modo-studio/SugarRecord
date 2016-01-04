@@ -59,7 +59,7 @@ deploy:
     - SugarRecordRealm.framework.zip
     - SugarRecordCoreData.framework.zip
     on:
-      repo: SwiftReactive/SugarRecord
+      repo: pepibumur/SugarRecord
       tags: true
   - provider: script
     script: ./script/push
