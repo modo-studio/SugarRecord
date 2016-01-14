@@ -79,7 +79,7 @@ public class RealmDefaultStorage: Storage {
      - parameter operation: Operation to be executed.
      */
     public func operation(operation: (context: Context, save: () -> Void) -> Void) {
-        let context: Realm = self.saveContext as Realm
+        let context: Realm = self.saveContext as! Realm
         context.beginWrite()
         var save: Bool = false
         operation(context: context, save: { save = true })
