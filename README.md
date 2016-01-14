@@ -6,15 +6,9 @@
 [![Language: Swift](https://img.shields.io/badge/lang-Swift-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 [![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/pepibumur/SugarRecord.svg)](https://travis-ci.org/pepibumur/SugarRecord)
-[![Slack Status](https://swiftreactive.herokuapp.com/badge.svg)](https://swiftreactive.herokuapp.com)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-**If you want to receive updates about the status of SugarRecord, you can subscribe to our mailing list [here](http://eepurl.com/57tqX)**
-
-## Join our Slack channel
-[![Slack Status](https://swiftreactive.herokuapp.com/badge.svg)](https://swiftreactive.herokuapp.com)
-
-We have an Slack channel available where you can comment your problems, give suggestions and talk directly with the developers involved in this library.
+**If you want to receive updates about the status of SugarRecord, you can subscribe to our mailing list [here](http://eepurl.com/57tqX)**sla
 
 ## What is SugarRecord?
 SugarRecord is a persistence wrapper designed to make working with persistence solutions like CoreData/Realm/... in a much easier way. Thanks to SugarRecord you'll be able to use CoreData with just a few lines of code: Just choose your stack and start playing with your data.
