@@ -16,9 +16,25 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
 
   s.subspec "Foundation" do |sp|
-    sp.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/Reactive/**/*.{swift}']
+    sp.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}']
+    sp.exclude_files = ['SugarRecord/Source/Reactive/**/*.{swift}']
     sp.dependency "Result", "~> 1.0"
+  end
+  
+  s.subspec "Reactive" do |sp|
+    sp.source_files = ['SugarRecord/Source/Reactive/*.{swift}', 'SugarRecord/Source/CoreData/Reactive/**/*.{swift}', 'SugarRecord/Source/Realm/Reactive/**/*.{swift}']
+    sp.dependency 'SugarRecord/Foundation'
+  end
+  
+  s.subspec "ReactiveCocoa" do |sp|
+    sp.source_files = ['SugarRecord/Source/Reactive/ReactiveCocoa/**/*.{swift}']
+    sp.dependency 'SugarRecord/Reactive'
     sp.dependency "ReactiveCocoa", "4.0.0-RC.1"
+  end
+  
+  s.subspec "Rx" do |sp|
+    sp.source_files = ['SugarRecord/Source/Reactive/Rx/**/*.{swift}']
+    sp.dependency 'SugarRecord/Reactive'
     sp.dependency 'RxSwift', '~> 2.0.0'
     sp.dependency 'RxCocoa', '~> 2.0.0'
     sp.dependency 'RxBlocking', '~> 2.0.0'
@@ -26,12 +42,14 @@ Pod::Spec.new do |s|
 
   s.subspec "CoreData" do |sp|
     sp.source_files = ['SugarRecord/Source/CoreData/**/*.{swift}']
+    sp.exclude_files = ['SugarRecord/Source/CoreData/Reactive/**/*.{swift}']
     sp.dependency 'SugarRecord/Foundation'
     sp.frameworks = ['CoreData']
   end
 
   s.subspec "Realm" do |sp|
     sp.source_files = ['SugarRecord/Source/Realm/**/*.{swift}']
+    sp.exclude_files = ['SugarRecord/Source/Realm/Reactive/**/*.{swift}']
     sp.dependency 'SugarRecord/Foundation'
     sp.dependency "RealmSwift", "~> 0.97"
   end
