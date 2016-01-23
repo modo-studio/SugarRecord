@@ -20,31 +20,34 @@ Pod::Spec.new do |s|
     sp.exclude_files = ['SugarRecord/Source/Reactive/**/*.{swift}']
     sp.dependency "Result", "~> 1.0"
   end
-  
-  s.subspec "Reactive" do |sp|
-    sp.source_files = ['SugarRecord/Source/Reactive/*.{swift}', 'SugarRecord/Source/CoreData/Reactive/**/*.{swift}', 'SugarRecord/Source/Realm/Reactive/**/*.{swift}']
-    sp.dependency 'SugarRecord/Foundation'
-  end
-  
-  s.subspec "ReactiveCocoa" do |sp|
-    sp.source_files = ['SugarRecord/Source/Reactive/ReactiveCocoa/**/*.{swift}']
-    sp.dependency 'SugarRecord/Reactive'
-    sp.dependency "ReactiveCocoa", "4.0.0-RC.1"
-  end
-  
-  s.subspec "Rx" do |sp|
-    sp.source_files = ['SugarRecord/Source/Reactive/Rx/**/*.{swift}']
-    sp.dependency 'SugarRecord/Reactive'
-    sp.dependency 'RxSwift', '~> 2.0.0'
-    sp.dependency 'RxCocoa', '~> 2.0.0'
-    sp.dependency 'RxBlocking', '~> 2.0.0'
+
+  def rx_dependencies(spec)
+    spec.dependency 'RxSwift', '~> 2.0.0'
+    spec.dependency 'RxCocoa', '~> 2.0.0'
+    spec.dependency 'RxBlocking', '~> 2.0.0'
   end
 
+  def rac_dependencies(spec)
+    spec.dependency "ReactiveCocoa", "4.0.0-RC.1"
+  end
+  
   s.subspec "CoreData" do |sp|
     sp.source_files = ['SugarRecord/Source/CoreData/**/*.{swift}']
     sp.exclude_files = ['SugarRecord/Source/CoreData/Reactive/**/*.{swift}']
     sp.dependency 'SugarRecord/Foundation'
     sp.frameworks = ['CoreData']
+
+    sp.subspec "Rx" do |spp|
+      spp.source_files = ['SugarRecord/Source/Reactive/*.{swift}', 'SugarRecord/Source/CoreData/Reactive/**/*.{swift}']
+      spp.exclude_files = ['SugarRecord/Source/Reactive/ReactiveCocoa/**/*.{swift}']
+      rx_dependencies(spp)
+    end
+
+    sp.subspec "ReactiveCocoa" do |spp|
+      spp.source_files = ['SugarRecord/Source/Reactive/*.{swift}', 'SugarRecord/Source/CoreData/Reactive/**/*.{swift}']
+      spp.exclude_files = ['SugarRecord/Source/Reactive/Rx/**/*.{swift}']
+      rac_dependencies(spp)
+    end
   end
 
   s.subspec "Realm" do |sp|
@@ -52,5 +55,17 @@ Pod::Spec.new do |s|
     sp.exclude_files = ['SugarRecord/Source/Realm/Reactive/**/*.{swift}']
     sp.dependency 'SugarRecord/Foundation'
     sp.dependency "RealmSwift", "~> 0.97"
+
+    sp.subspec "Rx" do |spp|
+      spp.source_files = ['SugarRecord/Source/Reactive/*.{swift}', 'SugarRecord/Source/Realm/Reactive/**/*.{swift}']
+      spp.exclude_files = ['SugarRecord/Source/Reactive/ReactiveCocoa/**/*.{swift}']
+      rx_dependencies(spp)
+    end
+
+    sp.subspec "ReactiveCocoa" do |sp|
+      spp.source_files = ['SugarRecord/Source/Reactive/*.{swift}', 'SugarRecord/Source/Realm/Reactive/**/*.{swift}']
+      spp.exclude_files = ['SugarRecord/Source/Reactive/Rx/**/*.{swift}']
+      rac_dependencies(spp)
+    end
   end
 end
