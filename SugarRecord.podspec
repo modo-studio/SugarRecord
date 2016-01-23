@@ -21,13 +21,13 @@ Pod::Spec.new do |s|
     sp.dependency "Result", "~> 1.0"
   end
 
-  def rx_dependencies(spec)
+  rx_dependencies = lambda do |spec|
     spec.dependency 'RxSwift', '~> 2.0.0'
     spec.dependency 'RxCocoa', '~> 2.0.0'
     spec.dependency 'RxBlocking', '~> 2.0.0'
   end
 
-  def rac_dependencies(spec)
+  rac_dependencies = lambda do |spec|
     spec.dependency "ReactiveCocoa", "4.0.0-RC.1"
   end
   
@@ -40,13 +40,13 @@ Pod::Spec.new do |s|
     sp.subspec "Rx" do |spp|
       spp.source_files = ['SugarRecord/Source/Reactive/*.{swift}', 'SugarRecord/Source/CoreData/Reactive/**/*.{swift}']
       spp.exclude_files = ['SugarRecord/Source/Reactive/ReactiveCocoa/**/*.{swift}']
-      rx_dependencies(spp)
+      rx_dependencies.call(spp)
     end
 
     sp.subspec "ReactiveCocoa" do |spp|
       spp.source_files = ['SugarRecord/Source/Reactive/*.{swift}', 'SugarRecord/Source/CoreData/Reactive/**/*.{swift}']
       spp.exclude_files = ['SugarRecord/Source/Reactive/Rx/**/*.{swift}']
-      rac_dependencies(spp)
+      rac_dependencies.call(spp)
     end
   end
 
@@ -59,13 +59,13 @@ Pod::Spec.new do |s|
     sp.subspec "Rx" do |spp|
       spp.source_files = ['SugarRecord/Source/Reactive/*.{swift}', 'SugarRecord/Source/Realm/Reactive/**/*.{swift}']
       spp.exclude_files = ['SugarRecord/Source/Reactive/ReactiveCocoa/**/*.{swift}']
-      rx_dependencies(spp)
+      rx_dependencies.call(spp)
     end
 
     sp.subspec "ReactiveCocoa" do |sp|
       spp.source_files = ['SugarRecord/Source/Reactive/*.{swift}', 'SugarRecord/Source/Realm/Reactive/**/*.{swift}']
       spp.exclude_files = ['SugarRecord/Source/Reactive/Rx/**/*.{swift}']
-      rac_dependencies(spp)
+      rac_dependencies.call(spp)
     end
   end
 end
