@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/pepibumur'
   s.requires_arc = true
 
-  spec.default_subspecs = 'Realm', 'CoreData'
+  s.default_subspecs = 'Realm', 'CoreData'
 
   s.tvos.deployment_target = '9.0'
   s.ios.deployment_target = "8.0"
