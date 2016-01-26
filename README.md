@@ -198,6 +198,11 @@ If you want to communicate any issue, suggestion or even make a contribution, yo
 - [Jazzy](https://github.com/realm/jazzy)
 - [iCloud + CoreData (objc.io)](http://www.objc.io/issue-10/icloud-core-data.html)
 
+## Code of conduct
+
+This project adheres to the [Open Code of Conduct][code-of-conduct]. By participating, you are expected to honor this code.
+[code-of-conduct]: http://todogroup.org/opencodeofconduct/#SugarRecord/pepibumur@gmail.com
+
 ## License
 The MIT License (MIT)
 
