@@ -41,7 +41,7 @@ public class CoreDataDefaultStorage: Storage {
     /// Save context. This context is mostly used for save operations
     public var saveContext: Context! {
         get {
-            let _context = context(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType, inMemory: false)
+            let _context = cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType, inMemory: false)
             _context.observe(inMainThread: true) { [weak self] (notification) -> Void in
                 (self?.mainContext as? NSManagedObjectContext)?.mergeChangesFromContextDidSaveNotification(notification)
             }
@@ -52,7 +52,7 @@ public class CoreDataDefaultStorage: Storage {
     /// Memory context. This context is mostly used for testing (not persisted)
     public var memoryContext: Context! {
         get {
-            let _context =  context(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType, inMemory: true)
+            let _context =  cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType, inMemory: true)
             return _context
         }
     }
@@ -101,9 +101,9 @@ public class CoreDataDefaultStorage: Storage {
         self.store   = store
         self.objectModel = model.model()!
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
-        self.persistentStore = try initializeStore(store, storeCoordinator: persistentStoreCoordinator, migrate: migrate)
-        self.rootSavingContext = context(withParent: .Coordinator(self.persistentStoreCoordinator), concurrencyType: .PrivateQueueConcurrencyType, inMemory: false)
-        self.mainContext = context(withParent: .Context(self.rootSavingContext), concurrencyType: .MainQueueConcurrencyType, inMemory: false)
+        self.persistentStore = try cdInitializeStore(store, storeCoordinator: persistentStoreCoordinator, migrate: migrate)
+        self.rootSavingContext = cdContext(withParent: .Coordinator(self.persistentStoreCoordinator), concurrencyType: .PrivateQueueConcurrencyType, inMemory: false)
+        self.mainContext = cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .MainQueueConcurrencyType, inMemory: false)
     }
 }
 
@@ -116,7 +116,7 @@ public class CoreDataDefaultStorage: Storage {
  
  - returns: initialized managed object context
  */
-private func context(withParent parent: CoreData.ContextParent?, concurrencyType: NSManagedObjectContextConcurrencyType, inMemory: Bool) -> NSManagedObjectContext {
+internal func cdContext(withParent parent: CoreData.ContextParent?, concurrencyType: NSManagedObjectContextConcurrencyType, inMemory: Bool) -> NSManagedObjectContext {
     var context: NSManagedObjectContext?
     if inMemory {
         context = NSManagedObjectMemoryContext(concurrencyType: concurrencyType)
@@ -148,10 +148,10 @@ private func context(withParent parent: CoreData.ContextParent?, concurrencyType
  
  - returns: initialized persistent store
  */
-private func initializeStore(store: CoreData.Store, storeCoordinator: NSPersistentStoreCoordinator, migrate: Bool) throws -> NSPersistentStore {
-    try createStoreParentPathIfNeeded(store)
+internal func cdInitializeStore(store: CoreData.Store, storeCoordinator: NSPersistentStoreCoordinator, migrate: Bool) throws -> NSPersistentStore {
+    try cdCreateStoreParentPathIfNeeded(store)
     let options = migrate ? CoreData.Options.Migration : CoreData.Options.Default
-    return try addPersistentStore(store, storeCoordinator: storeCoordinator, options: options.dict())
+    return try cdAddPersistentStore(store, storeCoordinator: storeCoordinator, options: options.dict())
 }
 
 
@@ -162,7 +162,7 @@ private func initializeStore(store: CoreData.Store, storeCoordinator: NSPersiste
  
  - throws: error if something went wrong
  */
-private func createStoreParentPathIfNeeded(store: CoreData.Store) throws {
+internal func cdCreateStoreParentPathIfNeeded(store: CoreData.Store) throws {
     if let databaseParentPath = store.path().URLByDeletingLastPathComponent  {
         try NSFileManager.defaultManager().createDirectoryAtURL(databaseParentPath, withIntermediateDirectories: true, attributes: nil)
     }
@@ -179,7 +179,7 @@ private func createStoreParentPathIfNeeded(store: CoreData.Store) throws {
  
  - returns: persistent store
  */
-private func addPersistentStore(store: CoreData.Store, storeCoordinator: NSPersistentStoreCoordinator, options: [NSObject: AnyObject]) throws -> NSPersistentStore {
+internal func cdAddPersistentStore(store: CoreData.Store, storeCoordinator: NSPersistentStoreCoordinator, options: [NSObject: AnyObject]) throws -> NSPersistentStore {
     
     var addStore: ((store: CoreData.Store,  storeCoordinator: NSPersistentStoreCoordinator, options: [NSObject: AnyObject], cleanAndRetryIfMigrationFails: Bool) throws -> NSPersistentStore)?
     addStore = { (store: CoreData.Store, coordinator: NSPersistentStoreCoordinator, options: [NSObject: AnyObject], retry: Bool) throws -> NSPersistentStore in
@@ -196,7 +196,7 @@ private func addPersistentStore(store: CoreData.Store, storeCoordinator: NSPersi
         if let error = error {
             let isMigrationError = error.code == NSPersistentStoreIncompatibleVersionHashError || error.code == NSMigrationMissingSourceModelError
             if isMigrationError && retry {
-                _ = try? cleanStoreFilesAfterFailedMigration(store: store)
+                _ = try? cdCleanStoreFilesAfterFailedMigration(store: store)
                 try addStore!(store: store, storeCoordinator: coordinator, options: options, cleanAndRetryIfMigrationFails: false)
             }
             else {
@@ -218,7 +218,7 @@ private func addPersistentStore(store: CoreData.Store, storeCoordinator: NSPersi
  
  - throws: error if the files cannot be removed
  */
-private func cleanStoreFilesAfterFailedMigration(store store: CoreData.Store) throws {
+internal func cdCleanStoreFilesAfterFailedMigration(store store: CoreData.Store) throws {
     let rawUrl: String = store.path().absoluteString
     let shmSidecar: NSURL = NSURL(string: rawUrl.stringByAppendingString("-shm"))!
     let walSidecar: NSURL = NSURL(string: rawUrl.stringByAppendingString("-wal"))!
