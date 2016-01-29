@@ -1,6 +1,7 @@
 import Foundation
 import CoreData
 
+/// https://www.objc.io/issues/10-syncing-data/icloud-core-data/
 public class CoreDataiCloudStorage: Storage {
     
     // MARK: - Attributes
