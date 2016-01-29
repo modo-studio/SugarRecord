@@ -75,6 +75,20 @@ func realmStorage() -> RealmDefaultStorage {
 }
 ```
 
+##### Creating an iCloud Storage
+
+SugarRecord supports the integration of CoreData with iCloud. It's very easy to setup since it's implemented in its own storage that you can use from your app, `CoreDataiCloudStorage`:
+
+```swift
+// Initializes the CoreDataiCloudStorage
+func icloudStorage() -> CoreDataiCloudStorage {
+    let bundle = NSBundle(forClass: self.classForCoder())
+    let model = CoreData.ObjectModel.Merged([bundle])
+    let icloudConfig = iCloudConfig(ubiquitousContentName: "MyDb", ubiquitousContentURL: "Path/", ubiquitousContainerIdentifier: "com.company.MyApp.anothercontainer")
+    return CoreDataiCloudStorage(model: model, iCloud: icloudConfig)
+}
+```
+
 #### Contexts
 Storages offer multiple kind of contexts that are the entry points to the database. For curious developers, in case of CoreData a context is a wrapper around `NSManagedObjectContext`, in case of Realm a wrapper around `Realm`. The available contexts are:
 
