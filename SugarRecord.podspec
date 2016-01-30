@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
 
   s.default_subspecs = 'Realm', 'CoreData'
 
-  s.tvos.deployment_target = '9.0'
   s.ios.deployment_target = "8.0"
   s.osx.deployment_target = "10.10"
   s.watchos.deployment_target = "2.0"
@@ -24,7 +23,7 @@ Pod::Spec.new do |s|
   end
 
   rac_dependencies = lambda do |spec|
-    spec.dependency "ReactiveCocoa", "4.0.0-RC.1"
+    spec.dependency "ReactiveCocoa", "4.0.0-RC.2"
   end
 
   realm_dependencies = lambda do |spec|
@@ -41,14 +40,18 @@ Pod::Spec.new do |s|
 
   s.subspec "CoreData" do  |spec|
     spec.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}']
-    spec.exclude_files = ['SugarRecord/Source/CoreData/Reactive/**/*.{swift}']
+    spec.exclude_files = ['SugarRecord/Source/CoreData/Reactive/**/*.{swift}', 
+      'SugarRecord/Source/CoreData/Entities/iCloudConfig.swift',
+      'SugarRecord/Source/CoreData/Storages/CoreDataiCloudStorage.swift']
     coredata_dependencies.call(spec)
     foundation_dependencies.call(spec)
   end
 
   s.subspec "CoreData+RX" do |spec|
     spec.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}', 'SugarRecord/Source/Reactive/**/*.{swift}']
-    spec.exclude_files = ['SugarRecord/Source/Reactive/ReactiveCocoa/**/*.{swift}']
+    spec.exclude_files = ['SugarRecord/Source/Reactive/ReactiveCocoa/**/*.{swift}', 
+      'SugarRecord/Source/CoreData/Entities/iCloudConfig.swift',
+      'SugarRecord/Source/CoreData/Storages/CoreDataiCloudStorage.swift']
     rx_dependencies.call(spec)
     coredata_dependencies.call(spec)
     foundation_dependencies.call(spec)
@@ -56,7 +59,9 @@ Pod::Spec.new do |s|
 
   s.subspec "CoreData+RAC" do  |spec|
     spec.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}', 'SugarRecord/Source/Reactive/**/*.{swift}']
-    spec.exclude_files = ['SugarRecord/Source/Reactive/Rx/**/*.{swift}']
+    spec.exclude_files = ['SugarRecord/Source/Reactive/Rx/**/*.{swift}', 
+      'SugarRecord/Source/CoreData/Entities/iCloudConfig.swift',
+      'SugarRecord/Source/CoreData/Storages/CoreDataiCloudStorage.swift']
     rac_dependencies.call(spec)
     coredata_dependencies.call(spec)
     foundation_dependencies.call(spec)
