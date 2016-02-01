@@ -228,10 +228,6 @@
 		23554C0D1C2F348700DAAF3F /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23554C0B1C2F348700DAAF3F /* Quick.framework */; };
 		23554C0E1C2F348F00DAAF3F /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 23554C0A1C2F348700DAAF3F /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23554C0F1C2F348F00DAAF3F /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 23554C0B1C2F348700DAAF3F /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2388637C1C5C239C0048B691 /* CoreDataiCloudStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238863791C5C239C0048B691 /* CoreDataiCloudStorage.swift */; };
-		2388637D1C5C239C0048B691 /* CoreDataiCloudStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238863791C5C239C0048B691 /* CoreDataiCloudStorage.swift */; };
-		238863811C5C285F0048B691 /* iCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388637E1C5C285F0048B691 /* iCloudConfig.swift */; };
-		238863821C5C285F0048B691 /* iCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388637E1C5C285F0048B691 /* iCloudConfig.swift */; };
 		239C8E051BF48B680025DB9A /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E041BF48B680025DB9A /* ContextParent.swift */; };
 		239C8E061BF48B680025DB9A /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E041BF48B680025DB9A /* ContextParent.swift */; };
 		23A916751C17365A005E57D8 /* DirUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A916741C17365A005E57D8 /* DirUtilsTests.swift */; };
@@ -1825,9 +1821,7 @@
 				2319B86A1C2401F80050ABE8 /* Error.swift in Sources */,
 				2319B86B1C2401F80050ABE8 /* RequestExtension.swift in Sources */,
 				2319B86C1C2401F80050ABE8 /* NSPredicateConvertible.swift in Sources */,
-				2388637C1C5C239C0048B691 /* CoreDataiCloudStorage.swift in Sources */,
 				2319B86D1C2401F80050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
-				238863811C5C285F0048B691 /* iCloudConfig.swift in Sources */,
 				2319B86E1C2401F80050ABE8 /* Context.swift in Sources */,
 				2319B86F1C2401F90050ABE8 /* Entity.swift in Sources */,
 				2319B8701C2401F90050ABE8 /* Requestable.swift in Sources */,
@@ -1857,9 +1851,7 @@
 				2319B8BF1C2402960050ABE8 /* Store.swift in Sources */,
 				2319B8C01C2402960050ABE8 /* Options.swift in Sources */,
 				2319B8C11C2402960050ABE8 /* ContextParent.swift in Sources */,
-				2388637D1C5C239C0048B691 /* CoreDataiCloudStorage.swift in Sources */,
 				2319B8C21C2402960050ABE8 /* CoreDataErrors.swift in Sources */,
-				238863821C5C285F0048B691 /* iCloudConfig.swift in Sources */,
 				2319B8C31C2402960050ABE8 /* NSManagedObject.swift in Sources */,
 				2319B8C41C2402960050ABE8 /* NSManagedObjectContext.swift in Sources */,
 				2319B8C51C2402960050ABE8 /* NSManagedObjectMemoryContext.swift in Sources */,
