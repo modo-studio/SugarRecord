@@ -1,5 +1,6 @@
 import Foundation
 import CoreData
+import SugarRecord
 
 /// https://www.objc.io/issues/10-syncing-data/icloud-core-data/
 public class CoreDataiCloudStorage: Storage {
