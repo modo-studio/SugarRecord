@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SugarRecordiCloud"
-  s.version          = "2.1.9"
+  s.version          = "2.2.0"
   s.summary          = "SugarRecord extension adding iCloud support"
   s.homepage         = "https://github.com/pepibumur/SugarRecord"
   s.license          = 'MIT'
