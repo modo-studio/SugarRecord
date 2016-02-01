@@ -3,7 +3,7 @@ import CoreData
 
 // MARK: - CoreData.Options
 
-extension CoreData {
+public extension CoreData {
     
     /**
      NSPersistantStore initialization options
@@ -11,7 +11,7 @@ extension CoreData {
      - Default:      Default options
      - Migration: Automatic migration options
      */
-    enum Options {
+    public enum Options {
         case Default
         case Migration
     
