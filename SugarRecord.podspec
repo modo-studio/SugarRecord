@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SugarRecord"
-  s.version          = "2.2.0"
+  s.version          = "2.2.1"
   s.summary          = "CoreData wrapper written on Swift"
   s.homepage         = "https://github.com/pepibumur/SugarRecord"
   s.license          = 'MIT'
@@ -10,11 +10,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.default_subspecs = 'Realm', 'CoreData'
-
-  s.ios.deployment_target = "8.0"
-  s.osx.deployment_target = "10.10"
-  s.watchos.deployment_target = "2.0"
-  s.tvos.deployment_target = '9.0'
 
   rx_dependencies = lambda do |spec|
     spec.dependency 'RxSwift', '~> 2.0.0'
@@ -38,33 +33,71 @@ Pod::Spec.new do |s|
     spec.dependency "Result", "~> 1.0"
   end
 
+  all_platforms = lambda do |spec|
+    spec.ios.deployment_target = "8.0"
+    spec.osx.deployment_target = "10.10"
+    spec.watchos.deployment_target = "2.0"
+    spec.tvos.deployment_target = '9.0'
+  end
+
+  all_icloud_supported_platforms = lambda do |spec|
+    spec.ios.deployment_target = "8.0"
+    spec.osx.deployment_target = "10.10"
+    spec.watchos.deployment_target = nil
+    spec.tvos.deployment_target = nil
+  end
+
+  excluded_icloud_files = ['SugarRecord/Source/CoreData/Entities/iCloudConfig.swift', 'SugarRecord/Source/CoreData/Storages/CoreDataiCloudStorage.swift']
+
   s.subspec "CoreData" do  |spec|
-    spec.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}']
-    spec.exclude_files = ['SugarRecord/Source/CoreData/Reactive/**/*.{swift}', 
-      'SugarRecord/Source/CoreData/Entities/iCloudConfig.swift',
-      'SugarRecord/Source/CoreData/Storages/CoreDataiCloudStorage.swift']
+    source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}']
+    excluded_files = ['SugarRecord/Source/CoreData/Reactive/**/*.{swift}']
+    spec.source_files = source_files
+    spec.exclude_files = excluded_files + excluded_icloud_files
     coredata_dependencies.call(spec)
     foundation_dependencies.call(spec)
+    all_platforms.call(spec)
+
+    spec.subspec "iCloud" do |ss|
+      all_icloud_supported_platforms.call(ss)
+      ss.source_files = source_files
+      ss.exclude_files = excluded_files
+    end
+
   end
 
   s.subspec "CoreData+RX" do |spec|
-    spec.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}', 'SugarRecord/Source/Reactive/**/*.{swift}']
-    spec.exclude_files = ['SugarRecord/Source/Reactive/ReactiveCocoa/**/*.{swift}', 
-      'SugarRecord/Source/CoreData/Entities/iCloudConfig.swift',
-      'SugarRecord/Source/CoreData/Storages/CoreDataiCloudStorage.swift']
+    source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}', 'SugarRecord/Source/Reactive/**/*.{swift}']
+    excluded_files = ['SugarRecord/Source/Reactive/ReactiveCocoa/**/*.{swift}']
+    spec.source_files = source_files
+    spec.exclude_files = excluded_files + excluded_icloud_files
     rx_dependencies.call(spec)
     coredata_dependencies.call(spec)
     foundation_dependencies.call(spec)
+    all_platforms.call(spec)
+
+    spec.subspec "iCloud" do |ss|
+      all_icloud_supported_platforms.call(ss)
+      ss.source_files = source_files
+      ss.exclude_files = excluded_files
+    end
   end
 
   s.subspec "CoreData+RAC" do  |spec|
-    spec.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}', 'SugarRecord/Source/Reactive/**/*.{swift}']
-    spec.exclude_files = ['SugarRecord/Source/Reactive/Rx/**/*.{swift}', 
-      'SugarRecord/Source/CoreData/Entities/iCloudConfig.swift',
-      'SugarRecord/Source/CoreData/Storages/CoreDataiCloudStorage.swift']
+    source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}', 'SugarRecord/Source/Reactive/**/*.{swift}']
+    excluded_files = ['SugarRecord/Source/Reactive/Rx/**/*.{swift}']
+    spec.source_files = source_files
+    spec.exclude_files = excluded_files + excluded_icloud_files
     rac_dependencies.call(spec)
     coredata_dependencies.call(spec)
     foundation_dependencies.call(spec)
+    all_platforms.call(spec)
+
+    spec.subspec "iCloud" do |ss|
+      all_icloud_supported_platforms.call(ss)
+      ss.source_files = source_files
+      ss.exclude_files = excluded_files
+    end
   end
 
   s.subspec "Realm" do  |spec|
