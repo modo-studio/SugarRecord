@@ -40,6 +40,21 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur). You can
 
 *Note: You can also test the last commits by specifying it directly in the Podfile line*
 
+**Available specs**
+Choose the right one depending ton the configuration you need for you app.
+
+```ruby
+pod "SugarRecord/CoreData"
+pod "SugarRecord/CoreData+iCloud"
+pod "SugarRecord/CoreData+RX"
+pod "SugarRecord/CoreData+RX+iCloud"
+pod "SugarRecord/CoreData+RAC"
+pod "SugarRecord/CoreData+RAC+iCloud"
+pod "SugarRecord/Ream"
+pod "SugarRecord/Realm+RX"
+pod "SugarRecord/Realm+RAC"
+```
+
 ### [Carthage](https://carthage)
 1. Install [Carthage](https://github.com/carthage/carthage) on your computer using `brew install carthage`
 3. Edit your `Cartfile` file adding the following line `github 'pepibumur/sugarrecord'`
