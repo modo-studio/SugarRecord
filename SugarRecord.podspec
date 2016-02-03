@@ -43,8 +43,6 @@ Pod::Spec.new do |s|
   all_icloud_supported_platforms = lambda do |spec|
     spec.ios.deployment_target = "8.0"
     spec.osx.deployment_target = "10.10"
-    spec.watchos.deployment_target = nil
-    spec.tvos.deployment_target = nil
   end
 
   excluded_icloud_files = ['SugarRecord/Source/CoreData/Entities/iCloudConfig.swift', 'SugarRecord/Source/CoreData/Storages/CoreDataiCloudStorage.swift']
