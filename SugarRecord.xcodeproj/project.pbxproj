@@ -232,6 +232,8 @@
 		237A93CC1C626AC0006BC2F1 /* CoreDataiCloudStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238863791C5C239C0048B691 /* CoreDataiCloudStorage.swift */; };
 		237A93CD1C626AC8006BC2F1 /* iCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388637E1C5C285F0048B691 /* iCloudConfig.swift */; };
 		237A93CE1C626AC9006BC2F1 /* iCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388637E1C5C285F0048B691 /* iCloudConfig.swift */; };
+		237A93CF1C62A28A006BC2F1 /* iCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388637E1C5C285F0048B691 /* iCloudConfig.swift */; };
+		237A93D01C62A28B006BC2F1 /* iCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388637E1C5C285F0048B691 /* iCloudConfig.swift */; };
 		239C8E051BF48B680025DB9A /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E041BF48B680025DB9A /* ContextParent.swift */; };
 		239C8E061BF48B680025DB9A /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E041BF48B680025DB9A /* ContextParent.swift */; };
 		23A916751C17365A005E57D8 /* DirUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A916741C17365A005E57D8 /* DirUtilsTests.swift */; };
@@ -1762,6 +1764,7 @@
 				231C61F11C174BE000CD6532 /* NSManagedObjectMemoryContext.swift in Sources */,
 				2353E6761BED4E420081E6E7 /* Store.swift in Sources */,
 				2353E6391BED4AC00081E6E7 /* NSManagedObject.swift in Sources */,
+				237A93D01C62A28B006BC2F1 /* iCloudConfig.swift in Sources */,
 				2353E6451BED4AC00081E6E7 /* Request.swift in Sources */,
 				2353E6411BED4AC00081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
 				2353E67B1BED52150081E6E7 /* Options.swift in Sources */,
@@ -1792,6 +1795,7 @@
 				2353E6771BED4E420081E6E7 /* Store.swift in Sources */,
 				2353E63A1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */,
 				2353E6461BED4AC00081E6E7 /* Request.swift in Sources */,
+				237A93CF1C62A28A006BC2F1 /* iCloudConfig.swift in Sources */,
 				2353E6421BED4AC00081E6E7 /* CoreDataDefaultStorage.swift in Sources */,
 				2353E67C1BED52150081E6E7 /* Options.swift in Sources */,
 				23F3F3661C1DF2D6009A5CC1 /* ReactiveStorage.swift in Sources */,

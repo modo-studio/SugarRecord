@@ -13,8 +13,6 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = "8.0"
   s.osx.deployment_target = "10.10"
-  s.watchos.deployment_target = "2.0"
-  s.tvos.deployment_target = '9.0'
 
   rx_dependencies = lambda do |spec|
     spec.dependency 'RxSwift', '~> 2.0.0'
@@ -39,17 +37,8 @@ Pod::Spec.new do |s|
   end
 
   all_platforms = lambda do |spec|
-    # spec.ios.deployment_target = "8.0"
-    # spec.osx.deployment_target = "10.10"
-    # spec.watchos.deployment_target = "2.0"
-    # spec.tvos.deployment_target = '9.0'
-  end
-
-  all_icloud_supported_platforms = lambda do |spec|
-    spec.ios.deployment_target = "8.0"
-    spec.osx.deployment_target = "10.10"
-    spec.watchos.deployment_target = nil
-    spec.tvos.deployment_target = nil
+    spec.watchos.deployment_target = "2.0"
+    spec.tvos.deployment_target = '9.0'
   end
 
   excluded_icloud_files = ['SugarRecord/Source/CoreData/Entities/iCloudConfig.swift', 'SugarRecord/Source/CoreData/Storages/CoreDataiCloudStorage.swift']
@@ -71,7 +60,6 @@ Pod::Spec.new do |s|
     spec.exclude_files = excluded_files
     coredata_dependencies.call(spec)
     foundation_dependencies.call(spec)
-    all_icloud_supported_platforms.call(spec)
   end
 
   s.subspec "CoreData+RX" do |spec|
@@ -93,7 +81,6 @@ Pod::Spec.new do |s|
     rx_dependencies.call(spec)
     coredata_dependencies.call(spec)
     foundation_dependencies.call(spec)
-    all_icloud_supported_platforms.call(spec)
   end
 
 
@@ -116,7 +103,6 @@ Pod::Spec.new do |s|
     rac_dependencies.call(spec)
     coredata_dependencies.call(spec)
     foundation_dependencies.call(spec)
-    all_icloud_supported_platforms.call(spec)
   end
 
   s.subspec "Realm" do  |spec|
