@@ -333,6 +333,7 @@
 		231C61F01C174BE000CD6532 /* NSManagedObjectMemoryContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectMemoryContext.swift; sourceTree = "<group>"; };
 		2333900F1C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReactiveStorage+ReactiveCocoa.swift"; sourceTree = "<group>"; };
 		233390111C67B41400844B9D /* ReactiveStorage+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReactiveStorage+Rx.swift"; sourceTree = "<group>"; };
+		233390221C67B4EA00844B9D /* SugarRecord.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SugarRecord.xcconfig; sourceTree = "<group>"; };
 		2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		2353E62B1BED4AC00081E6E7 /* CoreDataDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDefaultStorage.swift; sourceTree = "<group>"; };
@@ -902,6 +903,7 @@
 				3DB2B8A81BDEE795005B7EF2 /* Mac OS X */,
 				3DB2B8AE1BDEE795005B7EF2 /* tvOS */,
 				3DB2B8B31BDEE795005B7EF2 /* watchOS */,
+				233390221C67B4EA00844B9D /* SugarRecord.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -2193,6 +2195,7 @@
 		};
 		3DB2B81D1BDED648005B7EF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 233390221C67B4EA00844B9D /* SugarRecord.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -2242,6 +2245,7 @@
 		};
 		3DB2B81E1BDED648005B7EF2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 233390221C67B4EA00844B9D /* SugarRecord.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
