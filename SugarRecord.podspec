@@ -15,9 +15,9 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.10"
 
   rx_dependencies = lambda do |spec|
-    spec.dependency 'RxSwift', '~> 2.0.0'
-    spec.dependency 'RxCocoa', '~> 2.0.0'
-    spec.dependency 'RxBlocking', '~> 2.0.0'
+    spec.dependency 'RxSwift', '~> 2.1'
+    spec.dependency 'RxCocoa', '~> 2.1'
+    spec.dependency 'RxBlocking', '~> 2.1'
   end
 
   rac_dependencies = lambda do |spec|
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   end
 
   realm_dependencies = lambda do |spec|
-    spec.dependency "RealmSwift", "~> 0.97"
+    spec.dependency "RealmSwift", "~> 0.98"
   end
 
   coredata_dependencies = lambda do |spec|
@@ -37,6 +37,8 @@ Pod::Spec.new do |s|
   end
 
   all_platforms = lambda do |spec|
+    spec.ios.deployment_target = "8.0"
+    spec.osx.deployment_target = "10.10"
     spec.watchos.deployment_target = "2.0"
     spec.tvos.deployment_target = '9.0'
   end
