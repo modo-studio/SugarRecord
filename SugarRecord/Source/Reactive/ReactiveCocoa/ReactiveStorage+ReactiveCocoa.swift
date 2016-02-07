@@ -14,7 +14,7 @@ public extension ReactiveStorage where Self: Storage {
     
     - returns: SignalProducer that executes the action.
     */
-    func rac_operation(op: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, NoError> {
+    func rac_operation(op: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, Result.NoError> {
         return SignalProducer { (observer, disposable) in
             self.operation { (context, saver) in
                 op(context: context, save: saver)
@@ -30,7 +30,7 @@ public extension ReactiveStorage where Self: Storage {
      
      - returns: SignalProducer that executes the action.
      */
-    func rac_backgroundOperation(op: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, NoError> {
+    func rac_backgroundOperation(op: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, Result.NoError> {
         return SignalProducer { (observer, disposable) in
             let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
             dispatch_async(dispatch_get_global_queue(priority, 0)) {
