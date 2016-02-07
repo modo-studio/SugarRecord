@@ -1,5 +1,6 @@
 import Foundation
 import ReactiveCocoa
+import Result
 
 public extension ReactiveStorage where Self: Storage {
     
