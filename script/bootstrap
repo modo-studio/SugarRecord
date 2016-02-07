@@ -21,6 +21,16 @@ main ()
         echo "*** Updating submodules..."
         update_submodules
     fi
+
+    if [ -f "Cartfile" ]; then
+      echo "*** Updating Carthage dependencies..."
+      update_carthage
+    fi
+}
+
+update_carthage()
+{
+  carthage update
 }
 
 bootstrap_submodule ()
