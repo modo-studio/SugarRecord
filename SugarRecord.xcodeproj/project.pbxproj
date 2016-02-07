@@ -135,6 +135,22 @@
 		231C61EF1C17482100CD6532 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C61EE1C17482100CD6532 /* CoreData.swift */; };
 		231C61F11C174BE000CD6532 /* NSManagedObjectMemoryContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C61F01C174BE000CD6532 /* NSManagedObjectMemoryContext.swift */; };
 		231C61F21C174BE000CD6532 /* NSManagedObjectMemoryContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C61F01C174BE000CD6532 /* NSManagedObjectMemoryContext.swift */; };
+		233390121C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333900F1C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift */; };
+		233390131C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333900F1C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift */; };
+		233390141C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333900F1C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift */; };
+		233390151C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333900F1C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift */; };
+		233390161C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333900F1C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift */; };
+		233390171C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333900F1C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift */; };
+		233390181C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333900F1C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift */; };
+		233390191C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333900F1C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift */; };
+		2333901A1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233390111C67B41400844B9D /* ReactiveStorage+Rx.swift */; };
+		2333901B1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233390111C67B41400844B9D /* ReactiveStorage+Rx.swift */; };
+		2333901C1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233390111C67B41400844B9D /* ReactiveStorage+Rx.swift */; };
+		2333901D1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233390111C67B41400844B9D /* ReactiveStorage+Rx.swift */; };
+		2333901E1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233390111C67B41400844B9D /* ReactiveStorage+Rx.swift */; };
+		2333901F1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233390111C67B41400844B9D /* ReactiveStorage+Rx.swift */; };
+		233390201C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233390111C67B41400844B9D /* ReactiveStorage+Rx.swift */; };
+		233390211C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233390111C67B41400844B9D /* ReactiveStorage+Rx.swift */; };
 		2353E6391BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
 		2353E63A1BED4AC00081E6E7 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */; };
 		2353E63D1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */; };
@@ -315,6 +331,9 @@
 		2319B8AE1C2402490050ABE8 /* SugarRecordRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		231C61EE1C17482100CD6532 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		231C61F01C174BE000CD6532 /* NSManagedObjectMemoryContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectMemoryContext.swift; sourceTree = "<group>"; };
+		2333900F1C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReactiveStorage+ReactiveCocoa.swift"; sourceTree = "<group>"; };
+		233390111C67B41400844B9D /* ReactiveStorage+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReactiveStorage+Rx.swift"; sourceTree = "<group>"; };
+		233390221C67B4EA00844B9D /* SugarRecord.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SugarRecord.xcconfig; sourceTree = "<group>"; };
 		2353E6281BED4AC00081E6E7 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		2353E6291BED4AC00081E6E7 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		2353E62B1BED4AC00081E6E7 /* CoreDataDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDefaultStorage.swift; sourceTree = "<group>"; };
@@ -607,6 +626,22 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		2333900E1C67B41400844B9D /* ReactiveCocoa */ = {
+			isa = PBXGroup;
+			children = (
+				2333900F1C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift */,
+			);
+			path = ReactiveCocoa;
+			sourceTree = "<group>";
+		};
+		233390101C67B41400844B9D /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				233390111C67B41400844B9D /* ReactiveStorage+Rx.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
 		2353E6251BED4AC00081E6E7 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -763,6 +798,8 @@
 		23F3F3631C1DF2D0009A5CC1 /* Reactive */ = {
 			isa = PBXGroup;
 			children = (
+				2333900E1C67B41400844B9D /* ReactiveCocoa */,
+				233390101C67B41400844B9D /* Rx */,
 				23F3F3641C1DF2D6009A5CC1 /* ReactiveStorage.swift */,
 				23F3F3691C1DFA6D009A5CC1 /* ReactiveError.swift */,
 			);
@@ -866,6 +903,7 @@
 				3DB2B8A81BDEE795005B7EF2 /* Mac OS X */,
 				3DB2B8AE1BDEE795005B7EF2 /* tvOS */,
 				3DB2B8B31BDEE795005B7EF2 /* watchOS */,
+				233390221C67B4EA00844B9D /* SugarRecord.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1667,6 +1705,7 @@
 				2319B7DB1C23FF8F0050ABE8 /* RealmDefaultStorage+Reactive.swift in Sources */,
 				2319B7DD1C23FF8F0050ABE8 /* RealmEntity.swift in Sources */,
 				2319B7DE1C23FF8F0050ABE8 /* Object.swift in Sources */,
+				233390131C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2319B7DF1C23FF8F0050ABE8 /* Requestable.swift in Sources */,
 				2319B7E11C23FF8F0050ABE8 /* ReactiveError.swift in Sources */,
 				2319B7E21C23FF8F0050ABE8 /* NSPredicateConvertible.swift in Sources */,
@@ -1676,6 +1715,7 @@
 				2319B7E61C23FF8F0050ABE8 /* ReactiveStorage.swift in Sources */,
 				2319B7E81C23FF8F0050ABE8 /* RequestExtension.swift in Sources */,
 				2319B7EA1C23FF8F0050ABE8 /* Entity.swift in Sources */,
+				2333901B1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */,
 				2319B7EB1C23FF8F0050ABE8 /* Storage.swift in Sources */,
 				2319B7EC1C23FF8F0050ABE8 /* DirUtils.swift in Sources */,
 				2319B7ED1C23FF8F0050ABE8 /* RealmDefaultStorage.swift in Sources */,
@@ -1692,6 +1732,7 @@
 				2319B8281C2400BD0050ABE8 /* Object.swift in Sources */,
 				2319B8291C2400BD0050ABE8 /* RealmEntity.swift in Sources */,
 				2319B82A1C2400BD0050ABE8 /* RealmDefaultStorage.swift in Sources */,
+				233390151C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2319B8001C2400420050ABE8 /* Request.swift in Sources */,
 				2319B8031C2400420050ABE8 /* ReactiveStorage.swift in Sources */,
 				2319B8061C2400420050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
@@ -1701,6 +1742,7 @@
 				2319B80E1C2400420050ABE8 /* RequestExtension.swift in Sources */,
 				2319B8101C2400420050ABE8 /* ReactiveError.swift in Sources */,
 				2319B8111C2400420050ABE8 /* Entity.swift in Sources */,
+				2333901D1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */,
 				2319B8121C2400420050ABE8 /* Storage.swift in Sources */,
 				2319B8131C2400420050ABE8 /* Requestable.swift in Sources */,
 				2319B8141C2400420050ABE8 /* DirUtils.swift in Sources */,
@@ -1717,6 +1759,7 @@
 				2319B87C1C2402300050ABE8 /* Error.swift in Sources */,
 				2319B87D1C2402300050ABE8 /* RequestExtension.swift in Sources */,
 				2319B87E1C2402300050ABE8 /* NSPredicateConvertible.swift in Sources */,
+				233390171C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2319B87F1C2402300050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
 				2319B8801C2402300050ABE8 /* Context.swift in Sources */,
 				2319B8811C2402300050ABE8 /* Entity.swift in Sources */,
@@ -1726,6 +1769,7 @@
 				2319B8751C2402290050ABE8 /* Results.swift in Sources */,
 				2319B8761C2402290050ABE8 /* Object.swift in Sources */,
 				2319B8771C2402290050ABE8 /* RealmEntity.swift in Sources */,
+				2333901F1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */,
 				2319B8781C2402290050ABE8 /* RealmDefaultStorage.swift in Sources */,
 				2319B8711C2402220050ABE8 /* ReactiveStorage.swift in Sources */,
 				2319B8721C2402220050ABE8 /* ReactiveError.swift in Sources */,
@@ -1742,6 +1786,7 @@
 				2319B8D21C2402C30050ABE8 /* Error.swift in Sources */,
 				2319B8D31C2402C30050ABE8 /* RequestExtension.swift in Sources */,
 				2319B8D41C2402C30050ABE8 /* NSPredicateConvertible.swift in Sources */,
+				233390191C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2319B8D51C2402C30050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
 				2319B8D61C2402C30050ABE8 /* Context.swift in Sources */,
 				2319B8D71C2402C30050ABE8 /* Entity.swift in Sources */,
@@ -1751,6 +1796,7 @@
 				2319B8C91C2402BA0050ABE8 /* RealmDefaultStorage+Reactive.swift in Sources */,
 				2319B8CA1C2402BA0050ABE8 /* Realm.swift in Sources */,
 				2319B8CB1C2402BA0050ABE8 /* Results.swift in Sources */,
+				233390211C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */,
 				2319B8CC1C2402BA0050ABE8 /* Object.swift in Sources */,
 				2319B8CD1C2402BA0050ABE8 /* RealmEntity.swift in Sources */,
 				2319B8CE1C2402BA0050ABE8 /* RealmDefaultStorage.swift in Sources */,
@@ -1771,6 +1817,7 @@
 				2353E66C1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */,
 				2353E6711BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E65D1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
+				2333901A1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */,
 				2353E6671BED4B250081E6E7 /* CoreData.swift in Sources */,
 				23A9167D1C173FCF005E57D8 /* Requestable.swift in Sources */,
 				2353E63D1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
@@ -1784,6 +1831,7 @@
 				23F3F37E1C1DFD37009A5CC1 /* DefaultCoreDataStorage+Reactive.swift in Sources */,
 				2305F8FF1BF1EA8D00F9D379 /* Entity.swift in Sources */,
 				2353E6491BED4AC00081E6E7 /* Storage.swift in Sources */,
+				233390121C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2305F8F11BF0FE4500F9D379 /* DirUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1802,6 +1850,7 @@
 				2353E66D1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */,
 				2353E6721BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E65E1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
+				2333901C1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */,
 				2353E6681BED4B250081E6E7 /* CoreData.swift in Sources */,
 				239C8E061BF48B680025DB9A /* ContextParent.swift in Sources */,
 				2353E63E1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
@@ -1815,6 +1864,7 @@
 				23AC16271BF370BA00FAF97A /* Entity.swift in Sources */,
 				2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				23A9167E1C173FCF005E57D8 /* Requestable.swift in Sources */,
+				233390141C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2305F8F21BF0FE4500F9D379 /* DirUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1826,6 +1876,7 @@
 				2319B8671C2401F80050ABE8 /* DirUtils.swift in Sources */,
 				2319B8681C2401F80050ABE8 /* Request.swift in Sources */,
 				2319B8691C2401F80050ABE8 /* Storage.swift in Sources */,
+				233390161C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2319B86A1C2401F80050ABE8 /* Error.swift in Sources */,
 				2319B86B1C2401F80050ABE8 /* RequestExtension.swift in Sources */,
 				2319B86C1C2401F80050ABE8 /* NSPredicateConvertible.swift in Sources */,
@@ -1836,6 +1887,7 @@
 				2319B86F1C2401F90050ABE8 /* Entity.swift in Sources */,
 				2319B8701C2401F90050ABE8 /* Requestable.swift in Sources */,
 				2319B85C1C2401F20050ABE8 /* DefaultCoreDataStorage+Reactive.swift in Sources */,
+				2333901E1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */,
 				2319B85D1C2401F20050ABE8 /* CoreData.swift in Sources */,
 				2319B85E1C2401F20050ABE8 /* ObjectModel.swift in Sources */,
 				2319B85F1C2401F20050ABE8 /* Store.swift in Sources */,
@@ -1858,6 +1910,7 @@
 				2319B8BC1C2402960050ABE8 /* DefaultCoreDataStorage+Reactive.swift in Sources */,
 				2319B8BD1C2402960050ABE8 /* CoreData.swift in Sources */,
 				2319B8BE1C2402960050ABE8 /* ObjectModel.swift in Sources */,
+				233390181C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2319B8BF1C2402960050ABE8 /* Store.swift in Sources */,
 				2319B8C01C2402960050ABE8 /* Options.swift in Sources */,
 				2319B8C11C2402960050ABE8 /* ContextParent.swift in Sources */,
@@ -1868,6 +1921,7 @@
 				2319B8C41C2402960050ABE8 /* NSManagedObjectContext.swift in Sources */,
 				2319B8C51C2402960050ABE8 /* NSManagedObjectMemoryContext.swift in Sources */,
 				2319B8C61C2402960050ABE8 /* CoreDataDefaultStorage.swift in Sources */,
+				233390201C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */,
 				2319B8B21C24028C0050ABE8 /* DirUtils.swift in Sources */,
 				2319B8B31C24028C0050ABE8 /* Request.swift in Sources */,
 				2319B8B41C24028C0050ABE8 /* Storage.swift in Sources */,
@@ -2141,6 +2195,7 @@
 		};
 		3DB2B81D1BDED648005B7EF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 233390221C67B4EA00844B9D /* SugarRecord.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -2190,6 +2245,7 @@
 		};
 		3DB2B81E1BDED648005B7EF2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 233390221C67B4EA00844B9D /* SugarRecord.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
