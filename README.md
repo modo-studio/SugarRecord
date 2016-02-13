@@ -31,7 +31,7 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur). You can
 
 ## Setup
 
-### [Cocoapods](https://cocoapods.org)
+### [CocoaPods](https://cocoapods.org)
 
 1. Install [CocoaPods](https://cocoapods.org). You can do it with `gem install cocoapods`
 2. Edit your `Podfile` file and add the following line `pod 'SugarRecord'
