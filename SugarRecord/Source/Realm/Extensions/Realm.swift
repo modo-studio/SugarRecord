@@ -33,7 +33,7 @@ extension Realm: Context {
      */
     public func insert<T: Entity>(entity: T) throws {
         guard let _ = T.self as? Object.Type else { throw Error.InvalidType }
-        self.add(entity as! Object)
+        self.add(entity as! Object, update: true)
     }
     
     /**
