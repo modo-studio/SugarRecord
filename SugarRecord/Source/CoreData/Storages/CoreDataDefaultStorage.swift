@@ -22,20 +22,21 @@ public class CoreDataDefaultStorage: Storage {
     
     public var type: StorageType = .CoreData
     public var mainContext: Context!
+    private var _saveContext: Context!
     public var saveContext: Context! {
-        get {
-            let _context = cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType, inMemory: false)
-            _context.observe(inMainThread: true) { [weak self] (notification) -> Void in
-                (self?.mainContext as? NSManagedObjectContext)?.mergeChangesFromContextDidSaveNotification(notification)
-            }
-            return _context
+        if let context = self._saveContext {
+            return context
         }
+        let _context = cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType, inMemory: false)
+        _context.observe(inMainThread: true) { [weak self] (notification) -> Void in
+            (self?.mainContext as? NSManagedObjectContext)?.mergeChangesFromContextDidSaveNotification(notification)
+        }
+        self._saveContext = _context
+        return _context
     }
     public var memoryContext: Context! {
-        get {
-            let _context =  cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType, inMemory: true)
-            return _context
-        }
+        let _context =  cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .PrivateQueueConcurrencyType, inMemory: true)
+        return _context
     }
     
     public func operation(operation: (context: Context, save: () throws -> Void) -> Void) {
@@ -44,7 +45,18 @@ public class CoreDataDefaultStorage: Storage {
             operation(context: context, save: { () throws -> Void  in
                 try context.save()
                 if self.rootSavingContext.hasChanges {
-                    try self.rootSavingContext.save()
+                    var _error: ErrorType!
+                    self.rootSavingContext.performBlockAndWait({
+                        do {
+                            try self.rootSavingContext.save()
+                        }
+                        catch {
+                            _error = error
+                        }
+                    })
+                    if let error = _error {
+                        throw error
+                    }
                 }
             })
         }
