@@ -108,7 +108,7 @@ class CoreDataDefaultStorageTests: QuickSpec {
                     waitUntil(action: { (done) -> Void in
                         defaultStorage?.operation({ (context, save) -> Void in
                             let _: Track = try! context.create()
-                            save()
+                            _ = try? save()
                         })
                         let tracksCount: Int? = try! defaultStorage?.mainContext.request(Track.self).fetch().count
                         expect(tracksCount) == 1

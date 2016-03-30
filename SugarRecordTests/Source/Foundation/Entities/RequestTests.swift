@@ -39,8 +39,8 @@ class RequestTests: QuickSpec {
             }
             
             it("sortedWith(key:ascending:selector)") {
-                let descriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: "selector")
-                let request: Request<Issue> = Request(testRealm()).sortedWith("name", ascending: true, selector: "selector")
+                let descriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: Selector("selector"))
+                let request: Request<Issue> = Request(testRealm()).sortedWith("name", ascending: true, selector: Selector("selector"))
                 expect(descriptor.key) == request.sortDescriptor?.key
                 expect(descriptor.ascending) == request.sortDescriptor?.ascending
                 expect(descriptor.selector) == request.sortDescriptor?.selector

@@ -6,21 +6,35 @@ public extension ReactiveStorage where Self: Storage {
     
     // MARK: - Operation
     
-    func rac_operation(op: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, NoError> {
+    func rac_operation(op: (context: Context, save: () -> Void) -> Void) -> SignalProducer<Void, Error> {
         return SignalProducer { (observer, disposable) in
             self.operation { (context, saver) in
-                op(context: context, save: saver)
+                op(context: context, save: { 
+                    do {
+                        try saver()
+                    }
+                    catch {
+                        observer.sendFailed(Error.Store(error))
+                    }
+                })
                 observer.sendCompleted()
             }
         }
     }
     
-    func rac_backgroundOperation(op: (context: Context, save: Saver) -> Void) -> SignalProducer<Void, NoError> {
+    func rac_backgroundOperation(op: (context: Context, save: () -> Void) -> Void) -> SignalProducer<Void, Error> {
         return SignalProducer { (observer, disposable) in
             let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
             dispatch_async(dispatch_get_global_queue(priority, 0)) {
                 self.operation { (context, saver) in
-                    op(context: context, save: saver)
+                    op(context: context, save: {
+                        do {
+                            try saver()
+                        }
+                        catch {
+                            observer.sendFailed(Error.Store(error))
+                        }
+                    })
                     observer.sendCompleted()
                 }
             }

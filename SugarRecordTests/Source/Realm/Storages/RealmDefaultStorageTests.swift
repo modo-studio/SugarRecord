@@ -66,7 +66,7 @@ class RealmDefaultStorageTests: QuickSpec {
                     storage?.operation({ (context, save) -> Void in
                         let issue: Issue = try! context.create()
                         issue.name = "test"
-                        save()
+                        _ = try? save()
                     })
                     let fetched = try! storage?.mainContext.request(Issue.self).fetch()
                     expect(fetched?.count) == 1

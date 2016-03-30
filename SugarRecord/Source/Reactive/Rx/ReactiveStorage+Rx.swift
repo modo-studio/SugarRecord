@@ -3,20 +3,34 @@ import RxSwift
 
 public extension ReactiveStorage where Self: Storage {
 
-    func rx_operation(op: (context: Context, save: Saver) -> Void) -> Observable<Void> {
+    func rx_operation(op: (context: Context, save: () -> Void) -> Void) -> Observable<Void> {
         return Observable.create { (observer) -> RxSwift.Disposable in
             self.operation { (context, saver) -> Void in
-                op(context: context, save: saver)
+                op(context: context, save: { () -> Void in
+                    do {
+                       try saver()
+                    }
+                    catch {
+                        observer.onError(error)
+                    }
+                })
                 observer.onCompleted()
             }
             return NopDisposable.instance
         }
     }
     
-    func rx_backgroundOperation(op: (context: Context, save: Saver) -> Void) -> Observable<Void> {
+    func rx_backgroundOperation(op: (context: Context, save: () -> Void) -> Void) -> Observable<Void> {
         return Observable.create { (observer) -> RxSwift.Disposable in
             self.operation { (context, saver) in
-                op(context: context, save: saver)
+                op(context: context, save: { () -> Void in
+                    do {
+                        try saver()
+                    }
+                    catch {
+                        observer.onError(error)
+                    }
+                })
                 observer.onCompleted()
             }
             return NopDisposable.instance
