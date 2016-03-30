@@ -62,7 +62,7 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     private func setupNavigationItem() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "userDidSelectAdd:")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(CoreDataBasicView.userDidSelectAdd(_:)))
     }
     
     private func setupTableView() {
@@ -95,7 +95,7 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
             db.operation({ (context, save) -> Void in
                 guard let obj = try! context.request(BasicObject.self).filteredWith("name", equalTo: name).fetch().first else { return }
                 _ = try? context.remove(obj)
-                save()
+                _ = try? save()
             })
             updateData()
         }
@@ -110,7 +110,7 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
             _object.date = NSDate()
             _object.name = randomStringWithLength(10) as String
             try! context.insert(_object)
-            save()
+            _ = try? save()
         }
         updateData()
     }

@@ -61,7 +61,7 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     private func setupNavigationItem() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "userDidSelectAdd:")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(RealmBasicView.userDidSelectAdd(_:)))
     }
     
     private func setupTableView() {
@@ -94,7 +94,7 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
             db.operation({ (context, save) -> Void in
                 guard let obj = try! context.request(RealmBasicObject.self).filteredWith("name", equalTo: name).fetch().first else { return }
                 _ = try? context.remove(obj)
-                save()
+                _ = try? save()
             })
             updateData()
         }
@@ -109,7 +109,7 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
             _object.date = NSDate()
             _object.name = randomStringWithLength(10) as String
             try! context.insert(_object)
-            save()
+            _ = try? save()
         }
         updateData()
     }
@@ -125,6 +125,10 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
 class RealmBasicObject: Object {
     dynamic var date: NSDate = NSDate()
     dynamic var name: String = ""
+    
+    internal override class func primaryKey() -> String? {
+        return "name"
+    }
 }
 
 class RealmBasicEntity {
