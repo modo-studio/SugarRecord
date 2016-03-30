@@ -1178,7 +1178,7 @@
 				2319B7F41C23FF8F0050ABE8 /* Headers */,
 				2319B7F51C23FF8F0050ABE8 /* Resources */,
 				2319B7F61C23FF8F0050ABE8 /* Bump version */,
-				2318A67D1C3AE449003ACD13 /* Tailor */,
+				2319F5F41CABB27000082FFB /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -1198,7 +1198,7 @@
 				2319B8191C2400420050ABE8 /* Headers */,
 				2319B81A1C2400420050ABE8 /* Resources */,
 				2319B81B1C2400420050ABE8 /* Bump version */,
-				2318A67B1C3AE439003ACD13 /* Tailor */,
+				2319F5F91CABB2AB00082FFB /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -1218,7 +1218,7 @@
 				2319B8501C2400D10050ABE8 /* Headers */,
 				2319B8511C2400D10050ABE8 /* Resources */,
 				2319B8521C2400D10050ABE8 /* Bump version */,
-				2318A6791C3AE428003ACD13 /* Tailor */,
+				2319F5F71CABB29700082FFB /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -1238,7 +1238,7 @@
 				2319B8A81C2402490050ABE8 /* Headers */,
 				2319B8A91C2402490050ABE8 /* Resources */,
 				2319B8AA1C2402490050ABE8 /* Bump version */,
-				2318A6771C3AE412003ACD13 /* Tailor */,
+				2319F5F61CABB29000082FFB /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -1258,7 +1258,7 @@
 				3DB2B82A1BDEE187005B7EF2 /* Headers */,
 				3DB2B82B1BDEE187005B7EF2 /* Resources */,
 				3D7586481C1615E500F64E22 /* Bump version */,
-				B162B35A3F40765F8F9F6A7F /* Tailor */,
+				4DD85AE7AE7F5A5D9DA3ECE0 /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -1278,7 +1278,7 @@
 				3DB2B8391BDEE1AD005B7EF2 /* Headers */,
 				3DB2B83A1BDEE1AD005B7EF2 /* Resources */,
 				3D7586491C16160A00F64E22 /* Bump version */,
-				2318A67C1C3AE441003ACD13 /* Tailor */,
+				2319F5FA1CABB2B200082FFB /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -1298,7 +1298,7 @@
 				3DB2B8481BDEE1C7005B7EF2 /* Headers */,
 				3DB2B8491BDEE1C7005B7EF2 /* Resources */,
 				3D75864A1C16161400F64E22 /* Bump version */,
-				2318A67A1C3AE430003ACD13 /* Tailor */,
+				2319F5F81CABB2A100082FFB /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -1318,7 +1318,7 @@
 				3DB2B86D1BDEE67C005B7EF2 /* Headers */,
 				3DB2B86E1BDEE67C005B7EF2 /* Resources */,
 				3D75864B1C16161D00F64E22 /* Bump version */,
-				2318A6781C3AE420003ACD13 /* Tailor */,
+				2319F5F51CABB27E00082FFB /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -1468,104 +1468,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2318A6771C3AE412003ACD13 /* Tailor */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Tailor;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
-		};
-		2318A6781C3AE420003ACD13 /* Tailor */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Tailor;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
-		};
-		2318A6791C3AE428003ACD13 /* Tailor */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Tailor;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if hash tailor 2>/dev/null; then\n  tailor --except=leading-whitespace,trailing-whitespace,comment-whitespace,lower-camel-case\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
-		};
-		2318A67A1C3AE430003ACD13 /* Tailor */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Tailor;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
-		};
-		2318A67B1C3AE439003ACD13 /* Tailor */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Tailor;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
-		};
-		2318A67C1C3AE441003ACD13 /* Tailor */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Tailor;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
-		};
-		2318A67D1C3AE449003ACD13 /* Tailor */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Tailor;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
-		};
 		2319B7F61C23FF8F0050ABE8 /* Bump version */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1621,6 +1523,104 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = "/usr/bin/env ruby";
 			shellScript = "git = `sh /etc/profile; which git`.chomp\napp_build = `#{git} rev-list --all | wc -l`.chomp.to_i\n`/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion #{app_build}\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\nputs \"Updated #{ENV['TARGET_BUILD_DIR']}/#{ENV['INFOPLIST_PATH']}\"";
+		};
+		2319F5F41CABB27000082FFB /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\ntailor --config=.tailor.yml\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+		};
+		2319F5F51CABB27E00082FFB /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\ntailor --config=.tailor.yml\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+		};
+		2319F5F61CABB29000082FFB /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\ntailor --config=.tailor.yml\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+		};
+		2319F5F71CABB29700082FFB /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\ntailor --config=.tailor.yml\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+		};
+		2319F5F81CABB2A100082FFB /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\ntailor --config=.tailor.yml\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+		};
+		2319F5F91CABB2AB00082FFB /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\ntailor --config=.tailor.yml\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+		};
+		2319F5FA1CABB2B200082FFB /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\ntailor --config=.tailor.yml\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi";
 		};
 		3D7586481C1615E500F64E22 /* Bump version */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1678,7 +1678,7 @@
 			shellPath = "/usr/bin/env ruby";
 			shellScript = "git = `sh /etc/profile; which git`.chomp\napp_build = `#{git} rev-list --all | wc -l`.chomp.to_i\n`/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion #{app_build}\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"`\nputs \"Updated #{ENV['TARGET_BUILD_DIR']}/#{ENV['INFOPLIST_PATH']}\"";
 		};
-		B162B35A3F40765F8F9F6A7F /* Tailor */ = {
+		4DD85AE7AE7F5A5D9DA3ECE0 /* Tailor */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1690,7 +1690,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+			shellScript = "if hash tailor 2>/dev/null; then\ntailor --config=.tailor.yml\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

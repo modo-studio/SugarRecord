@@ -1,24 +1,13 @@
 import Foundation
 import CoreData
 
-// MARK: - CoreData.ObjectModel
-
 public extension CoreData {
-    /**
-     It represents a CoreData Object Model
-     - Named:  With the provided name. The model must be in the Main Bundle with the name NAME.xcdatamodel
-     - Merged: Merging all the data models in the app bundle
-     - URL:    Referenced by the provided URL
-     */
+
     public enum ObjectModel {
         case Named(String, NSBundle)
         case Merged([NSBundle]?)
         case URL(NSURL)
         
-        /**
-         Returns the NSManagedObjectModel from the enum
-         - returns: managed object model
-         */
         func model() -> NSManagedObjectModel? {
             switch self {
             case .Merged(let bundles):
@@ -33,6 +22,7 @@ public extension CoreData {
         
     }
 }
+
 
 // MARK: - ObjectModel Extension (CustomStringConvertible)
 
@@ -53,6 +43,6 @@ extension CoreData.ObjectModel: CustomStringConvertible {
 
 extension CoreData.ObjectModel: Equatable {}
 
-public func ==(lhs: CoreData.ObjectModel, rhs: CoreData.ObjectModel) -> Bool {
+public func == (lhs: CoreData.ObjectModel, rhs: CoreData.ObjectModel) -> Bool {
     return lhs.model() == rhs.model()
 }

@@ -4,28 +4,13 @@ public struct Request<T: Entity> {
     
     // MARK: - Attributes
     
-    /// Sort descriptor
     public let sortDescriptor: NSSortDescriptor?
-    
-    /// Predicate
     public let predicate: NSPredicate?
-    
-    
-    /// Context
     let context: Context?
     
     
     // MARK: - Init
     
-    /**
-     Initializes the request with the provided context, sort descriptor and predicate
-     
-     - parameter requestable:    requestable
-     - parameter sortDescriptor: sort descriptor
-     - parameter predicate:      predicate
-     
-     - returns: initialized Request
-     */
     public init(_ requestable: Requestable? = nil, sortDescriptor: NSSortDescriptor? = nil, predicate: NSPredicate? = nil) {
         self.context = requestable?.requestContext()
         self.sortDescriptor = sortDescriptor
@@ -35,26 +20,10 @@ public struct Request<T: Entity> {
     
     // MARK: - Public Fetching Methods
     
-    /**
-    Executes the fetch request.
-    
-    - throws: Throws an Error if the request couldn't be executed.
-    
-    - returns: Fetch results.
-    */
     public func fetch() throws -> [T] {
         return try context!.fetch(self)
     }
     
-    /**
-     Executes the fetch request in the given requestable.
-     
-     - parameter requestable: Requestable where the request will be executed.
-     
-     - throws: Throws an Error if the request couldn't be executed.
-     
-     - returns: Fetch results.
-     */
     public func fetch(requestable: Requestable) throws -> [T] {
         return try requestable.requestContext().fetch(self)
     }

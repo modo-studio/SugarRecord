@@ -1,9 +1,6 @@
 import Foundation
 
-/**
- *  iCloud Configuration
- */
-public struct iCloudConfig {
+public struct ICloudConfig {
     
     // MARK: - Attributes
     

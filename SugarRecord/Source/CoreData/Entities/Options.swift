@@ -1,16 +1,8 @@
 import Foundation
 import CoreData
 
-// MARK: - CoreData.Options
-
 public extension CoreData {
-    
-    /**
-     NSPersistantStore initialization options
-     
-     - Default:      Default options
-     - Migration: Automatic migration options
-     */
+
     public enum Options {
         case Default
         case Migration
