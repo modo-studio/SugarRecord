@@ -36,6 +36,10 @@ extension NSManagedObjectContext: Context {
         }
     }
     
+    public func removeAll() throws {
+        throw Error.InvalidOperation("-removeAll not available in NSManagedObjectContext. Remove the store instead")
+    }
+    
 }
 
 

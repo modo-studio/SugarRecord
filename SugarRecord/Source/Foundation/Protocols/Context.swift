@@ -8,7 +8,7 @@ public protocol Context: Requestable {
     func create<T: Entity>() throws -> T
     func remove<T: Entity>(objects: [T]) throws
     func remove<T: Entity>(object: T) throws
-    
+    func removeAll() throws
 }
 
 

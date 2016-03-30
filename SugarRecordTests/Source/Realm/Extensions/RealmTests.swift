@@ -64,5 +64,19 @@ class RealmTests: QuickSpec {
             
         }
         
+        describe("removeAll") {
+            it("should remove all the objects in the Realm") {
+                try! subject!.write({ () -> Void in
+                    let issue: Issue = Issue()
+                    issue.name = "test"
+                    subject!.add(issue)
+                })
+                subject?.beginWrite()
+                try! (subject as? Context)!.removeAll()
+                try! subject?.commitWrite()
+                expect(subject!.objects(Issue.self).count) == 0
+            }
+        }
+    
     }
 }

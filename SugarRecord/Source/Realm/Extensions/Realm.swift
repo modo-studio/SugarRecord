@@ -33,4 +33,8 @@ extension Realm: Context {
         self.delete(objectsToDelete)
     }
     
+    public func removeAll() throws {
+        self.deleteAll()
+    }
+    
 }
