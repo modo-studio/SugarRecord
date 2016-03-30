@@ -47,7 +47,6 @@ Pod::Spec.new do |s|
 
   s.subspec "CoreData" do  |spec|
     source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}']
-    excluded_files = ['SugarRecord/Source/CoreData/Reactive/**/*.{swift}']
     spec.source_files = source_files
     spec.exclude_files = excluded_files + excluded_icloud_files
     coredata_dependencies.call(spec)
@@ -57,7 +56,6 @@ Pod::Spec.new do |s|
 
   s.subspec "CoreData+iCloud" do  |spec|
     source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}']
-    excluded_files = ['SugarRecord/Source/CoreData/Reactive/**/*.{swift}']
     spec.source_files = source_files
     spec.exclude_files = excluded_files
     coredata_dependencies.call(spec)
@@ -109,7 +107,6 @@ Pod::Spec.new do |s|
 
   s.subspec "Realm" do  |spec|
     spec.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/Realm/**/*.{swift}']
-    spec.exclude_files = ['SugarRecord/Source/Realm/Reactive/**/*.{swift}']
     realm_dependencies.call(spec)
     foundation_dependencies.call(spec)
   end

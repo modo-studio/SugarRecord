@@ -2,7 +2,7 @@ import Foundation
 import ReactiveCocoa
 import Result
 
-public extension ReactiveStorage where Self: Storage {
+public extension Storage {
     
     // MARK: - Operation
     
@@ -19,6 +19,13 @@ public extension ReactiveStorage where Self: Storage {
                 })
                 observer.sendCompleted()
             }
+        }
+    }
+    
+    func rac_operation(op: (context: Context) -> Void) -> SignalProducer<Void, Error> {
+        return self.rac_operation { (context, saver) in
+            op(context: context)
+            saver()
         }
     }
     
@@ -40,6 +47,14 @@ public extension ReactiveStorage where Self: Storage {
             }
         }
     }
+    
+    func rac_backgroundOperation(op: (context: Context) -> Void) -> SignalProducer<Void, Error> {
+        return rac_backgroundOperation { (context, save) in
+            op(context: context)
+            save()
+        }
+    }
+
     
     func rac_backgroundFetch<T: Entity, U>(request: Request<T>, mapper: T -> U) -> SignalProducer<[U], Error> {
         let producer: SignalProducer<[T], Error> = SignalProducer { (observer, disposable) in
