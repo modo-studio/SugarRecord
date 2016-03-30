@@ -5,10 +5,8 @@ import CoreData
 
 extension NSManagedObject {
     
-    public static var entityName: String {
-        get {
-            return NSStringFromClass(self).componentsSeparatedByString(".").last!
-        }
+    public class var entityName: String {
+        return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }
     
 }
