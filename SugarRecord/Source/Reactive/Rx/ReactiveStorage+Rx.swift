@@ -3,18 +3,18 @@ import RxSwift
 
 public extension Storage {
 
-    func rx_operation(op: (context: Context, save: () -> Void) -> Void) -> Observable<Void> {
+    func rx_operation(op: (context: Context, save: () -> Void) throws -> Void) -> Observable<Void> {
         return Observable.create { (observer) -> RxSwift.Disposable in
-            self.operation { (context, saver) -> Void in
-                op(context: context, save: { () -> Void in
-                    do {
-                       try saver()
-                    }
-                    catch {
-                        observer.onError(error)
-                    }
-                })
-                observer.onCompleted()
+            do {
+                try self.operation { (context, saver) throws -> Void in
+                    try op(context: context, save: { () -> Void in
+                        saver()
+                    })
+                    observer.onCompleted()
+                }
+            }
+            catch {
+                observer.onError(error)
             }
             return NopDisposable.instance
         }
@@ -27,26 +27,26 @@ public extension Storage {
         }
     }
     
-    func rx_backgroundOperation(op: (context: Context, save: () -> Void) -> Void) -> Observable<Void> {
+    func rx_backgroundOperation(op: (context: Context, save: () -> Void) throws -> Void) -> Observable<Void> {
         return Observable.create { (observer) -> RxSwift.Disposable in
-            self.operation { (context, saver) in
-                op(context: context, save: { () -> Void in
-                    do {
-                        try saver()
-                    }
-                    catch {
-                        observer.onError(error)
-                    }
-                })
-                observer.onCompleted()
+            do {
+                try self.operation { (context, saver) throws in
+                    try op(context: context, save: { () -> Void in
+                        saver()
+                    })
+                    observer.onCompleted()
+                }
+            }
+            catch {
+                observer.onError(error)
             }
             return NopDisposable.instance
         }
     }
     
-    func rx_backgroundOperation(op: (context: Context) -> Void) -> Observable<Void> {
-        return rx_backgroundOperation { (context, save) in
-            op(context: context)
+    func rx_backgroundOperation(op: (context: Context) throws -> Void) -> Observable<Void> {
+        return rx_backgroundOperation { (context, save) throws in
+            try op(context: context)
             save()
         }
     }

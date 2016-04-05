@@ -40,26 +40,36 @@ public class CoreDataiCloudStorage: Storage {
         }
     }
     
-    public func operation(operation: (context: Context, save: () throws -> Void) -> Void) {
+    public func operation(operation: (context: Context, save: () -> Void) throws -> Void) throws {
         let context: NSManagedObjectContext = (self.saveContext as? NSManagedObjectContext)!
+        var _error: ErrorType!
         context.performBlockAndWait {
-            operation(context: context, save: { () throws -> Void  in
-                try context.save()
-                if self.rootSavingContext.hasChanges {
-                    var _error: ErrorType!
-                    self.rootSavingContext.performBlockAndWait({
-                        do {
-                            try self.rootSavingContext.save()
-                        }
-                        catch {
-                            _error = error
-                        }
-                    })
-                    if let error = _error {
-                        throw error
+            do {
+                try operation(context: context, save: { () -> Void  in
+                    do {
+                        try context.save()
                     }
-                }
-            })
+                    catch {
+                        _error = error
+                    }
+                    if self.rootSavingContext.hasChanges {
+                        self.rootSavingContext.performBlockAndWait {
+                            do {
+                                try self.rootSavingContext.save()
+                            }
+                            catch {
+                                _error = error
+                            }
+                        }
+                    }
+                })
+            }
+            catch {
+                _error = error
+            }
+        }
+        if let error = _error {
+            throw error
         }
     }
     
