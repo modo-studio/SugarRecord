@@ -96,7 +96,7 @@ class CoreDataDefaultStorageTests: QuickSpec {
                         let memoryContext = defaultStorage!.memoryContext as! NSManagedObjectContext!
                         let _: Track = try! memoryContext.create()
                         try! memoryContext.save()
-                        defaultStorage?.operation({ (context, save) -> Void in
+                        _ = try? defaultStorage?.operation({ (context, save) -> Void in
                             let resultsCount = try! context.request(Track.self).fetch().count
                             expect(resultsCount) == 0
                             done()
@@ -106,9 +106,9 @@ class CoreDataDefaultStorageTests: QuickSpec {
                 
                 it("should persist the changes if it's save context") {
                     waitUntil(action: { (done) -> Void in
-                        defaultStorage?.operation({ (context, save) -> Void in
+                        _ = try? defaultStorage?.operation({ (context, save) -> Void in
                             let _: Track = try! context.create()
-                            _ = try? save()
+                            save()
                         })
                         let tracksCount: Int? = try! defaultStorage?.mainContext.request(Track.self).fetch().count
                         expect(tracksCount) == 1

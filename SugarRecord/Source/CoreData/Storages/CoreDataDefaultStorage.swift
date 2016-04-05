@@ -39,13 +39,18 @@ public class CoreDataDefaultStorage: Storage {
         return _context
     }
     
-    public func operation(operation: (context: Context, save: () throws -> Void) -> Void) {
+    public func operation(operation: (context: Context, save: () -> Void) -> Void) throws {
         let context: NSManagedObjectContext = self.saveContext as! NSManagedObjectContext
+        var _error: ErrorType!
         context.performBlockAndWait {
-            operation(context: context, save: { () throws -> Void  in
-                try context.save()
+            operation(context: context, save: { () -> Void  in
+                do {
+                    try context.save()
+                }
+                catch {
+                    _error = error
+                }
                 if self.rootSavingContext.hasChanges {
-                    var _error: ErrorType!
                     self.rootSavingContext.performBlockAndWait({
                         do {
                             try self.rootSavingContext.save()
@@ -54,12 +59,10 @@ public class CoreDataDefaultStorage: Storage {
                             _error = error
                         }
                     })
-                    if let error = _error {
-                        throw error
-                    }
                 }
             })
         }
+        if let error = _error { throw error }
     }
 
     public func removeStore() throws {

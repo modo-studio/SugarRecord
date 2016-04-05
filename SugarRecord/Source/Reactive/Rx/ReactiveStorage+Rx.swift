@@ -5,16 +5,21 @@ public extension Storage {
 
     func rx_operation(op: (context: Context, save: () -> Void) -> Void) -> Observable<Void> {
         return Observable.create { (observer) -> RxSwift.Disposable in
-            self.operation { (context, saver) -> Void in
-                op(context: context, save: { () -> Void in
-                    do {
-                       try saver()
-                    }
-                    catch {
-                        observer.onError(error)
-                    }
-                })
-                observer.onCompleted()
+            do {
+                try self.operation { (context, saver) -> Void in
+                    op(context: context, save: { () -> Void in
+                        do {
+                            try saver()
+                        }
+                        catch {
+                            observer.onError(error)
+                        }
+                    })
+                    observer.onCompleted()
+                }
+            }
+            catch {
+                observer.onError(error)
             }
             return NopDisposable.instance
         }
@@ -29,16 +34,21 @@ public extension Storage {
     
     func rx_backgroundOperation(op: (context: Context, save: () -> Void) -> Void) -> Observable<Void> {
         return Observable.create { (observer) -> RxSwift.Disposable in
-            self.operation { (context, saver) in
-                op(context: context, save: { () -> Void in
-                    do {
-                        try saver()
-                    }
-                    catch {
-                        observer.onError(error)
-                    }
-                })
-                observer.onCompleted()
+            do {
+                try self.operation { (context, saver) in
+                    op(context: context, save: { () -> Void in
+                        do {
+                            try saver()
+                        }
+                        catch {
+                            observer.onError(error)
+                        }
+                    })
+                    observer.onCompleted()
+                }
+            }
+            catch {
+                observer.onError(error)
             }
             return NopDisposable.instance
         }

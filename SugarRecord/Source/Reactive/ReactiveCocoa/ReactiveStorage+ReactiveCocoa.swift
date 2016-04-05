@@ -8,16 +8,21 @@ public extension Storage {
     
     func rac_operation(op: (context: Context, save: () -> Void) -> Void) -> SignalProducer<Void, Error> {
         return SignalProducer { (observer, disposable) in
-            self.operation { (context, saver) in
-                op(context: context, save: { 
-                    do {
-                        try saver()
-                    }
-                    catch {
-                        observer.sendFailed(Error.Store(error))
-                    }
-                })
-                observer.sendCompleted()
+            do {
+                try self.operation { (context, saver) in
+                    op(context: context, save: {
+                        do {
+                            try saver()
+                        }
+                        catch {
+                            observer.sendFailed(Error.Store(error))
+                        }
+                    })
+                    observer.sendCompleted()
+                }
+            }
+            catch {
+                observer.sendFailed(Error.Store(error))
             }
         }
     }
@@ -33,16 +38,21 @@ public extension Storage {
         return SignalProducer { (observer, disposable) in
             let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
             dispatch_async(dispatch_get_global_queue(priority, 0)) {
-                self.operation { (context, saver) in
-                    op(context: context, save: {
-                        do {
-                            try saver()
-                        }
-                        catch {
-                            observer.sendFailed(Error.Store(error))
-                        }
-                    })
-                    observer.sendCompleted()
+                do {
+                    try self.operation { (context, saver) in
+                        op(context: context, save: {
+                            do {
+                                try saver()
+                            }
+                            catch {
+                                observer.sendFailed(Error.Store(error))
+                            }
+                        })
+                        observer.sendCompleted()
+                    }
+                }
+                catch {
+                    observer.sendFailed(Error.Store(error))
                 }
             }
         }
