@@ -61,23 +61,28 @@ public class RealmDefaultStorage: Storage {
         try NSFileManager.defaultManager().removeItemAtPath(Realm().path)
     }
 
-    public func operation(operation: (context: Context, save: () -> Void) -> Void) throws {
+    public func operation(operation: (context: Context, save: () -> Void) throws -> Void) throws {
         let context: Realm = self.saveContext as! Realm
         context.beginWrite()
         var save: Bool = false
         var _error: ErrorType!
-        operation(context: context, save: { () -> Void in
-            defer {
-                save = true
-            }
-            do {
-                try context.commitWrite()
-            }
-            catch {
-                context.cancelWrite()
-                _error = error
-            }
-        })
+        do {
+            try operation(context: context, save: { () -> Void in
+                defer {
+                    save = true
+                }
+                do {
+                    try context.commitWrite()
+                }
+                catch {
+                    context.cancelWrite()
+                    _error = error
+                }
+            })
+        }
+        catch {
+            _error = error
+        }
         if !save {
             context.cancelWrite()
         }

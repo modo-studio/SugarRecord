@@ -11,12 +11,7 @@ public extension Storage {
             do {
                 try self.operation { (context, saver) in
                     op(context: context, save: {
-                        do {
-                            try saver()
-                        }
-                        catch {
-                            observer.sendFailed(Error.Store(error))
-                        }
+                        saver()
                     })
                     observer.sendCompleted()
                 }
@@ -41,12 +36,7 @@ public extension Storage {
                 do {
                     try self.operation { (context, saver) in
                         op(context: context, save: {
-                            do {
-                                try saver()
-                            }
-                            catch {
-                                observer.sendFailed(Error.Store(error))
-                            }
+                            saver()
                         })
                         observer.sendCompleted()
                     }

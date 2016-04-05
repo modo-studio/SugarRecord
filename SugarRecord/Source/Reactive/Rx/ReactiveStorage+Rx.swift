@@ -8,12 +8,7 @@ public extension Storage {
             do {
                 try self.operation { (context, saver) -> Void in
                     op(context: context, save: { () -> Void in
-                        do {
-                            try saver()
-                        }
-                        catch {
-                            observer.onError(error)
-                        }
+                        saver()
                     })
                     observer.onCompleted()
                 }
@@ -37,12 +32,7 @@ public extension Storage {
             do {
                 try self.operation { (context, saver) in
                     op(context: context, save: { () -> Void in
-                        do {
-                            try saver()
-                        }
-                        catch {
-                            observer.onError(error)
-                        }
+                        saver()
                     })
                     observer.onCompleted()
                 }

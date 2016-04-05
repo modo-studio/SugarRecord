@@ -129,9 +129,14 @@ Although `Context`s offer `insertion` and `deletion` methods that you can use it
 - **Save**: All the changes you apply to that context are in a memory state unless you call the `save()` method. That method will persist the changes to your store and propagate them across all the available contexts.
 
 ```swift
-db.operation { (context, save) -> Void in
-  // Do your operations here
-  save()
+do {
+  db.operation { (context, save) throws -> Void in
+    // Do your operations here
+    save()
+  }
+}
+catch {
+  // There was an error in the operation
 }
 ```
 
@@ -139,11 +144,16 @@ db.operation { (context, save) -> Void in
 You can use the context `new()` method to initialize a model **without inserting it in the context**:
 
 ```swift
-db.operation { (context, save) -> Void in
-  let newTask: Track = try! context.new()
-  newTask.name = "Make CoreData easier!"
-  try! context.insert(newTask)
-  save()
+do {
+  db.operation { (context, save) throws -> Void in
+    let newTask: Track = try! context.new()
+    newTask.name = "Make CoreData easier!"
+    try! context.insert(newTask)
+    save()
+  }
+}
+catch {
+  // There was an error in the operation
 }
 ```
 > In order to insert the model into the context you use the insert() method.
@@ -152,10 +162,15 @@ db.operation { (context, save) -> Void in
 You can use the `create()` for initializing and inserting in the context in the same operation:
 
 ```swift
-db.operation { (context, save) -> Void in
-  let newTask: Track = try! context.create()
-  newTask.name = "Make CoreData easier!"
-  save()
+do {
+  db.operation { (context, save) throws -> Void in
+    let newTask: Track = try! context.create()
+    newTask.name = "Make CoreData easier!"
+    save()
+  }
+}
+catch {
+  // There was an error in the operation
 }
 ```
 
@@ -163,12 +178,17 @@ db.operation { (context, save) -> Void in
 In a similar way you can use the `remove()` method from the context passing the objects you want to remove from the database:
 
 ```swift
-db.operation { (context, save) -> Void in
-  let john: User? = try! context.request(User.self).filteredWith("id", equalTo: "1234").fetch().first
-  if let john = john {
-    try! context.remove([john])
-    save()
+do {
+  db.operation { (context, save) -> Void in
+    let john: User? = try! context.request(User.self).filteredWith("id", equalTo: "1234").fetch().first
+    if let john = john {
+      try! context.remove([john])
+      save()
+    }
   }
+}
+catch {
+  // There was an error in the operation
 }
 ```
 

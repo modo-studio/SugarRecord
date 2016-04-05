@@ -39,30 +39,36 @@ public class CoreDataDefaultStorage: Storage {
         return _context
     }
     
-    public func operation(operation: (context: Context, save: () -> Void) -> Void) throws {
+    public func operation(operation: (context: Context, save: () -> Void) throws -> Void) throws {
         let context: NSManagedObjectContext = self.saveContext as! NSManagedObjectContext
         var _error: ErrorType!
         context.performBlockAndWait {
-            operation(context: context, save: { () -> Void  in
-                do {
-                    try context.save()
-                }
-                catch {
-                    _error = error
-                }
-                if self.rootSavingContext.hasChanges {
-                    self.rootSavingContext.performBlockAndWait({
-                        do {
-                            try self.rootSavingContext.save()
-                        }
-                        catch {
-                            _error = error
-                        }
-                    })
-                }
-            })
+            do {
+                try operation(context: context, save: { () -> Void  in
+                    do {
+                        try context.save()
+                    }
+                    catch {
+                        _error = error
+                    }
+                    if self.rootSavingContext.hasChanges {
+                        self.rootSavingContext.performBlockAndWait({
+                            do {
+                                try self.rootSavingContext.save()
+                            }
+                            catch {
+                                _error = error
+                            }
+                        })
+                    }
+                })
+            } catch {
+                _error = error
+            }
         }
-        if let error = _error { throw error }
+        if let error = _error {
+            throw error
+        }
     }
 
     public func removeStore() throws {
