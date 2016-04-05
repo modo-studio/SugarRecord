@@ -6,11 +6,11 @@ public extension Storage {
     
     // MARK: - Operation
     
-    func rac_operation(op: (context: Context, save: () -> Void) -> Void) -> SignalProducer<Void, Error> {
+    func rac_operation(op: (context: Context, save: () -> Void) throws -> Void) -> SignalProducer<Void, Error> {
         return SignalProducer { (observer, disposable) in
             do {
-                try self.operation { (context, saver) in
-                    op(context: context, save: {
+                try self.operation { (context, saver) throws in
+                    try op(context: context, save: {
                         saver()
                     })
                     observer.sendCompleted()
@@ -22,20 +22,20 @@ public extension Storage {
         }
     }
     
-    func rac_operation(op: (context: Context) -> Void) -> SignalProducer<Void, Error> {
-        return self.rac_operation { (context, saver) in
-            op(context: context)
+    func rac_operation(op: (context: Context) throws -> Void) -> SignalProducer<Void, Error> {
+        return self.rac_operation { (context, saver) throws in
+            try op(context: context)
             saver()
         }
     }
     
-    func rac_backgroundOperation(op: (context: Context, save: () -> Void) -> Void) -> SignalProducer<Void, Error> {
+    func rac_backgroundOperation(op: (context: Context, save: () -> Void) throws -> Void) -> SignalProducer<Void, Error> {
         return SignalProducer { (observer, disposable) in
             let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
             dispatch_async(dispatch_get_global_queue(priority, 0)) {
                 do {
-                    try self.operation { (context, saver) in
-                        op(context: context, save: {
+                    try self.operation { (context, saver) throws in
+                        try op(context: context, save: {
                             saver()
                         })
                         observer.sendCompleted()
@@ -48,9 +48,9 @@ public extension Storage {
         }
     }
     
-    func rac_backgroundOperation(op: (context: Context) -> Void) -> SignalProducer<Void, Error> {
-        return rac_backgroundOperation { (context, save) in
-            op(context: context)
+    func rac_backgroundOperation(op: (context: Context) throws -> Void) -> SignalProducer<Void, Error> {
+        return rac_backgroundOperation { (context, save) throws in
+            try op(context: context)
             save()
         }
     }
