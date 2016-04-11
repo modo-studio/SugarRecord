@@ -1,3 +1,6 @@
+### Version 2.2.5
+- Updated Carthage Quick/Nimble dependencies
+
 ### Version 2.2.4
 - Improve error throwing in operations https://github.com/pepibumur/SugarRecord/issues/222
 
