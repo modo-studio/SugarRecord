@@ -92,10 +92,10 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let name = entities[indexPath.row].name
-            db.operation({ (context, save) -> Void in
+            try! db.operation({ (context, save) -> Void in
                 guard let obj = try! context.request(BasicObject.self).filteredWith("name", equalTo: name).fetch().first else { return }
                 _ = try? context.remove(obj)
-                _ = try? save()
+                save()
             })
             updateData()
         }
@@ -105,12 +105,11 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
     // MARK: - Actions
     
     func userDidSelectAdd(sender: AnyObject!) {
-        db.operation { (context, save) -> Void in
+        try! db.operation { (context, save) -> Void in
             let _object: BasicObject = try! context.new()
             _object.date = NSDate()
             _object.name = randomStringWithLength(10) as String
             try! context.insert(_object)
-            _ = try? save()
         }
         updateData()
     }

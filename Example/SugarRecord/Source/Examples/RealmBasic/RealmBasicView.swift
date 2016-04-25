@@ -8,7 +8,7 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: - Attributes
     lazy var db: RealmDefaultStorage = {
         var configuration = Realm.Configuration()
-        configuration.path = databasePath("realm-basic")
+        configuration.fileURL = NSURL(fileURLWithPath: databasePath("realm-basic"))
         let _storage = RealmDefaultStorage(configuration: configuration)
         return _storage
     }()
@@ -91,10 +91,10 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let name = entities[indexPath.row].name
-            db.operation({ (context, save) -> Void in
+            try! db.operation({ (context, save) -> Void in
                 guard let obj = try! context.request(RealmBasicObject.self).filteredWith("name", equalTo: name).fetch().first else { return }
                 _ = try? context.remove(obj)
-                _ = try? save()
+                save()
             })
             updateData()
         }
@@ -104,12 +104,12 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: - Actions
     
     func userDidSelectAdd(sender: AnyObject!) {
-        db.operation { (context, save) -> Void in
+        try! db.operation { (context, save) -> Void in
             let _object: RealmBasicObject = try! context.new()
             _object.date = NSDate()
             _object.name = randomStringWithLength(10) as String
             try! context.insert(_object)
-            _ = try? save()
+            save()
         }
         updateData()
     }

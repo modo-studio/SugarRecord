@@ -1,17 +1,17 @@
 PODS:
-  - Realm (0.98.6):
-    - Realm/Headers (= 0.98.6)
-  - Realm/Headers (0.98.6)
-  - RealmSwift (0.98.6):
-    - Realm (= 0.98.6)
+  - Realm (0.99.0):
+    - Realm/Headers (= 0.99.0)
+  - Realm/Headers (0.99.0)
+  - RealmSwift (0.99.0):
+    - Realm (= 0.99.0)
   - Result (1.0.2)
   - SnapKit (0.18.0)
-  - SugarRecord (2.2.3):
-    - SugarRecord/CoreData (= 2.2.3)
-    - SugarRecord/Realm (= 2.2.3)
-  - SugarRecord/CoreData (2.2.3):
+  - SugarRecord (2.2.5):
+    - SugarRecord/CoreData (= 2.2.5)
+    - SugarRecord/Realm (= 2.2.5)
+  - SugarRecord/CoreData (2.2.5):
     - Result (~> 1.0)
-  - SugarRecord/Realm (2.2.3):
+  - SugarRecord/Realm (2.2.5):
     - RealmSwift (~> 0.98)
     - Result (~> 1.0)
 
@@ -24,10 +24,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Realm: 44803f35418c5d89b27825a564247fcd190de37e
-  RealmSwift: c7239c52c83f8c43525a5269ba7be1694da33afc
+  Realm: cf275f109b94e5399896960c90285a043edb3d56
+  RealmSwift: f40e5634bbc74f063163561d02acc4aa040d40a5
   Result: dd3dd71af3fa2e262f1a999e14fba2c25ec14f16
   SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
-  SugarRecord: c15bf95f637838389c4774d8fb560ce72b789f6b
+  SugarRecord: ccccf3fd03b8eb2d09e815b144fbd1baf08be82f
 
 COCOAPODS: 0.39.0
