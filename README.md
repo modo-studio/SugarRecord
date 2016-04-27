@@ -16,7 +16,7 @@ SugarRecord is a persistence wrapper designed to make working with persistence s
 The library is maintained by [@pepibumur](https://github.com/pepibumur). You can reach me at [pepibumur@gmail.com](mailto://pepibumur@gmail.com) for help or whatever you need to commend about the library.
 
 ## Features
-- Swift 2.1 compatible (Xcode 7.1).
+- Swift 2.3 compatible (Xcode 7.3).
 - Fully rewritten from the version 1.0.
 - Reactive API (using ReactiveCocoa).
 - Protocols based design.
