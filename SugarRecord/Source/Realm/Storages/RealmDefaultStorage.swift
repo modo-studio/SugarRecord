@@ -58,7 +58,9 @@ public class RealmDefaultStorage: Storage {
     }
     
     public func removeStore() throws {
-        try NSFileManager.defaultManager().removeItemAtPath(Realm().path)
+        if let url = try Realm().configuration.fileURL {
+            try NSFileManager.defaultManager().removeItemAtURL(url)
+        }
     }
 
     public func operation(operation: (context: Context, save: () -> Void) throws -> Void) throws {
