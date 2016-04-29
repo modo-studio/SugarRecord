@@ -13,7 +13,7 @@ SCHEME_TESTS = "SugarRecordTests"
 # Lanes
 desc "Setup everything needed to work on the project"
 lane :setup do
-  carthage(command: "checkout")
+  carthage(command: "update", no_build: true)
 end
 
 desc "Runs the tests suite"
@@ -37,5 +37,8 @@ lane :ci do
   setup
   build
   tests
-  # version = version_bump_podspec(path: PODSPEC, bump_type: "patch")
+end
+
+lane :deploy do
+  version = version_bump_podspec(path: PODSPEC, bump_type: "patch")
 end

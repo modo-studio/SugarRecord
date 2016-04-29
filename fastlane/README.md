@@ -25,6 +25,11 @@ Builds all the project targets
 fastlane ci
 ```
 
+### deploy
+```
+fastlane deploy
+```
+
 
 ----
 
