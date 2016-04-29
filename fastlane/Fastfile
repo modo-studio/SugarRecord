@@ -14,7 +14,7 @@ REPOSITORY = "pepibumur/SugarRecord"
 # Lanes
 desc "Setup everything needed to work on the project"
 lane :setup do
-  carthage(command: "update", no_build: true)
+  sh("carthage checkout")
 end
 
 desc "Runs the tests suite"
