@@ -14,7 +14,7 @@ REPOSITORY = "pepibumur/SugarRecord"
 # Lanes
 desc "Setup everything needed to work on the project"
 lane :setup do
-  sh("carthage checkout")
+  sh("carthage checkout --project-directory \"../\"")
 end
 
 desc "Runs the tests suite"

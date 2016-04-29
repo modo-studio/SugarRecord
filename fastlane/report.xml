@@ -3,52 +3,19 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000482">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.00085">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.00023">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000183">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-CoreData-iOS' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="9.570778">
+      <testcase classname="fastlane.lanes" name="2: carthage checkout --project-directory=../" time="0.025012">
         
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="3: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-Realm-iOS' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="9.671825">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="4: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-CoreData-OSX' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="10.694954">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="5: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-Realm-OSX' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="12.011287">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="6: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-CoreData-watchOS' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="14.477545">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="7: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-Realm-watchOS' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="10.506817">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="8: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-CoreData-tvOS' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="12.180004">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="9: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-Realm-tvOS' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="12.1518">
+          <failure message="/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-1.83.0/lib/fastlane/actions/actions_helper.rb:33:in `execute_action'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-1.83.0/lib/fastlane/fast_file.rb:181:in `sh'&#10;Fastfile:17:in `block in parsing_binding'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-1.83.0/lib/fastlane/lane.rb:36:in `call'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-1.83.0/lib/fastlane/lane.rb:36:in `call'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-1.83.0/lib/fastlane/runner.rb:52:in `block in execute'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-1.83.0/lib/fastlane/runner.rb:46:in `chdir'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-1.83.0/lib/fastlane/runner.rb:46:in `execute'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-1.83.0/lib/fastlane/lane_manager.rb:46:in `cruise_lane'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-1.83.0/lib/fastlane/command_line_handler.rb:30:in `handle'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-1.83.0/bin/fastlane:38:in `block (2 levels) in run'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/commander-4.3.5/lib/commander/command.rb:178:in `call'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/commander-4.3.5/lib/commander/command.rb:178:in `call'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/commander-4.3.5/lib/commander/command.rb:153:in `run'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/commander-4.3.5/lib/commander/runner.rb:428:in `run_active_command'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane_core-0.42.1/lib/fastlane_core/ui/fastlane_runner.rb:23:in `run!'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/commander-4.3.5/lib/commander/delegates.rb:15:in `run!'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-1.83.0/bin/fastlane:168:in `run'&#10;/usr/local/var/rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-1.83.0/bin/fastlane:174:in `&lt;top (required)&gt;'&#10;/usr/local/var/rbenv/versions/2.2.3/bin/fastlane:23:in `load'&#10;/usr/local/var/rbenv/versions/2.2.3/bin/fastlane:23:in `&lt;main&gt;'&#10;&#10;Exit status of command 'carthage checkout --project-directory=../' was 1 instead of 0.&#10;Unrecognized arguments: --project-directory=../&#10;" />
         
       </testcase>
     
