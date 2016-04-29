@@ -23,14 +23,14 @@ end
 
 desc "Builds all the project targets"
 lane :build do
-  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-CoreData-iOS' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-Realm-iOS' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-CoreData-OSX' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-Realm-OSX' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-CoreData-watchOS' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-Realm-watchOS' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-CoreData-tvOS' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-Realm-tvOS' -configuration 'Debug' build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-CoreData-iOS' -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-Realm-iOS' -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-CoreData-OSX' -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-Realm-OSX' -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-CoreData-watchOS' -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-Realm-watchOS' -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-CoreData-tvOS' -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-Realm-tvOS' -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty")
 end
 
 lane :ci do
@@ -41,4 +41,9 @@ end
 
 lane :deploy do
   version = version_bump_podspec(path: PODSPEC, bump_type: "patch")
+  pod_push(path: PODSPEC)
+
+  # Create the commit
+  # Push the commit
+  # Push to cocoapods
 end
