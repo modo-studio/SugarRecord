@@ -1,0 +1,60 @@
+# Requires
+require 'yaml'
+
+# Fastlane Constants
+fastlane_version "1.54.0"
+default_platform :ios
+
+# Constants
+PODSPEC = "SugarRecord.podspec"
+PROJECT = "SugarRecord.xcodeproj"
+SCHEME_TESTS = "SugarRecordTests"
+
+# Lanes
+platform :ios do
+
+  desc "Setup everything needed to work on the project"
+  lane :setup do
+    carthage
+  end
+
+  desc "Runs the tests suite"
+  lane :tests do
+    scan(project: PROJECT, scheme: SCHEME_TESTS)
+  end
+
+  desc "Builds all the project targets"
+  lane :build do
+
+  end
+
+  lane :ci do
+    version = version_bump_podspec(path: PODSPEC, bump_type: "patch")
+    setup
+  end
+
+end
+
+
+# xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES test  | xcpretty -c;
+
+# - SCHEME="SugarRecord-CoreData-iOS"       DESTINATION="OS=9.2,name=iPhone 6S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
+# - SCHEME="SugarRecord-CoreData-iOS"       DESTINATION="OS=8.1,name=iPhone 4S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
+# - SCHEME="SugarRecord-Realm-iOS"          DESTINATION="OS=9.2,name=iPhone 6S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
+# - SCHEME="SugarRecord-Realm-iOS"          DESTINATION="OS=8.1,name=iPhone 4S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
+# - SCHEME="SugarRecord-CoreData-OSX"       DESTINATION="arch=x86_64"                     SDK="$OSX_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
+# - SCHEME="SugarRecord-Realm-OSX"          DESTINATION="arch=x86_64"                     SDK="$OSX_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
+# - SCHEME="SugarRecord-CoreData-tvOS"      DESTINATION="OS=9.1,name=Apple TV 1080p"      SDK="$TVOS_SDK"     RUN_TESTS="NO"    POD_LINT="NO"
+# - SCHEME="SugarRecord-Realm-tvOS"         DESTINATION="OS=9.1,name=Apple TV 1080p"      SDK="$TVOS_SDK"     RUN_TESTS="NO"    POD_LINT="NO"
+# - SCHEME="SugarRecord-CoreData-watchOS"   DESTINATION="OS=2.1,name=Apple Watch - 38mm"  SDK="$WATCHOS_SDK"  RUN_TESTS="NO"    POD_LINT="NO"
+# - SCHEME="SugarRecord-Realm-watchOS"      DESTINATION="OS=2.1,name=Apple Watch - 38mm"  SDK="$WATCHOS_SDK"  RUN_TESTS="NO"    POD_LINT="NO"
+# - SCHEME="SugarRecordTests"               DESTINATION="OS=9.2,name=iPhone 6S"           SDK="$IOS_SDK"      RUN_TESTS="YES"   POD_LINT="YES"
+
+
+# - PROJECT=SugarRecord.xcodeproj
+# - IOS_SDK=iphonesimulator9.2
+# - OSX_SDK=macosx10.11
+# - TVOS_SDK=appletvsimulator9.1
+# - WATCHOS_SDK=watchsimulator2.1
+
+# xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES test  | xcpretty -c;

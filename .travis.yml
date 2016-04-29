@@ -1,69 +1,23 @@
 language: objective-c
 notifications:
   email: false
-xcode_project: SugarRecord.xcodeproj
-osx_image: xcode7.2
+osx_image: xcode7.3
 before_install:
-  - curl -OlL "https://github.com/Carthage/Carthage/releases/download/0.11/Carthage.pkg"
-  - sudo installer -pkg "Carthage.pkg" -target /
-  - rm "Carthage.pkg"
-  - brew update
-  - brew install tailor
+  - brew bundle
+  - bundle install
 xcode_sdk: iphonesimulator
 install: true
 env:
   global:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
-  - PROJECT=SugarRecord.xcodeproj
-  - IOS_SDK=iphonesimulator9.2
-  - OSX_SDK=macosx10.11
-  - TVOS_SDK=appletvsimulator9.1
-  - WATCHOS_SDK=watchsimulator2.1
   - secure: 2/0f7XbolENmzm4lQGHzIfEKHEg9unoWFI3bf4X4BiW7w89T4e/oflNaDNRd/0sqiIvwl24opnWP4MDL67xMFGc6olc2w/ME+EucPFH/alIUEUl9eIESm6RMbj0a8nNkgAcSoTumu1wMnxuiel6ZPIzTfKYaWqhaR4Xu0OwQNJ5na6E/9Z+38lxOEct6jacJrkqEiKieg1i3h25GMvQPem1lJ8y3R/3O/T4OI+6jVFtol8Ri9+OiqcuJbfPi83PtVhbWxSlTvqAAYOOsOkVpAORhyE0zRv8ro6piaG8DvZb3jkJ3PKklrv5Nu4L047ZixSbauoVMJ/9nyxsXZseGNFRYgl2z0HeE2hbaoko8LRMtd/g745L0/fi3FkoEvPeiJmEczLcvqUpk67ZeqI95KlxsiwtySXRMXd+jPi6BF8zojSMh3YFQjwlXmbN2hQ69hGNaP1qGTkYX/awEnmRR6uqS5tiJBuEHMScEhjScMQcnO9u4SsLD+wgCjr+oXu+YQSl4IaAkhOjzqqJTVYYXVampHUQY+euZzA88rM0fRKHY1s5CdmBJyAuoys2j3zuVed3tyC9NCnJVzzAPbxUD1vMUwNTNg99cvqY+bDLDSvqIBL4DGM3z09ES0trlihDeCLd0a8k+24Brd5r8SLRkWuRmnEARChT6oOTnxzPKNCY=
   - secure: GDfGPDE6Q8ryNCDG+2XLgrzlrB0pvT5RinZuHdtR/DKFRdyt7LhJnjTFuH/v5HG6Ule6hwuFV0ca7dRNNLb9udql2U/gqSOLphobZyJlMCzLE0G4XUeCNag6ymA8gHwEeXWjbQqY6nOnx+XZj/ZiiOdKCkKQrVsdBsfvniF7yKUX9dZnuZyaj5842WTXJ7XxmbxDrQMOl6JL1oegbF4M0PWYmgSZSre1Q5IAHgeY/ERHBp75MyKrJj6rBmmKka0U5OaFhFzXV8EtqSHSiWfXEEl6OfBzuLoHPrpZOzgV32DKDeqOlw4ikUkBAYl6FToMm3Q1wQKFL+AoutkHcB83U37h/D7Po2VEIy7SygBMm7bvCQZTnH/x89ZC4pMlvvlB97SucW+9YW7NCO1+8j6tcmS91Q3I2dRRjk3B8ZRg2sT6+LogjPqvRDaV7PcybGWHP0+JdtpZmHg56S/xT5a4zHCd3l8lVAh9ubc08YPLU4jUMfNaBEnfNZFQv8QUMX03283/cZYUVSj3fUkApR2tinhWVjGnWPj3AUn1nSCiAgIQ2zcFtA8H7bRQrJwpxxIGdw1S5L7xu4tdM6mNUJg2lhOw3EI2vDZ9QNsKyO2Xj5+0jmx47jTtpKHRG0SzE/UJFpK9vR6olZoMSfqp7a7kUUV876eWiUIj9si9ykGOa8Q=
-  matrix:
-  - SCHEME="SugarRecord-CoreData-iOS"       DESTINATION="OS=9.2,name=iPhone 6S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
-  - SCHEME="SugarRecord-CoreData-iOS"       DESTINATION="OS=8.1,name=iPhone 4S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
-  - SCHEME="SugarRecord-Realm-iOS"          DESTINATION="OS=9.2,name=iPhone 6S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
-  - SCHEME="SugarRecord-Realm-iOS"          DESTINATION="OS=8.1,name=iPhone 4S"           SDK="$IOS_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
-  - SCHEME="SugarRecord-CoreData-OSX"       DESTINATION="arch=x86_64"                     SDK="$OSX_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
-  - SCHEME="SugarRecord-Realm-OSX"          DESTINATION="arch=x86_64"                     SDK="$OSX_SDK"      RUN_TESTS="NO"    POD_LINT="NO"
-  - SCHEME="SugarRecord-CoreData-tvOS"      DESTINATION="OS=9.1,name=Apple TV 1080p"      SDK="$TVOS_SDK"     RUN_TESTS="NO"    POD_LINT="NO"
-  - SCHEME="SugarRecord-Realm-tvOS"         DESTINATION="OS=9.1,name=Apple TV 1080p"      SDK="$TVOS_SDK"     RUN_TESTS="NO"    POD_LINT="NO"
-  - SCHEME="SugarRecord-CoreData-watchOS"   DESTINATION="OS=2.1,name=Apple Watch - 38mm"  SDK="$WATCHOS_SDK"  RUN_TESTS="NO"    POD_LINT="NO"
-  - SCHEME="SugarRecord-Realm-watchOS"      DESTINATION="OS=2.1,name=Apple Watch - 38mm"  SDK="$WATCHOS_SDK"  RUN_TESTS="NO"    POD_LINT="NO"
-  - SCHEME="SugarRecordTests"               DESTINATION="OS=9.2,name=iPhone 6S"           SDK="$IOS_SDK"      RUN_TESTS="YES"   POD_LINT="YES"
 script:
   - set -o pipefail
   - xcodebuild -version
   - xcodebuild -showsdks
-
-  # Build Framework in Debug and Run Tests if specified
-  - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES test  | xcpretty -c;
-    else
-      xcodebuild -project "$PROJECT" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -c;
-    fi
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bundle exec fastlane tests
+  - bundle exec fastlane build
 before_script:
-  - carthage bootstrap
-# before_deploy:
-#   - carthage build --no-skip-current
-#   - carthage archive SugarRecordRealm
-#   - carthage archive SugarRecordCoreData
-# deploy:
-#   - provider: releases
-#     api_key:
-#       secure: Ie2KeV7dK/7gNVomv/Z6d/KYexzOJusMtiLrHyk0WIYXJfWPa2/grwIJx5h9KmZw1T3+BYnlzpRvz1vUHvVroZ1iBNEZNKZFYdkATNeb8pRaQ76uVZrXV2idWOSH3l6YVJLqk3timwwMF3RI0gKL34Q/0IC9/3LDqhipUbqCXFg9LYWs8BRdc55Mk4xEPXCunXEjOquXYveTiFqEsPgjuCyuX0uv5HdlgNiSIZS8FCxCFrtAqoyEFeiQrY98O5zNUbW4qKhIz5Z+HRug/33euBXQX6DNTBrBgBwGwN+uJ/f5un2hC38aEcB30TMuFBLv9VR5HgRFQEKS0QOOn9tWJ8iuEZT9+LvR7/EUafJR9s1vN6cjrWhA8mskrYXiNVARN+Qr8h8LGeaKE2g/3hUIb3Z8ZNF9ljL4ThRKN8bxT4gSQF3aT00rwSawN97f3J01kPPx5vlDzBNGT+1dFJcKga9+7svwhCh6fQ+s3vGmWPmd/BR+9EuZOqJV4IgEz0LoNA/7IpQ6HHlyKpr6hoi/nbw+a6h2tixPWk7sLNGy8Gi73RUTpUPNDInq7/7c3oFlx+ideM5mZ8NNq9FJYUCaVNQghwYtWTO9yc7TOcjN0YDK4/jsf+2Evi1ird70PGOyVahpV42BwRyHCazEsSAMi5+lRGoe/B0ewsRK9zbomJ4=
-#     file:
-#     - SugarRecordRealm.framework.zip
-#     - SugarRecordCoreData.framework.zip
-#     on:
-#       repo: pepibumur/SugarRecord
-#       tags: true
-#   - provider: script
-#     script: ./script/push
-#     on:
-#       tags: true
+  - bundle exec fastlane setup
