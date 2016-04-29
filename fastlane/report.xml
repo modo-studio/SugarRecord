@@ -3,77 +3,17 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000522">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000434">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000185">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000187">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: Switch to setup lane" time="0.000287">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="3: carthage" time="10.114897">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="4: Switch to build lane" time="0.00034">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="5: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-CoreData-iOS' -configuration 'Debug' build | xcpretty" time="9.018434">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="6: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-Realm-iOS' -configuration 'Debug' build | xcpretty" time="9.834751">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="7: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-CoreData-OSX' -configuration 'Debug' build | xcpretty" time="9.677068">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="8: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-Realm-OSX' -configuration 'Debug' build | xcpretty" time="10.43936">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="9: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-CoreData-watchOS' -configuration 'Debug' build | xcpretty" time="1.073763">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="10: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-Realm-watchOS' -configuration 'Debug' build | xcpretty" time="1.060199">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="11: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-CoreData-tvOS' -configuration 'Debug' build | xcpretty" time="1.157246">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="12: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-Realm-tvOS' -configuration 'Debug' build | xcpretty" time="1.130537">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="13: Switch to tests lane" time="0.000161">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="14: scan" time="26.745462">
+      <testcase classname="fastlane.lanes" name="2: scan" time="28.226508">
         
       </testcase>
     
