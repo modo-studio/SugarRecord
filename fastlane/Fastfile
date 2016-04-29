@@ -15,7 +15,7 @@ OSX_SDK = "macosx10.11"
 # Lanes
 desc "Setup everything needed to work on the project"
 lane :setup do
-  carthage
+  carthage(command: "checkout")
 end
 
 desc "Runs the tests suite"
@@ -36,6 +36,8 @@ lane :build do
 end
 
 lane :ci do
-  # version = version_bump_podspec(path: PODSPEC, bump_type: "patch")
   setup
+  build
+  tests
+  # version = version_bump_podspec(path: PODSPEC, bump_type: "patch")
 end
