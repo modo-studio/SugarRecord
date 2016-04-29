@@ -7,10 +7,8 @@ default_platform :ios
 
 # Constants
 PODSPEC = "SugarRecord.podspec"
-PROJECT = "SugarRecord.xcodeproj"
+WORKSPACE = "SugarRecord.xcworkspace"
 SCHEME_TESTS = "SugarRecordTests"
-IOS_SDK = "iphonesimulator9.3"
-OSX_SDK = "macosx10.11"
 
 # Lanes
 desc "Setup everything needed to work on the project"
@@ -20,19 +18,19 @@ end
 
 desc "Runs the tests suite"
 lane :tests do
-  scan(project: PROJECT, scheme: SCHEME_TESTS)
+  scan(workspace: WORKSPACE, scheme: SCHEME_TESTS, skip_build: true)
 end
 
 desc "Builds all the project targets"
 lane :build do
-  sh("xcodebuild -project '../#{PROJECT}' -scheme 'SugarRecord-CoreData-iOS' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -project '../#{PROJECT}' -scheme 'SugarRecord-Realm-iOS' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -project '../#{PROJECT}' -scheme 'SugarRecord-CoreData-OSX' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -project '../#{PROJECT}' -scheme 'SugarRecord-Realm-OSX' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -project '../#{PROJECT}' -scheme 'SugarRecord-CoreData-watchOS' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -project '../#{PROJECT}' -scheme 'SugarRecord-Realm-watchOS' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -project '../#{PROJECT}' -scheme 'SugarRecord-CoreData-tvOS' -configuration 'Debug' build | xcpretty")
-  sh("xcodebuild -project '../#{PROJECT}' -scheme 'SugarRecord-Realm-tvOS' -configuration 'Debug' build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-CoreData-iOS' -configuration 'Debug' build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-Realm-iOS' -configuration 'Debug' build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-CoreData-OSX' -configuration 'Debug' build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-Realm-OSX' -configuration 'Debug' build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-CoreData-watchOS' -configuration 'Debug' build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-Realm-watchOS' -configuration 'Debug' build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-CoreData-tvOS' -configuration 'Debug' build | xcpretty")
+  sh("xcodebuild -workspace '../#{WORKSPACE}' -scheme 'SugarRecord-Realm-tvOS' -configuration 'Debug' build | xcpretty")
 end
 
 lane :ci do

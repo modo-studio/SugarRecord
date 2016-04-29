@@ -3,52 +3,17 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000773">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000448">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.00033">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000192">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: xcodebuild -project '../SugarRecord.xcodeproj' -scheme 'SugarRecord-CoreData-iOS' -configuration 'Debug' build | xcpretty" time="25.950348">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="3: xcodebuild -project '../SugarRecord.xcodeproj' -scheme 'SugarRecord-Realm-iOS' -configuration 'Debug' build | xcpretty" time="9.601284">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="4: xcodebuild -project '../SugarRecord.xcodeproj' -scheme 'SugarRecord-CoreData-OSX' -configuration 'Debug' build | xcpretty" time="7.903186">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="5: xcodebuild -project '../SugarRecord.xcodeproj' -scheme 'SugarRecord-Realm-OSX' -configuration 'Debug' build | xcpretty" time="9.262426">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="6: xcodebuild -project '../SugarRecord.xcodeproj' -scheme 'SugarRecord-CoreData-watchOS' -configuration 'Debug' build | xcpretty" time="10.15958">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="7: xcodebuild -project '../SugarRecord.xcodeproj' -scheme 'SugarRecord-Realm-watchOS' -configuration 'Debug' build | xcpretty" time="10.038278">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="8: xcodebuild -project '../SugarRecord.xcodeproj' -scheme 'SugarRecord-CoreData-tvOS' -configuration 'Debug' build | xcpretty" time="12.840299">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="9: xcodebuild -project '../SugarRecord.xcodeproj' -scheme 'SugarRecord-Realm-tvOS' -configuration 'Debug' build | xcpretty" time="10.882715">
+      <testcase classname="fastlane.lanes" name="2: scan" time="39.204401">
         
       </testcase>
     
