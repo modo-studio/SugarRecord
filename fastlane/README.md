@@ -5,25 +5,24 @@ fastlane documentation
 sudo gem install fastlane
 ```
 # Available Actions
-## iOS
-### ios setup
+### setup
 ```
-fastlane ios setup
+fastlane setup
 ```
 Setup everything needed to work on the project
-### ios tests
+### tests
 ```
-fastlane ios tests
+fastlane tests
 ```
 Runs the tests suite
-### ios build
+### build
 ```
-fastlane ios build
+fastlane build
 ```
 Builds all the project targets
-### ios ci
+### ci
 ```
-fastlane ios ci
+fastlane ci
 ```
 
 

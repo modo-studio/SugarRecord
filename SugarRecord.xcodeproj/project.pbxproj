@@ -1944,7 +1944,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-watchOS";
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
@@ -1972,7 +1971,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-watchOS";
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
@@ -1998,7 +1996,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-tvOS";
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -2025,7 +2022,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-tvOS";
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -2055,7 +2051,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-OSX";
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2084,7 +2079,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-OSX";
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -2109,7 +2103,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-iOS";
 				PRODUCT_NAME = SugarRecordRealm;
-				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2135,7 +2128,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-iOS";
 				PRODUCT_NAME = SugarRecordRealm;
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -2157,7 +2149,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -2207,7 +2199,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -2253,7 +2245,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-watchOS";
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
@@ -2281,7 +2272,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-watchOS";
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
@@ -2307,7 +2297,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-tvOS";
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -2334,7 +2323,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-tvOS";
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -2364,7 +2352,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-OSX";
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2393,7 +2380,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-OSX";
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -2418,7 +2404,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-iOS";
 				PRODUCT_NAME = SugarRecordCoreData;
-				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2444,7 +2429,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.gitdo.SugarRecord-iOS";
 				PRODUCT_NAME = SugarRecordCoreData;
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
