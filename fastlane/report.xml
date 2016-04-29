@@ -3,17 +3,52 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000434">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000482">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000187">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.00023">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: scan" time="28.226508">
+      <testcase classname="fastlane.lanes" name="2: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-CoreData-iOS' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="9.570778">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-Realm-iOS' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="9.671825">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-CoreData-OSX' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="10.694954">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-Realm-OSX' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="12.011287">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-CoreData-watchOS' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="14.477545">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="7: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-Realm-watchOS' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="10.506817">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="8: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-CoreData-tvOS' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="12.180004">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="9: xcodebuild -workspace '../SugarRecord.xcworkspace' -scheme 'SugarRecord-Realm-tvOS' -configuration Debug CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build | xcpretty" time="12.1518">
         
       </testcase>
     
