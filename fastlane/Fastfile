@@ -24,14 +24,14 @@ end
 
 desc "Builds all the project targets"
 lane :build do
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-iOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-iOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-OSX', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-OSX', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-watchOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-watchOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-tvOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-tvOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO" } )
+  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-iOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-iOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-OSX', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-OSX', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-watchOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-watchOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-tvOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-tvOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
 end
 
 lane :ci do
