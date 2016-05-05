@@ -10,6 +10,7 @@ public extension Storage {
                     try op(context: context, save: { () -> Void in
                         saver()
                     })
+                    observer.onNext(())
                     observer.onCompleted()
                 }
             }
@@ -34,6 +35,7 @@ public extension Storage {
                     try op(context: context, save: { () -> Void in
                         saver()
                     })
+                    observer.onNext(())
                     observer.onCompleted()
                 }
             }
