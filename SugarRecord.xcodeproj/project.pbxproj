@@ -42,6 +42,25 @@
 		231015461CDC9F0B004486FA /* Observable+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231015401CDC9F0B004486FA /* Observable+ReactiveCocoa.swift */; };
 		231015471CDC9F0B004486FA /* Observable+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231015401CDC9F0B004486FA /* Observable+ReactiveCocoa.swift */; };
 		231015481CDC9F0B004486FA /* Observable+ReactiveCocoa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231015401CDC9F0B004486FA /* Observable+ReactiveCocoa.swift */; };
+		2310154B1CDCB529004486FA /* RealmObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310154A1CDCB529004486FA /* RealmObservableTests.swift */; };
+		2310154D1CDCCA42004486FA /* CoreDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310154C1CDCCA42004486FA /* CoreDataObservable.swift */; };
+		2310154E1CDCCA42004486FA /* CoreDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310154C1CDCCA42004486FA /* CoreDataObservable.swift */; };
+		2310154F1CDCCA42004486FA /* CoreDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310154C1CDCCA42004486FA /* CoreDataObservable.swift */; };
+		231015501CDCCA42004486FA /* CoreDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310154C1CDCCA42004486FA /* CoreDataObservable.swift */; };
+		231015511CDCCA42004486FA /* CoreDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310154C1CDCCA42004486FA /* CoreDataObservable.swift */; };
+		231015531CDCCE9F004486FA /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231015521CDCCE9F004486FA /* ArrayExtension.swift */; };
+		231015541CDCCE9F004486FA /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231015521CDCCE9F004486FA /* ArrayExtension.swift */; };
+		231015551CDCCE9F004486FA /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231015521CDCCE9F004486FA /* ArrayExtension.swift */; };
+		231015561CDCCE9F004486FA /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231015521CDCCE9F004486FA /* ArrayExtension.swift */; };
+		231015571CDCCE9F004486FA /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231015521CDCCE9F004486FA /* ArrayExtension.swift */; };
+		231015581CDCCE9F004486FA /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231015521CDCCE9F004486FA /* ArrayExtension.swift */; };
+		231015591CDCCE9F004486FA /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231015521CDCCE9F004486FA /* ArrayExtension.swift */; };
+		2310155A1CDCCE9F004486FA /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231015521CDCCE9F004486FA /* ArrayExtension.swift */; };
+		2310155B1CDCCE9F004486FA /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231015521CDCCE9F004486FA /* ArrayExtension.swift */; };
+		2310155D1CDCCF8D004486FA /* CoreDataChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310155C1CDCCF8D004486FA /* CoreDataChange.swift */; };
+		2310155E1CDCCF8D004486FA /* CoreDataChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310155C1CDCCF8D004486FA /* CoreDataChange.swift */; };
+		2310155F1CDCCF8D004486FA /* CoreDataChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310155C1CDCCF8D004486FA /* CoreDataChange.swift */; };
+		231015601CDCCF8D004486FA /* CoreDataChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310155C1CDCCF8D004486FA /* CoreDataChange.swift */; };
 		2319B7D41C23FF8F0050ABE8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E62E1BED4AC00081E6E7 /* Request.swift */; };
 		2319B7D71C23FF8F0050ABE8 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FDA31BF15C5500009071 /* Realm.swift */; };
 		2319B7DA1C23FF8F0050ABE8 /* NSSortDescriptorConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353E6371BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift */; };
@@ -318,6 +337,10 @@
 		2310152E1CDC8EE7004486FA /* RealmObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObservable.swift; sourceTree = "<group>"; };
 		231015371CDC9C64004486FA /* Observable+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Rx.swift"; sourceTree = "<group>"; };
 		231015401CDC9F0B004486FA /* Observable+ReactiveCocoa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+ReactiveCocoa.swift"; sourceTree = "<group>"; };
+		2310154A1CDCB529004486FA /* RealmObservableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObservableTests.swift; sourceTree = "<group>"; };
+		2310154C1CDCCA42004486FA /* CoreDataObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataObservable.swift; sourceTree = "<group>"; };
+		231015521CDCCE9F004486FA /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		2310155C1CDCCF8D004486FA /* CoreDataChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataChange.swift; sourceTree = "<group>"; };
 		2319B7FA1C23FF8F0050ABE8 /* SugarRecordRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2319B81F1C2400420050ABE8 /* SugarRecordRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2319B8561C2400D10050ABE8 /* SugarRecordRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -601,6 +624,14 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		231015491CDCB51D004486FA /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2310154A1CDCB529004486FA /* RealmObservableTests.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		2333900E1C67B41400844B9D /* ReactiveCocoa */ = {
 			isa = PBXGroup;
 			children = (
@@ -691,6 +722,7 @@
 			isa = PBXGroup;
 			children = (
 				2353E6331BED4AC00081E6E7 /* RequestExtension.swift */,
+				231015521CDCCE9F004486FA /* ArrayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -716,6 +748,8 @@
 				2353E67A1BED52150081E6E7 /* Options.swift */,
 				239C8E041BF48B680025DB9A /* ContextParent.swift */,
 				2388637E1C5C285F0048B691 /* iCloudConfig.swift */,
+				2310154C1CDCCA42004486FA /* CoreDataObservable.swift */,
+				2310155C1CDCCF8D004486FA /* CoreDataChange.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -758,6 +792,7 @@
 		23B15C531BF353530059008E /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				231015491CDCB51D004486FA /* Entities */,
 				23B15C541BF353530059008E /* Extensions */,
 				23B15C551BF353530059008E /* Storages */,
 			);
@@ -1669,6 +1704,7 @@
 				2319B7DF1C23FF8F0050ABE8 /* Requestable.swift in Sources */,
 				2319B7E11C23FF8F0050ABE8 /* ReactiveError.swift in Sources */,
 				2319B7E21C23FF8F0050ABE8 /* NSPredicateConvertible.swift in Sources */,
+				231015541CDCCE9F004486FA /* ArrayExtension.swift in Sources */,
 				2319B7E31C23FF8F0050ABE8 /* Error.swift in Sources */,
 				2319B7E41C23FF8F0050ABE8 /* Context.swift in Sources */,
 				2319B7E51C23FF8F0050ABE8 /* Results.swift in Sources */,
@@ -1698,6 +1734,7 @@
 				2319B8001C2400420050ABE8 /* Request.swift in Sources */,
 				2319B8061C2400420050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
 				2319B80A1C2400420050ABE8 /* NSPredicateConvertible.swift in Sources */,
+				231015561CDCCE9F004486FA /* ArrayExtension.swift in Sources */,
 				2319B80B1C2400420050ABE8 /* Error.swift in Sources */,
 				2319B80C1C2400420050ABE8 /* Context.swift in Sources */,
 				2319B80E1C2400420050ABE8 /* RequestExtension.swift in Sources */,
@@ -1727,6 +1764,7 @@
 				233390171C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2319B87F1C2402300050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
 				2319B8801C2402300050ABE8 /* Context.swift in Sources */,
+				231015581CDCCE9F004486FA /* ArrayExtension.swift in Sources */,
 				2319B8811C2402300050ABE8 /* Entity.swift in Sources */,
 				2319B8821C2402300050ABE8 /* Requestable.swift in Sources */,
 				2319B8741C2402290050ABE8 /* Realm.swift in Sources */,
@@ -1756,6 +1794,7 @@
 				233390191C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2319B8D51C2402C30050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
 				2319B8D61C2402C30050ABE8 /* Context.swift in Sources */,
+				2310155A1CDCCE9F004486FA /* ArrayExtension.swift in Sources */,
 				2319B8D71C2402C30050ABE8 /* Entity.swift in Sources */,
 				2319B8D81C2402C30050ABE8 /* Requestable.swift in Sources */,
 				2319B8C81C2402BA0050ABE8 /* ReactiveError.swift in Sources */,
@@ -1785,7 +1824,9 @@
 				2353E66C1BED4B9C0081E6E7 /* CoreDataErrors.swift in Sources */,
 				2353E6711BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E65D1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
+				2310155D1CDCCF8D004486FA /* CoreDataChange.swift in Sources */,
 				231015381CDC9C64004486FA /* Observable+Rx.swift in Sources */,
+				2310154D1CDCCA42004486FA /* CoreDataObservable.swift in Sources */,
 				2333901A1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */,
 				231015251CDC8EC3004486FA /* Observable.swift in Sources */,
 				2353E6671BED4B250081E6E7 /* CoreData.swift in Sources */,
@@ -1799,6 +1840,7 @@
 				239C8E051BF48B680025DB9A /* ContextParent.swift in Sources */,
 				2353E6511BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
 				2305F8FF1BF1EA8D00F9D379 /* Entity.swift in Sources */,
+				231015531CDCCE9F004486FA /* ArrayExtension.swift in Sources */,
 				2353E6491BED4AC00081E6E7 /* Storage.swift in Sources */,
 				233390121C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2305F8F11BF0FE4500F9D379 /* DirUtils.swift in Sources */,
@@ -1819,7 +1861,9 @@
 				2353E6721BED4DF50081E6E7 /* ObjectModel.swift in Sources */,
 				2353E65E1BED4AC00081E6E7 /* NSSortDescriptorConvertible.swift in Sources */,
 				2333901C1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */,
+				2310155E1CDCCF8D004486FA /* CoreDataChange.swift in Sources */,
 				2310153A1CDC9C64004486FA /* Observable+Rx.swift in Sources */,
+				2310154E1CDCCA42004486FA /* CoreDataObservable.swift in Sources */,
 				2353E6681BED4B250081E6E7 /* CoreData.swift in Sources */,
 				231015271CDC8EC3004486FA /* Observable.swift in Sources */,
 				239C8E061BF48B680025DB9A /* ContextParent.swift in Sources */,
@@ -1833,6 +1877,7 @@
 				23F3F36B1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */,
 				23AC16271BF370BA00FAF97A /* Entity.swift in Sources */,
 				2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */,
+				231015551CDCCE9F004486FA /* ArrayExtension.swift in Sources */,
 				23A9167E1C173FCF005E57D8 /* Requestable.swift in Sources */,
 				233390141C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2305F8F21BF0FE4500F9D379 /* DirUtils.swift in Sources */,
@@ -1851,6 +1896,7 @@
 				2319B86A1C2401F80050ABE8 /* Error.swift in Sources */,
 				2319B86B1C2401F80050ABE8 /* RequestExtension.swift in Sources */,
 				2319B86C1C2401F80050ABE8 /* NSPredicateConvertible.swift in Sources */,
+				2310155F1CDCCF8D004486FA /* CoreDataChange.swift in Sources */,
 				237A93CB1C626ABF006BC2F1 /* CoreDataiCloudStorage.swift in Sources */,
 				2319B86D1C2401F80050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
 				237A93CD1C626AC8006BC2F1 /* iCloudConfig.swift in Sources */,
@@ -1858,6 +1904,7 @@
 				2319B86F1C2401F90050ABE8 /* Entity.swift in Sources */,
 				2319B8701C2401F90050ABE8 /* Requestable.swift in Sources */,
 				2333901E1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */,
+				231015571CDCCE9F004486FA /* ArrayExtension.swift in Sources */,
 				2319B85D1C2401F20050ABE8 /* CoreData.swift in Sources */,
 				2319B85E1C2401F20050ABE8 /* ObjectModel.swift in Sources */,
 				2319B85F1C2401F20050ABE8 /* Store.swift in Sources */,
@@ -1868,6 +1915,7 @@
 				2319B8631C2401F20050ABE8 /* NSManagedObject.swift in Sources */,
 				2319B8641C2401F20050ABE8 /* NSManagedObjectContext.swift in Sources */,
 				2310153C1CDC9C64004486FA /* Observable+Rx.swift in Sources */,
+				2310154F1CDCCA42004486FA /* CoreDataObservable.swift in Sources */,
 				2319B8651C2401F20050ABE8 /* NSManagedObjectMemoryContext.swift in Sources */,
 				2319B8661C2401F20050ABE8 /* CoreDataDefaultStorage.swift in Sources */,
 				2319B85B1C2401E80050ABE8 /* ReactiveError.swift in Sources */,
@@ -1886,6 +1934,7 @@
 				2319B8C01C2402960050ABE8 /* Options.swift in Sources */,
 				2319B8C11C2402960050ABE8 /* ContextParent.swift in Sources */,
 				237A93CC1C626AC0006BC2F1 /* CoreDataiCloudStorage.swift in Sources */,
+				231015601CDCCF8D004486FA /* CoreDataChange.swift in Sources */,
 				2319B8C21C2402960050ABE8 /* CoreDataErrors.swift in Sources */,
 				237A93CE1C626AC9006BC2F1 /* iCloudConfig.swift in Sources */,
 				2319B8C31C2402960050ABE8 /* NSManagedObject.swift in Sources */,
@@ -1893,6 +1942,7 @@
 				2319B8C51C2402960050ABE8 /* NSManagedObjectMemoryContext.swift in Sources */,
 				2319B8C61C2402960050ABE8 /* CoreDataDefaultStorage.swift in Sources */,
 				233390201C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */,
+				231015591CDCCE9F004486FA /* ArrayExtension.swift in Sources */,
 				2319B8B21C24028C0050ABE8 /* DirUtils.swift in Sources */,
 				2319B8B31C24028C0050ABE8 /* Request.swift in Sources */,
 				2319B8B41C24028C0050ABE8 /* Storage.swift in Sources */,
@@ -1903,6 +1953,7 @@
 				2319B8B81C24028C0050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
 				2319B8B91C24028C0050ABE8 /* Context.swift in Sources */,
 				2310153E1CDC9C64004486FA /* Observable+Rx.swift in Sources */,
+				231015501CDCCA42004486FA /* CoreDataObservable.swift in Sources */,
 				2319B8BA1C24028C0050ABE8 /* Entity.swift in Sources */,
 				2319B8BB1C24028C0050ABE8 /* Requestable.swift in Sources */,
 				2319B8B11C2402850050ABE8 /* ReactiveError.swift in Sources */,
@@ -1913,6 +1964,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2310154B1CDCB529004486FA /* RealmObservableTests.swift in Sources */,
 				23A916771C173CAF005E57D8 /* OptionsTests.swift in Sources */,
 				230CBDC61BF383D700C43A48 /* RealmDefaultStorageTests.swift in Sources */,
 				3DDE7D461BF4E45E00D166C4 /* Track.swift in Sources */,
@@ -1920,12 +1972,14 @@
 				23B15C521BF352AD0059008E /* Issue.swift in Sources */,
 				3DE3FD961BF12B8C00009071 /* DataModel.xcdatamodeld in Sources */,
 				3DDE7D451BF4E45E00D166C4 /* Track+CoreDataProperties.swift in Sources */,
+				231015511CDCCA42004486FA /* CoreDataObservable.swift in Sources */,
 				230CBDC21BF37F7A00C43A48 /* ResultsTests.swift in Sources */,
 				2305F8EE1BF0FAFC00F9D379 /* ObjectModelTests.swift in Sources */,
 				23A916791C173E5F005E57D8 /* CoreDataDefaultStorageTests.swift in Sources */,
 				23B15C591BF353F70059008E /* Realm.swift in Sources */,
 				23B15C571BF3535E0059008E /* RealmTests.swift in Sources */,
 				3D733FD51C0C2AC400B74DA1 /* RequestTests.swift in Sources */,
+				2310155B1CDCCE9F004486FA /* ArrayExtension.swift in Sources */,
 				231C61EF1C17482100CD6532 /* CoreData.swift in Sources */,
 				2305F8EC1BF0F89200F9D379 /* StoreTests.swift in Sources */,
 				23B15C501BF352540059008E /* Repository.swift in Sources */,
