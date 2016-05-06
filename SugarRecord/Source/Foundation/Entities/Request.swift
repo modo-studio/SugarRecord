@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Request<T: Entity> {
+public struct Request<T: Entity>: Equatable {
     
     // MARK: - Attributes
     
@@ -72,4 +72,12 @@ public struct Request<T: Entity> {
         return Request<T>(context, sortDescriptor: sortDescriptor, predicate: predicate)
     }
     
+}
+
+
+// MARK: - Equatable
+
+public func ==<T>(lhs: Request<T>, rhs: Request<T>) -> Bool {
+    return lhs.sortDescriptor == rhs.sortDescriptor &&
+    lhs.predicate == rhs.predicate
 }

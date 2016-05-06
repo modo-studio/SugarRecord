@@ -5,8 +5,8 @@ public class RealmObservable<T: Object>: Observable<T> {
     
     // MARK: - Attributes
     
-    private let realm: Realm
-    private var notificationToken: NotificationToken?
+    internal let realm: Realm
+    internal var notificationToken: NotificationToken?
     
     
     // MARK: - Init

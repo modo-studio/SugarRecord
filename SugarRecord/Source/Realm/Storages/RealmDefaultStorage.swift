@@ -17,44 +17,30 @@ public class RealmDefaultStorage: Storage {
     
     // MARK: - Storage
     
-    public var description: String {
-        get {
-            return "RealmDefaultStorage"
-        }
-    }
+    public var description: String { return "RealmDefaultStorage" }
     
-    public var type: StorageType {
-        get {
-            return .Realm
-        }
-    }
+    public var type: StorageType { return .Realm }
     
     public var mainContext: Context! {
-        get {
-            if let configuration = self.configuration {
-                return try? Realm(configuration: configuration)
-            }
-            else {
-                return try? Realm()
-            }
+        if let configuration = self.configuration {
+            return try? Realm(configuration: configuration)
+        }
+        else {
+            return try? Realm()
         }
     }
     
     public var saveContext: Context! {
-        get {
-            if let configuration = self.configuration {
-                return try? Realm(configuration: configuration)
-            }
-            else {
-                return try? Realm()
-            }
+        if let configuration = self.configuration {
+            return try? Realm(configuration: configuration)
+        }
+        else {
+            return try? Realm()
         }
     }
     
     public var memoryContext: Context! {
-        get {
-            return try? Realm(configuration: Realm.Configuration(inMemoryIdentifier: "MemoryRealm"))
-        }
+        return try? Realm(configuration: Realm.Configuration(inMemoryIdentifier: "MemoryRealm"))
     }
     
     public func removeStore() throws {
@@ -93,7 +79,7 @@ public class RealmDefaultStorage: Storage {
         }
     }
     
-    public func observable<T: Object>(request: Request<T>) throws -> Observable<T> {
+    public func observable<T: Object>(request: Request<T>) -> Observable<T> {
         return RealmObservable(request: request, realm: self.mainContext as! Realm)
     }
     
