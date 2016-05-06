@@ -78,7 +78,7 @@ public class CoreDataiCloudStorage: Storage {
     }
     
     
-    // MARK: - Constructors
+    // MARK: - Init
     
     public init(model: CoreData.ObjectModel, iCloud: ICloudConfig) throws {
         self.objectModel = model.model()!
@@ -87,6 +87,13 @@ public class CoreDataiCloudStorage: Storage {
         self.rootSavingContext = cdContext(withParent: .Coordinator(self.persistentStoreCoordinator), concurrencyType: .PrivateQueueConcurrencyType, inMemory: false)
         self.mainContext = cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .MainQueueConcurrencyType, inMemory: false)
         self.observeiCloudChangesInCoordinator()
+    }
+    
+    
+    // MARK: - Public
+    
+    public func observable<T: NSManagedObject>(request: Request<T>) -> Observable<T> {
+        return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
     }
     
     
