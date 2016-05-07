@@ -18,7 +18,7 @@ class RealmObservableTests: QuickSpec {
             realm.beginWrite()
             realm.create(Issue.self, value: ["id": "123", "name": "issue"], update: true)
             try! realm.commitWrite()
-            request = Request<Issue>().filteredWith("id", equalTo: "123")
+            request = Request<Issue>()
             subject = RealmObservable(request: request, realm: realm)
         }
         
@@ -47,24 +47,24 @@ class RealmObservableTests: QuickSpec {
             }
             
             context("update") {
-                //TODO - Figure out how to implement it since when the observable is released the entity get unsubscribed from notification and this test fails.
-//                it("should notify about updates") {
-//                    waitUntil(action: { (done) in
-//                        subject.observe({ (change) in
-//                            switch change {
-//                            case .Update(let updated, _, let insertions, _):
-//                                expect(insertions.first) == 0
-//                                expect(updated.first?.id) == "666"
-//                                done()
-//                            default:
-//                                break
-//                            }
-//                        })
-//                        realm.beginWrite()
-//                        realm.create(Issue.self, value: ["id": "666", "name": "issue"], update: true)
-//                        try! realm.commitWrite()
-//                    })
-//                }
+                
+                it("should notify about updates") {
+                    waitUntil(timeout: 5.0, action: { (done) in
+                        subject.observe({ (change) in
+                            switch change {
+                            case .Update(let updated, _, let insertions, _):
+                                expect(insertions.first) == 1
+                                expect(updated[1].id) == "666"
+                                done()
+                            default:
+                                break
+                            }
+                        })
+                        realm.beginWrite()
+                        realm.create(Issue.self, value: ["id": "666", "name": "issue"], update: true)
+                        try! realm.commitWrite()
+                    })
+                }
             }
             
         }

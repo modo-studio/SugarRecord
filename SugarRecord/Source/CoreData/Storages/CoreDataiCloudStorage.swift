@@ -92,10 +92,10 @@ public class CoreDataiCloudStorage: Storage {
     
     // MARK: - Public
     
-    public func observable<T: NSManagedObject>(request: Request<T>) -> Observable<T> {
-        return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
-    }
-    
+//    public func observable<T: NSManagedObject>(request: Request<T>) -> Observable<T> {
+//        return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
+//    }
+//    
     
     // MARK: - Private
     

@@ -20,7 +20,7 @@ public class RealmObservable<T: Object>: Observable<T> {
     // MARK: - Observable
     
     public override func observe(closure: ObservableChange<[T]> -> Void) {
-        assert(self.notificationToken != nil, "Observable can be observed only once")
+        assert(self.notificationToken == nil, "Observable can be observed only once")
         var realmObjects = self.realm.objects(T)
         if let predicate = self.request.predicate {
             realmObjects = realmObjects.filter(predicate)
