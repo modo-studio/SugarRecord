@@ -19,6 +19,8 @@ script:
   - bundle exec fastlane ci
 deploy:
   provider: script
-  script: bundle exec fastlane deploy
+  script:
+    - bundle install 
+    - bundle exec fastlane deploy
   on:
     branch: master
