@@ -245,6 +245,8 @@ class Presenter {
 > **Reactive**: Observables can be also observed as Reactive sources using `rx_observe` or `rac_observe`.
 In this case there's no need to retain the `Observable` but dispose it whenever you're not interested anymore in observing changes.
 
+**:warning: `Observable` is not available for CoreData + OSX**
+
 ### Example project
 
 There's an example project available in `Example` folder.
