@@ -91,11 +91,12 @@ public class CoreDataiCloudStorage: Storage {
     
     
     // MARK: - Public
-    
+
+#if os(iOS) || os(tvOS) || os(watchOS)
     public func observable<T: NSManagedObject where T:Equatable>(request: Request<T>) -> Observable<T> {
         return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
     }
-    
+#endif
     
     // MARK: - Private
     

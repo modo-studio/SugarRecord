@@ -45,7 +45,6 @@
 		2310154B1CDCB529004486FA /* RealmObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310154A1CDCB529004486FA /* RealmObservableTests.swift */; };
 		2310154D1CDCCA42004486FA /* CoreDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310154C1CDCCA42004486FA /* CoreDataObservable.swift */; };
 		2310154E1CDCCA42004486FA /* CoreDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310154C1CDCCA42004486FA /* CoreDataObservable.swift */; };
-		2310154F1CDCCA42004486FA /* CoreDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310154C1CDCCA42004486FA /* CoreDataObservable.swift */; };
 		231015501CDCCA42004486FA /* CoreDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310154C1CDCCA42004486FA /* CoreDataObservable.swift */; };
 		2310155D1CDCCF8D004486FA /* CoreDataChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310155C1CDCCF8D004486FA /* CoreDataChange.swift */; };
 		2310155E1CDCCF8D004486FA /* CoreDataChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310155C1CDCCF8D004486FA /* CoreDataChange.swift */; };
@@ -1918,7 +1917,6 @@
 				2319B8631C2401F20050ABE8 /* NSManagedObject.swift in Sources */,
 				2319B8641C2401F20050ABE8 /* NSManagedObjectContext.swift in Sources */,
 				2310153C1CDC9C64004486FA /* Observable+Rx.swift in Sources */,
-				2310154F1CDCCA42004486FA /* CoreDataObservable.swift in Sources */,
 				239FE4D41CDE7FCF0050502F /* ArrayExtension.swift in Sources */,
 				2319B8651C2401F20050ABE8 /* NSManagedObjectMemoryContext.swift in Sources */,
 				2319B8661C2401F20050ABE8 /* CoreDataDefaultStorage.swift in Sources */,
