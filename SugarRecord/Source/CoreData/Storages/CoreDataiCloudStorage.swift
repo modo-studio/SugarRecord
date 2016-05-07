@@ -78,7 +78,7 @@ public class CoreDataiCloudStorage: Storage {
     }
     
     
-    // MARK: - Constructors
+    // MARK: - Init
     
     public init(model: CoreData.ObjectModel, iCloud: ICloudConfig) throws {
         self.objectModel = model.model()!
@@ -89,6 +89,14 @@ public class CoreDataiCloudStorage: Storage {
         self.observeiCloudChangesInCoordinator()
     }
     
+    
+    // MARK: - Public
+
+#if os(iOS) || os(tvOS) || os(watchOS)
+    public func observable<T: NSManagedObject where T:Equatable>(request: Request<T>) -> Observable<T> {
+        return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
+    }
+#endif
     
     // MARK: - Private
     

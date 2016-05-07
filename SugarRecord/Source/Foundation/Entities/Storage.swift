@@ -5,6 +5,8 @@ public enum StorageType {
     case Realm
 }
 
+typealias StorageOperation = ((context: Context, save: () -> Void) throws -> Void) throws -> Void
+
 public protocol Storage: CustomStringConvertible, Requestable {
         
     var type: StorageType { get }

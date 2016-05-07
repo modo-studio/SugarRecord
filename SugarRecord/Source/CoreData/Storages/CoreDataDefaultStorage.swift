@@ -73,6 +73,9 @@ public class CoreDataDefaultStorage: Storage {
 
     public func removeStore() throws {
         try NSFileManager.defaultManager().removeItemAtURL(store.path())
+        _ = try? NSFileManager.defaultManager().removeItemAtPath("\(store.path().absoluteString)-shm")
+        _ = try? NSFileManager.defaultManager().removeItemAtPath("\(store.path().absoluteString)-wal")
+
     }
     
     
@@ -86,6 +89,15 @@ public class CoreDataDefaultStorage: Storage {
         self.rootSavingContext = cdContext(withParent: .Coordinator(self.persistentStoreCoordinator), concurrencyType: .PrivateQueueConcurrencyType, inMemory: false)
         self.mainContext = cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .MainQueueConcurrencyType, inMemory: false)
     }
+    
+    
+    // MARK: - Public
+    
+#if os(iOS) || os(tvOS) || os(watchOS)
+    public func observable<T: NSManagedObject where T:Equatable>(request: Request<T>) -> Observable<T> {
+        return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
+    }
+#endif
     
 }
 

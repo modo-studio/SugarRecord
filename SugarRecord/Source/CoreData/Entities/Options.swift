@@ -11,7 +11,7 @@ public extension CoreData {
             switch self {
             case .Default:
                 var sqliteOptions: [String: String] = [String: String] ()
-                sqliteOptions["WAL"] = "journal_mode"
+                sqliteOptions["journal_mode"] = "DELETE"
                 var options: [NSObject: AnyObject] = [NSObject: AnyObject] ()
                 options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
                 options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: false)
@@ -19,7 +19,7 @@ public extension CoreData {
                 return options
             case .Migration:
                 var sqliteOptions: [String: String] = [String: String] ()
-                sqliteOptions["WAL"] = "journal_mode"
+                sqliteOptions["journal_mode"] = "DELETE"
                 var options: [NSObject: AnyObject] = [NSObject: AnyObject] ()
                 options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
                 options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: true)
