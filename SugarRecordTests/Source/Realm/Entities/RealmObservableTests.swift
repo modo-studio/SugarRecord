@@ -52,9 +52,8 @@ class RealmObservableTests: QuickSpec {
                     waitUntil(timeout: 5.0, action: { (done) in
                         subject.observe({ (change) in
                             switch change {
-                            case .Update(let updated, _, let insertions, _):
-                                expect(insertions.first) == 1
-                                expect(updated[1].id) == "666"
+                            case .Update(_, let insertions, _):
+                                expect(insertions[0].id) == "666"
                                 done()
                             default:
                                 break

@@ -47,7 +47,10 @@ public class RealmObservable<T: Object>: Observable<T> {
         case .Initial(let initial):
             return ObservableChange.Initial(initial.toArray())
         case .Update(let objects, let deletions, let insertions, let modifications):
-            return ObservableChange.Update(objects.toArray(), deletions: deletions, insertions: insertions, modifications: modifications)
+            let deletions = objects.toArray().filter { deletions.indexOf($0.0) != nil }
+            let insertions = objects.toArray().filter { insertions.indexOf($0.0) != nil }
+            let modifications = objects.toArray().filter { modifications.indexOf($0.0) != nil }            
+            return ObservableChange.Update(deletions: deletions, insertions: insertions, modifications: modifications)
         }
     }
     

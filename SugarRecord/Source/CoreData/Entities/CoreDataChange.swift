@@ -2,8 +2,6 @@ import Foundation
 
 internal enum CoreDataChange<T> {
     
-    // TODO - Test
-    
     case Update(T)
     case Insert(T)
     case Delete(T)
@@ -18,7 +16,7 @@ internal enum CoreDataChange<T> {
     
     func isDeletion() -> Bool {
         switch self {
-        case .Insert(_): return true
+        case .Delete(_): return true
         default: return false
         }
     }
@@ -36,4 +34,5 @@ internal enum CoreDataChange<T> {
         default: return false
         }
     }
+    
 }

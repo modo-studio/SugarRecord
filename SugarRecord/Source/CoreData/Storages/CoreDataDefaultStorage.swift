@@ -73,6 +73,9 @@ public class CoreDataDefaultStorage: Storage {
 
     public func removeStore() throws {
         try NSFileManager.defaultManager().removeItemAtURL(store.path())
+        _ = try? NSFileManager.defaultManager().removeItemAtPath("\(store.path().absoluteString)-shm")
+        _ = try? NSFileManager.defaultManager().removeItemAtPath("\(store.path().absoluteString)-wal")
+
     }
     
     
@@ -90,9 +93,9 @@ public class CoreDataDefaultStorage: Storage {
     
     // MARK: - Public
     
-//    public func observable<T: NSManagedObject>(request: Request<T>) -> Observable<T> {
-//        return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
-//    }
+    public func observable<T: NSManagedObject where T:Equatable>(request: Request<T>) -> Observable<T> {
+        return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
+    }
     
 }
 

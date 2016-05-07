@@ -77,7 +77,7 @@ public struct Request<T: Entity>: Equatable {
 
 // MARK: - Equatable
 
-public func ==<T>(lhs: Request<T>, rhs: Request<T>) -> Bool {
+public func == <T>(lhs: Request<T>, rhs: Request<T>) -> Bool {
     return lhs.sortDescriptor == rhs.sortDescriptor &&
     lhs.predicate == rhs.predicate
 }
