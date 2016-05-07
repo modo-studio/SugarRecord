@@ -216,6 +216,35 @@ func rx_fetch<T>(request: Request<T>) -> Observable<[T]>
 <br>
 > This is the first approach of SugarRecord for the  interface. We'll improve it with the feedback you can report and according to the use of the framework. Do not hesitate to reach us with your proposals. Everything that has to be with making the use of CoreData/Realm easier, funnier, and enjoyable is welcome! :tada:
 
+### Observable
+
+SugarRecord provides a component, `Observable` that allows observing changes in the DataBase. It uses Realm notifications and CoreData `NSFetchedResultsController` under the hood.
+
+**Observing**
+
+```swift
+class Presenter {
+  var observable: Observable<Track>!
+
+  func setup() {
+      let request: Request<Track> = Request<Track>().filteredWith("artist", equalTo: "pedro")
+      self.observable = storage.instance.observe(request)
+      self.observable.observe { changes in
+        case .Initial(let objects):
+          print("\(objects.count) objects in the database")
+        case .Update(let deletions, let insertions, let modifications):
+          print("\(deletions.count) deleted | \(insertions.count) inserted | \(modifications.count) modified")
+        case .Error(let error):
+          print("Something went wrong")
+      }
+  }
+}
+```
+> **Retain**: Observable must be retained during the observation lifecycle. When the `Observable` instance gets released from memory it stops observing changes from your storage.
+
+> **Reactive**: Observables can be also observed as Reactive sources using `rx_observe` or `rac_observe`.
+In this case there's no need to retain the `Observable` but dispose it whenever you're not interested anymore in observing changes.
+
 ### Example project
 
 There's an example project available in `Example` folder.
