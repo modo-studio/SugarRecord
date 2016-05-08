@@ -107,7 +107,7 @@ func icloudStorage() -> CoreDataiCloudStorage {
 Storages offer multiple kind of contexts that are the entry points to the database. For curious developers, in case of CoreData a context is a wrapper around `NSManagedObjectContext`, in case of Realm a wrapper around `Realm`. The available contexts are:
 
 - **MainContext:** Use it for main thread operations, for example fetches whose data will be presented in the UI.
-- **SaveContext:** Use this context for background operations, the property `saveContext` of the storage is a computed property so every time you call it you get a new fresh context to be used.
+- **SaveContext:** Use this context for background operations. The context is initialized when the storage instance is created. That context is used for storage operations.
 - **MemoryContext:** Use this context when you want to do some tests and you don't want your changes to be persisted.
 
 #### Fetching data
