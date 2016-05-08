@@ -17,7 +17,7 @@ extension Realm: Context {
     
     public func insert<T: Entity>(entity: T) throws {
         guard let _ = T.self as? Object.Type else { throw Error.InvalidType }
-        self.add(entity as! Object, update: true)
+        self.add(entity as! Object, update: false)
     }
     
     public func new<T: Entity>() throws -> T {
