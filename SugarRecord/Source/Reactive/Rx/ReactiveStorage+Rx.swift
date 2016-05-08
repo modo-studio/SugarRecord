@@ -68,8 +68,8 @@ public extension Storage {
      
      - returns: Returns an Observable of the type specififed
      */
-    func rx_backgroundCreateOperation<T>(op: (context: Context, save: () -> Void) throws -> T) -> Observable<T> {
-        return Observable.create { (observer) -> RxSwift.Disposable in
+    func rx_backgroundCreateOperation<T>(op: (context: Context, save: () -> Void) throws -> T) -> RxSwift.Observable<T> {
+        let observable: RxSwift.Observable<T> = RxSwift.Observable.create { (observer) -> RxSwift.Disposable in
             do {
                 try self.operation { (context, saver) throws in
                     let returnedObject = try op(context: context, save: { () -> Void in
@@ -126,6 +126,8 @@ public extension Storage {
             }
             return NopDisposable.instance
         }
+        
+        return observable
     }
     
     func rx_backgroundOperation(op: (context: Context) throws -> Void) -> RxSwift.Observable<Void> {
