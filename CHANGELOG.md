@@ -1,4 +1,4 @@
-### Version 2.2.6
+### Version 2.2.7
 - Add Observable feature https://github.com/pepibumur/SugarRecord/pull/243
 - Fix a CoreDataStorage `journal_mode` property not set properly.
 

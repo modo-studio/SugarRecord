@@ -277,6 +277,7 @@
 		23B15C521BF352AD0059008E /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C511BF352AD0059008E /* Issue.swift */; };
 		23B15C571BF3535E0059008E /* RealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C561BF3535E0059008E /* RealmTests.swift */; };
 		23B15C591BF353F70059008E /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B15C581BF353F70059008E /* Realm.swift */; };
+		23EDB1D11CDF3CEC00C1577E /* CoreDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310154C1CDCCA42004486FA /* CoreDataObservable.swift */; };
 		23F3F36A1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3691C1DFA6D009A5CC1 /* ReactiveError.swift */; };
 		23F3F36B1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3691C1DFA6D009A5CC1 /* ReactiveError.swift */; };
 		23F3F3931C1E14BD009A5CC1 /* ReactiveStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F3F3921C1E14BD009A5CC1 /* ReactiveStorageTests.swift */; };
@@ -1899,6 +1900,7 @@
 				2319B86A1C2401F80050ABE8 /* Error.swift in Sources */,
 				2319B86B1C2401F80050ABE8 /* RequestExtension.swift in Sources */,
 				2319B86C1C2401F80050ABE8 /* NSPredicateConvertible.swift in Sources */,
+				23EDB1D11CDF3CEC00C1577E /* CoreDataObservable.swift in Sources */,
 				2310155F1CDCCF8D004486FA /* CoreDataChange.swift in Sources */,
 				237A93CB1C626ABF006BC2F1 /* CoreDataiCloudStorage.swift in Sources */,
 				2319B86D1C2401F80050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
