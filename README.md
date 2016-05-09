@@ -268,7 +268,7 @@ If you want to communicate any issue, suggestion or even make a contribution, yo
 - If you want to contribute, submit a pull request, and remember the rules to follow related with the code style, testing, ...
 
 ## Contribution
-- You'll find more details about contribution with SugarRecord in [contribution](CONTRIBUTION.md)
+- You'll find more details about contributing to SugarRecord in [contributing](CONTRIBUTING.md)
 
 ## Resources
 - [Quick](https://github.com/quick/quick)
