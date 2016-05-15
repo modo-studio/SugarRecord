@@ -45,7 +45,7 @@ public class CoreDataObservable<T: NSManagedObject where T:Equatable>: Observabl
     // MARK: - Dipose Method
     override func dispose() {
         
-        print("Disposed Observer for entity: \(self.fetchRequest.entityName)")
+        self.fetchedResultsController.delegate = nil
     }
     
     
