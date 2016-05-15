@@ -41,7 +41,14 @@ public class CoreDataObservable<T: NSManagedObject where T:Equatable>: Observabl
         _ = try? self.fetchedResultsController.performFetch()
     }
 
-
+    
+    // MARK: - Dipose Method
+    override func dispose() {
+        
+        print("Disposed Observer for entity: \(self.fetchRequest.entityName)")
+    }
+    
+    
     // MARK: - NSFetchedResultsControllerDelegate
 
     public func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
