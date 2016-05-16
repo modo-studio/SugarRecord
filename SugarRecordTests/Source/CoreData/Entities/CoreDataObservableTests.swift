@@ -72,6 +72,13 @@ class CoreDataObservableTests: QuickSpec {
                 })
             }
         }
+        
+        describe("-dispose") {
+            it("should unlink the NSFetchedResultsController from the observable") {
+                subject.dispose()
+                expect(subject.fetchedResultsController.delegate).to(beNil())
+            }
+        }
     }
     
 }
