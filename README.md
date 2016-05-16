@@ -228,7 +228,7 @@ class Presenter {
 
   func setup() {
       let request: Request<Track> = Request<Track>().filteredWith("artist", equalTo: "pedro")
-      self.observable = storage.instance.observe(request)
+      self.observable = storage.instance.observable(request)
       self.observable.observe { changes in
         case .Initial(let objects):
           print("\(objects.count) objects in the database")
