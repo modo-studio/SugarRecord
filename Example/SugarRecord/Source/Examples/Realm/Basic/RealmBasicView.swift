@@ -38,6 +38,10 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        print("🚀🚀🚀 Deallocating \(self) 🚀🚀🚀")
+    }
+    
     
     // MARK: - Lifecycle
     
@@ -119,26 +123,5 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     private func updateData() {
         self.entities = try! db.fetch(Request<RealmBasicObject>()).map(RealmBasicEntity.init)
-    }
-}
-
-class RealmBasicObject: Object {
-    dynamic var date: NSDate = NSDate()
-    dynamic var name: String = ""
-    
-    internal override class func primaryKey() -> String? {
-        return "name"
-    }
-}
-
-class RealmBasicEntity {
-    let dateString: String
-    let name: String
-    init(object: RealmBasicObject) {
-        let dateFormater = NSDateFormatter()
-        dateFormater.timeStyle = NSDateFormatterStyle.ShortStyle
-        dateFormater.dateStyle = NSDateFormatterStyle.ShortStyle
-        self.dateString = dateFormater.stringFromDate(object.date)
-        self.name = object.name
     }
 }

@@ -61,7 +61,7 @@ public class CoreDataObservable<T: NSManagedObject where T:Equatable>: Observabl
     }
 
     public func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        let deleted = self.batchChanges.filter { $0.isDeletion() }.map { (index: $0.index(), element: $0.object()) }
+        let deleted = self.batchChanges.filter { $0.isDeletion() }.map { $0.index() }
         let inserted = self.batchChanges.filter { $0.isInsertion() }.map { (index: $0.index(), element: $0.object()) }
         let updated = self.batchChanges.filter { $0.isUpdate() }.map { (index: $0.index(), element: $0.object()) }
         self.observer?(ObservableChange.Update(deletions: deleted, insertions: inserted, modifications: updated))

@@ -39,6 +39,10 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        print("🚀🚀🚀 Deallocating \(self) 🚀🚀🚀")
+    }
+    
     
     // MARK: - Lifecycle
     

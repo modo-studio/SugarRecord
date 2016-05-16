@@ -2,7 +2,7 @@ import Foundation
 
 public enum ObservableChange<T> {
     case Initial([T])
-    case Update(deletions: [(index: Int, element: T)], insertions: [(index: Int, element: T)], modifications: [(index: Int, element: T)])
+    case Update(deletions: [Int], insertions: [(index: Int, element: T)], modifications: [(index: Int, element: T)])
     case Error(NSError)
 }
 

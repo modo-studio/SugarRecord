@@ -1,18 +1,17 @@
 import Foundation
 import UIKit
 import SugarRecord
-import CoreData
+import RealmSwift
 import RxSwift
 
-class CoreDataObservableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RealmObservableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Attributes
-    lazy var db: CoreDataDefaultStorage = {
-        let store = CoreData.Store.Named("cd_basic")
-        let bundle = NSBundle(forClass: CoreDataBasicView.classForCoder())
-        let model = CoreData.ObjectModel.Merged([bundle])
-        let defaultStorage = try! CoreDataDefaultStorage(store: store, model: model)
-        return defaultStorage
+    lazy var db: RealmDefaultStorage = {
+        var configuration = Realm.Configuration()
+        configuration.fileURL = NSURL(fileURLWithPath: databasePath("realm-basic"))
+        let _storage = RealmDefaultStorage(configuration: configuration)
+        return _storage
     }()
     lazy var tableView: UITableView = {
         let _tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
@@ -22,19 +21,19 @@ class CoreDataObservableView: UIViewController, UITableViewDelegate, UITableView
         _tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "default-cell")
         return _tableView
     }()
-    var disposeBag: DisposeBag = DisposeBag()
-    var entities: [CoreDataBasicEntity] = [] {
+    var entities: [RealmBasicEntity] = [] {
         didSet {
             self.tableView.reloadData()
         }
     }
+    var disposeBag: DisposeBag = DisposeBag()
     
     
     // MARK: - Init
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        self.title = "CoreData Observable"
+        self.title = "Realm Observable View"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -68,7 +67,7 @@ class CoreDataObservableView: UIViewController, UITableViewDelegate, UITableView
     }
     
     private func setupNavigationItem() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(CoreDataBasicView.userDidSelectAdd(_:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(RealmBasicView.userDidSelectAdd(_:)))
     }
     
     private func setupTableView() {
@@ -79,16 +78,16 @@ class CoreDataObservableView: UIViewController, UITableViewDelegate, UITableView
     }
     
     private func setupObservable() {
-        db.observable(Request<BasicObject>().sortedWith("date", ascending: true))
+        db.observable(Request<RealmBasicObject>().sortedWith("date", ascending: true))
             .rx_observe()
             .subscribeNext { [weak self] (change) in
                 switch change {
                 case .Initial(let entities):
-                    self?.entities = entities.map(CoreDataBasicEntity.init)
+                    self?.entities = entities.map(RealmBasicEntity.init)
                     break
                 case .Update(let deletions, let insertions, let modifications):
-                    modifications.forEach { [weak self] in self?.entities[$0.0] = CoreDataBasicEntity(object: $0.1) }
-                    insertions.forEach { [weak self] in self?.entities.insert(CoreDataBasicEntity(object: $0.1), atIndex: $0.0) }
+                    modifications.forEach { [weak self] in self?.entities[$0.0] = RealmBasicEntity(object: $0.1) }
+                    insertions.forEach { [weak self] in self?.entities.insert(RealmBasicEntity(object: $0.1), atIndex: $0.0) }
                     deletions.forEach({ [weak self] in self?.entities.removeAtIndex($0) })
                     break
                 default:
@@ -119,7 +118,7 @@ class CoreDataObservableView: UIViewController, UITableViewDelegate, UITableView
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let name = entities[indexPath.row].name
             try! db.operation({ (context, save) -> Void in
-                guard let obj = try! context.request(BasicObject.self).filteredWith("name", equalTo: name).fetch().first else { return }
+                guard let obj = try! context.request(RealmBasicObject.self).filteredWith("name", equalTo: name).fetch().first else { return }
                 _ = try? context.remove(obj)
                 save()
             })
@@ -131,7 +130,7 @@ class CoreDataObservableView: UIViewController, UITableViewDelegate, UITableView
     
     func userDidSelectAdd(sender: AnyObject!) {
         try! db.operation { (context, save) -> Void in
-            let _object: BasicObject = try! context.new()
+            let _object: RealmBasicObject = try! context.new()
             _object.date = NSDate()
             _object.name = randomStringWithLength(10) as String
             try! context.insert(_object)
