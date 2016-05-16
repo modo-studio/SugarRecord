@@ -54,11 +54,23 @@ public class CoreDataObservable<T: NSManagedObject where T:Equatable>: Observabl
     public func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
         case .Delete:
-            self.batchChanges.append(.Delete(indexPath!.row, anObject as! T))
+            #if os(watchOS)
+                self.batchChanges.append(.Delete(indexPath!.indexAtPosition(0), anObject as! T))
+            #else
+                self.batchChanges.append(.Delete(indexPath!.row, anObject as! T))
+            #endif
         case .Insert:
-            self.batchChanges.append(.Insert(newIndexPath!.row, anObject as! T))
+            #if os(watchOS)
+                self.batchChanges.append(.Insert(newIndexPath!.indexAtPosition(0), anObject as! T))
+            #else
+                self.batchChanges.append(.Insert(newIndexPath!.row, anObject as! T))
+            #endif
         case .Update:
-            self.batchChanges.append(.Update(indexPath!.row, anObject as! T))
+            #if os(watchOS)
+                self.batchChanges.append(.Update(indexPath!.indexAtPosition(0), anObject as! T))
+            #else
+                self.batchChanges.append(.Update(indexPath!.row, anObject as! T))
+            #endif
         default: break
         }
     }
