@@ -41,14 +41,14 @@ public class CoreDataObservable<T: NSManagedObject where T:Equatable>: Observabl
         _ = try? self.fetchedResultsController.performFetch()
     }
 
-    
+
     // MARK: - Dipose Method
+    
     override func dispose() {
-        
         self.fetchedResultsController.delegate = nil
     }
-    
-    
+
+
     // MARK: - NSFetchedResultsControllerDelegate
 
     public func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
