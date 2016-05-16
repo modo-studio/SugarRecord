@@ -2,8 +2,9 @@ import Foundation
 import UIKit
 import SugarRecord
 import CoreData
+import RxSwift
 
-class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CoreDataObservableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Attributes
     lazy var db: CoreDataDefaultStorage = {
@@ -21,6 +22,7 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
         _tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "default-cell")
         return _tableView
     }()
+    var disposeBag: DisposeBag = DisposeBag()
     var entities: [CoreDataBasicEntity] = [] {
         didSet {
             self.tableView.reloadData()
@@ -45,7 +47,6 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        updateData()
     }
     
     
@@ -55,6 +56,7 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
         setupView()
         setupNavigationItem()
         setupTableView()
+        setupObservable()
     }
     
     private func setupView() {
@@ -70,6 +72,24 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
         self.tableView.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(self.view)
         }
+    }
+    
+    private func setupObservable() {
+        db.observable(Request<BasicObject>())
+            .rx_observe()
+            .subscribeNext { (change) in
+                switch change {
+                case .Initial(let entities):
+                    break
+                case .Update(let deletions, let insertions, let modifications):
+                    break
+                default:
+                    break
+                }
+            }
+            .addDisposableTo(self.disposeBag)
+        //        self.entities = try! db.fetch(Request<BasicObject>()).map(CoreDataBasicEntity.init)
+        
     }
     
     
@@ -97,7 +117,6 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
                 _ = try? context.remove(obj)
                 save()
             })
-            updateData()
         }
     }
     
@@ -110,40 +129,8 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
             _object.date = NSDate()
             _object.name = randomStringWithLength(10) as String
             try! context.insert(_object)
+            save()
         }
-        updateData()
     }
     
-    
-    // MARK: - Private
-    
-    private func updateData() {
-        self.entities = try! db.fetch(Request<BasicObject>()).map(CoreDataBasicEntity.init)
-    }
-}
-
-class BasicObject: NSManagedObject {
-    
-    // Insert code here to add functionality to your managed object subclass
-    
-}
-
-extension BasicObject {
-    
-    @NSManaged var date: NSDate?
-    @NSManaged var name: String?
-    
-}
-
-
-class CoreDataBasicEntity {
-    let dateString: String
-    let name: String
-    init(object: BasicObject) {
-        let dateFormater = NSDateFormatter()
-        dateFormater.timeStyle = NSDateFormatterStyle.ShortStyle
-        dateFormater.dateStyle = NSDateFormatterStyle.ShortStyle
-        self.dateString = dateFormater.stringFromDate(object.date!)
-        self.name = object.name!
-    }
 }

@@ -12,7 +12,7 @@ class CoreDataChangeTests: QuickSpec {
             var change: CoreDataChange<String>!
             
             beforeSuite {
-                change = .Insert("insert")
+                change = .Insert(0, "insert")
             }
             
             describe("-object") {
@@ -44,7 +44,7 @@ class CoreDataChangeTests: QuickSpec {
             var change: CoreDataChange<String>!
             
             beforeSuite {
-                change = .Update("update")
+                change = .Update(0, "update")
             }
             
             describe("-object") {
@@ -77,7 +77,7 @@ class CoreDataChangeTests: QuickSpec {
             var change: CoreDataChange<String>!
             
             beforeSuite {
-                change = .Delete("delete")
+                change = .Delete(0, "delete")
             }
             
             describe("-object") {

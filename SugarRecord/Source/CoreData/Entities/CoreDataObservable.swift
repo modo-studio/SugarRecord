@@ -7,7 +7,7 @@ public class CoreDataObservable<T: NSManagedObject where T:Equatable>: Observabl
     // MARK: - Attributes
 
     internal let fetchRequest: NSFetchRequest
-    internal var observer: (ObservableChange<[T]> -> Void)?
+    internal var observer: (ObservableChange<T> -> Void)?
     internal let fetchedResultsController: NSFetchedResultsController
     private var batchChanges: [CoreDataChange<T>] = []
 
@@ -33,7 +33,7 @@ public class CoreDataObservable<T: NSManagedObject where T:Equatable>: Observabl
 
     // MARK: - Observable
 
-    public override func observe(closure: ObservableChange<[T]> -> Void) {
+    public override func observe(closure: ObservableChange<T> -> Void) {
         assert(self.observer == nil, "Observable can be observed only once")
         let initial = try! self.fetchedResultsController.managedObjectContext.executeFetchRequest(self.fetchRequest) as! [T]
         closure(ObservableChange.Initial(initial))
@@ -47,11 +47,11 @@ public class CoreDataObservable<T: NSManagedObject where T:Equatable>: Observabl
     public func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
         case .Delete:
-            self.batchChanges.append(.Delete(anObject as! T))
+            self.batchChanges.append(.Delete(indexPath!.row, anObject as! T))
         case .Insert:
-            self.batchChanges.append(.Insert(anObject as! T))
+            self.batchChanges.append(.Insert(newIndexPath!.row, anObject as! T))
         case .Update:
-            self.batchChanges.append(.Update(anObject as! T))
+            self.batchChanges.append(.Update(indexPath!.row, anObject as! T))
         default: break
         }
     }
@@ -61,9 +61,9 @@ public class CoreDataObservable<T: NSManagedObject where T:Equatable>: Observabl
     }
 
     public func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        let deleted = self.batchChanges.filter { $0.isDeletion() }.map { $0.object() }
-        let inserted = self.batchChanges.filter { $0.isInsertion() }.map { $0.object() }
-        let updated = self.batchChanges.filter { $0.isUpdate() }.map { $0.object() }
+        let deleted = self.batchChanges.filter { $0.isDeletion() }.map { (index: $0.index(), element: $0.object()) }
+        let inserted = self.batchChanges.filter { $0.isInsertion() }.map { (index: $0.index(), element: $0.object()) }
+        let updated = self.batchChanges.filter { $0.isUpdate() }.map { (index: $0.index(), element: $0.object()) }
         self.observer?(ObservableChange.Update(deletions: deleted, insertions: inserted, modifications: updated))
     }
 

@@ -4,7 +4,7 @@ import Result
 
 public extension Observable {
     
-    public func rac_observe() -> SignalProducer<ObservableChange<[T]>, NoError> {
+    public func rac_observe() -> SignalProducer<ObservableChange<T>, NoError> {
         return SignalProducer { (observer, disposable) in
             self.observe { change in
                 observer.sendNext(change)

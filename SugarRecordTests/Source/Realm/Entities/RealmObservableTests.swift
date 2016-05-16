@@ -53,7 +53,7 @@ class RealmObservableTests: QuickSpec {
                         subject.observe({ (change) in
                             switch change {
                             case .Update(_, let insertions, _):
-                                expect(insertions[0].id) == "666"
+                                expect(insertions[0].element.id) == "666"
                                 done()
                             default:
                                 break
