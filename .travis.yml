@@ -17,10 +17,10 @@ script:
   - xcodebuild -version
   - xcodebuild -showsdks
   - bundle exec fastlane ci
-deploy:
-  provider: script
-  script:
-    - bundle install 
-    - bundle exec fastlane deploy
-  on:
-    branch: master
+# deploy:
+#   provider: script
+#   script:
+#     - bundle install
+#     - bundle exec fastlane deploy
+#   on:
+#     branch: master
