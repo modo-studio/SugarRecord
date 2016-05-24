@@ -7,6 +7,8 @@
 [![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/pepibumur/SugarRecord.svg)](https://travis-ci.org/pepibumur/SugarRecord)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Slack Status](https://sugarrecord.herokuapp.com/badge.svg)](https://sugarrecord.herokuapp.com/)
+
 
 **If you want to receive updates about the status of SugarRecord, you can subscribe to our mailing list [here](http://eepurl.com/57tqX)**
 
@@ -228,7 +230,7 @@ class Presenter {
 
   func setup() {
       let request: Request<Track> = Request<Track>().filteredWith("artist", equalTo: "pedro")
-      self.observable = storage.instance.observe(request)
+      self.observable = storage.instance.observable(request)
       self.observable.observe { changes in
         case .Initial(let objects):
           print("\(objects.count) objects in the database")

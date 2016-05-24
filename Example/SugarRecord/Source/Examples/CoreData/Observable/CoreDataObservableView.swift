@@ -2,8 +2,9 @@ import Foundation
 import UIKit
 import SugarRecord
 import CoreData
+import RxSwift
 
-class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CoreDataObservableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Attributes
     lazy var db: CoreDataDefaultStorage = {
@@ -21,6 +22,7 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
         _tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "default-cell")
         return _tableView
     }()
+    var disposeBag: DisposeBag = DisposeBag()
     var entities: [CoreDataBasicEntity] = [] {
         didSet {
             self.tableView.reloadData()
@@ -32,11 +34,15 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        self.title = "CoreData Basic"
+        self.title = "CoreData Observable"
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print("🚀🚀🚀 Deallocating \(self) 🚀🚀🚀")
     }
     
     
@@ -45,7 +51,6 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        updateData()
     }
     
     
@@ -55,6 +60,7 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
         setupView()
         setupNavigationItem()
         setupTableView()
+        setupObservable()
     }
     
     private func setupView() {
@@ -70,6 +76,26 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
         self.tableView.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(self.view)
         }
+    }
+    
+    private func setupObservable() {
+        db.observable(Request<BasicObject>().sortedWith("date", ascending: true))
+            .rx_observe()
+            .subscribeNext { [weak self] (change) in
+                switch change {
+                case .Initial(let entities):
+                    self?.entities = entities.map(CoreDataBasicEntity.init)
+                    break
+                case .Update(let deletions, let insertions, let modifications):
+                    modifications.forEach { [weak self] in self?.entities[$0.0] = CoreDataBasicEntity(object: $0.1) }
+                    insertions.forEach { [weak self] in self?.entities.insert(CoreDataBasicEntity(object: $0.1), atIndex: $0.0) }
+                    deletions.forEach({ [weak self] in self?.entities.removeAtIndex($0) })
+                    break
+                default:
+                    break
+                }
+            }
+            .addDisposableTo(self.disposeBag)
     }
     
     
@@ -97,7 +123,6 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
                 _ = try? context.remove(obj)
                 save()
             })
-            updateData()
         }
     }
     
@@ -110,40 +135,8 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
             _object.date = NSDate()
             _object.name = randomStringWithLength(10) as String
             try! context.insert(_object)
+            save()
         }
-        updateData()
     }
     
-    
-    // MARK: - Private
-    
-    private func updateData() {
-        self.entities = try! db.fetch(Request<BasicObject>()).map(CoreDataBasicEntity.init)
-    }
-}
-
-class BasicObject: NSManagedObject {
-    
-    // Insert code here to add functionality to your managed object subclass
-    
-}
-
-extension BasicObject {
-    
-    @NSManaged var date: NSDate?
-    @NSManaged var name: String?
-    
-}
-
-
-class CoreDataBasicEntity {
-    let dateString: String
-    let name: String
-    init(object: BasicObject) {
-        let dateFormater = NSDateFormatter()
-        dateFormater.timeStyle = NSDateFormatterStyle.ShortStyle
-        dateFormater.dateStyle = NSDateFormatterStyle.ShortStyle
-        self.dateString = dateFormater.stringFromDate(object.date!)
-        self.name = object.name!
-    }
 }

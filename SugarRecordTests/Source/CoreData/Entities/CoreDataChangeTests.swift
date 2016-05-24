@@ -12,7 +12,7 @@ class CoreDataChangeTests: QuickSpec {
             var change: CoreDataChange<String>!
             
             beforeSuite {
-                change = .Insert("insert")
+                change = .Insert(0, "insert")
             }
             
             describe("-object") {
@@ -38,13 +38,19 @@ class CoreDataChangeTests: QuickSpec {
                     expect(change.isInsertion()) == true
                 }
             }
+            
+            describe("-index") {
+                it("should return the correct index") {
+                    expect(change.index()) == 0
+                }
+            }
         }
         
         context("Update") {
             var change: CoreDataChange<String>!
             
             beforeSuite {
-                change = .Update("update")
+                change = .Update(1, "update")
             }
             
             describe("-object") {
@@ -70,6 +76,12 @@ class CoreDataChangeTests: QuickSpec {
                     expect(change.isInsertion()) == false
                 }
             }
+            
+            describe("-index") {
+                it("should return the correct index") {
+                    expect(change.index()) == 1
+                }
+            }
         }
         
         context("Delete") {
@@ -77,7 +89,7 @@ class CoreDataChangeTests: QuickSpec {
             var change: CoreDataChange<String>!
             
             beforeSuite {
-                change = .Delete("delete")
+                change = .Delete(3, "delete")
             }
             
             describe("-object") {
@@ -101,6 +113,12 @@ class CoreDataChangeTests: QuickSpec {
             describe("-isInsertion") {
                 it("should return false") {
                     expect(change.isInsertion()) == false
+                }
+            }
+            
+            describe("-index") {
+                it("should return the correct index") {
+                    expect(change.index()) == 3
                 }
             }
         }

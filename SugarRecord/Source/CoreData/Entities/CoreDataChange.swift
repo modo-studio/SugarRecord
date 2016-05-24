@@ -2,15 +2,23 @@ import Foundation
 
 internal enum CoreDataChange<T> {
     
-    case Update(T)
-    case Insert(T)
-    case Delete(T)
+    case Update(Int, T)
+    case Insert(Int, T)
+    case Delete(Int, T)
     
     func object() -> T {
         switch self {
-        case .Update(let object): return object
-        case .Delete(let object): return object
-        case .Insert(let object): return object
+        case .Update(_, let object): return object
+        case .Delete(_, let object): return object
+        case .Insert(_, let object): return object
+        }
+    }
+    
+    func index() -> Int {
+        switch self {
+        case .Update(let index, _): return index
+        case .Delete(let index, _): return index
+        case .Insert(let index, _): return index
         }
     }
     

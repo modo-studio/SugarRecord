@@ -258,14 +258,6 @@
 		239C8E051BF48B680025DB9A /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E041BF48B680025DB9A /* ContextParent.swift */; };
 		239C8E061BF48B680025DB9A /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8E041BF48B680025DB9A /* ContextParent.swift */; };
 		239FE4CE1CDE67DE0050502F /* CoreDataObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239FE4CD1CDE67DE0050502F /* CoreDataObservableTests.swift */; };
-		239FE4D11CDE7FCE0050502F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239FE4CF1CDE7FC90050502F /* ArrayExtension.swift */; };
-		239FE4D21CDE7FCE0050502F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239FE4CF1CDE7FC90050502F /* ArrayExtension.swift */; };
-		239FE4D31CDE7FCF0050502F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239FE4CF1CDE7FC90050502F /* ArrayExtension.swift */; };
-		239FE4D41CDE7FCF0050502F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239FE4CF1CDE7FC90050502F /* ArrayExtension.swift */; };
-		239FE4D51CDE7FD00050502F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239FE4CF1CDE7FC90050502F /* ArrayExtension.swift */; };
-		239FE4D61CDE7FD00050502F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239FE4CF1CDE7FC90050502F /* ArrayExtension.swift */; };
-		239FE4D71CDE7FD10050502F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239FE4CF1CDE7FC90050502F /* ArrayExtension.swift */; };
-		239FE4D81CDE7FD10050502F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239FE4CF1CDE7FC90050502F /* ArrayExtension.swift */; };
 		239FE4DA1CDE81D00050502F /* CoreDataChangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239FE4D91CDE81D00050502F /* CoreDataChangeTests.swift */; };
 		23A916751C17365A005E57D8 /* DirUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A916741C17365A005E57D8 /* DirUtilsTests.swift */; };
 		23A916771C173CAF005E57D8 /* OptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A916761C173CAF005E57D8 /* OptionsTests.swift */; };
@@ -394,7 +386,6 @@
 		2388637E1C5C285F0048B691 /* iCloudConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudConfig.swift; sourceTree = "<group>"; };
 		239C8E041BF48B680025DB9A /* ContextParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextParent.swift; sourceTree = "<group>"; };
 		239FE4CD1CDE67DE0050502F /* CoreDataObservableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataObservableTests.swift; sourceTree = "<group>"; };
-		239FE4CF1CDE7FC90050502F /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		239FE4D91CDE81D00050502F /* CoreDataChangeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataChangeTests.swift; sourceTree = "<group>"; };
 		23A916741C17365A005E57D8 /* DirUtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirUtilsTests.swift; sourceTree = "<group>"; };
 		23A916761C173CAF005E57D8 /* OptionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTests.swift; sourceTree = "<group>"; };
@@ -726,7 +717,6 @@
 			isa = PBXGroup;
 			children = (
 				2353E6331BED4AC00081E6E7 /* RequestExtension.swift */,
-				239FE4CF1CDE7FC90050502F /* ArrayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1708,7 +1698,6 @@
 				2319B7DF1C23FF8F0050ABE8 /* Requestable.swift in Sources */,
 				2319B7E11C23FF8F0050ABE8 /* ReactiveError.swift in Sources */,
 				2319B7E21C23FF8F0050ABE8 /* NSPredicateConvertible.swift in Sources */,
-				239FE4D71CDE7FD10050502F /* ArrayExtension.swift in Sources */,
 				2319B7E31C23FF8F0050ABE8 /* Error.swift in Sources */,
 				2319B7E41C23FF8F0050ABE8 /* Context.swift in Sources */,
 				2319B7E51C23FF8F0050ABE8 /* Results.swift in Sources */,
@@ -1738,7 +1727,6 @@
 				2319B8001C2400420050ABE8 /* Request.swift in Sources */,
 				2319B8061C2400420050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
 				2319B80A1C2400420050ABE8 /* NSPredicateConvertible.swift in Sources */,
-				239FE4D51CDE7FD00050502F /* ArrayExtension.swift in Sources */,
 				2319B80B1C2400420050ABE8 /* Error.swift in Sources */,
 				2319B80C1C2400420050ABE8 /* Context.swift in Sources */,
 				2319B80E1C2400420050ABE8 /* RequestExtension.swift in Sources */,
@@ -1768,7 +1756,6 @@
 				233390171C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2319B87F1C2402300050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
 				2319B8801C2402300050ABE8 /* Context.swift in Sources */,
-				239FE4D31CDE7FCF0050502F /* ArrayExtension.swift in Sources */,
 				2319B8811C2402300050ABE8 /* Entity.swift in Sources */,
 				2319B8821C2402300050ABE8 /* Requestable.swift in Sources */,
 				2319B8741C2402290050ABE8 /* Realm.swift in Sources */,
@@ -1798,7 +1785,6 @@
 				233390191C67B41400844B9D /* ReactiveStorage+ReactiveCocoa.swift in Sources */,
 				2319B8D51C2402C30050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
 				2319B8D61C2402C30050ABE8 /* Context.swift in Sources */,
-				239FE4D11CDE7FCE0050502F /* ArrayExtension.swift in Sources */,
 				2319B8D71C2402C30050ABE8 /* Entity.swift in Sources */,
 				2319B8D81C2402C30050ABE8 /* Requestable.swift in Sources */,
 				2319B8C81C2402BA0050ABE8 /* ReactiveError.swift in Sources */,
@@ -1833,7 +1819,6 @@
 				2310154D1CDCCA42004486FA /* CoreDataObservable.swift in Sources */,
 				2333901A1C67B41400844B9D /* ReactiveStorage+Rx.swift in Sources */,
 				231015251CDC8EC3004486FA /* Observable.swift in Sources */,
-				239FE4D81CDE7FD10050502F /* ArrayExtension.swift in Sources */,
 				2353E6671BED4B250081E6E7 /* CoreData.swift in Sources */,
 				23A9167D1C173FCF005E57D8 /* Requestable.swift in Sources */,
 				2353E63D1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
@@ -1870,7 +1855,6 @@
 				2310154E1CDCCA42004486FA /* CoreDataObservable.swift in Sources */,
 				2353E6681BED4B250081E6E7 /* CoreData.swift in Sources */,
 				231015271CDC8EC3004486FA /* Observable.swift in Sources */,
-				239FE4D61CDE7FD00050502F /* ArrayExtension.swift in Sources */,
 				239C8E061BF48B680025DB9A /* ContextParent.swift in Sources */,
 				2353E63E1BED4AC00081E6E7 /* NSManagedObjectContext.swift in Sources */,
 				2353E65A1BED4AC00081E6E7 /* NSPredicateConvertible.swift in Sources */,
@@ -1919,7 +1903,6 @@
 				2319B8631C2401F20050ABE8 /* NSManagedObject.swift in Sources */,
 				2319B8641C2401F20050ABE8 /* NSManagedObjectContext.swift in Sources */,
 				2310153C1CDC9C64004486FA /* Observable+Rx.swift in Sources */,
-				239FE4D41CDE7FCF0050502F /* ArrayExtension.swift in Sources */,
 				2319B8651C2401F20050ABE8 /* NSManagedObjectMemoryContext.swift in Sources */,
 				2319B8661C2401F20050ABE8 /* CoreDataDefaultStorage.swift in Sources */,
 				2319B85B1C2401E80050ABE8 /* ReactiveError.swift in Sources */,
@@ -1957,7 +1940,6 @@
 				2319B8B91C24028C0050ABE8 /* Context.swift in Sources */,
 				2310153E1CDC9C64004486FA /* Observable+Rx.swift in Sources */,
 				231015501CDCCA42004486FA /* CoreDataObservable.swift in Sources */,
-				239FE4D21CDE7FCE0050502F /* ArrayExtension.swift in Sources */,
 				2319B8BA1C24028C0050ABE8 /* Entity.swift in Sources */,
 				2319B8BB1C24028C0050ABE8 /* Requestable.swift in Sources */,
 				2319B8B11C2402850050ABE8 /* ReactiveError.swift in Sources */,
@@ -2013,6 +1995,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2040,6 +2023,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2065,6 +2049,7 @@
 			baseConfigurationReference = 3DB2B8B11BDEE795005B7EF2 /* tvOS-Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2091,6 +2076,7 @@
 			baseConfigurationReference = 3DB2B8B11BDEE795005B7EF2 /* tvOS-Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2318,6 +2304,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2345,6 +2332,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2370,6 +2358,7 @@
 			baseConfigurationReference = 3DB2B8B11BDEE795005B7EF2 /* tvOS-Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2396,6 +2385,7 @@
 			baseConfigurationReference = 3DB2B8B11BDEE795005B7EF2 /* tvOS-Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

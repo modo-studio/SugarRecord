@@ -56,7 +56,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - UITableViewDataSource / UITableViewDelegate
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 4
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -66,6 +66,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.textLabel?.text = "CoreData Basic"
         case 1:
             cell.textLabel?.text = "Realm Basic"
+        case 2:
+            cell.textLabel?.text = "CoreData Observable"
+        case 3:
+            cell.textLabel?.text = "Realm Observable"
         default:
             cell.textLabel?.text = ""
         }
@@ -80,6 +84,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.navigationController?.pushViewController(CoreDataBasicView(), animated: true)
         case 1:
             self.navigationController?.pushViewController(RealmBasicView(), animated: true)
+        case 2:
+            self.navigationController?.pushViewController(CoreDataObservableView(), animated: true)
+        case 3:
+            self.navigationController?.pushViewController(RealmObservableView(), animated: true)
         default:
             break
         }

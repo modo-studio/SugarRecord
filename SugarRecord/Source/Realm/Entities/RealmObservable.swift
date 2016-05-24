@@ -19,7 +19,7 @@ public class RealmObservable<T: Object>: Observable<T> {
     
     // MARK: - Observable
     
-    public override func observe(closure: ObservableChange<[T]> -> Void) {
+    public override func observe(closure: ObservableChange<T> -> Void) {
         assert(self.notificationToken == nil, "Observable can be observed only once")
         var realmObjects = self.realm.objects(T)
         if let predicate = self.request.predicate {
@@ -40,16 +40,16 @@ public class RealmObservable<T: Object>: Observable<T> {
     
     // MARK: - Private
     
-    private func map(realmChange: RealmCollectionChange<Results<T>>) -> ObservableChange<[T]> {
+    private func map(realmChange: RealmCollectionChange<Results<T>>) -> ObservableChange<T> {
         switch realmChange {
         case .Error(let error):
             return ObservableChange.Error(error)
         case .Initial(let initial):
             return ObservableChange.Initial(initial.toArray())
         case .Update(let objects, let deletions, let insertions, let modifications):
-            let deletions = objects.toArray().filter { deletions.indexOf($0.0) != nil }
-            let insertions = objects.toArray().filter { insertions.indexOf($0.0) != nil }
-            let modifications = objects.toArray().filter { modifications.indexOf($0.0) != nil }            
+            let deletions = deletions.map { $0 }
+            let insertions = insertions.map { (index: $0, element: objects[$0]) }
+            let modifications = modifications.map { (index: $0, element: objects[$0]) }
             return ObservableChange.Update(deletions: deletions, insertions: insertions, modifications: modifications)
         }
     }

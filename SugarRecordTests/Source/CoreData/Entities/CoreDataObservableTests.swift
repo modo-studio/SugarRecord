@@ -55,8 +55,8 @@ class CoreDataObservableTests: QuickSpec {
                     subject.observe({ (change) in
                         switch change {
                         case .Update(_, let insertions, _):
-                            expect(insertions[0].name) == "test2"
-                            expect(insertions[0].artist) == "pedro"
+                            expect(insertions[0].element.name) == "test2"
+                            expect(insertions[0].element.artist) == "pedro"
                             done()
                         default:
                             break
@@ -70,6 +70,13 @@ class CoreDataObservableTests: QuickSpec {
                         try! context.save()
                     }
                 })
+            }
+        }
+        
+        describe("-dispose") {
+            it("should unlink the NSFetchedResultsController from the observable") {
+                subject.dispose()
+                expect(subject.fetchedResultsController.delegate).to(beNil())
             }
         }
     }
