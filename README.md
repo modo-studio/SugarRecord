@@ -51,7 +51,7 @@ pod "SugarRecord/CoreData+RX"
 pod "SugarRecord/CoreData+RX+iCloud"
 pod "SugarRecord/CoreData+RAC"
 pod "SugarRecord/CoreData+RAC+iCloud"
-pod "SugarRecord/Ream"
+pod "SugarRecord/Realm"
 pod "SugarRecord/Realm+RX"
 pod "SugarRecord/Realm+RAC"
 ```
