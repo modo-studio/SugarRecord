@@ -44,6 +44,50 @@ public extension Storage {
         }
     }
     
+    /**
+     Create a background operation that you can return an object id or some other thread safe element to use in the chain
+     
+     Example : 
+     
+     let createOb: Observable<String> = storage.rx_backgroundOperation({ (context, save) in {
+        
+        ... database work
+     
+        save()
+        
+        return stringID
+     }
+     
+     createOb.subscribeNext({ (objectId) in {
+     
+        .. do something with new objectId
+     
+     }).addDisposableTo(self.disposeBag)
+     
+     - parameter op: The operation that you wish to execute
+     
+     - returns: Returns an Observable of the type specififed
+     */
+    func rx_backgroundCreateOperation<T>(op: (context: Context, save: () -> Void) throws -> T) -> RxSwift.Observable<T> {
+        let observable: RxSwift.Observable<T> = RxSwift.Observable.create { (observer) -> RxSwift.Disposable in
+            do {
+                try self.operation { (context, saver) throws in
+                    let returnedObject = try op(context: context, save: { () -> Void in
+                        saver()
+                    })
+                    observer.onNext(returnedObject)
+                    observer.onCompleted()
+                }
+            }
+            catch {
+                observer.onError(error)
+            }
+            return NopDisposable.instance
+        }
+        
+        return observable
+    }
+    
     func rx_backgroundOperation(op: (context: Context) throws -> Void) -> RxSwift.Observable<Void> {
         return rx_backgroundOperation { (context, save) throws in
             try op(context: context)
