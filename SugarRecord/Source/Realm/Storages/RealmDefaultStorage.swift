@@ -79,7 +79,7 @@ public class RealmDefaultStorage: Storage {
         }
     }
     
-    public func observable<T: Object>(request: Request<T>) -> Observable<T> {
+    public func observable<T: Object>(request: Request<T>) -> RequestObservable<T> {
         return RealmObservable(request: request, realm: self.mainContext as! Realm)
     }
     

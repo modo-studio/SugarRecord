@@ -94,7 +94,7 @@ public class CoreDataiCloudStorage: Storage {
 
 #if os(iOS) || os(tvOS) || os(watchOS)
     
-    public func observable<T: NSManagedObject where T:Equatable>(request: Request<T>) -> Observable<T> {
+    public func observable<T: NSManagedObject where T:Equatable>(request: Request<T>) -> RequestObservable<T> {
         return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
     }
     
