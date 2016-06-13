@@ -218,15 +218,15 @@ func rx_fetch<T>(request: Request<T>) -> Observable<[T]>
 <br>
 > This is the first approach of SugarRecord for the  interface. We'll improve it with the feedback you can report and according to the use of the framework. Do not hesitate to reach us with your proposals. Everything that has to be with making the use of CoreData/Realm easier, funnier, and enjoyable is welcome! :tada:
 
-### Observable
+### RequestObservable
 
-SugarRecord provides a component, `Observable` that allows observing changes in the DataBase. It uses Realm notifications and CoreData `NSFetchedResultsController` under the hood.
+SugarRecord provides a component, `RequestObservable` that allows observing changes in the DataBase. It uses Realm notifications and CoreData `NSFetchedResultsController` under the hood.
 
 **Observing**
 
 ```swift
 class Presenter {
-  var observable: Observable<Track>!
+  var observable: RequestObservable<Track>!
 
   func setup() {
       let request: Request<Track> = Request<Track>().filteredWith("artist", equalTo: "pedro")
@@ -242,12 +242,14 @@ class Presenter {
   }
 }
 ```
-> **Retain**: Observable must be retained during the observation lifecycle. When the `Observable` instance gets released from memory it stops observing changes from your storage.
+> **Retain**: RequestObservable must be retained during the observation lifecycle. When the `RequestObservable` instance gets released from memory it stops observing changes from your storage.
+
+> **NOTE**: This was renamed from Observable -> RequestObservable so we are no longer stomping on the RxSwift Observable namespace.
 
 > **Reactive**: Observables can be also observed as Reactive sources using `rx_observe` or `rac_observe`.
-In this case there's no need to retain the `Observable` but dispose it whenever you're not interested anymore in observing changes.
+In this case there's no need to retain the `RequestObservable` but dispose it whenever you're not interested anymore in observing changes.
 
-**:warning: `Observable` is not available for CoreData + OSX**
+**:warning: `RequestObservable` is not available for CoreData + OSX**
 
 ### Example project
 
