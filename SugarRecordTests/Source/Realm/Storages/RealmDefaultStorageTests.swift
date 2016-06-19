@@ -94,7 +94,7 @@ class RealmDefaultStorageTests: QuickSpec {
             }
             
             it("should have the correct realm") {
-                expect((observable as Observable<Issue>).request) == request
+                expect((observable as RequestObservable<Issue>).request) == request
             }
             
         }

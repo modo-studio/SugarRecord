@@ -1,7 +1,7 @@
 import Foundation
 import RealmSwift
 
-public class RealmObservable<T: Object>: Observable<T> {
+public class RealmObservable<T: Object>: RequestObservable<T> {
     
     // MARK: - Attributes
     

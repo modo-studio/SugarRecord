@@ -2,7 +2,7 @@ import Foundation
 import ReactiveCocoa
 import Result
 
-public extension Observable {
+public extension RequestObservable {
     
     public func rac_observe() -> SignalProducer<ObservableChange<T>, NoError> {
         return SignalProducer { (observer, disposable) in

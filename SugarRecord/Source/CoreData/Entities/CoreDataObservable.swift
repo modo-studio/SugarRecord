@@ -2,7 +2,7 @@
 import Foundation
 import CoreData
 
-public class CoreDataObservable<T: NSManagedObject where T:Equatable>: Observable<T>, NSFetchedResultsControllerDelegate {
+public class CoreDataObservable<T: NSManagedObject where T:Equatable>: RequestObservable<T>, NSFetchedResultsControllerDelegate {
 
     // MARK: - Attributes
 
