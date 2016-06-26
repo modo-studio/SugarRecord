@@ -75,6 +75,31 @@ class ReactiveStorageTests: QuickSpec {
             }
         }
         
+        describe("rx_backgroundOperation") { 
+            it("should produce the object from the inner block", closure: { 
+                waitUntil(action: { (done) -> Void in
+                    
+                    _ = storage?.rx_backgroundOperation({ (context, save) -> String in
+                        
+                        let issue: Issue = try! context.create()
+                        
+                        issue.name = "testName"
+                        save()
+                        
+                        return issue.name
+                    }).subscribeNext({ (stringProduced) in
+                        
+                        expect(stringProduced) == "testName"
+                        
+                        done()
+                    })
+                    
+                })
+                
+            })
+        }
+        
+        
         describe("rac_fetch") {
             it("should execute the fetch and return the results") {
                 _ = try? storage?.operation({ (context, save) -> Void in

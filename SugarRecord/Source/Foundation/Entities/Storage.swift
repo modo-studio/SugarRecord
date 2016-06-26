@@ -14,7 +14,7 @@ public protocol Storage: CustomStringConvertible, Requestable {
     var saveContext: Context! { get }
     var memoryContext: Context! { get }
     func removeStore() throws
-    func operation(operation: (context: Context, save: () -> Void) throws -> Void) throws
+    func operation<T>(operation: (context: Context, save: () -> Void) throws -> T) throws -> T
     func fetch<T: Entity>(request: Request<T>) throws -> [T]
     
 }

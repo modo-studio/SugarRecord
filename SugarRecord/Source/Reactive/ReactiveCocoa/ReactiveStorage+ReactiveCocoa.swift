@@ -6,15 +6,18 @@ public extension Storage {
     
     // MARK: - Operation
     
-    func rac_operation(op: (context: Context, save: () -> Void) throws -> Void) -> SignalProducer<Void, Error> {
+    func rac_operation<T>(op: (context: Context, save: () -> Void) throws -> T) -> SignalProducer<T, Error> {
         return SignalProducer { (observer, disposable) in
             do {
-                try self.operation { (context, saver) throws in
+                let returnedObject = try self.operation { (context, saver) throws in
                     try op(context: context, save: {
                         saver()
                     })
-                    observer.sendCompleted()
                 }
+                
+                observer.sendNext(returnedObject)
+                observer.sendCompleted()
+
             }
             catch {
                 observer.sendFailed(Error.Store(error))
@@ -22,24 +25,29 @@ public extension Storage {
         }
     }
     
-    func rac_operation(op: (context: Context) throws -> Void) -> SignalProducer<Void, Error> {
+    func rac_operation<T>(op: (context: Context) throws -> T) -> SignalProducer<T, Error> {
         return self.rac_operation { (context, saver) throws in
-            try op(context: context)
+            let returnedObject = try op(context: context)
             saver()
+            
+            return returnedObject
         }
     }
     
-    func rac_backgroundOperation(op: (context: Context, save: () -> Void) throws -> Void) -> SignalProducer<Void, Error> {
+    func rac_backgroundOperation<T>(op: (context: Context, save: () -> Void) throws -> T) -> SignalProducer<T, Error> {
         return SignalProducer { (observer, disposable) in
             let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
             dispatch_async(dispatch_get_global_queue(priority, 0)) {
                 do {
-                    try self.operation { (context, saver) throws in
+                    let returnedObject = try self.operation { (context, saver) throws in
                         try op(context: context, save: {
                             saver()
                         })
-                        observer.sendCompleted()
                     }
+
+                    observer.sendNext(returnedObject)
+                    observer.sendCompleted()
+
                 }
                 catch {
                     observer.sendFailed(Error.Store(error))
@@ -48,10 +56,12 @@ public extension Storage {
         }
     }
     
-    func rac_backgroundOperation(op: (context: Context) throws -> Void) -> SignalProducer<Void, Error> {
+    func rac_backgroundOperation<T>(op: (context: Context) throws -> T) -> SignalProducer<T, Error> {
         return rac_backgroundOperation { (context, save) throws in
-            try op(context: context)
+            let returnedObject = try op(context: context)
             save()
+            
+            return returnedObject
         }
     }
 

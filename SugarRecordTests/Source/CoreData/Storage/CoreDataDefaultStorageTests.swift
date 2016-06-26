@@ -116,6 +116,30 @@ class CoreDataDefaultStorageTests: QuickSpec {
                     })
                 }
             }
+            
+            describe("-operation:") {
+                
+                it("should return the inner value from the operation") {
+                    waitUntil(action: { (done) -> Void in
+                        
+                        let result: String = try! subject.operation({ (context, save) -> String in
+                            
+                            let issue: Track = try! context.create()
+                            
+                            issue.name = "trackName"
+                            
+                            save()
+                            
+                            return issue.name!
+                        })
+                        
+                        expect(result) == "trackName"
+                        done()
+
+                    })
+                }
+                
+            }
          
             describe("-observable:") {
                 
