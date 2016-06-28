@@ -10,8 +10,13 @@ public class RealmDefaultStorage: Storage {
     
     ///  MARK: - Init
     
-    public init(configuration: Realm.Configuration? = nil) {
+    public convenience init(configuration: Realm.Configuration? = nil) {
+        self.init(configuration: configuration, versionController: VersionController())
+    }
+    
+    internal init(configuration: Realm.Configuration? = nil, versionController: VersionController) {
         self.configuration = configuration
+        versionController.check()
     }
     
     
