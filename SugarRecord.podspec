@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   end
 
   rac_dependencies = lambda do |spec|
-    spec.dependency "ReactiveCocoa", "4.2.0"
+    spec.dependency "ReactiveCocoa", "4.1.0"
   end
 
   realm_dependencies = lambda do |spec|
