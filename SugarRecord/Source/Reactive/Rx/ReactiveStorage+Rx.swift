@@ -3,15 +3,17 @@ import RxSwift
 
 public extension Storage {
 
-    func rx_operation(op: (context: Context, save: () -> Void) throws -> Void) -> Observable<Void> {
+    func rx_operation<T>(op: (context: Context, save: () -> Void) throws -> T) -> Observable<T> {
         return Observable.create { (observer) -> Disposable in
             do {
-                try self.operation { (context, saver) throws -> Void in
+                let returnedObject = try self.operation { (context, saver) throws -> T in
                     try op(context: context, save: { () -> Void in
                         saver()
                     })
-                    observer.onCompleted()
                 }
+                
+                observer.onNext(returnedObject)
+                observer.onCompleted()
             }
             catch {
                 observer.onError(error)
@@ -20,22 +22,28 @@ public extension Storage {
         }
     }
     
-    func rx_operation(op: (context: Context) -> Void) -> Observable<Void> {
+    func rx_operation<T>(op: (context: Context) throws -> T) -> Observable<T> {
         return rx_operation { (context, save) in
-            op(context: context)
+            
+            let returnedObject = try op(context: context)
             save()
+            
+            return returnedObject
         }
     }
     
-    func rx_backgroundOperation(op: (context: Context, save: () -> Void) throws -> Void) -> Observable<Void> {
+    func rx_backgroundOperation<T>(op: (context: Context, save: () -> Void) throws -> T) -> Observable<T> {
         return Observable.create { (observer) -> Disposable in
             do {
-                try self.operation { (context, saver) throws in
+                let returnedObject = try self.operation { (context, saver) throws -> T in
                     try op(context: context, save: { () -> Void in
                         saver()
                     })
-                    observer.onCompleted()
                 }
+                
+                observer.onNext(returnedObject)
+                observer.onCompleted()
+
             }
             catch {
                 observer.onError(error)
@@ -44,10 +52,13 @@ public extension Storage {
         }
     }
     
-    func rx_backgroundOperation(op: (context: Context) throws -> Void) -> Observable<Void> {
+    func rx_backgroundOperation<T>(op: (context: Context) throws -> T) -> Observable<T> {
         return rx_backgroundOperation { (context, save) throws in
-            try op(context: context)
+            
+            let returnedObject = try op(context: context)
             save()
+            
+            return returnedObject
         }
     }
     
