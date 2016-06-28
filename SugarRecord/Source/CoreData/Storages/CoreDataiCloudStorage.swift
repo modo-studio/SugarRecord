@@ -85,13 +85,18 @@ public class CoreDataiCloudStorage: Storage {
     
     // MARK: - Init
     
-    public init(model: CoreData.ObjectModel, iCloud: ICloudConfig) throws {
+    public convenience init(model: CoreData.ObjectModel, iCloud: ICloudConfig) throws {
+        try self.init(model: model, iCloud: iCloud, versionController: VersionController())
+    }
+    
+    internal init(model: CoreData.ObjectModel, iCloud: ICloudConfig, versionController: VersionController) throws {
         self.objectModel = model.model()!
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
         (self.store, self.persistentStore) = try! cdiCloudInitializeStore(storeCoordinator: persistentStoreCoordinator, iCloud: iCloud)
         self.rootSavingContext = cdContext(withParent: .Coordinator(self.persistentStoreCoordinator), concurrencyType: .PrivateQueueConcurrencyType, inMemory: false)
         self.mainContext = cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .MainQueueConcurrencyType, inMemory: false)
         self.observeiCloudChangesInCoordinator()
+        versionController.check()
     }
     
     

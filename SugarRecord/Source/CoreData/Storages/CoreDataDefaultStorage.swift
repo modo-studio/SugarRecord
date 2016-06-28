@@ -10,7 +10,7 @@ public class CoreDataDefaultStorage: Storage {
     internal var persistentStore: NSPersistentStore! = nil
     internal var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil
     internal var rootSavingContext: NSManagedObjectContext! = nil
-    
+
     
     // MARK: - Storage conformance
     
@@ -85,13 +85,18 @@ public class CoreDataDefaultStorage: Storage {
     
     // MARK: - Init
     
-    public init(store: CoreData.Store, model: CoreData.ObjectModel, migrate: Bool = true) throws {
+    public convenience init(store: CoreData.Store, model: CoreData.ObjectModel, migrate: Bool = true) throws {
+        try self.init(store: store, model: model, migrate: migrate, versionController: VersionController())
+    }
+    
+    internal init(store: CoreData.Store, model: CoreData.ObjectModel, migrate: Bool = true, versionController: VersionController) throws {
         self.store   = store
         self.objectModel = model.model()!
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
         self.persistentStore = try cdInitializeStore(store, storeCoordinator: persistentStoreCoordinator, migrate: migrate)
         self.rootSavingContext = cdContext(withParent: .Coordinator(self.persistentStoreCoordinator), concurrencyType: .PrivateQueueConcurrencyType, inMemory: false)
         self.mainContext = cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .MainQueueConcurrencyType, inMemory: false)
+        versionController.check()
     }
     
     
