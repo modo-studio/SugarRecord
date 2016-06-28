@@ -17,7 +17,6 @@ public extension Storage {
                 
                 observer.sendNext(returnedObject)
                 observer.sendCompleted()
-
             }
             catch {
                 observer.sendFailed(Error.Store(error))
@@ -29,7 +28,6 @@ public extension Storage {
         return self.rac_operation { (context, saver) throws in
             let returnedObject = try op(context: context)
             saver()
-            
             return returnedObject
         }
     }
@@ -44,10 +42,8 @@ public extension Storage {
                             saver()
                         })
                     }
-
                     observer.sendNext(returnedObject)
                     observer.sendCompleted()
-
                 }
                 catch {
                     observer.sendFailed(Error.Store(error))
