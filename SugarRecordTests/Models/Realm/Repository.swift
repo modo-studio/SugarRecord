@@ -12,8 +12,7 @@ class Repository: Object {
     
     
     // MARK: - Relationships
-        
-    var issues: [Issue] {
-        return linkingObjects(Issue.self, forProperty: "repository")
-    }
+    
+    let issues = LinkingObjects(fromType: Issue.self, property: "repository")
+
 }

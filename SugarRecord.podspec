@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SugarRecord"
-  s.version          = "2.2.8"
+  s.version          = "2.2.9"
   s.summary          = "CoreData wrapper written on Swift"
   s.homepage         = "https://github.com/pepibumur/SugarRecord"
   s.license          = 'MIT'
@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
   end
 
   rac_dependencies = lambda do |spec|
-    spec.dependency "ReactiveCocoa", "4.1.0"
+    spec.dependency "ReactiveCocoa", "4.2.0"
   end
 
   realm_dependencies = lambda do |spec|
-    spec.dependency "RealmSwift", "~> 0.102.1"
+    spec.dependency "RealmSwift", "~> 1.0.1"
   end
 
   coredata_dependencies = lambda do |spec|
