@@ -24,7 +24,7 @@ public class RealmDefaultStorage: Storage {
     
     public var description: String { return "RealmDefaultStorage" }
     
-    public var type: StorageType { return .Realm }
+    public var type: StorageType { return .realm }
     
     public var mainContext: Context! {
         if let configuration = self.configuration {
@@ -50,15 +50,15 @@ public class RealmDefaultStorage: Storage {
     
     public func removeStore() throws {
         if let url = try Realm().configuration.fileURL {
-            try NSFileManager.defaultManager().removeItemAtURL(url)
+            try FileManager.default().removeItem(at: url)
         }
     }
 
-    public func operation<T>(operation: (context: Context, save: () -> Void) throws -> T) throws -> T {
+    public func operation<T>(_ operation: (context: Context, save: () -> Void) throws -> T) throws -> T {
         let context: Realm = self.saveContext as! Realm
         context.beginWrite()
         var save: Bool = false
-        var _error: ErrorType!
+        var _error: ErrorProtocol!
         
         var returnedObject: T!
         do {
@@ -89,7 +89,7 @@ public class RealmDefaultStorage: Storage {
 
     }
     
-    public func observable<T: Object>(request: Request<T>) -> RequestObservable<T> {
+    public func observable<T: RealmSwift.Object>(_ request: Request<T>) -> RequestObservable<T> {
         return RealmObservable(request: request, realm: self.mainContext as! Realm)
     }
     

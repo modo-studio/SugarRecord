@@ -1,3 +1,3 @@
 github "ReactiveCocoa/ReactiveCocoa" "v4.2.0"
 github "realm/realm-cocoa" "v1.0.1"
-github "ReactiveX/RxSwift" "2.5.0"
+github "ReactiveX/RxSwift" "swift-3.0"

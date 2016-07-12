@@ -2,7 +2,7 @@ import Foundation
 
 public protocol NSPredicateConvertible {
     
-    init(predicate: NSPredicate)    
-    var predicate: NSPredicate? { get }
+    init(predicate: Predicate)    
+    var predicate: Predicate? { get }
 
 }

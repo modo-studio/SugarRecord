@@ -3,7 +3,7 @@ import RxSwift
 
 public extension Storage {
 
-    func rx_operation<T>(op: (context: Context, save: () -> Void) throws -> T) -> Observable<T> {
+    func rx_operation<T>(_ op: (context: Context, save: () -> Void) throws -> T) -> Observable<T> {
         return Observable.create { (observer) -> Disposable in
             do {
                 let returnedObject = try self.operation { (context, saver) throws -> T in
@@ -22,7 +22,7 @@ public extension Storage {
         }
     }
     
-    func rx_operation<T>(op: (context: Context) throws -> T) -> Observable<T> {
+    func rx_operation<T>(_ op: (context: Context) throws -> T) -> Observable<T> {
         return rx_operation { (context, save) in
             
             let returnedObject = try op(context: context)
@@ -32,7 +32,7 @@ public extension Storage {
         }
     }
     
-    func rx_backgroundOperation<T>(op: (context: Context, save: () -> Void) throws -> T) -> Observable<T> {
+    func rx_backgroundOperation<T>(_ op: (context: Context, save: () -> Void) throws -> T) -> Observable<T> {
         return Observable.create { (observer) -> Disposable in
             do {
                 let returnedObject = try self.operation { (context, saver) throws -> T in
@@ -52,7 +52,7 @@ public extension Storage {
         }
     }
     
-    func rx_backgroundOperation<T>(op: (context: Context) throws -> T) -> Observable<T> {
+    func rx_backgroundOperation<T>(_ op: (context: Context) throws -> T) -> Observable<T> {
         return rx_backgroundOperation { (context, save) throws in
             
             let returnedObject = try op(context: context)
@@ -62,10 +62,10 @@ public extension Storage {
         }
     }
     
-    func rx_backgroundFetch<T, U>(request: Request<T>, mapper: T -> U) -> Observable<[U]> {
+    func rx_backgroundFetch<T, U>(_ request: Request<T>, mapper: (T) -> U) -> Observable<[U]> {
         let observable: Observable<[T]> = Observable.create { (observer) -> Disposable in
-            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-            dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            let priority = DispatchQueue.GlobalAttributes.qosDefault
+            DispatchQueue.global(attributes: priority).async {
                 do {
                     let results = try self.saveContext.fetch(request)
                     observer.onNext(results)
@@ -88,7 +88,7 @@ public extension Storage {
             .observeOn(MainScheduler.instance)
     }
 
-    func rx_fetch<T>(request: Request<T>) -> Observable<[T]> {
+    func rx_fetch<T>(_ request: Request<T>) -> Observable<[T]> {
         return Observable.create { (observer) -> Disposable in
             do {
                 try observer.onNext(self.fetch(request))

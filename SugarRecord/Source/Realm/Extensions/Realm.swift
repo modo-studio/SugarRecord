@@ -3,8 +3,8 @@ import RealmSwift
 
 extension Realm: Context {
     
-    public func fetch<T: Entity>(request: Request<T>) throws -> [T] {
-        guard let entity = T.self as? Object.Type else { throw Error.InvalidType }
+    public func fetch<T: Entity>(_ request: Request<T>) throws -> [T] {
+        guard let entity = T.self as? RealmSwift.Object.Type else { throw Error.invalidType }
         var results = self.objects(entity.self)
         if let predicate = request.predicate {
             results = results.filter(predicate)
@@ -15,17 +15,17 @@ extension Realm: Context {
         return results.toArray().map { $0 as Any as! T }
     }
     
-    public func insert<T: Entity>(entity: T) throws {
-        guard let _ = T.self as? Object.Type else { throw Error.InvalidType }
-        self.add(entity as! Object, update: false)
+    public func insert<T: Entity>(_ entity: T) throws {
+        guard let _ = T.self as? RealmSwift.Object.Type else { throw Error.invalidType }
+        self.add(entity as! RealmSwift.Object, update: false)
     }
     
     public func new<T: Entity>() throws -> T {
-        guard let entity = T.self as? Object.Type else { throw Error.InvalidType }
+        guard let entity = T.self as? RealmSwift.Object.Type else { throw Error.invalidType }
         return entity.init() as! T
     }
     
-    public func remove<T: Entity>(objects: [T]) throws {
+    public func remove<T: Entity>(_ objects: [T]) throws {
         let objectsToDelete = objects
             .map { $0.realm }
             .filter { $0 != nil }
