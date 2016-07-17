@@ -79,6 +79,52 @@ class RealmDefaultStorageTests: QuickSpec {
             
         }
         
+        describe("-backgroundOperation:") {
+            
+            it("should notify about the completion when the operation completes") {
+                waitUntil(action: { (done) in
+                    subject.backgroundOperation({ (context, save) -> Void in
+                        // Do nothing
+                    }) { error in
+                        done()
+                    }
+                })
+            }
+            
+            it("should notify about the completion with the error if any is thrown") {
+                waitUntil(action: { (done) in
+                    let error: NSError = NSError(domain: "", code: -1, userInfo: nil)
+                    subject.backgroundOperation({ (context, save) throws -> Void in
+                        throw error
+                    }) { _error in
+                        expect(_error! as NSError) == error
+                        done()
+                    }
+                })
+            }
+            
+            it("should notify the completion block in the main thread") {
+                waitUntil(action: { (done) in
+                    subject.backgroundOperation({ (context, save) -> Void in
+                        // Do nothing
+                    }) { error in
+                        expect(NSThread.isMainThread()) == true
+                        done()
+                    }
+                })
+            }
+            
+            it("should execute the operation in a background thread") {
+                waitUntil(action: { (done) in
+                    subject.backgroundOperation({ (context, save) -> Void in
+                        expect(NSThread.isMainThread()) == false
+                        done()
+                    })
+                })
+            }
+            
+        }
+        
         describe("-observable") {
             
             var observable: RealmObservable<Issue>!
