@@ -1,6 +1,6 @@
 import Foundation
-import ReactiveCocoa
 import Result
+import ReactiveCocoa
 
 public extension Storage {
     
