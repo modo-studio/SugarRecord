@@ -4,9 +4,9 @@ import RealmSwift
 extension Entity {
     
     /// Realm object wrapped by the Entity
-    var realm: Object? {
+    var realm: RealmSwift.Object? {
         get {
-            return (self as? Object)
+            return (self as? RealmSwift.Object)
         }
     }
     

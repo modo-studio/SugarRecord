@@ -1,4 +1,4 @@
 import Foundation
 import RealmSwift
 
-extension Object: Entity {}
+extension RealmSwift.Object: Entity {}

@@ -6,7 +6,7 @@ public extension Storage {
     
     // MARK: - Operation
     
-    func rac_operation<T>(op: (context: Context, save: () -> Void) throws -> T) -> SignalProducer<T, Error> {
+    func rac_operation<T>(_ op: (context: Context, save: () -> Void) throws -> T) -> SignalProducer<T, Error> {
         return SignalProducer { (observer, disposable) in
             do {
                 let returnedObject = try self.operation { (context, saver) throws in
@@ -19,12 +19,12 @@ public extension Storage {
                 observer.sendCompleted()
             }
             catch {
-                observer.sendFailed(Error.Store(error))
+                observer.sendFailed(Error.store(error))
             }
         }
     }
     
-    func rac_operation<T>(op: (context: Context) throws -> T) -> SignalProducer<T, Error> {
+    func rac_operation<T>(_ op: (context: Context) throws -> T) -> SignalProducer<T, Error> {
         return self.rac_operation { (context, saver) throws in
             let returnedObject = try op(context: context)
             saver()
@@ -32,10 +32,10 @@ public extension Storage {
         }
     }
     
-    func rac_backgroundOperation<T>(op: (context: Context, save: () -> Void) throws -> T) -> SignalProducer<T, Error> {
+    func rac_backgroundOperation<T>(_ op: (context: Context, save: () -> Void) throws -> T) -> SignalProducer<T, Error> {
         return SignalProducer { (observer, disposable) in
-            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-            dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            let priority = DispatchQueue.GlobalAttributes.qosDefault
+            DispatchQueue.global(attributes: priority).async {
                 do {
                     let returnedObject = try self.operation { (context, saver) throws in
                         try op(context: context, save: {
@@ -46,13 +46,13 @@ public extension Storage {
                     observer.sendCompleted()
                 }
                 catch {
-                    observer.sendFailed(Error.Store(error))
+                    observer.sendFailed(Error.store(error))
                 }
             }
         }
     }
     
-    func rac_backgroundOperation<T>(op: (context: Context) throws -> T) -> SignalProducer<T, Error> {
+    func rac_backgroundOperation<T>(_ op: (context: Context) throws -> T) -> SignalProducer<T, Error> {
         return rac_backgroundOperation { (context, save) throws in
             let returnedObject = try op(context: context)
             save()
@@ -62,10 +62,10 @@ public extension Storage {
     }
 
     
-    func rac_backgroundFetch<T: Entity, U>(request: Request<T>, mapper: T -> U) -> SignalProducer<[U], Error> {
+    func rac_backgroundFetch<T: Entity, U>(_ request: Request<T>, mapper: (T) -> U) -> SignalProducer<[U], Error> {
         let producer: SignalProducer<[T], Error> = SignalProducer { (observer, disposable) in
-            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-            dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            let priority = DispatchQueue.GlobalAttributes.qosDefault
+            DispatchQueue.global(attributes: priority).async {
                 do {
                     let results = try self.saveContext.fetch(request)
                     observer.sendNext(results)
@@ -85,7 +85,7 @@ public extension Storage {
         return producer.map { $0.map(mapper) }.observeOn(UIScheduler())
     }
     
-    func rac_fetch<T: Entity>(request: Request<T>) -> SignalProducer<[T], Error> {
+    func rac_fetch<T: Entity>(_ request: Request<T>) -> SignalProducer<[T], Error> {
         return SignalProducer { (observer, disposable) in
             do {
                 try observer.sendNext(self.fetch(request))

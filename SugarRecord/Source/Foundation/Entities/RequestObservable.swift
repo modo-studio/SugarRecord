@@ -1,9 +1,9 @@
 import Foundation
 
 public enum ObservableChange<T> {
-    case Initial([T])
-    case Update(deletions: [Int], insertions: [(index: Int, element: T)], modifications: [(index: Int, element: T)])
-    case Error(NSError)
+    case initial([T])
+    case update(deletions: [Int], insertions: [(index: Int, element: T)], modifications: [(index: Int, element: T)])
+    case error(NSError)
 }
 
 public class RequestObservable<T: Entity>: NSObject {
@@ -22,7 +22,7 @@ public class RequestObservable<T: Entity>: NSObject {
     
     // MARK: - Public
     
-    public func observe(closure: ObservableChange<T> -> Void) {
+    public func observe(_ closure: (ObservableChange<T>) -> Void) {
         assertionFailure("The observe method must be overriden")
     }
     
