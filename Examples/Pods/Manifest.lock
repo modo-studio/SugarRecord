@@ -1,4 +1,6 @@
 PODS:
+  - Nimble (4.1.0)
+  - Quick (0.9.3)
   - Realm (1.0.2):
     - Realm/Headers (= 1.0.2)
   - Realm/Headers (1.0.2)
@@ -19,20 +21,27 @@ PODS:
     - Result (~> 2.0)
 
 DEPENDENCIES:
+  - Nimble
+  - Quick
   - SnapKit
   - SugarRecord (from `../`)
+  - SugarRecord/CoreData (from `../`)
+  - SugarRecord/CoreData+iCloud (from `../`)
+  - SugarRecord/Realm (from `../`)
 
 EXTERNAL SOURCES:
   SugarRecord:
     :path: "../"
 
 SPEC CHECKSUMS:
+  Nimble: 97a0a4cae5124c117115634b2d055d8c97d0af19
+  Quick: 13a2a2b19a5d8e3ed4fd0c36ee46597fd77ebf71
   Realm: 9d5c46a4d7d27958530a8dfc58f63a99e5c2cba3
   RealmSwift: 82f3ac5e24530143dddfde2033acc0d308f27d96
   Result: 18e1a7597fbcca5923c565b40a25a98afafdee02
   SnapKit: 0dd2fd157330f1ea11fd84da13e6be8a7a22bae0
   SugarRecord: 4911b37399933cfaeb90f248ec280858caf91e3e
 
-PODFILE CHECKSUM: 82839cd7eea9f32ffd98fdf1dd527c35ebf2f9e4
+PODFILE CHECKSUM: a196697021ce9a77aff6b9a4fd98d46107c43c06
 
 COCOAPODS: 1.0.1

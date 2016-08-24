@@ -4,3 +4,12 @@ target 'Examples' do
   pod 'SnapKit'
   pod 'SugarRecord', :path => "../"
 end
+
+target 'Tests' do
+  pod 'SugarRecord', :path => "../"
+  pod 'SugarRecord/CoreData', :path => "../"
+  pod 'SugarRecord/CoreData+iCloud', :path => "../"
+  pod 'SugarRecord/Realm', :path => "../"
+  pod "Quick"
+  pod "Nimble"
+end
