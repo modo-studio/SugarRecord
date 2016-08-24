@@ -1,0 +1,77 @@
+{
+  "name": "SugarRecord",
+  "version": "2.2.9",
+  "summary": "CoreData wrapper written on Swift",
+  "homepage": "https://github.com/pepibumur/SugarRecord",
+  "license": "MIT",
+  "authors": {
+    "Pedro": "pedro@gitdo.io"
+  },
+  "source": {
+    "git": "https://github.com/pepibumur/SugarRecord.git",
+    "tag": "2.2.9"
+  },
+  "social_media_url": "https://twitter.com/pepibumur",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "subspecs": [
+    {
+      "name": "CoreData",
+      "source_files": [
+        "SugarRecord/Source/Foundation/**/*.{swift}",
+        "SugarRecord/Source/CoreData/**/*.{swift}"
+      ],
+      "exclude_files": [
+        "SugarRecord/Source/CoreData/Entities/iCloudConfig.swift",
+        "SugarRecord/Source/CoreData/Storages/CoreDataiCloudStorage.swift"
+      ],
+      "frameworks": [
+        "CoreData"
+      ],
+      "dependencies": {
+        "Result": [
+          "~> 2.0"
+        ]
+      },
+      "platforms": {
+        "ios": "8.0",
+        "osx": "10.10",
+        "watchos": "2.0",
+        "tvos": "9.0"
+      }
+    },
+    {
+      "name": "CoreData+iCloud",
+      "source_files": [
+        "SugarRecord/Source/Foundation/**/*.{swift}",
+        "SugarRecord/Source/CoreData/**/*.{swift}"
+      ],
+      "frameworks": [
+        "CoreData"
+      ],
+      "dependencies": {
+        "Result": [
+          "~> 2.0"
+        ]
+      }
+    },
+    {
+      "name": "Realm",
+      "source_files": [
+        "SugarRecord/Source/Foundation/**/*.{swift}",
+        "SugarRecord/Source/Realm/**/*.{swift}"
+      ],
+      "dependencies": {
+        "RealmSwift": [
+          "~> 1.0.1"
+        ],
+        "Result": [
+          "~> 2.0"
+        ]
+      }
+    }
+  ]
+}
