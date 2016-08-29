@@ -260,20 +260,6 @@ There's an example project available in `Example` folder.
 
 Feel free to propose new examples using SugarRecord :heart:
 
-# Contributing
-
-## Support
-
-If you want to communicate any issue, suggestion or even make a contribution, you have to keep in mind the flow bellow:
-
-- If you need help, ask your doubt in Stack Overflow using the tag 'sugarrecord'
-- If you want to ask something in general, use Stack Overflow too.
-- Open an issue either when you have an error to report or a feature request.
-- If you want to contribute, submit a pull request, and remember the rules to follow related with the code style, testing, ...
-
-## Contribution
-- You'll find more details about contributing to SugarRecord in [contributing](CONTRIBUTING.md)
-
 ## Resources
 - [Quick](https://github.com/quick/quick)
 - [Nimble](https://github.com/quick/nimble)
@@ -281,10 +267,17 @@ If you want to communicate any issue, suggestion or even make a contribution, yo
 - [Jazzy](https://github.com/realm/jazzy)
 - [iCloud + CoreData (objc.io)](http://www.objc.io/issue-10/icloud-core-data.html)
 
-## Code of conduct
+## About
 
-This project adheres to the [Open Code of Conduct][code-of-conduct]. By participating, you are expected to honor this code.
-[code-of-conduct]: http://todogroup.org/opencodeofconduct/#SugarRecord/pepibumur@gmail.com
+<img src="https://github.com/carambalabs/Foundation/blob/master/ASSETS/avatar_rounded.png?raw=true" width="70" />
+
+This project is funded and maintained by [Caramba](http://caramba.in). We 💛 open source software!
+
+Check out our other [open source projects](https://github.com/carambalabs/), read our [blog](http://blog.caramba.in) or say :wave: on twitter [@carambalabs](http://twitter.com/carambalabs).
+
+## Contribute
+
+Contributions are welcome :metal: We encourage developers like you to help us improve the projects we've shared with the community. Please see the [Contributing Guide](https://github.com/carambalabs/Foundation/blob/master/CONTRIBUTING.md) and the [Code of Conduct](https://github.com/carambalabs/Foundation/blob/master/CONDUCT.md).
 
 ## License
 The MIT License (MIT)
@@ -308,6 +301,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-## Who uses SugarRecord?
-Are you using SugarRecord? Let us know, and we'll list you here. We :heart: to hear about companies, apps that are using us with CoreData.
