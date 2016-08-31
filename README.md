@@ -6,7 +6,6 @@
 [![Language: Swift](https://img.shields.io/badge/lang-Swift-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 [![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/pepibumur/SugarRecord.svg)](https://travis-ci.org/pepibumur/SugarRecord)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Slack Status](http://sugar-record.herokuapp.com/badge.svg)](http://sugar-record.herokuapp.com/)
 
 
@@ -20,7 +19,6 @@ The library is maintained by [@pepibumur](https://github.com/pepibumur). You can
 ## Features
 - Swift 2.3 compatible (Xcode 7.3).
 - Fully rewritten from the version 1.0.
-- Reactive API (using ReactiveCocoa).
 - Protocols based design.
 - For **beginners** and **advanced** users
 - Fully customizable. Build your own stack!
@@ -47,21 +45,8 @@ Choose the right one depending ton the configuration you need for you app.
 ```ruby
 pod "SugarRecord/CoreData"
 pod "SugarRecord/CoreData+iCloud"
-pod "SugarRecord/CoreData+RX"
-pod "SugarRecord/CoreData+RX+iCloud"
-pod "SugarRecord/CoreData+RAC"
-pod "SugarRecord/CoreData+RAC+iCloud"
 pod "SugarRecord/Realm"
-pod "SugarRecord/Realm+RX"
-pod "SugarRecord/Realm+RAC"
 ```
-
-### [Carthage](https://carthage)
-1. Install [Carthage](https://github.com/carthage/carthage) on your computer using `brew install carthage`
-3. Edit your `Cartfile` file adding the following line `github "pepibumur/sugarrecord"`
-4. Update and build frameworks with `carthage update`
-5. Add generated frameworks to your app main target following the steps [here](https://github.com/carthage/carthage)
-6. Link your target with **CoreData** library *(from Build Phases)*
 
 #### Notes
 - Carthage integration includes both, CoreData and Realm. We're planning to separate it in multiple frameworks. [Task](https://trello.com/c/hyhN1Tp2/11-create-separated-frameworks-for-foundation-coredata-and-realm)
@@ -193,28 +178,6 @@ catch {
 }
 ```
 
-### Reactive Interface
-`Storage`s offer a reactive API that you can use if your app follows the Reactive paradigm. SugarRecord supports the two main Reactive libraries for Swift, [ReactiveCocoa](https://github.com/reactivecocoa/reactivecocoa) and [RxSwift](https://github.com/ReactiveX/RxSwift). Methods prefixes are `rac_` and `rx_` respectively:
-
-```swift
-// Executes the operation and notifies the completion/error to the producer. Optionally returns an object from the operation (such as the id of a newly created object)
-func rac_operation<T>(operation: (context: Context, save: Saver) -> T) -> SignalProducer<T, NoError>
-func rx_operation<T>(operation: (context: Context, save: Saver) -> T) -> Observable<T>
-
-// Executes the operation in background and notifies the completion/error to the producer. Optionally returns an object from the operation (such as the id of a newly created object)
-func rac_backgroundOperation<T>(operation: (context: Context, save: Saver) -> T) -> SignalProducer<T, NoError>
-func rx_backgroundOperation<T>(operation: (context: Context, save: Saver) -> T) -> Observable<T>
-
-// Executes a fetch in a background thread mapping them into thread safe plain entities forwarding the results to the producer.
-func rac_backgroundFetch<T, U>(request: Request<T>, mapper: T -> U) -> SignalProducer<[U], Error>
-func rx_backgroundFetch<T, U>(request: Request<T>, mapper: T -> U) -> Observable<[U]>
-
-// Executes the fetch in the main thread forwarding the results to the producer.
-func rac_fetch<T>(request: Request<T>) -> SignalProducer<[T], Error>
-func rx_fetch<T>(request: Request<T>) -> Observable<[T]>
-```
-
-
 <br>
 > This is the first approach of SugarRecord for the  interface. We'll improve it with the feedback you can report and according to the use of the framework. Do not hesitate to reach us with your proposals. Everything that has to be with making the use of CoreData/Realm easier, funnier, and enjoyable is welcome! :tada:
 
@@ -245,9 +208,6 @@ class Presenter {
 > **Retain**: RequestObservable must be retained during the observation lifecycle. When the `RequestObservable` instance gets released from memory it stops observing changes from your storage.
 
 > **NOTE**: This was renamed from Observable -> RequestObservable so we are no longer stomping on the RxSwift Observable namespace.
-
-> **Reactive**: Observables can be also observed as Reactive sources using `rx_observe` or `rac_observe`.
-In this case there's no need to retain the `RequestObservable` but dispose it whenever you're not interested anymore in observing changes.
 
 **:warning: `RequestObservable` is not available for CoreData + OSX**
 

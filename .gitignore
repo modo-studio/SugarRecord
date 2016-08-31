@@ -79,6 +79,8 @@ DerivedData
 !default.perspectivev3
 xcuserdata
 
+Examples/Pods
+
 ## Other
 *.xccheckout
 *.moved-aside
