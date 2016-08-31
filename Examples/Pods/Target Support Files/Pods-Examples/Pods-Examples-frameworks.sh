@@ -84,16 +84,16 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/Realm-iOS9.2/Realm.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/RealmSwift-iOS9.2/RealmSwift.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Result-iOS9.2/Result.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Realm-iOS/Realm.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RealmSwift-iOS/RealmSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Result-iOS/Result.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SnapKit/SnapKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SugarRecord-iOS9.2/SugarRecord.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SugarRecord-iOS/SugarRecord.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/Realm-iOS9.2/Realm.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/RealmSwift-iOS9.2/RealmSwift.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Result-iOS9.2/Result.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Realm-iOS/Realm.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RealmSwift-iOS/RealmSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Result-iOS/Result.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SnapKit/SnapKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SugarRecord-iOS9.2/SugarRecord.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SugarRecord-iOS/SugarRecord.framework"
 fi

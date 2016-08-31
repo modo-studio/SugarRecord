@@ -3,13 +3,29 @@ use_frameworks!
 target 'Examples' do
   pod 'SnapKit'
   pod 'SugarRecord', :path => "../"
+  pod 'SugarRecord/CoreData', :path => "../"
+  pod 'SugarRecord/CoreData+iCloud', :path => "../"
+  pod 'SugarRecord/Realm', :path => "../"
 end
 
-target 'Tests' do
+target 'iOS' do
   pod 'SugarRecord', :path => "../"
   pod 'SugarRecord/CoreData', :path => "../"
   pod 'SugarRecord/CoreData+iCloud', :path => "../"
   pod 'SugarRecord/Realm', :path => "../"
   pod "Quick"
   pod "Nimble"
+end
+
+target 'macOS' do
+  pod 'SugarRecord', :path => "../"
+  pod 'SugarRecord/CoreData', :path => "../"
+  pod 'SugarRecord/CoreData+iCloud', :path => "../"
+  pod 'SugarRecord/Realm', :path => "../"
+end
+
+target 'tvOS' do
+  # pod 'SugarRecord', :path => "../"
+  # pod 'SugarRecord/CoreData', :path => "../"
+  # pod 'SugarRecord/Realm', :path => "../"
 end

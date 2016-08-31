@@ -1,14 +1,14 @@
 //
-//  Tests.swift
-//  Tests
+//  macOS.swift
+//  macOS
 //
-//  Created by Pedro Pinera Buendia on 24/08/16.
+//  Created by Pedro Pinera Buendia on 31/08/16.
 //  Copyright © 2016 SwiftReactive. All rights reserved.
 //
 
 import XCTest
 
-class Tests: XCTestCase {
+class macOS: XCTestCase {
     
     override func setUp() {
         super.setUp()

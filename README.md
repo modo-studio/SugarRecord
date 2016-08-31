@@ -210,15 +210,6 @@ class Presenter {
 
 **:warning: `RequestObservable` is not available for CoreData + OSX**
 
-### Example project
-
-There's an example project available in `Example` folder.
-
-1. Open the folder and execute `pod install`
-2. Open the project using `SugarRecordExamples.xcworkspace`
-
-Feel free to propose new examples using SugarRecord :heart:
-
 ## Resources
 - [Quick](https://github.com/quick/quick)
 - [Nimble](https://github.com/quick/nimble)
