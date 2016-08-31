@@ -1,61 +1,47 @@
-# Requires
-require 'yaml'
+COMMIT_MESSAGE = "Bump podspec to"
 
-# Fastlane Constants
-fastlane_version "1.54.0"
-default_platform :ios
-
-# Constants
-PODSPEC = "SugarRecord.podspec"
-WORKSPACE = "SugarRecord.xcworkspace"
-SCHEME_TESTS = "SugarRecordTests"
-REPOSITORY = "pepibumur/SugarRecord"
-
-# Lanes
-desc "Setup everything needed to work on the project"
-lane :setup do
-  sh("carthage checkout --project-directory \"../\"")
+lane :pods do
+  cocoapods(podfile: "Examples/")
 end
 
-desc "Runs the tests suite"
 lane :tests do
-  scan(workspace: WORKSPACE, scheme: SCHEME_TESTS, skip_build: true)
+  scan(workspace: "Examples/Examples.xcworkspace", scheme: "iOS", clean: true)
 end
 
-desc "Builds all the project targets"
-lane :build do
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-iOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-iOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-OSX', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-OSX', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-watchOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-watchOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-tvOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
-  xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-tvOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
-end
-
-lane :ci do
-  setup
-  build
+lane :travis do
+  pods
   tests
+  danger
 end
-
-lane :deploy do
-  ensure_git_branch
-  version = version_bump_podspec(path: PODSPEC, bump_type: "patch")
-  pod_push(path: PODSPEC)
-  changelog = changelog_from_git_commits(
-    between: [last_git_tag, 'HEAD'],
-    pretty: '- (%ae) %s',
-    include_merges: false
-  )
+  
+lane :push do
+  podspec = "SugarRecord.podspec"
+  last_version = version_get_podspec(path: podspec)
+  version = version_bump_podspec(path: podspec)
+  git_commit(path: [podspec, "./Examples/Podfile.lock"], message: "#{COMMIT_MESSAGE} #{version}")
+  changelog = changelog_from_git_commits
+  changelog ||= "No changelog"
   github_release = set_github_release(
-    repository_name: REPOSITORY,
+    repository_name: "carambalabs/SugarRecord",
     api_token: ENV['GITHUB_TOKEN'],
-    name: "Version #{version}",
+    name: version,
     tag_name: version,
     description: changelog,
     commitish: "master"
   )
-  push_to_git_remote
+  sh("git fetch --tags")
+  push_to_git_remote(remote_branch: 'master', force: false, tags: true)
+  pod_push(allow_warnings: true, verbose: true)
 end
+
+# desc "Builds all the project targets"
+# lane :build do
+#   xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-iOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+#   xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-iOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+#   xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-OSX', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+#   xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-OSX', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+#   xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-watchOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+#   xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-watchOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+#   xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-CoreData-tvOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+#   xcodebuild(workspace: WORKSPACE, scheme: 'SugarRecord-Realm-tvOS', configuration: "Debug", build_settings: {"ONLY_ACTIVE_ARCH" => "NO", "CODE_SIGNING_REQUIRED" => "NO", "CODE_SIGN_IDENTITY" => "" } )
+# end

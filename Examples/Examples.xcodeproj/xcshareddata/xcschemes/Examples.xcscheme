@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23D5925C1C2834DC00441B41"
+               BlueprintIdentifier = "23C453141D7789A900483DB4"
                BuildableName = "Examples.app"
                BlueprintName = "Examples"
                ReferencedContainer = "container:Examples.xcodeproj">
@@ -28,21 +28,11 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23EA8C971D6E1550008333A4"
-               BuildableName = "iOS.xctest"
-               BlueprintName = "iOS"
-               ReferencedContainer = "container:Examples.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "23D5925C1C2834DC00441B41"
+            BlueprintIdentifier = "23C453141D7789A900483DB4"
             BuildableName = "Examples.app"
             BlueprintName = "Examples"
             ReferencedContainer = "container:Examples.xcodeproj">
@@ -65,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "23D5925C1C2834DC00441B41"
+            BlueprintIdentifier = "23C453141D7789A900483DB4"
             BuildableName = "Examples.app"
             BlueprintName = "Examples"
             ReferencedContainer = "container:Examples.xcodeproj">
@@ -84,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "23D5925C1C2834DC00441B41"
+            BlueprintIdentifier = "23C453141D7789A900483DB4"
             BuildableName = "Examples.app"
             BlueprintName = "Examples"
             ReferencedContainer = "container:Examples.xcodeproj">

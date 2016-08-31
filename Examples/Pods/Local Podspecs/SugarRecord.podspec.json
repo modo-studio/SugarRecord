@@ -1,17 +1,17 @@
 {
   "name": "SugarRecord",
-  "version": "2.2.9",
-  "summary": "CoreData wrapper written on Swift",
-  "homepage": "https://github.com/pepibumur/SugarRecord",
+  "version": "2.3.0",
+  "summary": "CoreData & Realmwrapper written on Swift",
+  "homepage": "https://github.com/carambalabs/SugarRecord",
   "license": "MIT",
   "authors": {
-    "Pedro": "pedro@gitdo.io"
+    "Pedro": "pepibumur@gmail.com"
   },
   "source": {
-    "git": "https://github.com/pepibumur/SugarRecord.git",
-    "tag": "2.2.9"
+    "git": "https://github.com/carambalabs/SugarRecord.git",
+    "tag": "2.3.0"
   },
-  "social_media_url": "https://twitter.com/pepibumur",
+  "social_media_url": "https://twitter.com/carambalabs",
   "requires_arc": true,
   "platforms": {
     "ios": "8.0",
