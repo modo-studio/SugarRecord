@@ -1,8 +1,8 @@
-# <center>![xcres](https://github.com/pepibumur/SugarRecord/raw/master/Assets/Banner.png)</center>
+# <center>![xcres](https://github.com/carambalabs/SugarRecord/raw/master/Assets/Banner.png)</center>
 
 # SugarRecord
 
-[![Twitter: @pepibumur](https://img.shields.io/badge/contact-@pepibumur-blue.svg?style=flat)](https://twitter.com/pepibumur)
+[![Twitter: @carambalabs](https://img.shields.io/badge/contact-@carambalabs-blue.svg?style=flat)](https://twitter.com/carambalabs)
 [![Language: Swift](https://img.shields.io/badge/lang-Swift-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 [![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/carambalabs/SugarRecord.svg)](https://travis-ci.org/carambalabs/SugarRecord)
