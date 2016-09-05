@@ -1,6 +1,6 @@
-#if os(iOS) || os(tvOS) || os(watchOS)
 import Foundation
 import CoreData
+#if os(iOS) || os(tvOS) || os(watchOS)
 
 public class CoreDataObservable<T: NSManagedObject where T:Equatable>: RequestObservable<T>, NSFetchedResultsControllerDelegate {
 
@@ -54,19 +54,19 @@ public class CoreDataObservable<T: NSManagedObject where T:Equatable>: RequestOb
     public func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
         case .Delete:
-            #if os(watchOS)
+            #if os(watchOS) || os(tvOS)
                 self.batchChanges.append(.Delete(indexPath!.indexAtPosition(0), anObject as! T))
             #else
                 self.batchChanges.append(.Delete(indexPath!.row, anObject as! T))
             #endif
         case .Insert:
-            #if os(watchOS)
+            #if os(watchOS) || os(tvOS)
                 self.batchChanges.append(.Insert(newIndexPath!.indexAtPosition(0), anObject as! T))
             #else
                 self.batchChanges.append(.Insert(newIndexPath!.row, anObject as! T))
             #endif
         case .Update:
-            #if os(watchOS)
+            #if os(watchOS) || os(tvOS)
                 self.batchChanges.append(.Update(indexPath!.indexAtPosition(0), anObject as! T))
             #else
                 self.batchChanges.append(.Update(indexPath!.row, anObject as! T))
