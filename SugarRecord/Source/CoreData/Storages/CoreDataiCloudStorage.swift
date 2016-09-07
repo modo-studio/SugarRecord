@@ -133,6 +133,6 @@ internal func cdiCloudInitializeStore(storeCoordinator storeCoordinator: NSPersi
     var options = CoreData.Options.Migration.dict()
     options[NSPersistentStoreUbiquitousContentURLKey] = storeURL
     options[NSPersistentStoreUbiquitousContentNameKey] = iCloud.ubiquitousContentName
-    let store = CoreData.Store.URL(storeURL)
+    let store = CoreData.Store.URL(storeURL!)
     return try (store, cdAddPersistentStore(store, storeCoordinator: storeCoordinator, options: options))
 }

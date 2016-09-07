@@ -12,7 +12,7 @@ public extension CoreData {
             switch self {
             case .URL(let url): return url
             case .Named(let name):
-                return NSURL(fileURLWithPath: documentsDirectory()).URLByAppendingPathComponent(name)
+                return NSURL(fileURLWithPath: documentsDirectory()).URLByAppendingPathComponent(name)!
             }
         }
         

@@ -180,7 +180,7 @@ internal func cdAddPersistentStore(store: CoreData.Store, storeCoordinator: NSPe
 }
 
 internal func cdCleanStoreFilesAfterFailedMigration(store store: CoreData.Store) throws {
-    let rawUrl: String = store.path().absoluteString
+    let rawUrl: String = store.path().absoluteString!
     let shmSidecar: NSURL = NSURL(string: rawUrl.stringByAppendingString("-shm"))!
     let walSidecar: NSURL = NSURL(string: rawUrl.stringByAppendingString("-wal"))!
     try NSFileManager.defaultManager().removeItemAtURL(store.path())

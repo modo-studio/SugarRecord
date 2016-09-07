@@ -931,15 +931,31 @@
 				TargetAttributes = {
 					2334C4691D7DD8A500ACBC3A = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					2334C49D1D7DD93600ACBC3A = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					2334C4AA1D7DD95C00ACBC3A = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					2334C4B71D7DD97B00ACBC3A = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
+					};
+					2334C4C01D7DDA1400ACBC3A = {
+						LastSwiftMigration = 0800;
+					};
+					2334C4CA1D7DDA4F00ACBC3A = {
+						LastSwiftMigration = 0800;
+					};
+					2334C4D41D7DDA9900ACBC3A = {
+						LastSwiftMigration = 0800;
+					};
+					2334C4DE1D7DDAEF00ACBC3A = {
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -1381,6 +1397,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.SugarRecord;
 				PRODUCT_NAME = SugarRecordCoreData;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1398,6 +1415,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.SugarRecord;
 				PRODUCT_NAME = SugarRecordCoreData;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1417,6 +1435,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -1438,6 +1457,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -1458,6 +1478,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -1478,6 +1499,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -1502,6 +1524,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1524,6 +1547,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1542,6 +1566,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.SugarRecord;
 				PRODUCT_NAME = SugarRecord;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1560,6 +1585,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.SugarRecord;
 				PRODUCT_NAME = SugarRecord;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1580,6 +1606,7 @@
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -1602,6 +1629,7 @@
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -1623,6 +1651,7 @@
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -1644,6 +1673,7 @@
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -1669,6 +1699,7 @@
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -1692,6 +1723,7 @@
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
