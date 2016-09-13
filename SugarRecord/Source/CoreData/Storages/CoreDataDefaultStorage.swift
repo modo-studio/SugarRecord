@@ -53,16 +53,16 @@ public class CoreDataDefaultStorage: Storage {
                     catch {
                         _error = error
                     }
-                    if self.rootSavingContext.hasChanges {
-                        self.rootSavingContext.performBlockAndWait({
+                    self.rootSavingContext.performBlockAndWait({
+                        if self.rootSavingContext.hasChanges {
                             do {
                                 try self.rootSavingContext.save()
                             }
                             catch {
                                 _error = error
                             }
-                        })
-                    }
+                        }
+                    })
                 })
             } catch {
                 _error = error
