@@ -11,6 +11,8 @@ extension NSManagedObjectContext: Context {
         let fetchRequest: NSFetchRequest =  NSFetchRequest(entityName: entity.entityName)
         fetchRequest.predicate = request.predicate
         fetchRequest.sortDescriptors = request.sortDescriptor.map {[$0]}
+        fetchRequest.fetchOffset = request.fetchOffset
+        fetchRequest.fetchLimit = request.fetchLimit
         let results = try self.executeFetchRequest(fetchRequest)
         let typedResults = results.map {$0 as! T} 
         return typedResults

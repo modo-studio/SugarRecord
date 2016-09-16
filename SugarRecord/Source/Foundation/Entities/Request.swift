@@ -6,15 +6,19 @@ public struct Request<T: Entity>: Equatable {
     
     public let sortDescriptor: NSSortDescriptor?
     public let predicate: NSPredicate?
+    public let fetchOffset: Int
+    public let fetchLimit: Int
     let context: Context?
     
     
     // MARK: - Init
     
-    public init(_ requestable: Requestable? = nil, sortDescriptor: NSSortDescriptor? = nil, predicate: NSPredicate? = nil) {
+    public init(_ requestable: Requestable? = nil, sortDescriptor: NSSortDescriptor? = nil, predicate: NSPredicate? = nil, fetchOffset: Int = 0, fetchLimit: Int = 0) {
         self.context = requestable?.requestContext()
         self.sortDescriptor = sortDescriptor
         self.predicate = predicate
+        self.fetchOffset = fetchOffset
+        self.fetchLimit = fetchLimit
     }
     
     
