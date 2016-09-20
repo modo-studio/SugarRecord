@@ -71,7 +71,7 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
     
     fileprivate func setupTableView() {
         self.view.addSubview(tableView)
-        self.tableView.snp_makeConstraints { (make) -> Void in
+        self.tableView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(self.view)
         }
     }

@@ -16,8 +16,8 @@ class ObjectModelTests: QuickSpec {
                     let bundle = Bundle(for: self.classForCoder)
                     expect(CoreData.ObjectModel.Merged([bundle]).model()).toNot(beNil())
                 })
-                it("should return nil managed object model if no bundle is passed", closure: {
-                    expect(CoreData.ObjectModel.Merged(nil).model()?.entities.count) == 0
+                it("should return the models in the main bundle", closure: {
+                    expect(CoreData.ObjectModel.Merged(nil).model()?.entities.count) == 1
                 })
             })
             

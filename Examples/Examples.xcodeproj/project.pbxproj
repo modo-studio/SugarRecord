@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2355ADF91D91C0D300836EF6 /* CoreDataObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F38C1D77945A0086ADC7 /* CoreDataObservableTests.swift */; };
 		23C453481D778CE000483DB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C453291D778CE000483DB4 /* Assets.xcassets */; };
 		23C453491D778CE000483DB4 /* Basic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23C4532B1D778CE000483DB4 /* Basic.xcdatamodeld */; };
 		23C4534A1D778CE000483DB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C4532E1D778CE000483DB4 /* LaunchScreen.storyboard */; };
@@ -28,7 +29,6 @@
 		23C6F3A91D77945A0086ADC7 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F3841D77945A0086ADC7 /* Repository.swift */; };
 		23C6F3AA1D77945A0086ADC7 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F3861D77945A0086ADC7 /* DataModel.xcdatamodeld */; };
 		23C6F3AB1D77945A0086ADC7 /* CoreDataChangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F38B1D77945A0086ADC7 /* CoreDataChangeTests.swift */; };
-		23C6F3AC1D77945A0086ADC7 /* CoreDataObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F38C1D77945A0086ADC7 /* CoreDataObservableTests.swift */; };
 		23C6F3AD1D77945A0086ADC7 /* ObjectModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F38D1D77945A0086ADC7 /* ObjectModelTests.swift */; };
 		23C6F3AE1D77945A0086ADC7 /* OptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F38E1D77945A0086ADC7 /* OptionsTests.swift */; };
 		23C6F3AF1D77945A0086ADC7 /* StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C6F38F1D77945A0086ADC7 /* StoreTests.swift */; };
@@ -700,7 +700,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23C6F3AC1D77945A0086ADC7 /* CoreDataObservableTests.swift in Sources */,
 				23C6F3B11D77945A0086ADC7 /* RequestTests.swift in Sources */,
 				23C6F3AB1D77945A0086ADC7 /* CoreDataChangeTests.swift in Sources */,
 				23C6F3A81D77945A0086ADC7 /* Issue.swift in Sources */,
@@ -716,6 +715,7 @@
 				23C6F3B41D77945A0086ADC7 /* VersionProviderTests.swift in Sources */,
 				23C6F3B91D77945A0086ADC7 /* RealmDefaultStorageTests.swift in Sources */,
 				23C6F3AE1D77945A0086ADC7 /* OptionsTests.swift in Sources */,
+				2355ADF91D91C0D300836EF6 /* CoreDataObservableTests.swift in Sources */,
 				23C6F3B81D77945A0086ADC7 /* ResultsTests.swift in Sources */,
 				23C6F3A71D77945A0086ADC7 /* Track.swift in Sources */,
 				23C6F3A91D77945A0086ADC7 /* Repository.swift in Sources */,
