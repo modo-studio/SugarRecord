@@ -1,7 +1,5 @@
 # <center>![xcres](https://github.com/carambalabs/SugarRecord/raw/master/Assets/Banner.png)</center>
 
-# SugarRecord
-
 [![Twitter: @carambalabs](https://img.shields.io/badge/contact-@carambalabs-blue.svg?style=flat)](https://twitter.com/carambalabs)
 [![Language: Swift](https://img.shields.io/badge/lang-Swift-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 [![Language: Swift](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://opensource.org/licenses/MIT)
@@ -17,7 +15,7 @@ SugarRecord is a persistence wrapper designed to make working with persistence s
 The library is maintained by [@carambalabs](https://github.com/carambalabs). You can reach me at [pepibumur@gmail.com](mailto://pepibumur@gmail.com) for help or whatever you need to commend about the library.
 
 ## Features
-- Swift 2.3 compatible (Xcode 7.3).
+- Swift 3.0 compatible (Xcode 7.3).
 - Fully rewritten from the version 1.0.
 - Protocols based design.
 - For **beginners** and **advanced** users
@@ -49,7 +47,7 @@ pod "SugarRecord/Realm"
 ```
 
 #### Notes
-- SugarRecord 2.0 is not compatible with the 1.x interface. If you were using that version you'll have to update your project to support this version.
+- SugarRecord 3.0 is not compatible with the 1.x interface. If you were using that version you'll have to update your project to support this version.
 
 ## Reference
 You can check generated SugarRecord documentation [here](http://cocoadocs.org/docsets/SugarRecord/2.0.0/) generated automatically with [CocoaDocs](http://cocoadocs.org/)
