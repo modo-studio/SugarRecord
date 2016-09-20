@@ -1,5 +1,10 @@
 ## Changelog
 
+### 3.0.0-alpha.1
+- Swift 3.0 support.
+- Swift 2.3 support dropped.
+- Carthage support.
+
 ### 2.3.0
 - Add Danger.
 - Remove Carthage support.
