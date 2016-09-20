@@ -13,7 +13,7 @@ class ObjectModelTests: QuickSpec {
             
             context("merged", {
                 it("should take the provided bundle data model", closure: { () -> () in
-                    let bundle = NSBundle(forClass: self.classForCoder)
+                    let bundle = Bundle(for: self.classForCoder)
                     expect(CoreData.ObjectModel.Merged([bundle]).model()).toNot(beNil())
                 })
                 it("should return nil managed object model if no bundle is passed", closure: {
@@ -23,13 +23,13 @@ class ObjectModelTests: QuickSpec {
             
             context("named", {
                 it("should return the object model", closure: {
-                    expect(CoreData.ObjectModel.Named("DataModel", NSBundle(forClass: self.classForCoder)).model()?.entities.count) == 1
+                    expect(CoreData.ObjectModel.Named("DataModel", Bundle(for: self.classForCoder)).model()?.entities.count) == 1
                 })
             })
             
             context("url", { () -> Void in
                 it("should return an object model if the url is valid") {
-                    let url = NSBundle(forClass: self.classForCoder).URLForResource("DataModel", withExtension: "momd")
+                    let url = Bundle(for: self.classForCoder).url(forResource: "DataModel", withExtension: "momd")
                     expect(CoreData.ObjectModel.URL(url!).model()?.entities.count) == 1
                 }
             })

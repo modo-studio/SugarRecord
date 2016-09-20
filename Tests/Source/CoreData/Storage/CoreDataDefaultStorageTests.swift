@@ -16,7 +16,7 @@ class CoreDataDefaultStorageTests: QuickSpec {
             
             beforeEach {
                 store = CoreData.Store.Named("test")
-                let bundle = NSBundle(forClass: self.classForCoder)
+                let bundle = Bundle(for: self.classForCoder)
                 model = CoreData.ObjectModel.Merged([bundle])
                 subject = try! CoreDataDefaultStorage(store: store!, model: model!)
             }
@@ -28,8 +28,8 @@ class CoreDataDefaultStorageTests: QuickSpec {
             context("initialization") {
                 
                 it("should create the database") {
-                    let path = store!.path().path!
-                    expect(NSFileManager.defaultManager().fileExistsAtPath(path)) == true
+                    let path = store!.path().path
+                    expect(FileManager.default.fileExists(atPath: path)) == true
                 }
                 
                 it("should have the right description") {
@@ -37,7 +37,7 @@ class CoreDataDefaultStorageTests: QuickSpec {
                 }
                 
                 it("should have the right type") {
-                    expect(subject?.type) == .CoreData
+                    expect(subject?.type) == .coreData
                 }
                 
                 describe("root saving context") {
@@ -45,38 +45,38 @@ class CoreDataDefaultStorageTests: QuickSpec {
                         expect(subject?.rootSavingContext.persistentStoreCoordinator) == subject?.persistentStoreCoordinator
                     }
                     it("should have private concurrency type") {
-                        expect(subject?.rootSavingContext.concurrencyType) == .PrivateQueueConcurrencyType
+                        expect(subject?.rootSavingContext.concurrencyType) == .privateQueueConcurrencyType
                     }
                 }
                 
                 describe("save context") {
                     it("should have the root saving context as parent") {
-                        expect((subject?.saveContext as! NSManagedObjectContext).parentContext) == subject?.rootSavingContext
+                        expect((subject?.saveContext as! NSManagedObjectContext).parent) == subject?.rootSavingContext
                     }
                     
                     it("should have private concurrency type") {
-                        expect((subject?.saveContext as! NSManagedObjectContext).concurrencyType) == NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType
+                        expect((subject?.saveContext as! NSManagedObjectContext).concurrencyType) == NSManagedObjectContextConcurrencyType.privateQueueConcurrencyType
                     }
                     
                 }
                 
                 describe("memory context") {
                     it("should have the root saving context as parent") {
-                        expect((subject?.memoryContext as! NSManagedObjectContext).parentContext) == subject?.rootSavingContext
+                        expect((subject?.memoryContext as! NSManagedObjectContext).parent) == subject?.rootSavingContext
                     }
                     
                     it("should have private concurrency type") {
-                        expect((subject?.memoryContext as! NSManagedObjectContext).concurrencyType) == NSManagedObjectContextConcurrencyType.PrivateQueueConcurrencyType
+                        expect((subject?.memoryContext as! NSManagedObjectContext).concurrencyType) == NSManagedObjectContextConcurrencyType.privateQueueConcurrencyType
                     }
                 }
                 
                 describe("main context") {
                     it("should have the root saving context as parent") {
-                        expect((subject?.mainContext as! NSManagedObjectContext).parentContext) == subject?.rootSavingContext
+                        expect((subject?.mainContext as! NSManagedObjectContext).parent) == subject?.rootSavingContext
                     }
                     
                     it("should have main concurrency type") {
-                        expect((subject?.mainContext as! NSManagedObjectContext).concurrencyType) == NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType
+                        expect((subject?.mainContext as! NSManagedObjectContext).concurrencyType) == NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType
                     }
                 }
             }
@@ -84,8 +84,8 @@ class CoreDataDefaultStorageTests: QuickSpec {
             context("removal") {
                 it("should properly remove the store") {
                     _ = try? subject?.removeStore()
-                    let path = store!.path().path!
-                    expect(NSFileManager.defaultManager().fileExistsAtPath(path)) == false
+                    let path = store!.path().path
+                    expect(FileManager.default.fileExists(atPath: path)) == false
                 }
             }
             
@@ -94,8 +94,8 @@ class CoreDataDefaultStorageTests: QuickSpec {
                 it("shouldn't persist changes if we save the memory context") {
                     waitUntil(action: { (done) -> Void in
                         let memoryContext = subject!.memoryContext as! NSManagedObjectContext!
-                        let _: Track = try! memoryContext.create()
-                        try! memoryContext.save()
+                        let _: Track = try! memoryContext!.create()
+                        try! memoryContext?.save()
                         _ = try? subject?.operation({ (context, save) -> Void in
                             let resultsCount = try! context.request(Track.self).fetch().count
                             expect(resultsCount) == 0
@@ -142,7 +142,7 @@ class CoreDataDefaultStorageTests: QuickSpec {
                 
                 beforeEach {
                     request = Request<Track>().filteredWith("name", equalTo: "test").sortedWith("name", ascending: true)
-                    observable = subject.observable(request) as! CoreDataObservable<Track>
+                    observable = subject.observable(request: request) as! CoreDataObservable<Track>
                 }
                 
                 it("should have the correct request predicate") {

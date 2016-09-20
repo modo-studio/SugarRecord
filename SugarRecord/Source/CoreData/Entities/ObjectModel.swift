@@ -6,7 +6,7 @@ public extension CoreData {
     public enum ObjectModel {
         case Named(String, Bundle)
         case Merged([Bundle]?)
-        case URL(NSURL)
+        case URL(URL)
         
         func model() -> NSManagedObjectModel? {
             switch self {
@@ -15,7 +15,7 @@ public extension CoreData {
             case .Named(let name, let bundle):
                 return NSManagedObjectModel(contentsOf: bundle.url(forResource: name, withExtension: "momd")!)
             case .URL(let url):
-                return NSManagedObjectModel(contentsOf: url as URL)
+                return NSManagedObjectModel(contentsOf: url)
             }
             
         }

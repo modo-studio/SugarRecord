@@ -35,7 +35,7 @@ class RealmObservableTests: QuickSpec {
                     waitUntil(action: { (done) in
                         subject.observe({ (change) in
                             switch change {
-                            case .Initial(let issues):
+                            case .initial(let issues):
                                 expect(issues.first?.id) == "123"
                                 done()
                             default:
@@ -53,7 +53,7 @@ class RealmObservableTests: QuickSpec {
                         var called: Bool = false
                         subject.observe({ (change) in
                             switch change {
-                            case .Update(_, let insertions, _):
+                            case .update(_, let insertions, _):
                                 if !called {
                                     expect(insertions.first?.element.id) == "666"
                                     done()

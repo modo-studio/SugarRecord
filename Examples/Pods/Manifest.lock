@@ -36,10 +36,10 @@ PODS:
     - Result (~> 3.0)
 
 DEPENDENCIES:
-  - Nimble
+  - Nimble (~> 5.0)
   - OHHTTPStubs
   - OHHTTPStubs/Swift
-  - Quick
+  - Quick (from `https://github.com/quick/quick.git`, branch `swift-3.0`)
   - SnapKit
   - SugarRecord (from `../`)
   - SugarRecord/CoreData (from `../`)
@@ -47,19 +47,27 @@ DEPENDENCIES:
   - SugarRecord/Realm (from `../`)
 
 EXTERNAL SOURCES:
+  Quick:
+    :branch: swift-3.0
+    :git: https://github.com/quick/quick.git
   SugarRecord:
     :path: "../"
+
+CHECKOUT OPTIONS:
+  Quick:
+    :commit: 36ebbc75e093c7553a5145ed5dd21484364cd78d
+    :git: https://github.com/quick/quick.git
 
 SPEC CHECKSUMS:
   Nimble: 56fc9f5020effa2206de22c3dd910f4fb011b92f
   OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
-  Quick: 13a2a2b19a5d8e3ed4fd0c36ee46597fd77ebf71
+  Quick: 31fb576b6cbb6b028cc5e0016e4366accbb346f5
   Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
   Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
   SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
   SugarRecord: 7c972754f31c77561828534c3779166f4334ebd6
 
-PODFILE CHECKSUM: 84b458db6d0a6ac2d0ccc07cf47227ad4bf8aa0a
+PODFILE CHECKSUM: dd311db187c6a1e0623852ea09855f7131cbe784
 
 COCOAPODS: 1.1.0.rc.2

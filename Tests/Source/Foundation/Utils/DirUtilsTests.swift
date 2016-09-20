@@ -10,7 +10,7 @@ class DirUtilsTests: QuickSpec {
         
         it("should return the proper documents directory") {
             let path = documentsDirectory()
-            expect(path) == NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+            expect(path) == NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         }
         
     }

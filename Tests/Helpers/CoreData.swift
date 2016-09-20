@@ -5,7 +5,7 @@ import CoreData
 
 func testCoreData() -> CoreDataDefaultStorage {
     let store = CoreData.Store.Named("testing")
-    let bundle = Bundle(forClass: CoreDataDefaultStorageTests.classForCoder())
+    let bundle = Bundle(for: CoreDataDefaultStorageTests.classForCoder())
     let model = CoreData.ObjectModel.Merged([bundle])
     let defaultStorage = try! CoreDataDefaultStorage(store: store, model: model)
     return defaultStorage

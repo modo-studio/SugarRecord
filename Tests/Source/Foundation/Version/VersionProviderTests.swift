@@ -12,9 +12,9 @@ class VersionProviderTests: QuickSpec {
         
         beforeEach {
             subject = VersionProvider()
-            stub(isPath("/repos/pepibumur/sugarrecord/releases")) { _ in
+            stub(condition: isPath("/repos/pepibumur/sugarrecord/releases")) { _ in
                 let object = [["tag_name": "3.1.0"]]
-                return OHHTTPStubsResponse(JSONObject: object, statusCode: 200, headers: ["Content-Type":"application/json"])
+                return OHHTTPStubsResponse(jsonObject: object, statusCode: 200, headers: ["Content-Type":"application/json"])
             }
         }
         
@@ -38,9 +38,9 @@ class VersionProviderTests: QuickSpec {
                 expect(subject.framework()).toNot(beNil())
             }
             it("should have the correct format") {
-                let regex = try! NSRegularExpression(pattern: "\\d+\\.\\d+\\.\\d+", options: [.CaseInsensitive])
+                let regex = try! NSRegularExpression(pattern: "\\d+\\.\\d+\\.\\d+", options: [.caseInsensitive])
                 let version = subject.framework()
-                let correctFormat = regex.firstMatchInString(version, options: [], range: NSMakeRange(0, version.characters.count)) != nil
+                let correctFormat = regex.firstMatch(in: version!, options: [], range: NSMakeRange(0, version!.characters.count)) != nil
                 expect(correctFormat) == true
             }
         }

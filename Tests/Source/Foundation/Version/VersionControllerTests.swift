@@ -30,7 +30,7 @@ private class MockVersionProvider: VersionProvider {
     fileprivate override func framework() -> String! {
         return "4.0.0"
     }
-    fileprivate override func github(_ completion: (String) -> Void) {
+    fileprivate override func github(_ completion: @escaping (String) -> Void) {
         completion("4.0.1")
     }
 }
