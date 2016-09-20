@@ -1,11 +1,11 @@
 import Foundation
 import RealmSwift
 
-public class RealmDefaultStorage: Storage {
+open class RealmDefaultStorage: Storage {
     
     // MARK: - Attributes
     
-    private let configuration: Realm.Configuration?
+    fileprivate let configuration: Realm.Configuration?
     
     
     ///  MARK: - Init
@@ -24,11 +24,11 @@ public class RealmDefaultStorage: Storage {
     
     // MARK: - Storage
     
-    public var description: String { return "RealmDefaultStorage" }
+    open var description: String { return "RealmDefaultStorage" }
     
-    public var type: StorageType { return .Realm }
+    open var type: StorageType { return .realm }
     
-    public var mainContext: Context! {
+    open var mainContext: Context! {
         if let configuration = self.configuration {
             return try? Realm(configuration: configuration)
         }
@@ -37,7 +37,7 @@ public class RealmDefaultStorage: Storage {
         }
     }
     
-    public var saveContext: Context! {
+    open var saveContext: Context! {
         if let configuration = self.configuration {
             return try? Realm(configuration: configuration)
         }
@@ -46,25 +46,25 @@ public class RealmDefaultStorage: Storage {
         }
     }
     
-    public var memoryContext: Context! {
+    open var memoryContext: Context! {
         return try? Realm(configuration: Realm.Configuration(inMemoryIdentifier: "MemoryRealm"))
     }
     
-    public func removeStore() throws {
+    open func removeStore() throws {
         if let url = try Realm().configuration.fileURL {
-            try NSFileManager.defaultManager().removeItemAtURL(url)
+            try FileManager.default.removeItem(at: url)
         }
     }
 
-    public func operation<T>(operation: (context: Context, save: () -> Void) throws -> T) throws -> T {
+    open func operation<T>(_ operation: @escaping (_ context: Context, _ save: @escaping () -> Void) throws -> T) throws -> T {
         let context: Realm = self.saveContext as! Realm
         context.beginWrite()
         var save: Bool = false
-        var _error: ErrorType!
+        var _error: Swift.Error!
         
         var returnedObject: T!
         do {
-            returnedObject = try operation(context: context, save: { () -> Void in
+            returnedObject = try operation(context, { () -> Void in
                 defer {
                     save = true
                 }
@@ -91,7 +91,7 @@ public class RealmDefaultStorage: Storage {
 
     }
     
-    public func observable<T: Object>(request: Request<T>) -> RequestObservable<T> {
+    open func observable<T: Object>(_ request: Request<T>) -> RequestObservable<T> {
         return RealmObservable(request: request, realm: self.mainContext as! Realm)
     }
     

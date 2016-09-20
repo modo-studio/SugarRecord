@@ -7,23 +7,23 @@ public extension CoreData {
         case Default
         case Migration
     
-        func dict() -> [NSObject: AnyObject] {
+        func dict() -> [String: AnyObject] {
             switch self {
             case .Default:
                 var sqliteOptions: [String: String] = [String: String] ()
                 sqliteOptions["journal_mode"] = "DELETE"
-                var options: [NSObject: AnyObject] = [NSObject: AnyObject] ()
-                options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
-                options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: false)
-                options[NSSQLitePragmasOption] = sqliteOptions
+                var options: [String: AnyObject] = [String: AnyObject] ()
+                options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(value: true)
+                options[NSInferMappingModelAutomaticallyOption] = NSNumber(value: false)
+                options[NSSQLitePragmasOption] = sqliteOptions as AnyObject?
                 return options
             case .Migration:
                 var sqliteOptions: [String: String] = [String: String] ()
                 sqliteOptions["journal_mode"] = "DELETE"
-                var options: [NSObject: AnyObject] = [NSObject: AnyObject] ()
-                options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(bool: true)
-                options[NSInferMappingModelAutomaticallyOption] = NSNumber(bool: true)
-                options[NSSQLitePragmasOption] = sqliteOptions
+                var options: [String: AnyObject] = [String: AnyObject] ()
+                options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(value: true)
+                options[NSInferMappingModelAutomaticallyOption] = NSNumber(value: true)
+                options[NSSQLitePragmasOption] = sqliteOptions as AnyObject?
                 return options
             }
         }

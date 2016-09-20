@@ -1,22 +1,21 @@
 /*************************************************************************
  *
- * REALM CONFIDENTIAL
- * __________________
+ * Copyright 2016 Realm Inc.
  *
- *  [2011] - [2015] Realm Inc
- *  All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * NOTICE:  All information contained herein is, and remains
- * the property of Realm Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Realm Incorporated
- * and its suppliers and may be covered by U.S. and Foreign Patents,
- * patents in process, and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Realm Incorporated.
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
  **************************************************************************/
+
 #ifndef REALM_ARRAY_STRING_HPP
 #define REALM_ARRAY_STRING_HPP
 
@@ -48,7 +47,6 @@ public:
     // Constructor defaults to non-nullable because we use non-nullable ArrayString so many places internally in core
     // (data which isn't user payload) where null isn't needed.
     explicit ArrayString(Allocator&, bool nullable = false) noexcept;
-    explicit ArrayString(no_prealloc_tag) noexcept;
     ~ArrayString() noexcept override {}
 
     bool is_null(size_t ndx) const;
@@ -115,14 +113,6 @@ private:
 // Creates new array (but invalid, call init_from_ref() to init)
 inline ArrayString::ArrayString(Allocator& allocator, bool nullable) noexcept:
 Array(allocator), m_nullable(nullable)
-{
-}
-
-// Fastest way to instantiate an Array. For use with GetDirect() that only fills out m_width, m_data
-// and a few other basic things needed for read-only access. Or for use if you just want a way to call
-// some methods written in ArrayString.*
-inline ArrayString::ArrayString(no_prealloc_tag) noexcept:
-    Array(*static_cast<Allocator*>(nullptr))
 {
 }
 

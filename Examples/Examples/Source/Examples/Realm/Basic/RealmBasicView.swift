@@ -8,16 +8,16 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: - Attributes
     lazy var db: RealmDefaultStorage = {
         var configuration = Realm.Configuration()
-        configuration.fileURL = NSURL(fileURLWithPath: databasePath("realm-basic"))
+        configuration.fileURL = URL(fileURLWithPath: databasePath("realm-basic"))
         let _storage = RealmDefaultStorage(configuration: configuration)
         return _storage
     }()
     lazy var tableView: UITableView = {
-        let _tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
+        let _tableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
         _tableView.translatesAutoresizingMaskIntoConstraints = false
         _tableView.delegate = self
         _tableView.dataSource = self
-        _tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "default-cell")
+        _tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "default-cell")
         return _tableView
     }()
     var entities: [RealmBasicEntity] = [] {
@@ -54,23 +54,23 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - Private
     
-    private func setup() {
+    fileprivate func setup() {
         setupView()
         setupNavigationItem()
         setupTableView()
     }
     
-    private func setupView() {
-        self.view.backgroundColor = UIColor.whiteColor()
+    fileprivate func setupView() {
+        self.view.backgroundColor = UIColor.white
     }
     
-    private func setupNavigationItem() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(RealmBasicView.userDidSelectAdd(_:)))
+    fileprivate func setupNavigationItem() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(RealmBasicView.userDidSelectAdd(_:)))
     }
     
-    private func setupTableView() {
+    fileprivate func setupTableView() {
         self.view.addSubview(tableView)
-        self.tableView.snp_makeConstraints { (make) -> Void in
+        self.tableView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(self.view)
         }
     }
@@ -78,23 +78,23 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - UITableViewDataSource / UITableViewDelegate
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.entities.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("default-cell")!
-        cell.textLabel?.text = "\(entities[indexPath.row].name) - \(entities[indexPath.row].dateString)"
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "default-cell")!
+        cell.textLabel?.text = "\(entities[(indexPath as NSIndexPath).row].name) - \(entities[(indexPath as NSIndexPath).row].dateString)"
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            let name = entities[indexPath.row].name
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            let name = entities[(indexPath as NSIndexPath).row].name
             try! db.operation({ (context, save) -> Void in
                 guard let obj = try! context.request(RealmBasicObject.self).filteredWith("name", equalTo: name).fetch().first else { return }
                 _ = try? context.remove(obj)
@@ -107,10 +107,10 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - Actions
     
-    func userDidSelectAdd(sender: AnyObject!) {
+    func userDidSelectAdd(_ sender: AnyObject!) {
         try! db.operation { (context, save) -> Void in
             let _object: RealmBasicObject = try! context.new()
-            _object.date = NSDate()
+            _object.date = Date()
             _object.name = randomStringWithLength(10) as String
             try! context.insert(_object)
             save()
@@ -121,7 +121,7 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - Private
     
-    private func updateData() {
+    fileprivate func updateData() {
         self.entities = try! db.fetch(Request<RealmBasicObject>()).map(RealmBasicEntity.init)
     }
 }

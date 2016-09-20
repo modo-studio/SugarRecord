@@ -1,20 +1,18 @@
 /*************************************************************************
  *
- * REALM CONFIDENTIAL
- * __________________
+ * Copyright 2016 Realm Inc.
  *
- *  [2011] - [2015] Realm Inc
- *  All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * NOTICE:  All information contained herein is, and remains
- * the property of Realm Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Realm Incorporated
- * and its suppliers and may be covered by U.S. and Foreign Patents,
- * patents in process, and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Realm Incorporated.
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
  **************************************************************************/
 
@@ -266,11 +264,6 @@ public:
 
     /// Create an array accessor in the unattached state.
     explicit Array(Allocator&) noexcept;
-
-    // Fastest way to instantiate an array, if you just want to utilize its
-    // methods
-    struct no_prealloc_tag {};
-    explicit Array(no_prealloc_tag) noexcept;
 
     ~Array() noexcept override {}
 
@@ -1540,15 +1533,6 @@ inline Array::Array(Allocator& allocator) noexcept:
     m_alloc(allocator)
 {
 }
-
-// Fastest way to instantiate an Array. For use with GetDirect() that only fills out m_width, m_data
-// and a few other basic things needed for read-only access. Or for use if you just want a way to call
-// some methods written in Array.*
-inline Array::Array(no_prealloc_tag) noexcept:
-    m_alloc(*static_cast<Allocator*>(0))
-{
-}
-
 
 inline void Array::create(Type type, bool context_flag, size_t length, int_fast64_t value)
 {

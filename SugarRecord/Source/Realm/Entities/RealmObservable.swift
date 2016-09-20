@@ -1,7 +1,7 @@
 import Foundation
 import RealmSwift
 
-public class RealmObservable<T: Object>: RequestObservable<T> {
+open class RealmObservable<T: Object>: RequestObservable<T> {
     
     // MARK: - Attributes
     
@@ -19,14 +19,14 @@ public class RealmObservable<T: Object>: RequestObservable<T> {
     
     // MARK: - Observable
     
-    public override func observe(closure: ObservableChange<T> -> Void) {
+    open override func observe(_ closure: @escaping (ObservableChange<T>) -> Void) {
         assert(self.notificationToken == nil, "Observable can be observed only once")
-        var realmObjects = self.realm.objects(T)
+        var realmObjects = self.realm.objects(T.self)
         if let predicate = self.request.predicate {
             realmObjects = realmObjects.filter(predicate)
         }
         if let sortDescriptor = self.request.sortDescriptor {
-            realmObjects = realmObjects.sorted(sortDescriptor.key!, ascending: sortDescriptor.ascending)
+            realmObjects = realmObjects.sorted(byProperty: sortDescriptor.key!, ascending: sortDescriptor.ascending)
         }
         self.notificationToken = realmObjects.addNotificationBlock { (changes: RealmCollectionChange<Results<T>>) in
             closure(self.map(changes))
@@ -40,17 +40,17 @@ public class RealmObservable<T: Object>: RequestObservable<T> {
     
     // MARK: - Private
     
-    private func map(realmChange: RealmCollectionChange<Results<T>>) -> ObservableChange<T> {
+    fileprivate func map(_ realmChange: RealmCollectionChange<Results<T>>) -> ObservableChange<T> {
         switch realmChange {
-        case .Error(let error):
-            return ObservableChange.Error(error)
-        case .Initial(let initial):
-            return ObservableChange.Initial(initial.toArray())
-        case .Update(let objects, let deletions, let insertions, let modifications):
+        case .error(let error):
+            return ObservableChange.error(error)
+        case .initial(let initial):
+            return ObservableChange.initial(initial.toArray())
+        case .update(let objects, let deletions, let insertions, let modifications):
             let deletions = deletions.map { $0 }
             let insertions = insertions.map { (index: $0, element: objects[$0]) }
             let modifications = modifications.map { (index: $0, element: objects[$0]) }
-            return ObservableChange.Update(deletions: deletions, insertions: insertions, modifications: modifications)
+            return ObservableChange.update(deletions: deletions, insertions: insertions, modifications: modifications)
         }
     }
     

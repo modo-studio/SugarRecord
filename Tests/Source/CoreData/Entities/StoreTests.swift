@@ -11,13 +11,13 @@ class StoreTests: QuickSpec {
         describe("path generation") { () -> Void in
             
             it("should return the url if the store is specified via an URL", closure: { () -> () in
-                let url: NSURL = NSURL(string: "myurl")!
+                let url: URL = URL(string: "myurl")!
                 expect(CoreData.Store.URL(url).path()) == url
             })
             
             it("should return the store name in documents folder if it's a named store", closure: { () -> () in
                 let name: String = "database.sqlite"
-                expect(CoreData.Store.Named(name).path()) == NSURL(fileURLWithPath: documentsDirectory()).URLByAppendingPathComponent(name)
+                expect(CoreData.Store.Named(name).path()) == NSURL(fileURLWithPath: documentsDirectory()).appendingPathComponent(name)
             })
             
         }

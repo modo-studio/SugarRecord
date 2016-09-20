@@ -4,8 +4,8 @@ internal class VersionController {
     
     // MARK: - Attributes
     
-    private let provider: VersionProvider
-    private let logger: Logger
+    fileprivate let provider: VersionProvider
+    fileprivate let logger: Logger
     
     
     // MARK: - Init

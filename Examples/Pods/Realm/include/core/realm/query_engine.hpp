@@ -1,20 +1,18 @@
 /*************************************************************************
  *
- * REALM CONFIDENTIAL
- * __________________
+ * Copyright 2016 Realm Inc.
  *
- *  [2011] - [2015] Realm Inc
- *  All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * NOTICE:  All information contained herein is, and remains
- * the property of Realm Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Realm Incorporated
- * and its suppliers and may be covered by U.S. and Foreign Patents,
- * patents in process, and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Realm Incorporated.
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
  **************************************************************************/
 
@@ -86,31 +84,33 @@ AggregateState      State of the aggregate - contains a state variable that stor
 #ifndef REALM_QUERY_ENGINE_HPP
 #define REALM_QUERY_ENGINE_HPP
 
-#include <string>
-#include <functional>
 #include <algorithm>
+#include <functional>
+#include <string>
 
-#include <realm/util/shared_ptr.hpp>
 #include <realm/util/meta.hpp>
 #include <realm/util/miscellaneous.hpp>
-#include <realm/unicode.hpp>
+#include <realm/util/shared_ptr.hpp>
 #include <realm/utilities.hpp>
-#include <realm/table.hpp>
-#include <realm/table_view.hpp>
-#include <realm/column_fwd.hpp>
-#include <realm/column_string.hpp>
-#include <realm/column_string_enum.hpp>
-#include <realm/column_binary.hpp>
-#include <realm/column_timestamp.hpp>
-#include <realm/column_type_traits.hpp>
-#include <realm/query_conditions.hpp>
 #include <realm/array_basic.hpp>
 #include <realm/array_string.hpp>
-#include <realm/column_linklist.hpp>
+#include <realm/column_binary.hpp>
+#include <realm/column_fwd.hpp>
 #include <realm/column_link.hpp>
-#include <realm/link_view.hpp>
-#include <realm/query_expression.hpp>
+#include <realm/column_linklist.hpp>
+#include <realm/column_mixed.hpp>
+#include <realm/column_string.hpp>
+#include <realm/column_string_enum.hpp>
+#include <realm/column_table.hpp>
+#include <realm/column_timestamp.hpp>
 #include <realm/column_type_traits.hpp>
+#include <realm/column_type_traits.hpp>
+#include <realm/link_view.hpp>
+#include <realm/query_conditions.hpp>
+#include <realm/query_expression.hpp>
+#include <realm/table.hpp>
+#include <realm/table_view.hpp>
+#include <realm/unicode.hpp>
 
 #include <map>
 
@@ -158,10 +158,6 @@ public:
         m_children.insert(m_children.begin(), this);
     }
 
-    struct score_compare {
-        bool operator ()(const ParentNode* a, const ParentNode* b) const { return a->cost() < b->cost(); }
-    };
-
     double cost() const
     {
         return 8 * bitwidth_time_unit / m_dD + m_dT; // dt = 1/64 to 1. Match dist is 8 times more important than bitwidth
@@ -169,17 +165,22 @@ public:
 
     size_t find_first(size_t start, size_t end);
 
-    virtual void init(const Table& table)
+    virtual void init()
     {
-        m_table = &table;
         if (m_child)
-            m_child->init(table);
+            m_child->init();
         m_column_action_specializer = nullptr;
     }
 
-    virtual bool is_initialized() const
+    void set_table(const Table& table)
     {
-        return m_table != nullptr;
+        if (&table == m_table)
+            return;
+
+        m_table.reset(&table);
+        if (m_child)
+            m_child->set_table(table);
+        table_changed();
     }
 
     virtual size_t find_first_local(size_t start, size_t end) = 0;
@@ -223,10 +224,14 @@ public:
             return m_child->validate();
     }
 
+    ParentNode(const ParentNode& from) : ParentNode(from, nullptr)
+    {
+    }
+
     ParentNode(const ParentNode& from, QueryNodeHandoverPatches* patches) :
         m_child(from.m_child ? from.m_child->clone(patches) : nullptr),
         m_condition_column_idx(from.m_condition_column_idx), m_dD(from.m_dD), m_dT(from.m_dT),
-        m_probes(from.m_probes), m_matches(from.m_matches)
+        m_probes(from.m_probes), m_matches(from.m_matches), m_table(from.m_table)
     {
     }
 
@@ -251,79 +256,51 @@ public:
     size_t m_condition_column_idx = npos; // Column of search criteria
 
     double m_dD; // Average row distance between each local match at current position
-    double m_dT; // Time overhead of testing index i + 1 if we have just tested index i. > 1 for linear scans, 0 for index/tableview
+    double m_dT = 0.0; // Time overhead of testing index i + 1 if we have just tested index i. > 1 for linear scans, 0 for index/tableview
 
     size_t m_probes = 0;
     size_t m_matches = 0;
+
 protected:
     typedef bool (ParentNode::* Column_action_specialized)(QueryStateBase*, SequentialGetterBase*, size_t);
     Column_action_specialized m_column_action_specializer;
-    const Table* m_table;
+    ConstTableRef m_table;
     std::string error_code;
 
-    const ColumnBase& get_column_base(const Table& table, size_t ndx)
+    const ColumnBase& get_column_base(size_t ndx)
     {
-        return table.get_column_base(ndx);
+        return m_table->get_column_base(ndx);
     }
 
-    ColumnType get_real_column_type(const Table& table, size_t ndx)
+    template<class ColType>
+    const ColType& get_column(size_t ndx)
     {
-        return table.get_real_column_type(ndx);
-    }
-};
-
-// Used for performing queries on a Tableview. This is done by simply passing the TableView to this query condition
-class ListviewNode: public ParentNode {
-public:
-    ListviewNode(TableView& tv) : m_size(tv.size()), m_tv(tv) { m_dT = 0.0; }
-
-    // Return the n'th table row index contained in the TableView.
-    size_t tableindex(size_t n)
-    {
-        return to_size_t(m_tv.m_row_indexes.get(n));
+        auto& col = m_table->get_column_base(ndx);
+        REALM_ASSERT_DEBUG(dynamic_cast<const ColType*>(&col));
+        return static_cast<const ColType&>(col);
     }
 
-    void init(const Table& table) override
+    ColumnType get_real_column_type(size_t ndx)
     {
-        m_table = &table;
-
-        m_dD = m_table->size() / (m_tv.size() + 1.0);
-
-        m_next = 0;
-        if (m_size > 0)
-            m_max = tableindex(m_size - 1);
-        if (m_child) m_child->init(table);
+        return m_table->get_real_column_type(ndx);
     }
 
-    size_t find_first_local(size_t start, size_t end) override
+    template<class ColType>
+    void copy_getter(SequentialGetter<ColType>& dst, size_t& dst_idx,
+                     const SequentialGetter<ColType>& src, const QueryNodeHandoverPatches* patches)
     {
-        // Simply return index of first table row which is >= start
-        size_t r;
-        r = m_tv.m_row_indexes.find_gte(start, m_next);
-
-        if (r >= end)
-            return not_found;
-
-        m_next = r;
-        return tableindex(r);
+        if (src.m_column) {
+            if (patches) {
+                dst_idx = src.m_column->get_column_index();
+                REALM_ASSERT_DEBUG(dst_idx < m_table->get_column_count());
+            }
+            else
+                dst.init(src.m_column);
+        }
     }
 
-    std::unique_ptr<ParentNode> clone(QueryNodeHandoverPatches* patches) const override
-    {
-        return std::unique_ptr<ParentNode>(new ListviewNode(*this, patches));
-    }
-
-    ListviewNode(const ListviewNode& from, QueryNodeHandoverPatches* patches)
-        : ParentNode(from, patches), m_max(from.m_max), m_next(from.m_next), m_size(from.m_size), m_tv(from.m_tv)
-    {
-    }
-
-protected:
-    size_t m_max = 0;
-    size_t m_next = 0;
-    size_t m_size;
-
-    TableView& m_tv;
+private:
+    virtual void table_changed() = 0;
 };
 
 // For conditions on a subtable (encapsulated in subtable()...end_subtable()). These return the parent row as match if and
@@ -331,15 +308,15 @@ protected:
 class SubtableNode: public ParentNode {
 public:
     SubtableNode(size_t column, std::unique_ptr<ParentNode> condition) :
-        m_condition(std::move(condition)), m_column(column)
+        m_condition(std::move(condition))
     {
         m_dT = 100.0;
+        m_condition_column_idx = column;
     }
 
-    void init(const Table& table) override
+    void init() override
     {
         m_dD = 10.0;
-        m_table = &table;
 
         // m_condition is first node in condition of subtable query.
         if (m_condition) {
@@ -351,7 +328,17 @@ public:
 
         // m_child is next node of parent query
         if (m_child)
-            m_child->init(table);
+            m_child->init();
+    }
+
+    void table_changed() override
+    {
+        m_col_type = m_table->get_real_column_type(m_condition_column_idx);
+        REALM_ASSERT(m_col_type == col_type_Table || m_col_type == col_type_Mixed);
+        if (m_col_type == col_type_Table)
+            m_column = &m_table->get_column_table(m_condition_column_idx);
+        else // Mixed
+            m_column = &m_table->get_column_mixed(m_condition_column_idx);
     }
 
     std::string validate() override
@@ -370,12 +357,20 @@ public:
         REALM_ASSERT(m_condition);
 
         for (size_t s = start; s < end; ++s) {
-            ConstTableRef subtable = m_table->get_subtable(m_column, s);
+            const Table* subtable;
+            if (m_col_type == col_type_Table)
+                subtable = static_cast<const SubtableColumn*>(m_column)->get_subtable_ptr(s);
+            else {
+                subtable = static_cast<const MixedColumn*>(m_column)->get_subtable_ptr(s);
+                if (!subtable)
+                    continue;
+            }
 
             if (subtable->is_degenerate())
                 return not_found;
 
-            m_condition->init(*subtable);
+            m_condition->set_table(*subtable);
+            m_condition->init();
             const size_t subsize = subtable->size();
             const size_t sub = m_condition->find_first(0, subsize);
 
@@ -391,8 +386,11 @@ public:
     }
 
     SubtableNode(const SubtableNode& from, QueryNodeHandoverPatches* patches) : ParentNode(from, patches),
-        m_condition(from.m_condition ? from.m_condition->clone(patches) : nullptr), m_column(from.m_column)
+        m_condition(from.m_condition ? from.m_condition->clone(patches) : nullptr), m_column(from.m_column),
+        m_col_type(from.m_col_type)
     {
+        if (m_column && patches)
+            m_condition_column_idx = m_column->get_column_index();
     }
 
     void apply_handover_patch(QueryNodeHandoverPatches& patches, Group& group) override
@@ -402,7 +400,8 @@ public:
     }
 
     std::unique_ptr<ParentNode> m_condition;
-    size_t m_column = npos;
+    const ColumnBase* m_column = nullptr;
+    ColumnType m_col_type;
 };
 
 namespace _impl {
@@ -411,17 +410,15 @@ template<class ColType>
 struct CostHeuristic;
 
 template<>
-struct CostHeuristic<IntegerColumn>
-{
-    static const double dD;
-    static const double dT;
+struct CostHeuristic<IntegerColumn> {
+    static constexpr double dD() { return 100.0; }
+    static constexpr double dT() { return 1.0 / 4.0; }
 };
 
 template<>
-struct CostHeuristic<IntNullColumn>
-{
-    static const double dD;
-    static const double dT;
+struct CostHeuristic<IntNullColumn> {
+    static constexpr double dD() { return 100.0; }
+    static constexpr double dT() { return 1.0 / 4.0; }
 };
 
 // FIXME: Add AdaptiveStringColumn, BasicColumn, etc.
@@ -487,8 +484,7 @@ protected:
 };
 
 template<class ColType>
-class IntegerNodeBase : public ColumnNodeBase
-{
+class IntegerNodeBase : public ColumnNodeBase {
     using ThisType = IntegerNodeBase<ColType>;
 public:
     using TConditionValue = typename ColType::value_type;
@@ -567,38 +563,35 @@ protected:
     IntegerNodeBase(TConditionValue value, size_t column_idx) : ColumnNodeBase(column_idx),
         m_value(std::move(value))
     {
-        m_dT = _impl::CostHeuristic<ColType>::dT;
-        m_dD = _impl::CostHeuristic<ColType>::dD;
     }
 
     IntegerNodeBase(const ThisType& from, QueryNodeHandoverPatches* patches) : ColumnNodeBase(from, patches),
         m_value(from.m_value), m_condition_column(from.m_condition_column),
         m_find_callback_specialized(from.m_find_callback_specialized)
     {
-        // state is transient/only valid during search, no need to copy
-        m_dT = _impl::CostHeuristic<ColType>::dT;
-        m_dD = _impl::CostHeuristic<ColType>::dD;
+        if (m_condition_column && patches)
+            m_condition_column_idx = m_condition_column->get_column_index();
     }
 
-    void init(const Table& table) override
+    void table_changed() override
     {
-        ColumnNodeBase::init(table);
+        m_condition_column = &get_column<ColType>(m_condition_column_idx);
+    }
 
-        m_dD = _impl::CostHeuristic<ColType>::dD;
+    void init() override
+    {
+        ColumnNodeBase::init();
 
-        const ColumnBase* col = &get_column_base(table, m_condition_column_idx);
-        REALM_ASSERT_DEBUG(dynamic_cast<const ColType*>(col) != nullptr);
-        m_condition_column = static_cast<const ColType*>(col);
-        m_table = &table;
+        m_dT = _impl::CostHeuristic<ColType>::dT();
+        m_dD = _impl::CostHeuristic<ColType>::dD();
 
         // Clear leaf cache
         m_leaf_end = 0;
         m_array_ptr.reset(); // Explicitly destroy the old one first, because we're reusing the memory.
-        m_array_ptr.reset(new(&m_leaf_cache_storage) LeafType(table.get_alloc()));
+        m_array_ptr.reset(new(&m_leaf_cache_storage) LeafType(m_table->get_alloc()));
 
-        if (m_child) {
-            m_child->init(table);
-        }
+        if (m_child)
+            m_child->init();
     }
 
     void get_leaf(const ColType& col, size_t ndx)
@@ -656,7 +649,10 @@ public:
     static const bool special_null_node = false;
     using TConditionValue = typename BaseType::TConditionValue;
 
-    IntegerNode(TConditionValue value, size_t column_ndx) : IntegerNodeBase<ColType>(value, column_ndx)
+    IntegerNode(TConditionValue value, size_t column_ndx) : BaseType(value, column_ndx)
+    {
+    }
+    IntegerNode(const IntegerNode& from, QueryNodeHandoverPatches* patches) : BaseType(from, patches)
     {
     }
 
@@ -673,7 +669,6 @@ public:
         constexpr int cond = TConditionFunction::condition;
         return this->aggregate_local_impl(st, start, end, local_limit, source_column, cond);
     }
-
 
     size_t find_first_local(size_t start, size_t end) override
     {
@@ -713,10 +708,6 @@ public:
     std::unique_ptr<ParentNode> clone(QueryNodeHandoverPatches* patches) const override
     {
         return std::unique_ptr<ParentNode>(new IntegerNode<ColType, TConditionFunction>(*this, patches));
-    }
-
-    IntegerNode(const IntegerNode& from, QueryNodeHandoverPatches* patches) : BaseType(from, patches)
-    {
     }
 
 protected:
@@ -771,7 +762,6 @@ protected:
     }
 };
 
-
 // This node is currently used for floats and doubles only
 template<class ColType, class TConditionFunction>
 class FloatDoubleNode: public ParentNode {
@@ -790,14 +780,15 @@ public:
         m_dT = 1.0;
     }
 
-    void init(const Table& table) override
+    void table_changed() override
     {
-        m_dD = 100.0;
-        m_table = &table;
-        m_condition_column.init(static_cast<const ColType*>(&get_column_base(table, m_condition_column_idx)));
+        m_condition_column.init(&get_column<ColType>(m_condition_column_idx));
+    }
 
-        if (m_child)
-            m_child->init(table);
+    void init() override
+    {
+        ParentNode::init();
+        m_dD = 100.0;
     }
 
     size_t find_first_local(size_t start, size_t end) override
@@ -830,7 +821,7 @@ public:
     FloatDoubleNode(const FloatDoubleNode& from, QueryNodeHandoverPatches* patches) : ParentNode(from, patches),
         m_value(from.m_value)
     {
-        // m_condition_column is not copied
+        copy_getter(m_condition_column, m_condition_column_idx, from.m_condition_column, patches);
     }
 
 protected:
@@ -845,9 +836,6 @@ public:
     using TConditionValue = BinaryData;
     static const bool special_null_node = false;
 
-    template<Action TAction>
-    int64_t find_all(IntegerColumn* /*res*/, size_t /*start*/, size_t /*end*/, size_t /*limit*/, size_t /*source_column*/) {REALM_ASSERT(false); return 0;}
-
     BinaryNode(BinaryData v, size_t column) : m_value(v)
     {
         m_dT = 100.0;
@@ -858,15 +846,17 @@ public:
     {
     }
 
-    void init(const Table& table) override
+    void table_changed() override
+    {
+        m_condition_column = &get_column<BinaryColumn>(m_condition_column_idx);
+    }
+
+    void init() override
     {
         m_dD = 100.0;
-        m_table = &table;
-        m_condition_column = static_cast<const BinaryColumn*>(&get_column_base(table, m_condition_column_idx));
-        m_column_type = get_real_column_type(table, m_condition_column_idx);
 
         if (m_child)
-            m_child->init(table);
+            m_child->init();
     }
 
     size_t find_first_local(size_t start, size_t end) override
@@ -886,14 +876,15 @@ public:
     }
 
     BinaryNode(const BinaryNode& from, QueryNodeHandoverPatches* patches) : ParentNode(from, patches),
-        m_value(from.m_value), m_condition_column(from.m_condition_column), m_column_type(from.m_column_type)
+        m_value(from.m_value), m_condition_column(from.m_condition_column)
     {
+        if (m_condition_column && patches)
+            m_condition_column_idx = m_condition_column->get_column_index();
     }
 
 private:
     OwnedBinaryData m_value;
     const BinaryColumn* m_condition_column;
-    ColumnType m_column_type;
 };
 
 
@@ -903,12 +894,8 @@ public:
     using TConditionValue = Timestamp;
     static const bool special_null_node = false;
 
-    template<Action TAction>
-    int64_t find_all(IntegerColumn* /*res*/, size_t /*start*/, size_t /*end*/, size_t /*limit*/, size_t /*source_column*/) { REALM_ASSERT(false); return 0; }
-
     TimestampNode(Timestamp v, size_t column) : m_value(v)
     {
-        m_dT = 100.0;
         m_condition_column_idx = column;
     }
 
@@ -916,17 +903,17 @@ public:
     {
     }
 
-    void init(const Table& table) override
+    void table_changed() override
+    {
+        m_condition_column = &get_column<TimestampColumn>(m_condition_column_idx);
+    }
+
+    void init() override
     {
         m_dD = 100.0;
-        m_table = &table;
-        m_condition_column = static_cast<const TimestampColumn*>(&get_column_base(table, m_condition_column_idx));
-        REALM_ASSERT(dynamic_cast<const TimestampColumn*>(&get_column_base(table, m_condition_column_idx)));
-        m_column_type = get_real_column_type(table, m_condition_column_idx);
-        REALM_ASSERT_3(m_column_type, == , col_type_Timestamp);
 
         if (m_child)
-            m_child->init(table);
+            m_child->init();
     }
 
     size_t find_first_local(size_t start, size_t end) override
@@ -941,14 +928,15 @@ public:
     }
 
     TimestampNode(const TimestampNode& from, QueryNodeHandoverPatches* patches) : ParentNode(from, patches),
-        m_value(from.m_value), m_condition_column(from.m_condition_column), m_column_type(from.m_column_type)
+        m_value(from.m_value), m_condition_column(from.m_condition_column)
     {
+        if (m_condition_column && patches)
+            m_condition_column_idx = m_condition_column->get_column_index();
     }
 
 private:
     Timestamp m_value;
     const TimestampColumn* m_condition_column;
-    ColumnType m_column_type;
 };
 
 class StringNodeBase : public ParentNode {
@@ -956,30 +944,26 @@ public:
     using TConditionValue = StringData;
     static const bool special_null_node = true;
 
-    template<Action TAction>
-    int64_t find_all(IntegerColumn*, size_t, size_t, size_t, size_t)
-    {
-        REALM_ASSERT(false);
-        return 0;
-    }
-
     StringNodeBase(StringData v, size_t column) :
         m_value(v.is_null() ? util::none : util::make_optional(std::string(v)))
     {
         m_condition_column_idx = column;
-        m_dT = 10.0;
     }
 
-    void init(const Table& table) override
+    void table_changed() override
     {
+        m_condition_column = &get_column_base(m_condition_column_idx);
+        m_column_type = get_real_column_type(m_condition_column_idx);
+    }
+
+    void init() override
+    {
+        m_dT = 10.0;
         m_probes = 0;
         m_matches = 0;
         m_end_s = 0;
         m_leaf_start = 0;
         m_leaf_end = 0;
-        m_table = &table;
-        m_condition_column = &get_column_base(table, m_condition_column_idx);
-        m_column_type = get_real_column_type(table, m_condition_column_idx);
     }
 
     void clear_leaf_state()
@@ -989,8 +973,10 @@ public:
 
     StringNodeBase(const StringNodeBase& from, QueryNodeHandoverPatches* patches) : ParentNode(from, patches),
         m_value(from.m_value), m_condition_column(from.m_condition_column), m_column_type(from.m_column_type),
-        m_leaf_type(from.m_leaf_type), m_end_s(0), m_leaf_start(0), m_leaf_end(0)
+        m_leaf_type(from.m_leaf_type)
     {
+        if (m_condition_column && patches)
+            m_condition_column_idx = m_condition_column->get_column_index();
     }
 
 protected:
@@ -1002,9 +988,9 @@ protected:
     // Used for linear scan through short/long-string
     std::unique_ptr<const ArrayParent> m_leaf;
     StringColumn::LeafType m_leaf_type;
-    size_t m_end_s;
-    size_t m_leaf_start;
-    size_t m_leaf_end;
+    size_t m_end_s = 0;
+    size_t m_leaf_start = 0;
+    size_t m_leaf_end = 0;
 
 };
 
@@ -1025,16 +1011,16 @@ public:
         }
     }
 
-    void init(const Table& table) override
+    void init() override
     {
         clear_leaf_state();
 
         m_dD = 100.0;
 
-        StringNodeBase::init(table);
+        StringNodeBase::init();
 
         if (m_child)
-            m_child->init(table);
+            m_child->init();
     }
 
 
@@ -1125,11 +1111,11 @@ public:
         m_index_getter.reset();
     }
 
-    void init(const Table& table) override
+    void init() override
     {
         deallocate();
         m_dD = 10.0;
-        StringNodeBase::init(table);
+        StringNodeBase::init();
 
         if (m_column_type == col_type_StringEnum) {
             m_dT = 1.0;
@@ -1192,7 +1178,7 @@ public:
         }
 
         if (m_child)
-            m_child->init(table);
+            m_child->init();
     }
 
     size_t find_first_local(size_t start, size_t end) override
@@ -1286,8 +1272,7 @@ public:
         return std::unique_ptr<ParentNode>(new StringNode<Equal>(*this, patches));
     }
 
-    StringNode(const StringNode& from, QueryNodeHandoverPatches* patches) : StringNodeBase(from, patches),
-        m_index_matches_destroy(false)
+    StringNode(const StringNode& from, QueryNodeHandoverPatches* patches) : StringNodeBase(from, patches)
     {
     }
 
@@ -1320,13 +1305,6 @@ private:
 // also set to next AND condition (if any exists) following the OR.
 class OrNode: public ParentNode {
 public:
-    template<Action TAction>
-    int64_t find_all(IntegerColumn*, size_t, size_t, size_t, size_t)
-    {
-        REALM_ASSERT(false);
-        return 0;
-    }
-
     OrNode(std::unique_ptr<ParentNode> condition)
     {
         m_dT = 50.0;
@@ -1341,7 +1319,14 @@ public:
         }
     }
 
-    void init(const Table& table) override
+    void table_changed() override
+    {
+        for (auto& condition : m_conditions) {
+            condition->set_table(*m_table);
+        }
+    }
+
+    void init() override
     {
         m_dD = 10.0;
 
@@ -1356,15 +1341,13 @@ public:
 
         std::vector<ParentNode*> v;
         for (auto& condition : m_conditions) {
-            condition->init(table);
+            condition->init();
             v.clear();
             condition->gather_children(v);
         }
 
         if (m_child)
-            m_child->init(table);
-
-        m_table = &table;
+            m_child->init();
     }
 
     size_t find_first_local(size_t start, size_t end) override
@@ -1450,25 +1433,23 @@ private:
 
 class NotNode: public ParentNode {
 public:
-    template<Action TAction>
-    int64_t find_all(IntegerColumn*, size_t, size_t, size_t, size_t)
-    {
-        REALM_ASSERT(false);
-        return 0;
-    }
-
     NotNode(std::unique_ptr<ParentNode> condition) : m_condition(std::move(condition))
     {
         m_dT = 50.0;
     }
 
-    void init(const Table& table) override
+    void table_changed() override
+    {
+        m_condition->set_table(*m_table);
+    }
+
+    void init() override
     {
         m_dD = 10.0;
 
         std::vector<ParentNode*> v;
 
-        m_condition->init(table);
+        m_condition->init();
         v.clear();
         m_condition->gather_children(v);
 
@@ -1478,9 +1459,7 @@ public:
         m_first_in_known_range = not_found;
 
         if (m_child)
-            m_child->init(table);
-
-        m_table = &table;
+            m_child->init();
     }
 
     size_t find_first_local(size_t start, size_t end) override;
@@ -1544,9 +1523,6 @@ class TwoColumnsNode: public ParentNode {
 public:
     using TConditionValue = typename ColType::value_type;
 
-    template<Action TAction>
-    int64_t find_all(IntegerColumn* /*res*/, size_t /*start*/, size_t /*end*/, size_t /*limit*/, size_t /*source_column*/) {REALM_ASSERT(false); return 0;}
-
     TwoColumnsNode(size_t column1, size_t column2)
     {
         m_dT = 100.0;
@@ -1559,21 +1535,18 @@ public:
         delete[] m_value.data();
     }
 
-    void init(const Table& table) override
+    void table_changed() override
+    {
+        m_getter1.init(&get_column<ColType>(m_condition_column_idx1));
+        m_getter2.init(&get_column<ColType>(m_condition_column_idx2));
+    }
+
+    void init() override
     {
         m_dD = 100.0;
-        m_table = &table;
-
-        const ColumnBase* cb = &get_column_base(table, m_condition_column_idx1);
-        REALM_ASSERT_DEBUG(dynamic_cast<const ColType*>(cb));
-        const ColType* c = static_cast<const ColType*>(cb);
-        m_getter1.init(c);
-
-        c = static_cast<const ColType*>(&get_column_base(table, m_condition_column_idx2));
-        m_getter2.init(c);
 
         if (m_child)
-            m_child->init(table);
+            m_child->init();
     }
 
     size_t find_first_local(size_t start, size_t end) override
@@ -1628,21 +1601,21 @@ public:
     }
 
     TwoColumnsNode(const TwoColumnsNode& from, QueryNodeHandoverPatches* patches) : ParentNode(from, patches),
-        m_value(from.m_value), m_condition_column(from.m_condition_column), m_column_type(from.m_column_type),
-        m_condition_column_idx1(from.m_condition_column_idx1), m_condition_column_idx2(from.m_condition_column_idx2)
+        m_value(from.m_value), m_condition_column(from.m_condition_column), m_column_type(from.m_column_type)
     {
-        // NOT copied:
-        // m_getter1 = from.m_getter1;
-        // m_getter2 = from.m_getter2;
+        if (m_condition_column)
+            m_condition_column_idx = m_condition_column->get_column_index();
+        copy_getter(m_getter1, m_condition_column_idx1, from.m_getter1, patches);
+        copy_getter(m_getter2, m_condition_column_idx2, from.m_getter2, patches);
     }
 
 private:
     BinaryData m_value;
-    const BinaryColumn* m_condition_column;
+    const BinaryColumn* m_condition_column = nullptr;
     ColumnType m_column_type;
 
-    size_t m_condition_column_idx1;
-    size_t m_condition_column_idx2;
+    size_t m_condition_column_idx1 = not_found;
+    size_t m_condition_column_idx2 = not_found;
 
     SequentialGetter<ColType> m_getter1;
     SequentialGetter<ColType> m_getter2;
@@ -1659,11 +1632,9 @@ public:
         m_dT = 50.0;
     }
 
-    void init(const Table& table) override
+    void table_changed() override
     {
-        m_expression->set_base_table(&table);
-        if (m_child)
-            m_child->init(table);
+        m_expression->set_base_table(m_table.get());
     }
 
     size_t find_first_local(size_t start, size_t end) override
@@ -1707,29 +1678,25 @@ public:
         m_dT = 50.0;
     }
 
-    void init(const Table& table) override
+    void table_changed() override
     {
-        m_table = &table;
-        if (m_child)
-            m_child->init(table);
+        m_column_type = m_table->get_column_type(m_origin_column);
+        m_column = &const_cast<Table*>(m_table.get())->get_column_link_base(m_origin_column);
+        REALM_ASSERT(m_column_type == type_Link || m_column_type == type_LinkList);
     }
 
     size_t find_first_local(size_t start, size_t end) override
     {
+        REALM_ASSERT(m_column);
         if (!m_target_row.is_attached())
             return not_found;
 
-        DataType type = m_table->get_column_type(m_origin_column);
-        REALM_ASSERT(type == type_Link || type == type_LinkList);
-
-        if (type == type_Link) {
-            LinkColumnBase& clb = const_cast<Table*>(m_table)->get_column_link_base(m_origin_column);
-            LinkColumn& cl = static_cast<LinkColumn&>(clb);
+        if (m_column_type == type_Link) {
+            LinkColumn& cl = static_cast<LinkColumn&>(*m_column);
             return cl.find_first(m_target_row.get_index() + 1, start, end); // LinkColumn stores link to row N as the integer N + 1
         }
-        else if (type == type_LinkList) {
-            LinkColumnBase& clb = const_cast<Table*>(m_table)->get_column_link_base(m_origin_column);
-            LinkListColumn& cll = static_cast<LinkListColumn&>(clb);
+        else if (m_column_type == type_LinkList) {
+            LinkListColumn& cll = static_cast<LinkListColumn&>(*m_column);
 
             for (size_t i = start; i < end; i++) {
                 LinkViewRef lv = cll.get(i);
@@ -1743,7 +1710,7 @@ public:
 
     std::unique_ptr<ParentNode> clone(QueryNodeHandoverPatches* patches) const override
     {
-        return std::unique_ptr<ParentNode>(new LinksToNode(*this, patches));
+        return std::unique_ptr<ParentNode>(patches ? new LinksToNode(*this, patches) : new LinksToNode(*this));
     }
 
     void apply_handover_patch(QueryNodeHandoverPatches& patches, Group& group) override
@@ -1762,20 +1729,17 @@ public:
     }
 
 private:
-    size_t m_origin_column;
+    size_t m_origin_column = npos;
     ConstRow m_target_row;
+    LinkColumnBase* m_column = nullptr;
+    DataType m_column_type;
 
-    LinksToNode(const LinksToNode& source, QueryNodeHandoverPatches* patches) : ParentNode(source, patches),
-         m_origin_column(patches ? npos : source.m_origin_column),
-         m_target_row(patches ? ConstRow() : source.m_target_row)
+    LinksToNode(const LinksToNode& source, QueryNodeHandoverPatches* patches) : ParentNode(source, patches)
     {
-        if (!patches)
-            return;
-
-        std::unique_ptr<LinksToNodeHandoverPatch> patch(new LinksToNodeHandoverPatch);
-        patch->m_origin_column = source.m_origin_column;
+        auto patch = std::make_unique<LinksToNodeHandoverPatch>();
+        patch->m_origin_column = source.m_column->get_column_index();
         ConstRow::generate_patch(source.m_target_row, patch->m_target_row);
-        patches->emplace_back(patch.release());
+        patches->push_back(std::move(patch));
     }
 };
 

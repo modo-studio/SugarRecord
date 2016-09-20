@@ -6,40 +6,40 @@ import CoreData
 
 extension NSManagedObjectContext: Context {
     
-    public func fetch<T: Entity>(request: Request<T>) throws -> [T] {
-        guard let entity = T.self as? NSManagedObject.Type else { throw Error.InvalidType }
-        let fetchRequest: NSFetchRequest =  NSFetchRequest(entityName: entity.entityName)
+    public func fetch<T: Entity>(_ request: Request<T>) throws -> [T] {
+        guard let entity = T.self as? NSManagedObject.Type else { throw StorageError.invalidType }
+        let fetchRequest: NSFetchRequest =  NSFetchRequest<NSFetchRequestResult>(entityName: entity.entityName)
         fetchRequest.predicate = request.predicate
         fetchRequest.sortDescriptors = request.sortDescriptor.map {[$0]}
         fetchRequest.fetchOffset = request.fetchOffset
         fetchRequest.fetchLimit = request.fetchLimit
-        let results = try self.executeFetchRequest(fetchRequest)
+        let results = try self.fetch(fetchRequest)
         let typedResults = results.map {$0 as! T} 
         return typedResults
     }
     
-    public func insert<T: Entity>(entity: T) throws {}
+    public func insert<T: Entity>(_ entity: T) throws {}
     
     public func new<T: Entity>() throws -> T {
-        guard let entity = T.self as? NSManagedObject.Type else { throw Error.InvalidType }
-        let object = NSEntityDescription.insertNewObjectForEntityForName(entity.entityName, inManagedObjectContext: self)
+        guard let entity = T.self as? NSManagedObject.Type else { throw StorageError.invalidType }
+        let object = NSEntityDescription.insertNewObject(forEntityName: entity.entityName, into: self)
         if let inserted = object as? T {
             return inserted
         }
         else {
-            throw Error.InvalidType
+            throw StorageError.invalidType
         }
     }
     
-    public func remove<T: Entity>(objects: [T]) throws {
+    public func remove<T: Entity>(_ objects: [T]) throws {
         for object in objects {
             guard let object = object as? NSManagedObject else { continue }
-            self.deleteObject(object)
+            self.delete(object)
         }
     }
     
     public func removeAll() throws {
-        throw Error.InvalidOperation("-removeAll not available in NSManagedObjectContext. Remove the store instead")
+        throw StorageError.invalidOperation("-removeAll not available in NSManagedObjectContext. Remove the store instead")
     }
     
 }
@@ -49,20 +49,20 @@ extension NSManagedObjectContext: Context {
 
 extension NSManagedObjectContext {
     
-    func observe(inMainThread mainThread: Bool, saveNotification: (notification: NSNotification) -> Void) {
-        let queue: NSOperationQueue = mainThread ? NSOperationQueue.mainQueue() : NSOperationQueue()
-        NSNotificationCenter.defaultCenter().addObserverForName(NSManagedObjectContextDidSaveNotification, object: self, queue: queue, usingBlock: saveNotification)
+    func observe(inMainThread mainThread: Bool, saveNotification: @escaping (_ notification: Notification) -> Void) {
+        let queue: OperationQueue = mainThread ? OperationQueue.main : OperationQueue()
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.NSManagedObjectContextDidSave, object: self, queue: queue, using: saveNotification)
     }
     
     func observeToGetPermanentIDsBeforeSaving() {
-        NSNotificationCenter.defaultCenter().addObserverForName(NSManagedObjectContextWillSaveNotification, object: self, queue: nil, usingBlock: { [weak self] (notification) in
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.NSManagedObjectContextWillSave, object: self, queue: nil, using: { [weak self] (notification) in
             guard let s = self else {
                 return
             }
             if s.insertedObjects.count == 0 {
                 return
             }
-            _ = try? s.obtainPermanentIDsForObjects(Array(s.insertedObjects))
+            _ = try? s.obtainPermanentIDs(for: Array(s.insertedObjects))
         })
     }
     

@@ -8,26 +8,13 @@ target 'Examples' do
   pod 'SugarRecord/Realm', :path => "../"
 end
 
-target 'iOS' do
+target 'Tests' do
   pod 'SugarRecord', :path => "../"
   pod 'SugarRecord/CoreData', :path => "../"
   pod 'SugarRecord/CoreData+iCloud', :path => "../"
   pod 'SugarRecord/Realm', :path => "../"
-  pod "Quick"
-  pod "Nimble"
+  pod "Quick", :git => "https://github.com/quick/quick.git", :branch => "swift-3.0"
+  pod "Nimble", "~> 5.0"
   pod "OHHTTPStubs"
   pod 'OHHTTPStubs/Swift'
-end
-
-target 'macOS' do
-  pod 'SugarRecord', :path => "../"
-  pod 'SugarRecord/CoreData', :path => "../"
-  pod 'SugarRecord/CoreData+iCloud', :path => "../"
-  pod 'SugarRecord/Realm', :path => "../"
-end
-
-target 'tvOS' do
-  # pod 'SugarRecord', :path => "../"
-  # pod 'SugarRecord/CoreData', :path => "../"
-  # pod 'SugarRecord/Realm', :path => "../"
 end

@@ -10,18 +10,18 @@ internal class VersionProvider: NSObject {
     // MARK: - Internal
     
     internal func framework() -> String! {
-        if let version = NSBundle(forClass: VersionProvider.classForCoder()).objectForInfoDictionaryKey("CFBundleShortVersionString") as? String {
+        if let version = Bundle(for: VersionProvider.classForCoder()).object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
             return version
         }
         return nil
     }
     
-    internal func github(completion: String -> Void) {
-        let request: NSURLRequest = NSURLRequest(URL: NSURL(string: VersionProvider.apiReleasesUrl)!)
-        NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration()).dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+    internal func github(_ completion: @escaping (String) -> Void) {
+        let request: URLRequest = URLRequest(url: URL(string: VersionProvider.apiReleasesUrl)!)
+        URLSession(configuration: URLSessionConfiguration.default).dataTask(with: request, completionHandler: { (data, response, error) in
             if let data = data {
-                let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
-                if let array = json as? [[String: AnyObject]], lastVersion = array.first, versionTag: String = lastVersion["tag_name"] as? String {
+                let json: AnyObject? = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as AnyObject?
+                if let array = json as? [[String: AnyObject]], let lastVersion = array.first, let versionTag: String = lastVersion["tag_name"] as? String {
                     completion(versionTag)
                 }
             }

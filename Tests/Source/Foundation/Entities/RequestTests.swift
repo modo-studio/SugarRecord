@@ -25,8 +25,8 @@ class RequestTests: QuickSpec {
             }
             
             it("-sortedWith(key:ascending:comparator)") {
-                let descriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true, comparator: { _ in return NSComparisonResult.OrderedSame})
-                let request: Request<Issue> = Request(testRealm()).sortedWith("name", ascending: true, comparator: {_ in return NSComparisonResult.OrderedSame})
+                let descriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true, comparator: { _ in return ComparisonResult.orderedSame})
+                let request: Request<Issue> = Request(testRealm()).sortedWith("name", ascending: true, comparator: {_ in return ComparisonResult.orderedSame})
                 expect(descriptor.key) == request.sortDescriptor?.key
                 expect(descriptor.ascending) == request.sortDescriptor?.ascending
             }

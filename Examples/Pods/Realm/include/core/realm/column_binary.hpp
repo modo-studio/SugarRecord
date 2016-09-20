@@ -1,22 +1,21 @@
 /*************************************************************************
  *
- * REALM CONFIDENTIAL
- * __________________
+ * Copyright 2016 Realm Inc.
  *
- *  [2011] - [2015] Realm Inc
- *  All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * NOTICE:  All information contained herein is, and remains
- * the property of Realm Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Realm Incorporated
- * and its suppliers and may be covered by U.S. and Foreign Patents,
- * patents in process, and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Realm Incorporated.
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
  **************************************************************************/
+
 #ifndef REALM_COLUMN_BINARY_HPP
 #define REALM_COLUMN_BINARY_HPP
 
@@ -35,7 +34,7 @@ class BinaryColumn: public ColumnBaseSimple {
 public:
     typedef BinaryData value_type;
 
-    BinaryColumn(Allocator&, ref_type, bool nullable = false);
+    BinaryColumn(Allocator&, ref_type, bool nullable = false, size_t column_ndx = npos);
 
     size_t size() const noexcept final;
     bool is_empty() const noexcept { return size() == 0; }
@@ -65,6 +64,8 @@ public:
 
     /// Compare two binary columns for equality.
     bool compare_binary(const BinaryColumn&) const;
+
+    int compare_values(size_t row1, size_t row2) const noexcept override;
 
     static ref_type create(Allocator&, size_t size, bool nullable);
 
@@ -222,7 +223,7 @@ inline BinaryData BinaryColumn::get(size_t ndx) const noexcept
 
 inline bool BinaryColumn::is_null(size_t ndx) const noexcept
 {
-    return get(ndx).is_null();
+    return m_nullable && get(ndx).is_null();
 }
 
 inline StringData BinaryColumn::get_string(size_t ndx) const noexcept

@@ -11,10 +11,10 @@ class RealmBasicEntity {
     // MARK: - Init
     
     init(object: RealmBasicObject) {
-        let dateFormater = NSDateFormatter()
-        dateFormater.timeStyle = NSDateFormatterStyle.ShortStyle
-        dateFormater.dateStyle = NSDateFormatterStyle.ShortStyle
-        self.dateString = dateFormater.stringFromDate(object.date)
+        let dateFormater = DateFormatter()
+        dateFormater.timeStyle = DateFormatter.Style.short
+        dateFormater.dateStyle = DateFormatter.Style.short
+        self.dateString = dateFormater.string(from: object.date as Date)
         self.name = object.name
     }
     

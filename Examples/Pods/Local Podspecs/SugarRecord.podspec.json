@@ -1,6 +1,6 @@
 {
   "name": "SugarRecord",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "summary": "CoreData & Realmwrapper written on Swift",
   "homepage": "https://github.com/carambalabs/SugarRecord",
   "license": "MIT",
@@ -9,7 +9,7 @@
   },
   "source": {
     "git": "https://github.com/carambalabs/SugarRecord.git",
-    "tag": "2.3.0"
+    "tag": "2.3.1"
   },
   "social_media_url": "https://twitter.com/carambalabs",
   "requires_arc": true,
@@ -33,7 +33,7 @@
       ],
       "dependencies": {
         "Result": [
-          "~> 2.0"
+          "~> 3.0"
         ]
       },
       "platforms": {
@@ -54,7 +54,7 @@
       ],
       "dependencies": {
         "Result": [
-          "~> 2.0"
+          "~> 3.0"
         ]
       }
     },
@@ -66,10 +66,10 @@
       ],
       "dependencies": {
         "RealmSwift": [
-          "~> 1.0.2"
+          "~> 1.1"
         ],
         "Result": [
-          "~> 2.0"
+          "~> 3.0"
         ]
       }
     }

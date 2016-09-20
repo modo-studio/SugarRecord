@@ -1,20 +1,18 @@
 /*************************************************************************
  *
- * REALM CONFIDENTIAL
- * __________________
+ * Copyright 2016 Realm Inc.
  *
- *  [2011] - [2015] Realm Inc
- *  All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * NOTICE:  All information contained herein is, and remains
- * the property of Realm Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Realm Incorporated
- * and its suppliers and may be covered by U.S. and Foreign Patents,
- * patents in process, and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Realm Incorporated.
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
  **************************************************************************/
 
@@ -57,28 +55,6 @@ namespace _impl {
 
 template<class T, bool=std::is_trivially_destructible<T>::value>
 struct OptionalStorage;
-
-// FIXME: Callers should switch to std::move when we adopt C++14
-template<class T>
-inline constexpr typename std::remove_reference<T>::type&& constexpr_move(T&& t) noexcept
-{
-    return static_cast<typename std::remove_reference<T>::type&&>(t);
-}
-
-// FIXME: Callers should switch to std::forward when we adopt C++14
-template<class T>
-inline constexpr T&& constexpr_forward(typename std::remove_reference<T>::type& t) noexcept
-{
-    return static_cast<T&&>(t);
-}
-
-// FIXME: Callers should switch to std::forward when we adopt C++14
-template<class T>
-inline constexpr T&& constexpr_forward(typename std::remove_reference<T>::type&& t) noexcept
-{
-    static_assert(!std::is_lvalue_reference<T>::value, "Can't forward rvalue as lvalue.");
-    return static_cast<T&&>(t);
-}
 
 template<class T, class U>
 struct TypeIsAssignableToOptional {
@@ -272,7 +248,7 @@ Optional<T>::Optional(const Optional<T>& other): Storage(none)
 }
 
 template<class T>
-constexpr Optional<T>::Optional(T&& r_value): Storage(_impl::constexpr_move(r_value))
+constexpr Optional<T>::Optional(T&& r_value): Storage(std::move(r_value))
 {
 }
 
@@ -425,7 +401,7 @@ template<class T>
 template<class U>
 constexpr T Optional<T>::value_or(U&& otherwise) const&
 {
-    return m_engaged ? T{m_value} : T{_impl::constexpr_forward<U>(otherwise)};
+    return m_engaged ? T{m_value} : T{std::forward<U>(otherwise)};
 }
 
 template<class T>
@@ -614,7 +590,7 @@ struct OptionalStorage<T, true> {
     bool m_engaged = false;
 
     constexpr OptionalStorage(realm::util::None) : m_null_state() { }
-    constexpr OptionalStorage(T&& value) : m_value(constexpr_move(value)), m_engaged(true) { }
+    constexpr OptionalStorage(T&& value) : m_value(std::move(value)), m_engaged(true) { }
 
     template<class... Args>
     constexpr OptionalStorage(Args&&... args): m_value(args...), m_engaged(true) { }
@@ -630,7 +606,7 @@ struct OptionalStorage<T, false> {
     bool m_engaged = false;
 
     constexpr OptionalStorage(realm::util::None) : m_null_state() { }
-    constexpr OptionalStorage(T&& value) : m_value(constexpr_move(value)), m_engaged(true) { }
+    constexpr OptionalStorage(T&& value) : m_value(std::move(value)), m_engaged(true) { }
 
     template<class... Args>
     constexpr OptionalStorage(Args&&... args): m_value(args...), m_engaged(true) { }

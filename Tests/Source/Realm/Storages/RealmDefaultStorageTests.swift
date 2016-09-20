@@ -27,7 +27,7 @@ class RealmDefaultStorageTests: QuickSpec {
         
         describe("-type") {
             it("should have the correct type") {
-                expect(subject.type) == StorageType.Realm
+                expect(subject.type) == StorageType.realm
             }
         }
         
@@ -42,7 +42,7 @@ class RealmDefaultStorageTests: QuickSpec {
             it("should remove the storage") {
                 _ = try? subject.removeStore()
                 let path = Realm.Configuration.defaultConfiguration.fileURL?.absoluteString
-                expect(NSFileManager.defaultManager().fileExistsAtPath(path!)) == false
+                expect(FileManager.default.fileExists(atPath: path!)) == false
             }
             
             it("shouldn't throw an exception") {

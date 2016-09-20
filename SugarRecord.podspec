@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SugarRecord"
-  s.version          = "2.3.1"
+  s.version          = "3.0.0.alpha.1"
   s.summary          = "CoreData & Realmwrapper written on Swift"
   s.homepage         = "https://github.com/carambalabs/SugarRecord"
   s.license          = 'MIT'
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.10"
 
   realm_dependencies = lambda do |spec|
-    spec.dependency "RealmSwift", "~> 1.0.2"
+    spec.dependency "RealmSwift", "~> 1.1"
   end
 
   coredata_dependencies = lambda do |spec|
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   end
 
   foundation_dependencies = lambda do |spec|
-    spec.dependency "Result", "~> 2.0"
+    spec.dependency "Result", "~> 3.0"
   end
 
   all_platforms = lambda do |spec|

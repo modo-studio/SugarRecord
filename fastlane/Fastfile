@@ -5,7 +5,7 @@ lane :pods do
 end
 
 lane :tests do
-  scan(workspace: "Examples/Examples.xcworkspace", scheme: "iOS", clean: true)
+  scan(workspace: "Examples/Examples.xcworkspace", scheme: "Tests", clean: true)
 end
 
 lane :travis do
