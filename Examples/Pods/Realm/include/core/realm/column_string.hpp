@@ -1,23 +1,21 @@
-
 /*************************************************************************
  *
- * REALM CONFIDENTIAL
- * __________________
+ * Copyright 2016 Realm Inc.
  *
- *  [2011] - [2015] Realm Inc
- *  All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * NOTICE:  All information contained herein is, and remains
- * the property of Realm Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Realm Incorporated
- * and its suppliers and may be covered by U.S. and Foreign Patents,
- * patents in process, and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Realm Incorporated.
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
  **************************************************************************/
+
 #ifndef REALM_COLUMN_STRING_HPP
 #define REALM_COLUMN_STRING_HPP
 
@@ -44,11 +42,11 @@ class StringIndex;
 /// it is, then the root ref of the index is stored in
 /// Table::m_columns immediately after the root ref of the string
 /// column.
-class StringColumn: public ColumnBaseSimple, public ColumnTemplate<StringData> {
+class StringColumn: public ColumnBaseSimple {
 public:
     typedef StringData value_type;
 
-    StringColumn(Allocator&, ref_type, bool nullable = false);
+    StringColumn(Allocator&, ref_type, bool nullable = false, size_t column_ndx = npos);
     ~StringColumn() noexcept override;
 
     void destroy() noexcept override;
@@ -75,7 +73,7 @@ public:
     void find_all(IntegerColumn& result, StringData value, size_t begin = 0,
                   size_t end = npos) const;
 
-    int compare_values(size_t, size_t) const override;
+    int compare_values(size_t, size_t) const noexcept override;
 
     //@{
     /// Find the lower/upper bound for the specified value assuming
@@ -144,9 +142,6 @@ public:
     void to_dot(std::ostream&, StringData title) const override;
     void do_dump_node_structure(std::ostream&, int) const override;
 #endif
-
-protected:
-    StringData get_val(size_t row) const override { return get(row); }
 
 private:
     std::unique_ptr<StringIndex> m_search_index;
@@ -283,7 +278,7 @@ inline void StringColumn::clear()
     do_clear(); // Throws
 }
 
-inline int StringColumn::compare_values(size_t row1, size_t row2) const
+inline int StringColumn::compare_values(size_t row1, size_t row2) const noexcept
 {
     StringData a = get(row1);
     StringData b = get(row2);

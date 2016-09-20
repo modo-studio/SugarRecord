@@ -1,22 +1,20 @@
 /*************************************************************************
  *
- * REALM CONFIDENTIAL
- * __________________
+ * Copyright 2016 Realm Inc.
  *
- *  [2011] - [2015] Realm Inc
- *  All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * NOTICE:  All information contained herein is, and remains
- * the property of Realm Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Realm Incorporated
- * and its suppliers and may be covered by U.S. and Foreign Patents,
- * patents in process, and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Realm Incorporated.
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
-***************************************************************************/
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ **************************************************************************/
 
 #ifndef REALM_ARRAY_INTEGER_HPP
 #define REALM_ARRAY_INTEGER_HPP
@@ -31,7 +29,6 @@ class ArrayInteger: public Array {
 public:
     typedef int64_t value_type;
 
-    explicit ArrayInteger(no_prealloc_tag) noexcept;
     explicit ArrayInteger(Allocator&) noexcept;
     ~ArrayInteger() noexcept override {}
 
@@ -74,7 +71,6 @@ class ArrayIntNull: public Array {
 public:
     using value_type = util::Optional<int64_t>;
 
-    explicit ArrayIntNull(no_prealloc_tag) noexcept;
     explicit ArrayIntNull(Allocator&) noexcept;
     ~ArrayIntNull() noexcept override;
 
@@ -191,12 +187,6 @@ private:
 
 // Implementation:
 
-inline ArrayInteger::ArrayInteger(Array::no_prealloc_tag) noexcept:
-    Array(Array::no_prealloc_tag())
-{
-    m_is_inner_bptree_node = false;
-}
-
 inline ArrayInteger::ArrayInteger(Allocator& allocator) noexcept:
     Array(allocator)
 {
@@ -283,11 +273,6 @@ inline size_t ArrayInteger::upper_bound(int64_t value) const noexcept
     return upper_bound_int(value);
 }
 
-
-inline
-ArrayIntNull::ArrayIntNull(no_prealloc_tag tag) noexcept: Array(tag)
-{
-}
 
 inline
 ArrayIntNull::ArrayIntNull(Allocator& allocator) noexcept: Array(allocator)

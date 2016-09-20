@@ -1,22 +1,21 @@
 /*************************************************************************
  *
- * REALM CONFIDENTIAL
- * __________________
+ * Copyright 2016 Realm Inc.
  *
- *  [2011] - [2015] Realm Inc
- *  All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * NOTICE:  All information contained herein is, and remains
- * the property of Realm Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Realm Incorporated
- * and its suppliers and may be covered by U.S. and Foreign Patents,
- * patents in process, and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Realm Incorporated.
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
  **************************************************************************/
+
 #ifndef REALM_COLUMN_BACKLINK_HPP
 #define REALM_COLUMN_BACKLINK_HPP
 
@@ -37,7 +36,7 @@ namespace realm {
 /// there is a single link, a tagged ref encoding the origin row position.
 class BacklinkColumn: public IntegerColumn, public ArrayParent {
 public:
-    BacklinkColumn(Allocator&, ref_type);
+    BacklinkColumn(Allocator&, ref_type, size_t col_ndx = npos);
     ~BacklinkColumn() noexcept override {}
 
     static ref_type create(Allocator&, size_t size = 0);
@@ -61,7 +60,7 @@ public:
     void set_origin_table(Table&) noexcept;
     LinkColumnBase& get_origin_column() const noexcept;
     size_t get_origin_column_index() const noexcept;
-    void set_origin_column(LinkColumnBase& column, size_t col_ndx) noexcept;
+    void set_origin_column(LinkColumnBase& column) noexcept;
 
     void insert_rows(size_t, size_t, size_t, bool) override;
     void erase_rows(size_t, size_t, size_t, bool) override;
@@ -74,12 +73,13 @@ public:
     void adj_acc_swap_rows(size_t, size_t) noexcept override;
     void adj_acc_clear_root_table() noexcept override;
     void mark(int) noexcept override;
-    void refresh_accessor_tree(size_t, const Spec&) override;
 
     void bump_link_origin_table_version() noexcept override;
 
     void cascade_break_backlinks_to(size_t row_ndx, CascadeState& state) override;
     void cascade_break_backlinks_to_all_rows(size_t num_rows, CascadeState&) override;
+
+    int compare_values(size_t, size_t) const noexcept override;
 
 #ifdef REALM_DEBUG
     void verify() const override;
@@ -103,7 +103,6 @@ protected:
 private:
     TableRef        m_origin_table;
     LinkColumnBase* m_origin_column = nullptr;
-    size_t     m_origin_column_ndx = npos;
 
     template<typename Func>
     size_t for_each_link(size_t row_ndx, bool do_destroy, Func&& f);
@@ -114,8 +113,8 @@ private:
 
 // Implementation
 
-inline BacklinkColumn::BacklinkColumn(Allocator& alloc, ref_type ref):
-    IntegerColumn(alloc, ref) // Throws
+inline BacklinkColumn::BacklinkColumn(Allocator& alloc, ref_type ref, size_t col_ndx):
+    IntegerColumn(alloc, ref, col_ndx) // Throws
 {
 }
 
@@ -147,13 +146,12 @@ inline LinkColumnBase& BacklinkColumn::get_origin_column() const noexcept
 
 inline size_t BacklinkColumn::get_origin_column_index() const noexcept
 {
-    return m_origin_column_ndx;
+    return m_origin_column ? m_origin_column->get_column_index() : npos;
 }
 
-inline void BacklinkColumn::set_origin_column(LinkColumnBase& column, size_t col_ndx) noexcept
+inline void BacklinkColumn::set_origin_column(LinkColumnBase& column) noexcept
 {
     m_origin_column = &column;
-    m_origin_column_ndx = col_ndx;
 }
 
 inline void BacklinkColumn::add_row()

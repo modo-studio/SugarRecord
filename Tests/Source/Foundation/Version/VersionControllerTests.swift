@@ -27,17 +27,17 @@ class VersionControllerTests: QuickSpec {
 // MARK: - Mocking
 
 private class MockVersionProvider: VersionProvider {
-    private override func framework() -> String! {
+    fileprivate override func framework() -> String! {
         return "4.0.0"
     }
-    private override func github(completion: String -> Void) {
+    fileprivate override func github(_ completion: (String) -> Void) {
         completion("4.0.1")
     }
 }
 
 private class MockLogger: Logger {
-    private var logged: Bool! = false
-    private override func log(message: String) {
+    fileprivate var logged: Bool! = false
+    fileprivate override func log(_ message: String) {
         self.logged = true
     }
 }

@@ -5,7 +5,7 @@ class RealmBasicObject: Object {
     
     // MARK: - Attributes
     
-    dynamic var date: NSDate = NSDate()
+    dynamic var date: Date = Date()
     dynamic var name: String = ""
     
     

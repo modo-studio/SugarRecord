@@ -1,22 +1,21 @@
 /*************************************************************************
  *
- * REALM CONFIDENTIAL
- * __________________
+ * Copyright 2016 Realm Inc.
  *
- *  [2011] - [2015] Realm Inc
- *  All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * NOTICE:  All information contained herein is, and remains
- * the property of Realm Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Realm Incorporated
- * and its suppliers and may be covered by U.S. and Foreign Patents,
- * patents in process, and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Realm Incorporated.
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
  **************************************************************************/
+
 #ifndef REALM_COLUMN_STRING_ENUM_HPP
 #define REALM_COLUMN_STRING_ENUM_HPP
 
@@ -53,12 +52,12 @@ class StringEnumColumn: public IntegerColumn {
 public:
     typedef StringData value_type;
 
-    StringEnumColumn(Allocator&, ref_type ref, ref_type keys_ref, bool nullable);
+    StringEnumColumn(Allocator&, ref_type ref, ref_type keys_ref, bool nullable, size_t column_ndx = npos);
     ~StringEnumColumn() noexcept override;
     void destroy() noexcept override;
     MemRef clone_deep(Allocator& alloc) const override;
 
-    int compare_values(size_t row1, size_t row2) const override
+    int compare_values(size_t row1, size_t row2) const noexcept override
     {
         StringData a = get(row1);
         StringData b = get(row2);
@@ -185,7 +184,7 @@ inline StringData StringEnumColumn::get(size_t ndx) const noexcept
 
 inline bool StringEnumColumn::is_null(size_t ndx) const noexcept
 {
-    return is_nullable() ? get(ndx).is_null() : false;
+    return is_nullable() && get(ndx).is_null();
 }
 
 inline void StringEnumColumn::add()

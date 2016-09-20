@@ -9,7 +9,7 @@ class BasicObject: NSManagedObject {
 
 extension BasicObject {
     
-    @NSManaged var date: NSDate?
+    @NSManaged var date: Date?
     @NSManaged var name: String?
     
 }

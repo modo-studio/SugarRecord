@@ -8,17 +8,17 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
     // MARK: - Attributes
     lazy var db: CoreDataDefaultStorage = {
         let store = CoreData.Store.Named("cd_basic")
-        let bundle = NSBundle(forClass: CoreDataBasicView.classForCoder())
+        let bundle = Bundle(for: CoreDataBasicView.classForCoder())
         let model = CoreData.ObjectModel.Merged([bundle])
         let defaultStorage = try! CoreDataDefaultStorage(store: store, model: model)
         return defaultStorage
     }()
     lazy var tableView: UITableView = {
-        let _tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
+        let _tableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
         _tableView.translatesAutoresizingMaskIntoConstraints = false
         _tableView.delegate = self
         _tableView.dataSource = self
-        _tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "default-cell")
+        _tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "default-cell")
         return _tableView
     }()
     var entities: [CoreDataBasicEntity] = [] {
@@ -55,21 +55,21 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
     
     // MARK: - Private
     
-    private func setup() {
+    fileprivate func setup() {
         setupView()
         setupNavigationItem()
         setupTableView()
     }
     
-    private func setupView() {
-        self.view.backgroundColor = UIColor.whiteColor()
+    fileprivate func setupView() {
+        self.view.backgroundColor = UIColor.white
     }
     
-    private func setupNavigationItem() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(CoreDataBasicView.userDidSelectAdd(_:)))
+    fileprivate func setupNavigationItem() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(CoreDataBasicView.userDidSelectAdd(_:)))
     }
     
-    private func setupTableView() {
+    fileprivate func setupTableView() {
         self.view.addSubview(tableView)
         self.tableView.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(self.view)
@@ -79,23 +79,23 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
     
     // MARK: - UITableViewDataSource / UITableViewDelegate
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.entities.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("default-cell")!
-        cell.textLabel?.text = "\(entities[indexPath.row].name) - \(entities[indexPath.row].dateString)"
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "default-cell")!
+        cell.textLabel?.text = "\(entities[(indexPath as NSIndexPath).row].name) - \(entities[(indexPath as NSIndexPath).row].dateString)"
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            let name = entities[indexPath.row].name
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            let name = entities[(indexPath as NSIndexPath).row].name
             try! db.operation({ (context, save) -> Void in
                 guard let obj = try! context.request(BasicObject.self).filteredWith("name", equalTo: name).fetch().first else { return }
                 _ = try? context.remove(obj)
@@ -108,10 +108,10 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
     
     // MARK: - Actions
     
-    func userDidSelectAdd(sender: AnyObject!) {
+    func userDidSelectAdd(_ sender: AnyObject!) {
         try! db.operation { (context, save) -> Void in
             let _object: BasicObject = try! context.new()
-            _object.date = NSDate()
+            _object.date = Date()
             _object.name = randomStringWithLength(10) as String
             try! context.insert(_object)
             save()
@@ -122,7 +122,7 @@ class CoreDataBasicView: UIViewController, UITableViewDelegate, UITableViewDataS
     
     // MARK: - Private
     
-    private func updateData() {
+    fileprivate func updateData() {
         self.entities = try! db.fetch(Request<BasicObject>()).map(CoreDataBasicEntity.init)
     }
 }

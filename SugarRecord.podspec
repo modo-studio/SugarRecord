@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   end
 
   foundation_dependencies = lambda do |spec|
-    spec.dependency "Result", "~> 2.0"
+    spec.dependency "Result", "~> 3.0"
   end
 
   all_platforms = lambda do |spec|
