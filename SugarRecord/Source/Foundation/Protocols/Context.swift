@@ -2,12 +2,12 @@ import Foundation
 
 public protocol Context: Requestable {
     
-    func fetch<T: Entity>(request: Request<T>) throws -> [T]
-    func insert<T: Entity>(entity: T) throws
+    func fetch<T: Entity>(_ request: Request<T>) throws -> [T]
+    func insert<T: Entity>(_ entity: T) throws
     func new<T: Entity>() throws -> T
     func create<T: Entity>() throws -> T
-    func remove<T: Entity>(objects: [T]) throws
-    func remove<T: Entity>(object: T) throws
+    func remove<T: Entity>(_ objects: [T]) throws
+    func remove<T: Entity>(_ object: T) throws
     func removeAll() throws
 }
 
@@ -22,7 +22,7 @@ public extension Context {
         return instance
     }
 
-    public func remove<T: Entity>(object: T) throws {
+    public func remove<T: Entity>(_ object: T) throws {
         return try self.remove([object])
     }
     

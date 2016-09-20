@@ -1,12 +1,12 @@
 import Foundation
 
 public enum ObservableChange<T> {
-    case Initial([T])
-    case Update(deletions: [Int], insertions: [(index: Int, element: T)], modifications: [(index: Int, element: T)])
-    case Error(NSError)
+    case initial([T])
+    case update(deletions: [Int], insertions: [(index: Int, element: T)], modifications: [(index: Int, element: T)])
+    case error(Error)
 }
 
-public class RequestObservable<T: Entity>: NSObject {
+open class RequestObservable<T: Entity>: NSObject {
     
     // MARK: - Attributes
     
@@ -22,7 +22,7 @@ public class RequestObservable<T: Entity>: NSObject {
     
     // MARK: - Public
     
-    public func observe(closure: ObservableChange<T> -> Void) {
+    open func observe(_ closure: @escaping (ObservableChange<T>) -> Void) {
         assertionFailure("The observe method must be overriden")
     }
     

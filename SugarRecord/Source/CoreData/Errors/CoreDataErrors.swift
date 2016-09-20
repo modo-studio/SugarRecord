@@ -3,7 +3,7 @@ import Foundation
 
 public extension CoreData {
     
-    public enum Error: ErrorType {
+    public enum CoreDataError: Error {
         case InvalidModel(CoreData.ObjectModel)
         case PersistenceStoreInitialization
     }

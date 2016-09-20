@@ -4,18 +4,18 @@ import CoreData
 public extension CoreData {
 
     public enum ObjectModel {
-        case Named(String, NSBundle)
-        case Merged([NSBundle]?)
+        case Named(String, Bundle)
+        case Merged([Bundle]?)
         case URL(NSURL)
         
         func model() -> NSManagedObjectModel? {
             switch self {
             case .Merged(let bundles):
-                return NSManagedObjectModel.mergedModelFromBundles(bundles)
+                return NSManagedObjectModel.mergedModel(from: bundles)
             case .Named(let name, let bundle):
-                return NSManagedObjectModel(contentsOfURL: bundle.URLForResource(name, withExtension: "momd")!)
+                return NSManagedObjectModel(contentsOf: bundle.url(forResource: name, withExtension: "momd")!)
             case .URL(let url):
-                return NSManagedObjectModel(contentsOfURL: url)
+                return NSManagedObjectModel(contentsOf: url as URL)
             }
             
         }

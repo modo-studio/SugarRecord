@@ -6,13 +6,13 @@ public extension CoreData {
     public enum Store {
         
         case Named(String)
-        case URL(NSURL)
+        case URL(URL)
         
-        public func path() -> NSURL {
+        public func path() -> URL {
             switch self {
             case .URL(let url): return url
             case .Named(let name):
-                return NSURL(fileURLWithPath: documentsDirectory()).URLByAppendingPathComponent(name)!
+                return Foundation.URL(fileURLWithPath: documentsDirectory()).appendingPathComponent(name)
             }
         }
         

@@ -3,7 +3,7 @@ import Foundation
 public protocol Requestable {
     
     func requestContext() -> Context
-    func request<T>(model: T.Type) -> Request<T>
+    func request<T>(_ model: T.Type) -> Request<T>
     
 }
 
@@ -13,7 +13,7 @@ public extension Requestable where Self: Context {
         return self
     }
     
-    func request<T>(model: T.Type) -> Request<T> {
+    func request<T>(_ model: T.Type) -> Request<T> {
         return Request<T>(self)
     }
 
@@ -25,7 +25,7 @@ public extension Requestable where Self:Storage {
         return self.mainContext
     }
     
-    func request<T>(model: T.Type) -> Request<T> {
+    func request<T>(_ model: T.Type) -> Request<T> {
         return Request<T>(self.mainContext)
     }
     

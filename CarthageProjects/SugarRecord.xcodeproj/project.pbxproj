@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2334C4EF1D7DDB9000ACBC3A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2334C4ED1D7DDB9000ACBC3A /* Realm.framework */; };
-		2334C4F01D7DDB9000ACBC3A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2334C4EE1D7DDB9000ACBC3A /* RealmSwift.framework */; };
 		2334C4F31D7DDB9D00ACBC3A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2334C4F11D7DDB9D00ACBC3A /* Realm.framework */; };
 		2334C4F41D7DDB9D00ACBC3A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2334C4F21D7DDB9D00ACBC3A /* RealmSwift.framework */; };
-		2334C4F71D7DDBAB00ACBC3A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2334C4F51D7DDBAB00ACBC3A /* Realm.framework */; };
-		2334C4F81D7DDBAB00ACBC3A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2334C4F61D7DDBAB00ACBC3A /* RealmSwift.framework */; };
 		2334C4FB1D7DDBB600ACBC3A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2334C4F91D7DDBB600ACBC3A /* Realm.framework */; };
 		2334C4FC1D7DDBB600ACBC3A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2334C4FA1D7DDBB600ACBC3A /* RealmSwift.framework */; };
+		2356C0341D90547400488BFA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2356C0321D90547400488BFA /* Realm.framework */; };
+		2356C0351D90547400488BFA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2356C0331D90547400488BFA /* RealmSwift.framework */; };
+		2356C0381D9054CD00488BFA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2356C0361D9054CD00488BFA /* Realm.framework */; };
+		2356C0391D9054CD00488BFA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2356C0371D9054CD00488BFA /* RealmSwift.framework */; };
 		23E15CCC1D7DDE660073CC71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CB81D7DDE660073CC71 /* Request.swift */; };
 		23E15CCD1D7DDE660073CC71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CB81D7DDE660073CC71 /* Request.swift */; };
 		23E15CCE1D7DDE660073CC71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CB81D7DDE660073CC71 /* Request.swift */; };
@@ -39,14 +39,14 @@
 		23E15CE11D7DDE660073CC71 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBA1D7DDE660073CC71 /* Storage.swift */; };
 		23E15CE21D7DDE660073CC71 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBA1D7DDE660073CC71 /* Storage.swift */; };
 		23E15CE31D7DDE660073CC71 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBA1D7DDE660073CC71 /* Storage.swift */; };
-		23E15CE41D7DDE660073CC71 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* Error.swift */; };
-		23E15CE51D7DDE660073CC71 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* Error.swift */; };
-		23E15CE61D7DDE660073CC71 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* Error.swift */; };
-		23E15CE71D7DDE660073CC71 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* Error.swift */; };
-		23E15CE81D7DDE660073CC71 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* Error.swift */; };
-		23E15CE91D7DDE660073CC71 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* Error.swift */; };
-		23E15CEA1D7DDE660073CC71 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* Error.swift */; };
-		23E15CEB1D7DDE660073CC71 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* Error.swift */; };
+		23E15CE41D7DDE660073CC71 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* StorageError.swift */; };
+		23E15CE51D7DDE660073CC71 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* StorageError.swift */; };
+		23E15CE61D7DDE660073CC71 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* StorageError.swift */; };
+		23E15CE71D7DDE660073CC71 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* StorageError.swift */; };
+		23E15CE81D7DDE660073CC71 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* StorageError.swift */; };
+		23E15CE91D7DDE660073CC71 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* StorageError.swift */; };
+		23E15CEA1D7DDE660073CC71 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* StorageError.swift */; };
+		23E15CEB1D7DDE660073CC71 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBC1D7DDE660073CC71 /* StorageError.swift */; };
 		23E15CEC1D7DDE660073CC71 /* RequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBE1D7DDE660073CC71 /* RequestExtension.swift */; };
 		23E15CED1D7DDE660073CC71 /* RequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBE1D7DDE660073CC71 /* RequestExtension.swift */; };
 		23E15CEE1D7DDE660073CC71 /* RequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15CBE1D7DDE660073CC71 /* RequestExtension.swift */; };
@@ -205,9 +205,6 @@
 		23E15DA41D7DDE7B0073CC71 /* CoreDataDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D6F1D7DDE7B0073CC71 /* CoreDataDefaultStorage.swift */; };
 		23E15DA51D7DDE7B0073CC71 /* CoreDataiCloudStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D701D7DDE7B0073CC71 /* CoreDataiCloudStorage.swift */; };
 		23E15DA81D7DDE7B0073CC71 /* CoreDataiCloudStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D701D7DDE7B0073CC71 /* CoreDataiCloudStorage.swift */; };
-		23E15DAA1D7DE0ED0073CC71 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E15DA91D7DE0ED0073CC71 /* CoreData.framework */; };
-		23E15DAC1D7DE0F40073CC71 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E15DAB1D7DE0F40073CC71 /* CoreData.framework */; };
-		23E15DAE1D7DE0FA0073CC71 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E15DAD1D7DE0FA0073CC71 /* CoreData.framework */; };
 		23E15DB01D7DE1000073CC71 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E15DAF1D7DE1000073CC71 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
@@ -221,14 +218,14 @@
 		2334C4D21D7DDA4F00ACBC3A /* SugarRecordRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2334C4DC1D7DDA9900ACBC3A /* SugarRecordRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2334C4E61D7DDAEF00ACBC3A /* SugarRecordRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2334C4ED1D7DDB9000ACBC3A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../../Carthage/Build/watchOS/Realm.framework; sourceTree = "<group>"; };
-		2334C4EE1D7DDB9000ACBC3A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../../Carthage/Build/watchOS/RealmSwift.framework; sourceTree = "<group>"; };
 		2334C4F11D7DDB9D00ACBC3A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../../Carthage/Build/Mac/Realm.framework; sourceTree = "<group>"; };
 		2334C4F21D7DDB9D00ACBC3A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../../Carthage/Build/Mac/RealmSwift.framework; sourceTree = "<group>"; };
-		2334C4F51D7DDBAB00ACBC3A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../../Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		2334C4F61D7DDBAB00ACBC3A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../../Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		2334C4F91D7DDBB600ACBC3A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../../Carthage/Build/tvOS/Realm.framework; sourceTree = "<group>"; };
 		2334C4FA1D7DDBB600ACBC3A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../../Carthage/Build/tvOS/RealmSwift.framework; sourceTree = "<group>"; };
+		2356C0321D90547400488BFA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		2356C0331D90547400488BFA /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		2356C0361D9054CD00488BFA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		2356C0371D9054CD00488BFA /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		23E15C601D7DDDF80073CC71 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		23E15C621D7DDDF80073CC71 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		23E15C641D7DDDF80073CC71 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -259,7 +256,7 @@
 		23E15CB81D7DDE660073CC71 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		23E15CB91D7DDE660073CC71 /* RequestObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestObservable.swift; sourceTree = "<group>"; };
 		23E15CBA1D7DDE660073CC71 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		23E15CBC1D7DDE660073CC71 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		23E15CBC1D7DDE660073CC71 /* StorageError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageError.swift; sourceTree = "<group>"; };
 		23E15CBE1D7DDE660073CC71 /* RequestExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestExtension.swift; sourceTree = "<group>"; };
 		23E15CC01D7DDE660073CC71 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		23E15CC21D7DDE660073CC71 /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
@@ -290,9 +287,6 @@
 		23E15D6D1D7DDE7B0073CC71 /* NSManagedObjectMemoryContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectMemoryContext.swift; sourceTree = "<group>"; };
 		23E15D6F1D7DDE7B0073CC71 /* CoreDataDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDefaultStorage.swift; sourceTree = "<group>"; };
 		23E15D701D7DDE7B0073CC71 /* CoreDataiCloudStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataiCloudStorage.swift; sourceTree = "<group>"; };
-		23E15DA91D7DE0ED0073CC71 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
-		23E15DAB1D7DE0F40073CC71 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.2.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
-		23E15DAD1D7DE0FA0073CC71 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		23E15DAF1D7DE1000073CC71 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -301,7 +295,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E15DAA1D7DE0ED0073CC71 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +302,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E15DAC1D7DE0F40073CC71 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +309,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E15DAE1D7DE0FA0073CC71 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,8 +324,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2334C4F81D7DDBAB00ACBC3A /* RealmSwift.framework in Frameworks */,
-				2334C4F71D7DDBAB00ACBC3A /* Realm.framework in Frameworks */,
+				2356C0391D9054CD00488BFA /* RealmSwift.framework in Frameworks */,
+				2356C0381D9054CD00488BFA /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,8 +333,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2334C4F01D7DDB9000ACBC3A /* RealmSwift.framework in Frameworks */,
-				2334C4EF1D7DDB9000ACBC3A /* Realm.framework in Frameworks */,
+				2356C0351D90547400488BFA /* RealmSwift.framework in Frameworks */,
+				2356C0341D90547400488BFA /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,9 +389,6 @@
 			isa = PBXGroup;
 			children = (
 				23E15DAF1D7DE1000073CC71 /* CoreData.framework */,
-				23E15DAD1D7DE0FA0073CC71 /* CoreData.framework */,
-				23E15DAB1D7DE0F40073CC71 /* CoreData.framework */,
-				23E15DA91D7DE0ED0073CC71 /* CoreData.framework */,
 				2334C4EC1D7DDB7C00ACBC3A /* watchOS */,
 				2334C4EB1D7DDB7700ACBC3A /* macOS */,
 				2334C4EA1D7DDB7100ACBC3A /* iOS */,
@@ -421,8 +409,8 @@
 		2334C4EA1D7DDB7100ACBC3A /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				2334C4F51D7DDBAB00ACBC3A /* Realm.framework */,
-				2334C4F61D7DDBAB00ACBC3A /* RealmSwift.framework */,
+				2356C0361D9054CD00488BFA /* Realm.framework */,
+				2356C0371D9054CD00488BFA /* RealmSwift.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -439,8 +427,8 @@
 		2334C4EC1D7DDB7C00ACBC3A /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
-				2334C4ED1D7DDB9000ACBC3A /* Realm.framework */,
-				2334C4EE1D7DDB9000ACBC3A /* RealmSwift.framework */,
+				2356C0321D90547400488BFA /* Realm.framework */,
+				2356C0331D90547400488BFA /* RealmSwift.framework */,
 			);
 			name = watchOS;
 			sourceTree = "<group>";
@@ -574,7 +562,7 @@
 		23E15CBB1D7DDE660073CC71 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
-				23E15CBC1D7DDE660073CC71 /* Error.swift */,
+				23E15CBC1D7DDE660073CC71 /* StorageError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -926,7 +914,7 @@
 		2334C4611D7DD8A500ACBC3A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = in.caramba.SugarRecord;
 				TargetAttributes = {
 					2334C4691D7DD8A500ACBC3A = {
@@ -1048,7 +1036,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23E15D9D1D7DDE7B0073CC71 /* NSManagedObjectMemoryContext.swift in Sources */,
-				23E15CE51D7DDE660073CC71 /* Error.swift in Sources */,
+				23E15CE51D7DDE660073CC71 /* StorageError.swift in Sources */,
 				23E15D911D7DDE7B0073CC71 /* CoreDataErrors.swift in Sources */,
 				23E15D7D1D7DDE7B0073CC71 /* CoreDataObservable.swift in Sources */,
 				23E15D351D7DDE660073CC71 /* VersionProvider.swift in Sources */,
@@ -1083,7 +1071,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23E15D9E1D7DDE7B0073CC71 /* NSManagedObjectMemoryContext.swift in Sources */,
-				23E15CE71D7DDE660073CC71 /* Error.swift in Sources */,
+				23E15CE71D7DDE660073CC71 /* StorageError.swift in Sources */,
 				23E15D921D7DDE7B0073CC71 /* CoreDataErrors.swift in Sources */,
 				23E15D7E1D7DDE7B0073CC71 /* CoreDataObservable.swift in Sources */,
 				23E15D371D7DDE660073CC71 /* VersionProvider.swift in Sources */,
@@ -1117,7 +1105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23E15D9F1D7DDE7B0073CC71 /* NSManagedObjectMemoryContext.swift in Sources */,
-				23E15CE91D7DDE660073CC71 /* Error.swift in Sources */,
+				23E15CE91D7DDE660073CC71 /* StorageError.swift in Sources */,
 				23E15D931D7DDE7B0073CC71 /* CoreDataErrors.swift in Sources */,
 				23E15D7F1D7DDE7B0073CC71 /* CoreDataObservable.swift in Sources */,
 				23E15D391D7DDE660073CC71 /* VersionProvider.swift in Sources */,
@@ -1151,7 +1139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23E15DA01D7DDE7B0073CC71 /* NSManagedObjectMemoryContext.swift in Sources */,
-				23E15CEB1D7DDE660073CC71 /* Error.swift in Sources */,
+				23E15CEB1D7DDE660073CC71 /* StorageError.swift in Sources */,
 				23E15D941D7DDE7B0073CC71 /* CoreDataErrors.swift in Sources */,
 				23E15D801D7DDE7B0073CC71 /* CoreDataObservable.swift in Sources */,
 				23E15D3B1D7DDE660073CC71 /* VersionProvider.swift in Sources */,
@@ -1185,7 +1173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E15CE41D7DDE660073CC71 /* Error.swift in Sources */,
+				23E15CE41D7DDE660073CC71 /* StorageError.swift in Sources */,
 				23E15D341D7DDE660073CC71 /* VersionProvider.swift in Sources */,
 				23E15D521D7DDE700073CC71 /* RealmEntity.swift in Sources */,
 				23E15CF41D7DDE660073CC71 /* Logger.swift in Sources */,
@@ -1212,7 +1200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E15CE61D7DDE660073CC71 /* Error.swift in Sources */,
+				23E15CE61D7DDE660073CC71 /* StorageError.swift in Sources */,
 				23E15D361D7DDE660073CC71 /* VersionProvider.swift in Sources */,
 				23E15D531D7DDE700073CC71 /* RealmEntity.swift in Sources */,
 				23E15CF61D7DDE660073CC71 /* Logger.swift in Sources */,
@@ -1239,7 +1227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E15CE81D7DDE660073CC71 /* Error.swift in Sources */,
+				23E15CE81D7DDE660073CC71 /* StorageError.swift in Sources */,
 				23E15D381D7DDE660073CC71 /* VersionProvider.swift in Sources */,
 				23E15D541D7DDE700073CC71 /* RealmEntity.swift in Sources */,
 				23E15CF81D7DDE660073CC71 /* Logger.swift in Sources */,
@@ -1266,7 +1254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E15CEA1D7DDE660073CC71 /* Error.swift in Sources */,
+				23E15CEA1D7DDE660073CC71 /* StorageError.swift in Sources */,
 				23E15D3A1D7DDE660073CC71 /* VersionProvider.swift in Sources */,
 				23E15D551D7DDE700073CC71 /* RealmEntity.swift in Sources */,
 				23E15CFA1D7DDE660073CC71 /* Logger.swift in Sources */,
@@ -1397,7 +1385,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.SugarRecord;
 				PRODUCT_NAME = SugarRecordCoreData;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1415,7 +1403,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.SugarRecord;
 				PRODUCT_NAME = SugarRecordCoreData;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1435,7 +1423,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -1457,7 +1445,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -1478,7 +1466,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -1499,7 +1487,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -1509,7 +1497,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 23E15C751D7DDDF80073CC71 /* Mac-Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1524,7 +1512,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1532,7 +1520,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 23E15C751D7DDDF80073CC71 /* Mac-Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1547,7 +1535,7 @@
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1566,7 +1554,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.SugarRecord;
 				PRODUCT_NAME = SugarRecord;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1585,7 +1573,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.SugarRecord;
 				PRODUCT_NAME = SugarRecord;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1606,7 +1594,7 @@
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -1629,7 +1617,7 @@
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -1651,7 +1639,7 @@
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -1673,7 +1661,7 @@
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -1683,7 +1671,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 23E15C751D7DDDF80073CC71 /* Mac-Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1699,7 +1687,7 @@
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1707,7 +1695,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 23E15C751D7DDDF80073CC71 /* Mac-Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1723,7 +1711,7 @@
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

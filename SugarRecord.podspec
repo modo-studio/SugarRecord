@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.10"
 
   realm_dependencies = lambda do |spec|
-    spec.dependency "RealmSwift", "~> 1.0.2"
+    spec.dependency "RealmSwift", "~> 1.1"
   end
 
   coredata_dependencies = lambda do |spec|
