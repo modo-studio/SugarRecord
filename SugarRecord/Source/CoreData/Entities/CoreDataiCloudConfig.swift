@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ICloudConfig {
+public struct CoreDataiCloudConfig {
     
     // MARK: - Attributes
     

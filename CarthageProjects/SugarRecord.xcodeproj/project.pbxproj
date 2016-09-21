@@ -151,14 +151,10 @@
 		23E15D5B1D7DDE700073CC71 /* RealmDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D451D7DDE700073CC71 /* RealmDefaultStorage.swift */; };
 		23E15D5C1D7DDE700073CC71 /* RealmDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D451D7DDE700073CC71 /* RealmDefaultStorage.swift */; };
 		23E15D5D1D7DDE700073CC71 /* RealmDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D451D7DDE700073CC71 /* RealmDefaultStorage.swift */; };
-		23E15D711D7DDE7B0073CC71 /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D601D7DDE7B0073CC71 /* ContextParent.swift */; };
-		23E15D721D7DDE7B0073CC71 /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D601D7DDE7B0073CC71 /* ContextParent.swift */; };
-		23E15D731D7DDE7B0073CC71 /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D601D7DDE7B0073CC71 /* ContextParent.swift */; };
-		23E15D741D7DDE7B0073CC71 /* ContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D601D7DDE7B0073CC71 /* ContextParent.swift */; };
-		23E15D751D7DDE7B0073CC71 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D611D7DDE7B0073CC71 /* CoreData.swift */; };
-		23E15D761D7DDE7B0073CC71 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D611D7DDE7B0073CC71 /* CoreData.swift */; };
-		23E15D771D7DDE7B0073CC71 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D611D7DDE7B0073CC71 /* CoreData.swift */; };
-		23E15D781D7DDE7B0073CC71 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D611D7DDE7B0073CC71 /* CoreData.swift */; };
+		23E15D711D7DDE7B0073CC71 /* CoreDataContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D601D7DDE7B0073CC71 /* CoreDataContextParent.swift */; };
+		23E15D721D7DDE7B0073CC71 /* CoreDataContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D601D7DDE7B0073CC71 /* CoreDataContextParent.swift */; };
+		23E15D731D7DDE7B0073CC71 /* CoreDataContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D601D7DDE7B0073CC71 /* CoreDataContextParent.swift */; };
+		23E15D741D7DDE7B0073CC71 /* CoreDataContextParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D601D7DDE7B0073CC71 /* CoreDataContextParent.swift */; };
 		23E15D791D7DDE7B0073CC71 /* CoreDataChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D621D7DDE7B0073CC71 /* CoreDataChange.swift */; };
 		23E15D7A1D7DDE7B0073CC71 /* CoreDataChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D621D7DDE7B0073CC71 /* CoreDataChange.swift */; };
 		23E15D7B1D7DDE7B0073CC71 /* CoreDataChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D621D7DDE7B0073CC71 /* CoreDataChange.swift */; };
@@ -167,26 +163,26 @@
 		23E15D7E1D7DDE7B0073CC71 /* CoreDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D631D7DDE7B0073CC71 /* CoreDataObservable.swift */; };
 		23E15D7F1D7DDE7B0073CC71 /* CoreDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D631D7DDE7B0073CC71 /* CoreDataObservable.swift */; };
 		23E15D801D7DDE7B0073CC71 /* CoreDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D631D7DDE7B0073CC71 /* CoreDataObservable.swift */; };
-		23E15D811D7DDE7B0073CC71 /* iCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D641D7DDE7B0073CC71 /* iCloudConfig.swift */; };
-		23E15D821D7DDE7B0073CC71 /* iCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D641D7DDE7B0073CC71 /* iCloudConfig.swift */; };
-		23E15D831D7DDE7B0073CC71 /* iCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D641D7DDE7B0073CC71 /* iCloudConfig.swift */; };
-		23E15D841D7DDE7B0073CC71 /* iCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D641D7DDE7B0073CC71 /* iCloudConfig.swift */; };
-		23E15D851D7DDE7B0073CC71 /* ObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D651D7DDE7B0073CC71 /* ObjectModel.swift */; };
-		23E15D861D7DDE7B0073CC71 /* ObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D651D7DDE7B0073CC71 /* ObjectModel.swift */; };
-		23E15D871D7DDE7B0073CC71 /* ObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D651D7DDE7B0073CC71 /* ObjectModel.swift */; };
-		23E15D881D7DDE7B0073CC71 /* ObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D651D7DDE7B0073CC71 /* ObjectModel.swift */; };
-		23E15D891D7DDE7B0073CC71 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D661D7DDE7B0073CC71 /* Options.swift */; };
-		23E15D8A1D7DDE7B0073CC71 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D661D7DDE7B0073CC71 /* Options.swift */; };
-		23E15D8B1D7DDE7B0073CC71 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D661D7DDE7B0073CC71 /* Options.swift */; };
-		23E15D8C1D7DDE7B0073CC71 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D661D7DDE7B0073CC71 /* Options.swift */; };
-		23E15D8D1D7DDE7B0073CC71 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D671D7DDE7B0073CC71 /* Store.swift */; };
-		23E15D8E1D7DDE7B0073CC71 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D671D7DDE7B0073CC71 /* Store.swift */; };
-		23E15D8F1D7DDE7B0073CC71 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D671D7DDE7B0073CC71 /* Store.swift */; };
-		23E15D901D7DDE7B0073CC71 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D671D7DDE7B0073CC71 /* Store.swift */; };
-		23E15D911D7DDE7B0073CC71 /* CoreDataErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D691D7DDE7B0073CC71 /* CoreDataErrors.swift */; };
-		23E15D921D7DDE7B0073CC71 /* CoreDataErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D691D7DDE7B0073CC71 /* CoreDataErrors.swift */; };
-		23E15D931D7DDE7B0073CC71 /* CoreDataErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D691D7DDE7B0073CC71 /* CoreDataErrors.swift */; };
-		23E15D941D7DDE7B0073CC71 /* CoreDataErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D691D7DDE7B0073CC71 /* CoreDataErrors.swift */; };
+		23E15D811D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D641D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift */; };
+		23E15D821D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D641D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift */; };
+		23E15D831D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D641D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift */; };
+		23E15D841D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D641D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift */; };
+		23E15D851D7DDE7B0073CC71 /* CoreDataObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D651D7DDE7B0073CC71 /* CoreDataObjectModel.swift */; };
+		23E15D861D7DDE7B0073CC71 /* CoreDataObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D651D7DDE7B0073CC71 /* CoreDataObjectModel.swift */; };
+		23E15D871D7DDE7B0073CC71 /* CoreDataObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D651D7DDE7B0073CC71 /* CoreDataObjectModel.swift */; };
+		23E15D881D7DDE7B0073CC71 /* CoreDataObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D651D7DDE7B0073CC71 /* CoreDataObjectModel.swift */; };
+		23E15D891D7DDE7B0073CC71 /* CoreDataOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D661D7DDE7B0073CC71 /* CoreDataOptions.swift */; };
+		23E15D8A1D7DDE7B0073CC71 /* CoreDataOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D661D7DDE7B0073CC71 /* CoreDataOptions.swift */; };
+		23E15D8B1D7DDE7B0073CC71 /* CoreDataOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D661D7DDE7B0073CC71 /* CoreDataOptions.swift */; };
+		23E15D8C1D7DDE7B0073CC71 /* CoreDataOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D661D7DDE7B0073CC71 /* CoreDataOptions.swift */; };
+		23E15D8D1D7DDE7B0073CC71 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D671D7DDE7B0073CC71 /* CoreDataStore.swift */; };
+		23E15D8E1D7DDE7B0073CC71 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D671D7DDE7B0073CC71 /* CoreDataStore.swift */; };
+		23E15D8F1D7DDE7B0073CC71 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D671D7DDE7B0073CC71 /* CoreDataStore.swift */; };
+		23E15D901D7DDE7B0073CC71 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D671D7DDE7B0073CC71 /* CoreDataStore.swift */; };
+		23E15D911D7DDE7B0073CC71 /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D691D7DDE7B0073CC71 /* CoreDataError.swift */; };
+		23E15D921D7DDE7B0073CC71 /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D691D7DDE7B0073CC71 /* CoreDataError.swift */; };
+		23E15D931D7DDE7B0073CC71 /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D691D7DDE7B0073CC71 /* CoreDataError.swift */; };
+		23E15D941D7DDE7B0073CC71 /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D691D7DDE7B0073CC71 /* CoreDataError.swift */; };
 		23E15D951D7DDE7B0073CC71 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D6B1D7DDE7B0073CC71 /* NSManagedObject.swift */; };
 		23E15D961D7DDE7B0073CC71 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D6B1D7DDE7B0073CC71 /* NSManagedObject.swift */; };
 		23E15D971D7DDE7B0073CC71 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E15D6B1D7DDE7B0073CC71 /* NSManagedObject.swift */; };
@@ -273,15 +269,14 @@
 		23E15D421D7DDE700073CC71 /* RealmEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmEntity.swift; sourceTree = "<group>"; };
 		23E15D431D7DDE700073CC71 /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		23E15D451D7DDE700073CC71 /* RealmDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDefaultStorage.swift; sourceTree = "<group>"; };
-		23E15D601D7DDE7B0073CC71 /* ContextParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextParent.swift; sourceTree = "<group>"; };
-		23E15D611D7DDE7B0073CC71 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		23E15D601D7DDE7B0073CC71 /* CoreDataContextParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataContextParent.swift; sourceTree = "<group>"; };
 		23E15D621D7DDE7B0073CC71 /* CoreDataChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataChange.swift; sourceTree = "<group>"; };
 		23E15D631D7DDE7B0073CC71 /* CoreDataObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataObservable.swift; sourceTree = "<group>"; };
-		23E15D641D7DDE7B0073CC71 /* iCloudConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudConfig.swift; sourceTree = "<group>"; };
-		23E15D651D7DDE7B0073CC71 /* ObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectModel.swift; sourceTree = "<group>"; };
-		23E15D661D7DDE7B0073CC71 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
-		23E15D671D7DDE7B0073CC71 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		23E15D691D7DDE7B0073CC71 /* CoreDataErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataErrors.swift; sourceTree = "<group>"; };
+		23E15D641D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataiCloudConfig.swift; sourceTree = "<group>"; };
+		23E15D651D7DDE7B0073CC71 /* CoreDataObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataObjectModel.swift; sourceTree = "<group>"; };
+		23E15D661D7DDE7B0073CC71 /* CoreDataOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataOptions.swift; sourceTree = "<group>"; };
+		23E15D671D7DDE7B0073CC71 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
+		23E15D691D7DDE7B0073CC71 /* CoreDataError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataError.swift; sourceTree = "<group>"; };
 		23E15D6B1D7DDE7B0073CC71 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		23E15D6C1D7DDE7B0073CC71 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		23E15D6D1D7DDE7B0073CC71 /* NSManagedObjectMemoryContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectMemoryContext.swift; sourceTree = "<group>"; };
@@ -663,14 +658,13 @@
 		23E15D5F1D7DDE7B0073CC71 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				23E15D601D7DDE7B0073CC71 /* ContextParent.swift */,
-				23E15D611D7DDE7B0073CC71 /* CoreData.swift */,
+				23E15D601D7DDE7B0073CC71 /* CoreDataContextParent.swift */,
 				23E15D621D7DDE7B0073CC71 /* CoreDataChange.swift */,
 				23E15D631D7DDE7B0073CC71 /* CoreDataObservable.swift */,
-				23E15D641D7DDE7B0073CC71 /* iCloudConfig.swift */,
-				23E15D651D7DDE7B0073CC71 /* ObjectModel.swift */,
-				23E15D661D7DDE7B0073CC71 /* Options.swift */,
-				23E15D671D7DDE7B0073CC71 /* Store.swift */,
+				23E15D641D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift */,
+				23E15D651D7DDE7B0073CC71 /* CoreDataObjectModel.swift */,
+				23E15D661D7DDE7B0073CC71 /* CoreDataOptions.swift */,
+				23E15D671D7DDE7B0073CC71 /* CoreDataStore.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -678,7 +672,7 @@
 		23E15D681D7DDE7B0073CC71 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
-				23E15D691D7DDE7B0073CC71 /* CoreDataErrors.swift */,
+				23E15D691D7DDE7B0073CC71 /* CoreDataError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -1037,11 +1031,11 @@
 			files = (
 				23E15D9D1D7DDE7B0073CC71 /* NSManagedObjectMemoryContext.swift in Sources */,
 				23E15CE51D7DDE660073CC71 /* StorageError.swift in Sources */,
-				23E15D911D7DDE7B0073CC71 /* CoreDataErrors.swift in Sources */,
+				23E15D911D7DDE7B0073CC71 /* CoreDataError.swift in Sources */,
 				23E15D7D1D7DDE7B0073CC71 /* CoreDataObservable.swift in Sources */,
 				23E15D351D7DDE660073CC71 /* VersionProvider.swift in Sources */,
 				23E15CF51D7DDE660073CC71 /* Logger.swift in Sources */,
-				23E15D711D7DDE7B0073CC71 /* ContextParent.swift in Sources */,
+				23E15D711D7DDE7B0073CC71 /* CoreDataContextParent.swift in Sources */,
 				23E15CD51D7DDE660073CC71 /* RequestObservable.swift in Sources */,
 				23E15D151D7DDE660073CC71 /* NSSortDescriptorConvertible.swift in Sources */,
 				23E15CFD1D7DDE660073CC71 /* Context.swift in Sources */,
@@ -1053,13 +1047,12 @@
 				23E15D951D7DDE7B0073CC71 /* NSManagedObject.swift in Sources */,
 				23E15DA11D7DDE7B0073CC71 /* CoreDataDefaultStorage.swift in Sources */,
 				23E15CED1D7DDE660073CC71 /* RequestExtension.swift in Sources */,
-				23E15D891D7DDE7B0073CC71 /* Options.swift in Sources */,
-				23E15D751D7DDE7B0073CC71 /* CoreData.swift in Sources */,
+				23E15D891D7DDE7B0073CC71 /* CoreDataOptions.swift in Sources */,
 				23E15D1D1D7DDE660073CC71 /* Requestable.swift in Sources */,
-				23E15D811D7DDE7B0073CC71 /* iCloudConfig.swift in Sources */,
+				23E15D811D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift in Sources */,
 				23E15DA51D7DDE7B0073CC71 /* CoreDataiCloudStorage.swift in Sources */,
-				23E15D8D1D7DDE7B0073CC71 /* Store.swift in Sources */,
-				23E15D851D7DDE7B0073CC71 /* ObjectModel.swift in Sources */,
+				23E15D8D1D7DDE7B0073CC71 /* CoreDataStore.swift in Sources */,
+				23E15D851D7DDE7B0073CC71 /* CoreDataObjectModel.swift in Sources */,
 				23E15CDD1D7DDE660073CC71 /* Storage.swift in Sources */,
 				23E15D2D1D7DDE660073CC71 /* VersionController.swift in Sources */,
 				23E15D791D7DDE7B0073CC71 /* CoreDataChange.swift in Sources */,
@@ -1072,11 +1065,11 @@
 			files = (
 				23E15D9E1D7DDE7B0073CC71 /* NSManagedObjectMemoryContext.swift in Sources */,
 				23E15CE71D7DDE660073CC71 /* StorageError.swift in Sources */,
-				23E15D921D7DDE7B0073CC71 /* CoreDataErrors.swift in Sources */,
+				23E15D921D7DDE7B0073CC71 /* CoreDataError.swift in Sources */,
 				23E15D7E1D7DDE7B0073CC71 /* CoreDataObservable.swift in Sources */,
 				23E15D371D7DDE660073CC71 /* VersionProvider.swift in Sources */,
 				23E15CF71D7DDE660073CC71 /* Logger.swift in Sources */,
-				23E15D721D7DDE7B0073CC71 /* ContextParent.swift in Sources */,
+				23E15D721D7DDE7B0073CC71 /* CoreDataContextParent.swift in Sources */,
 				23E15CD71D7DDE660073CC71 /* RequestObservable.swift in Sources */,
 				23E15D171D7DDE660073CC71 /* NSSortDescriptorConvertible.swift in Sources */,
 				23E15CFF1D7DDE660073CC71 /* Context.swift in Sources */,
@@ -1088,12 +1081,11 @@
 				23E15D961D7DDE7B0073CC71 /* NSManagedObject.swift in Sources */,
 				23E15DA21D7DDE7B0073CC71 /* CoreDataDefaultStorage.swift in Sources */,
 				23E15CEF1D7DDE660073CC71 /* RequestExtension.swift in Sources */,
-				23E15D8A1D7DDE7B0073CC71 /* Options.swift in Sources */,
-				23E15D761D7DDE7B0073CC71 /* CoreData.swift in Sources */,
+				23E15D8A1D7DDE7B0073CC71 /* CoreDataOptions.swift in Sources */,
 				23E15D1F1D7DDE660073CC71 /* Requestable.swift in Sources */,
-				23E15D821D7DDE7B0073CC71 /* iCloudConfig.swift in Sources */,
-				23E15D8E1D7DDE7B0073CC71 /* Store.swift in Sources */,
-				23E15D861D7DDE7B0073CC71 /* ObjectModel.swift in Sources */,
+				23E15D821D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift in Sources */,
+				23E15D8E1D7DDE7B0073CC71 /* CoreDataStore.swift in Sources */,
+				23E15D861D7DDE7B0073CC71 /* CoreDataObjectModel.swift in Sources */,
 				23E15CDF1D7DDE660073CC71 /* Storage.swift in Sources */,
 				23E15D2F1D7DDE660073CC71 /* VersionController.swift in Sources */,
 				23E15D7A1D7DDE7B0073CC71 /* CoreDataChange.swift in Sources */,
@@ -1106,11 +1098,11 @@
 			files = (
 				23E15D9F1D7DDE7B0073CC71 /* NSManagedObjectMemoryContext.swift in Sources */,
 				23E15CE91D7DDE660073CC71 /* StorageError.swift in Sources */,
-				23E15D931D7DDE7B0073CC71 /* CoreDataErrors.swift in Sources */,
+				23E15D931D7DDE7B0073CC71 /* CoreDataError.swift in Sources */,
 				23E15D7F1D7DDE7B0073CC71 /* CoreDataObservable.swift in Sources */,
 				23E15D391D7DDE660073CC71 /* VersionProvider.swift in Sources */,
 				23E15CF91D7DDE660073CC71 /* Logger.swift in Sources */,
-				23E15D731D7DDE7B0073CC71 /* ContextParent.swift in Sources */,
+				23E15D731D7DDE7B0073CC71 /* CoreDataContextParent.swift in Sources */,
 				23E15CD91D7DDE660073CC71 /* RequestObservable.swift in Sources */,
 				23E15D191D7DDE660073CC71 /* NSSortDescriptorConvertible.swift in Sources */,
 				23E15D011D7DDE660073CC71 /* Context.swift in Sources */,
@@ -1122,12 +1114,11 @@
 				23E15D971D7DDE7B0073CC71 /* NSManagedObject.swift in Sources */,
 				23E15DA31D7DDE7B0073CC71 /* CoreDataDefaultStorage.swift in Sources */,
 				23E15CF11D7DDE660073CC71 /* RequestExtension.swift in Sources */,
-				23E15D8B1D7DDE7B0073CC71 /* Options.swift in Sources */,
-				23E15D771D7DDE7B0073CC71 /* CoreData.swift in Sources */,
+				23E15D8B1D7DDE7B0073CC71 /* CoreDataOptions.swift in Sources */,
 				23E15D211D7DDE660073CC71 /* Requestable.swift in Sources */,
-				23E15D831D7DDE7B0073CC71 /* iCloudConfig.swift in Sources */,
-				23E15D8F1D7DDE7B0073CC71 /* Store.swift in Sources */,
-				23E15D871D7DDE7B0073CC71 /* ObjectModel.swift in Sources */,
+				23E15D831D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift in Sources */,
+				23E15D8F1D7DDE7B0073CC71 /* CoreDataStore.swift in Sources */,
+				23E15D871D7DDE7B0073CC71 /* CoreDataObjectModel.swift in Sources */,
 				23E15CE11D7DDE660073CC71 /* Storage.swift in Sources */,
 				23E15D311D7DDE660073CC71 /* VersionController.swift in Sources */,
 				23E15D7B1D7DDE7B0073CC71 /* CoreDataChange.swift in Sources */,
@@ -1140,11 +1131,11 @@
 			files = (
 				23E15DA01D7DDE7B0073CC71 /* NSManagedObjectMemoryContext.swift in Sources */,
 				23E15CEB1D7DDE660073CC71 /* StorageError.swift in Sources */,
-				23E15D941D7DDE7B0073CC71 /* CoreDataErrors.swift in Sources */,
+				23E15D941D7DDE7B0073CC71 /* CoreDataError.swift in Sources */,
 				23E15D801D7DDE7B0073CC71 /* CoreDataObservable.swift in Sources */,
 				23E15D3B1D7DDE660073CC71 /* VersionProvider.swift in Sources */,
 				23E15CFB1D7DDE660073CC71 /* Logger.swift in Sources */,
-				23E15D741D7DDE7B0073CC71 /* ContextParent.swift in Sources */,
+				23E15D741D7DDE7B0073CC71 /* CoreDataContextParent.swift in Sources */,
 				23E15CDB1D7DDE660073CC71 /* RequestObservable.swift in Sources */,
 				23E15D1B1D7DDE660073CC71 /* NSSortDescriptorConvertible.swift in Sources */,
 				23E15D031D7DDE660073CC71 /* Context.swift in Sources */,
@@ -1156,13 +1147,12 @@
 				23E15D981D7DDE7B0073CC71 /* NSManagedObject.swift in Sources */,
 				23E15DA41D7DDE7B0073CC71 /* CoreDataDefaultStorage.swift in Sources */,
 				23E15CF31D7DDE660073CC71 /* RequestExtension.swift in Sources */,
-				23E15D8C1D7DDE7B0073CC71 /* Options.swift in Sources */,
-				23E15D781D7DDE7B0073CC71 /* CoreData.swift in Sources */,
+				23E15D8C1D7DDE7B0073CC71 /* CoreDataOptions.swift in Sources */,
 				23E15D231D7DDE660073CC71 /* Requestable.swift in Sources */,
-				23E15D841D7DDE7B0073CC71 /* iCloudConfig.swift in Sources */,
+				23E15D841D7DDE7B0073CC71 /* CoreDataiCloudConfig.swift in Sources */,
 				23E15DA81D7DDE7B0073CC71 /* CoreDataiCloudStorage.swift in Sources */,
-				23E15D901D7DDE7B0073CC71 /* Store.swift in Sources */,
-				23E15D881D7DDE7B0073CC71 /* ObjectModel.swift in Sources */,
+				23E15D901D7DDE7B0073CC71 /* CoreDataStore.swift in Sources */,
+				23E15D881D7DDE7B0073CC71 /* CoreDataObjectModel.swift in Sources */,
 				23E15CE31D7DDE660073CC71 /* Storage.swift in Sources */,
 				23E15D331D7DDE660073CC71 /* VersionController.swift in Sources */,
 				23E15D7C1D7DDE7B0073CC71 /* CoreDataChange.swift in Sources */,

@@ -11,7 +11,7 @@ open class RealmObservable<T: Object>: RequestObservable<T> {
     
     // MARK: - Init
     
-    internal init(request: Request<T>, realm: Realm) {
+    internal init(request: FetchRequest<T>, realm: Realm) {
         self.realm = realm
         super.init(request: request)
     }

@@ -5,7 +5,7 @@ public class CoreDataDefaultStorage: Storage {
     
     // MARK: - Attributes
     
-    internal let store: CoreData.Store
+    internal let store: CoreDataStore
     internal var objectModel: NSManagedObjectModel! = nil
     internal var persistentStore: NSPersistentStore! = nil
     internal var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil
@@ -27,7 +27,7 @@ public class CoreDataDefaultStorage: Storage {
         if let context = self._saveContext {
             return context
         }
-        let _context = cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .privateQueueConcurrencyType, inMemory: false)
+        let _context = cdContext(withParent: .context(self.rootSavingContext), concurrencyType: .privateQueueConcurrencyType, inMemory: false)
         _context.observe(inMainThread: true) { [weak self] (notification) -> Void in
             (self?.mainContext as? NSManagedObjectContext)?.mergeChanges(fromContextDidSave: notification as Notification)
         }
@@ -35,7 +35,7 @@ public class CoreDataDefaultStorage: Storage {
         return _context
     }
     public var memoryContext: Context! {
-        let _context =  cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .privateQueueConcurrencyType, inMemory: true)
+        let _context =  cdContext(withParent: .context(self.rootSavingContext), concurrencyType: .privateQueueConcurrencyType, inMemory: true)
         return _context
     }
     
@@ -85,17 +85,17 @@ public class CoreDataDefaultStorage: Storage {
     
     // MARK: - Init
     
-    public convenience init(store: CoreData.Store, model: CoreData.ObjectModel, migrate: Bool = true) throws {
+    public convenience init(store: CoreDataStore, model: CoreDataObjectModel, migrate: Bool = true) throws {
         try self.init(store: store, model: model, migrate: migrate, versionController: VersionController())
     }
     
-    internal init(store: CoreData.Store, model: CoreData.ObjectModel, migrate: Bool = true, versionController: VersionController) throws {
+    internal init(store: CoreDataStore, model: CoreDataObjectModel, migrate: Bool = true, versionController: VersionController) throws {
         self.store   = store
         self.objectModel = model.model()!
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
         self.persistentStore = try cdInitializeStore(store: store, storeCoordinator: persistentStoreCoordinator, migrate: migrate)
-        self.rootSavingContext = cdContext(withParent: .Coordinator(self.persistentStoreCoordinator), concurrencyType: .privateQueueConcurrencyType, inMemory: false)
-        self.mainContext = cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .mainQueueConcurrencyType, inMemory: false)
+        self.rootSavingContext = cdContext(withParent: .coordinator(self.persistentStoreCoordinator), concurrencyType: .privateQueueConcurrencyType, inMemory: false)
+        self.mainContext = cdContext(withParent: .context(self.rootSavingContext), concurrencyType: .mainQueueConcurrencyType, inMemory: false)
         #if DEBUG
         versionController.check()
         #endif
@@ -105,7 +105,7 @@ public class CoreDataDefaultStorage: Storage {
     // MARK: - Public
     
 #if os(iOS) || os(tvOS) || os(watchOS)
-    public func observable<T: NSManagedObject>(request: Request<T>) -> RequestObservable<T> where T:Equatable {
+    public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> where T:Equatable {
         return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
     }
 #endif
@@ -115,7 +115,7 @@ public class CoreDataDefaultStorage: Storage {
 
 // MARK: - Internal
 
-internal func cdContext(withParent parent: CoreData.ContextParent?, concurrencyType: NSManagedObjectContextConcurrencyType, inMemory: Bool) -> NSManagedObjectContext {
+internal func cdContext(withParent parent: CoreDataContextParent?, concurrencyType: NSManagedObjectContextConcurrencyType, inMemory: Bool) -> NSManagedObjectContext {
     var context: NSManagedObjectContext?
     if inMemory {
         context = NSManagedObjectMemoryContext(concurrencyType: concurrencyType)
@@ -125,9 +125,9 @@ internal func cdContext(withParent parent: CoreData.ContextParent?, concurrencyT
     }
     if let parent = parent {
         switch parent {
-        case .Context(let parentContext):
+        case .context(let parentContext):
             context!.parent = parentContext
-        case .Coordinator(let storeCoordinator):
+        case .coordinator(let storeCoordinator):
             context!.persistentStoreCoordinator = storeCoordinator
         }
     }
@@ -135,21 +135,21 @@ internal func cdContext(withParent parent: CoreData.ContextParent?, concurrencyT
     return context!
 }
 
-internal func cdInitializeStore(store: CoreData.Store, storeCoordinator: NSPersistentStoreCoordinator, migrate: Bool) throws -> NSPersistentStore {
+internal func cdInitializeStore(store: CoreDataStore, storeCoordinator: NSPersistentStoreCoordinator, migrate: Bool) throws -> NSPersistentStore {
     try cdCreateStoreParentPathIfNeeded(store: store)
-    let options = migrate ? CoreData.Options.Migration : CoreData.Options.Default
+    let options = migrate ? CoreDataOptions.migration : CoreDataOptions.basic
     return try cdAddPersistentStore(store: store, storeCoordinator: storeCoordinator, options: options.dict())
 }
 
-internal func cdCreateStoreParentPathIfNeeded(store: CoreData.Store) throws {
+internal func cdCreateStoreParentPathIfNeeded(store: CoreDataStore) throws {
     let databaseParentPath = store.path().deletingLastPathComponent()
     try FileManager.default.createDirectory(at: databaseParentPath, withIntermediateDirectories: true, attributes: nil)
 }
 
-internal func cdAddPersistentStore(store: CoreData.Store, storeCoordinator: NSPersistentStoreCoordinator, options: [String: AnyObject]) throws -> NSPersistentStore {
+internal func cdAddPersistentStore(store: CoreDataStore, storeCoordinator: NSPersistentStoreCoordinator, options: [String: AnyObject]) throws -> NSPersistentStore {
     
-    var addStore: ((_ store: CoreData.Store,  _ storeCoordinator: NSPersistentStoreCoordinator, _ options: [String: AnyObject], _ cleanAndRetryIfMigrationFails: Bool) throws -> NSPersistentStore)?
-    addStore = { (store: CoreData.Store, coordinator: NSPersistentStoreCoordinator, options: [String: AnyObject], retry: Bool) throws -> NSPersistentStore in
+    var addStore: ((_ store: CoreDataStore,  _ storeCoordinator: NSPersistentStoreCoordinator, _ options: [String: AnyObject], _ cleanAndRetryIfMigrationFails: Bool) throws -> NSPersistentStore)?
+    addStore = { (store: CoreDataStore, coordinator: NSPersistentStoreCoordinator, options: [String: AnyObject], retry: Bool) throws -> NSPersistentStore in
         var persistentStore: NSPersistentStore?
         var error: NSError?
         coordinator.performAndWait({ () -> Void in
@@ -173,12 +173,12 @@ internal func cdAddPersistentStore(store: CoreData.Store, storeCoordinator: NSPe
         else if let persistentStore = persistentStore {
             return persistentStore
         }
-        throw CoreData.CoreDataError.PersistenceStoreInitialization
+        throw CoreDataError.persistenceStoreInitialization
     }
     return try addStore!(store, storeCoordinator, options, true)
 }
 
-internal func cdCleanStoreFilesAfterFailedMigration(store: CoreData.Store) throws {
+internal func cdCleanStoreFilesAfterFailedMigration(store: CoreDataStore) throws {
     let rawUrl: String = store.path().absoluteString
     let shmSidecar: NSURL = NSURL(string: rawUrl.appending("-shm"))!
     let walSidecar: NSURL = NSURL(string: rawUrl.appending("-wal"))!

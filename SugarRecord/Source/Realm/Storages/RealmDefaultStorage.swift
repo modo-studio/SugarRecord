@@ -91,7 +91,7 @@ open class RealmDefaultStorage: Storage {
 
     }
     
-    open func observable<T: Object>(_ request: Request<T>) -> RequestObservable<T> {
+    open func observable<T: Object>(_ request: FetchRequest<T>) -> RequestObservable<T> {
         return RealmObservable(request: request, realm: self.mainContext as! Realm)
     }
     

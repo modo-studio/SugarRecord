@@ -2,7 +2,7 @@ import Foundation
 
 public protocol Context: Requestable {
     
-    func fetch<T: Entity>(_ request: Request<T>) throws -> [T]
+    func fetch<T: Entity>(_ request: FetchRequest<T>) throws -> [T]
     func insert<T: Entity>(_ entity: T) throws
     func new<T: Entity>() throws -> T
     func create<T: Entity>() throws -> T

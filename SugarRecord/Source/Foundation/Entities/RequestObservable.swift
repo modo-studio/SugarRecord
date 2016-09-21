@@ -10,12 +10,12 @@ open class RequestObservable<T: Entity>: NSObject {
     
     // MARK: - Attributes
     
-    internal let request: Request<T>
+    internal let request: FetchRequest<T>
     
     
     // MARK: - Init
     
-    internal init(request: Request<T>) {
+    internal init(request: FetchRequest<T>) {
         self.request = request
     }
     
