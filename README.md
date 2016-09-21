@@ -16,8 +16,7 @@ The library is maintained by [@carambalabs](https://github.com/carambalabs). You
 :warning: Swift 2.3 support has been dropped with the version 3.0 :warning:
 
 ## Features
-- Swift 3.0 compatible (Xcode 7.3).
-- Fully rewritten from the version 1.0.
+- Swift 3.0 compatible (Xcode 8.0).
 - Protocols based design.
 - For **beginners** and **advanced** users
 - Fully customizable. Build your own stack!
@@ -46,6 +45,15 @@ pod "SugarRecord/CoreData"
 pod "SugarRecord/CoreData+iCloud"
 pod "SugarRecord/Realm"
 ```
+
+### [Carthage](https://github.com/carthage)
+
+1. Install [Carthage](https://github.com/carthage). You can do it with `brew install carthage`.
+2. Edit your `Cartfile` file and add the following line `github "carambalabs/sugarrecord".
+3. Execute `carthage update`
+4. Add the frameworks to your project as explained on the [Carthage repository](https://github.com/carthage).
+
+> Note: If you use the [Realm](https://realm.io) you have to also add `Realm.framework` and `RealmSwift.framework`.
 
 #### Notes
 - SugarRecord 3.0 is not compatible with the 1.x interface. If you were using that version you'll have to update your project to support this version.
