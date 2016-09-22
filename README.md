@@ -55,6 +55,13 @@ pod "SugarRecord/Realm"
 
 > Note: If you use the [Realm](https://realm.io) you have to also add `Realm.framework` and `RealmSwift.framework`.
 
+### Reactive programming
+
+We provide extensions for SugarRecord that offer a reactive interface to the library:
+
+- [RxSugarRecord](https://github.com/carambalabs/rxsugarrecord)
+- [RACSugarRecord](https://github.com/carambalabs/racsugarrecord)
+
 #### Notes
 - SugarRecord 3.0 is not compatible with the 1.x interface. If you were using that version you'll have to update your project to support this version.
 
