@@ -15,6 +15,9 @@ The library is maintained by [@carambalabs](https://github.com/carambalabs). You
 
 :warning: Swift 2.3 support has been dropped with the version 3.0 :warning:
 
+[![paypal](https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2AUKNEW4JLPXQ)
+
+
 ## Features
 - Swift 3.0 compatible (Xcode 8.0).
 - Protocols based design.
