@@ -82,10 +82,10 @@ class RealmDefaultStorageTests: QuickSpec {
         describe("-observable") {
             
             var observable: RealmObservable<Issue>!
-            var request: Request<Issue>!
+            var request: FetchRequest<Issue>!
             
             beforeEach {
-                request = Request()
+                request = FetchRequest()
                 observable = subject.observable(request) as! RealmObservable<Issue>
             }
             

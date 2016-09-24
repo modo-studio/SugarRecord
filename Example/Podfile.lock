@@ -1,0 +1,65 @@
+PODS:
+  - Nimble (5.0.0)
+  - OHHTTPStubs (5.2.1):
+    - OHHTTPStubs/Default (= 5.2.1)
+  - OHHTTPStubs/Core (5.2.1)
+  - OHHTTPStubs/Default (5.2.1):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (5.2.1):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (5.2.1):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (5.2.1)
+  - OHHTTPStubs/Swift (5.2.1):
+    - OHHTTPStubs/Core
+  - Quick (0.10.0)
+  - Realm (1.1.0):
+    - Realm/Headers (= 1.1.0)
+  - Realm/Headers (1.1.0)
+  - RealmSwift (1.1.0):
+    - Realm (= 1.1.0)
+  - Result (3.0.0)
+  - SnapKit (3.0.1)
+  - SugarRecord (3.0.0-alpha.1):
+    - SugarRecord/CoreData (= 3.0.0-alpha.1)
+    - SugarRecord/CoreData+iCloud (= 3.0.0-alpha.1)
+    - SugarRecord/Realm (= 3.0.0-alpha.1)
+  - SugarRecord/CoreData (3.0.0-alpha.1):
+    - Result (~> 3.0)
+  - SugarRecord/CoreData+iCloud (3.0.0-alpha.1):
+    - Result (~> 3.0)
+  - SugarRecord/Realm (3.0.0-alpha.1):
+    - RealmSwift (~> 1.1)
+    - Result (~> 3.0)
+
+DEPENDENCIES:
+  - Nimble (~> 5.0)
+  - OHHTTPStubs
+  - OHHTTPStubs/Swift
+  - Quick (~> 0.10)
+  - SnapKit
+  - SugarRecord (from `../`)
+  - SugarRecord/CoreData (from `../`)
+  - SugarRecord/CoreData+iCloud (from `../`)
+  - SugarRecord/Realm (from `../`)
+
+EXTERNAL SOURCES:
+  SugarRecord:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Nimble: 56fc9f5020effa2206de22c3dd910f4fb011b92f
+  OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
+  Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
+  Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
+  RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
+  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
+  SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
+  SugarRecord: 13f9d029c077dea63c7f7240dd401ac4af15a84c
+
+PODFILE CHECKSUM: c28325f8c0994a48bbc35011f2de3d55cca790a4
+
+COCOAPODS: 1.1.0.rc.2

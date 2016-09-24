@@ -12,7 +12,7 @@ class CoreDataChangeTests: QuickSpec {
             var change: CoreDataChange<String>!
             
             beforeSuite {
-                change = .Insert(0, "insert")
+                change = .insert(0, "insert")
             }
             
             describe("-object") {
@@ -23,19 +23,19 @@ class CoreDataChangeTests: QuickSpec {
             
             describe("-isDeletion") {
                 it("should return false") {
-                    expect(change.isDeletion()) == false
+                    expect(change.isDeletion) == false
                 }
             }
             
             describe("-isUpdate") {
                 it("should return false") {
-                    expect(change.isUpdate()) == false
+                    expect(change.isUpdate) == false
                 }
             }
             
             describe("-isInsertion") {
                 it("should return true") {
-                    expect(change.isInsertion()) == true
+                    expect(change.isInsertion) == true
                 }
             }
             
@@ -50,7 +50,7 @@ class CoreDataChangeTests: QuickSpec {
             var change: CoreDataChange<String>!
             
             beforeSuite {
-                change = .Update(1, "update")
+                change = .update(1, "update")
             }
             
             describe("-object") {
@@ -61,19 +61,19 @@ class CoreDataChangeTests: QuickSpec {
             
             describe("-isDeletion") {
                 it("should return false") {
-                    expect(change.isDeletion()) == false
+                    expect(change.isDeletion) == false
                 }
             }
             
             describe("-isUpdate") {
                 it("should return true") {
-                    expect(change.isUpdate()) == true
+                    expect(change.isUpdate) == true
                 }
             }
             
             describe("-isInsertion") {
                 it("should return false") {
-                    expect(change.isInsertion()) == false
+                    expect(change.isInsertion) == false
                 }
             }
             
@@ -89,7 +89,7 @@ class CoreDataChangeTests: QuickSpec {
             var change: CoreDataChange<String>!
             
             beforeSuite {
-                change = .Delete(3, "delete")
+                change = .delete(3, "delete")
             }
             
             describe("-object") {
@@ -100,19 +100,19 @@ class CoreDataChangeTests: QuickSpec {
             
             describe("-isDeletion") {
                 it("should return true") {
-                    expect(change.isDeletion()) == true
+                    expect(change.isDeletion) == true
                 }
             }
             
             describe("-isUpdate") {
                 it("should return false") {
-                    expect(change.isUpdate()) == false
+                    expect(change.isUpdate) == false
                 }
             }
             
             describe("-isInsertion") {
                 it("should return false") {
-                    expect(change.isInsertion()) == false
+                    expect(change.isInsertion) == false
                 }
             }
             

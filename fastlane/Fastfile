@@ -1,11 +1,11 @@
 COMMIT_MESSAGE = "Bump podspec to"
 
 lane :pods do
-  cocoapods(podfile: "Examples/")
+  cocoapods(podfile: "Example/")
 end
 
 lane :tests do
-  scan(workspace: "Examples/Examples.xcworkspace", scheme: "Tests", clean: true)
+  scan(workspace: "Example/SugarRecord.xcworkspace", scheme: "SugarRecord_Tests", clean: true, skip_build: true, device: "iPhone 6s")
 end
 
 lane :travis do
@@ -18,7 +18,7 @@ lane :push do
   podspec = "SugarRecord.podspec"
   last_version = version_get_podspec(path: podspec)
   version = version_bump_podspec(path: podspec)
-  git_commit(path: [podspec, "./Examples/Podfile.lock"], message: "#{COMMIT_MESSAGE} #{version}")
+  git_commit(path: [podspec, "./Example/Podfile.lock"], message: "#{COMMIT_MESSAGE} #{version}")
   changelog = changelog_from_git_commits
   changelog ||= "No changelog"
   github_release = set_github_release(
