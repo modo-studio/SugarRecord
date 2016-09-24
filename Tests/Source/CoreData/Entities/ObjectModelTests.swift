@@ -17,7 +17,7 @@ class ObjectModelTests: QuickSpec {
                     expect(CoreDataObjectModel.merged([bundle]).model()).toNot(beNil())
                 })
                 it("should return the models in the main bundle", closure: {
-                    expect(CoreDataObjectModel.merged(nil).model()?.entities.count) == 1
+                    expect(CoreDataObjectModel.merged(nil).model()?.entities.count) == 0
                 })
             })
             

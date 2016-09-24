@@ -5,7 +5,7 @@ lane :pods do
 end
 
 lane :tests do
-  scan(workspace: "Example/SugarRecord.xcworkspace", scheme: "SugarRecord_Tests", clean: true, skip_build: true, device: "iPhone 6s")
+  scan(workspace: "Example/SugarRecord.xcworkspace", scheme: "SugarRecord_Tests", device: "iPhone 6", skip_build: true)
 end
 
 lane :travis do
