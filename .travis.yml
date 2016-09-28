@@ -6,6 +6,8 @@ before_install:
 - gem install bundler
 - bundle install
 - bundle exec pod repo update --silent
+- brew update
+- brew outdated carthage || brew upgrade carthage
 - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/carambalabs/SugarRecord.git"
 script:
 - bundle exec fastlane travis
