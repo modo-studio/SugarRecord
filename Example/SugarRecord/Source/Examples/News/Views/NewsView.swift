@@ -1,10 +1,20 @@
+import Foundation
 import UIKit
-import SnapKit
+import SugarRecord
+import RealmSwift
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    // MARK: - Attributes
+class NewsView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: - Attributes
+    lazy var db: RealmDefaultStorage = {
+        var configuration = Realm.Configuration()
+        configuration.fileURL = URL(fileURLWithPath: databasePath("realm-news"))
+        let _storage = RealmDefaultStorage(configuration: configuration)
+        return _storage
+    }()
+    lazy var service: NewsService = {
+        return NewsService(storage: self.db)
+    }()
     lazy var tableView: UITableView = {
         let _tableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
         _tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -13,34 +23,52 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         _tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "default-cell")
         return _tableView
     }()
-    
+    var entities: [String] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     // MARK: - Init
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        self.title = "SugarRecord Examples"
+        self.title = "News"
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK - Lifecycle
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        self.service.sync()
+        let request = FetchRequest<RealmNew>()
+        self.db.observable(request).observe { [weak self] (change) in
+            switch change {
+            case .initial(let values):
+                self?.entities = values.map({$0.title})
+            case .update(_, _, _):
+                do {
+                    self?.entities = try self?.db.fetch(request).map({$0.title}) ?? []
+                } catch {}
+            default: break
+            }
+        }
     }
     
     
-    // MARK: - Setup
+    // MARK: - Private
     
     fileprivate func setup() {
         setupView()
         setupTableView()
     }
-
+    
     fileprivate func setupView() {
         self.view.backgroundColor = UIColor.white
     }
@@ -56,37 +84,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - UITableViewDataSource / UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.entities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "default-cell")!
-        switch (indexPath as NSIndexPath).row {
-        case 0:
-            cell.textLabel?.text = "CoreData Basic"
-        case 1:
-            cell.textLabel?.text = "Realm Basic"
-        case 2:
-            cell.textLabel?.text = "News from API"
-        default:
-            cell.textLabel?.text = ""
-        }
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        cell.textLabel?.text = "\(entities[(indexPath as NSIndexPath).row])"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        switch (indexPath as NSIndexPath).row {
-        case 0:
-            self.navigationController?.pushViewController(CoreDataBasicView(), animated: true)
-        case 1:
-            self.navigationController?.pushViewController(RealmBasicView(), animated: true)
-        case 2:
-            self.navigationController?.pushViewController(NewsView(), animated: true)
-        default:
-            break
-        }
     }
+    
 }
-

@@ -23,15 +23,15 @@ PODS:
     - Realm (= 1.1.0)
   - Result (3.0.0)
   - SnapKit (3.0.1)
-  - SugarRecord (3.0.0-alpha.1):
-    - SugarRecord/CoreData (= 3.0.0-alpha.1)
-    - SugarRecord/CoreData+iCloud (= 3.0.0-alpha.1)
-    - SugarRecord/Realm (= 3.0.0-alpha.1)
-  - SugarRecord/CoreData (3.0.0-alpha.1):
+  - SugarRecord (3.0.0-alpha.2):
+    - SugarRecord/CoreData (= 3.0.0-alpha.2)
+    - SugarRecord/CoreData+iCloud (= 3.0.0-alpha.2)
+    - SugarRecord/Realm (= 3.0.0-alpha.2)
+  - SugarRecord/CoreData (3.0.0-alpha.2):
     - Result (~> 3.0)
-  - SugarRecord/CoreData+iCloud (3.0.0-alpha.1):
+  - SugarRecord/CoreData+iCloud (3.0.0-alpha.2):
     - Result (~> 3.0)
-  - SugarRecord/Realm (3.0.0-alpha.1):
+  - SugarRecord/Realm (3.0.0-alpha.2):
     - RealmSwift (~> 1.1)
     - Result (~> 3.0)
 
@@ -58,7 +58,7 @@ SPEC CHECKSUMS:
   RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
   Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
   SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
-  SugarRecord: 13f9d029c077dea63c7f7240dd401ac4af15a84c
+  SugarRecord: 5d12c70dadef8e036edc795c76e533584b7da453
 
 PODFILE CHECKSUM: 93e4a0d6049261cca889912a17deebad59571a81
 
