@@ -116,11 +116,11 @@ Storages offer multiple kind of contexts that are the entry points to the databa
 #### Fetching data
 
 ```swift
-let pedros: [Person] = try! db.fetch(Request<Person>().filteredWith("name", equalTo: "Pedro"))
-let tasks: [Task] = try! db.fetch(Request<Task>())
-let citiesByName: [City] = try! db.fetch(Request<City>().sortedWith("name", ascending: true))
+let pedros: [Person] = try! db.fetch(FetchRequest<Person>().filteredWith("name", equalTo: "Pedro"))
+let tasks: [Task] = try! db.fetch(FetchRequest<Task>())
+let citiesByName: [City] = try! db.fetch(FetchRequest<City>().sortedWith("name", ascending: true))
 let predicate: NSPredicate = NSPredicate(format: "id == %@", "AAAA")
-let john: User? = try! db.fetch(Request<User>().filteredWith(predicate: predicate)).first
+let john: User? = try! db.fetch(FetchRequest<User>().filteredWith(predicate: predicate)).first
 ```
 
 #### Remove/Insert/Update operations
@@ -208,7 +208,7 @@ class Presenter {
   var observable: RequestObservable<Track>!
 
   func setup() {
-      let request: Request<Track> = Request<Track>().filteredWith("artist", equalTo: "pedro")
+      let request: FetchRequest<Track> = FetchRequest<Track>().filteredWith("artist", equalTo: "pedro")
       self.observable = storage.instance.observable(request)
       self.observable.observe { changes in
         case .Initial(let objects):
