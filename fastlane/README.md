@@ -5,14 +5,19 @@ fastlane documentation
 sudo gem install fastlane
 ```
 # Available Actions
-### pods
+### dependencies
 ```
-fastlane pods
+fastlane dependencies
 ```
 
 ### tests
 ```
 fastlane tests
+```
+
+### carthage_project
+```
+fastlane carthage_project
 ```
 
 ### travis

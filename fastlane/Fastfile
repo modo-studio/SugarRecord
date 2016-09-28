@@ -1,15 +1,21 @@
 COMMIT_MESSAGE = "Bump podspec to"
 
-lane :pods do
+lane :dependencies do
   cocoapods(podfile: "Example/")
+  carthage(command: "update")
 end
 
 lane :tests do
   scan(workspace: "Example/SugarRecord.xcworkspace", scheme: "SugarRecord_Tests", device: "iPhone 6", skip_build: true)
 end
 
+lane :carthage_project do
+  carthage(command: "build", no_skip_current: true, verbose: true)
+end
+
 lane :travis do
-  pods
+  dependencies
+  carthage_project
   tests
   danger
 end

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CarthageProjects/SugarRecord.xcodeproj">
+      location = "container:Carthage.xcodeproj">
    </FileRef>
 </Workspace>

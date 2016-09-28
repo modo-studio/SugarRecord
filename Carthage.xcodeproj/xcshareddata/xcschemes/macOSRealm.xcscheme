@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2334C4D41D7DDA9900ACBC3A"
+               BlueprintIdentifier = "2334C4DE1D7DDAEF00ACBC3A"
                BuildableName = "SugarRecordRealm.framework"
-               BlueprintName = "tvOSRealm"
-               ReferencedContainer = "container:SugarRecord.xcodeproj">
+               BlueprintName = "macOSRealm"
+               ReferencedContainer = "container:Carthage.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2334C4D41D7DDA9900ACBC3A"
+            BlueprintIdentifier = "2334C4DE1D7DDAEF00ACBC3A"
             BuildableName = "SugarRecordRealm.framework"
-            BlueprintName = "tvOSRealm"
-            ReferencedContainer = "container:SugarRecord.xcodeproj">
+            BlueprintName = "macOSRealm"
+            ReferencedContainer = "container:Carthage.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2334C4D41D7DDA9900ACBC3A"
+            BlueprintIdentifier = "2334C4DE1D7DDAEF00ACBC3A"
             BuildableName = "SugarRecordRealm.framework"
-            BlueprintName = "tvOSRealm"
-            ReferencedContainer = "container:SugarRecord.xcodeproj">
+            BlueprintName = "macOSRealm"
+            ReferencedContainer = "container:Carthage.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

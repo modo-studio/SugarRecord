@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2334C4C01D7DDA1400ACBC3A"
-               BuildableName = "SugarRecord.framework"
-               BlueprintName = "iOSRealm"
-               ReferencedContainer = "container:SugarRecord.xcodeproj">
+               BlueprintIdentifier = "2334C4B71D7DD97B00ACBC3A"
+               BuildableName = "SugarRecordCoreData.framework"
+               BlueprintName = "macOSCoreData"
+               ReferencedContainer = "container:Carthage.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2334C4C01D7DDA1400ACBC3A"
-            BuildableName = "SugarRecord.framework"
-            BlueprintName = "iOSRealm"
-            ReferencedContainer = "container:SugarRecord.xcodeproj">
+            BlueprintIdentifier = "2334C4B71D7DD97B00ACBC3A"
+            BuildableName = "SugarRecordCoreData.framework"
+            BlueprintName = "macOSCoreData"
+            ReferencedContainer = "container:Carthage.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2334C4C01D7DDA1400ACBC3A"
-            BuildableName = "SugarRecord.framework"
-            BlueprintName = "iOSRealm"
-            ReferencedContainer = "container:SugarRecord.xcodeproj">
+            BlueprintIdentifier = "2334C4B71D7DD97B00ACBC3A"
+            BuildableName = "SugarRecordCoreData.framework"
+            BlueprintName = "macOSCoreData"
+            ReferencedContainer = "container:Carthage.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
