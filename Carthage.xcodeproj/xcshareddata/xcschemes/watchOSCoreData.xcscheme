@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2334C4DE1D7DDAEF00ACBC3A"
-               BuildableName = "SugarRecordRealm.framework"
-               BlueprintName = "macOSRealm"
-               ReferencedContainer = "container:SugarRecord.xcodeproj">
+               BlueprintIdentifier = "2334C49D1D7DD93600ACBC3A"
+               BuildableName = "SugarRecordCoreData.framework"
+               BlueprintName = "watchOSCoreData"
+               ReferencedContainer = "container:Carthage.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2334C4DE1D7DDAEF00ACBC3A"
-            BuildableName = "SugarRecordRealm.framework"
-            BlueprintName = "macOSRealm"
-            ReferencedContainer = "container:SugarRecord.xcodeproj">
+            BlueprintIdentifier = "2334C49D1D7DD93600ACBC3A"
+            BuildableName = "SugarRecordCoreData.framework"
+            BlueprintName = "watchOSCoreData"
+            ReferencedContainer = "container:Carthage.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2334C4DE1D7DDAEF00ACBC3A"
-            BuildableName = "SugarRecordRealm.framework"
-            BlueprintName = "macOSRealm"
-            ReferencedContainer = "container:SugarRecord.xcodeproj">
+            BlueprintIdentifier = "2334C49D1D7DD93600ACBC3A"
+            BuildableName = "SugarRecordCoreData.framework"
+            BlueprintName = "watchOSCoreData"
+            ReferencedContainer = "container:Carthage.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
