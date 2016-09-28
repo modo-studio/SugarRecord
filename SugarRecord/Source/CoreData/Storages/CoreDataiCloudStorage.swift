@@ -5,7 +5,7 @@ public class CoreDataiCloudStorage: Storage {
     
     // MARK: - Attributes
     
-    internal let store: CoreData.Store
+    internal let store: CoreDataStore
     internal var objectModel: NSManagedObjectModel! = nil
     internal var persistentStore: NSPersistentStore! = nil
     internal var persistentStoreCoordinator: NSPersistentStoreCoordinator! = nil
@@ -25,7 +25,7 @@ public class CoreDataiCloudStorage: Storage {
     
     public var saveContext: Context! {
         get {
-            let context = cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .privateQueueConcurrencyType, inMemory: false)
+            let context = cdContext(withParent: .context(self.rootSavingContext), concurrencyType: .privateQueueConcurrencyType, inMemory: false)
             context.observe(inMainThread: true) { [weak self] (notification) -> Void in
                 (self?.mainContext as? NSManagedObjectContext)?.mergeChanges(fromContextDidSave: notification as Notification)
             }
@@ -35,7 +35,7 @@ public class CoreDataiCloudStorage: Storage {
     
     public var memoryContext: Context! {
         get {
-            let context =  cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .privateQueueConcurrencyType, inMemory: true)
+            let context =  cdContext(withParent: .context(self.rootSavingContext), concurrencyType: .privateQueueConcurrencyType, inMemory: true)
             return context
         }
     }
@@ -85,18 +85,18 @@ public class CoreDataiCloudStorage: Storage {
     
     // MARK: - Init
     
-    public convenience init(model: CoreData.ObjectModel, iCloud: ICloudConfig) throws {
+    public convenience init(model: CoreDataObjectModel, iCloud: CoreDataiCloudConfig) throws {
         try self.init(model: model, iCloud: iCloud, versionController: VersionController())
     }
     
-    internal init(model: CoreData.ObjectModel, iCloud: ICloudConfig, versionController: VersionController) throws {
+    internal init(model: CoreDataObjectModel, iCloud: CoreDataiCloudConfig, versionController: VersionController) throws {
         self.objectModel = model.model()!
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
         let result = try! cdiCloudInitializeStore(storeCoordinator: persistentStoreCoordinator, iCloud: iCloud)
         self.store = result.0
         self.persistentStore = result.1
-        self.rootSavingContext = cdContext(withParent: .Coordinator(self.persistentStoreCoordinator), concurrencyType: .privateQueueConcurrencyType, inMemory: false)
-        self.mainContext = cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .mainQueueConcurrencyType, inMemory: false)
+        self.rootSavingContext = cdContext(withParent: .coordinator(self.persistentStoreCoordinator), concurrencyType: .privateQueueConcurrencyType, inMemory: false)
+        self.mainContext = cdContext(withParent: .context(self.rootSavingContext), concurrencyType: .mainQueueConcurrencyType, inMemory: false)
         self.observeiCloudChangesInCoordinator()
         #if DEBUG
         versionController.check()
@@ -108,7 +108,7 @@ public class CoreDataiCloudStorage: Storage {
 
 #if os(iOS) || os(tvOS) || os(watchOS)
     
-    public func observable<T: NSManagedObject>(request: Request<T>) -> RequestObservable<T> where T:Equatable {
+    public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> where T:Equatable {
         return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
     }
     
@@ -128,13 +128,13 @@ public class CoreDataiCloudStorage: Storage {
     
 }
 
-internal func cdiCloudInitializeStore(storeCoordinator: NSPersistentStoreCoordinator, iCloud: ICloudConfig) throws -> (CoreData.Store, NSPersistentStore?) {
+internal func cdiCloudInitializeStore(storeCoordinator: NSPersistentStoreCoordinator, iCloud: CoreDataiCloudConfig) throws -> (CoreDataStore, NSPersistentStore?) {
     let storeURL = FileManager.default
         .url(forUbiquityContainerIdentifier: iCloud.ubiquitousContainerIdentifier)!
         .appendingPathComponent(iCloud.ubiquitousContentURL)
-    var options = CoreData.Options.Migration.dict()
+    var options = CoreDataOptions.migration.dict()
     options[NSPersistentStoreUbiquitousContentURLKey] = storeURL as AnyObject?
     options[NSPersistentStoreUbiquitousContentNameKey] = iCloud.ubiquitousContentName as AnyObject?
-    let store = CoreData.Store.URL(storeURL)
+    let store = CoreDataStore.url(storeURL)
     return try (store, cdAddPersistentStore(store: store, storeCoordinator: storeCoordinator, options: options))
 }

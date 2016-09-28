@@ -22,8 +22,8 @@ extension NSManagedObject: Entity {}
 extension NSManagedObject {
     
     
-    static func request<T: Entity>(requestable: Requestable) -> Request<T> {
-        return Request(requestable)
+    static func request<T: Entity>(requestable: Requestable) -> FetchRequest<T> {
+        return FetchRequest(requestable)
     }
 
 }

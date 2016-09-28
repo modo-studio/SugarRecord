@@ -10,7 +10,7 @@ class RealmObservableTests: QuickSpec {
     override func spec() {
         
         var subject: RealmObservable<Issue>!
-        var request: Request<Issue>!
+        var request: FetchRequest<Issue>!
         var realm: Realm!
         
         beforeEach {
@@ -18,7 +18,7 @@ class RealmObservableTests: QuickSpec {
             realm.beginWrite()
             realm.create(Issue.self, value: ["id": "123", "name": "issue"], update: true)
             try! realm.commitWrite()
-            request = Request<Issue>()
+            request = FetchRequest<Issue>()
             subject = RealmObservable(request: request, realm: realm)
         }
         

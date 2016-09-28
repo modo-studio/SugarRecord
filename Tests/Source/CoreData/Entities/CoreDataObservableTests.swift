@@ -9,17 +9,17 @@ class CoreDataObservableTests: QuickSpec {
     
     override func spec() {
         
-        var request: Request<Track>!
+        var request: FetchRequest<Track>!
         var subject: CoreDataObservable<Track>!
         var storage: CoreDataDefaultStorage!
         
         beforeEach {
-            let store: CoreData.Store = CoreData.Store.Named("test")
+            let store: CoreDataStore = CoreDataStore.named("test")
             let bundle = Bundle(for: self.classForCoder)
-            let model = CoreData.ObjectModel.Merged([bundle])
+            let model = CoreDataObjectModel.merged([bundle])
             storage = try! CoreDataDefaultStorage(store: store, model: model)
             _ = try? storage.removeStore()
-            request = Request<Track>().sortedWith("name", ascending: true)
+            request = FetchRequest<Track>().sortedWith("name", ascending: true)
             let context: NSManagedObjectContext = storage.mainContext as! NSManagedObjectContext
             subject = CoreDataObservable(request: request, context: context)
             context.perform({

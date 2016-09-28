@@ -3,7 +3,7 @@ import RealmSwift
 
 extension Realm: Context {
     
-    public func fetch<T: Entity>(_ request: Request<T>) throws -> [T] {
+    public func fetch<T: Entity>(_ request: FetchRequest<T>) throws -> [T] {
         guard let entity = T.self as? Object.Type else { throw StorageError.invalidType }
         var results = self.objects(entity.self)
         if let predicate = request.predicate {

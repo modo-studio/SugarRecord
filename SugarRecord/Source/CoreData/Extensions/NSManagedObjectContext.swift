@@ -6,7 +6,7 @@ import CoreData
 
 extension NSManagedObjectContext: Context {
     
-    public func fetch<T: Entity>(_ request: Request<T>) throws -> [T] {
+    public func fetch<T: Entity>(_ request: FetchRequest<T>) throws -> [T] {
         guard let entity = T.self as? NSManagedObject.Type else { throw StorageError.invalidType }
         let fetchRequest: NSFetchRequest =  NSFetchRequest<NSFetchRequestResult>(entityName: entity.entityName)
         fetchRequest.predicate = request.predicate

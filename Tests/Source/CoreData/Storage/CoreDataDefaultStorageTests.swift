@@ -10,14 +10,14 @@ class CoreDataDefaultStorageTests: QuickSpec {
         
         describe("storage") { () -> Void in
             
-            var store: CoreData.Store!
-            var model: CoreData.ObjectModel!
+            var store: CoreDataStore!
+            var model: CoreDataObjectModel!
             var subject: CoreDataDefaultStorage!
             
             beforeEach {
-                store = CoreData.Store.Named("test")
+                store = CoreDataStore.named("test")
                 let bundle = Bundle(for: self.classForCoder)
-                model = CoreData.ObjectModel.Merged([bundle])
+                model = CoreDataObjectModel.merged([bundle])
                 subject = try! CoreDataDefaultStorage(store: store!, model: model!)
             }
             
@@ -137,11 +137,11 @@ class CoreDataDefaultStorageTests: QuickSpec {
          
             describe("-observable:") {
                 
-                var request: Request<Track>!
+                var request: FetchRequest<Track>!
                 var observable: CoreDataObservable<Track>!
                 
                 beforeEach {
-                    request = Request<Track>().filteredWith("name", equalTo: "test").sortedWith("name", ascending: true)
+                    request = FetchRequest<Track>().filteredWith("name", equalTo: "test").sortedWith("name", ascending: true)
                     observable = subject.observable(request: request) as! CoreDataObservable<Track>
                 }
                 
