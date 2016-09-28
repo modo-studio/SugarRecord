@@ -210,7 +210,7 @@
 		2334C49E1D7DD93600ACBC3A /* SugarRecordCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2334C4AB1D7DD95C00ACBC3A /* SugarRecordCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2334C4B81D7DD97B00ACBC3A /* SugarRecordCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2334C4C81D7DDA1400ACBC3A /* SugarRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2334C4C81D7DDA1400ACBC3A /* SugarRecordRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2334C4D21D7DDA4F00ACBC3A /* SugarRecordRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2334C4DC1D7DDA9900ACBC3A /* SugarRecordRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2334C4E61D7DDAEF00ACBC3A /* SugarRecordRealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SugarRecordRealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -372,7 +372,7 @@
 				2334C49E1D7DD93600ACBC3A /* SugarRecordCoreData.framework */,
 				2334C4AB1D7DD95C00ACBC3A /* SugarRecordCoreData.framework */,
 				2334C4B81D7DD97B00ACBC3A /* SugarRecordCoreData.framework */,
-				2334C4C81D7DDA1400ACBC3A /* SugarRecord.framework */,
+				2334C4C81D7DDA1400ACBC3A /* SugarRecordRealm.framework */,
 				2334C4D21D7DDA4F00ACBC3A /* SugarRecordRealm.framework */,
 				2334C4DC1D7DDA9900ACBC3A /* SugarRecordRealm.framework */,
 				2334C4E61D7DDAEF00ACBC3A /* SugarRecordRealm.framework */,
@@ -847,7 +847,7 @@
 			);
 			name = iOSRealm;
 			productName = SugarRecord;
-			productReference = 2334C4C81D7DDA1400ACBC3A /* SugarRecord.framework */;
+			productReference = 2334C4C81D7DDA1400ACBC3A /* SugarRecordRealm.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		2334C4CA1D7DDA4F00ACBC3A /* watchOSRealm */ = {
@@ -1375,6 +1375,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.SugarRecord;
+				PRODUCT_MODULE_NAME = SugarRecordCoreData;
 				PRODUCT_NAME = SugarRecordCoreData;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -1393,6 +1394,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.SugarRecord;
+				PRODUCT_MODULE_NAME = SugarRecordCoreData;
 				PRODUCT_NAME = SugarRecordCoreData;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -1412,6 +1414,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.watchOS;
+				PRODUCT_MODULE_NAME = SugarRecordCoreData;
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1434,6 +1437,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.watchOS;
+				PRODUCT_MODULE_NAME = SugarRecordCoreData;
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1455,6 +1459,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.tvOS;
+				PRODUCT_MODULE_NAME = SugarRecordCoreData;
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -1476,6 +1481,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.tvOS;
+				PRODUCT_MODULE_NAME = SugarRecordCoreData;
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -1501,6 +1507,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.macOS;
+				PRODUCT_MODULE_NAME = SugarRecordCoreData;
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1524,6 +1531,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.macOS;
+				PRODUCT_MODULE_NAME = SugarRecordCoreData;
 				PRODUCT_NAME = SugarRecordCoreData;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1544,7 +1552,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.SugarRecord;
-				PRODUCT_NAME = SugarRecord;
+				PRODUCT_MODULE_NAME = SugarRecordRealm;
+				PRODUCT_NAME = SugarRecordRealm;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1563,7 +1572,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.SugarRecord;
-				PRODUCT_NAME = SugarRecord;
+				PRODUCT_MODULE_NAME = SugarRecordRealm;
+				PRODUCT_NAME = SugarRecordRealm;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1583,6 +1593,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.watchOS;
+				PRODUCT_MODULE_NAME = SugarRecordRealm;
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1606,6 +1617,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.watchOS;
+				PRODUCT_MODULE_NAME = SugarRecordRealm;
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1628,6 +1640,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.tvOS;
+				PRODUCT_MODULE_NAME = SugarRecordRealm;
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -1650,6 +1663,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.tvOS;
+				PRODUCT_MODULE_NAME = SugarRecordRealm;
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -1676,6 +1690,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.macOS;
+				PRODUCT_MODULE_NAME = SugarRecordRealm;
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1700,6 +1715,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = in.caramba.macOS;
+				PRODUCT_MODULE_NAME = SugarRecordRealm;
 				PRODUCT_NAME = SugarRecordRealm;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
