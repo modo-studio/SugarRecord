@@ -1,4 +1,4 @@
-# <center>![xcres](https://github.com/carambalabs/SugarRecord/raw/master/Assets/Banner.png)</center>
+# <center>![xcres](https://github.com/carambalabs/SugarRecord/raw/master/Assets/Caramba.png)</center>
 
 [![Twitter: @carambalabs](https://img.shields.io/badge/contact-@carambalabs-blue.svg?style=flat)](https://twitter.com/carambalabs)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SugarRecord.svg)](https://img.shields.io/cocoapods/v/SugarRecord.svg)
