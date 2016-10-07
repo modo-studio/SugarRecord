@@ -19,7 +19,7 @@ class CoreDataObservableTests: QuickSpec {
             let model = CoreDataObjectModel.merged([bundle])
             storage = try! CoreDataDefaultStorage(store: store, model: model)
             _ = try? storage.removeStore()
-            request = FetchRequest<Track>().sortedWith("name", ascending: true)
+            request = FetchRequest<Track>().sorted(with: "name", ascending: true)
             let context: NSManagedObjectContext = storage.mainContext as! NSManagedObjectContext
             subject = CoreDataObservable(request: request, context: context)
             context.perform({

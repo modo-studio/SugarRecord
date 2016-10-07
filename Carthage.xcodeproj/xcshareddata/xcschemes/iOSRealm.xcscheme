@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2334C4C01D7DDA1400ACBC3A"
-               BuildableName = "SugarRecord.framework"
+               BuildableName = "SugarRecordRealm.framework"
                BlueprintName = "iOSRealm"
                ReferencedContainer = "container:Carthage.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2334C4C01D7DDA1400ACBC3A"
-            BuildableName = "SugarRecord.framework"
+            BuildableName = "SugarRecordRealm.framework"
             BlueprintName = "iOSRealm"
             ReferencedContainer = "container:Carthage.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2334C4C01D7DDA1400ACBC3A"
-            BuildableName = "SugarRecord.framework"
+            BuildableName = "SugarRecordRealm.framework"
             BlueprintName = "iOSRealm"
             ReferencedContainer = "container:Carthage.xcodeproj">
          </BuildableReference>

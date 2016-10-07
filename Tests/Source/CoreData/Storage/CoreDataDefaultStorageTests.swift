@@ -141,7 +141,8 @@ class CoreDataDefaultStorageTests: QuickSpec {
                 var observable: CoreDataObservable<Track>!
                 
                 beforeEach {
-                    request = FetchRequest<Track>().filteredWith("name", equalTo: "test").sortedWith("name", ascending: true)
+                    request = FetchRequest<Track>().filtered(with: "name", equalTo: "test")
+                        .sorted(with: "name", ascending: true)
                     observable = subject.observable(request: request) as! CoreDataObservable<Track>
                 }
                 

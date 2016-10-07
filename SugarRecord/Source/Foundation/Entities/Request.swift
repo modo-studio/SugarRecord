@@ -35,32 +35,32 @@ public struct FetchRequest<T: Entity>: Equatable {
     
     // MARK: - Public Builder Methods
     
-    public func filteredWith(predicate: NSPredicate) -> FetchRequest<T> {
+    public func filtered(with predicate: NSPredicate) -> FetchRequest<T> {
         return self
             .request(withPredicate: predicate)
     }
     
-    public func filteredWith(_ key: String, equalTo value: String) -> FetchRequest<T> {
+    public func filtered(with key: String, equalTo value: String) -> FetchRequest<T> {
         return self
             .request(withPredicate: NSPredicate(format: "\(key) == %@", value))
     }
     
-    public func sortedWith(sortDescriptor: NSSortDescriptor) -> FetchRequest<T> {
+    public func sorted(with sortDescriptor: NSSortDescriptor) -> FetchRequest<T> {
         return self
             .request(withSortDescriptor: sortDescriptor)
     }
     
-    public func sortedWith(_ key: String?, ascending: Bool, comparator cmptr: @escaping Comparator) -> FetchRequest<T> {
+    public func sorted(with key: String?, ascending: Bool, comparator cmptr: @escaping Comparator) -> FetchRequest<T> {
         return self
             .request(withSortDescriptor: NSSortDescriptor(key: key, ascending: ascending, comparator: cmptr))
     }
     
-    public func sortedWith(_ key: String?, ascending: Bool) -> FetchRequest<T> {
+    public func sorted(with key: String?, ascending: Bool) -> FetchRequest<T> {
         return self
             .request(withSortDescriptor: NSSortDescriptor(key: key, ascending: ascending))
     }
     
-    public func sortedWith(_ key: String?, ascending: Bool, selector: Selector) -> FetchRequest<T> {
+    public func sorted(with key: String?, ascending: Bool, selector: Selector) -> FetchRequest<T> {
         return self
             .request(withSortDescriptor: NSSortDescriptor(key: key, ascending: ascending, selector: selector))
     }

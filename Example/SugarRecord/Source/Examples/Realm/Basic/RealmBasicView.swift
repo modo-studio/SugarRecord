@@ -96,7 +96,7 @@ class RealmBasicView: UIViewController, UITableViewDelegate, UITableViewDataSour
         if editingStyle == UITableViewCellEditingStyle.delete {
             let name = entities[(indexPath as NSIndexPath).row].name
             try! db.operation({ (context, save) -> Void in
-                guard let obj = try! context.request(RealmBasicObject.self).filteredWith("name", equalTo: name).fetch().first else { return }
+                guard let obj = try! context.request(RealmBasicObject.self).filtered(with: "name", equalTo: name).fetch().first else { return }
                 _ = try? context.remove(obj)
                 save()
             })
