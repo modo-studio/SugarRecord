@@ -1,4 +1,4 @@
-# <center>![xcres](https://github.com/carambalabs/SugarRecord/raw/master/Assets/Caramba.png)</center>
+# <center>![SugarRecord](Assets/Caramba.png)</center>
 
 [![Twitter: @carambalabs](https://img.shields.io/badge/contact-@carambalabs-blue.svg?style=flat)](https://twitter.com/carambalabs)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SugarRecord.svg)](https://img.shields.io/cocoapods/v/SugarRecord.svg)
@@ -12,8 +12,6 @@
 SugarRecord is a persistence wrapper designed to make working with persistence solutions like CoreData/Realm/... in a much easier way. Thanks to SugarRecord you'll be able to use CoreData with just a few lines of code: Just choose your stack and start playing with your data.
 
 The library is maintained by [@carambalabs](https://github.com/carambalabs). You can reach me at [pepibumur@gmail.com](mailto://pepibumur@gmail.com) for help or whatever you need to commend about the library.
-
-:warning: Swift 2.3 support has been dropped with the version 3.0 :warning:
 
 [![paypal](https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2AUKNEW4JLPXQ)
 
@@ -65,9 +63,6 @@ We provide extensions for SugarRecord that offer a reactive interface to the lib
 - [RxSugarRecord](https://github.com/carambalabs/rxsugarrecord)
 - [RACSugarRecord](https://github.com/carambalabs/racsugarrecord)
 
-#### Notes
-- SugarRecord 3.0 is not compatible with the 1.x interface. If you were using that version you'll have to update your project to support this version.
-
 ## Reference
 You can check generated SugarRecord documentation [here](http://cocoadocs.org/docsets/SugarRecord/2.0.0/) generated automatically with [CocoaDocs](http://cocoadocs.org/)
 
@@ -116,11 +111,11 @@ Storages offer multiple kind of contexts that are the entry points to the databa
 #### Fetching data
 
 ```swift
-let pedros: [Person] = try! db.fetch(FetchRequest<Person>().filteredWith("name", equalTo: "Pedro"))
+let pedros: [Person] = try! db.fetch(FetchRequest<Person>().filtered(with: "name", equalTo: "Pedro"))
 let tasks: [Task] = try! db.fetch(FetchRequest<Task>())
-let citiesByName: [City] = try! db.fetch(FetchRequest<City>().sortedWith("name", ascending: true))
+let citiesByName: [City] = try! db.fetch(FetchRequest<City>().sorted(with: "name", ascending: true))
 let predicate: NSPredicate = NSPredicate(format: "id == %@", "AAAA")
-let john: User? = try! db.fetch(FetchRequest<User>().filteredWith(predicate: predicate)).first
+let john: User? = try! db.fetch(FetchRequest<User>().filtered(with: predicate)).first
 ```
 
 #### Remove/Insert/Update operations
@@ -132,12 +127,11 @@ Although `Context`s offer `insertion` and `deletion` methods that you can use it
 
 ```swift
 do {
-  db.operation { (context, save) throws -> Void in
+  db.operation { (context, save) throws in
     // Do your operations here
-    save()
+    try save()
   }
-}
-catch {
+} catch {
   // There was an error in the operation
 }
 ```
@@ -147,14 +141,13 @@ You can use the context `new()` method to initialize a model **without inserting
 
 ```swift
 do {
-  db.operation { (context, save) throws -> Void in
-    let newTask: Track = try! context.new()
+  db.operation { (context, save) throws in
+    let newTask: Track = try context.new()
     newTask.name = "Make CoreData easier!"
-    try! context.insert(newTask)
-    save()
+    try context.insert(newTask)
+    try save()
   }
-}
-catch {
+} catch {
   // There was an error in the operation
 }
 ```
@@ -181,15 +174,14 @@ In a similar way you can use the `remove()` method from the context passing the 
 
 ```swift
 do {
-  db.operation { (context, save) -> Void in
-    let john: User? = try! context.request(User.self).filteredWith("id", equalTo: "1234").fetch().first
+  db.operation { (context, save) throws in
+    let john: User? = try context.request(User.self).filteredWith("id", equalTo: "1234").fetch().first
     if let john = john {
-      try! context.remove([john])
-      save()
+      try context.remove([john])
+      try save()
     }
   }
-}
-catch {
+} catch {
   // There was an error in the operation
 }
 ```
@@ -208,7 +200,7 @@ class Presenter {
   var observable: RequestObservable<Track>!
 
   func setup() {
-      let request: FetchRequest<Track> = FetchRequest<Track>().filteredWith("artist", equalTo: "pedro")
+      let request: FetchRequest<Track> = FetchRequest<Track>().filtered(with: "artist", equalTo: "pedro")
       self.observable = storage.instance.observable(request)
       self.observable.observe { changes in
         case .Initial(let objects):
