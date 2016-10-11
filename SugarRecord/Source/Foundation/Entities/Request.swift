@@ -45,12 +45,12 @@ public struct FetchRequest<T: Entity>: Equatable {
             .request(withPredicate: NSPredicate(format: "\(key) == %@", value))
     }
     
-    public func filteredWith(_ key: String, in value: [String]) -> FetchRequest<T> {
+    public func filtered(with key: String, in value: [String]) -> FetchRequest<T> {
         return self
             .request(withPredicate: NSPredicate(format: "\(key) IN %@", value))
     }
     
-    public func filteredWith(_ key: String, notIn value: [String]) -> FetchRequest<T> {
+    public func filtered(with key: String, notIn value: [String]) -> FetchRequest<T> {
         return self
             .request(withPredicate: NSPredicate(format: "NOT (\(key) IN %@)", value))
     }
