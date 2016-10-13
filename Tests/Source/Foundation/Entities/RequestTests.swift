@@ -12,33 +12,45 @@ class RequestTests: QuickSpec {
         
         describe("builders") {
             
-            it("-filteredWithPredicate") {
+            it("-filtered:with") {
                 let predicate: NSPredicate = NSPredicate(format: "name == TEST")
                 let request: FetchRequest<Issue> = FetchRequest(testRealm()).filtered(with: predicate)
                 expect(request.predicate) == predicate
             }
             
-            it("-filteredWith(key:value:)") {
+            it("-filtered(with:value:)") {
                 let predicate: NSPredicate = NSPredicate(format: "name == %@", "TEST")
                 let request: FetchRequest<Issue> = FetchRequest(testRealm()).filtered(with: "name", equalTo: "TEST")
                 expect(request.predicate) == predicate
             }
             
-            it("-sortedWith(key:ascending:comparator)") {
+            it("-filtered:with:in:") {
+                let predicate: NSPredicate = NSPredicate(format: "name IN %@", ["TEST"])
+                let request: FetchRequest<Issue> = FetchRequest(testRealm()).filtered(with: "name", in: ["TEST"])
+                expect(request.predicate) == predicate
+            }
+            
+            it("-filtered:with:notIn:") {
+                let predicate: NSPredicate = NSPredicate(format: "NOT name IN %@", ["TEST"])
+                let request: FetchRequest<Issue> = FetchRequest(testRealm()).filtered(with: "name", notIn: ["TEST"])
+                expect(request.predicate) == predicate
+            }
+            
+            it("-sorted(with:ascending:comparator)") {
                 let descriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true, comparator: { _ in return ComparisonResult.orderedSame})
                 let request: FetchRequest<Issue> = FetchRequest(testRealm()).sorted(with: "name", ascending: true, comparator: {_ in return ComparisonResult.orderedSame})
                 expect(descriptor.key) == request.sortDescriptor?.key
                 expect(descriptor.ascending) == request.sortDescriptor?.ascending
             }
             
-            it("-sortedWith(key:ascending)") {
+            it("-sorted(with:ascending)") {
                 let descriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
                 let request: FetchRequest<Issue> = FetchRequest(testRealm()).sorted(with: "name", ascending: true)
                 expect(descriptor.key) == request.sortDescriptor?.key
                 expect(descriptor.ascending) == request.sortDescriptor?.ascending
             }
             
-            it("sortedWith(key:ascending:selector)") {
+            it("sorted(with:ascending:selector)") {
                 let descriptor: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: Selector("selector"))
                 let request: FetchRequest<Issue> = FetchRequest(testRealm()).sorted(with: "name", ascending: true, selector: Selector("selector"))
                 expect(descriptor.key) == request.sortDescriptor?.key
