@@ -50,8 +50,8 @@ public class CoreDataObservable<T: NSManagedObject>: RequestObservable<T>, NSFet
 
 
     // MARK: - NSFetchedResultsControllerDelegate
-
-    @nonobjc public func controller(controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeObject anObject: AnyObject, atIndexPath indexPath: IndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    
+    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .delete:
             self.batchChanges.append(.delete(indexPath![0], anObject as! T))
