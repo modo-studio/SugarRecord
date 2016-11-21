@@ -4,7 +4,7 @@ internal class VersionProvider: NSObject {
     
     // MARK: - Constants
     
-    internal static let apiReleasesUrl: String = "http://api.github.com/repos/pepibumur/sugarrecord/releases"
+    internal static let apiReleasesUrl: String = "https://api.github.com/repos/carambalabs/sugarrecord/releases"
 
     
     // MARK: - Internal
