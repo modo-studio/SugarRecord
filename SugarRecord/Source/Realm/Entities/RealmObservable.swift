@@ -26,7 +26,7 @@ open class RealmObservable<T: Object>: RequestObservable<T> {
             realmObjects = realmObjects.filter(predicate)
         }
         if let sortDescriptor = self.request.sortDescriptor {
-            realmObjects = realmObjects.sorted(byProperty: sortDescriptor.key!, ascending: sortDescriptor.ascending)
+            realmObjects = realmObjects.sorted(byKeyPath: sortDescriptor.key!, ascending: sortDescriptor.ascending)
         }
         self.notificationToken = realmObjects.addNotificationBlock { (changes: RealmCollectionChange<Results<T>>) in
             closure(self.map(changes))
