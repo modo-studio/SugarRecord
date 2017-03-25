@@ -10,7 +10,7 @@ extension Realm: Context {
             results = results.filter(predicate)
         }
         if let sortDescriptor = request.sortDescriptor, let key = sortDescriptor.key {
-            results = results.sorted(byProperty: key, ascending: sortDescriptor.ascending)
+            results = results.sorted(byKeyPath: key, ascending: sortDescriptor.ascending)
         }
         return results.toArray().map { $0 as Any as! T }
     }
