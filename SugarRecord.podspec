@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "SugarRecord"
-  s.version          = "3.0.3"
-  s.summary          = "CoreData & Realm wrapper written on Swift"
+  s.version          = "3.1.0"
+  s.summary          = "CoreData wrapper written on Swift"
   s.homepage         = "https://github.com/carambalabs/SugarRecord"
   s.license          = 'MIT'
   s.author           = { "Pedro" => "pepibumur@gmail.com" }
@@ -11,10 +11,6 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = "8.0"
   s.osx.deployment_target = "10.10"
-
-  realm_dependencies = lambda do |spec|
-    spec.dependency "RealmSwift", "~> 1.1"
-  end
 
   coredata_dependencies = lambda do |spec|
     spec.frameworks = ['CoreData']
@@ -46,12 +42,6 @@ Pod::Spec.new do |s|
     source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}']
     spec.source_files = source_files
     coredata_dependencies.call(spec)
-    foundation_dependencies.call(spec)
-  end
-
-  s.subspec "Realm" do  |spec|
-    spec.source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/Realm/**/*.{swift}']
-    realm_dependencies.call(spec)
     foundation_dependencies.call(spec)
   end
 

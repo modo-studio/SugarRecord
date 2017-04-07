@@ -8,7 +8,7 @@
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## What is SugarRecord?
-SugarRecord is a persistence wrapper designed to make working with persistence solutions like CoreData/Realm/... in a much easier way. Thanks to SugarRecord you'll be able to use CoreData with just a few lines of code: Just choose your stack and start playing with your data.
+SugarRecord is a persistence wrapper designed to make working with persistence solutions like CoreData in a much easier way. Thanks to SugarRecord you'll be able to use CoreData with just a few lines of code: Just choose your stack and start playing with your data.
 
 The library is maintained by [@carambalabs](https://github.com/carambalabs). You can reach me at [pepibumur@gmail.com](mailto://pepibumur@gmail.com) for help or whatever you need to commend about the library.
 
@@ -43,7 +43,6 @@ Choose the right one depending ton the configuration you need for you app.
 ```ruby
 pod "SugarRecord/CoreData"
 pod "SugarRecord/CoreData+iCloud"
-pod "SugarRecord/Realm"
 ```
 
 ### [Carthage](https://github.com/carthage)
@@ -52,8 +51,6 @@ pod "SugarRecord/Realm"
 2. Edit your `Cartfile` file and add the following line `github "carambalabs/sugarrecord".
 3. Execute `carthage update`
 4. Add the frameworks to your project as explained on the [Carthage repository](https://github.com/carthage).
-
-> Note: If you use the [Realm](https://realm.io) you have to also add `Realm.framework` and `RealmSwift.framework`.
 
 ### Reactive programming
 
@@ -68,7 +65,7 @@ You can check generated SugarRecord documentation [here](http://cocoadocs.org/do
 # How to use
 
 #### Creating your Storage
-A storage represents your database, Realm, or CoreData. The first step to start using SugarRecord is initializing the storage. SugarRecord provides two default storages, one for CoreData, `CoreDataDefaultStorage` and another one for Realm, `RealmDefaultStorage`.
+A storage represents your database. The first step to start using SugarRecord is initializing the storage. SugarRecord provides a default storages, `CoreDataDefaultStorage`.
 
 ```swift
 // Initializing CoreDataDefaultStorage
@@ -78,11 +75,6 @@ func coreDataStorage() -> CoreDataDefaultStorage {
     let model = CoreData.ObjectModel.Merged([bundle])
     let defaultStorage = try! CoreDataDefaultStorage(store: store, model: model)
     return defaultStorage
-}
-
-// Initializing RealmDefaultStorage
-func realmStorage() -> RealmDefaultStorage {
-  return RealmDefaultStorage()
 }
 ```
 
@@ -101,7 +93,7 @@ func icloudStorage() -> CoreDataiCloudStorage {
 ```
 
 #### Contexts
-Storages offer multiple kind of contexts that are the entry points to the database. For curious developers, in case of CoreData a context is a wrapper around `NSManagedObjectContext`, in case of Realm a wrapper around `Realm`. The available contexts are:
+Storages offer multiple kind of contexts that are the entry points to the database. For curious developers, in case of CoreData a context is a wrapper around `NSManagedObjectContext`. The available contexts are:
 
 - **MainContext:** Use it for main thread operations, for example fetches whose data will be presented in the UI.
 - **SaveContext:** Use this context for background operations. The context is initialized when the storage instance is created. That context is used for storage operations.
@@ -186,11 +178,11 @@ do {
 ```
 
 <br>
-> This is the first approach of SugarRecord for the  interface. We'll improve it with the feedback you can report and according to the use of the framework. Do not hesitate to reach us with your proposals. Everything that has to be with making the use of CoreData/Realm easier, funnier, and enjoyable is welcome! :tada:
+> This is the first approach of SugarRecord for the  interface. We'll improve it with the feedback you can report and according to the use of the framework. Do not hesitate to reach us with your proposals. Everything that has to be with making the use of CoreData easier, funnier, and enjoyable is welcome! :tada:
 
 ### RequestObservable
 
-SugarRecord provides a component, `RequestObservable` that allows observing changes in the DataBase. It uses Realm notifications and CoreData `NSFetchedResultsController` under the hood.
+SugarRecord provides a component, `RequestObservable` that allows observing changes in the DataBase. It uses `NSFetchedResultsController` under the hood.
 
 **Observing**
 
