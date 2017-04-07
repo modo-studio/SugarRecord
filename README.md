@@ -71,8 +71,8 @@ A storage represents your database. The first step to start using SugarRecord is
 // Initializing CoreDataDefaultStorage
 func coreDataStorage() -> CoreDataDefaultStorage {
     let store = CoreData.Store.Named("db")
-    let bundle = NSBundle(forClass: self.classForCoder())
-    let model = CoreData.ObjectModel.Merged([bundle])
+    let bundle = Bundle(forClass: self.classForCoder())
+    let model = CoreData.ObjectModel.merged([bundle])
     let defaultStorage = try! CoreDataDefaultStorage(store: store, model: model)
     return defaultStorage
 }
@@ -85,9 +85,9 @@ SugarRecord supports the integration of CoreData with iCloud. It's very easy to 
 ```swift
 // Initializes the CoreDataiCloudStorage
 func icloudStorage() -> CoreDataiCloudStorage {
-    let bundle = NSBundle(forClass: self.classForCoder())
-    let model = CoreData.ObjectModel.Merged([bundle])
-    let icloudConfig = iCloudConfig(ubiquitousContentName: "MyDb", ubiquitousContentURL: "Path/", ubiquitousContainerIdentifier: "com.company.MyApp.anothercontainer")
+    let bundle = Bundle(forClass: self.classForCoder())
+    let model = CoreData.ObjectModel.merged([bundle])
+    let icloudConfig = CoreDataiCloudConfig(ubiquitousContentName: "MyDb", ubiquitousContentURL: "Path/", ubiquitousContainerIdentifier: "com.company.MyApp.anothercontainer")
     return CoreDataiCloudStorage(model: model, iCloud: icloudConfig)
 }
 ```
