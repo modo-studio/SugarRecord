@@ -15,6 +15,7 @@ public protocol Storage: CustomStringConvertible, Requestable {
     var memoryContext: Context! { get }
     func removeStore() throws
     func operation<T>(_ operation: @escaping (_ context: Context, _ save: @escaping () -> Void) throws -> T) throws -> T
+    func backgroundOperation(_ operation: @escaping (_ context: Context, _ save: @escaping () -> Void) -> (), completion: @escaping (Error?) -> ())
     func fetch<T: Entity>(_ request: FetchRequest<T>) throws -> [T]
     
 }

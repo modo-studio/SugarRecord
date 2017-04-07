@@ -5,14 +5,12 @@ target 'SugarRecord_Example' do
   pod 'SugarRecord', :path => "../"
   pod 'SugarRecord/CoreData', :path => "../"
   pod 'SugarRecord/CoreData+iCloud', :path => "../"
-  pod 'SugarRecord/Realm', :path => "../"
 end
 
 target 'SugarRecord_Tests' do
   pod 'SugarRecord', :path => "../"
   pod 'SugarRecord/CoreData', :path => "../"
   pod 'SugarRecord/CoreData+iCloud', :path => "../"
-  pod 'SugarRecord/Realm', :path => "../"
   pod 'Quick', "~> 0.10"
   pod 'Nimble', '~> 5.0'
   pod "OHHTTPStubs"
