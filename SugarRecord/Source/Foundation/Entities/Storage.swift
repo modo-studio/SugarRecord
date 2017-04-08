@@ -2,7 +2,6 @@ import Foundation
 
 public enum StorageType {
     case coreData
-    case realm
 }
 
 typealias StorageOperation = ((_ context: Context, _ save: () -> Void) throws -> Void) throws -> Void
