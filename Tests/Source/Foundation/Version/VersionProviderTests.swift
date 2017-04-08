@@ -12,7 +12,7 @@ class VersionProviderTests: QuickSpec {
         
         beforeEach {
             subject = VersionProvider()
-            _ = stub(condition: isPath("/repos/pepibumur/sugarrecord/releases")) { _ in
+            _ = stub(condition: isPath("/repos/carambalabs/sugarrecord/releases")) { _ in
                 let object = [["tag_name": "3.1.0"]]
                 return OHHTTPStubsResponse(jsonObject: object, statusCode: 200, headers: ["Content-Type":"application/json"])
             }

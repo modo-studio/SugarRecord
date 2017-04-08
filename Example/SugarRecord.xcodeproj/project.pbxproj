@@ -8,11 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		23E13E5B1D96896300204C82 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E341D96896300204C82 /* CoreData.swift */; };
-		23E13E5C1D96896300204C82 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E351D96896300204C82 /* Realm.swift */; };
 		23E13E5D1D96896300204C82 /* Track+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E381D96896300204C82 /* Track+CoreDataProperties.swift */; };
 		23E13E5E1D96896300204C82 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E391D96896300204C82 /* Track.swift */; };
-		23E13E5F1D96896300204C82 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E3B1D96896300204C82 /* Issue.swift */; };
-		23E13E601D96896300204C82 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E3C1D96896300204C82 /* Repository.swift */; };
 		23E13E611D96896300204C82 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E3E1D96896300204C82 /* DataModel.xcdatamodeld */; };
 		23E13E621D96896300204C82 /* CoreDataChangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E431D96896300204C82 /* CoreDataChangeTests.swift */; };
 		23E13E631D96896300204C82 /* CoreDataObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E441D96896300204C82 /* CoreDataObservableTests.swift */; };
@@ -51,11 +48,8 @@
 /* Begin PBXFileReference section */
 		199B6E9AFF9F22F151FCACD5 /* Pods-SugarRecord_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SugarRecord_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SugarRecord_Example/Pods-SugarRecord_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		23E13E341D96896300204C82 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
-		23E13E351D96896300204C82 /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		23E13E381D96896300204C82 /* Track+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Track+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		23E13E391D96896300204C82 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
-		23E13E3B1D96896300204C82 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
-		23E13E3C1D96896300204C82 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		23E13E3F1D96896300204C82 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		23E13E431D96896300204C82 /* CoreDataChangeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataChangeTests.swift; sourceTree = "<group>"; };
 		23E13E441D96896300204C82 /* CoreDataObservableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataObservableTests.swift; sourceTree = "<group>"; };
@@ -115,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				23E13E341D96896300204C82 /* CoreData.swift */,
-				23E13E351D96896300204C82 /* Realm.swift */,
 			);
 			name = Helpers;
 			path = ../../Tests/Helpers;
@@ -125,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				23E13E371D96896300204C82 /* CoreData */,
-				23E13E3A1D96896300204C82 /* Realm */,
 			);
 			name = Models;
 			path = ../../Tests/Models;
@@ -138,15 +130,6 @@
 				23E13E391D96896300204C82 /* Track.swift */,
 			);
 			path = CoreData;
-			sourceTree = "<group>";
-		};
-		23E13E3A1D96896300204C82 /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				23E13E3B1D96896300204C82 /* Issue.swift */,
-				23E13E3C1D96896300204C82 /* Repository.swift */,
-			);
-			path = Realm;
 			sourceTree = "<group>";
 		};
 		23E13E3D1D96896300204C82 /* Resources */ = {
@@ -708,19 +691,16 @@
 				23E13E631D96896300204C82 /* CoreDataObservableTests.swift in Sources */,
 				23E13E681D96896300204C82 /* RequestTests.swift in Sources */,
 				23E13E621D96896300204C82 /* CoreDataChangeTests.swift in Sources */,
-				23E13E5F1D96896300204C82 /* Issue.swift in Sources */,
 				23E13E6A1D96896300204C82 /* VersionControllerTests.swift in Sources */,
 				23E13E5B1D96896300204C82 /* CoreData.swift in Sources */,
 				23E13E641D96896300204C82 /* ObjectModelTests.swift in Sources */,
 				23E13E671D96896300204C82 /* CoreDataDefaultStorageTests.swift in Sources */,
-				23E13E5C1D96896300204C82 /* Realm.swift in Sources */,
 				23E13E611D96896300204C82 /* DataModel.xcdatamodeld in Sources */,
 				23E13E5D1D96896300204C82 /* Track+CoreDataProperties.swift in Sources */,
 				23E13E691D96896300204C82 /* DirUtilsTests.swift in Sources */,
 				23E13E6B1D96896300204C82 /* VersionProviderTests.swift in Sources */,
 				23E13E651D96896300204C82 /* OptionsTests.swift in Sources */,
 				23E13E5E1D96896300204C82 /* Track.swift in Sources */,
-				23E13E601D96896300204C82 /* Repository.swift in Sources */,
 				23E13E661D96896300204C82 /* StoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
