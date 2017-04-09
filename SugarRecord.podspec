@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SugarRecord"
-  s.version          = "3.1.1"
+  s.version          = "3.1.2"
   s.summary          = "CoreData wrapper written on Swift"
   s.homepage         = "https://github.com/carambalabs/SugarRecord"
   s.license          = 'MIT'
