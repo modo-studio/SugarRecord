@@ -64,10 +64,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         switch (indexPath as NSIndexPath).row {
         case 0:
             cell.textLabel?.text = "CoreData Basic"
-        case 1:
-            cell.textLabel?.text = "Realm Basic"
-        case 2:
-            cell.textLabel?.text = "News from API"
         default:
             cell.textLabel?.text = ""
         }
@@ -80,10 +76,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         switch (indexPath as NSIndexPath).row {
         case 0:
             self.navigationController?.pushViewController(CoreDataBasicView(), animated: true)
-        case 1:
-            self.navigationController?.pushViewController(RealmBasicView(), animated: true)
-        case 2:
-            self.navigationController?.pushViewController(NewsView(), animated: true)
         default:
             break
         }

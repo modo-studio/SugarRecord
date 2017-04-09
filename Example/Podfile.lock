@@ -1,38 +1,29 @@
 PODS:
-  - Nimble (5.0.0)
-  - OHHTTPStubs (5.2.1):
-    - OHHTTPStubs/Default (= 5.2.1)
-  - OHHTTPStubs/Core (5.2.1)
-  - OHHTTPStubs/Default (5.2.1):
+  - Nimble (5.1.1)
+  - OHHTTPStubs (6.0.0):
+    - OHHTTPStubs/Default (= 6.0.0)
+  - OHHTTPStubs/Core (6.0.0)
+  - OHHTTPStubs/Default (6.0.0):
     - OHHTTPStubs/Core
     - OHHTTPStubs/JSON
     - OHHTTPStubs/NSURLSession
     - OHHTTPStubs/OHPathHelpers
-  - OHHTTPStubs/JSON (5.2.1):
+  - OHHTTPStubs/JSON (6.0.0):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/NSURLSession (5.2.1):
+  - OHHTTPStubs/NSURLSession (6.0.0):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/OHPathHelpers (5.2.1)
-  - OHHTTPStubs/Swift (5.2.1):
-    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (6.0.0)
+  - OHHTTPStubs/Swift (6.0.0):
+    - OHHTTPStubs/Default
   - Quick (0.10.0)
-  - Realm (1.1.0):
-    - Realm/Headers (= 1.1.0)
-  - Realm/Headers (1.1.0)
-  - RealmSwift (1.1.0):
-    - Realm (= 1.1.0)
-  - Result (3.0.0)
-  - SnapKit (3.0.1)
-  - SugarRecord (3.0.0-alpha.2):
-    - SugarRecord/CoreData (= 3.0.0-alpha.2)
-    - SugarRecord/CoreData+iCloud (= 3.0.0-alpha.2)
-    - SugarRecord/Realm (= 3.0.0-alpha.2)
-  - SugarRecord/CoreData (3.0.0-alpha.2):
+  - Result (3.2.1)
+  - SnapKit (3.2.0)
+  - SugarRecord (3.1.1):
+    - SugarRecord/CoreData (= 3.1.1)
+    - SugarRecord/CoreData+iCloud (= 3.1.1)
+  - SugarRecord/CoreData (3.1.1):
     - Result (~> 3.0)
-  - SugarRecord/CoreData+iCloud (3.0.0-alpha.2):
-    - Result (~> 3.0)
-  - SugarRecord/Realm (3.0.0-alpha.2):
-    - RealmSwift (~> 1.1)
+  - SugarRecord/CoreData+iCloud (3.1.1):
     - Result (~> 3.0)
 
 DEPENDENCIES:
@@ -44,22 +35,19 @@ DEPENDENCIES:
   - SugarRecord (from `../`)
   - SugarRecord/CoreData (from `../`)
   - SugarRecord/CoreData+iCloud (from `../`)
-  - SugarRecord/Realm (from `../`)
 
 EXTERNAL SOURCES:
   SugarRecord:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Nimble: 56fc9f5020effa2206de22c3dd910f4fb011b92f
-  OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
+  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
+  OHHTTPStubs: 752f9b11fd810a15162d50f11c06ff94f8e012eb
   Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
-  Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
-  RealmSwift: 838058b2db95b12cb86bd0cf209df642c33fb60a
-  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
-  SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
-  SugarRecord: 5d12c70dadef8e036edc795c76e533584b7da453
+  Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  SugarRecord: d3c8f4df864518bf30e5bf32a62564b8397fe508
 
-PODFILE CHECKSUM: 93e4a0d6049261cca889912a17deebad59571a81
+PODFILE CHECKSUM: d61f456397a3e8bb696c939fc5e85337d5040894
 
 COCOAPODS: 1.1.0.rc.2

@@ -78,6 +78,32 @@ public class CoreDataiCloudStorage: Storage {
         return returnedObject
     }
     
+    public func backgroundOperation(_ operation: @escaping (_ context: Context, _ save: @escaping () -> Void) -> (), completion: @escaping (Error?) -> ()) {
+        let context: NSManagedObjectContext = self.saveContext as! NSManagedObjectContext
+        var _error: Error!
+        context.perform {
+            operation(context, { () -> Void in
+                do {
+                    try context.save()
+                }
+                catch {
+                    _error = error
+                }
+                self.rootSavingContext.perform {
+                    if self.rootSavingContext.hasChanges {
+                        do {
+                            try self.rootSavingContext.save()
+                        }
+                        catch {
+                            _error = error
+                        }
+                    }
+                    completion(_error)
+                }
+            })
+        }
+    }
+    
     public func removeStore() throws {
         try FileManager.default.removeItem(at: store.path() as URL)
     }

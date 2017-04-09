@@ -118,7 +118,6 @@ class CoreDataDefaultStorageTests: QuickSpec {
             }
             
             describe("-operation:") {
-                
                 it("should return the inner value from the operation") {
                     waitUntil(action: { (done) -> Void in
                         let result: String = try! subject.operation({ (context, save) -> String in
@@ -132,8 +131,31 @@ class CoreDataDefaultStorageTests: QuickSpec {
 
                     })
                 }
-                
             }
+            
+            describe("-backgroundOperation") {
+                it("should complete") {
+                    waitUntil { (_done) in
+                        subject.backgroundOperation({ (_, done) in
+                            // Do nothing
+                            done()
+                        }, completion: { (error) in
+                            _done()
+                        })
+                    }
+                }
+                it("it shouldn't call the completion block in the main thread") {
+                    waitUntil { (done) in
+                        subject.backgroundOperation({ (_, _done) in
+                            _done()
+                        }, completion: { (_) in
+                            XCTAssertFalse(Thread.isMainThread)
+                            done()
+                        })
+                    }
+                }
+            }
+            
          
             describe("-observable:") {
                 
