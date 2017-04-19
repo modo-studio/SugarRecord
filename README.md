@@ -52,13 +52,6 @@ pod "SugarRecord/CoreData+iCloud"
 3. Execute `carthage update`
 4. Add the frameworks to your project as explained on the [Carthage repository](https://github.com/carthage).
 
-### Reactive programming
-
-We provide extensions for SugarRecord that offer a reactive interface to the library:
-
-- [RxSugarRecord](https://github.com/carambalabs/rxsugarrecord)
-- [RACSugarRecord](https://github.com/carambalabs/racsugarrecord)
-
 ## Reference
 You can check generated SugarRecord documentation [here](http://cocoadocs.org/docsets/SugarRecord/2.0.0/) generated automatically with [CocoaDocs](http://cocoadocs.org/)
 
