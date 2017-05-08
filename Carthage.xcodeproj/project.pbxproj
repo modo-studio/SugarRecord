@@ -176,14 +176,6 @@
 		237FBB231D9C0B1C00D87AA3 /* watchOS-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS-Base.xcconfig"; sourceTree = "<group>"; };
 		237FBB241D9C0B1C00D87AA3 /* watchOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS-Framework.xcconfig"; sourceTree = "<group>"; };
 		237FBB251D9C0B1C00D87AA3 /* watchOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
-		237FBB261D9C0B8400D87AA3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		237FBB271D9C0B8400D87AA3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		237FBB2A1D9C0B8E00D87AA3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/Mac/Realm.framework; sourceTree = "<group>"; };
-		237FBB2B1D9C0B8E00D87AA3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/Mac/RealmSwift.framework; sourceTree = "<group>"; };
-		237FBB2E1D9C0B9A00D87AA3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/watchOS/Realm.framework; sourceTree = "<group>"; };
-		237FBB2F1D9C0B9A00D87AA3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/watchOS/RealmSwift.framework; sourceTree = "<group>"; };
-		237FBB321D9C0BA600D87AA3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/tvOS/Realm.framework; sourceTree = "<group>"; };
-		237FBB331D9C0BA600D87AA3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/tvOS/RealmSwift.framework; sourceTree = "<group>"; };
 		23E15DAF1D7DE1000073CC71 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -257,8 +249,6 @@
 		2334C4E91D7DDB6D00ACBC3A /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				237FBB321D9C0BA600D87AA3 /* Realm.framework */,
-				237FBB331D9C0BA600D87AA3 /* RealmSwift.framework */,
 			);
 			name = tvOS;
 			sourceTree = "<group>";
@@ -266,8 +256,6 @@
 		2334C4EA1D7DDB7100ACBC3A /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				237FBB261D9C0B8400D87AA3 /* Realm.framework */,
-				237FBB271D9C0B8400D87AA3 /* RealmSwift.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -275,8 +263,6 @@
 		2334C4EB1D7DDB7700ACBC3A /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				237FBB2A1D9C0B8E00D87AA3 /* Realm.framework */,
-				237FBB2B1D9C0B8E00D87AA3 /* RealmSwift.framework */,
 			);
 			name = macOS;
 			sourceTree = "<group>";
@@ -284,8 +270,6 @@
 		2334C4EC1D7DDB7C00ACBC3A /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
-				237FBB2E1D9C0B9A00D87AA3 /* Realm.framework */,
-				237FBB2F1D9C0B9A00D87AA3 /* RealmSwift.framework */,
 			);
 			name = watchOS;
 			sourceTree = "<group>";

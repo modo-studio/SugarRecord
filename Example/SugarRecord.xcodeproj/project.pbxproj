@@ -298,7 +298,6 @@
 			children = (
 				23FB2BF81E97C8BB00432BCB /* CoreData */,
 				23FB2BFE1E97C8BB00432BCB /* News */,
-				23FB2C021E97C8BB00432BCB /* Realm */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -358,15 +357,6 @@
 			children = (
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		23FB2C021E97C8BB00432BCB /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				23FB2C031E97C8BB00432BCB /* Basic */,
-				23FB2C041E97C8BB00432BCB /* Models */,
-			);
-			path = Realm;
 			sourceTree = "<group>";
 		};
 		23FB2C031E97C8BB00432BCB /* Basic */ = {
