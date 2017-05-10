@@ -5,7 +5,7 @@ import CoreData
 
 extension NSManagedObject {
     
-    public class var entityName: String {
+    open class var entityName: String {
         return NSStringFromClass(self).components(separatedBy: ".").last!
     }
     
