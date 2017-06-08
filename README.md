@@ -225,7 +225,7 @@ Contributions are welcome :metal: We encourage developers like you to help us im
 ## License
 The MIT License (MIT)
 
-Copyright (c) <2014> <Pedro Piñera>
+Copyright (c) 2017 Caramba
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
