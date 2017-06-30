@@ -54,11 +54,11 @@ public class CoreDataObservable<T: NSManagedObject>: RequestObservable<T>, NSFet
     public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .delete:
-            self.batchChanges.append(.delete(indexPath![0], anObject as! T))
+            self.batchChanges.append(.delete(indexPath!.row, anObject as! T))
         case .insert:
-            self.batchChanges.append(.insert(newIndexPath![0], anObject as! T))
+            self.batchChanges.append(.insert(newIndexPath!.row, anObject as! T))
         case .update:
-            self.batchChanges.append(.update(indexPath![0], anObject as! T))
+            self.batchChanges.append(.update(indexPath!.row, anObject as! T))
         default: break
         }
     }
