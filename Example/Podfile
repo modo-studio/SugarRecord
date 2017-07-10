@@ -16,3 +16,20 @@ target 'SugarRecord_Tests' do
   pod "OHHTTPStubs"
   pod 'OHHTTPStubs/Swift'
 end
+
+target 'SugarRecord-MacOSExample' do
+  pod 'SnapKit'
+  pod 'SugarRecord', :path => "../"
+  pod 'SugarRecord/CoreData', :path => "../"
+  pod 'SugarRecord/CoreData+iCloud', :path => "../"
+end
+
+target 'SugarRecord_MacOSTests' do
+  pod 'SugarRecord', :path => "../"
+  pod 'SugarRecord/CoreData', :path => "../"
+  pod 'SugarRecord/CoreData+iCloud', :path => "../"
+  pod 'Quick', "~> 0.10"
+  pod 'Nimble', '~> 5.0'
+  pod "OHHTTPStubs"
+  pod 'OHHTTPStubs/Swift'
+end

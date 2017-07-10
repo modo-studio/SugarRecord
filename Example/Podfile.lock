@@ -18,12 +18,12 @@ PODS:
   - Quick (0.10.0)
   - Result (3.2.1)
   - SnapKit (3.2.0)
-  - SugarRecord (3.1.1):
-    - SugarRecord/CoreData (= 3.1.1)
-    - SugarRecord/CoreData+iCloud (= 3.1.1)
-  - SugarRecord/CoreData (3.1.1):
+  - SugarRecord (3.1.2):
+    - SugarRecord/CoreData (= 3.1.2)
+    - SugarRecord/CoreData+iCloud (= 3.1.2)
+  - SugarRecord/CoreData (3.1.2):
     - Result (~> 3.0)
-  - SugarRecord/CoreData+iCloud (3.1.1):
+  - SugarRecord/CoreData+iCloud (3.1.2):
     - Result (~> 3.0)
 
 DEPENDENCIES:
@@ -38,7 +38,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   SugarRecord:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
@@ -46,8 +46,8 @@ SPEC CHECKSUMS:
   Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
-  SugarRecord: d3c8f4df864518bf30e5bf32a62564b8397fe508
+  SugarRecord: be6aa5c18b4a4dec0de4c1f49fc61c85eabb5328
 
-PODFILE CHECKSUM: d61f456397a3e8bb696c939fc5e85337d5040894
+PODFILE CHECKSUM: 8f4854ebcb294b575e611ae8266ca5644ad58e63
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.1.1

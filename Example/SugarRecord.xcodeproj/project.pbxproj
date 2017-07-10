@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D4B9E0213B3D0246753DDE6 /* Pods_SugarRecord_MacOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51050438EF72D11B40A20FA7 /* Pods_SugarRecord_MacOSTests.framework */; };
 		23E13E5B1D96896300204C82 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E341D96896300204C82 /* CoreData.swift */; };
 		23E13E5D1D96896300204C82 /* Track+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E381D96896300204C82 /* Track+CoreDataProperties.swift */; };
 		23E13E5E1D96896300204C82 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E391D96896300204C82 /* Track.swift */; };
@@ -31,11 +32,48 @@
 		23FB2C051E97C8BB00432BCB /* CoreDataBasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB2BFA1E97C8BB00432BCB /* CoreDataBasicView.swift */; };
 		23FB2C061E97C8BB00432BCB /* BasicObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB2BFC1E97C8BB00432BCB /* BasicObject.swift */; };
 		23FB2C071E97C8BB00432BCB /* CoreDataBasicEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FB2BFD1E97C8BB00432BCB /* CoreDataBasicEntity.swift */; };
+		4DE9B2AC1F138FF900B59AEE /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E341D96896300204C82 /* CoreData.swift */; };
+		4DE9B2AD1F138FF900B59AEE /* Track+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E381D96896300204C82 /* Track+CoreDataProperties.swift */; };
+		4DE9B2AE1F138FF900B59AEE /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E391D96896300204C82 /* Track.swift */; };
+		4DE9B2AF1F138FF900B59AEE /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E3E1D96896300204C82 /* DataModel.xcdatamodeld */; };
+		4DE9B2B01F138FF900B59AEE /* CoreDataChangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E431D96896300204C82 /* CoreDataChangeTests.swift */; };
+		4DE9B2B11F138FF900B59AEE /* CoreDataObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E441D96896300204C82 /* CoreDataObservableTests.swift */; };
+		4DE9B2B21F138FF900B59AEE /* ObjectModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E451D96896300204C82 /* ObjectModelTests.swift */; };
+		4DE9B2B31F138FF900B59AEE /* OptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E461D96896300204C82 /* OptionsTests.swift */; };
+		4DE9B2B41F138FF900B59AEE /* StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E471D96896300204C82 /* StoreTests.swift */; };
+		4DE9B2B51F138FF900B59AEE /* CoreDataDefaultStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E491D96896300204C82 /* CoreDataDefaultStorageTests.swift */; };
+		4DE9B2B61F138FF900B59AEE /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E4C1D96896300204C82 /* RequestTests.swift */; };
+		4DE9B2B71F138FF900B59AEE /* DirUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E4E1D96896300204C82 /* DirUtilsTests.swift */; };
+		4DE9B2B81F138FF900B59AEE /* VersionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E501D96896300204C82 /* VersionControllerTests.swift */; };
+		4DE9B2B91F138FF900B59AEE /* VersionProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E511D96896300204C82 /* VersionProviderTests.swift */; };
+		4DE9B2C31F13913300B59AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9B2C21F13913300B59AEE /* AppDelegate.swift */; };
+		4DE9B2C51F13913300B59AEE /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9B2C41F13913300B59AEE /* ListViewController.swift */; };
+		4DE9B2C71F13913300B59AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE9B2C61F13913300B59AEE /* Assets.xcassets */; };
+		4DE9B2CA1F13913300B59AEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE9B2C81F13913300B59AEE /* Main.storyboard */; };
+		4DE9B2E01F139B9B00B59AEE /* BasicObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9B2DE1F139A2C00B59AEE /* BasicObject.swift */; };
+		4DE9B2E11F139B9B00B59AEE /* CoreDataBasicEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9B2DF1F139A2C00B59AEE /* CoreDataBasicEntity.swift */; };
+		4DE9B2E51F139C3700B59AEE /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E8B1D96899000204C82 /* Directory.swift */; };
+		4DE9B2E61F139C3700B59AEE /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E8C1D96899000204C82 /* Random.swift */; };
+		4DE9B2E71F139CA200B59AEE /* Basic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9B2D51F1399CA00B59AEE /* Basic.xcdatamodeld */; };
+		4DE9B2E91F13A0F600B59AEE /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9B2E81F13A0F600B59AEE /* SplitViewController.swift */; };
+		4DE9B2EB1F13A18C00B59AEE /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9B2EA1F13A18C00B59AEE /* DetailsViewController.swift */; };
+		4DE9B2EC1F13A35700B59AEE /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9B2EA1F13A18C00B59AEE /* DetailsViewController.swift */; };
+		4DE9B2ED1F13A35700B59AEE /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9B2E81F13A0F600B59AEE /* SplitViewController.swift */; };
 		7F0014DAE56FEBE9A77EB8F3 /* Pods_SugarRecord_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4511BDA74E45A8EA0229D9 /* Pods_SugarRecord_Tests.framework */; };
+		9BF9E2C7A1F9D1D232693210 /* Pods_SugarRecord_MacOSExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C31F64CDE7FD4553FC46C1 /* Pods_SugarRecord_MacOSExample.framework */; };
 		A682778445C166ABA1550ECF /* Pods_SugarRecord_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6674BDC2C223325C9246F4 /* Pods_SugarRecord_Example.framework */; };
+		E9824064F609CB4C02C76B65 /* Pods_SugarRecord_ExampleMacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F9F4CFBFCB1137A2C0BBF0 /* Pods_SugarRecord_ExampleMacOS.framework */; };
+		EFB805D2889B4336C9072AB8 /* Pods_MacOSTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6ED7D1E3A83450EF0B0BC5 /* Pods_MacOSTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4DE9B2D11F13916400B59AEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DE9B2BF1F13913300B59AEE;
+			remoteInfo = "SugarRecord-ExampleMacOS";
+		};
 		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
@@ -71,21 +109,68 @@
 		23FB2BFA1E97C8BB00432BCB /* CoreDataBasicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataBasicView.swift; sourceTree = "<group>"; };
 		23FB2BFC1E97C8BB00432BCB /* BasicObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicObject.swift; sourceTree = "<group>"; };
 		23FB2BFD1E97C8BB00432BCB /* CoreDataBasicEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataBasicEntity.swift; sourceTree = "<group>"; };
+		35FF60B77D16780A36BDC384 /* Pods-SugarRecord-MacOSExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SugarRecord-MacOSExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SugarRecord-MacOSExample/Pods-SugarRecord-MacOSExample.debug.xcconfig"; sourceTree = "<group>"; };
 		43D59494AB8B01F49D62B037 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		4B1CE16714333FEF4FCD084E /* Pods-SugarRecord-ExampleMacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SugarRecord-ExampleMacOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SugarRecord-ExampleMacOS/Pods-SugarRecord-ExampleMacOS.release.xcconfig"; sourceTree = "<group>"; };
+		4B2199C871394D189D0CBFFF /* Pods-SugarRecord-ExampleMacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SugarRecord-ExampleMacOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SugarRecord-ExampleMacOS/Pods-SugarRecord-ExampleMacOS.debug.xcconfig"; sourceTree = "<group>"; };
+		4DE9B2A21F138FC500B59AEE /* SugarRecord_MacOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarRecord_MacOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DE9B2AA1F138FDD00B59AEE /* Pods_SugarRecord_Tests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_SugarRecord_Tests.framework; path = "Pods/../build/Debug-iphoneos/Pods_SugarRecord_Tests.framework"; sourceTree = "<group>"; };
+		4DE9B2C01F13913300B59AEE /* SugarRecord-MacOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SugarRecord-MacOSExample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DE9B2C21F13913300B59AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4DE9B2C41F13913300B59AEE /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		4DE9B2C61F13913300B59AEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4DE9B2C91F13913300B59AEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4DE9B2CB1F13913300B59AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DE9B2CC1F13913300B59AEE /* SugarRecord_ExampleMacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SugarRecord_ExampleMacOS.entitlements; sourceTree = "<group>"; };
+		4DE9B2D61F1399CA00B59AEE /* Basic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Basic.xcdatamodel; sourceTree = "<group>"; };
+		4DE9B2DE1F139A2C00B59AEE /* BasicObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicObject.swift; sourceTree = "<group>"; };
+		4DE9B2DF1F139A2C00B59AEE /* CoreDataBasicEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataBasicEntity.swift; sourceTree = "<group>"; };
+		4DE9B2E31F139C2300B59AEE /* Directory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
+		4DE9B2E41F139C2300B59AEE /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		4DE9B2E81F13A0F600B59AEE /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		4DE9B2EA1F13A18C00B59AEE /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		4DE9B2F01F13BC4B00B59AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51050438EF72D11B40A20FA7 /* Pods_SugarRecord_MacOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SugarRecord_MacOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51C31F64CDE7FD4553FC46C1 /* Pods_SugarRecord_MacOSExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SugarRecord_MacOSExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54DE24CF394C35117CF642A6 /* Pods-SugarRecord_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SugarRecord_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SugarRecord_Tests/Pods-SugarRecord_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		587F20500BE8B0716DFB56D2 /* Pods-MacOSTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacOSTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacOSTest/Pods-MacOSTest.release.xcconfig"; sourceTree = "<group>"; };
+		5A6ED7D1E3A83450EF0B0BC5 /* Pods_MacOSTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacOSTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B476131E81A65EF61C0905C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SugarRecord_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SugarRecord_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* SugarRecord_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SugarRecord_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65A181DD622A1F2F3D27044A /* SugarRecord.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SugarRecord.podspec; path = ../SugarRecord.podspec; sourceTree = "<group>"; };
+		7B2B361FEDD2996B9562BBB2 /* Pods-SugarRecord_MacOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SugarRecord_MacOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SugarRecord_MacOSTests/Pods-SugarRecord_MacOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8026227C811CCCAE52CFE75A /* Pods-MacOSTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacOSTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MacOSTest/Pods-MacOSTest.debug.xcconfig"; sourceTree = "<group>"; };
+		88F9F4CFBFCB1137A2C0BBF0 /* Pods_SugarRecord_ExampleMacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SugarRecord_ExampleMacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C812F114142E61803D9DEF /* Pods-SugarRecord_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SugarRecord_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SugarRecord_Example/Pods-SugarRecord_Example.release.xcconfig"; sourceTree = "<group>"; };
+		A48C60DE617E4E019B077F5A /* Pods-SugarRecord_MacOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SugarRecord_MacOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SugarRecord_MacOSTests/Pods-SugarRecord_MacOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		B12A993BAFFB1BD0E68DDEA2 /* Pods-SugarRecord-MacOSExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SugarRecord-MacOSExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SugarRecord-MacOSExample/Pods-SugarRecord-MacOSExample.release.xcconfig"; sourceTree = "<group>"; };
 		BB6674BDC2C223325C9246F4 /* Pods_SugarRecord_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SugarRecord_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4511BDA74E45A8EA0229D9 /* Pods_SugarRecord_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SugarRecord_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1427C1C51BC3D125AAFF0F /* Pods-SugarRecord_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SugarRecord_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SugarRecord_Tests/Pods-SugarRecord_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4DE9B29F1F138FC500B59AEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFB805D2889B4336C9072AB8 /* Pods_MacOSTest.framework in Frameworks */,
+				0D4B9E0213B3D0246753DDE6 /* Pods_SugarRecord_MacOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DE9B2BD1F13913300B59AEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9824064F609CB4C02C76B65 /* Pods_SugarRecord_ExampleMacOS.framework in Frameworks */,
+				9BF9E2C7A1F9D1D232693210 /* Pods_SugarRecord_MacOSExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,18 +444,120 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		23FB2C031E97C8BB00432BCB /* Basic */ = {
+		4DE9B2C11F13913300B59AEE /* SugarRecord-ExampleMacOS */ = {
 			isa = PBXGroup;
 			children = (
+				4DE9B2DA1F1399F900B59AEE /* Supporting Files */,
+				4DE9B2D81F1399D900B59AEE /* Source */,
+				4DE9B2D31F1399C200B59AEE /* Resources */,
 			);
-			path = Basic;
+			path = "SugarRecord-ExampleMacOS";
 			sourceTree = "<group>";
 		};
-		23FB2C041E97C8BB00432BCB /* Models */ = {
+		4DE9B2D31F1399C200B59AEE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4DE9B2D91F1399E800B59AEE /* Storyboards */,
+				4DE9B2D71F1399D100B59AEE /* Assets */,
+				4DE9B2D41F1399CA00B59AEE /* DataModels */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4DE9B2D41F1399CA00B59AEE /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				4DE9B2D51F1399CA00B59AEE /* Basic.xcdatamodeld */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		4DE9B2D71F1399D100B59AEE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4DE9B2C61F13913300B59AEE /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		4DE9B2D81F1399D900B59AEE /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4DE9B2EE1F13BC0E00B59AEE /* Main */,
+				4DE9B2DB1F139A1B00B59AEE /* Examples */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		4DE9B2D91F1399E800B59AEE /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4DE9B2C81F13913300B59AEE /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		4DE9B2DA1F1399F900B59AEE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4DE9B2CB1F13913300B59AEE /* Info.plist */,
+				4DE9B2CC1F13913300B59AEE /* SugarRecord_ExampleMacOS.entitlements */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4DE9B2DB1F139A1B00B59AEE /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				4DE9B2E21F139C2300B59AEE /* Helpers */,
+				4DE9B2DC1F139A2000B59AEE /* CoreData */,
+				4DE9B2EA1F13A18C00B59AEE /* DetailsViewController.swift */,
+			);
+			path = Examples;
+			sourceTree = "<group>";
+		};
+		4DE9B2DC1F139A2000B59AEE /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4DE9B2DD1F139A2C00B59AEE /* Models */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		4DE9B2DD1F139A2C00B59AEE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4DE9B2DE1F139A2C00B59AEE /* BasicObject.swift */,
+				4DE9B2DF1F139A2C00B59AEE /* CoreDataBasicEntity.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4DE9B2E21F139C2300B59AEE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4DE9B2E31F139C2300B59AEE /* Directory.swift */,
+				4DE9B2E41F139C2300B59AEE /* Random.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4DE9B2EE1F13BC0E00B59AEE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4DE9B2C21F13913300B59AEE /* AppDelegate.swift */,
+				4DE9B2C41F13913300B59AEE /* ListViewController.swift */,
+				4DE9B2E81F13A0F600B59AEE /* SplitViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		4DE9B2EF1F13BC4B00B59AEE /* MacOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				4DE9B2F01F13BC4B00B59AEE /* Info.plist */,
+			);
+			path = MacOSTests;
 			sourceTree = "<group>";
 		};
 		51C9EF80959BF8FABCA8F5A9 /* Pods */ = {
@@ -380,6 +567,14 @@
 				92C812F114142E61803D9DEF /* Pods-SugarRecord_Example.release.xcconfig */,
 				54DE24CF394C35117CF642A6 /* Pods-SugarRecord_Tests.debug.xcconfig */,
 				EF1427C1C51BC3D125AAFF0F /* Pods-SugarRecord_Tests.release.xcconfig */,
+				8026227C811CCCAE52CFE75A /* Pods-MacOSTest.debug.xcconfig */,
+				587F20500BE8B0716DFB56D2 /* Pods-MacOSTest.release.xcconfig */,
+				4B2199C871394D189D0CBFFF /* Pods-SugarRecord-ExampleMacOS.debug.xcconfig */,
+				4B1CE16714333FEF4FCD084E /* Pods-SugarRecord-ExampleMacOS.release.xcconfig */,
+				35FF60B77D16780A36BDC384 /* Pods-SugarRecord-MacOSExample.debug.xcconfig */,
+				B12A993BAFFB1BD0E68DDEA2 /* Pods-SugarRecord-MacOSExample.release.xcconfig */,
+				7B2B361FEDD2996B9562BBB2 /* Pods-SugarRecord_MacOSTests.debug.xcconfig */,
+				A48C60DE617E4E019B077F5A /* Pods-SugarRecord_MacOSTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -390,6 +585,8 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for SugarRecord */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				4DE9B2EF1F13BC4B00B59AEE /* MacOSTests */,
+				4DE9B2C11F13913300B59AEE /* SugarRecord-ExampleMacOS */,
 				607FACD11AFB9204008FA782 /* Products */,
 				51C9EF80959BF8FABCA8F5A9 /* Pods */,
 				CEEE802555381F009B6ADB04 /* Frameworks */,
@@ -401,6 +598,8 @@
 			children = (
 				607FACD01AFB9204008FA782 /* SugarRecord_Example.app */,
 				607FACE51AFB9204008FA782 /* SugarRecord_Tests.xctest */,
+				4DE9B2A21F138FC500B59AEE /* SugarRecord_MacOSTests.xctest */,
+				4DE9B2C01F13913300B59AEE /* SugarRecord-MacOSExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -457,8 +656,13 @@
 		CEEE802555381F009B6ADB04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4DE9B2AA1F138FDD00B59AEE /* Pods_SugarRecord_Tests.framework */,
 				BB6674BDC2C223325C9246F4 /* Pods_SugarRecord_Example.framework */,
 				DE4511BDA74E45A8EA0229D9 /* Pods_SugarRecord_Tests.framework */,
+				5A6ED7D1E3A83450EF0B0BC5 /* Pods_MacOSTest.framework */,
+				88F9F4CFBFCB1137A2C0BBF0 /* Pods_SugarRecord_ExampleMacOS.framework */,
+				51C31F64CDE7FD4553FC46C1 /* Pods_SugarRecord_MacOSExample.framework */,
+				51050438EF72D11B40A20FA7 /* Pods_SugarRecord_MacOSTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -466,6 +670,47 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4DE9B2A11F138FC500B59AEE /* SugarRecord_MacOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DE9B2A91F138FC600B59AEE /* Build configuration list for PBXNativeTarget "SugarRecord_MacOSTests" */;
+			buildPhases = (
+				0582B3662692EE134120463A /* [CP] Check Pods Manifest.lock */,
+				4DE9B29E1F138FC500B59AEE /* Sources */,
+				4DE9B29F1F138FC500B59AEE /* Frameworks */,
+				4DE9B2A01F138FC500B59AEE /* Resources */,
+				04B17ADE8FF538577C6429AD /* [CP] Embed Pods Frameworks */,
+				E204E2D9D429AEED3BCF742C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4DE9B2D21F13916400B59AEE /* PBXTargetDependency */,
+			);
+			name = SugarRecord_MacOSTests;
+			productName = MacOSTest;
+			productReference = 4DE9B2A21F138FC500B59AEE /* SugarRecord_MacOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4DE9B2BF1F13913300B59AEE /* SugarRecord-MacOSExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DE9B2CD1F13913300B59AEE /* Build configuration list for PBXNativeTarget "SugarRecord-MacOSExample" */;
+			buildPhases = (
+				4B48A6FF26BA0B58AF134FD3 /* [CP] Check Pods Manifest.lock */,
+				4DE9B2BC1F13913300B59AEE /* Sources */,
+				4DE9B2BD1F13913300B59AEE /* Frameworks */,
+				4DE9B2BE1F13913300B59AEE /* Resources */,
+				04C55B11D074FA429DA32DF3 /* [CP] Embed Pods Frameworks */,
+				5D09BD15B81C22D5B135EB98 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SugarRecord-MacOSExample";
+			productName = "SugarRecord-ExampleMacOS";
+			productReference = 4DE9B2C01F13913300B59AEE /* SugarRecord-MacOSExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		607FACCF1AFB9204008FA782 /* SugarRecord_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SugarRecord_Example" */;
@@ -513,10 +758,17 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					4DE9B2A11F138FC500B59AEE = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = 55CX6N5J5U;
+					};
+					4DE9B2BF1F13913300B59AEE = {
+						CreatedOnToolsVersion = 9.0;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0800;
@@ -541,12 +793,30 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* SugarRecord_Example */,
+				4DE9B2BF1F13913300B59AEE /* SugarRecord-MacOSExample */,
 				607FACE41AFB9204008FA782 /* SugarRecord_Tests */,
+				4DE9B2A11F138FC500B59AEE /* SugarRecord_MacOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4DE9B2A01F138FC500B59AEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DE9B2BE1F13913300B59AEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DE9B2C71F13913300B59AEE /* Assets.xcassets in Resources */,
+				4DE9B2CA1F13913300B59AEE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -581,6 +851,66 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		04B17ADE8FF538577C6429AD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SugarRecord_MacOSTests/Pods-SugarRecord_MacOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		04C55B11D074FA429DA32DF3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SugarRecord-MacOSExample/Pods-SugarRecord-MacOSExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0582B3662692EE134120463A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4B48A6FF26BA0B58AF134FD3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		5CC50519DB34147A00106131 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -594,6 +924,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SugarRecord_Example/Pods-SugarRecord_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D09BD15B81C22D5B135EB98 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SugarRecord-MacOSExample/Pods-SugarRecord-MacOSExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A8B8DCCFD7667D0B80C5AF17 /* [CP] Copy Pods Resources */ = {
@@ -641,6 +986,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		E204E2D9D429AEED3BCF742C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SugarRecord_MacOSTests/Pods-SugarRecord_MacOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FE8764C997ACB32CEF47985C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -659,6 +1019,43 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4DE9B29E1F138FC500B59AEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DE9B2AC1F138FF900B59AEE /* CoreData.swift in Sources */,
+				4DE9B2AD1F138FF900B59AEE /* Track+CoreDataProperties.swift in Sources */,
+				4DE9B2AE1F138FF900B59AEE /* Track.swift in Sources */,
+				4DE9B2AF1F138FF900B59AEE /* DataModel.xcdatamodeld in Sources */,
+				4DE9B2B01F138FF900B59AEE /* CoreDataChangeTests.swift in Sources */,
+				4DE9B2B11F138FF900B59AEE /* CoreDataObservableTests.swift in Sources */,
+				4DE9B2B21F138FF900B59AEE /* ObjectModelTests.swift in Sources */,
+				4DE9B2B31F138FF900B59AEE /* OptionsTests.swift in Sources */,
+				4DE9B2B41F138FF900B59AEE /* StoreTests.swift in Sources */,
+				4DE9B2B51F138FF900B59AEE /* CoreDataDefaultStorageTests.swift in Sources */,
+				4DE9B2B61F138FF900B59AEE /* RequestTests.swift in Sources */,
+				4DE9B2B71F138FF900B59AEE /* DirUtilsTests.swift in Sources */,
+				4DE9B2B81F138FF900B59AEE /* VersionControllerTests.swift in Sources */,
+				4DE9B2B91F138FF900B59AEE /* VersionProviderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DE9B2BC1F13913300B59AEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DE9B2EC1F13A35700B59AEE /* DetailsViewController.swift in Sources */,
+				4DE9B2ED1F13A35700B59AEE /* SplitViewController.swift in Sources */,
+				4DE9B2E71F139CA200B59AEE /* Basic.xcdatamodeld in Sources */,
+				4DE9B2E51F139C3700B59AEE /* Directory.swift in Sources */,
+				4DE9B2E61F139C3700B59AEE /* Random.swift in Sources */,
+				4DE9B2E01F139B9B00B59AEE /* BasicObject.swift in Sources */,
+				4DE9B2E11F139B9B00B59AEE /* CoreDataBasicEntity.swift in Sources */,
+				4DE9B2C51F13913300B59AEE /* ListViewController.swift in Sources */,
+				4DE9B2C31F13913300B59AEE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -668,9 +1065,11 @@
 				23E13E921D96899000204C82 /* AppDelegate.swift in Sources */,
 				23E13E9B1D96899000204C82 /* ViewController.swift in Sources */,
 				23FB2C061E97C8BB00432BCB /* BasicObject.swift in Sources */,
+				4DE9B2E91F13A0F600B59AEE /* SplitViewController.swift in Sources */,
 				23E13E901D96899000204C82 /* Basic.xcdatamodeld in Sources */,
 				23FB2C071E97C8BB00432BCB /* CoreDataBasicEntity.swift in Sources */,
 				23E13E991D96899000204C82 /* Directory.swift in Sources */,
+				4DE9B2EB1F13A18C00B59AEE /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +1097,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4DE9B2D21F13916400B59AEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DE9B2BF1F13913300B59AEE /* SugarRecord-MacOSExample */;
+			targetProxy = 4DE9B2D11F13916400B59AEE /* PBXContainerItemProxy */;
+		};
 		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 607FACCF1AFB9204008FA782 /* SugarRecord_Example */;
@@ -705,7 +1109,152 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		4DE9B2C81F13913300B59AEE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DE9B2C91F13913300B59AEE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		4DE9B2A71F138FC600B59AEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B2B361FEDD2996B9562BBB2 /* Pods-SugarRecord_MacOSTests.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 55CX6N5J5U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MacOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arasthel.MacOSTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4DE9B2A81F138FC600B59AEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A48C60DE617E4E019B077F5A /* Pods-SugarRecord_MacOSTests.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 55CX6N5J5U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MacOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arasthel.MacOSTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		4DE9B2CE1F13913300B59AEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35FF60B77D16780A36BDC384 /* Pods-SugarRecord-MacOSExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "SugarRecord-ExampleMacOS/Supporting Files/SugarRecord_ExampleMacOS.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "SugarRecord-ExampleMacOS/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.SugarRecord-MacOSExample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4DE9B2CF1F13913300B59AEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B12A993BAFFB1BD0E68DDEA2 /* Pods-SugarRecord-MacOSExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "SugarRecord-ExampleMacOS/Supporting Files/SugarRecord_ExampleMacOS.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "SugarRecord-ExampleMacOS/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.SugarRecord-MacOSExample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -744,6 +1293,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -782,6 +1332,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -855,6 +1406,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4DE9B2A91F138FC600B59AEE /* Build configuration list for PBXNativeTarget "SugarRecord_MacOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DE9B2A71F138FC600B59AEE /* Debug */,
+				4DE9B2A81F138FC600B59AEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DE9B2CD1F13913300B59AEE /* Build configuration list for PBXNativeTarget "SugarRecord-MacOSExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DE9B2CE1F13913300B59AEE /* Debug */,
+				4DE9B2CF1F13913300B59AEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "SugarRecord" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -901,6 +1470,16 @@
 				23E13E751D96899000204C82 /* Basic.xcdatamodel */,
 			);
 			currentVersion = 23E13E751D96899000204C82 /* Basic.xcdatamodel */;
+			path = Basic.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		4DE9B2D51F1399CA00B59AEE /* Basic.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4DE9B2D61F1399CA00B59AEE /* Basic.xcdatamodel */,
+			);
+			currentVersion = 4DE9B2D61F1399CA00B59AEE /* Basic.xcdatamodel */;
 			path = Basic.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
