@@ -201,7 +201,7 @@ class Presenter {
 
 > **NOTE**: This was renamed from Observable -> RequestObservable so we are no longer stomping on the RxSwift Observable namespace.
 
-**:warning: `RequestObservable` is not available for CoreData + OSX**
+**:warning: `RequestObservable` is only available for CoreData + OSX since MacOS 10.12**
 
 ## Resources
 - [Quick](https://github.com/quick/quick)
