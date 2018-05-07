@@ -18,7 +18,8 @@ internal class VersionProvider: NSObject {
     
     internal func github(_ completion: @escaping (String) -> Void) {
         let request: URLRequest = URLRequest(url: URL(string: VersionProvider.apiReleasesUrl)!)
-        URLSession(configuration: URLSessionConfiguration.default).dataTask(with: request, completionHandler: { (data, response, error) in
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        session.dataTask(with: request, completionHandler: { (data, response, error) in
             if let data = data {
                 let json: AnyObject? = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as AnyObject?
                 if let array = json as? [[String: AnyObject]], let lastVersion = array.first, let versionTag: String = lastVersion["tag_name"] as? String {
@@ -26,6 +27,7 @@ internal class VersionProvider: NSObject {
                 }
             }
         }).resume()
+        session.finishTasksAndInvalidate()
     }
     
 }
