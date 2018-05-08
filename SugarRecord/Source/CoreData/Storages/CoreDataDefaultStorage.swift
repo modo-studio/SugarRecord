@@ -171,36 +171,35 @@ internal func cdCreateStoreParentPathIfNeeded(store: CoreDataStore) throws {
     try FileManager.default.createDirectory(at: databaseParentPath, withIntermediateDirectories: true, attributes: nil)
 }
 
-internal func cdAddPersistentStore(store: CoreDataStore, storeCoordinator: NSPersistentStoreCoordinator, options: [String: AnyObject]) throws -> NSPersistentStore {
-    
-    var addStore: ((_ store: CoreDataStore,  _ storeCoordinator: NSPersistentStoreCoordinator, _ options: [String: AnyObject], _ cleanAndRetryIfMigrationFails: Bool) throws -> NSPersistentStore)?
-    addStore = { (store: CoreDataStore, coordinator: NSPersistentStoreCoordinator, options: [String: AnyObject], retry: Bool) throws -> NSPersistentStore in
-        var persistentStore: NSPersistentStore?
-        var error: NSError?
-        coordinator.performAndWait({ () -> Void in
-            do {
-                persistentStore = try storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: store.path() as URL, options: options)
-            }
-            catch let _error as NSError {
-                error = _error
-            }
-        })
-        if let error = error {
-            let isMigrationError = error.code == NSPersistentStoreIncompatibleVersionHashError || error.code == NSMigrationMissingSourceModelError
-            if isMigrationError && retry {
-                _ = try? cdCleanStoreFilesAfterFailedMigration(store: store)
-                return try addStore!(store, coordinator, options, false)
-            }
-            else {
-                throw error
-            }
+private func addStore(_ store: CoreDataStore, _ coordinator: NSPersistentStoreCoordinator, _ options: [String: AnyObject], _ retry: Bool) throws -> NSPersistentStore  {
+    var persistentStore: NSPersistentStore?
+    var error: NSError?
+    coordinator.performAndWait({ () -> Void in
+        do {
+            persistentStore = try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: store.path() as URL, options: options)
         }
-        else if let persistentStore = persistentStore {
-            return persistentStore
+        catch let _error as NSError {
+            error = _error
         }
-        throw CoreDataError.persistenceStoreInitialization
+    })
+    if let error = error {
+        let isMigrationError = error.code == NSPersistentStoreIncompatibleVersionHashError || error.code == NSMigrationMissingSourceModelError
+        if isMigrationError && retry {
+            _ = try? cdCleanStoreFilesAfterFailedMigration(store: store)
+            return try addStore(store, coordinator, options, false) //recurrency
+        }
+        else {
+            throw error
+        }
     }
-    return try addStore!(store, storeCoordinator, options, true)
+    else if let persistentStore = persistentStore {
+        return persistentStore
+    }
+    throw CoreDataError.persistenceStoreInitialization
+}
+
+internal func cdAddPersistentStore(store: CoreDataStore, storeCoordinator: NSPersistentStoreCoordinator, options: [String: AnyObject]) throws -> NSPersistentStore {
+    return try addStore(store, storeCoordinator, options, true)
 }
 
 internal func cdCleanStoreFilesAfterFailedMigration(store: CoreDataStore) throws {
