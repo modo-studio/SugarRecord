@@ -18,6 +18,16 @@ extension NSManagedObjectContext: Context {
         return typedResults
     }
     
+    public func count<T: Entity>(_ request: FetchRequest<T>) throws -> Int {
+        guard let entity = T.self as? NSManagedObject.Type else { throw StorageError.invalidType }
+        let fetchRequest: NSFetchRequest =  NSFetchRequest<NSFetchRequestResult>(entityName: entity.entityName)
+        fetchRequest.predicate = request.predicate
+        fetchRequest.fetchOffset = request.fetchOffset
+        fetchRequest.fetchLimit = request.fetchLimit
+        let result = try self.count(for: fetchRequest)
+        return result
+    }
+    
     public func insert<T: Entity>(_ entity: T) throws {}
     
     public func new<T: Entity>() throws -> T {
