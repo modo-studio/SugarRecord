@@ -21,6 +21,14 @@ public struct FetchRequest<T: Entity>: Equatable {
         self.fetchLimit = fetchLimit
     }
     
+    public init(_ context: Context, predicate: NSPredicate? = nil, fetchOffset: Int = 0, fetchLimit: Int = 0) {
+        self.context = context
+        self.sortDescriptor = nil
+        self.predicate = predicate
+        self.fetchOffset = fetchOffset
+        self.fetchLimit = fetchLimit
+    }
+    
     
     // MARK: - Public Fetching Methods
     
@@ -30,6 +38,27 @@ public struct FetchRequest<T: Entity>: Equatable {
     
     public func fetch(_ requestable: Requestable) throws -> [T] {
         return try requestable.requestContext().fetch(self)
+    }
+    
+    
+    public func query(attributes: [String]) throws -> [[String: Any]] {
+        return try context!.query(self, attributes: attributes)
+    }
+    
+    public func queryOne(attributes: [String]) throws -> [String: Any]? {
+        return try context!.queryOne(self, attributes: attributes)
+    }
+    
+    public func querySet(attribute: String) throws -> Set<String>? {
+        return try context!.querySet(self, attribute: attribute)
+    }
+    
+    public func fetchOne() throws -> T? {
+        return try context!.fetchOne(self)
+    }
+    
+    public func count() -> Int {
+        return try context!.count(self)
     }
     
     
@@ -54,7 +83,7 @@ public struct FetchRequest<T: Entity>: Equatable {
         return self
             .request(withPredicate: NSPredicate(format: "NOT (\(key) IN %@)", value))
     }
-
+    
     
     public func sorted(with sortDescriptor: NSSortDescriptor) -> FetchRequest<T> {
         return self
@@ -94,5 +123,5 @@ public struct FetchRequest<T: Entity>: Equatable {
 
 public func == <T>(lhs: FetchRequest<T>, rhs: FetchRequest<T>) -> Bool {
     return lhs.sortDescriptor == rhs.sortDescriptor &&
-    lhs.predicate == rhs.predicate
+        lhs.predicate == rhs.predicate
 }
