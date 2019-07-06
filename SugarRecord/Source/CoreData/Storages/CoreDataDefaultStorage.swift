@@ -131,7 +131,7 @@ public class CoreDataDefaultStorage: Storage {
     // MARK: - Public
     
     @available(OSX 10.12, *)
-    public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> where T:Equatable {
+    public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> {
         return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
     }
     
