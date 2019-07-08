@@ -160,10 +160,14 @@ extension NSManagedObjectContext: Context {
                 if let parentContext = self.parent {
                     parentContext.saveToPersistentStore(completion)
                 } else {
-                    completion?(.success(nil))
+                    DispatchQueue.main.async {
+                        completion?(.success(nil))
+                    }
                 }
             } catch {
-                completion?(.failure(error))
+                DispatchQueue.main.async {
+                  completion?(.failure(error))
+                }
             }
         }
     }

@@ -58,7 +58,7 @@ public struct FetchRequest<T: Entity>: Equatable {
     }
     
     public func count() -> Int {
-        return try context!.count(self)
+        return context!.count(self)
     }
     
     
