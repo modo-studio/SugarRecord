@@ -16,6 +16,8 @@ public protocol Context: Requestable {
     func remove<T: Entity>(_ object: T) throws
     func removeAll() throws
     func saveToPersistentStore(_ completion: ((Swift.Result<Any?, Error>) -> Void)?)
+    func batchUpdate(entityName: String, propertiesToUpdate: [AnyHashable : Any]?, predicate: NSPredicate?)
+    func batchDelete(entityName: String, predicate: NSPredicate?)
 }
 
 

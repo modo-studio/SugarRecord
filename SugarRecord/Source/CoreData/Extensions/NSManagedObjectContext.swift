@@ -173,7 +173,7 @@ extension NSManagedObjectContext: Context {
     }
     
     // MARK: - Batch Actions
-    public func batchUpdate(entityName: String, propertiesToUpdate: [AnyHashable : Any]?, predicate: NSPredicate? = nil) {
+    public func batchUpdate(entityName: String, propertiesToUpdate: [AnyHashable : Any]?, predicate: NSPredicate?) {
         let request = NSBatchUpdateRequest(entityName: entityName)
         request.propertiesToUpdate = propertiesToUpdate
         request.resultType = .updatedObjectsCountResultType
@@ -182,7 +182,7 @@ extension NSManagedObjectContext: Context {
         _ = try? self.execute(request)
     }
     
-    public func batchDelete(entityName: String, predicate: NSPredicate? = nil) {
+    public func batchDelete(entityName: String, predicate: NSPredicate?) {
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         fetch.predicate = predicate
         let request = NSBatchDeleteRequest(fetchRequest: fetch)
