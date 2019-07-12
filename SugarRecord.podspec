@@ -27,22 +27,12 @@ Pod::Spec.new do |s|
     spec.tvos.deployment_target = '9.0'
   end
 
-  excluded_icloud_files = ['SugarRecord/Source/CoreData/Entities/iCloudConfig.swift', 'SugarRecord/Source/CoreData/Storages/CoreDataiCloudStorage.swift']
-
   s.subspec "CoreData" do  |spec|
     source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}']
     spec.source_files = source_files
-    spec.exclude_files =  excluded_icloud_files
     coredata_dependencies.call(spec)
     foundation_dependencies.call(spec)
     all_platforms.call(spec)
-  end
-
-  s.subspec "CoreData+iCloud" do  |spec|
-    source_files = ['SugarRecord/Source/Foundation/**/*.{swift}', 'SugarRecord/Source/CoreData/**/*.{swift}']
-    spec.source_files = source_files
-    coredata_dependencies.call(spec)
-    foundation_dependencies.call(spec)
   end
 
 end

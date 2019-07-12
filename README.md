@@ -42,7 +42,6 @@ Choose the right one depending ton the configuration you need for you app.
 
 ```ruby
 pod "SugarRecord/CoreData"
-pod "SugarRecord/CoreData+iCloud"
 ```
 
 ### [Carthage](https://github.com/carthage)
@@ -68,21 +67,6 @@ func coreDataStorage() -> CoreDataDefaultStorage {
     let model = CoreDataObjectModel.merged([bundle])
     let defaultStorage = try! CoreDataDefaultStorage(store: store, model: model)
     return defaultStorage
-}
-```
-
-##### Creating an iCloud Storage
-
-SugarRecord supports the integration of CoreData with iCloud. It's very easy to setup since it's implemented in its own storage that you can use from your app, `CoreDataiCloudStorage`:
-
-```swift
-// Initializes the CoreDataiCloudStorage
-func icloudStorage() -> CoreDataiCloudStorage {
-    let bundle = Bundle(for: self.classForCoder)
-    let model = CoreDataObjectModel.merged([bundle])
-    let icloudConfig = CoreDataiCloudConfig(ubiquitousContentName: "MyDb", ubiquitousContentURL: "Path/", ubiquitousContainerIdentifier: "com.company.MyApp.anothercontainer")
-    let icloudStorage = try! CoreDataiCloudStorage(model: model, iCloud: icloudConfig)
-    return icloudStorage
 }
 ```
 
@@ -209,7 +193,6 @@ class Presenter {
 - [Nimble](https://github.com/quick/nimble)
 - [CoreData and threads with GCD](http://www.cimgf.com/2011/05/04/core-data-and-threads-without-the-headache/)
 - [Jazzy](https://github.com/realm/jazzy)
-- [iCloud + CoreData (objc.io)](http://www.objc.io/issue-10/icloud-core-data.html)
 
 ## Contributors
 
