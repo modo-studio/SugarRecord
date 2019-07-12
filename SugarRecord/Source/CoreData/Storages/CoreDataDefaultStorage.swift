@@ -20,7 +20,6 @@ public class CoreDataDefaultStorage: Storage {
         }
     }
     
-    public var type: StorageType = .coreData
     public var mainContext: Context!
     private var _saveContext: Context!
     public var saveContext: Context! {
