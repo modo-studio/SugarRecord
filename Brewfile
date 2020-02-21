@@ -1,2 +1,0 @@
-brew "carthage"
-brew "tailor"
