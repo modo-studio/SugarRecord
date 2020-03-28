@@ -118,14 +118,6 @@ public class CoreDataDefaultStorage: Storage {
         self.mainContext = cdContext(withParent: .context(self.rootSavingContext), concurrencyType: .mainQueueConcurrencyType, inMemory: false)
     }
     
-    
-    // MARK: - Public
-    
-    @available(OSX 10.12, *)
-    public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> {
-        return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
-    }
-    
 }
 
 
