@@ -1,14 +1,10 @@
 import Foundation
 
-public enum StorageType {
-    case coreData
-}
 
 typealias StorageOperation = ((_ context: Context, _ save: () -> Void) throws -> Void) throws -> Void
 
 public protocol Storage: CustomStringConvertible, Requestable {
         
-    var type: StorageType { get }
     var mainContext: Context! { get }
     var saveContext: Context! { get }
     var memoryContext: Context! { get }

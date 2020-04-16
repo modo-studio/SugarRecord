@@ -27,7 +27,7 @@ extension CoreDataObjectModel: CustomStringConvertible {
     public var description: String {
         get {
             switch self {
-            case .named(let name): return "NSManagedObject model named: \(name) in the main NSBundle"
+            case .named(let name, _): return "NSManagedObject model named: \(name) in the main NSBundle"
             case .merged(_): return "Merged NSManagedObjec models in the provided bundles"
             case .url(let url): return "NSManagedObject model in the URL: \(url)"
             }

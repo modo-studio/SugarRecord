@@ -6,7 +6,7 @@ import CoreData
 extension NSManagedObject {
     
     open class var entityName: String {
-        return NSStringFromClass(self).components(separatedBy: ".").last!
+        return NSStringFromClass(self).components(separatedBy: ".").last!.replacingOccurrences(of: "Entity", with: "")
     }
     
 }

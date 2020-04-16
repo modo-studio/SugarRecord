@@ -20,7 +20,6 @@ public class CoreDataDefaultStorage: Storage {
         }
     }
     
-    public var type: StorageType = .coreData
     public var mainContext: Context!
     private var _saveContext: Context!
     public var saveContext: Context! {
@@ -110,29 +109,13 @@ public class CoreDataDefaultStorage: Storage {
     
     
     // MARK: - Init
-    
-    public convenience init(store: CoreDataStore, model: CoreDataObjectModel, migrate: Bool = true) throws {
-        try self.init(store: store, model: model, migrate: migrate, versionController: VersionController())
-    }
-    
-    internal init(store: CoreDataStore, model: CoreDataObjectModel, migrate: Bool = true, versionController: VersionController) throws {
-        self.store   = store
+    public init(store: CoreDataStore, model: CoreDataObjectModel, migrate: Bool = true) throws {
+        self.store = store
         self.objectModel = model.model()!
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
         self.persistentStore = try cdInitializeStore(store: store, storeCoordinator: persistentStoreCoordinator, migrate: migrate)
         self.rootSavingContext = cdContext(withParent: .coordinator(self.persistentStoreCoordinator), concurrencyType: .privateQueueConcurrencyType, inMemory: false)
         self.mainContext = cdContext(withParent: .context(self.rootSavingContext), concurrencyType: .mainQueueConcurrencyType, inMemory: false)
-        #if DEBUG
-        versionController.check()
-        #endif
-    }
-    
-    
-    // MARK: - Public
-    
-    @available(OSX 10.12, *)
-    public func observable<T: NSManagedObject>(request: FetchRequest<T>) -> RequestObservable<T> where T:Equatable {
-        return CoreDataObservable(request: request, context: self.mainContext as! NSManagedObjectContext)
     }
     
 }
