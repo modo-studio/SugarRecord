@@ -10,7 +10,7 @@ public enum CoreDataStore {
         switch self {
         case .url(let url): return url
         case .named(let name):
-            return URL(fileURLWithPath: documentsDirectory()).appendingPathComponent(name)
+            return URL(fileURLWithPath: String.documentDirectory).appendingPathComponent(name)
         }
     }
     
